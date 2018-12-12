@@ -1,2 +1,1 @@
-# mbed
-Bridge node for blockchain &lt;--> embedded devices using MQTT
+# Smart lock fimware based on MongooseOS
