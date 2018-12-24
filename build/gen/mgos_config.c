@@ -7,8 +7,8 @@
 #include <stddef.h>
 #include "mgos_config.h"
 
-const struct mgos_conf_entry mgos_config_schema_[127] = {
-  {.type = CONF_TYPE_OBJECT, .key = "", .offset = 0, .num_desc = 126},
+const struct mgos_conf_entry mgos_config_schema_[110] = {
+  {.type = CONF_TYPE_OBJECT, .key = "", .offset = 0, .num_desc = 109},
   {.type = CONF_TYPE_OBJECT, .key = "debug", .offset = offsetof(struct mgos_config, debug), .num_desc = 8},
   {.type = CONF_TYPE_STRING, .key = "udp_log_addr", .offset = offsetof(struct mgos_config, debug.udp_log_addr)},
   {.type = CONF_TYPE_INT, .key = "level", .offset = offsetof(struct mgos_config, debug.level)},
@@ -116,25 +116,8 @@ const struct mgos_conf_entry mgos_config_schema_[127] = {
   {.type = CONF_TYPE_STRING, .key = "dhcp_hostname", .offset = offsetof(struct mgos_config, wifi.sta2.dhcp_hostname)},
   {.type = CONF_TYPE_INT, .key = "sta_cfg_idx", .offset = offsetof(struct mgos_config, wifi.sta_cfg_idx)},
   {.type = CONF_TYPE_INT, .key = "sta_connect_timeout", .offset = offsetof(struct mgos_config, wifi.sta_connect_timeout)},
-  {.type = CONF_TYPE_OBJECT, .key = "board", .offset = offsetof(struct mgos_config, board), .num_desc = 18},
-  {.type = CONF_TYPE_OBJECT, .key = "led1", .offset = offsetof(struct mgos_config, board.led1), .num_desc = 2},
-  {.type = CONF_TYPE_INT, .key = "pin", .offset = offsetof(struct mgos_config, board.led1.pin)},
-  {.type = CONF_TYPE_BOOL, .key = "active_high", .offset = offsetof(struct mgos_config, board.led1.active_high)},
-  {.type = CONF_TYPE_OBJECT, .key = "led2", .offset = offsetof(struct mgos_config, board.led2), .num_desc = 2},
-  {.type = CONF_TYPE_INT, .key = "pin", .offset = offsetof(struct mgos_config, board.led2.pin)},
-  {.type = CONF_TYPE_BOOL, .key = "active_high", .offset = offsetof(struct mgos_config, board.led2.active_high)},
-  {.type = CONF_TYPE_OBJECT, .key = "led3", .offset = offsetof(struct mgos_config, board.led3), .num_desc = 2},
-  {.type = CONF_TYPE_INT, .key = "pin", .offset = offsetof(struct mgos_config, board.led3.pin)},
-  {.type = CONF_TYPE_BOOL, .key = "active_high", .offset = offsetof(struct mgos_config, board.led3.active_high)},
-  {.type = CONF_TYPE_OBJECT, .key = "btn1", .offset = offsetof(struct mgos_config, board.btn1), .num_desc = 2},
-  {.type = CONF_TYPE_INT, .key = "pin", .offset = offsetof(struct mgos_config, board.btn1.pin)},
-  {.type = CONF_TYPE_BOOL, .key = "pull_up", .offset = offsetof(struct mgos_config, board.btn1.pull_up)},
-  {.type = CONF_TYPE_OBJECT, .key = "btn2", .offset = offsetof(struct mgos_config, board.btn2), .num_desc = 2},
-  {.type = CONF_TYPE_INT, .key = "pin", .offset = offsetof(struct mgos_config, board.btn2.pin)},
-  {.type = CONF_TYPE_BOOL, .key = "pull_up", .offset = offsetof(struct mgos_config, board.btn2.pull_up)},
-  {.type = CONF_TYPE_OBJECT, .key = "btn3", .offset = offsetof(struct mgos_config, board.btn3), .num_desc = 2},
-  {.type = CONF_TYPE_INT, .key = "pin", .offset = offsetof(struct mgos_config, board.btn3.pin)},
-  {.type = CONF_TYPE_BOOL, .key = "pull_up", .offset = offsetof(struct mgos_config, board.btn3.pull_up)},
+  {.type = CONF_TYPE_OBJECT, .key = "app", .offset = offsetof(struct mgos_config, app), .num_desc = 1},
+  {.type = CONF_TYPE_INT, .key = "pin", .offset = offsetof(struct mgos_config, app.pin)},
 };
 
 const struct mgos_conf_entry *mgos_config_schema() {
@@ -466,62 +449,11 @@ int         mgos_config_get_wifi_sta_cfg_idx(struct mgos_config *cfg) {
 int         mgos_config_get_wifi_sta_connect_timeout(struct mgos_config *cfg) {
   return cfg->wifi.sta_connect_timeout;
 }
-const struct mgos_config_board *mgos_config_get_board(struct mgos_config *cfg) {
-  return &cfg->board;
+const struct mgos_config_app *mgos_config_get_app(struct mgos_config *cfg) {
+  return &cfg->app;
 }
-const struct mgos_config_board_led1 *mgos_config_get_board_led1(struct mgos_config *cfg) {
-  return &cfg->board.led1;
-}
-int         mgos_config_get_board_led1_pin(struct mgos_config *cfg) {
-  return cfg->board.led1.pin;
-}
-int         mgos_config_get_board_led1_active_high(struct mgos_config *cfg) {
-  return cfg->board.led1.active_high;
-}
-const struct mgos_config_board_led2 *mgos_config_get_board_led2(struct mgos_config *cfg) {
-  return &cfg->board.led2;
-}
-int         mgos_config_get_board_led2_pin(struct mgos_config *cfg) {
-  return cfg->board.led2.pin;
-}
-int         mgos_config_get_board_led2_active_high(struct mgos_config *cfg) {
-  return cfg->board.led2.active_high;
-}
-const struct mgos_config_board_led3 *mgos_config_get_board_led3(struct mgos_config *cfg) {
-  return &cfg->board.led3;
-}
-int         mgos_config_get_board_led3_pin(struct mgos_config *cfg) {
-  return cfg->board.led3.pin;
-}
-int         mgos_config_get_board_led3_active_high(struct mgos_config *cfg) {
-  return cfg->board.led3.active_high;
-}
-const struct mgos_config_board_btn1 *mgos_config_get_board_btn1(struct mgos_config *cfg) {
-  return &cfg->board.btn1;
-}
-int         mgos_config_get_board_btn1_pin(struct mgos_config *cfg) {
-  return cfg->board.btn1.pin;
-}
-int         mgos_config_get_board_btn1_pull_up(struct mgos_config *cfg) {
-  return cfg->board.btn1.pull_up;
-}
-const struct mgos_config_board_btn2 *mgos_config_get_board_btn2(struct mgos_config *cfg) {
-  return &cfg->board.btn2;
-}
-int         mgos_config_get_board_btn2_pin(struct mgos_config *cfg) {
-  return cfg->board.btn2.pin;
-}
-int         mgos_config_get_board_btn2_pull_up(struct mgos_config *cfg) {
-  return cfg->board.btn2.pull_up;
-}
-const struct mgos_config_board_btn3 *mgos_config_get_board_btn3(struct mgos_config *cfg) {
-  return &cfg->board.btn3;
-}
-int         mgos_config_get_board_btn3_pin(struct mgos_config *cfg) {
-  return cfg->board.btn3.pin;
-}
-int         mgos_config_get_board_btn3_pull_up(struct mgos_config *cfg) {
-  return cfg->board.btn3.pull_up;
+int         mgos_config_get_app_pin(struct mgos_config *cfg) {
+  return cfg->app.pin;
 }
 /* }}} */
 
@@ -808,40 +740,7 @@ void mgos_config_set_wifi_sta_cfg_idx(struct mgos_config *cfg, int         val) 
 void mgos_config_set_wifi_sta_connect_timeout(struct mgos_config *cfg, int         val) {
   cfg->wifi.sta_connect_timeout = val;
 }
-void mgos_config_set_board_led1_pin(struct mgos_config *cfg, int         val) {
-  cfg->board.led1.pin = val;
-}
-void mgos_config_set_board_led1_active_high(struct mgos_config *cfg, int         val) {
-  cfg->board.led1.active_high = val;
-}
-void mgos_config_set_board_led2_pin(struct mgos_config *cfg, int         val) {
-  cfg->board.led2.pin = val;
-}
-void mgos_config_set_board_led2_active_high(struct mgos_config *cfg, int         val) {
-  cfg->board.led2.active_high = val;
-}
-void mgos_config_set_board_led3_pin(struct mgos_config *cfg, int         val) {
-  cfg->board.led3.pin = val;
-}
-void mgos_config_set_board_led3_active_high(struct mgos_config *cfg, int         val) {
-  cfg->board.led3.active_high = val;
-}
-void mgos_config_set_board_btn1_pin(struct mgos_config *cfg, int         val) {
-  cfg->board.btn1.pin = val;
-}
-void mgos_config_set_board_btn1_pull_up(struct mgos_config *cfg, int         val) {
-  cfg->board.btn1.pull_up = val;
-}
-void mgos_config_set_board_btn2_pin(struct mgos_config *cfg, int         val) {
-  cfg->board.btn2.pin = val;
-}
-void mgos_config_set_board_btn2_pull_up(struct mgos_config *cfg, int         val) {
-  cfg->board.btn2.pull_up = val;
-}
-void mgos_config_set_board_btn3_pin(struct mgos_config *cfg, int         val) {
-  cfg->board.btn3.pin = val;
-}
-void mgos_config_set_board_btn3_pull_up(struct mgos_config *cfg, int         val) {
-  cfg->board.btn3.pull_up = val;
+void mgos_config_set_app_pin(struct mgos_config *cfg, int         val) {
+  cfg->app.pin = val;
 }
 /* }}} */

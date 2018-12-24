@@ -152,43 +152,8 @@ struct mgos_config_wifi {
   int sta_connect_timeout;
 };
 
-struct mgos_config_board_led1 {
+struct mgos_config_app {
   int pin;
-  int active_high;
-};
-
-struct mgos_config_board_led2 {
-  int pin;
-  int active_high;
-};
-
-struct mgos_config_board_led3 {
-  int pin;
-  int active_high;
-};
-
-struct mgos_config_board_btn1 {
-  int pin;
-  int pull_up;
-};
-
-struct mgos_config_board_btn2 {
-  int pin;
-  int pull_up;
-};
-
-struct mgos_config_board_btn3 {
-  int pin;
-  int pull_up;
-};
-
-struct mgos_config_board {
-  struct mgos_config_board_led1 led1;
-  struct mgos_config_board_led2 led2;
-  struct mgos_config_board_led3 led3;
-  struct mgos_config_board_btn1 btn1;
-  struct mgos_config_board_btn2 btn2;
-  struct mgos_config_board_btn3 btn3;
 };
 
 struct mgos_config {
@@ -199,7 +164,7 @@ struct mgos_config {
   struct mgos_config_i2c i2c;
   struct mgos_config_rpc rpc;
   struct mgos_config_wifi wifi;
-  struct mgos_config_board board;
+  struct mgos_config_app app;
 };
 
 
@@ -313,25 +278,8 @@ const char *mgos_config_get_wifi_sta2_nameserver(struct mgos_config *cfg);
 const char *mgos_config_get_wifi_sta2_dhcp_hostname(struct mgos_config *cfg);
 int         mgos_config_get_wifi_sta_cfg_idx(struct mgos_config *cfg);
 int         mgos_config_get_wifi_sta_connect_timeout(struct mgos_config *cfg);
-const struct mgos_config_board *mgos_config_get_board(struct mgos_config *cfg);
-const struct mgos_config_board_led1 *mgos_config_get_board_led1(struct mgos_config *cfg);
-int         mgos_config_get_board_led1_pin(struct mgos_config *cfg);
-int         mgos_config_get_board_led1_active_high(struct mgos_config *cfg);
-const struct mgos_config_board_led2 *mgos_config_get_board_led2(struct mgos_config *cfg);
-int         mgos_config_get_board_led2_pin(struct mgos_config *cfg);
-int         mgos_config_get_board_led2_active_high(struct mgos_config *cfg);
-const struct mgos_config_board_led3 *mgos_config_get_board_led3(struct mgos_config *cfg);
-int         mgos_config_get_board_led3_pin(struct mgos_config *cfg);
-int         mgos_config_get_board_led3_active_high(struct mgos_config *cfg);
-const struct mgos_config_board_btn1 *mgos_config_get_board_btn1(struct mgos_config *cfg);
-int         mgos_config_get_board_btn1_pin(struct mgos_config *cfg);
-int         mgos_config_get_board_btn1_pull_up(struct mgos_config *cfg);
-const struct mgos_config_board_btn2 *mgos_config_get_board_btn2(struct mgos_config *cfg);
-int         mgos_config_get_board_btn2_pin(struct mgos_config *cfg);
-int         mgos_config_get_board_btn2_pull_up(struct mgos_config *cfg);
-const struct mgos_config_board_btn3 *mgos_config_get_board_btn3(struct mgos_config *cfg);
-int         mgos_config_get_board_btn3_pin(struct mgos_config *cfg);
-int         mgos_config_get_board_btn3_pull_up(struct mgos_config *cfg);
+const struct mgos_config_app *mgos_config_get_app(struct mgos_config *cfg);
+int         mgos_config_get_app_pin(struct mgos_config *cfg);
 
 void mgos_config_set_debug_udp_log_addr(struct mgos_config *cfg, const char *val);
 void mgos_config_set_debug_level(struct mgos_config *cfg, int         val);
@@ -427,18 +375,7 @@ void mgos_config_set_wifi_sta2_nameserver(struct mgos_config *cfg, const char *v
 void mgos_config_set_wifi_sta2_dhcp_hostname(struct mgos_config *cfg, const char *val);
 void mgos_config_set_wifi_sta_cfg_idx(struct mgos_config *cfg, int         val);
 void mgos_config_set_wifi_sta_connect_timeout(struct mgos_config *cfg, int         val);
-void mgos_config_set_board_led1_pin(struct mgos_config *cfg, int         val);
-void mgos_config_set_board_led1_active_high(struct mgos_config *cfg, int         val);
-void mgos_config_set_board_led2_pin(struct mgos_config *cfg, int         val);
-void mgos_config_set_board_led2_active_high(struct mgos_config *cfg, int         val);
-void mgos_config_set_board_led3_pin(struct mgos_config *cfg, int         val);
-void mgos_config_set_board_led3_active_high(struct mgos_config *cfg, int         val);
-void mgos_config_set_board_btn1_pin(struct mgos_config *cfg, int         val);
-void mgos_config_set_board_btn1_pull_up(struct mgos_config *cfg, int         val);
-void mgos_config_set_board_btn2_pin(struct mgos_config *cfg, int         val);
-void mgos_config_set_board_btn2_pull_up(struct mgos_config *cfg, int         val);
-void mgos_config_set_board_btn3_pin(struct mgos_config *cfg, int         val);
-void mgos_config_set_board_btn3_pull_up(struct mgos_config *cfg, int         val);
+void mgos_config_set_app_pin(struct mgos_config *cfg, int         val);
 /* }}} */
 
 extern struct mgos_config mgos_sys_config;
@@ -553,25 +490,8 @@ static inline const char *mgos_sys_config_get_wifi_sta2_nameserver(void) { retur
 static inline const char *mgos_sys_config_get_wifi_sta2_dhcp_hostname(void) { return mgos_config_get_wifi_sta2_dhcp_hostname(&mgos_sys_config); }
 static inline int         mgos_sys_config_get_wifi_sta_cfg_idx(void) { return mgos_config_get_wifi_sta_cfg_idx(&mgos_sys_config); }
 static inline int         mgos_sys_config_get_wifi_sta_connect_timeout(void) { return mgos_config_get_wifi_sta_connect_timeout(&mgos_sys_config); }
-static inline const struct mgos_config_board *mgos_sys_config_get_board(void) { return mgos_config_get_board(&mgos_sys_config); }
-static inline const struct mgos_config_board_led1 *mgos_sys_config_get_board_led1(void) { return mgos_config_get_board_led1(&mgos_sys_config); }
-static inline int         mgos_sys_config_get_board_led1_pin(void) { return mgos_config_get_board_led1_pin(&mgos_sys_config); }
-static inline int         mgos_sys_config_get_board_led1_active_high(void) { return mgos_config_get_board_led1_active_high(&mgos_sys_config); }
-static inline const struct mgos_config_board_led2 *mgos_sys_config_get_board_led2(void) { return mgos_config_get_board_led2(&mgos_sys_config); }
-static inline int         mgos_sys_config_get_board_led2_pin(void) { return mgos_config_get_board_led2_pin(&mgos_sys_config); }
-static inline int         mgos_sys_config_get_board_led2_active_high(void) { return mgos_config_get_board_led2_active_high(&mgos_sys_config); }
-static inline const struct mgos_config_board_led3 *mgos_sys_config_get_board_led3(void) { return mgos_config_get_board_led3(&mgos_sys_config); }
-static inline int         mgos_sys_config_get_board_led3_pin(void) { return mgos_config_get_board_led3_pin(&mgos_sys_config); }
-static inline int         mgos_sys_config_get_board_led3_active_high(void) { return mgos_config_get_board_led3_active_high(&mgos_sys_config); }
-static inline const struct mgos_config_board_btn1 *mgos_sys_config_get_board_btn1(void) { return mgos_config_get_board_btn1(&mgos_sys_config); }
-static inline int         mgos_sys_config_get_board_btn1_pin(void) { return mgos_config_get_board_btn1_pin(&mgos_sys_config); }
-static inline int         mgos_sys_config_get_board_btn1_pull_up(void) { return mgos_config_get_board_btn1_pull_up(&mgos_sys_config); }
-static inline const struct mgos_config_board_btn2 *mgos_sys_config_get_board_btn2(void) { return mgos_config_get_board_btn2(&mgos_sys_config); }
-static inline int         mgos_sys_config_get_board_btn2_pin(void) { return mgos_config_get_board_btn2_pin(&mgos_sys_config); }
-static inline int         mgos_sys_config_get_board_btn2_pull_up(void) { return mgos_config_get_board_btn2_pull_up(&mgos_sys_config); }
-static inline const struct mgos_config_board_btn3 *mgos_sys_config_get_board_btn3(void) { return mgos_config_get_board_btn3(&mgos_sys_config); }
-static inline int         mgos_sys_config_get_board_btn3_pin(void) { return mgos_config_get_board_btn3_pin(&mgos_sys_config); }
-static inline int         mgos_sys_config_get_board_btn3_pull_up(void) { return mgos_config_get_board_btn3_pull_up(&mgos_sys_config); }
+static inline const struct mgos_config_app *mgos_sys_config_get_app(void) { return mgos_config_get_app(&mgos_sys_config); }
+static inline int         mgos_sys_config_get_app_pin(void) { return mgos_config_get_app_pin(&mgos_sys_config); }
 
 static inline void mgos_sys_config_set_debug_udp_log_addr(const char *val) { mgos_config_set_debug_udp_log_addr(&mgos_sys_config, val); }
 static inline void mgos_sys_config_set_debug_level(int         val) { mgos_config_set_debug_level(&mgos_sys_config, val); }
@@ -667,18 +587,7 @@ static inline void mgos_sys_config_set_wifi_sta2_nameserver(const char *val) { m
 static inline void mgos_sys_config_set_wifi_sta2_dhcp_hostname(const char *val) { mgos_config_set_wifi_sta2_dhcp_hostname(&mgos_sys_config, val); }
 static inline void mgos_sys_config_set_wifi_sta_cfg_idx(int         val) { mgos_config_set_wifi_sta_cfg_idx(&mgos_sys_config, val); }
 static inline void mgos_sys_config_set_wifi_sta_connect_timeout(int         val) { mgos_config_set_wifi_sta_connect_timeout(&mgos_sys_config, val); }
-static inline void mgos_sys_config_set_board_led1_pin(int         val) { mgos_config_set_board_led1_pin(&mgos_sys_config, val); }
-static inline void mgos_sys_config_set_board_led1_active_high(int         val) { mgos_config_set_board_led1_active_high(&mgos_sys_config, val); }
-static inline void mgos_sys_config_set_board_led2_pin(int         val) { mgos_config_set_board_led2_pin(&mgos_sys_config, val); }
-static inline void mgos_sys_config_set_board_led2_active_high(int         val) { mgos_config_set_board_led2_active_high(&mgos_sys_config, val); }
-static inline void mgos_sys_config_set_board_led3_pin(int         val) { mgos_config_set_board_led3_pin(&mgos_sys_config, val); }
-static inline void mgos_sys_config_set_board_led3_active_high(int         val) { mgos_config_set_board_led3_active_high(&mgos_sys_config, val); }
-static inline void mgos_sys_config_set_board_btn1_pin(int         val) { mgos_config_set_board_btn1_pin(&mgos_sys_config, val); }
-static inline void mgos_sys_config_set_board_btn1_pull_up(int         val) { mgos_config_set_board_btn1_pull_up(&mgos_sys_config, val); }
-static inline void mgos_sys_config_set_board_btn2_pin(int         val) { mgos_config_set_board_btn2_pin(&mgos_sys_config, val); }
-static inline void mgos_sys_config_set_board_btn2_pull_up(int         val) { mgos_config_set_board_btn2_pull_up(&mgos_sys_config, val); }
-static inline void mgos_sys_config_set_board_btn3_pin(int         val) { mgos_config_set_board_btn3_pin(&mgos_sys_config, val); }
-static inline void mgos_sys_config_set_board_btn3_pull_up(int         val) { mgos_config_set_board_btn3_pull_up(&mgos_sys_config, val); }
+static inline void mgos_sys_config_set_app_pin(int         val) { mgos_config_set_app_pin(&mgos_sys_config, val); }
 
 
 #ifdef __cplusplus

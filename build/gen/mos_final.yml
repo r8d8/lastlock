@@ -39,6 +39,7 @@ sources:
 - /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-spiffs/src/spiffs/spiffs_hydrogen.c
 - /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-spiffs/src/spiffs/spiffs_nucleus.c
 - /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/core/src/mgos_core.c
+- /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/dht/src/mgos_dht.c
 - /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-common/src/mg_rpc.c
 - /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-common/src/mg_rpc_channel.c
 - /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-common/src/mg_rpc_channel_http.c
@@ -65,6 +66,7 @@ includes:
 - /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-spiffs/include/esp32
 - /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/core/include
 - /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/core/include/esp32
+- /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/dht/include
 - /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-common/include
 - /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-service-config/include
 - /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-service-fs/include
@@ -72,7 +74,6 @@ includes:
 - /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/wifi/include
 - /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/wifi/esp32/include
 filesystem:
-- /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/ca-bundle/fs/ca.pem
 - /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/fs/index.html
 binary_libs:
 - /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/mbedtls/lib/esp32/libmbedtls.a
@@ -372,67 +373,10 @@ config_schema:
   - b
   - true
   - title: Keep AP enabled when station is on
-- - board
-  - o
-  - title: Board layout configuration
-- - board.led1.pin
+- - app.pin
   - i
-  - -1
-  - title: LED GPIO pin
-- - board.led1.active_high
-  - b
-  - true
-  - title: True if LED is on when output is high (1)
-- - board.led2.pin
-  - i
-  - -1
-  - title: LED GPIO pin
-- - board.led2.active_high
-  - b
-  - true
-  - title: True if LED is on when output is high (1)
-- - board.led3.pin
-  - i
-  - -1
-  - title: LED GPIO pin
-- - board.led3.active_high
-  - b
-  - true
-  - title: True if LED is on when output is high (1)
-- - board.btn1.pin
-  - i
-  - -1
-  - title: Button GPIO pin
-- - board.btn1.pull_up
-  - b
-  - false
-  - title: True if button is pulled up when inactive
-- - board.btn2.pin
-  - i
-  - -1
-  - title: Button GPIO pin
-- - board.btn2.pull_up
-  - b
-  - false
-  - title: True if button is pulled up when inactive
-- - board.btn3.pin
-  - i
-  - -1
-  - title: Button GPIO pin
-- - board.btn3.pull_up
-  - b
-  - false
-  - title: True if button is pulled up when inactive
-- - board.led1.pin
-  - 13
-- - board.btn1.pin
-  - 0
-- - board.btn1.pull_up
-  - true
-- - provision.btn.pin
-  - 0
-- - provision.btn.pull_up
-  - true
+  - 5
+  - title: GPIO pin a sensor is attached to
 build_vars:
   BOARD: ""
   ESP_IDF_EXTRA_COMPONENTS: ""
@@ -440,8 +384,8 @@ build_vars:
      CONFIG_SUPPORT_STATIC_ALLOCATION=y
   MGOS_ENABLE_I2C_GPIO: "0"
   MGOS_HAVE_ATCA: "1"
-  MGOS_HAVE_CA_BUNDLE: "1"
   MGOS_HAVE_CORE: "1"
+  MGOS_HAVE_DHT: "1"
   MGOS_HAVE_I2C: "1"
   MGOS_HAVE_MBEDTLS: "1"
   MGOS_HAVE_MONGOOSE: "1"
@@ -453,7 +397,6 @@ build_vars:
   MGOS_HAVE_VFS_FS_LFS: "1"
   MGOS_HAVE_VFS_FS_SPIFFS: "1"
   MGOS_HAVE_WIFI: "1"
-  MGOS_HAVE_ZZ_BOARDS: "1"
   MGOS_WIFI_ENABLE_AP_STA: "1"
 cdefs:
   LFS_NO_DEBUG: "1"
@@ -471,8 +414,8 @@ cdefs:
   MGOS_ENABLE_RPC_CHANNEL_HTTP: "1"
   MGOS_ENABLE_SYS_SERVICE: "1"
   MGOS_HAVE_ATCA: "1"
-  MGOS_HAVE_CA_BUNDLE: "1"
   MGOS_HAVE_CORE: "1"
+  MGOS_HAVE_DHT: "1"
   MGOS_HAVE_I2C: "1"
   MGOS_HAVE_MBEDTLS: "1"
   MGOS_HAVE_MONGOOSE: "1"
@@ -484,7 +427,6 @@ cdefs:
   MGOS_HAVE_VFS_FS_LFS: "1"
   MGOS_HAVE_VFS_FS_SPIFFS: "1"
   MGOS_HAVE_WIFI: "1"
-  MGOS_HAVE_ZZ_BOARDS: "1"
   MGOS_WIFI_ENABLE_AP_STA: "1"
 tags:
 - c
@@ -592,14 +534,14 @@ libs_handled:
   sources:
   - /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/core/src/mgos_core.c
 - lib:
-    origin: https://github.com/mongoose-os-libs/ca-bundle
-    location: https://github.com/mongoose-os-libs/ca-bundle
-    name: ca-bundle
-  path: /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/ca-bundle
-  deps:
-  - core
+    origin: https://github.com/mongoose-os-libs/dht
+    location: https://github.com/mongoose-os-libs/dht
+    name: dht
+  path: /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/dht
   init_deps:
   - core
+  sources:
+  - /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/dht/src/mgos_dht.c
 - lib:
     origin: https://github.com/mongoose-os-libs/rpc-common
     location: https://github.com/mongoose-os-libs/rpc-common
@@ -662,11 +604,6 @@ libs_handled:
   - /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/wifi/src/mgos_wifi.c
   - /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/wifi/src/mjs_wifi.c
   - /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/wifi/esp32/src/esp32_wifi.c
-- lib:
-    origin: https://github.com/mongoose-os-libs/boards
-    location: https://github.com/mongoose-os-libs/boards
-    name: zz_boards
-  path: /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/boards
 init_deps:
 - mongoose
 - vfs-common
@@ -675,11 +612,10 @@ init_deps:
 - core
 - i2c
 - atca
-- ca-bundle
+- dht
 - mbedtls
 - rpc-common
 - rpc-service-config
 - rpc-service-fs
 - rpc-uart
 - wifi
-- zz_boards
