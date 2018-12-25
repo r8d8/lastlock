@@ -1,137 +1,60 @@
 Handling lib "rpc-service-config"...
 Handling lib "wifi"...
 Handling lib "dht"...
-dht: Does not exist, cloning from "https://github.com/mongoose-os-libs/dht"...
 Handling lib "rpc-service-fs"...
-Handling lib "rpc-uart"...
 Handling lib "core"...
+Handling lib "rpc-uart"...
+core: Checking out 2.10.0...
 wifi: Checking out 2.10.0...
 rpc-service-config: Checking out 2.10.0...
-core: Checking out 2.10.0...
+core: Done, hash b713e39aa2828bcd6b0139fc07207d275be77a6e
+core: Hash unchanged at b713e39aa2828bcd6b0139fc07207d275be77a6e (dir "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/core")
+core: Prepared local dir: "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/core"
+Handling lib "mongoose"...
+Handling lib "vfs-fs-lfs"...
+Handling lib "vfs-fs-spiffs"...
+rpc-service-config: Done, hash 8ceacef143f63104bf6b2ee2842358edf04bcce0
+rpc-service-config: Hash unchanged at 8ceacef143f63104bf6b2ee2842358edf04bcce0 (dir "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-service-config")
+rpc-service-config: Prepared local dir: "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-service-config"
 rpc-uart: Checking out 2.10.0...
+Handling lib "rpc-common"...
 rpc-service-fs: Checking out 2.10.0...
 wifi: Done, hash 91be6608ff9ee490f0654330f0978d73958123b9
 wifi: Hash unchanged at 91be6608ff9ee490f0654330f0978d73958123b9 (dir "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/wifi")
 wifi: Prepared local dir: "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/wifi"
 rpc-service-fs: Done, hash d51b3684c361cd0e5ebdfe456b6dacaeae17155e
-rpc-service-config: Done, hash 8ceacef143f63104bf6b2ee2842358edf04bcce0
-core: Done, hash b713e39aa2828bcd6b0139fc07207d275be77a6e
-rpc-uart: Done, hash 45037dcad1a658ee0acf3d7247ca390dab977a87
-core: Hash unchanged at b713e39aa2828bcd6b0139fc07207d275be77a6e (dir "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/core")
-core: Prepared local dir: "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/core"
-rpc-service-config: Hash unchanged at 8ceacef143f63104bf6b2ee2842358edf04bcce0 (dir "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-service-config")
-rpc-service-config: Prepared local dir: "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-service-config"
-Handling lib "mongoose"...
-Handling lib "rpc-common"...
 rpc-service-fs: Hash unchanged at d51b3684c361cd0e5ebdfe456b6dacaeae17155e (dir "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-service-fs")
-Handling lib "vfs-fs-lfs"...
-Handling lib "vfs-fs-spiffs"...
 rpc-service-fs: Prepared local dir: "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-service-fs"
+rpc-uart: Done, hash 45037dcad1a658ee0acf3d7247ca390dab977a87
 rpc-uart: Hash unchanged at 45037dcad1a658ee0acf3d7247ca390dab977a87 (dir "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-uart")
 rpc-uart: Prepared local dir: "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-uart"
-rpc-common: Checking out 2.10.0...
-vfs-fs-spiffs: Checking out 2.10.0...
-vfs-fs-lfs: Checking out 2.10.0...
+dht: Checking out 2.10.0...
 mongoose: Checking out 2.10.0...
-rpc-common: Done, hash a20f1fa465aa440884fd67cf1fe9d66434829717
+vfs-fs-spiffs: Checking out 2.10.0...
 mongoose: Done, hash 641a97054f1aa5b9fea30bc9822b208ed455345b
-vfs-fs-spiffs: Done, hash 860d312f7b5a04ee2ab450712b0c33ff9366b523
-rpc-common: Hash unchanged at a20f1fa465aa440884fd67cf1fe9d66434829717 (dir "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-common")
-rpc-common: Prepared local dir: "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-common"
 mongoose: Hash unchanged at 641a97054f1aa5b9fea30bc9822b208ed455345b (dir "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/mongoose")
 mongoose: Prepared local dir: "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/mongoose"
-Handling lib "mbedtls"...
-Handling lib "vfs-common"...
-vfs-fs-spiffs: Hash unchanged at 860d312f7b5a04ee2ab450712b0c33ff9366b523 (dir "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-spiffs")
-vfs-fs-spiffs: Prepared local dir: "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-spiffs"
-vfs-fs-lfs: Done, hash 456ebff3e2ca8bed7677ecd05143f5c5608693e5
-vfs-fs-lfs: Hash unchanged at 456ebff3e2ca8bed7677ecd05143f5c5608693e5 (dir "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-lfs")
-vfs-fs-lfs: Prepared local dir: "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-lfs"
-mbedtls: Checking out 2.10.0...
-vfs-common: Checking out 2.10.0...
-vfs-common: Done, hash 9ac59e5c8b6728377d4c8ea283324f529f203452
-mbedtls: Done, hash 3a1bd696b88db012ff002f0a8c3d9589f4ff593c
-vfs-common: Hash unchanged at 9ac59e5c8b6728377d4c8ea283324f529f203452 (dir "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-common")
-vfs-common: Prepared local dir: "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-common"
-mbedtls: Hash unchanged at 3a1bd696b88db012ff002f0a8c3d9589f4ff593c (dir "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/mbedtls")
-mbedtls: Prepared local dir: "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/mbedtls"
-dht: Checking out 2.10.0...
+rpc-common: Checking out 2.10.0...
+vfs-fs-lfs: Checking out 2.10.0...
 dht: Done, hash c5079863203c172fc5b6420c2c2557d4df9d2342
-dht: Hash is updated:  -> c5079863203c172fc5b6420c2c2557d4df9d2342
-dht: Prepared local dir: "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/dht"
-Handling lib "atca"...
-atca: Checking out 2.10.0...
-atca: Done, hash df2bbaf0d1279ab104459bbadf1477daf4b39e08
-atca: Hash unchanged at df2bbaf0d1279ab104459bbadf1477daf4b39e08 (dir "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/atca")
-atca: Prepared local dir: "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/atca"
-Handling lib "i2c"...
-i2c: Checking out 2.10.0...
-i2c: Done, hash f5ee069d94aa2ae7c627646e5f237f50e8c7001e
-i2c: Hash unchanged at f5ee069d94aa2ae7c627646e5f237f50e8c7001e (dir "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/i2c")
-i2c: Prepared local dir: "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/i2c"
-The flag --repo is not given, going to use mongoose-os repository
-mongoose-os: Checking out 2.10.0...
-mongoose-os: Done, hash c314a13fa509e2a50cb0fa2f01075ecaa3da89d1
-Prebuilt binary for "mbedtls" already exists at "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/mbedtls/lib/esp32/libmbedtls.a"
-Prebuilt binary for "mongoose" already exists at "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/mongoose/lib/esp32/libmongoose.a"
-== Manifest has changed, forcing a clean rebuild...
-Handling lib "wifi"...
-Handling lib "dht"...
-Handling lib "core"...
-Handling lib "rpc-uart"...
-Handling lib "rpc-service-fs"...
-Handling lib "rpc-service-config"...
-rpc-service-fs: Checking out 2.10.0...
-core: Checking out 2.10.0...
-rpc-service-config: Checking out 2.10.0...
-dht: Checking out 2.10.0...
-rpc-uart: Checking out 2.10.0...
-wifi: Checking out 2.10.0...
-rpc-service-fs: Done, hash d51b3684c361cd0e5ebdfe456b6dacaeae17155e
-core: Done, hash b713e39aa2828bcd6b0139fc07207d275be77a6e
-rpc-service-fs: Hash unchanged at d51b3684c361cd0e5ebdfe456b6dacaeae17155e (dir "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-service-fs")
-rpc-service-fs: Prepared local dir: "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-service-fs"
-Handling lib "rpc-common"...
-rpc-service-config: Done, hash 8ceacef143f63104bf6b2ee2842358edf04bcce0
-core: Hash unchanged at b713e39aa2828bcd6b0139fc07207d275be77a6e (dir "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/core")
-core: Prepared local dir: "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/core"
-Handling lib "mongoose"...
-Handling lib "vfs-fs-spiffs"...
-Handling lib "vfs-fs-lfs"...
-dht: Done, hash c5079863203c172fc5b6420c2c2557d4df9d2342
-wifi: Done, hash 91be6608ff9ee490f0654330f0978d73958123b9
-rpc-uart: Done, hash 45037dcad1a658ee0acf3d7247ca390dab977a87
-rpc-service-config: Hash unchanged at 8ceacef143f63104bf6b2ee2842358edf04bcce0 (dir "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-service-config")
-rpc-service-config: Prepared local dir: "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-service-config"
 dht: Hash unchanged at c5079863203c172fc5b6420c2c2557d4df9d2342 (dir "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/dht")
 dht: Prepared local dir: "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/dht"
-wifi: Hash unchanged at 91be6608ff9ee490f0654330f0978d73958123b9 (dir "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/wifi")
-wifi: Prepared local dir: "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/wifi"
-rpc-uart: Hash unchanged at 45037dcad1a658ee0acf3d7247ca390dab977a87 (dir "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-uart")
-rpc-uart: Prepared local dir: "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-uart"
-mongoose: Checking out 2.10.0...
-vfs-fs-lfs: Checking out 2.10.0...
-rpc-common: Checking out 2.10.0...
-vfs-fs-spiffs: Checking out 2.10.0...
-mongoose: Done, hash 641a97054f1aa5b9fea30bc9822b208ed455345b
-vfs-fs-lfs: Done, hash 456ebff3e2ca8bed7677ecd05143f5c5608693e5
-mongoose: Hash unchanged at 641a97054f1aa5b9fea30bc9822b208ed455345b (dir "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/mongoose")
-mongoose: Prepared local dir: "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/mongoose"
 Handling lib "mbedtls"...
 Handling lib "vfs-common"...
-rpc-common: Done, hash a20f1fa465aa440884fd67cf1fe9d66434829717
-vfs-fs-lfs: Hash unchanged at 456ebff3e2ca8bed7677ecd05143f5c5608693e5 (dir "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-lfs")
-vfs-fs-lfs: Prepared local dir: "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-lfs"
 vfs-fs-spiffs: Done, hash 860d312f7b5a04ee2ab450712b0c33ff9366b523
-rpc-common: Hash unchanged at a20f1fa465aa440884fd67cf1fe9d66434829717 (dir "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-common")
-rpc-common: Prepared local dir: "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-common"
 vfs-fs-spiffs: Hash unchanged at 860d312f7b5a04ee2ab450712b0c33ff9366b523 (dir "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-spiffs")
 vfs-fs-spiffs: Prepared local dir: "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-spiffs"
+rpc-common: Done, hash a20f1fa465aa440884fd67cf1fe9d66434829717
+vfs-fs-lfs: Done, hash 456ebff3e2ca8bed7677ecd05143f5c5608693e5
+rpc-common: Hash unchanged at a20f1fa465aa440884fd67cf1fe9d66434829717 (dir "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-common")
+rpc-common: Prepared local dir: "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-common"
+vfs-fs-lfs: Hash unchanged at 456ebff3e2ca8bed7677ecd05143f5c5608693e5 (dir "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-lfs")
+vfs-fs-lfs: Prepared local dir: "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-lfs"
 vfs-common: Checking out 2.10.0...
-mbedtls: Checking out 2.10.0...
 vfs-common: Done, hash 9ac59e5c8b6728377d4c8ea283324f529f203452
 vfs-common: Hash unchanged at 9ac59e5c8b6728377d4c8ea283324f529f203452 (dir "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-common")
 vfs-common: Prepared local dir: "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-common"
+mbedtls: Checking out 2.10.0...
 mbedtls: Done, hash 3a1bd696b88db012ff002f0a8c3d9589f4ff593c
 mbedtls: Hash unchanged at 3a1bd696b88db012ff002f0a8c3d9589f4ff593c (dir "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/mbedtls")
 mbedtls: Prepared local dir: "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/mbedtls"
@@ -207,637 +130,31 @@ mount from "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353
 mount from "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/mbedtls/lib/esp32" to "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/mbedtls/lib/esp32"
 mount from "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/mongoose/lib/esp32" to "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/mongoose/lib/esp32"
 mount from "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/gen" to "/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/gen"
-Docker arguments: run --name mos_build_2018-12-24T09-47-18-00_2377392697080478840 --rm -i -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-common/include:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-common/include -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/atca/cryptoauthlib/lib:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/atca/cryptoauthlib/lib -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-lfs/src:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-lfs/src -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/core/src:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/core/src -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-service-fs/src:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-service-fs/src -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-spiffs/include/esp32:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-spiffs/include/esp32 -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/dht/include:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/dht/include -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/wifi/include:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/wifi/include -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/mbedtls/lib/esp32:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/mbedtls/lib/esp32 -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/atca/cryptoauthlib/lib/crypto:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/atca/cryptoauthlib/lib/crypto -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/i2c/include:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/i2c/include -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-common/include:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-common/include -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-lfs/include:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-lfs/include -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-spiffs/include:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-spiffs/include -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-uart/include:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-uart/include -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/wifi/src:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/wifi/src -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/wifi/esp32/src:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/wifi/esp32/src -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/gen:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/gen -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/i2c/esp32/src:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/i2c/esp32/src -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/atca/src:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/atca/src -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/atca/cryptoauthlib/lib/basic:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/atca/cryptoauthlib/lib/basic -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-common/src:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-common/src -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-service-config/src:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-service-config/src -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/wifi/esp32/include:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/wifi/esp32/include -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/fs:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/fs -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/atca/cryptoauthlib/lib/host:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/atca/cryptoauthlib/lib/host -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-common/src/esp32:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-common/src/esp32 -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-lfs/src/littlefs:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-lfs/src/littlefs -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-uart/src:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-uart/src -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/mbedtls/include/esp32:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/mbedtls/include/esp32 -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-common/include/esp32:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-common/include/esp32 -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/core/include:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/core/include -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-service-fs/include:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-service-fs/include -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658:/app -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/modules/mongoose-os:/mongoose-os -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-spiffs/src:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-spiffs/src -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/atca/include:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/atca/include -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/mbedtls/mbedtls/include:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/mbedtls/mbedtls/include -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/mongoose/include:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/mongoose/include -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/src:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/src -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-spiffs/src/spiffs:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-spiffs/src/spiffs -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/dht/src:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/dht/src -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-service-config/include:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-service-config/include -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/i2c/src:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/i2c/src -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-common/src:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-common/src -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/mbedtls/include:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/mbedtls/include -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-spiffs/include/spiffs:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-spiffs/include/spiffs -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/mongoose/lib/esp32:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/mongoose/lib/esp32 -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/modules/mongoose-os:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/modules/mongoose-os -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/atca/cryptoauthlib/lib/hal:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/atca/cryptoauthlib/lib/hal --user 0:0 docker.io/mgos/esp32-build:3.2-r1 /bin/bash -c nice make '-j' '8' '-C' '/app' '-f' '/mongoose-os/fw/platforms/esp32/Makefile.build' 'all' 'MGOS_VARS_FILE=/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/gen/vars.mk'
+Docker arguments: run --name mos_build_2018-12-24T16-07-13-00_8354483215465711548 --rm -i -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-spiffs/include/esp32:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-spiffs/include/esp32 -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658:/app -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/gen:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/gen -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/i2c/src:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/i2c/src -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-common/src:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-common/src -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-service-config/src:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-service-config/src -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/i2c/include:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/i2c/include -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/modules/mongoose-os:/mongoose-os -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/i2c/esp32/src:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/i2c/esp32/src -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/atca/src:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/atca/src -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-common/include/esp32:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-common/include/esp32 -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-lfs/include:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-lfs/include -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-spiffs/include:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-spiffs/include -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/dht/include:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/dht/include -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-uart/include:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-uart/include -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/atca/cryptoauthlib/lib/crypto:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/atca/cryptoauthlib/lib/crypto -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-lfs/src:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-lfs/src -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-spiffs/src:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-spiffs/src -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/mbedtls/include:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/mbedtls/include -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/mbedtls/mbedtls/include:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/mbedtls/mbedtls/include -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-common/include:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-common/include -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/wifi/esp32/include:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/wifi/esp32/include -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/atca/cryptoauthlib/lib:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/atca/cryptoauthlib/lib -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/mbedtls/lib/esp32:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/mbedtls/lib/esp32 -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-spiffs/src/spiffs:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-spiffs/src/spiffs -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-service-fs/src:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-service-fs/src -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-uart/src:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-uart/src -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/wifi/src:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/wifi/src -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-spiffs/include/spiffs:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-spiffs/include/spiffs -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/core/include:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/core/include -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/mongoose/lib/esp32:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/mongoose/lib/esp32 -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-common/src/esp32:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-common/src/esp32 -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/src:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/src -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/atca/cryptoauthlib/lib/host:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/atca/cryptoauthlib/lib/host -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-common/src:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-common/src -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/core/src:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/core/src -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/mbedtls/include/esp32:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/mbedtls/include/esp32 -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-common/include:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-common/include -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/mongoose/include:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/mongoose/include -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/modules/mongoose-os:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/modules/mongoose-os -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-lfs/src/littlefs:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/vfs-fs-lfs/src/littlefs -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/dht/src:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/dht/src -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/wifi/esp32/src:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/wifi/esp32/src -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/atca/include:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/atca/include -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-service-fs/include:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-service-fs/include -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/wifi/include:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/wifi/include -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/fs:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/fs -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/atca/cryptoauthlib/lib/hal:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/atca/cryptoauthlib/lib/hal -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-service-config/include:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/rpc-service-config/include -v /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/atca/cryptoauthlib/lib/basic:/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/libs/atca/cryptoauthlib/lib/basic --user 0:0 docker.io/mgos/esp32-build:3.2-r1 /bin/bash -c nice make '-j' '8' '-C' '/app' '-f' '/mongoose-os/fw/platforms/esp32/Makefile.build' 'all' 'MGOS_VARS_FILE=/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/gen/vars.mk'
 make: Entering directory '/app'
+Toolchain path: /opt/Espressif/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc
+Toolchain version: crosstool-ng-1.22.0-80-g6c4433a
+Compiler version: 5.2.0
 /mongoose-os/fw/platforms/esp32/Makefile.build:186: warning: overriding recipe for target 'defconfig'
 /opt/Espressif/esp-idf/make/project_config.mk:76: warning: ignoring old recipe for target 'defconfig'
 /mongoose-os/fw/platforms/esp32/Makefile.build:186: warning: overriding recipe for target 'menuconfig'
 /opt/Espressif/esp-idf/make/project_config.mk:63: warning: ignoring old recipe for target 'menuconfig'
 /mongoose-os/fw/platforms/esp32/Makefile.build:227: warning: overriding recipe for target 'clean'
 /opt/Espressif/esp-idf/components/app_update/Makefile.projbuild:60: warning: ignoring old recipe for target 'clean'
-GENCONFIG
-#
-# configuration written to /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/gen/sdkconfig
-#
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/spi_flash'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/smartconfig_ack'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/vfs'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/xtensa-debug-module'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/spiffs'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/tcpip_adapter'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant'
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/spi_flash'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/soc'
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/smartconfig_ack'
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/vfs'
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/pthread'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/partition_table'
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/soc'
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/xtensa-debug-module'
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/spiffs'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/newlib'
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/partition_table'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/nvs_flash'
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/tcpip_adapter'
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/pthread'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/micro-ecc'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/heap'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/freertos'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/mosapp'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/log'
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/newlib'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/expat'
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/nvs_flash'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/ethernet'
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/micro-ecc'
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip'
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/heap'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esptool_py'
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/freertos'
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/log'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32'
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/mosapp'
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/expat'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp_event'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp_adc_cal'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp_ringbuf'
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esptool_py'
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/ethernet'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/driver'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/cxx'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader_support'
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32'
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/app_update'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/app_trace'
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader_support'
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp_event'
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/driver'
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/app_update'
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp_adc_cal'
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp_ringbuf'
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/cxx'
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/app_trace'
-/mongoose-os/fw/platforms/esp32/Makefile.build:227: warning: overriding recipe for target 'clean'
-/opt/Espressif/esp-idf/components/app_update/Makefile.projbuild:60: warning: ignoring old recipe for target 'clean'
 make[1]: Entering directory '/opt/Espressif/esp-idf/components/bootloader/subproject'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/cxx'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader_support'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp_adc_cal'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/app_update'
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/app_update/esp_ota_ops.o
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/driver'
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp_adc_cal/esp_adc_cal.o
-CXX /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/cxx/cxx_guards.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/driver/spi_common.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader_support/src/bootloader_flash.o
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/app_trace'
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/app_trace/app_trace_util.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/app_trace/host_file_io.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader_support/src/flash_qio_mode.o
-AR /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp_adc_cal/libesp_adc_cal.a
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp_adc_cal'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp_event'
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp_event/default_event_loop.o
-AR /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/app_update/libapp_update.a
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/app_trace/app_trace.o
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/app_update'
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/driver/spi_master.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader_support/src/efuse.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp_event/esp_event.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/app_trace/gcov/gcov_rtio.o
-make[2]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/main'
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/driver/sigmadelta.o
 Python requirements from /opt/Espressif/esp-idf/requirements.txt are satisfied.
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/driver/uart.o
-make[2]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/main'
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader_support/src/bootloader_utility.o
-make[2]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/soc'
-make[2]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/soc'
-make[2]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/micro-ecc'
-make[2]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/micro-ecc'
-make[2]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/spi_flash'
-make[2]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/spi_flash'
-make[2]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/log'
-AR /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/app_trace/libapp_trace.a
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/app_trace'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32'
-make[2]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/log'
-make[2]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/bootloader_support'
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/panic.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp_event/esp_event_private.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/driver/sdspi_transaction.o
-make[2]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/bootloader_support'
-make[2]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/esptool_py'
-make[2]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/esptool_py'
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader_support/src/bootloader_common.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/driver/sdio_slave.o
-CXX /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/cxx/cxx_exception_stubs.o
-AR /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp_event/libesp_event.a
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp_event'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp_ringbuf'
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp_ringbuf/ringbuf.o
-AR /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/cxx/libcxx.a
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/cxx'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/ethernet'
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/ethernet/emac_dev.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader_support/src/secure_boot.o
-make[2]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/bootloader_support'
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/bootloader_support/src/bootloader_flash.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/driver/i2s.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/stack_check.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/ethernet/emac_main.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/reset_reason.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/bootloader_support/src/flash_qio_mode.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader_support/src/bootloader_clock.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/event_default_handlers.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/driver/periph_ctrl.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader_support/src/secure_boot_signatures.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/bootloader_support/src/efuse.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader_support/src/flash_partitions.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader_support/src/esp_image_format.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/ethernet/eth_phy/phy_common.o
-AR /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp_ringbuf/libesp_ringbuf.a
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/task_wdt.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/bootloader_support/src/bootloader_init.o
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp_ringbuf'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/expat'
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/expat/expat/expat/lib/loadlibrary.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/driver/ledc.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader_support/src/bootloader_sha.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/ethernet/eth_phy/phy_lan8720.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/expat/expat/expat/lib/xmltok_ns.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/expat/expat/expat/lib/xmltok.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader_support/src/flash_encrypt.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/ethernet/eth_phy/phy_tlk110.o
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/freertos'
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/bootloader_support/src/bootloader_utility.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/freertos/xtensa_intr.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/sleep_modes.o
-AR /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/ethernet/libethernet.a
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/freertos/queue.o
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/ethernet'
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/freertos/croutine.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader_support/src/bootloader_random.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/driver/sdspi_host.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/freertos/list.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/bootloader_support/src/bootloader_common.o
-AR /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader_support/libbootloader_support.a
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/dbg_stubs.o
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader_support'
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/driver/gpio.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/driver/timer.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/spiram.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/freertos/xtensa_init.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/freertos/port.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/freertos/event_groups.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/bootloader_support/src/secure_boot.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/cpu_start.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/freertos/tasks.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/driver/pcnt.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/bootloader_support/src/bootloader_clock.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/freertos/timers.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/driver/sdspi_crc.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/driver/rmt.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/cache_sram_mmu.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/bootloader_support/src/secure_boot_signatures.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/driver/mcpwm.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/gdbstub.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/bootloader_support/src/flash_partitions.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/freertos/FreeRTOS-openocd.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/freertos/xtensa_overlay_os_hook.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/bootloader_support/src/esp_image_format.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/crosscore_int.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/driver/sdmmc_transaction.o
-AS /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/freertos/xtensa_intr_asm.o
-AS /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/freertos/xtensa_context.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/phy_init.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/bootloader_support/src/bootloader_sha.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/pm_trace.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/bootloader_support/src/flash_encrypt.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/bootloader_support/src/bootloader_random.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/driver/can.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/driver/spi_slave.o
-AS /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/freertos/xtensa_vectors.o
-AS /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/freertos/xtensa_vector_defaults.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/driver/sdmmc_host.o
-AR /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/bootloader_support/libbootloader_support.a
-AS /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/freertos/portasm.o
-make[2]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/bootloader_support'
-make[2]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/log'
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/log/log.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/expat/expat/expat/lib/xmlparse.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/lib_printf.o
-AR /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/freertos/libfreertos.a
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/freertos'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/heap'
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/heap/heap_caps_init.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/wifi_init.o
-AR /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/log/liblog.a
-make[2]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/log'
-make[2]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/spi_flash'
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/spi_flash/spi_flash_rom_patch.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/driver/i2c.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/esp_timer_esp32.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/heap/heap_caps.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/driver/rtc_module.o
-make[2]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/micro-ecc'
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/spiram_psram.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/micro-ecc/micro-ecc/uECC.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/heap/multi_heap.o
-AR /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/spi_flash/libspi_flash.a
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/clk.o
-make[2]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/spi_flash'
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/expat/expat/expat/lib/xmlrole.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/freertos_hooks.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/cache_err_int.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/heap/heap_trace.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/expat/expat/expat/lib/xmltok_impl.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/ipc.o
-make[2]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/soc'
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/soc/esp32/soc_memory_layout.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/intr_alloc.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/soc/esp32/rtc_pm.o
-AR /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/heap/libheap.a
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/heap'
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/soc/esp32/rtc_periph.o
-AR /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/micro-ecc/libmicro-ecc.a
-make[2]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/micro-ecc'
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/soc/esp32/cpu_util.o
-make[2]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/main'
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/main/bootloader_start.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/wifi_os_adapter.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/soc/esp32/sdmmc_periph.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/soc/esp32/rtc_wdt.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/soc/esp32/sdio_slave_periph.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/soc/esp32/rtc_init.o
-AR /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/main/libmain.a
-make[2]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/main'
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/soc/esp32/spi_periph.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/soc/esp32/rtc_clk_init.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/ets_timer_legacy.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/soc/esp32/gpio_periph.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/soc/esp32/rtc_sleep.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/core_dump.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/soc/esp32/rtc_time.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/coexist.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/soc/esp32/rtc_clk.o
-AR /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/driver/libdriver.a
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/driver'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/log'
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/log/log.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/soc/src//memory_layout_utils.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/fast_crypto_ops.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/pm_locks.o
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip'
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/event_loop.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/apps/dhcpserver/dhcpserver.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/pm_esp32.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/esp_err_to_name.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/hw_random.o
-AR /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/log/liblog.a
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/log'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/micro-ecc'
-AR /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/soc/libsoc.a
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/micro-ecc/micro-ecc/uECC.o
-make[2]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/soc'
-LD /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/bootloader.elf
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/esp_timer.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/dport_access.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/apps/ping/ping.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/esp_himem.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/system_api.o
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/newlib'
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/newlib/time.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/brownout.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/apps/ping/esp_ping.o
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/nvs_flash'
-esptool.py v2.6-beta1
 make[1]: Leaving directory '/opt/Espressif/esp-idf/components/bootloader/subproject'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/pthread'
-CXX /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/nvs_flash/src/nvs_types.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/pthread/pthread_local_storage.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/newlib/reent_init.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/newlib/termios.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/int_wdt.o
-AR /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/expat/libexpat.a
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/expat'
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/restore.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/newlib/syscalls.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/api/netdb.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/newlib/syscall_table.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/pthread/pthread_cond_var.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/hwcrypto/sha.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/hwcrypto/aes.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/newlib/locks.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/api/api_lib.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/pthread/pthread.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/api/netifapi.o
-AR /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/micro-ecc/libmicro-ecc.a
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/micro-ecc'
-AS /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/dport_panic_highint_hdl.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/api/tcpip.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/newlib/random.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/newlib/pthread.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/api/netbuf.o
-AR /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32/libesp32.a
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/newlib/select.o
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/esp32'
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/api/err.o
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/soc'
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/soc/esp32/soc_memory_layout.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/api/api_msg.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/soc/esp32/rtc_pm.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/soc/esp32/rtc_periph.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/soc/esp32/cpu_util.o
-AR /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/newlib/libnewlib.a
-AR /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/pthread/libpthread.a
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/api/sockets.o
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/newlib'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/spi_flash'
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/pthread'
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/spi_flash/flash_mmap.o
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/smartconfig_ack'
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/smartconfig_ack/smartconfig_ack.o
-CXX /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/nvs_flash/src/nvs_ops.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/apps/sntp/sntp.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/soc/esp32/sdmmc_periph.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/core/mem.o
-CXX /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/nvs_flash/src/nvs_page.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/soc/esp32/rtc_wdt.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/core/init.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/core/inet_chksum.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/soc/esp32/sdio_slave_periph.o
-AR /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/smartconfig_ack/libsmartconfig_ack.a
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/smartconfig_ack'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/tcpip_adapter'
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/tcpip_adapter/tcpip_adapter_lwip.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/core/memp.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/soc/esp32/rtc_init.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/core/sys.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/spi_flash/partition.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/soc/esp32/spi_periph.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/core/tcp.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/core/timeouts.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/soc/esp32/rtc_clk_init.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/spi_flash/spi_flash_rom_patch.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/core/dns.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/soc/esp32/gpio_periph.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/core/ip.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/soc/esp32/rtc_sleep.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/spi_flash/cache_utils.o
-AR /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/tcpip_adapter/libtcpip_adapter.a
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/tcpip_adapter'
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/spi_flash/flash_ops.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/core/raw.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/soc/esp32/rtc_time.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/soc/esp32/rtc_clk.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/soc/src//memory_layout_utils.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/core/tcp_in.o
-CXX /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/nvs_flash/src/nvs_item_hash_list.o
-CXX /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/nvs_flash/src/nvs_encr.o
-AR /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/spi_flash/libspi_flash.a
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/spi_flash'
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/core/pbuf.o
-CXX /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/nvs_flash/src/nvs_pagemanager.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/core/netif.o
-AR /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/soc/libsoc.a
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/soc'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/vfs'
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/vfs/vfs_uart.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/core/stats.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/core/def.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/core/udp.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/vfs/vfs.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/core/tcp_out.o
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant'
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/crypto/aes-internal-enc.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/crypto/sha256-internal.o
-CXX /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/nvs_flash/src/nvs_storage.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/crypto/md5-internal.o
-CXX /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/nvs_flash/src/nvs_api.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/core/ipv4/ip4_frag.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/core/ipv4/dhcp.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/core/ipv4/etharp.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/crypto/aes-internal.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/crypto/sha1.o
-AR /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/vfs/libvfs.a
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/vfs'
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/xtensa-debug-module'
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/xtensa-debug-module/eri.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/core/ipv4/ip4_addr.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/xtensa-debug-module/trax.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/crypto/aes-internal-dec.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/crypto/aes-unwrap.o
-AR /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/xtensa-debug-module/libxtensa-debug-module.a
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/xtensa-debug-module'
 make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/mosapp'
-  GEN   /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/gen/mgos_config.c
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/crypto/crypto_internal-rsa.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/core/ipv4/igmp.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/core/ipv4/ip4.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/core/ipv4/autoip.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/crypto/des-internal.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/crypto/dh_group5.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/crypto/crypto_internal.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/core/ipv4/icmp.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/crypto/crypto_mbedtls.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/core/ipv6/ip6_frag.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/crypto/aes-wrap.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/core/ipv6/dhcp6.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/crypto/sha1-internal.o
-  GEN   /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/gen/mgos_ro_vars.c
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/core/ipv6/inet6.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/core/ipv6/ip6_addr.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/core/ipv6/ip6.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/core/ipv6/nd6.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/crypto/md4-internal.o
-make[1]: Entering directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/spiffs'
-CC esp32_nsleep100.o
-AR /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/spiffs/libspiffs.a
   CC main.o
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/spiffs'
-  MKDIR /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/fw_temp
-  MKDIR /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/fw
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/core/ipv6/mld6.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/core/ipv6/ethip6.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/crypto/dh_groups.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/crypto/sha256.o
-AR /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/nvs_flash/libnvs_flash.a
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/nvs_flash'
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/crypto/rc4.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/core/ipv6/icmp6.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/netif/slipif.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/crypto/aes-cbc.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/crypto/md5.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/crypto/sha1-pbkdf2.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/netif/ethernet.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/crypto/bignum.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/crypto/crypto_internal-modexp.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/netif/lowpan6.o
-  CC mgos_deps_init.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/lwip/src/netif/ethernetif.o
-  CC mgos_i2c.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/port/esp32/vfs_lwip.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/crypto/crypto_internal-cipher.o
-  CC esp32_i2c_master.o
-  CC mgos_atca.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/crypto/ms_funcs.o
-  CC atca_cfgs.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/port/esp32/freertos/sys_arch.o
-  CC atca_command.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/port/esp32/netif/wlanif.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/port/esp32/netif/dhcp_state.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/port/os_xtensa.o
-  CC atca_device.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/port/esp32/netif/ethernetif.o
-  CC atca_iface.o
-  CC atca_basic.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/port/esp32/debug/lwip_debug.o
-  CC atca_helpers.o
-Building partitions from /mongoose-os/fw/platforms/esp32/src/partitions_mgos.csv...
-  CC atca_host.o
-  CC mgos_vfs.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/fast_crypto/fast_aes-wrap.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/fast_crypto/fast_sha256-internal.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/fast_crypto/fast_aes-cbc.o
-AR /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip/liblwip.a
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/fast_crypto/fast_crypto_internal.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/fast_crypto/fast_sha256.o
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/lwip'
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/fast_crypto/fast_crypto_internal-modexp.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/fast_crypto/fast_aes-unwrap.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/fast_crypto/fast_crypto_internal-cipher.o
-  CC mgos_vfs_dev.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/wpa2/eap_peer/eap.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/wpa2/eap_peer/eap_common.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/wpa2/eap_peer/mschapv2.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/wpa2/eap_peer/eap_tls.o
-  CC mgos_vfs_internal.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/wpa2/eap_peer/eap_tls_common.o
-  CC esp32_fs.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/wpa2/eap_peer/eap_ttls.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/wpa2/eap_peer/eap_peap.o
-  CC esp32_vfs_dev_partition.o
-  CC mgos_vfs_lfs.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/wpa2/eap_peer/eap_mschapv2.o
-  CC lfs.o
-  CC lfs_util.o
-  CC mgos_vfs_fs_spiffs.o
-  CC spiffs_check.o
-  CC spiffs_cache.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/wpa2/eap_peer/chap.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/wpa2/eap_peer/eap_peap_common.o
-  CC spiffs_gc.o
-  CC spiffs_hydrogen.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/wpa2/tls/tlsv1_server.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/wpa2/tls/x509v3.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/wpa2/tls/tlsv1_cred.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/wpa2/tls/tlsv1_client_read.o
-  CC spiffs_nucleus.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/wpa2/tls/tlsv1_client.o
-  CC mgos_core.o
-  CC mgos_dht.o
-  CC mg_rpc.o
-  CC mg_rpc_channel.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/wpa2/tls/rsa.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/wpa2/tls/pkcs8.o
-  CC mg_rpc_channel_http.o
-  CC mgos_rpc.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/wpa2/tls/asn1.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/wpa2/tls/tlsv1_server_read.o
-  CC mgos_service_config.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/wpa2/tls/tlsv1_client_write.o
-  CC mgos_service_filesystem.o
-  CC mgos_rpc_channel_uart.o
-  CC mgos_wifi.o
-  CC mjs_wifi.o
-  CC esp32_wifi.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/wpa2/tls/pkcs1.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/wpa2/tls/pkcs5.o
-  GEN   /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/gen/ffi_exports.c
-  CC mgos_debug.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/wpa2/tls/tlsv1_record.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/wpa2/tls/bignum.o
-  CC mgos_net.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/wpa2/tls/tlsv1_server_write.o
-  CC mgos_bitbang.o
-  CC mgos_config_util.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/wpa2/tls/tlsv1_common.o
-  CC mgos_core_dump.o
-  CC mgos_dlsym.o
-  CC mgos_event.o
-  CC mgos_hal_freertos.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/wpa2/tls/tls_internal.o
-  CC mgos_gpio.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/wpa2/utils/base64.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/wpa2/utils/ext_password.o
-  CC mgos_init.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/wps/eap_common.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/wps/wps_attr_process.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/wps/wps_attr_parse.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/wps/wps_validate.o
-  CC mgos_mmap_esp.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/wps/wps_dev_attr.o
-  CC mgos_sys_config.o
-  CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/gen/mgos_config.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/wps/wps.o
-  CC mgos_ro_vars.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/wps/wps_common.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/wps/wps_registrar.o
-  CC mgos_file_utils.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/wps/wps_attr_build.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/wps/uuid.o
-  CC mgos_hw_timers.o
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/src/wps/wps_enrollee.o
-  CC mgos_system.o
-  CC mgos_time.o
-  CC mgos_timers.o
-  CC mgos_uart.o
-  CC mgos_utils.o
-  CC esp32_crypto.o
-  CC esp32_debug.o
-  CC esp32_exc.o
-  CC esp32_fs_crypt.o
-  CC esp32_gpio.o
-  CC esp32_hal.o
-  CC esp32_hw_timers.o
-  CC esp32_main.o
-  CXX error_codes.o
-  CC esp32_uart.o
-  CXX status.o
-  CC cs_crc32.o
-  CC cs_dbg.o
-  CC cs_rbuf.o
-  CC cs_file.o
-  CC json_utils.o
-  CC frozen.o
-AR /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant/libwpa_supplicant.a
-CC /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/ffi_exports.o
-make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/wpa_supplicant'
   GEN   /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/gen/build_info.c
-  GEN   /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/gen/mg_build_info.c
-error: object directory /fwbuild-volumes/2.10.0/mongoose-os/.git/objects does not exist; check .git/objects/info/alternates.
-fatal: bad object HEAD
 fatal: not a git repository (or any parent up to mount point /)
 Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
-  CC mg_build_info.o
   CC build_info.o
 AR /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/mosapp/libmosapp.a
 make[1]: Leaving directory '/fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/mosapp'
 LD /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/mbed.elf
 esptool.py v2.6-beta1
   Generating breakdown
-  CP    /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/fs/index.html -> /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/fs
-  CP    /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/gen/conf0.json -> /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/fs
-  MKFS  /usr/local/bin/mkspiffs8 262144 {bs: 4096, ps: 256, es: 4096} /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/fs -> /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/fw_temp/fs.img
-     FS params: size=262144, bs=4096, ps=256, es=4096
-       Adding conf0.json: 880
-       Adding index.html: 70
-     FS stats : space total=233681, used=1757, free=231924
   GEN    /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/fw_temp/manifest.json
   ZIP    /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/fw/mbed-esp32-last.zip
      Adding /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/fw_temp/bootloader.bin
@@ -845,9 +162,9 @@ esptool.py v2.6-beta1
      Adding /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/fw_temp/mbed.bin
      Adding /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/fw_temp/otadata.bin
      Adding /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/fw_temp/partitions_mgos.bin
-  Built mbed/esp32 version 1.0 (20181224-094745)
+  Built mbed/esp32 version 1.0 (20181224-160717)
 To flash all build output, run 'make flash' or:
 python /opt/Espressif/esp-idf/components/esptool_py/esptool/esptool.py --chip esp32 --port /dev/ttyUSB0 --baud 1500000 --before default_reset --after hard_reset write_flash -z --flash_mode qio --flash_freq 40m --flash_size detect 0xd000 /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/ota_data_initial.bin 0x1000 /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/bootloader/bootloader.bin 0x10000 /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/mbed.bin 0x8000 /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/objs/partitions_mgos.bin
 make: Leaving directory '/app'
-Success, built mbed/esp32 version 1.0 (20181224-094745).
+Success, built mbed/esp32 version 1.0 (20181224-160717).
 Firmware saved to /fwbuild-volumes/2.10.0/apps/mbed/esp32/build_contexts/build_ctx_353438658/build/fw.zip
