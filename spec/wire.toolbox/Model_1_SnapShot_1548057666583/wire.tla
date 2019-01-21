@@ -21,6 +21,7 @@ EXTENDS Integers
     begin
         CheckFunds:
             if amount <= acc[sender] then
+                Withdraw:
                     acc[sender] := acc[sender] - amount;
                 Deposit:
                     acc[receiver] := acc[receiver] + amount;
@@ -69,5 +70,5 @@ Termination == <>(pc = "Done")
 
 =============================================================================
 \* Modification History
-\* Last modified Mon Jan 21 10:07:14 EET 2019 by k2
+\* Last modified Mon Jan 21 09:55:46 EET 2019 by k2
 \* Created Mon Dec 31 13:26:27 EET 2018 by k2
