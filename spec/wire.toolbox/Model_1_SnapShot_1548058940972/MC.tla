@@ -2,13 +2,13 @@
 EXTENDS wire, TLC
 
 \* SPECIFICATION definition @modelBehaviorSpec:0
-spec_154805766153024000 ==
+spec_15480589352484000 ==
 Spec
 ----
 \* INVARIANT definition @modelCorrectnessInvariants:0
-inv_154805766153125000 ==
+inv_15480589352485000 ==
 NoOverdrafts
 ----
 =============================================================================
 \* Modification History
-\* Created Mon Jan 21 10:01:01 EET 2019 by k2
+\* Created Mon Jan 21 10:22:15 EET 2019 by k2

@@ -19,10 +19,12 @@ EXTENDS Integers
             receiver = "bob",
             amount \in 1..acc[sender];
     begin
-        Withdraw:
-            acc[sender] := acc[sender] - amount;
-        Deposit:
-            acc[receiver] := acc[receiver] + amount;
+        CheckFunds:
+            if amount <= acc[sender] then
+                    acc[sender] := acc[sender] - amount;
+                Deposit:
+                    acc[receiver] := acc[receiver] + amount;
+            end if;
     end process;
 end algorithm;*)
 \* BEGIN TRANSLATION
@@ -67,5 +69,5 @@ Termination == <>(pc = "Done")
 
 =============================================================================
 \* Modification History
-\* Last modified Mon Jan 21 09:38:08 EET 2019 by k2
+\* Last modified Mon Jan 21 10:07:14 EET 2019 by k2
 \* Created Mon Dec 31 13:26:27 EET 2018 by k2
