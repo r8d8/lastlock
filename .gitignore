@@ -34,3 +34,7 @@
 *.so.*
 
 build/
+
+# TLA toolbox files
+src/*.toolbox
+Model*
