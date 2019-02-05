@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="lastlock"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/k2/Workbench/lastlock/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/k2/Workbench/lastlock/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/k2/Workbench/lastlock/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/k2/Workbench/lastlock/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/k2/Workbench/lastlock/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/k2/Workbench/lastlock/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/k2/Workbench/lastlock/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/k2/Workbench/lastlock/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/k2/Workbench/lastlock/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/k2/Workbench/lastlock/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="lastlock">
+				<Option output="/home/k2/Workbench/lastlock/cmake-build-debug/lastlock" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/k2/Workbench/lastlock/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/k2/Workbench/lastlock/mongoose/build/gen"/>
+					<Add directory="/home/k2/Workbench/lastlock/zephyr/boards/arm/qca4020"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/k2/Workbench/lastlock/cmake-build-debug/Makefile&quot;  VERBOSE=1 lastlock"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/k2/Workbench/lastlock/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/k2/Workbench/lastlock/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/k2/Workbench/lastlock/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="lastlock/fast">
+				<Option output="/home/k2/Workbench/lastlock/cmake-build-debug/lastlock" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/k2/Workbench/lastlock/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/k2/Workbench/lastlock/mongoose/build/gen"/>
+					<Add directory="/home/k2/Workbench/lastlock/zephyr/boards/arm/qca4020"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/k2/Workbench/lastlock/cmake-build-debug/Makefile&quot;  VERBOSE=1 lastlock/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/k2/Workbench/lastlock/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/k2/Workbench/lastlock/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/k2/Workbench/lastlock/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/k2/Workbench/lastlock/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/k2/Workbench/lastlock/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/k2/Workbench/lastlock/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/k2/Workbench/lastlock/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/k2/Workbench/lastlock/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/k2/Workbench/lastlock/mongoose/build/gen/build_info.c">
+			<Option target="lastlock"/>
+		</Unit>
+		<Unit filename="/home/k2/Workbench/lastlock/mongoose/build/gen/ffi_exports.c">
+			<Option target="lastlock"/>
+		</Unit>
+		<Unit filename="/home/k2/Workbench/lastlock/mongoose/build/gen/mg_build_info.c">
+			<Option target="lastlock"/>
+		</Unit>
+		<Unit filename="/home/k2/Workbench/lastlock/mongoose/build/gen/mgos_config.c">
+			<Option target="lastlock"/>
+		</Unit>
+		<Unit filename="/home/k2/Workbench/lastlock/mongoose/build/gen/mgos_config.h">
+			<Option target="lastlock"/>
+		</Unit>
+		<Unit filename="/home/k2/Workbench/lastlock/mongoose/build/gen/mgos_deps_init.c">
+			<Option target="lastlock"/>
+		</Unit>
+		<Unit filename="/home/k2/Workbench/lastlock/mongoose/build/gen/mgos_ro_vars.c">
+			<Option target="lastlock"/>
+		</Unit>
+		<Unit filename="/home/k2/Workbench/lastlock/mongoose/build/gen/mgos_ro_vars.h">
+			<Option target="lastlock"/>
+		</Unit>
+		<Unit filename="/home/k2/Workbench/lastlock/mongoose/src/main.c">
+			<Option target="lastlock"/>
+		</Unit>
+		<Unit filename="/home/k2/Workbench/lastlock/zephyr/boards/arm/qca4020/board.h">
+			<Option target="lastlock"/>
+		</Unit>
+		<Unit filename="/home/k2/Workbench/lastlock/zephyr/boards/arm/qca4020/dts_fixup.h">
+			<Option target="lastlock"/>
+		</Unit>
+		<Unit filename="/home/k2/Workbench/lastlock/zephyr/boards/arm/qca4020/pinmux.c">
+			<Option target="lastlock"/>
+		</Unit>
+		<Unit filename="/home/k2/Workbench/lastlock/zephyr/src/main.c">
+			<Option target="lastlock"/>
+		</Unit>
+		<Unit filename="/home/k2/Workbench/lastlock/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

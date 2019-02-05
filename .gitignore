@@ -33,7 +33,10 @@
 *.so
 *.so.*
 
+# IDE folder
 build/
+.vscode/
+.idea/
 
 # TLA toolbox files
 src/*.toolbox
