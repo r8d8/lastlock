@@ -1,7 +1,5 @@
-# A blank Mongoose OS app
+# Hardware Abstraction Layer
 
 ## Overview
-
-This is an empty app, serves as a skeleton for building Mongoose OS
-apps from scratch.
+TODO;
 
