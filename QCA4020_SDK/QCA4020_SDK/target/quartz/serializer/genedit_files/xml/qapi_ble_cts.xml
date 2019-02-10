@@ -1,0 +1,369 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="./qapi_ble_btapityp.h"/>
+   <include name="./qapi_ble_bttypes.h"/>
+   <include name="./qapi_ble_gatt.h"/>
+   <include name="./qapi_ble_ctstypes.h"/>
+   <macro name="QAPI_BLE_CTS_ERROR_INVALID_PARAMETER" value="(-1000)"/>
+   <macro name="QAPI_BLE_CTS_ERROR_INVALID_BLUETOOTH_STACK_ID" value="(-1001)"/>
+   <macro name="QAPI_BLE_CTS_ERROR_INSUFFICIENT_RESOURCES" value="(-1002)"/>
+   <macro name="QAPI_BLE_CTS_ERROR_SERVICE_ALREADY_REGISTERED" value="(-1003)"/>
+   <macro name="QAPI_BLE_CTS_ERROR_INVALID_INSTANCE_ID" value="(-1004)"/>
+   <macro name="QAPI_BLE_CTS_ERROR_MALFORMATTED_DATA" value="(-1005)"/>
+   <macro name="QAPI_BLE_CTS_ERROR_UNKNOWN_ERROR" value="(-1006)"/>
+   <macro name="QAPI_BLE_CTS_FLAGS_SUPPORT_LE" value="0x0001"/>
+   <macro name="QAPI_BLE_CTS_FLAGS_SUPPORT_BR_EDR" value="0x0002"/>
+   <macro name="QAPI_BLE_CTS_FLAGS_SUPPORT_CURRENT_TIME_GATT_WRITE" value="0x0004"/>
+   <macro name="QAPI_BLE_CTS_FLAGS_SUPPORT_LOCAL_TIME_GATT_WRITE" value="0x0008"/>
+   <macro name="QAPI_BLE_CTS_DEFAULT_FEATURES_BIT_MASK" value="(QAPI_BLE_CTS_FLAGS_SUPPORT_LOCAL_TIME_GATT_WRITE | QAPI_BLE_CTS_FLAGS_SUPPORT_CURRENT_TIME_GATT_WRITE | QAPI_BLE_CTS_FLAGS_SUPPORT_BR_EDR | QAPI_BLE_CTS_FLAGS_SUPPORT_LE)"/>
+   <macro name="QAPI_BLE_CTS_DATE_TIME_DATA_SIZE" value="(sizeof(qapi_BLE_CTS_Date_Time_Data_t))"/>
+   <macro name="QAPI_BLE_CTS_DATE_TIME_VALID" params="(_x)" value="((QAPI_BLE_GATT_DATE_TIME_VALID_YEAR(((_x)).Year)) &amp;&amp; (QAPI_BLE_GATT_DATE_TIME_VALID_MONTH(((_x)).Month)) &amp;&amp; (QAPI_BLE_GATT_DATE_TIME_VALID_DAY(((_x)).Day)) &amp;&amp; (QAPI_BLE_GATT_DATE_TIME_VALID_HOURS(((_x)).Hours)) &amp;&amp; (QAPI_BLE_GATT_DATE_TIME_VALID_MINUTES(((_x)).Minutes)) &amp;&amp; (QAPI_BLE_GATT_DATE_TIME_VALID_SECONDS(((_x)).Seconds)))"/>
+   <macro name="QAPI_BLE_CTS_DAY_DATE_TIME_DATA_SIZE" value="(sizeof(qapi_BLE_CTS_Day_Date_Time_Data_t))"/>
+   <macro name="QAPI_BLE_CTS_EXACT_TIME_DATA_SIZE" value="(sizeof(qapi_BLE_CTS_Exact_Time_Data_t))"/>
+   <macro name="QAPI_BLE_CTS_CURRENT_TIME_DATA_SIZE" value="(sizeof(qapi_BLE_CTS_Current_Time_Data_t))"/>
+   <macro name="QAPI_BLE_CTS_LOCAL_TIME_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_CTS_Local_Time_Information_Data_t))"/>
+   <macro name="QAPI_BLE_CTS_REFERENCE_TIME_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_CTS_Reference_Time_Information_Data_t))"/>
+   <macro name="QAPI_BLE_CTS_READ_CLIENT_CONFIGURATION_DATA_SIZE" value="(sizeof(qapi_BLE_CTS_Read_Client_Configuration_Data_t))"/>
+   <macro name="QAPI_BLE_CTS_CLIENT_CONFIGURATION_UPDATE_DATA_SIZE" value="(sizeof(qapi_BLE_CTS_Client_Configuration_Update_Data_t))"/>
+   <macro name="QAPI_BLE_CTS_READ_CURRENT_TIME_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_CTS_Read_Current_Time_Request_Data_t))"/>
+   <macro name="QAPI_BLE_CTS_WRITE_CURRENT_TIME_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_CTS_Write_Current_Time_Request_Data_t))"/>
+   <macro name="QAPI_BLE_CTS_WRITE_LOCAL_TIME_INFORMATION_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_CTS_Write_Local_Time_Information_Request_Data_t))"/>
+   <macro name="QAPI_BLE_CTS_READ_REFERENCE_TIME_INFORMATION_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_CTS_Read_Reference_Time_Information_Request_Data_t))"/>
+   <macro name="QAPI_BLE_CTS_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_CTS_Event_Data_t))"/>
+   <macro name="QAPI_BLE_CTS_CLIENT_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_CTS_Client_Information_t))"/>
+   <macro name="QAPI_BLE_CTS_SERVER_INFORMATION_DATA_SIZE" value="sizeof(qapi_BLE_CTS_Server_Information_t))"/>
+   <enum name="qapi_BLE_CTS_Month_Of_Year_Type_t">
+      <member name="QAPI_BLE_MY_UNKNOWN_E" value="QAPI_BLE_CTS_MONTH_OF_YEAR_UNKNOWN"/>
+      <member name="QAPI_BLE_MY_JANUARY_E" value="QAPI_BLE_CTS_MONTH_OF_YEAR_JANUARY"/>
+      <member name="QAPI_BLE_MY_FEBRUARY_E" value="QAPI_BLE_CTS_MONTH_OF_YEAR_FEBRUARY"/>
+      <member name="QAPI_BLE_MY_MARCH_E" value="QAPI_BLE_CTS_MONTH_OF_YEAR_MARCH"/>
+      <member name="QAPI_BLE_MY_APRIL_E" value="QAPI_BLE_CTS_MONTH_OF_YEAR_APRIL"/>
+      <member name="QAPI_BLE_MY_MAY_E" value="QAPI_BLE_CTS_MONTH_OF_YEAR_MAY"/>
+      <member name="QAPI_BLE_MY_JUNE_E" value="QAPI_BLE_CTS_MONTH_OF_YEAR_JUNE"/>
+      <member name="QAPI_BLE_MY_JULY_E" value="QAPI_BLE_CTS_MONTH_OF_YEAR_JULY"/>
+      <member name="QAPI_BLE_MY_AUGUST_E" value="QAPI_BLE_CTS_MONTH_OF_YEAR_AUGUST"/>
+      <member name="QAPI_BLE_MY_SEPTEMBER_E" value="QAPI_BLE_CTS_MONTH_OF_YEAR_SEPTEMBER"/>
+      <member name="QAPI_BLE_MY_OCTOBER_E" value="QAPI_BLE_CTS_MONTH_OF_YEAR_OCTOBER"/>
+      <member name="QAPI_BLE_MY_NOVEMBER_E" value="QAPI_BLE_CTS_MONTH_OF_YEAR_NOVEMBER"/>
+      <member name="QAPI_BLE_MY_DECEMBER_E" value="QAPI_BLE_CTS_MONTH_OF_YEAR_DECEMBER"/>
+   </enum>
+   <enum name="qapi_BLE_CTS_Week_Day_Type_t">
+      <member name="QAPI_BLE_WD_UNKNOWN_E" value="QAPI_BLE_CTS_DAY_OF_WEEK_UNKNOWN"/>
+      <member name="QAPI_BLE_WD_MONDAY_E" value="QAPI_BLE_CTS_DAY_OF_WEEK_MONDAY"/>
+      <member name="QAPI_BLE_WD_TUESDAY_E" value="QAPI_BLE_CTS_DAY_OF_WEEK_TUESDAY"/>
+      <member name="QAPI_BLE_WD_WEDNESDAY_E" value="QAPI_BLE_CTS_DAY_OF_WEEK_WEDNESDAY"/>
+      <member name="QAPI_BLE_WD_THURSDAY_E" value="QAPI_BLE_CTS_DAY_OF_WEEK_THURSDAY"/>
+      <member name="QAPI_BLE_WD_FRIDAY_E" value="QAPI_BLE_CTS_DAY_OF_WEEK_FRIDAY"/>
+      <member name="QAPI_BLE_WD_SATURDAY_E" value="QAPI_BLE_CTS_DAY_OF_WEEK_SATURDAY"/>
+      <member name="QAPI_BLE_WD_SUNDAY_E" value="QAPI_BLE_CTS_DAY_OF_WEEK_SUNDAY"/>
+   </enum>
+   <enum name="qapi_BLE_CTS_Time_Zone_Type_t">
+      <member name="QAPI_BLE_TZ_UTC_MINUS_1200_E" value="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_MINUS_12_00"/>
+      <member name="QAPI_BLE_TZ_UTC_MINUS_1100_E" value="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_MINUS_11_00"/>
+      <member name="QAPI_BLE_TZ_UTC_MINUS_1000_E" value="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_MINUS_10_00"/>
+      <member name="QAPI_BLE_TZ_UTC_MINUS_930_E" value="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_MINUS_9_30"/>
+      <member name="QAPI_BLE_TZ_UTC_MINUS_900_E" value="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_MINUS_9_00"/>
+      <member name="QAPI_BLE_TZ_UTC_MINUS_800_E" value="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_MINUS_8_00"/>
+      <member name="QAPI_BLE_TZ_UTC_MINUS_700_E" value="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_MINUS_7_00"/>
+      <member name="QAPI_BLE_TZ_UTC_MINUS_600_E" value="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_MINUS_6_00"/>
+      <member name="QAPI_BLE_TZ_UTC_MINUS_500_E" value="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_MINUS_5_00"/>
+      <member name="QAPI_BLE_TZ_UTC_MINUS_430_E" value="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_MINUS_4_30"/>
+      <member name="QAPI_BLE_TZ_UTC_MINUS_400_E" value="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_MINUS_4_00"/>
+      <member name="QAPI_BLE_TZ_UTC_MINUS_330_E" value="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_MINUS_3_30"/>
+      <member name="QAPI_BLE_TZ_UTC_MINUS_300_E" value="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_MINUS_3_00"/>
+      <member name="QAPI_BLE_TZ_UTC_MINUS_200_E" value="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_MINUS_2_00"/>
+      <member name="QAPI_BLE_TZ_UTC_MINUS_100_E" value="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_MINUS_1_00"/>
+      <member name="QAPI_BLE_TZ_UTC_PLUS_000_E" value="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_0_00"/>
+      <member name="QAPI_BLE_TZ_UTC_PLUS_100_E" value="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_1_00"/>
+      <member name="QAPI_BLE_TZ_UTC_PLUS_200_E" value="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_2_00"/>
+      <member name="QAPI_BLE_TZ_UTC_PLUS_300_E" value="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_3_00"/>
+      <member name="QAPI_BLE_TZ_UTC_PLUS_330_E" value="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_3_30"/>
+      <member name="QAPI_BLE_TZ_UTC_PLUS_400_E" value="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_4_00"/>
+      <member name="QAPI_BLE_TZ_UTC_PLUS_430_E" value="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_4_30"/>
+      <member name="QAPI_BLE_TZ_UTC_PLUS_500_E" value="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_5_00"/>
+      <member name="QAPI_BLE_TZ_UTC_PLUS_530_E" value="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_5_30"/>
+      <member name="QAPI_BLE_TZ_UTC_PLUS_545_E" value="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_5_45"/>
+      <member name="QAPI_BLE_TZ_UTC_PLUS_600_E" value="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_6_00"/>
+      <member name="QAPI_BLE_TZ_UTC_PLUS_630_E" value="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_6_30"/>
+      <member name="QAPI_BLE_TZ_UTC_PLUS_700_E" value="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_7_00"/>
+      <member name="QAPI_BLE_TZ_UTC_PLUS_800_E" value="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_8_00"/>
+      <member name="QAPI_BLE_TZ_UTC_PLUS_845_E" value="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_8_45"/>
+      <member name="QAPI_BLE_TZ_UTC_PLUS_900_E" value="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_9_00"/>
+      <member name="QAPI_BLE_TZ_UTC_PLUS_930_E" value="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_9_30"/>
+      <member name="QAPI_BLE_TZ_UTC_PLUS_1000_E" value="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_10_00"/>
+      <member name="QAPI_BLE_TZ_UTC_PLUS_1030_E" value="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_10_30"/>
+      <member name="QAPI_BLE_TZ_UTC_PLUS_1100_E" value="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_11_00"/>
+      <member name="QAPI_BLE_TZ_UTC_PLUS_1130_E" value="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_11_30"/>
+      <member name="QAPI_BLE_TZ_UTC_PLUS_1200_E" value="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_12_00"/>
+      <member name="QAPI_BLE_TZ_UTC_PLUS_1245_E" value="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_12_45"/>
+      <member name="QAPI_BLE_TZ_UTC_PLUS_1300_E" value="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_13_00"/>
+      <member name="QAPI_BLE_TZ_UTC_PLUS_1400_E" value="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_14_00"/>
+      <member name="QAPI_BLE_TZ_UTC_UNKNOWN_E" value="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_UNKNOWN"/>
+   </enum>
+   <enum name="qapi_BLE_CTS_DST_Offset_Type_t">
+      <member name="QAPI_BLE_DO_STANDARD_TIME_E" value="QAPI_BLE_CTS_DST_OFFSET_STANDARD_TIME"/>
+      <member name="QAPI_BLE_DO_HALF_AN_HOUR_DAY_LIGHT_TIME_E" value="QAPI_BLE_CTS_DST_OFFSET_HALF_AN_HOUR_DAYLIGHT_TIME"/>
+      <member name="QAPI_BLE_DO_DAY_LIGHT_TIME_E" value="QAPI_BLE_CTS_DST_OFFSET_DAYLIGHT_TIME"/>
+      <member name="QAPI_BLE_DO_DOUBLE_DAY_LIGHT_TIME_E" value="QAPI_BLE_CTS_DST_OFFSET_DOUBLE_DAYLIGHT_TIME"/>
+      <member name="QAPI_BLE_DO_UNKNOWN_E" value="QAPI_BLE_CTS_DST_OFFSET_UNKNOWN"/>
+   </enum>
+   <enum name="qapi_BLE_CTS_Time_Source_Type_t">
+      <member name="QAPI_BLE_TS_UNKNOWN_E" value="QAPI_BLE_CTS_TIME_SOURCE_UNKNOWN"/>
+      <member name="QAPI_BLE_TS_NETWORK_TIME_PROTOCOL_E" value="QAPI_BLE_CTS_TIME_SOURCE_NETWORK_TIME_PROTOCOL"/>
+      <member name="QAPI_BLE_TS_GPS_E" value="QAPI_BLE_CTS_TIME_SOURCE_GPS"/>
+      <member name="QAPI_BLE_TS_RADIO_TIME_SIGNAL_E" value="QAPI_BLE_CTS_TIME_SOURCE_RADIO_TIME_SIGNAL"/>
+      <member name="QAPI_BLE_TS_MANUAL_E" value="QAPI_BLE_CTS_TIME_SOURCE_MANUAL"/>
+      <member name="QAPI_BLE_TS_ATOMIC_CLOCK_E" value="QAPI_BLE_CTS_TIME_SOURCE_ATOMIC_CLOCK"/>
+      <member name="QAPI_BLE_TS_CELLULAR_NETWORK_E" value="QAPI_BLE_CTS_TIME_SOURCE_CELLULAR_NETWORK"/>
+   </enum>
+   <enum name="qapi_BLE_CTS_Characteristic_Type_t">
+      <member name="QAPI_BLE_CT_CURRENT_TIME_E" value="0"/>
+   </enum>
+   <enum name="qapi_BLE_CTS_Event_Type_t">
+      <member name="QAPI_BLE_ET_CTS_SERVER_READ_CLIENT_CONFIGURATION_REQUEST_E" value="0"/>
+      <member name="QAPI_BLE_ET_CTS_SERVER_UPDATE_CLIENT_CONFIGURATION_REQUEST_E" value="1"/>
+      <member name="QAPI_BLE_ET_CTS_SERVER_READ_CURRENT_TIME_REQUEST_E" value="2"/>
+      <member name="QAPI_BLE_ET_CTS_SERVER_WRITE_CURRENT_TIME_REQUEST_E" value="3"/>
+      <member name="QAPI_BLE_ET_CTS_SERVER_WRITE_LOCAL_TIME_INFORMATION_REQUEST_E" value="4"/>
+      <member name="QAPI_BLE_ET_CTS_SERVER_READ_REFERENCE_TIME_INFORMATION_REQUEST_E" value="5"/>
+   </enum>
+   <structure name="qapi_BLE_CTS_Date_Time_Data_t">
+      <member attributes="value" name="Year" type="uint16_t"/>
+      <member attributes="value" name="Month" type="qapi_BLE_CTS_Month_Of_Year_Type_t"/>
+      <member attributes="value" name="Day" type="uint8_t"/>
+      <member attributes="value" name="Hours" type="uint8_t"/>
+      <member attributes="value" name="Minutes" type="uint8_t"/>
+      <member attributes="value" name="Seconds" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_CTS_Day_Date_Time_Data_t">
+      <member attributes="value" name="Date_Time" type="qapi_BLE_CTS_Date_Time_Data_t"/>
+      <member attributes="value" name="Day_Of_Week" type="qapi_BLE_CTS_Week_Day_Type_t"/>
+   </structure>
+   <structure name="qapi_BLE_CTS_Exact_Time_Data_t">
+      <member attributes="value" name="Day_Date_Time" type="qapi_BLE_CTS_Day_Date_Time_Data_t"/>
+      <member attributes="value" name="Fractions256" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_CTS_Current_Time_Data_t">
+      <member attributes="value" name="Exact_Time" type="qapi_BLE_CTS_Exact_Time_Data_t"/>
+      <member attributes="value" name="Adjust_Reason_Mask" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_CTS_Local_Time_Information_Data_t">
+      <member attributes="value" name="Time_Zone" type="qapi_BLE_CTS_Time_Zone_Type_t"/>
+      <member attributes="value" name="Daylight_Saving_Time" type="qapi_BLE_CTS_DST_Offset_Type_t"/>
+   </structure>
+   <structure name="qapi_BLE_CTS_Reference_Time_Information_Data_t">
+      <member attributes="value" name="Source" type="qapi_BLE_CTS_Time_Source_Type_t"/>
+      <member attributes="value" name="Accuracy" type="uint8_t"/>
+      <member attributes="value" name="Days_Since_Update" type="uint8_t"/>
+      <member attributes="value" name="Hours_Since_Update" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_CTS_Read_Client_Configuration_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ClientConfigurationType" type="qapi_BLE_CTS_Characteristic_Type_t"/>
+   </structure>
+   <structure name="qapi_BLE_CTS_Client_Configuration_Update_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ClientConfigurationType" type="qapi_BLE_CTS_Characteristic_Type_t"/>
+      <member attributes="value" name="ClientConfiguration" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_CTS_Read_Current_Time_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+   </structure>
+   <structure name="qapi_BLE_CTS_Write_Current_Time_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="CurrentTime" type="qapi_BLE_CTS_Current_Time_Data_t"/>
+   </structure>
+   <structure name="qapi_BLE_CTS_Write_Local_Time_Information_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="LocalTime" type="qapi_BLE_CTS_Local_Time_Information_Data_t"/>
+   </structure>
+   <structure name="qapi_BLE_CTS_Read_Reference_Time_Information_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+   </structure>
+   <structure name="qapi_BLE_CTS_Event_Data_t">
+      <member attributes="value" name="Event_Data_Type" type="qapi_BLE_CTS_Event_Type_t"/>
+      <member attributes="value" name="Event_Data_Size" type="uint16_t"/>
+      <member attributes="union" name="Event_Data">
+         <member attributes="ptr" iotype="in" name="CTS_Read_Client_Configuration_Data" type="qapi_BLE_CTS_Read_Client_Configuration_Data_t"/>
+         <member attributes="ptr" iotype="in" name="CTS_Client_Configuration_Update_Data" type="qapi_BLE_CTS_Client_Configuration_Update_Data_t"/>
+         <member attributes="ptr" iotype="in" name="CTS_Read_Current_Time_Request_Data" type="qapi_BLE_CTS_Read_Current_Time_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="CTS_Write_Current_Time_Request_Data" type="qapi_BLE_CTS_Write_Current_Time_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="CTS_Write_Local_Time_Information_Request_Data" type="qapi_BLE_CTS_Write_Local_Time_Information_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="CTS_Read_Reference_Time_Information_Request_Data" type="qapi_BLE_CTS_Read_Reference_Time_Information_Request_Data_t"/>
+         <unionMap mapVerified="yes" name="Event_Data_Type" type="qapi_BLE_CTS_Event_Type_t">
+            <mapEntry member="CTS_Read_Client_Configuration_Data" type="qapi_BLE_CTS_Read_Client_Configuration_Data_t" value="QAPI_BLE_ET_CTS_SERVER_READ_CLIENT_CONFIGURATION_REQUEST_E"/>
+            <mapEntry member="CTS_Client_Configuration_Update_Data" type="qapi_BLE_CTS_Client_Configuration_Update_Data_t" value="QAPI_BLE_ET_CTS_SERVER_UPDATE_CLIENT_CONFIGURATION_REQUEST_E"/>
+            <mapEntry member="CTS_Read_Current_Time_Request_Data" type="qapi_BLE_CTS_Read_Current_Time_Request_Data_t" value="QAPI_BLE_ET_CTS_SERVER_READ_CURRENT_TIME_REQUEST_E"/>
+            <mapEntry member="CTS_Write_Current_Time_Request_Data" type="qapi_BLE_CTS_Write_Current_Time_Request_Data_t" value="QAPI_BLE_ET_CTS_SERVER_WRITE_CURRENT_TIME_REQUEST_E"/>
+            <mapEntry member="CTS_Write_Local_Time_Information_Request_Data" type="qapi_BLE_CTS_Write_Local_Time_Information_Request_Data_t" value="QAPI_BLE_ET_CTS_SERVER_WRITE_LOCAL_TIME_INFORMATION_REQUEST_E"/>
+            <mapEntry member="CTS_Read_Reference_Time_Information_Request_Data" type="qapi_BLE_CTS_Read_Reference_Time_Information_Request_Data_t" value="QAPI_BLE_ET_CTS_SERVER_READ_REFERENCE_TIME_INFORMATION_REQUEST_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_BLE_CTS_Client_Information_t">
+      <member attributes="value" name="Current_Time" type="uint16_t"/>
+      <member attributes="value" name="Current_Time_Client_Configuration" type="uint16_t"/>
+      <member attributes="value" name="Local_Time_Information" type="uint16_t"/>
+      <member attributes="value" name="Reference_Time_Information" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_CTS_Server_Information_t">
+      <member attributes="value" name="Current_Time_Client_Configuration" type="uint16_t"/>
+   </structure>
+   <function name="qapi_BLE_CTS_Initialize_Service">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_CTS_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_CTS_Initialize_Service_Handle_Range">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_CTS_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="ServiceHandleRange" type="qapi_BLE_GATT_Attribute_Handle_Group_t"/>
+   </function>
+   <function name="qapi_BLE_CTS_Initialize_Service_Flags">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Flags" type="uint32_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_CTS_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="ServiceHandleRange" type="qapi_BLE_GATT_Attribute_Handle_Group_t"/>
+   </function>
+   <function name="qapi_BLE_CTS_Cleanup_Service">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_CTS_Query_Number_Attributes">
+      <return attributes="value" type="unsigned int"/>
+   </function>
+   <function name="qapi_BLE_CTS_Current_Time_Read_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Current_Time" type="qapi_BLE_CTS_Current_Time_Data_t"/>
+   </function>
+   <function name="qapi_BLE_CTS_Current_Time_Read_Request_Error_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_CTS_Current_Time_Write_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_CTS_Set_Local_Time_Information">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Local_Time" type="qapi_BLE_CTS_Local_Time_Information_Data_t"/>
+   </function>
+   <function name="qapi_BLE_CTS_Query_Local_Time_Information">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Local_Time" type="qapi_BLE_CTS_Local_Time_Information_Data_t"/>
+   </function>
+   <function name="qapi_BLE_CTS_Local_Time_Information_Write_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_CTS_Reference_Time_Information_Read_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Reference_Time" type="qapi_BLE_CTS_Reference_Time_Information_Data_t"/>
+   </function>
+   <function name="qapi_BLE_CTS_Reference_Time_Information_Read_Request_Error_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_CTS_Read_Client_Configuration_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="Client_Configuration" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_CTS_Notify_Current_Time">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Current_Time" type="qapi_BLE_CTS_Current_Time_Data_t"/>
+   </function>
+   <function name="qapi_BLE_CTS_Format_Current_Time">
+      <return attributes="value" type="int"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Current_Time" type="qapi_BLE_CTS_Current_Time_Data_t"/>
+      <argument attributes="value" name="BufferLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="BufferLength" lengthVerified="yes" name="Buffer" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_CTS_Decode_Current_Time">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Current_Time" type="qapi_BLE_CTS_Current_Time_Data_t"/>
+   </function>
+   <function name="qapi_BLE_CTS_Format_Local_Time_Information">
+      <return attributes="value" type="int"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Local_Time" type="qapi_BLE_CTS_Local_Time_Information_Data_t"/>
+      <argument attributes="value" name="BufferLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="BufferLength" lengthVerified="yes" name="Buffer" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_CTS_Decode_Local_Time_Information">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Local_Time" type="qapi_BLE_CTS_Local_Time_Information_Data_t"/>
+   </function>
+   <function name="qapi_BLE_CTS_Decode_Reference_Time_Information">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Reference_Time" type="qapi_BLE_CTS_Reference_Time_Information_Data_t"/>
+   </function>
+   <callback name="qapi_BLE_CTS_Event_Callback_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="CTS_Event_Data" type="qapi_BLE_CTS_Event_Data_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <createFunction ID="qsRetVal" funcSuccess="0" moduleParam="BluetoothStackID" name="qapi_BLE_CTS_Initialize_Service" param="CallbackParameter"/>
+      <createFunction ID="qsRetVal" funcSuccess="0" moduleParam="BluetoothStackID" name="qapi_BLE_CTS_Initialize_Service_Handle_Range" param="CallbackParameter"/>
+      <createFunction ID="qsRetVal" funcSuccess="0" moduleParam="BluetoothStackID" name="qapi_BLE_CTS_Initialize_Service_Flags" param="CallbackParameter"/>
+      <destroyFunction ID="InstanceID" funcSuccess="0" name="qapi_BLE_CTS_Cleanup_Service"/>
+   </callback>
+</header>

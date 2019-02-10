@@ -1,0 +1,172 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="./qapi_ble_btapityp.h"/>
+   <include name="./qapi_ble_bttypes.h"/>
+   <include name="./qapi_ble_gatt.h"/>
+   <include name="./qapi_ble_bcstypes.h"/>
+   <macro name="QAPI_BLE_BCS_ERROR_INVALID_PARAMETER" value="(-1000)"/>
+   <macro name="QAPI_BLE_BCS_ERROR_INVALID_BLUETOOTH_STACK_ID" value="(-1001)"/>
+   <macro name="QAPI_BLE_BCS_ERROR_INSUFFICIENT_RESOURCES" value="(-1002)"/>
+   <macro name="QAPI_BLE_BCS_ERROR_INSUFFICIENT_BUFFER_SPACE" value="(-1003)"/>
+   <macro name="QAPI_BLE_BCS_ERROR_SERVICE_ALREADY_REGISTERED" value="(-1004)"/>
+   <macro name="QAPI_BLE_BCS_ERROR_INVALID_INSTANCE_ID" value="(-1005)"/>
+   <macro name="QAPI_BLE_BCS_ERROR_MALFORMATTED_DATA" value="(-1006)"/>
+   <macro name="QAPI_BLE_BCS_ERROR_BODY_COMPOSITON_MEASUREMENT_FORMAT_FAILED" value="(-1007)"/>
+   <macro name="QAPI_BLE_BCS_CLIENT_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_BCS_Client_Information_t))"/>
+   <macro name="QAPI_BLE_BCS_SERVER_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_BCS_Server_Information_t))"/>
+   <macro name="QAPI_BLE_BCS_DATE_TIME_DATA_SIZE" value="(sizeof(qapi_BLE_BCS_Date_Time_Data_t))"/>
+   <macro name="QAPI_BLE_BCS_DATE_TIME_VALID" params="(_x)" value="((QAPI_BLE_GATT_DATE_TIME_VALID_YEAR(((_x)).Year)) &amp;&amp; (QAPI_BLE_GATT_DATE_TIME_VALID_MONTH(((_x)).Month)) &amp;&amp; (QAPI_BLE_GATT_DATE_TIME_VALID_DAY(((_x)).Day)) &amp;&amp; (QAPI_BLE_GATT_DATE_TIME_VALID_HOURS(((_x)).Hours)) &amp;&amp; (QAPI_BLE_GATT_DATE_TIME_VALID_MINUTES(((_x)).Minutes)) &amp;&amp; (QAPI_BLE_GATT_DATE_TIME_VALID_SECONDS(((_x)).Seconds)))"/>
+   <macro name="QAPI_BLE_BCS_BC_MEASUREMENT_DATA_SIZE" value="(sizeof(qapi_BLE_BCS_BC_Measurement_Data_t))"/>
+   <macro name="QAPI_BLE_BCS_READ_CCCD_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_BCS_Read_CCCD_Request_Data_t))"/>
+   <macro name="QAPI_BLE_BCS_WRITE_CCCD_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_BCS_Write_CCCD_Request_Data_t))"/>
+   <macro name="QAPI_BLE_BCS_CONFIRMATION_DATA_SIZE" value="(sizeof(qapi_BLE_BCS_Confirmation_Data_t))"/>
+   <macro name="QAPI_BLE_BCS_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_BCS_Event_Data_t))"/>
+   <enum name="qapi_BLE_BCS_Event_Type_t">
+      <member name="QAPI_BLE_ET_BCS_SERVER_READ_CCCD_REQUEST_E" value="0"/>
+      <member name="QAPI_BLE_ET_BCS_SERVER_WRITE_CCCD_REQUEST_E" value="1"/>
+      <member name="QAPI_BLE_ET_BCS_CONFIRMATION_DATA_E" value="2"/>
+   </enum>
+   <structure name="qapi_BLE_BCS_Client_Information_t">
+      <member attributes="value" name="BC_Feature_Handle" type="uint32_t"/>
+      <member attributes="value" name="BC_Measurement_Handle" type="uint32_t"/>
+      <member attributes="value" name="BC_Measurement_CCCD_Handle" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_BLE_BCS_Server_Information_t">
+      <member attributes="value" name="BC_Measurement_CCCD" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_BLE_BCS_Date_Time_Data_t">
+      <member attributes="value" name="Year" type="uint32_t"/>
+      <member attributes="value" name="Month" type="uint8_t"/>
+      <member attributes="value" name="Day" type="uint8_t"/>
+      <member attributes="value" name="Hours" type="uint8_t"/>
+      <member attributes="value" name="Minutes" type="uint8_t"/>
+      <member attributes="value" name="Seconds" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_BCS_BC_Measurement_Data_t">
+      <member attributes="value" name="Flags" type="uint32_t"/>
+      <member attributes="value" name="BodyFatPercentage" type="uint32_t"/>
+      <member attributes="value" name="TimeStamp" type="qapi_BLE_BCS_Date_Time_Data_t"/>
+      <member attributes="value" name="UserID" type="uint8_t"/>
+      <member attributes="value" name="BasalMetabolism" type="uint32_t"/>
+      <member attributes="value" name="MusclePercentage" type="uint32_t"/>
+      <member attributes="value" name="MuscleMass" type="uint32_t"/>
+      <member attributes="value" name="FatFreeMass" type="uint32_t"/>
+      <member attributes="value" name="SoftLeanMass" type="uint32_t"/>
+      <member attributes="value" name="BodyWaterMass" type="uint32_t"/>
+      <member attributes="value" name="Impedance" type="uint32_t"/>
+      <member attributes="value" name="Weight" type="uint32_t"/>
+      <member attributes="value" name="Height" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_BLE_BCS_Read_CCCD_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+   </structure>
+   <structure name="qapi_BLE_BCS_Write_CCCD_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ClientConfiguration" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_BLE_BCS_Confirmation_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Status" type="uint8_t"/>
+      <member attributes="value" name="BytesWritten" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_BCS_Event_Data_t">
+      <member attributes="value" name="Event_Data_Type" type="qapi_BLE_BCS_Event_Type_t"/>
+      <member attributes="value" name="Event_Data_Size" type="uint32_t"/>
+      <member attributes="union" name="Event_Data">
+         <member attributes="ptr" iotype="in" name="BCS_Read_CCCD_Request_Data" type="qapi_BLE_BCS_Read_CCCD_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="BCS_Write_CCCD_Request_Data" type="qapi_BLE_BCS_Write_CCCD_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="BCS_Confirmation_Data" type="qapi_BLE_BCS_Confirmation_Data_t"/>
+         <unionMap mapVerified="yes" name="Event_Data_Type" type="qapi_BLE_BCS_Event_Type_t">
+            <mapEntry member="BCS_Read_CCCD_Request_Data" type="qapi_BLE_BCS_Read_CCCD_Request_Data_t" value="QAPI_BLE_ET_BCS_SERVER_READ_CCCD_REQUEST_E"/>
+            <mapEntry member="BCS_Write_CCCD_Request_Data" type="qapi_BLE_BCS_Write_CCCD_Request_Data_t" value="QAPI_BLE_ET_BCS_SERVER_WRITE_CCCD_REQUEST_E"/>
+            <mapEntry member="BCS_Confirmation_Data" type="qapi_BLE_BCS_Confirmation_Data_t" value="QAPI_BLE_ET_BCS_CONFIRMATION_DATA_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <function name="qapi_BLE_BCS_Initialize_Service">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Flags" type="uint32_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_BCS_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_BCS_Initialize_Service_Handle_Range">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Flags" type="uint32_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_BCS_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="ServiceHandleRange" type="qapi_BLE_GATT_Attribute_Handle_Group_t"/>
+   </function>
+   <function name="qapi_BLE_BCS_Cleanup_Service">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_BCS_Query_Number_Attributes">
+      <return attributes="value" type="unsigned int"/>
+   </function>
+   <function name="qapi_BLE_BCS_Set_BC_Feature">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="SupportedFeatures" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_BCS_Query_BC_Feature">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="SupportedFeatures" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_BCS_Read_CCCD_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="value" name="Client_Configuration" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_BCS_Write_CCCD_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_BCS_Indicate_Body_Composition_Measurement">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="BC_Measurement" type="qapi_BLE_BCS_BC_Measurement_Data_t"/>
+   </function>
+   <function name="qapi_BLE_BCS_Decode_Body_Composition_Measurement">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="BC_Measurement" type="qapi_BLE_BCS_BC_Measurement_Data_t"/>
+   </function>
+   <callback name="qapi_BLE_BCS_Event_Callback_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="BCS_Event_Data" type="qapi_BLE_BCS_Event_Data_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <createFunction ID="qsRetVal" funcSuccess="0" moduleParam="BluetoothStackID" name="qapi_BLE_BCS_Initialize_Service" param="CallbackParameter"/>
+      <createFunction ID="qsRetVal" funcSuccess="0" moduleParam="BluetoothStackID" name="qapi_BLE_BCS_Initialize_Service_Handle_Range" param="CallbackParameter"/>
+      <destroyFunction ID="InstanceID" funcSuccess="0" name="qapi_BLE_BCS_Cleanup_Service"/>
+   </callback>
+</header>

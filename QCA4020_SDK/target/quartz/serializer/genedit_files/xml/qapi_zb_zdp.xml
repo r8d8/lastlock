@@ -1,0 +1,567 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="qapi/qapi_types.h"/>
+   <include name="qapi/qapi_status.h"/>
+   <include name="qapi_zb.h"/>
+   <include name="qapi_zb_aps.h"/>
+   <macro name="QZPI_ZB_ERR_ZDP_INV_REQUEST_TYPE" value="(QZPI_ZB_ERR(128)) "/>
+   <macro name="QZPI_ZB_ERR_ZDP_DEVICE_NOT_FOUND" value="(QZPI_ZB_ERR(129)) "/>
+   <macro name="QZPI_ZB_ERR_ZDP_INVALID_EP" value="(QZPI_ZB_ERR(130)) "/>
+   <macro name="QZPI_ZB_ERR_ZDP_NOT_ACTIVE" value="(QZPI_ZB_ERR(131)) "/>
+   <macro name="QZPI_ZB_ERR_ZDP_NOT_SUPPORTED" value="(QZPI_ZB_ERR(132)) "/>
+   <macro name="QZPI_ZB_ERR_ZDP_TIMEOUT" value="(QZPI_ZB_ERR(133)) "/>
+   <macro name="QZPI_ZB_ERR_ZDP_NO_MATCH" value="(QZPI_ZB_ERR(134)) "/>
+   <macro name="QZPI_ZB_ERR_ZDP_NO_ENTRY" value="(QZPI_ZB_ERR(136)) "/>
+   <macro name="QZPI_ZB_ERR_ZDP_NO_DESCRIPTOR" value="(QZPI_ZB_ERR(137)) "/>
+   <macro name="QZPI_ZB_ERR_ZDP_INSUFFICIENT_SPACE" value="(QZPI_ZB_ERR(138)) "/>
+   <macro name="QZPI_ZB_ERR_ZDP_NOT_PERMITTED" value="(QZPI_ZB_ERR(139)) "/>
+   <macro name="QZPI_ZB_ERR_ZDP_TABLE_FULL" value="(QZPI_ZB_ERR(140)) "/>
+   <macro name="QZPI_ZB_ERR_ZDP_NOT_AUTHORIZED" value="(QZPI_ZB_ERR(141)) "/>
+   <macro name="QZPI_ZB_ERR_ZDP_DEVICE_BINDING_TABLE_FULL" value="(QZPI_ZB_ERR(142)) "/>
+   <macro name="QAPI_ZB_ZDP_ENDPOINT" value="(0x00) "/>
+   <macro name="QAPI_ZB_ZDP_PROFILE_ID" value="(0x0000) "/>
+   <macro name="QAPI_ZB_ZDP_DEVICE_ID" value="(0x0000) "/>
+   <macro name="QAPI_ZB_ZDP_DEVICE_VERSION" value="(0x00) "/>
+   <macro name="QAPI_ZB_DESCRIPTOR_CAPABILITY_EXTENDED_ACTIVE_ENDPOINT_LIST_AVAILAVBLE" value="(0x01) "/>
+   <macro name="QAPI_ZB_DESCRIPTOR_CAPABILITY_EXTENDED_SIMPLE_DESCRIPTOR_LIST_AVAILAVBLE" value="(0x02) "/>
+   <macro name="QAPI_ZB_ZDP_POWER_SOURCE_CONSTANT_POWER" value="(0x01) "/>
+   <macro name="QAPI_ZB_ZDP_POWER_SOURCE_RECHARGEABLE_BATTERY" value="(0x02) "/>
+   <macro name="QAPI_ZB_ZDP_POWER_SOURCE_DISPOSABLE_BATTERY" value="(0x04) "/>
+   <macro name="QAPI_ZB_ZDP_ROUTING_TABLE_RECORD_FLAG_MEMORY_CONSTRAINED" value="(0x0001) "/>
+   <macro name="QAPI_ZB_ZDP_ROUTING_TABLE_RECORD_FLAG_MANY_TO_ONE" value="(0x0002) "/>
+   <macro name="QAPI_ZB_ZDP_ROUTING_TABLE_RECORD_FLAG_ROUTE_RECORD_REQUIRED" value="(0x0004) "/>
+   <enum name="qapi_ZB_Device_Type_t">
+      <member name="QAPI_ZB_DEVICE_TYPE_COORDINATOR_E" value="0"/>
+      <member name="QAPI_ZB_DEVICE_TYPE_ROUTER_E" value="1"/>
+      <member name="QAPI_ZB_DEVICE_TYPE_END_DEVICE_E" value="2"/>
+   </enum>
+   <enum name="qapi_ZB_Frequency_Band_t">
+      <member name="QAPI_ZB_FREQUENCY_BAND_2400" value="3"/>
+   </enum>
+   <enum name="qapi_ZB_Power_Mode_t">
+      <member name="QAPI_ZB_POWER_MODE_USE_RX_ON_WHEN_IDLE_E" value="0"/>
+      <member name="QAPI_ZB_POWER_MODE_RX_PERIODIC_E" value="1"/>
+      <member name="QAPI_ZB_POWER_MODE_RX_ON_STIMULUS_E" value="2"/>
+   </enum>
+   <enum name="qapi_ZB_Power_Level_t">
+      <member name="QAPI_ZB_POWER_LEVEL_CRITICAL" value="0"/>
+      <member name="QAPI_ZB_POWER_LEVEL_33_PERCENT" value="4"/>
+      <member name="QAPI_ZB_POWER_LEVEL_66_PERCENT" value="8"/>
+      <member name="QAPI_ZB_POWER_LEVEL_100_PERCENT" value="12"/>
+   </enum>
+   <enum name="qapi_ZB_ZDP_Addr_Request_Type_t">
+      <member name="QAPI_ZB_ZDP_ADDR_REQUEST_TYPE_SINGLE_DEVICE_RESPONSE_E" value="0"/>
+      <member name="QAPI_ZB_ZDP_ADDR_REQUEST_TYPE_EXTENDED_RESPONSE_E" value="1"/>
+   </enum>
+   <enum name="qapi_ZB_ZDP_Config_State_t">
+      <member name="QAPI_ZB_ZDP_CONFIG_STATE_OFF_E" value="0"/>
+      <member name="QAPI_ZB_ZDP_CONFIG_STATE_ON_E" value="1"/>
+      <member name="QAPI_ZB_ZDP_CONFIG_STATE_UNKNOWN_E" value="2"/>
+   </enum>
+   <enum name="qapi_ZB_ZDP_Relationship_t">
+      <member name="QAPI_ZB_ZDP_RELATIONSHIP_NEIGHBOR_IS_PARENT_E" value="0"/>
+      <member name="QAPI_ZB_ZDP_RELATIONSHIP_NEIGHBOR_IS_CHILD_E" value="1"/>
+      <member name="QAPI_ZB_ZDP_RELATIONSHIP_NEIGHBOR_IS_SIBLING_E" value="2"/>
+      <member name="QAPI_ZB_ZDP_RELATIONSHIP_OTHER_E" value="3"/>
+      <member name="QAPI_ZB_ZDP_RELATIONSHIP_PREVIOUS_CHILD_E" value="4"/>
+   </enum>
+   <enum name="qapi_ZB_ZDP_Route_Status_t">
+      <member name="QAPI_ZB_ZDP_ROUTE_STATUS_ACTIVE_E" value="0"/>
+      <member name="QAPI_ZB_ZDP_ROUTE_STATUS_DISCOVERY_UNDERWAY_E" value="1"/>
+      <member name="QAPI_ZB_ZDP_ROUTE_STATUS_DISCOVERY_FAILED_E" value="2"/>
+      <member name="QAPI_ZB_ZDP_ROUTE_STATUS_INACTIVE_E" value="3"/>
+      <member name="QAPI_ZB_ZDP_ROUTE_STATUS_VALIDATION_UNDERWAY_E" value="4"/>
+   </enum>
+   <enum name="qapi_ZB_ZDP_Event_Type_t">
+      <member name="QAPI_ZB_ZDP_EVENT_TYPE_NWK_ADDR_RSP_E" value="0"/>
+      <member name="QAPI_ZB_ZDP_EVENT_TYPE_IEEE_ADDR_RSP_E" value="1"/>
+      <member name="QAPI_ZB_ZDP_EVENT_TYPE_NODE_DESC_RSP_E" value="2"/>
+      <member name="QAPI_ZB_ZDP_EVENT_TYPE_POWER_DESC_RSP_E" value="3"/>
+      <member name="QAPI_ZB_ZDP_EVENT_TYPE_SIMPLE_DESC_RSP_E" value="4"/>
+      <member name="QAPI_ZB_ZDP_EVENT_TYPE_ACTIVE_EP_RSP_E" value="5"/>
+      <member name="QAPI_ZB_ZDP_EVENT_TYPE_MATCH_DESC_RSP_E" value="6"/>
+      <member name="QAPI_ZB_ZDP_EVENT_TYPE_COMPLEX_DESC_RSP_E" value="7"/>
+      <member name="QAPI_ZB_ZDP_EVENT_TYPE_USER_DESC_RSP_E" value="8"/>
+      <member name="QAPI_ZB_ZDP_EVENT_TYPE_DEVICE_ANNCE_E" value="9"/>
+      <member name="QAPI_ZB_ZDP_EVENT_TYPE_USER_DESC_CONF_E" value="10"/>
+      <member name="QAPI_ZB_ZDP_EVENT_TYPE_SYSTEM_SERVER_DISCOVERY_RSP_E" value="11"/>
+      <member name="QAPI_ZB_ZDP_EVENT_TYPE_EXTENDED_SIMPLE_DESC_RSP_E" value="12"/>
+      <member name="QAPI_ZB_ZDP_EVENT_TYPE_EXTENDED_ACTIVE_EP_RSP_E" value="13"/>
+      <member name="QAPI_ZB_ZDP_EVENT_TYPE_END_DEVICE_BIND_RSP_E" value="14"/>
+      <member name="QAPI_ZB_ZDP_EVENT_TYPE_BIND_RSP_E" value="15"/>
+      <member name="QAPI_ZB_ZDP_EVENT_TYPE_UNBIND_RSP_E" value="16"/>
+      <member name="QAPI_ZB_ZDP_EVENT_TYPE_MGMT_LQI_RSP_E" value="17"/>
+      <member name="QAPI_ZB_ZDP_EVENT_TYPE_MGMT_RTG_RSP_E" value="18"/>
+      <member name="QAPI_ZB_ZDP_EVENT_TYPE_MGMT_BIND_RSP_E" value="19"/>
+      <member name="QAPI_ZB_ZDP_EVENT_TYPE_MGMT_LEAVE_RSP_E" value="20"/>
+      <member name="QAPI_ZB_ZDP_EVENT_TYPE_MGMT_PERMIT_JOINING_RSP_E" value="21"/>
+      <member name="QAPI_ZB_ZDP_EVENT_TYPE_MGMT_NWK_UPDATE_NOTIFY_E" value="22"/>
+   </enum>
+   <structure name="qapi_ZB_ZDP_Node_Descriptor_t">
+      <member attributes="value" name="LogicalType" type="qapi_ZB_Device_Type_t"/>
+      <member attributes="value" name="ComplexDescriptorAvailable" type="qbool_t"/>
+      <member attributes="value" name="UserDescriptorAvailable" type="qbool_t"/>
+      <member attributes="value" name="APSFlags" type="uint8_t"/>
+      <member attributes="value" name="FrequencyBand" type="qapi_ZB_Frequency_Band_t"/>
+      <member attributes="value" name="MACCapabilityFlags" type="uint8_t"/>
+      <member attributes="value" name="ManufacturerCode" type="uint16_t"/>
+      <member attributes="value" name="ServerMask" type="uint16_t"/>
+      <member attributes="value" name="MaximumOutgoingTransferSize" type="uint16_t"/>
+      <member attributes="value" name="DescriptorCapabilityField" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_ZDP_Power_Descriptor_t">
+      <member attributes="value" name="CurrentPowerMode" type="qapi_ZB_Power_Mode_t"/>
+      <member attributes="value" name="AvailablePowerSources" type="uint8_t"/>
+      <member attributes="value" name="CurrentPowerSource" type="uint8_t"/>
+      <member attributes="value" name="CurrentPowerSourceLevel" type="qapi_ZB_Power_Level_t"/>
+   </structure>
+   <structure name="qapi_ZB_ZDP_Simple_Descriptor_t">
+      <member attributes="value" name="Endpoint" type="uint8_t"/>
+      <member attributes="value" name="ProfileIdentifier" type="uint16_t"/>
+      <member attributes="value" name="DeviceIdentifier" type="uint16_t"/>
+      <member attributes="value" name="DeviceVersion" type="uint8_t"/>
+      <member attributes="value" name="InputClusterCount" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="InputClusterCount" lengthVerified="yes" name="InputClusterList" type="uint16_t"/>
+      <member attributes="value" name="OutputClusterCount" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="OutputClusterCount" lengthVerified="yes" name="OutputClusterList" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_ZB_ZDP_Binding_Table_Record_t">
+      <member attributes="value" name="SrcAddress" type="uint64_t"/>
+      <member attributes="value" name="SrcEndpoint" type="uint8_t"/>
+      <member attributes="value" name="ClusterId" type="uint16_t"/>
+      <member attributes="value" name="DstAddrMode" type="qapi_ZB_Addr_Mode_t"/>
+      <member attributes="union" name="DstAddress" type="qapi_ZB_Addr_t">
+         <member attributes="value" name="ShortAddress" type="uint16_t"/>
+         <member attributes="value" name="ExtendedAddress" type="uint64_t"/>
+         <unionMap mapVerified="no" name="DstAddrMode" type="qapi_ZB_Addr_Mode_t">
+            <mapEntry member="ShortAddress" type="uint16_t" value="QAPI_ZB_ADDRESS_MODE_GROUP_ADDRESS_E"/>
+            <mapEntry member="ShortAddress" type="uint16_t" value="QAPI_ZB_ADDRESS_MODE_SHORT_ADDRESS_E"/>
+            <mapEntry member="ExtendedAddress" type="uint64_t" value="QAPI_ZB_ADDRESS_MODE_EXTENDED_ADDRESS_E"/>
+         </unionMap>
+      </member>
+      <member attributes="value" name="DstEndpoint" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_ZDP_Neighbor_Table_Record_t">
+      <member attributes="value" name="ExtendedPanId" type="uint64_t"/>
+      <member attributes="value" name="ExtendedAddress" type="uint64_t"/>
+      <member attributes="value" name="NetworkAddress" type="uint16_t"/>
+      <member attributes="value" name="DeviceType" type="qapi_ZB_Device_Type_t"/>
+      <member attributes="value" name="RxOnWhenIdle" type="qapi_ZB_ZDP_Config_State_t"/>
+      <member attributes="value" name="Relationship" type="qapi_ZB_ZDP_Relationship_t"/>
+      <member attributes="value" name="PermitJoining" type="qapi_ZB_ZDP_Config_State_t"/>
+      <member attributes="value" name="Depth" type="uint8_t"/>
+      <member attributes="value" name="LQI" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_ZDP_Routing_Table_Record_t">
+      <member attributes="value" name="DestinationAddress" type="uint16_t"/>
+      <member attributes="value" name="Status" type="qapi_ZB_ZDP_Route_Status_t"/>
+      <member attributes="value" name="Flags" type="uint16_t"/>
+      <member attributes="value" name="NextHopAddress" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_ZB_ZDP_Nwk_Addr_Rsp_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="IEEEAddrRemoteDev" type="uint64_t"/>
+      <member attributes="value" name="NwkAddrRemoteDev" type="uint16_t"/>
+      <member attributes="value" name="NumAssocDev" type="uint8_t"/>
+      <member attributes="value" name="StartIndex" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="NumAssocDev" lengthVerified="yes" name="NwkAddrAssocDevList" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_ZB_ZDP_IEEE_Addr_Rsp_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="IEEEAddrRemoteDev" type="uint64_t"/>
+      <member attributes="value" name="NwkAddrRemoteDev" type="uint16_t"/>
+      <member attributes="value" name="NumAssocDev" type="uint8_t"/>
+      <member attributes="value" name="StartIndex" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="NumAssocDev" lengthVerified="yes" name="NwkAddrAssocDevList" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_ZB_ZDP_Node_Desc_Rsp_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="NwkAddrOfInterest" type="uint16_t"/>
+      <member attributes="value" name="NodeDescriptor" type="qapi_ZB_ZDP_Node_Descriptor_t"/>
+   </structure>
+   <structure name="qapi_ZB_ZDP_Power_Desc_Rsp_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="NwkAddrOfInterest" type="uint16_t"/>
+      <member attributes="value" name="PowerDescriptor" type="qapi_ZB_ZDP_Power_Descriptor_t"/>
+   </structure>
+   <structure name="qapi_ZB_ZDP_Simple_Desc_Rsp_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="NwkAddrOfInterest" type="uint16_t"/>
+      <member attributes="value" name="SimpleDescriptor" type="qapi_ZB_ZDP_Simple_Descriptor_t"/>
+   </structure>
+   <structure name="qapi_ZB_ZDP_Active_EP_Rsp_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="NwkAddrOfInterest" type="uint16_t"/>
+      <member attributes="value" name="ActiveEPCount" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="ActiveEPCount" lengthVerified="yes" name="ActiveEPList" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_ZDP_Match_Desc_Req_t">
+      <member attributes="value" name="NwkAddrOfInterest" type="uint16_t"/>
+      <member attributes="value" name="ProfileID" type="uint16_t"/>
+      <member attributes="value" name="NumInClusters" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="NumInClusters" lengthVerified="yes" name="InClusterList" type="uint16_t"/>
+      <member attributes="value" name="NumOutClusters" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="NumOutClusters" lengthVerified="yes" name="OutClusterList" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_ZB_ZDP_Match_Desc_Rsp_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="NwkAddrOfInterest" type="uint16_t"/>
+      <member attributes="value" name="MatchLength" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="MatchLength" lengthVerified="yes" name="MatchList" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_ZDP_Complex_Desc_Rsp_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="NwkAddrOfInterest" type="uint16_t"/>
+      <member attributes="value" name="Length" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="Length" lengthVerified="yes" name="ComplexDescriptor" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_ZDP_User_Desc_Rsp_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="NwkAddrOfInterest" type="uint16_t"/>
+      <member attributes="value" name="Length" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="Length" lengthVerified="yes" name="UserDescriptor" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_ZDP_Device_Annce_t">
+      <member attributes="value" name="NwkAddr" type="uint16_t"/>
+      <member attributes="value" name="IEEEAddr" type="uint64_t"/>
+      <member attributes="value" name="Capability" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_ZDP_User_Desc_Conf_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="NwkAddrOfInterest" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_ZB_ZDP_System_Server_Discovery_Rsp_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="ServerMask" type="uint16_t"/>
+      <member attributes="value" name="NwkAddr" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_ZB_ZDP_Extended_Simple_Desc_Rsp_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="NwkAddrOfInterest" type="uint16_t"/>
+      <member attributes="value" name="Endpoint" type="uint8_t"/>
+      <member attributes="value" name="AppInputClusterCount" type="uint8_t"/>
+      <member attributes="value" name="AppOutputClusterCount" type="uint8_t"/>
+      <member attributes="value" name="StartIndex" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="AppInputClusterCount" lengthVerified="yes" name="AppClusterList" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_ZB_ZDP_Extended_Active_EP_Rsp_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="NwkAddrOfInterest" type="uint16_t"/>
+      <member attributes="value" name="ActiveEPCount" type="uint8_t"/>
+      <member attributes="value" name="StartIndex" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="ActiveEPCount" lengthVerified="yes" name="AppEPList" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_ZDP_End_Device_Bind_Req_t">
+      <member attributes="value" name="BindingTarget" type="uint16_t"/>
+      <member attributes="value" name="SrcIEEEAddress" type="uint64_t"/>
+      <member attributes="value" name="SrcEndpoint" type="uint8_t"/>
+      <member attributes="value" name="ProfileID" type="uint16_t"/>
+      <member attributes="value" name="NumInClusters" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="NumInClusters" lengthVerified="yes" name="InClusterList" type="uint16_t"/>
+      <member attributes="value" name="NumOutClusters" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="NumOutClusters" lengthVerified="yes" name="OutClusterList" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_ZB_ZDP_End_Device_Bind_Rsp_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+   </structure>
+   <structure name="qapi_ZB_ZDP_Bind_Req_t">
+      <member attributes="value" name="DestNwkAddr" type="uint16_t"/>
+      <member attributes="value" name="BindData" type="qapi_ZB_ZDP_Binding_Table_Record_t"/>
+   </structure>
+   <structure name="qapi_ZB_ZDP_Bind_Rsp_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+   </structure>
+   <structure name="qapi_ZB_ZDP_Unbind_Req_t">
+      <member attributes="value" name="DestNwkAddr" type="uint16_t"/>
+      <member attributes="value" name="UnbindData" type="qapi_ZB_ZDP_Binding_Table_Record_t"/>
+   </structure>
+   <structure name="qapi_ZB_ZDP_Unbind_Rsp_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+   </structure>
+   <structure name="qapi_ZB_ZDP_Mgmt_Lqi_Rsp_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="NeighborTableEntries" type="uint8_t"/>
+      <member attributes="value" name="StartIndex" type="uint8_t"/>
+      <member attributes="value" name="NeighborTableListCount" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="NeighborTableListCount" lengthVerified="yes" name="NeighborTableList" type="qapi_ZB_ZDP_Neighbor_Table_Record_t"/>
+   </structure>
+   <structure name="qapi_ZB_ZDP_Mgmt_Rtg_Rsp_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="RoutingTableEntries" type="uint8_t"/>
+      <member attributes="value" name="StartIndex" type="uint8_t"/>
+      <member attributes="value" name="RoutingTableListCount" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="RoutingTableListCount" lengthVerified="yes" name="RoutingTableList" type="qapi_ZB_ZDP_Routing_Table_Record_t"/>
+   </structure>
+   <structure name="qapi_ZB_ZDP_Mgmt_Bind_Rsp_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="BindingTableEntries" type="uint8_t"/>
+      <member attributes="value" name="StartIndex" type="uint8_t"/>
+      <member attributes="value" name="BindingTableListCount" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="BindingTableListCount" lengthVerified="yes" name="BindingTableList" type="qapi_ZB_ZDP_Binding_Table_Record_t"/>
+   </structure>
+   <structure name="qapi_ZB_ZDP_Mgmt_Leave_Rsp_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+   </structure>
+   <structure name="qapi_ZB_ZDP_Mgmt_Permit_Joining_Rsp_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+   </structure>
+   <structure name="qapi_ZB_ZDP_Mgmt_Nwk_Update_Req_t">
+      <member attributes="value" name="DstNwkAddr" type="uint16_t"/>
+      <member attributes="value" name="ScanChannels" type="uint32_t"/>
+      <member attributes="value" name="ScanDuration" type="uint8_t"/>
+      <member attributes="value" name="ScanCount" type="uint8_t"/>
+      <member attributes="value" name="NwkUpdateId" type="uint8_t"/>
+      <member attributes="value" name="NwkManagerAddr" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_ZDP_Mgmt_Nwk_Update_Notify_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="ScannedChannels" type="uint32_t"/>
+      <member attributes="value" name="TotalTransmissions" type="uint16_t"/>
+      <member attributes="value" name="TransmissionFailures" type="uint16_t"/>
+      <member attributes="value" name="ScannedChannelsListCount" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="ScannedChannelsListCount" lengthVerified="yes" name="EnergyValues" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_ZDP_Event_t">
+      <member attributes="value" name="Event_Type" type="qapi_ZB_ZDP_Event_Type_t"/>
+      <member attributes="union" name="Event_Data">
+         <member attributes="value" name="Nwk_Addr_Rsp" type="qapi_ZB_ZDP_Nwk_Addr_Rsp_t"/>
+         <member attributes="value" name="IEEE_Addr_Rsp" type="qapi_ZB_ZDP_IEEE_Addr_Rsp_t"/>
+         <member attributes="value" name="Node_Desc_Rsp" type="qapi_ZB_ZDP_Node_Desc_Rsp_t"/>
+         <member attributes="value" name="Power_Desc_Rsp" type="qapi_ZB_ZDP_Power_Desc_Rsp_t"/>
+         <member attributes="value" name="Simple_Desc_Rsp" type="qapi_ZB_ZDP_Simple_Desc_Rsp_t"/>
+         <member attributes="value" name="Active_EP_Rsp" type="qapi_ZB_ZDP_Active_EP_Rsp_t"/>
+         <member attributes="value" name="Match_Desc_Rsp" type="qapi_ZB_ZDP_Match_Desc_Rsp_t"/>
+         <member attributes="value" name="Complex_Desc_Rsp" type="qapi_ZB_ZDP_Complex_Desc_Rsp_t"/>
+         <member attributes="value" name="User_Desc_Rsp" type="qapi_ZB_ZDP_User_Desc_Rsp_t"/>
+         <member attributes="value" name="Device_Annce" type="qapi_ZB_ZDP_Device_Annce_t"/>
+         <member attributes="value" name="User_Desc_Conf" type="qapi_ZB_ZDP_User_Desc_Conf_t"/>
+         <member attributes="value" name="System_Server_Discovery_Rsp" type="qapi_ZB_ZDP_System_Server_Discovery_Rsp_t"/>
+         <member attributes="value" name="Extended_Simple_Desc_Rsp" type="qapi_ZB_ZDP_Extended_Simple_Desc_Rsp_t"/>
+         <member attributes="value" name="Extended_Active_EP_Rsp" type="qapi_ZB_ZDP_Extended_Active_EP_Rsp_t"/>
+         <member attributes="value" name="End_Device_Bind_Rsp" type="qapi_ZB_ZDP_End_Device_Bind_Rsp_t"/>
+         <member attributes="value" name="Bind_Rsp" type="qapi_ZB_ZDP_Bind_Rsp_t"/>
+         <member attributes="value" name="Unbind_Rsp" type="qapi_ZB_ZDP_Unbind_Rsp_t"/>
+         <member attributes="value" name="Mgmt_Lqi_Rsp" type="qapi_ZB_ZDP_Mgmt_Lqi_Rsp_t"/>
+         <member attributes="value" name="Mgmt_Rtg_Rsp" type="qapi_ZB_ZDP_Mgmt_Rtg_Rsp_t"/>
+         <member attributes="value" name="Mgmt_Bind_Rsp" type="qapi_ZB_ZDP_Mgmt_Bind_Rsp_t"/>
+         <member attributes="value" name="Mgmt_Leave_Rsp" type="qapi_ZB_ZDP_Mgmt_Leave_Rsp_t"/>
+         <member attributes="value" name="Mgmt_Permit_Joining_Rsp" type="qapi_ZB_ZDP_Mgmt_Permit_Joining_Rsp_t"/>
+         <member attributes="value" name="Mgmt_Nwk_Update_Notify" type="qapi_ZB_ZDP_Mgmt_Nwk_Update_Notify_t"/>
+         <unionMap mapVerified="yes" name="Event_Type" type="qapi_ZB_ZDP_Event_Type_t">
+            <mapEntry member="Nwk_Addr_Rsp" type="qapi_ZB_ZDP_Nwk_Addr_Rsp_t" value="QAPI_ZB_ZDP_EVENT_TYPE_NWK_ADDR_RSP_E"/>
+            <mapEntry member="IEEE_Addr_Rsp" type="qapi_ZB_ZDP_IEEE_Addr_Rsp_t" value="QAPI_ZB_ZDP_EVENT_TYPE_IEEE_ADDR_RSP_E"/>
+            <mapEntry member="Node_Desc_Rsp" type="qapi_ZB_ZDP_Node_Desc_Rsp_t" value="QAPI_ZB_ZDP_EVENT_TYPE_NODE_DESC_RSP_E"/>
+            <mapEntry member="Power_Desc_Rsp" type="qapi_ZB_ZDP_Power_Desc_Rsp_t" value="QAPI_ZB_ZDP_EVENT_TYPE_POWER_DESC_RSP_E"/>
+            <mapEntry member="Simple_Desc_Rsp" type="qapi_ZB_ZDP_Simple_Desc_Rsp_t" value="QAPI_ZB_ZDP_EVENT_TYPE_SIMPLE_DESC_RSP_E"/>
+            <mapEntry member="Active_EP_Rsp" type="qapi_ZB_ZDP_Active_EP_Rsp_t" value="QAPI_ZB_ZDP_EVENT_TYPE_ACTIVE_EP_RSP_E"/>
+            <mapEntry member="Match_Desc_Rsp" type="qapi_ZB_ZDP_Match_Desc_Rsp_t" value="QAPI_ZB_ZDP_EVENT_TYPE_MATCH_DESC_RSP_E"/>
+            <mapEntry member="Complex_Desc_Rsp" type="qapi_ZB_ZDP_Complex_Desc_Rsp_t" value="QAPI_ZB_ZDP_EVENT_TYPE_COMPLEX_DESC_RSP_E"/>
+            <mapEntry member="User_Desc_Rsp" type="qapi_ZB_ZDP_User_Desc_Rsp_t" value="QAPI_ZB_ZDP_EVENT_TYPE_USER_DESC_RSP_E"/>
+            <mapEntry member="Device_Annce" type="qapi_ZB_ZDP_Device_Annce_t" value="QAPI_ZB_ZDP_EVENT_TYPE_DEVICE_ANNCE_E"/>
+            <mapEntry member="User_Desc_Conf" type="qapi_ZB_ZDP_User_Desc_Conf_t" value="QAPI_ZB_ZDP_EVENT_TYPE_USER_DESC_CONF_E"/>
+            <mapEntry member="System_Server_Discovery_Rsp" type="qapi_ZB_ZDP_System_Server_Discovery_Rsp_t" value="QAPI_ZB_ZDP_EVENT_TYPE_SYSTEM_SERVER_DISCOVERY_RSP_E"/>
+            <mapEntry member="Extended_Simple_Desc_Rsp" type="qapi_ZB_ZDP_Extended_Simple_Desc_Rsp_t" value="QAPI_ZB_ZDP_EVENT_TYPE_EXTENDED_SIMPLE_DESC_RSP_E"/>
+            <mapEntry member="Extended_Active_EP_Rsp" type="qapi_ZB_ZDP_Extended_Active_EP_Rsp_t" value="QAPI_ZB_ZDP_EVENT_TYPE_EXTENDED_ACTIVE_EP_RSP_E"/>
+            <mapEntry member="End_Device_Bind_Rsp" type="qapi_ZB_ZDP_End_Device_Bind_Rsp_t" value="QAPI_ZB_ZDP_EVENT_TYPE_END_DEVICE_BIND_RSP_E"/>
+            <mapEntry member="Bind_Rsp" type="qapi_ZB_ZDP_Bind_Rsp_t" value="QAPI_ZB_ZDP_EVENT_TYPE_BIND_RSP_E"/>
+            <mapEntry member="Unbind_Rsp" type="qapi_ZB_ZDP_Unbind_Rsp_t" value="QAPI_ZB_ZDP_EVENT_TYPE_UNBIND_RSP_E"/>
+            <mapEntry member="Mgmt_Lqi_Rsp" type="qapi_ZB_ZDP_Mgmt_Lqi_Rsp_t" value="QAPI_ZB_ZDP_EVENT_TYPE_MGMT_LQI_RSP_E"/>
+            <mapEntry member="Mgmt_Rtg_Rsp" type="qapi_ZB_ZDP_Mgmt_Rtg_Rsp_t" value="QAPI_ZB_ZDP_EVENT_TYPE_MGMT_RTG_RSP_E"/>
+            <mapEntry member="Mgmt_Bind_Rsp" type="qapi_ZB_ZDP_Mgmt_Bind_Rsp_t" value="QAPI_ZB_ZDP_EVENT_TYPE_MGMT_BIND_RSP_E"/>
+            <mapEntry member="Mgmt_Leave_Rsp" type="qapi_ZB_ZDP_Mgmt_Leave_Rsp_t" value="QAPI_ZB_ZDP_EVENT_TYPE_MGMT_LEAVE_RSP_E"/>
+            <mapEntry member="Mgmt_Permit_Joining_Rsp" type="qapi_ZB_ZDP_Mgmt_Permit_Joining_Rsp_t" value="QAPI_ZB_ZDP_EVENT_TYPE_MGMT_PERMIT_JOINING_RSP_E"/>
+            <mapEntry member="Mgmt_Nwk_Update_Notify" type="qapi_ZB_ZDP_Mgmt_Nwk_Update_Notify_t" value="QAPI_ZB_ZDP_EVENT_TYPE_MGMT_NWK_UPDATE_NOTIFY_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <function name="qapi_ZB_ZDP_Register_Callback">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="ZDP_Event_CB" type="qapi_ZB_ZDP_Event_CB_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+   </function>
+   <function name="qapi_ZB_ZDP_Unregister_Callback">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="ZDP_Event_CB" type="qapi_ZB_ZDP_Event_CB_t"/>
+   </function>
+   <function name="qapi_ZB_ZDP_Nwk_Addr_Req">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="DstNwkAddr" type="uint16_t"/>
+      <argument attributes="value" name="IEEEAddr" type="uint64_t"/>
+      <argument attributes="value" name="RequestType" type="qapi_ZB_ZDP_Addr_Request_Type_t"/>
+      <argument attributes="value" name="StartIndex" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_ZDP_IEEE_Addr_Req">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="DstNwkAddr" type="uint16_t"/>
+      <argument attributes="value" name="NwkAddrOfInterest" type="uint16_t"/>
+      <argument attributes="value" name="RequestType" type="qapi_ZB_ZDP_Addr_Request_Type_t"/>
+      <argument attributes="value" name="StartIndex" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_ZDP_Node_Desc_Req">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="DstNwkAddr" type="uint16_t"/>
+      <argument attributes="value" name="NwkAddrOfInterest" type="uint16_t"/>
+   </function>
+   <function name="qapi_ZB_ZDP_Power_Desc_Req">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="DstNwkAddr" type="uint16_t"/>
+      <argument attributes="value" name="NwkAddrOfInterest" type="uint16_t"/>
+   </function>
+   <function name="qapi_ZB_ZDP_Simple_Desc_Req">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="DstNwkAddr" type="uint16_t"/>
+      <argument attributes="value" name="NwkAddrOfInterest" type="uint16_t"/>
+      <argument attributes="value" name="Endpoint" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_ZDP_Active_EP_Req">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="DstNwkAddr" type="uint16_t"/>
+      <argument attributes="value" name="NwkAddrOfInterest" type="uint16_t"/>
+   </function>
+   <function name="qapi_ZB_ZDP_Match_Desc_Req">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="DstNwkAddr" type="uint16_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="RequestData" type="qapi_ZB_ZDP_Match_Desc_Req_t"/>
+   </function>
+   <function name="qapi_ZB_ZDP_Complex_Desc_Req">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="DstNwkAddr" type="uint16_t"/>
+      <argument attributes="value" name="NwkAddrOfInterest" type="uint16_t"/>
+   </function>
+   <function name="qapi_ZB_ZDP_User_Desc_Req">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="DstNwkAddr" type="uint16_t"/>
+      <argument attributes="value" name="NwkAddrOfInterest" type="uint16_t"/>
+   </function>
+   <function name="qapi_ZB_ZDP_Device_Annce_Req">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="NwkAddr" type="uint16_t"/>
+      <argument attributes="value" name="IEEEAddr" type="uint64_t"/>
+      <argument attributes="value" name="Capability" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_ZDP_Parent_Annce_Req">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+   </function>
+   <function name="qapi_ZB_ZDP_User_Desc_Set">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="DstNwkAddr" type="uint16_t"/>
+      <argument attributes="value" name="NwkAddrOfInterest" type="uint16_t"/>
+      <argument attributes="value" name="Length" type="uint8_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="Length" lengthVerified="yes" name="UserDescriptor" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_ZDP_System_Server_Discovery_Req">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="ServerMask" type="uint16_t"/>
+   </function>
+   <function name="qapi_ZB_ZDP_Extended_Simple_Desc_Req">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="DstNwkAddr" type="uint16_t"/>
+      <argument attributes="value" name="NwkAddrOfInterest" type="uint16_t"/>
+      <argument attributes="value" name="Endpoint" type="uint8_t"/>
+      <argument attributes="value" name="StartIndex" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_ZDP_Extended_Active_EP_Req">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="DstNwkAddr" type="uint16_t"/>
+      <argument attributes="value" name="NwkAddrOfInterest" type="uint16_t"/>
+      <argument attributes="value" name="StartIndex" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_ZDP_End_Device_Bind_Req">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="RequestData" type="qapi_ZB_ZDP_End_Device_Bind_Req_t"/>
+   </function>
+   <function name="qapi_ZB_ZDP_Bind_Req">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="RequestData" type="qapi_ZB_ZDP_Bind_Req_t"/>
+   </function>
+   <function name="qapi_ZB_ZDP_Unbind_Req">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="RequestData" type="qapi_ZB_ZDP_Unbind_Req_t"/>
+   </function>
+   <function name="qapi_ZB_ZDP_Mgmt_Lqi_Req">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="DstNwkAddr" type="uint16_t"/>
+      <argument attributes="value" name="StartIndex" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_ZDP_Mgmt_Rtg_Req">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="DstNwkAddr" type="uint16_t"/>
+      <argument attributes="value" name="StartIndex" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_ZDP_Mgmt_Bind_Req">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="DstNwkAddr" type="uint16_t"/>
+      <argument attributes="value" name="StartIndex" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_ZDP_Mgmt_Leave_Req">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="DstNwkAddr" type="uint16_t"/>
+      <argument attributes="value" name="DeviceAddress" type="uint64_t"/>
+      <argument attributes="value" name="RemoveChildren" type="qbool_t"/>
+      <argument attributes="value" name="Rejoin" type="qbool_t"/>
+   </function>
+   <function name="qapi_ZB_ZDP_Mgmt_Permit_Joining_Req">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="DstNwkAddr" type="uint16_t"/>
+      <argument attributes="value" name="PermitDuration" type="uint8_t"/>
+      <argument attributes="value" name="TC_Significance" type="qbool_t"/>
+   </function>
+   <function name="qapi_ZB_ZDP_Mgmt_Nwk_Update_Req">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="RequestData" type="qapi_ZB_ZDP_Mgmt_Nwk_Update_Req_t"/>
+   </function>
+   <function name="qapi_ZB_ZDP_Set_Local_Complex_Desc">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="__strlen__" lengthVerified="yes" name="ManufacturerName" type="uint8_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="__strlen__" lengthVerified="yes" name="ModelName" type="uint8_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="__strlen__" lengthVerified="yes" name="SerialNumber" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_ZDP_Set_Local_User_Desc">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="DescLength" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="DescLength" lengthVerified="yes" name="Desc" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_ZDP_Device_Annce_Alias">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="AliasAddr" type="uint16_t"/>
+      <argument attributes="value" name="IEEEAddr" type="uint64_t"/>
+      <argument attributes="value" name="Capability" type="uint8_t"/>
+   </function>
+   <callback name="qapi_ZB_ZDP_Event_CB_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr,const" iotype="out" lengthParam="1" lengthVerified="yes" name="ZDP_Event_Data" type="qapi_ZB_ZDP_Event_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+      <createFunction ID="ZDP_Event_CB" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_ZDP_Register_Callback" param="CB_Param"/>
+      <destroyFunction ID="ZDP_Event_CB" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_ZDP_Unregister_Callback"/>
+   </callback>
+</header>

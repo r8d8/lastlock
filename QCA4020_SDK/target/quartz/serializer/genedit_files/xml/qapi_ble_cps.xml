@@ -1,0 +1,432 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="./qapi_ble_btapityp.h"/>
+   <include name="./qapi_ble_bttypes.h"/>
+   <include name="./qapi_ble_gatt.h"/>
+   <include name="./qapi_ble_cpstypes.h"/>
+   <macro name="QAPI_BLE_CPS_ERROR_INVALID_PARAMETER" value="(-1000)"/>
+   <macro name="QAPI_BLE_CPS_ERROR_INVALID_BLUETOOTH_STACK_ID" value="(-1001)"/>
+   <macro name="QAPI_BLE_CPS_ERROR_INSUFFICIENT_RESOURCES" value="(-1002)"/>
+   <macro name="QAPI_BLE_CPS_ERROR_INSUFFICIENT_BUFFER_SPACE" value="(-1003)"/>
+   <macro name="QAPI_BLE_CPS_ERROR_SERVICE_ALREADY_REGISTERED" value="(-1004)"/>
+   <macro name="QAPI_BLE_CPS_ERROR_INVALID_INSTANCE_ID" value="(-1005)"/>
+   <macro name="QAPI_BLE_CPS_ERROR_MALFORMATTED_DATA" value="(-1006)"/>
+   <macro name="QAPI_BLE_CPS_ERROR_INDICATION_OUTSTANDING" value="(-1007)"/>
+   <macro name="QAPI_BLE_CPS_ERROR_NO_AUTHENTICATION" value="(-1008)"/>
+   <macro name="QAPI_BLE_CPS_ERROR_UNKNOWN_ERROR" value="(-1009)"/>
+   <macro name="QAPI_BLE_CPS_CLIENT_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_CPS_Client_Information_t))"/>
+   <macro name="QAPI_BLE_CPS_SERVER_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_CPS_Server_Information_t))"/>
+   <macro name="QAPI_BLE_CPS_WHEEL_REVOLUTIION_DATA_SIZE" value="(sizeof(qapi_BLE_CPS_Wheel_Revolution_Data_t))"/>
+   <macro name="QAPI_BLE_CPS_CRANK_REVOLUTIION_DATA_SIZE" value="(sizeof(qapi_BLE_CPS_Crank_Revolution_Data_t))"/>
+   <macro name="QAPI_BLE_CPS_EXTREME_FORCE_MAGNITUDES_DATA_SIZE" value="(sizeof(qapi_BLE_CPS_Extreme_Force_Magnitudes_Data_t))"/>
+   <macro name="QAPI_BLE_CPS_EXTREME_TORQUE_MAGNITUDES_DATA_SIZE" value="(sizeof(qapi_BLE_CPS_Extreme_Torque_Magnitudes_Data_t))"/>
+   <macro name="QAPI_BLE_CPS_EXTREMA_ANGLES_DATA_SIZE" value="(sizeof(qapi_BLE_CPS_Extreme_Angles_Data_t))"/>
+   <macro name="QAPI_BLE_CPS_MEASUREMENT_DATA_SIZE" value="(sizeof(qapi_BLE_CPS_Measurement_Data_t))"/>
+   <macro name="QAPI_BLE_CPS_VECTOR_DATA_SIZE" value="(sizeof(qapi_BLE_CPS_Vector_Data_t))"/>
+   <macro name="QAPI_BLE_CPS_MAXIMUM_SUPPORTED_SENSOR_LOCATIONS" value="(17)"/>
+   <macro name="QAPI_BLE_CPS_SUPPORTED_SENSOR_LOCATIONS_SIZE" value="(sizeof(qapi_BLE_CPS_Supported_Sensor_Locations_t))"/>
+   <macro name="QAPI_BLE_CPS_DATE_TIME_DATA_SIZE" value="(sizeof(qapi_BLE_CPS_Date_Time_Data_t))"/>
+   <macro name="QAPI_BLE_CPS_DATE_TIME_VALID" params="(_x)" value="((QAPI_BLE_GATT_DATE_TIME_VALID_YEAR(((_x)).Year)) &amp;&amp; (QAPI_BLE_GATT_DATE_TIME_VALID_MONTH(((_x)).Month)) &amp;&amp; (QAPI_BLE_GATT_DATE_TIME_VALID_DAY(((_x)).Day)) &amp;&amp; (QAPI_BLE_GATT_DATE_TIME_VALID_HOURS(((_x)).Hours)) &amp;&amp; (QAPI_BLE_GATT_DATE_TIME_VALID_MINUTES(((_x)).Minutes)) &amp;&amp; (QAPI_BLE_GATT_DATE_TIME_VALID_SECONDS(((_x)).Seconds)))"/>
+   <macro name="QAPI_BLE_CPS_CONTROL_POINT_INDICATION_DATA_SIZE" value="(sizeof(qapi_BLE_CPS_Control_Point_Indication_Data_t))"/>
+   <macro name="QAPI_BLE_CPS_CONTROL_POINT_RESPONSE_DATA_SIZE" value="(sizeof(qapi_BLE_CPS_Control_Point_Response_Data_t))"/>
+   <macro name="QAPI_BLE_CPS_READ_CLIENT_CONFIGURATION_DATA_SIZE" value="(sizeof(qapi_BLE_CPS_Read_Client_Configuration_Data_t))"/>
+   <macro name="QAPI_BLE_CPS_CLIENT_CONFIGURATION_UPDATE_DATA_SIZE" value="(sizeof(qapi_BLE_CPS_Client_Configuration_Update_Data_t))"/>
+   <macro name="QAPI_BLE_CPS_READ_CP_MEASUREMENT_SERVER_CONFIGURATION_DATA_SIZE" value="(sizeof(qapi_BLE_CPS_Read_CP_Measurement_Server_Configuration_Data_t))"/>
+   <macro name="QAPI_BLE_CPS_CP_MEASUREMENT_SERVER_CONFIGURATION_UPDATE_DATA_SIZE" value="(sizeof(qapi_BLE_CPS_CP_Measurement_Server_Configuration_Update_Data_t))"/>
+   <macro name="QAPI_BLE_CPS_CONTROL_POINT_FORMAT_DATA_SIZE" value="(sizeof(qapi_BLE_CPS_Control_Point_Format_Data_t))"/>
+   <macro name="QAPI_BLE_CPS_CONTROL_POINT_COMMAND_DATA_SIZE" value="(sizeof(qapi_BLE_CPS_Control_Point_Command_Data_t))"/>
+   <macro name="QAPI_BLE_CPS_CONFIRMATION_DATA_SIZE" value="(sizeof(qapi_BLE_CPS_Confirmation_Data_t))"/>
+   <macro name="QAPI_BLE_CPS_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_CPS_Event_Data_t))"/>
+   <enum name="qapi_BLE_CPS_Control_Point_Command_Type_t">
+      <member name="QAPI_BLE_CPC_SET_CUMULATIVE_VALUE_E" value="QAPI_BLE_CPS_CONTROL_POINT_OPCODE_SET_CUMULATIVE_VALUE"/>
+      <member name="QAPI_BLE_CPC_UPDATE_SENSOR_LOCATION_E" value="QAPI_BLE_CPS_CONTROL_POINT_OPCODE_UPDATE_SENSOR_LOCATION"/>
+      <member name="QAPI_BLE_CPC_REQUEST_SUPPORTED_SENSOR_LOCATIONS_E" value="QAPI_BLE_CPS_CONTROL_POINT_OPCODE_REQUEST_SUPPORTED_SENSOR_LOCATIONS"/>
+      <member name="QAPI_BLE_CPC_SET_CRANK_LENGTH_E" value="QAPI_BLE_CPS_CONTROL_POINT_OPCODE_SET_CRANK_LENGTH"/>
+      <member name="QAPI_BLE_CPC_REQUEST_CRANK_LENGTH_E" value="QAPI_BLE_CPS_CONTROL_POINT_OPCODE_REQUEST_CRANK_LENGTH"/>
+      <member name="QAPI_BLE_CPC_SET_CHAIN_LENGTH_E" value="QAPI_BLE_CPS_CONTROL_POINT_OPCODE_SET_CHAIN_LENGTH"/>
+      <member name="QAPI_BLE_CPC_REQUEST_CHAIN_LENGTH_E" value="QAPI_BLE_CPS_CONTROL_POINT_OPCODE_REQUEST_CHAIN_LENGTH"/>
+      <member name="QAPI_BLE_CPC_SET_CHAIN_WEIGHT_E" value="QAPI_BLE_CPS_CONTROL_POINT_OPCODE_SET_CHAIN_WEIGHT"/>
+      <member name="QAPI_BLE_CPC_REQUEST_CHAIN_WEIGHT_E" value="QAPI_BLE_CPS_CONTROL_POINT_OPCODE_REQUEST_CHAIN_WEIGHT"/>
+      <member name="QAPI_BLE_CPC_SET_SPAN_LENGTH_E" value="QAPI_BLE_CPS_CONTROL_POINT_OPCODE_SET_SPAN_LENGTH"/>
+      <member name="QAPI_BLE_CPC_REQUEST_SPAN_LENGTH_E" value="QAPI_BLE_CPS_CONTROL_POINT_OPCODE_REQUEST_SPAN_LENGTH"/>
+      <member name="QAPI_BLE_CPC_START_OFFSET_COMPENSATION_E" value="QAPI_BLE_CPS_CONTROL_POINT_OPCODE_START_OFFSET_COMPENSATION"/>
+      <member name="QAPI_BLE_CPC_MASK_CYCLING_POWER_MEASUREMENT_E" value="QAPI_BLE_CPS_CONTROL_POINT_OPCODE_MASK_MEASUREMENT_CHARACTERISTIC_CONTENT"/>
+      <member name="QAPI_BLE_CPC_REQUEST_SAMPLING_RATE_E" value="QAPI_BLE_CPS_CONTROL_POINT_OPCODE_REQUEST_SAMPLING_RATE"/>
+      <member name="QAPI_BLE_CPC_REQUEST_FACTORY_CALIBRATION_DATE_E" value="QAPI_BLE_CPS_CONTROL_POINT_OPCODE_REQUEST_FACTORY_CALIBRATION_DATE"/>
+   </enum>
+   <enum name="qapi_BLE_CPS_Characteristic_Type_t">
+      <member name="QAPI_BLE_CT_CYCLING_POWER_MEASUREMENT_E" value="0"/>
+      <member name="QAPI_BLE_CT_CYCLING_POWER_CONTROL_POINT_E" value="1"/>
+      <member name="QAPI_BLE_CT_CYCLING_POWER_VECTOR_E" value="2"/>
+   </enum>
+   <enum name="qapi_BLE_CPS_Event_Type_t">
+      <member name="QAPI_BLE_ET_CPS_READ_CLIENT_CONFIGURATION_REQUEST_E" value="0"/>
+      <member name="QAPI_BLE_ET_CPS_CLIENT_CONFIGURATION_UPDATE_E" value="1"/>
+      <member name="QAPI_BLE_ET_CPS_READ_CP_MEASUREMENT_SERVER_CONFIGURATION_REQUEST_E" value="2"/>
+      <member name="QAPI_BLE_ET_CPS_CP_MEASUREMENT_SERVER_CONFIGURATION_UPDATE_E" value="3"/>
+      <member name="QAPI_BLE_ET_CPS_CONTROL_POINT_COMMAND_E" value="4"/>
+      <member name="QAPI_BLE_ET_CPS_CONFIRMATION_DATA_E" value="5"/>
+   </enum>
+   <structure name="qapi_BLE_CPS_Client_Information_t">
+      <member attributes="value" name="CP_Measurement" type="uint16_t"/>
+      <member attributes="value" name="CP_Measurement_Client_Configuration" type="uint16_t"/>
+      <member attributes="value" name="CP_Measurement_Server_Configuration" type="uint16_t"/>
+      <member attributes="value" name="CP_Feature" type="uint16_t"/>
+      <member attributes="value" name="Sensor_Location" type="uint16_t"/>
+      <member attributes="value" name="CP_Vector" type="uint16_t"/>
+      <member attributes="value" name="CP_Vector_Client_Configuration" type="uint16_t"/>
+      <member attributes="value" name="CP_Control_Point" type="uint16_t"/>
+      <member attributes="value" name="CP_Control_Point_Client_Configuration" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_CPS_Server_Information_t">
+      <member attributes="value" name="CP_Measurement_Client_Configuration" type="uint16_t"/>
+      <member attributes="value" name="CP_Measurement_Server_Configuration" type="uint16_t"/>
+      <member attributes="value" name="CP_Control_Point_Client_Configuration" type="uint16_t"/>
+      <member attributes="value" name="CP_Vector_Client_Configuration" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_CPS_Wheel_Revolution_Data_t">
+      <member attributes="value" name="CumulativeWheelRevolutions" type="uint32_t"/>
+      <member attributes="value" name="LastWheelEventTime" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_CPS_Crank_Revolution_Data_t">
+      <member attributes="value" name="CumulativeCrankRevolutions" type="uint16_t"/>
+      <member attributes="value" name="LastCrankEventTime" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_CPS_Extreme_Force_Magnitudes_Data_t">
+      <member attributes="value" name="MaximumForceMagnitude" type="int16_t"/>
+      <member attributes="value" name="MinimumForceMagnitude" type="int16_t"/>
+   </structure>
+   <structure name="qapi_BLE_CPS_Extreme_Torque_Magnitudes_Data_t">
+      <member attributes="value" name="MaximumTorqueMagnitude" type="int16_t"/>
+      <member attributes="value" name="MinimumTorqueMagnitude" type="int16_t"/>
+   </structure>
+   <structure name="qapi_BLE_CPS_Extreme_Angles_Data_t">
+      <member attributes="value" name="MaximumAngle" type="uint16_t"/>
+      <member attributes="value" name="MinimumAngle" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_CPS_Measurement_Data_t">
+      <member attributes="value" name="Flags" type="uint16_t"/>
+      <member attributes="value" name="InstantaneousPower" type="int16_t"/>
+      <member attributes="value" name="PedalPowerBalance" type="uint8_t"/>
+      <member attributes="value" name="AccumulatedTorque" type="uint16_t"/>
+      <member attributes="value" name="WheelRevolutionData" type="qapi_BLE_CPS_Wheel_Revolution_Data_t"/>
+      <member attributes="value" name="CrankRevolutionData" type="qapi_BLE_CPS_Crank_Revolution_Data_t"/>
+      <member attributes="value" name="ExtremeForceMagnitudes" type="qapi_BLE_CPS_Extreme_Force_Magnitudes_Data_t"/>
+      <member attributes="value" name="ExtremeTorqueMagnitudes" type="qapi_BLE_CPS_Extreme_Torque_Magnitudes_Data_t"/>
+      <member attributes="value" name="ExtremeAngles" type="qapi_BLE_CPS_Extreme_Angles_Data_t"/>
+      <member attributes="value" name="TopDeadSpotAngle" type="uint16_t"/>
+      <member attributes="value" name="BottomDeadSpotAngle" type="uint16_t"/>
+      <member attributes="value" name="AccumulatedEnergy" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_CPS_Vector_Data_t">
+      <member attributes="value" name="Flags" type="uint8_t"/>
+      <member attributes="value" name="CrankRevolutionData" type="qapi_BLE_CPS_Crank_Revolution_Data_t"/>
+      <member attributes="value" name="FirstCrankMeasurementAngle" type="uint16_t"/>
+      <member attributes="value" name="MagnitudeDataLength" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="MagnitudeDataLength" lengthVerified="yes" name="InstantaneousMagnitude" type="int16_t"/>
+   </structure>
+   <structure name="qapi_BLE_CPS_Supported_Sensor_Locations_t">
+      <member attributes="value" name="NumberOfSensorLocations" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="NumberOfSensorLocations" lengthVerified="yes" name="SensorLocations" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_CPS_Date_Time_Data_t">
+      <member attributes="value" name="Year" type="uint16_t"/>
+      <member attributes="value" name="Month" type="uint8_t"/>
+      <member attributes="value" name="Day" type="uint8_t"/>
+      <member attributes="value" name="Hours" type="uint8_t"/>
+      <member attributes="value" name="Minutes" type="uint8_t"/>
+      <member attributes="value" name="Seconds" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_CPS_Control_Point_Indication_Data_t">
+      <member attributes="value" name="CommandType" type="uint8_t"/>
+      <member attributes="union" name="ResponseParameter">
+         <member attributes="value" name="SupportedSensorLocations" type="qapi_BLE_CPS_Supported_Sensor_Locations_t"/>
+         <member attributes="value" name="FactoryCalibrationDate" type="qapi_BLE_CPS_Date_Time_Data_t"/>
+         <member attributes="value" name="CrankLength" type="uint16_t"/>
+         <member attributes="value" name="ChainLength" type="uint16_t"/>
+         <member attributes="value" name="ChainWeight" type="uint16_t"/>
+         <member attributes="value" name="SpanLength" type="uint16_t"/>
+         <member attributes="value" name="OffsetCompensation" type="int16_t"/>
+         <member attributes="value" name="SamplingRate" type="uint8_t"/>
+         <unionMap mapVerified="yes" name="CommandType" type="qapi_BLE_CPS_Control_Point_Response_Parameter_t">
+            <mapEntry member="SupportedSensorLocations" type="qapi_BLE_CPS_Supported_Sensor_Locations_t" value="QAPI_BLE_CPC_REQUEST_SUPPORTED_SENSOR_LOCATIONS_E"/>
+            <mapEntry member="FactoryCalibrationDate" type="qapi_BLE_CPS_Date_Time_Data_t" value="QAPI_BLE_CPC_REQUEST_FACTORY_CALIBRATION_DATE_E"/>
+            <mapEntry member="CrankLength" type="uint16_t" value="QAPI_BLE_CPC_REQUEST_CRANK_LENGTH_E"/>
+            <mapEntry member="ChainLength" type="uint16_t" value="QAPI_BLE_CPC_REQUEST_CHAIN_LENGTH_E"/>
+            <mapEntry member="ChainWeight" type="uint16_t" value="QAPI_BLE_CPC_REQUEST_CHAIN_WEIGHT_E"/>
+            <mapEntry member="SpanLength" type="uint16_t" value="QAPI_BLE_CPC_REQUEST_SPAN_LENGTH_E"/>
+            <mapEntry member="OffsetCompensation" type="int16_t" value="QAPI_BLE_CPC_START_OFFSET_COMPENSATION_E"/>
+            <mapEntry member="SamplingRate" type="uint8_t" value="QAPI_BLE_CPC_REQUEST_SAMPLING_RATE_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_BLE_CPS_Control_Point_Response_Data_t">
+      <member attributes="value" name="RequestOpCode" type="uint8_t"/>
+      <member attributes="value" name="ResponseCodeValue" type="uint8_t"/>
+      <member attributes="union" name="ResponseParameter">
+         <member attributes="value" name="SupportedSensorLocations" type="qapi_BLE_CPS_Supported_Sensor_Locations_t"/>
+         <member attributes="value" name="FactoryCalibrationDate" type="qapi_BLE_CPS_Date_Time_Data_t"/>
+         <member attributes="value" name="CrankLength" type="uint16_t"/>
+         <member attributes="value" name="ChainLength" type="uint16_t"/>
+         <member attributes="value" name="ChainWeight" type="uint16_t"/>
+         <member attributes="value" name="SpanLength" type="uint16_t"/>
+         <member attributes="value" name="OffsetCompensation" type="int16_t"/>
+         <member attributes="value" name="SamplingRate" type="uint8_t"/>
+         <unionMap mapVerified="yes" name="RequestOpCode" type="qapi_BLE_CPS_Control_Point_Response_Parameter_t">
+            <mapEntry member="SupportedSensorLocations" type="qapi_BLE_CPS_Supported_Sensor_Locations_t" value="QAPI_BLE_CPC_REQUEST_SUPPORTED_SENSOR_LOCATIONS_E"/>
+            <mapEntry member="FactoryCalibrationDate" type="qapi_BLE_CPS_Date_Time_Data_t" value="QAPI_BLE_CPC_REQUEST_FACTORY_CALIBRATION_DATE_E"/>
+            <mapEntry member="CrankLength" type="uint16_t" value="QAPI_BLE_CPC_REQUEST_CRANK_LENGTH_E"/>
+            <mapEntry member="ChainLength" type="uint16_t" value="QAPI_BLE_CPC_REQUEST_CHAIN_LENGTH_E"/>
+            <mapEntry member="ChainWeight" type="uint16_t" value="QAPI_BLE_CPC_REQUEST_CHAIN_WEIGHT_E"/>
+            <mapEntry member="SpanLength" type="uint16_t" value="QAPI_BLE_CPC_REQUEST_SPAN_LENGTH_E"/>
+            <mapEntry member="OffsetCompensation" type="int16_t" value="QAPI_BLE_CPC_START_OFFSET_COMPENSATION_E"/>
+            <mapEntry member="SamplingRate" type="uint8_t" value="QAPI_BLE_CPC_REQUEST_SAMPLING_RATE_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_BLE_CPS_Read_Client_Configuration_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ClientConfigurationType" type="qapi_BLE_CPS_Characteristic_Type_t"/>
+   </structure>
+   <structure name="qapi_BLE_CPS_Client_Configuration_Update_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ClientConfigurationType" type="qapi_BLE_CPS_Characteristic_Type_t"/>
+      <member attributes="value" name="ClientConfiguration" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_CPS_Read_CP_Measurement_Server_Configuration_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+   </structure>
+   <structure name="qapi_BLE_CPS_CP_Measurement_Server_Configuration_Update_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ServerConfiguration" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_CPS_Control_Point_Format_Data_t">
+      <member attributes="value" name="CommandType" type="qapi_BLE_CPS_Control_Point_Command_Type_t"/>
+      <member attributes="union" name="CommandParameter">
+         <member attributes="value" name="CumulativeValue" type="uint32_t"/>
+         <member attributes="value" name="SensorLocation" type="uint8_t"/>
+         <member attributes="value" name="CrankLength" type="uint16_t"/>
+         <member attributes="value" name="ChainLength" type="uint16_t"/>
+         <member attributes="value" name="ChainWeight" type="uint16_t"/>
+         <member attributes="value" name="SpanLength" type="uint16_t"/>
+         <member attributes="value" name="ContentMask" type="uint16_t"/>
+         <unionMap mapVerified="yes" name="CommandType" type="qapi_BLE_CPS_Control_Point_Command_Type_t">
+            <mapEntry member="CumulativeValue" type="uint32_t" value="QAPI_BLE_CPC_SET_CUMULATIVE_VALUE_E"/>
+            <mapEntry member="SensorLocation" type="uint8_t" value="QAPI_BLE_CPC_UPDATE_SENSOR_LOCATION_E"/>
+            <mapEntry member="CrankLength" type="uint16_t" value="QAPI_BLE_CPC_SET_CRANK_LENGTH_E"/>
+            <mapEntry member="ChainLength" type="uint16_t" value="QAPI_BLE_CPC_SET_CHAIN_LENGTH_E"/>
+            <mapEntry member="ChainWeight" type="uint16_t" value="QAPI_BLE_CPC_SET_CHAIN_WEIGHT_E"/>
+            <mapEntry member="SpanLength" type="uint16_t" value="QAPI_BLE_CPC_SET_SPAN_LENGTH_E"/>
+            <mapEntry member="ContentMask" type="uint16_t" value="QAPI_BLE_CPC_START_OFFSET_COMPENSATION_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_BLE_CPS_Control_Point_Command_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="FormatData" type="qapi_BLE_CPS_Control_Point_Format_Data_t"/>
+   </structure>
+   <structure name="qapi_BLE_CPS_Confirmation_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Status" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_CPS_Event_Data_t">
+      <member attributes="value" name="Event_Data_Type" type="qapi_BLE_CPS_Event_Type_t"/>
+      <member attributes="value" name="Event_Data_Size" type="uint16_t"/>
+      <member attributes="union" name="Event_Data">
+         <member attributes="ptr" iotype="in" name="CPS_Read_Client_Configuration_Data" type="qapi_BLE_CPS_Read_Client_Configuration_Data_t"/>
+         <member attributes="ptr" iotype="in" name="CPS_Client_Configuration_Update_Data" type="qapi_BLE_CPS_Client_Configuration_Update_Data_t"/>
+         <member attributes="ptr" iotype="in" name="CPS_Read_CP_Measurement_Server_Configuration_Data" type="qapi_BLE_CPS_Read_CP_Measurement_Server_Configuration_Data_t"/>
+         <member attributes="ptr" iotype="in" name="CPS_CP_Measurement_Server_Configuration_Update_Data" type="qapi_BLE_CPS_CP_Measurement_Server_Configuration_Update_Data_t"/>
+         <member attributes="ptr" iotype="in" name="CPS_Control_Point_Command_Data" type="qapi_BLE_CPS_Control_Point_Command_Data_t"/>
+         <member attributes="ptr" iotype="in" name="CPS_Confirmation_Data" type="qapi_BLE_CPS_Confirmation_Data_t"/>
+         <unionMap mapVerified="yes" name="Event_Data_Type" type="qapi_BLE_CPS_Event_Type_t">
+            <mapEntry member="CPS_Read_Client_Configuration_Data" type="qapi_BLE_CPS_Read_Client_Configuration_Data_t" value="QAPI_BLE_ET_CPS_READ_CLIENT_CONFIGURATION_REQUEST_E"/>
+            <mapEntry member="CPS_Client_Configuration_Update_Data" type="qapi_BLE_CPS_Client_Configuration_Update_Data_t" value="QAPI_BLE_ET_CPS_CLIENT_CONFIGURATION_UPDATE_E"/>
+            <mapEntry member="CPS_Read_CP_Measurement_Server_Configuration_Data" type="qapi_BLE_CPS_Read_CP_Measurement_Server_Configuration_Data_t" value="QAPI_BLE_ET_CPS_READ_CP_MEASUREMENT_SERVER_CONFIGURATION_REQUEST_E"/>
+            <mapEntry member="CPS_CP_Measurement_Server_Configuration_Update_Data" type="qapi_BLE_CPS_CP_Measurement_Server_Configuration_Update_Data_t" value="QAPI_BLE_ET_CPS_CP_MEASUREMENT_SERVER_CONFIGURATION_UPDATE_E"/>
+            <mapEntry member="CPS_Control_Point_Command_Data" type="qapi_BLE_CPS_Control_Point_Command_Data_t" value="QAPI_BLE_ET_CPS_CONTROL_POINT_COMMAND_E"/>
+            <mapEntry member="CPS_Confirmation_Data" type="qapi_BLE_CPS_Confirmation_Data_t" value="QAPI_BLE_ET_CPS_CONFIRMATION_DATA_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <union name="qapi_BLE_CPS_Control_Point_Response_Parameter_t">
+      <member attributes="value" name="SupportedSensorLocations" type="qapi_BLE_CPS_Supported_Sensor_Locations_t"/>
+      <member attributes="value" name="FactoryCalibrationDate" type="qapi_BLE_CPS_Date_Time_Data_t"/>
+      <member attributes="value" name="CrankLength" type="uint16_t"/>
+      <member attributes="value" name="ChainLength" type="uint16_t"/>
+      <member attributes="value" name="ChainWeight" type="uint16_t"/>
+      <member attributes="value" name="SpanLength" type="uint16_t"/>
+      <member attributes="value" name="OffsetCompensation" type="int16_t"/>
+      <member attributes="value" name="SamplingRate" type="uint8_t"/>
+   </union>
+   <function name="qapi_BLE_CPS_Initialize_Service">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_CPS_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_CPS_Initialize_Service_Handle_Range">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_CPS_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="ServiceHandleRange" type="qapi_BLE_GATT_Attribute_Handle_Group_t"/>
+   </function>
+   <function name="qapi_BLE_CPS_Cleanup_Service">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_CPS_Query_Number_Attributes">
+      <return attributes="value" type="unsigned int"/>
+   </function>
+   <function name="qapi_BLE_CPS_Read_Client_Configuration_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ClientConfiguration" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_CPS_Vector_Client_Configuration_Update_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_CPS_Read_CP_Measurement_Server_Configuration_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ServerConfiguration" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_CPS_Set_Feature">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="SupportedFeatures" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_CPS_Query_Feature">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="SupportedFeatures" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_CPS_Notify_CP_Measurement">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="MeasurementData" type="qapi_BLE_CPS_Measurement_Data_t"/>
+   </function>
+   <function name="qapi_BLE_CPS_Set_Sensor_Location">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="SensorLocation" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_CPS_Query_Sensor_Location">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="SensorLocation" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_CPS_Notify_CP_Vector">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="VectorData" type="qapi_BLE_CPS_Vector_Data_t"/>
+   </function>
+   <function name="qapi_BLE_CPS_Control_Point_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_CPS_Indicate_Control_Point_Result">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="value" name="CommandType" type="qapi_BLE_CPS_Control_Point_Command_Type_t"/>
+      <argument attributes="value" name="ResponseCode" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_CPS_Indicate_Control_Point_Result_With_Data">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="IndicationData" type="qapi_BLE_CPS_Control_Point_Indication_Data_t"/>
+   </function>
+   <function name="qapi_BLE_CPS_Format_CP_Measurement">
+      <return attributes="value" type="int"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="MeasurementData" type="qapi_BLE_CPS_Measurement_Data_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="BufferLength" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="BufferLength" lengthVerified="yes" name="Buffer" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_CPS_Decode_CP_Measurement">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BufferLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="BufferLength" lengthVerified="yes" name="Buffer" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="MeasurementData" type="qapi_BLE_CPS_Measurement_Data_t"/>
+   </function>
+   <function name="qapi_BLE_CPS_Decode_CP_Vector">
+      <return attributes="ptr" type="qapi_BLE_CPS_Vector_Data_t"/>
+      <argument attributes="value" name="BufferLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="BufferLength" lengthVerified="yes" name="Buffer" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_CPS_Free_CP_Vector_Data">
+      <return attributes="value" type="void"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name=" VectorData" type="qapi_BLE_CPS_Vector_Data_t"/>
+   </function>
+   <function name="qapi_BLE_CPS_Decode_Control_Point_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BufferLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="BufferLength" lengthVerified="yes" name="Buffer" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ResponseData" type="qapi_BLE_CPS_Control_Point_Response_Data_t"/>
+   </function>
+   <function name="qapi_BLE_CPS_Free_Supported_Sensor_Locations_Data">
+      <return attributes="value" type="void"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="SensorLocations" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_CPS_Format_Control_Point_Command">
+      <return attributes="value" type="int"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="FormatData" type="qapi_BLE_CPS_Control_Point_Format_Data_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="BufferLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="BufferLength" lengthVerified="yes" name="Buffer" type="uint8_t"/>
+   </function>
+   <callback name="qapi_BLE_CPS_Event_Callback_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="CPS_Event_Data" type="qapi_BLE_CPS_Event_Data_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <createFunction ID="qsRetVal" funcSuccess="0" moduleParam="BluetoothStackID" name="qapi_BLE_CPS_Initialize_Service" param="CallbackParameter"/>
+      <createFunction ID="qsRetVal" funcSuccess="0" moduleParam="BluetoothStackID" name="qapi_BLE_CPS_Initialize_Service_Handle_Range" param="CallbackParameter"/>
+      <destroyFunction ID="InstanceID" funcSuccess="0" name="qapi_BLE_CPS_Cleanup_Service"/>
+   </callback>
+</header>

@@ -1,0 +1,207 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="qapi/qapi_types.h"/>
+   <include name="qapi/qapi_status.h"/>
+   <include name="qapi_zb_cl.h"/>
+   <macro name="QAPI_ZB_CL_BASIC_ATTR_ID_ZCL_VERSION" value="(0x0000) "/>
+   <macro name="QAPI_ZB_CL_BASIC_ATTR_ID_APPLICATION_VERSION" value="(0x0001) "/>
+   <macro name="QAPI_ZB_CL_BASIC_ATTR_ID_STACK_VERSION" value="(0x0002) "/>
+   <macro name="QAPI_ZB_CL_BASIC_ATTR_ID_HW_VERSION" value="(0x0003) "/>
+   <macro name="QAPI_ZB_CL_BASIC_ATTR_ID_MANUFACTURER_NAME" value="(0x0004) "/>
+   <macro name="QAPI_ZB_CL_BASIC_ATTR_ID_MODEL_IDENTIFIER" value="(0x0005) "/>
+   <macro name="QAPI_ZB_CL_BASIC_ATTR_ID_DATE_CODE" value="(0x0006) "/>
+   <macro name="QAPI_ZB_CL_BASIC_ATTR_ID_POWER_SOURCE" value="(0x0007) "/>
+   <macro name="QAPI_ZB_CL_BASIC_ATTR_ID_LOCATION_DESCRIPTION" value="(0x0010) "/>
+   <macro name="QAPI_ZB_CL_BASIC_ATTR_ID_PHYSICAL_ENVIRONMENT" value="(0x0011) "/>
+   <macro name="QAPI_ZB_CL_BASIC_ATTR_ID_DEVICE_ENABLED" value="(0x0012) "/>
+   <macro name="QAPI_ZB_CL_BASIC_ATTR_ID_ALARM_MASK" value="(0x0013) "/>
+   <macro name="QAPI_ZB_CL_BASIC_ATTR_ID_DISABLE_LOCAL_CONFIG" value="(0x0014) "/>
+   <macro name="QAPI_ZB_CL_BASIC_ATTR_ID_SW_BUILD_ID" value="(0x4000) "/>
+   <macro name="QAPI_ZB_CL_BASIC_MANUFACTURER_NAME_MAX_LENGTH" value="(32) "/>
+   <macro name="QAPI_ZB_CL_BASIC_MODEL_IDENTIFIER_MAX_LENGTH" value="(32) "/>
+   <macro name="QAPI_ZB_CL_BASIC_DATE_CODE_MAX_LENGTH" value="(16) "/>
+   <macro name="QAPI_ZB_CL_BASIC_LOCATION_DESCRIPTION_MAX_LENGTH" value="(16) "/>
+   <macro name="QAPI_ZB_CL_BASIC_SW_BUILD_ID_MAX_LENGTH" value="(16) "/>
+   <macro name="QAPI_ZB_CL_BASIC_ZCL_VERSION" value="(0X01) "/>
+   <macro name="QAPI_ZB_CL_BASIC_POWER_SOURCE_PRIMARY_SOURCE_MASK" value="(0x7F) "/>
+   <macro name="QAPI_ZB_CL_BASIC_POWER_SOURCE_BACKUP_AVAILABLE_MASK" value="(0x80) "/>
+   <macro name="QAPI_ZB_CL_BASIC_POWER_SOURCE_UNKNOWN" value="(0x00) "/>
+   <macro name="QAPI_ZB_CL_BASIC_POWER_SOURCE_MAINS_SINGLE_PHASE" value="(0x01) "/>
+   <macro name="QAPI_ZB_CL_BASIC_POWER_SOURCE_MAINS_THREE_PHASE" value="(0x02) "/>
+   <macro name="QAPI_ZB_CL_BASIC_POWER_SOURCE_BATTERY" value="(0x03) "/>
+   <macro name="QAPI_ZB_CL_BASIC_POWER_SOURCE_DC_SOURCE" value="(0x04) "/>
+   <macro name="QAPI_ZB_CL_BASIC_POWER_SOURCE_EMERGENCY_CONSTANT" value="(0x05) "/>
+   <macro name="QAPI_ZB_CL_BASIC_POWER_SOURCE_EMERGENCY_TRANSFER" value="(0x06) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_UNSPECIFIED_ENVIRONMENT" value="(0x00) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_ATRIUM" value="(0x01) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_BAR" value="(0x02) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_COURTYARD" value="(0x03) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_BATHROOM" value="(0x04) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_BEDROOM" value="(0x05) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_BILLIARD_ROOM" value="(0x06) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_UTILITY_ROOM" value="(0x07) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_CELLAR" value="(0x08) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_STORAGE_CLOSET" value="(0x09) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_THEATER" value="(0x0A) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_OFFICE" value="(0x0B) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_DECK" value="(0x0C) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_DEN" value="(0x0D) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_DINING_ROOM" value="(0x0E) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_ELECTRICAL_ROOM" value="(0x0F) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_ELEVATOR" value="(0x10) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_ENTRY" value="(0x11) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_FAMILY_ROOM" value="(0x12) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_MAIN_FLOOR" value="(0x13) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_UPSTAIRS" value="(0x14) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_DOWNSTAIRS" value="(0x15) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_BASEMENT" value="(0x16) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_GALLERY" value="(0x17) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_GAME_ROOM" value="(0x18) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_GARAGE" value="(0x19) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_GYM" value="(0x1A) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_HALLWAY" value="(0x1B) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_HOUSE" value="(0x1C) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_KITCHEN" value="(0x1D) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_LAUNDRY_ROOM" value="(0x1E) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_LIBRARY" value="(0x1F) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_MASTER_BEDROOM" value="(0x20) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_MUD_ROOM" value="(0x21) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_NURSERY" value="(0x22) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_PANTRY" value="(0x23) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_OFFICE2" value="(0x24) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_OUTSIDE" value="(0x25) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_POOL" value="(0x26) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_PORCH" value="(0x27) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_SEWING_ROOM" value="(0x28) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_SITTING_ROOM" value="(0x29) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_STAIRWAY" value="(0x2A) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_YARD" value="(0x2B) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_ATTIC" value="(0x2C) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_HOT_TUB" value="(0x2D) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_LIVING_ROOM" value="(0x2E) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_SAUNA" value="(0x2F) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_WORKSHOP" value="(0x30) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_GUEST_BEDROOM" value="(0x31) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_GUEST_BATH" value="(0x32) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_POWDER_ROOM" value="(0x33) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_BACK_YARD" value="(0x34) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_FRONT_YARD" value="(0x35) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_PATIO" value="(0x36) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_DRIVEWAY" value="(0x37) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_SUN_ROOM" value="(0x38) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_LIVING_ROOM2" value="(0x39) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_SPA" value="(0x3A) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_WHIRLPOOL" value="(0x3B) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_SHED" value="(0x3C) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_EQUIPMENT_STORAGE" value="(0x3D) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_HOBBY_ROOM" value="(0x3E) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_FOUNTAIN" value="(0x3F) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_POND" value="(0x40) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_RECEPTION_ROOM" value="(0x41) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_BREAKFAST_ROOM" value="(0x42) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_NOOK" value="(0x43) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_GARDEN" value="(0x44) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_BALCONY" value="(0x45) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_PANIC_ROOM" value="(0x46) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_TERRACE" value="(0x47) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_ROOF" value="(0x48) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_TOILET" value="(0x49) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_TOILET_MAIN" value="(0x4A) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_OUTSIDE_TOILET" value="(0x4B) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_SHOWER_ROOM" value="(0x4C) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_STUDY" value="(0x4D) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_FRONT_GARDEN" value="(0x4E) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_BACK_GARDEN" value="(0x4F) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_KETTLE" value="(0x50) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_TELEVISION" value="(0x51) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_STOVE" value="(0x52) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_MICROWAVE" value="(0x53) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_TOASTER" value="(0x54) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_VACUUM" value="(0x55) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_APPLIANCE" value="(0x56) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_FRONT_DOOR" value="(0x57) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_BACK_DOOR" value="(0x58) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_FRIDGE_DOOR" value="(0x59) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_MEDICATION_CABINET_DOOR" value="(0x60) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_WARDROBE_DOOR" value="(0x61) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_FRONT_CUPBOARD_DOOR" value="(0x62) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_OTHER_DOOR" value="(0x63) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_WAITING_ROOM" value="(0x64) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_TRIAGE_ROOM" value="(0x65) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_DOCTORS_OFFICE" value="(0x66) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_PATIENTS_PRIVATE_ROOM" value="(0x67) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_CONSULTATION_ROOM" value="(0x68) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_NURSE_STATION" value="(0x69) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_WARD" value="(0x6A) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_CORRIDOR" value="(0x6B) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_OPERATING_THEATRE" value="(0x6C) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_DENTAL_SURGERY_ROOM" value="(0x6D) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_MEDICAL_IMAGING_ROOM" value="(0x6E) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_DECONTAMINATION_ROOM" value="(0x6F) "/>
+   <macro name="QAPI_ZB_CL_BASIC_PHYSICAL_ENVIRONMENT_UNKNOWN" value="(0xFF) "/>
+   <macro name="QAPI_ZB_CL_BASIC_ALARM_MASK_GENERAL_HARDWARE_FAULT" value="(0x01) "/>
+   <macro name="QAPI_ZB_CL_BASIC_ALARM_MASK_GENERAL_SOFTWARE_FAULT" value="(0x02) "/>
+   <macro name="QAPI_ZB_CL_BASIC_DISABLE_LOCAL_CONFIG_RESET_MASK" value="(0x01) "/>
+   <macro name="QAPI_ZB_CL_BASIC_DISABLE_LOCAL_CONFIG_DEVICE_CONFIG_MASK" value="(0x02) "/>
+   <macro name="QAPI_ZB_CL_BASIC_CLIENT_COMMAND_ID_RESET_TO_FACTORY_DEFAULTS" value="(0x00) "/>
+   <enum name="qapi_ZB_CL_Basic_Client_Event_Type_t">
+      <member name="QAPI_ZB_CL_BASIC_CLIENT_EVENT_TYPE_ATTR_CUSTOM_READ_E" value="0"/>
+      <member name="QAPI_ZB_CL_BASIC_CLIENT_EVENT_TYPE_ATTR_CUSTOM_WRITE_E" value="1"/>
+      <member name="QAPI_ZB_CL_BASIC_CLIENT_EVENT_TYPE_DEFAULT_RESPONSE_E" value="2"/>
+      <member name="QAPI_ZB_CL_BASIC_CLIENT_EVENT_TYPE_COMMAND_COMPLETE_E" value="3"/>
+      <member name="QAPI_ZB_CL_BASIC_CLIENT_EVENT_TYPE_UNPARSED_RESPONSE_E" value="4"/>
+   </enum>
+   <structure name="qapi_ZB_CL_Basic_Client_Event_Data_t">
+      <member attributes="value" name="Event_Type" type="qapi_ZB_CL_Basic_Client_Event_Type_t"/>
+      <member attributes="union" name="Data">
+         <member attributes="value" name="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t"/>
+         <member attributes="value" name="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t"/>
+         <member attributes="value" name="Default_Response" type="qapi_ZB_CL_Default_Response_t"/>
+         <member attributes="value" name="Command_Complete" type="qapi_ZB_CL_Command_Complete_t"/>
+         <member attributes="value" name="Unparsed_Response" type="qapi_ZB_CL_Unparsed_Response_t"/>
+         <unionMap mapVerified="yes" name="Event_Type" type="qapi_ZB_CL_Basic_Client_Event_Type_t">
+            <mapEntry member="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t" value="QAPI_ZB_CL_BASIC_CLIENT_EVENT_TYPE_ATTR_CUSTOM_READ_E"/>
+            <mapEntry member="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t" value="QAPI_ZB_CL_BASIC_CLIENT_EVENT_TYPE_ATTR_CUSTOM_WRITE_E"/>
+            <mapEntry member="Default_Response" type="qapi_ZB_CL_Default_Response_t" value="QAPI_ZB_CL_BASIC_CLIENT_EVENT_TYPE_DEFAULT_RESPONSE_E"/>
+            <mapEntry member="Command_Complete" type="qapi_ZB_CL_Command_Complete_t" value="QAPI_ZB_CL_BASIC_CLIENT_EVENT_TYPE_COMMAND_COMPLETE_E"/>
+            <mapEntry member="Unparsed_Response" type="qapi_ZB_CL_Unparsed_Response_t" value="QAPI_ZB_CL_BASIC_CLIENT_EVENT_TYPE_UNPARSED_RESPONSE_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <function name="qapi_ZB_CL_Basic_Create_Client">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Cluster_Info" type="qapi_ZB_CL_Cluster_Info_t"/>
+      <argument attributes="value" name="Event_CB" type="qapi_ZB_CL_Basic_Client_CB_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Basic_Send_Reset_To_Factory">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Basic_Server_Read_Attribute">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="AttrId" type="uint16_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="Length" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="Length" lengthVerified="yes" name="Data" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Basic_Server_Write_Attribute">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="AttrId" type="uint16_t"/>
+      <argument attributes="value" name="Length" type="uint16_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="Length" lengthVerified="yes" name="Data" type="uint8_t"/>
+   </function>
+   <callback name="qapi_ZB_CL_Basic_Client_CB_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Event_Data" type="qapi_ZB_CL_Basic_Client_Event_Data_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+      <createFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_Basic_Create_Client" param="CB_Param"/>
+      <destroyFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_Destroy_Cluster"/>
+   </callback>
+</header>

@@ -1,0 +1,175 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="./qapi_ble_bttypes.h"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_SERVICE_MUTIPLEXOR" value="(0x001F)"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_MTU_MINIMUM_LE" value="23"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_MTU_MINIMUM_BR_EDR" value="48"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_MTU_MAXIMUM" value="517"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_HANDLE_MINIMUM_VALUE" value="0x0001"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_HANDLE_MAXIMUM_VALUE" value="0xFFFF"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_VALUE_MAXIMUM_LENGTH" value="512"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_OPCODE_MINIMUM_VALUE" value="0x01"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_OPCODE_MAXIMUM_VALUE" value="0x7F"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_OPCODE_COMMAND_FLAG_MASK" value="0x40"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_OPCODE_AUTHENTICATION_SIGNATURE_MASK" value="0x80"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_CODE_ERROR_RESPONSE" value="0x01"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_CODE_EXCHANGE_MTU_REQUEST" value="0x02"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_CODE_EXCHANGE_MTU_RESPONSE" value="0x03"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_CODE_FIND_INFORMATION_REQUEST" value="0x04"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_CODE_FIND_INFORMATION_RESPONSE" value="0x05"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_CODE_FIND_BY_TYPE_VALUE_REQUEST" value="0x06"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_CODE_FIND_BY_TYPE_VALUE_RESPONSE" value="0x07"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_CODE_READ_BY_TYPE_REQUEST" value="0x08"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_CODE_READ_BY_TYPE_RESPONSE" value="0x09"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_CODE_READ_REQUEST" value="0x0A"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_CODE_READ_RESPONSE" value="0x0B"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_CODE_READ_BLOB_REQUEST" value="0x0C"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_CODE_READ_BLOB_RESPONSE" value="0x0D"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_CODE_READ_MULTIPLE_REQUEST" value="0x0E"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_CODE_READ_MULTIPLE_RESPONSE" value="0x0F"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_CODE_READ_BY_GROUP_TYPE_REQUEST" value="0x10"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_CODE_READ_BY_GROUP_TYPE_RESPONSE" value="0x11"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_CODE_WRITE_REQUEST" value="0x12"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_CODE_WRITE_RESPONSE" value="0x13"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_CODE_WRITE_COMMAND" value="0x52"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_CODE_PREPARE_WRITE_REQUEST" value="0x16"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_CODE_PREPARE_WRITE_RESPONSE" value="0x17"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_CODE_EXECUTE_WRITE_REQUEST" value="0x18"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_CODE_EXECUTE_WRITE_RESPONSE" value="0x19"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_CODE_HANDLE_VALUE_NOTIFICATION" value="0x1B"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_CODE_HANDLE_VALUE_INDICATION" value="0x1D"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_CODE_HANDLE_VALUE_CONFIRMATION" value="0x1E"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_CODE_SIGNED_WRITE_COMMAND" value="0xD2"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_ERROR_CODE_INVALID_HANDLE" value="0x01"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_ERROR_CODE_READ_NOT_PERMITTED" value="0x02"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_ERROR_CODE_WRITE_NOT_PERMITTED" value="0x03"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_ERROR_CODE_INVALID_PDU" value="0x04"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_ERROR_CODE_INSUFFICIENT_AUTHENTICATION" value="0x05"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_ERROR_CODE_REQUEST_NOT_SUPPORTED" value="0x06"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_ERROR_CODE_INVALID_OFFSET" value="0x07"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_ERROR_CODE_INSUFFICIENT_AUTHORIZATION" value="0x08"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_ERROR_CODE_PREPARE_QUEUE_FULL" value="0x09"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_ERROR_CODE_ATTRIBUTE_NOT_FOUND" value="0x0A"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_ERROR_CODE_ATTRIBUTE_NOT_LONG" value="0x0B"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_ERROR_CODE_INSUFFICIENT_ENCRYPTION_KEY_SIZE" value="0x0C"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_ERROR_CODE_INVALID_ATTRIBUTE_VALUE_LENGTH" value="0x0D"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_ERROR_CODE_UNLIKELY_ERROR" value="0x0E"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_ERROR_CODE_INSUFFICIENT_ENCRYPTION" value="0x0F"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_ERROR_CODE_UNSUPPORTED_GROUP_TYPE" value="0x10"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_ERROR_CODE_INSUFFICIENT_RESOURCES" value="0x11"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_ERROR_CODE_CCCD_IMPROPERLY_CONFIGURED" value="0xFD"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_ERROR_CODE_PROCEDURE_ALREADY_IN_PROGRESS" value="0xFE"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_ERROR_CODE_OUT_OF_RANGE" value="0xFF"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_ERROR_CODE_APPLICATION_ERROR_START" value="0x80"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_ERROR_CODE_APPLICATION_ERROR_END" value="0xFC"/>
+   <macro name="QAPI_BLE_ATT_PROTOCOL_TRANSACTION_TIMEOUT_VALUE" value="30"/>
+   <macro name="QAPI_BLE_ATT_AUTHENTICATION_SIGNATURE_DATA_SIZE" value="(sizeof(qapi_BLE_ATT_Authentication_Signature_t))"/>
+   <macro name="QAPI_BLE_ASSIGN_ATT_AUTHENTICATION_SIGNATURE" params="(_dest, _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l)" value="\ { \  (_dest).Authentication_Signature0 = (_l); (_dest).Authentication_Signature1 = (_k); (_dest).Authentication_Signature2 = (_j); \  (_dest).Authentication_Signature3 = (_i); (_dest).Authentication_Signature4 = (_h); (_dest).Authentication_Signature5 = (_g); \  (_dest).Authentication_Signature6 = (_f); (_dest).Authentication_Signature7 = (_e); (_dest).Authentication_Signature8 = (_d); \  (_dest).Authentication_Signature9 = (_c); (_dest).Authentication_Signature10 = (_b); (_dest).Authentication_Signature11 = (_a); \ }"/>
+   <macro name="QAPI_BLE_COMPARE_ATT_AUTHENTICATION_SIGNATURE" params="(_x, _y)" value="\ ( \  ((_x)-&gt;Authentication_Signature0 == (_y)-&gt;Authentication_Signature0) &amp;&amp; ((_x)-&gt;Authentication_Signature1 == (_y)-&gt;Authentication_Signature1) &amp;&amp; ((_x)-&gt;Authentication_Signature2 == (_y)-&gt;Authentication_Signature2) &amp;&amp; \  ((_x)-&gt;Authentication_Signature3 == (_y)-&gt;Authentication_Signature3) &amp;&amp; ((_x)-&gt;Authentication_Signature4 == (_y)-&gt;Authentication_Signature4) &amp;&amp; ((_x)-&gt;Authentication_Signature5 == (_y)-&gt;Authentication_Signature5) &amp;&amp; \  ((_x)-&gt;Authentication_Signature6 == (_y)-&gt;Authentication_Signature6) &amp;&amp; ((_x)-&gt;Authentication_Signature7 == (_y)-&gt;Authentication_Signature7) &amp;&amp; ((_x)-&gt;Authentication_Signature8 == (_y)-&gt;Authentication_Signature8) &amp;&amp; \  ((_x)-&gt;Authentication_Signature9 == (_y)-&gt;Authentication_Signature9) &amp;&amp; ((_x)-&gt;Authentication_Signature10 == (_y)-&gt;Authentication_Signature10) &amp;&amp; ((_x)-&gt;Authentication_Signature11 == (_y)-&gt;Authentication_Signature11) \ )"/>
+   <macro name="QAPI_BLE_QAPI_BLE_ASSIGN_ATT_AUTHENTICATION_SIGNATURE_SIGN_COUNTER" params="(_x, _y)" value="ASSIGN_HOST_DWORD_TO_LITTLE_ENDIAN_UNALIGNED_DWORD((_x), (_y))"/>
+   <macro name="QAPI_BLE_READ_ATT_AUTHENTICATION_SIGNATURE_SIGN_COUNTER" params="(_x)" value="READ_UNALIGNED_DWORD_LITTLE_ENDIAN((_x))"/>
+   <macro name="QAPI_BLE_QAPI_BLE_ASSIGN_ATT_AUTHENTICATION_SIGNATURE_CMAC" params="(_x, _y)" value="ASSIGN_UNALIGNED_GENERIC_TYPE(((SM_MAC_t *)&amp;(((uint8_t *)(_x))[sizeof(uint32_t)])), (_y))"/>
+   <macro name="QAPI_BLE_READ_ATT_AUTHENTICATION_SIGNATURE_CMAC" params="(_x)" value="READ_UNALIGNED_GENERIC_TYPE((SM_MAC_t *)&amp;(((uint8_t *)(_x))[sizeof(uint32_t)]))"/>
+   <macro name="QAPI_BLE_ATT_PDU_HEADER_SIZE" value="(sizeof(qapi_BLE_ATT_PDU_Header_t))"/>
+   <macro name="QAPI_BLE_ATT_HANDLE_RANGE_SIZE" value="(sizeof(qapi_BLE_ATT_Handle_Range_t))"/>
+   <macro name="QAPI_BLE_ATT_ERROR_RESPONSE_PDU_SIZE" value="(sizeof(qapi_BLE_ATT_Error_Response_PDU_t))"/>
+   <macro name="QAPI_BLE_ATT_EXCHANGE_MTU_REQUEST_PDU_SIZE" value="(sizeof(qapi_BLE_ATT_Exchange_MTU_Request_PDU_t))"/>
+   <macro name="QAPI_BLE_ATT_EXCHANGE_MTU_RESPONSE_PDU_SIZE" value="(sizeof(qapi_BLE_ATT_Exchange_MTU_Response_PDU_t))"/>
+   <macro name="QAPI_BLE_ATT_FIND_INFORMATION_REQUEST_PDU_SIZE" value="(sizeof(qapi_BLE_ATT_Find_Information_Request_PDU_t))"/>
+   <macro name="QAPI_BLE_ATT_FIND_INFORMATION_RESPONSE_FORMAT_HANDLE_16_BIT_UUID" value="0x01"/>
+   <macro name="QAPI_BLE_ATT_FIND_INFORMATION_RESPONSE_FORMAT_HANDLE_128_BIT_UUID" value="0x02"/>
+   <macro name="QAPI_BLE_ATT_FIND_INFORMATION_RESPONSE_PDU_SIZE" params="(_x)" value="(QAPI_BLE_BTPS_STRUCTURE_OFFSET(qapi_BLE_ATT_Find_Information_Response_PDU_t, InformationData) + ((_x)*sizeof(uint8_t)))"/>
+   <macro name="QAPI_BLE_ATT_FIND_BY_TYPE_VALUE_REQUEST_PDU_SIZE" params="(_x)" value="(QAPI_BLE_BTPS_STRUCTURE_OFFSET(qapi_BLE_ATT_Find_By_Type_Value_Request_PDU_t, AttributeValue) + ((_x)*sizeof(uint8_t)))"/>
+   <macro name="QAPI_BLE_ATT_FIND_BY_TYPE_VALUE_RESPONSE_PDU_SIZE" params="(_x)" value="(QAPI_BLE_BTPS_STRUCTURE_OFFSET(qapi_BLE_ATT_Find_By_Type_Value_Response_PDU_t, HandleInformation) + ((_x)*sizeof(uint8_t)))"/>
+   <macro name="QAPI_BLE_ATT_READ_REQUEST_PDU_SIZE" value="(sizeof(qapi_BLE_ATT_Read_Request_PDU_t))"/>
+   <macro name="QAPI_BLE_ATT_READ_RESPONSE_PDU_SIZE" params="(_x)" value="(QAPI_BLE_BTPS_STRUCTURE_OFFSET(qapi_BLE_ATT_Read_Response_PDU_t, AttributeValue) + ((_x)*sizeof(uint8_t)))"/>
+   <macro name="QAPI_BLE_ATT_READ_BY_TYPE_REQUEST_PDU_SIZE" params="(_x)" value="(QAPI_BLE_BTPS_STRUCTURE_OFFSET(qapi_BLE_ATT_Read_By_Type_Request_PDU_t, AttributeType) + ((_x) * sizeof(uint8_t)))"/>
+   <macro name="QAPI_BLE_ATT_READ_BY_TYPE_RESPONSE_PDU_SIZE" params="(_x, _y)" value="(QAPI_BLE_BTPS_STRUCTURE_OFFSET(qapi_BLE_ATT_Read_By_Type_Response_PDU_t, AttributeDataList) + (((_x) * sizeof(uint8_t)) * (_y)))"/>
+   <macro name="QAPI_BLE_ATT_READ_BLOB_REQUEST_PDU_SIZE" value="(sizeof(qapi_BLE_ATT_Read_Blob_Request_PDU_t))"/>
+   <macro name="QAPI_BLE_ATT_READ_BLOB_RESPONSE_PDU_SIZE" params="(_x)" value="(QAPI_BLE_BTPS_STRUCTURE_OFFSET(qapi_BLE_ATT_Read_Blob_Response_PDU_t, PartAttributeValue) + ((_x)*sizeof(uint8_t)))"/>
+   <macro name="QAPI_BLE_ATT_READ_MULTIPLE_REQUEST_PDU_SIZE" params="(_x)" value="(QAPI_BLE_BTPS_STRUCTURE_OFFSET(qapi_BLE_ATT_Read_Multiple_Request_PDU_t, SetOfHandles) + ((_x)*sizeof(uint16_t)))"/>
+   <macro name="QAPI_BLE_ATT_READ_MULTIPLE_REQUEST_MINIMUM_HANDLES" value="2"/>
+   <macro name="QAPI_BLE_ATT_READ_MULTIPLE_REQUEST_MAXIMUM_HANDLES" value="((ATT_MTU_MAXIMUM - QAPI_BLE_ATT_READ_MULTIPLE_REQUEST_PDU_SIZE(0))/sizeof(uint16_t))"/>
+   <macro name="QAPI_BLE_ATT_READ_MULTIPLE_RESPONSE_PDU_SIZE" params="(_x)" value="(QAPI_BLE_BTPS_STRUCTURE_OFFSET(qapi_BLE_ATT_Read_Multiple_Response_PDU_t, AttributeValues) + ((_x)*sizeof(uint8_t)))"/>
+   <macro name="QAPI_BLE_ATT_READ_BY_GROUP_TYPE_REQUEST_PDU_SIZE" params="(_x)" value="(QAPI_BLE_BTPS_STRUCTURE_OFFSET(qapi_BLE_ATT_Read_By_Group_Type_Request_PDU_t, AttributeGroupType) + ((_x) * sizeof(uint8_t)))"/>
+   <macro name="QAPI_BLE_ATT_READ_BY_GROUP_TYPE_RESPONSE_PDU_SIZE" params="(_x, _y)" value="(QAPI_BLE_BTPS_STRUCTURE_OFFSET(qapi_BLE_ATT_Read_By_Group_Type_Response_PDU_t, AttributeDataList) + (((_x) * sizeof(uint8_t)) * (_y)))"/>
+   <macro name="QAPI_BLE_ATT_WRITE_REQUEST_PDU_SIZE" params="(_x)" value="(QAPI_BLE_BTPS_STRUCTURE_OFFSET(qapi_BLE_ATT_Write_Request_PDU_t, AttributeValue) + ((_x)*sizeof(uint8_t)))"/>
+   <macro name="QAPI_BLE_ATT_WRITE_RESPONSE_PDU_SIZE" value="(sizeof(qapi_BLE_ATT_Write_Response_PDU_t))"/>
+   <macro name="QAPI_BLE_ATT_WRITE_COMMAND_PDU_SIZE" params="(_x)" value="(QAPI_BLE_BTPS_STRUCTURE_OFFSET(qapi_BLE_ATT_Write_Command_PDU_t, AttributeValue) + ((_x)*sizeof(uint8_t)))"/>
+   <macro name="QAPI_BLE_ATT_SIGNED_WRITE_COMMAND_PDU_SIZE" params="(_x)" value="(QAPI_BLE_BTPS_STRUCTURE_OFFSET(qapi_BLE_ATT_Signed_Write_Command_PDU_t, AttributeValue) + ((_x)*sizeof(uint8_t)) + QAPI_BLE_ATT_AUTHENTICATION_SIGNATURE_DATA_SIZE)"/>
+   <macro name="QAPI_BLE_ATT_PREPARE_WRITE_REQUEST_PDU_SIZE" params="(_x)" value="(QAPI_BLE_BTPS_STRUCTURE_OFFSET(qapi_BLE_ATT_Prepare_Write_Request_PDU_t, PartAttributeValue) + ((_x)*sizeof(uint8_t)))"/>
+   <macro name="QAPI_BLE_ATT_PREPARE_WRITE_RESPONSE_PDU_SIZE" params="(_x)" value="(QAPI_BLE_BTPS_STRUCTURE_OFFSET(qapi_BLE_ATT_Prepare_Write_Response_PDU_t, PartAttributeValue) + ((_x)*sizeof(uint8_t)))"/>
+   <macro name="QAPI_BLE_ATT_EXECUTE_WRITE_REQUEST_PDU_SIZE" value="(sizeof(qapi_BLE_ATT_Execute_Write_Request_PDU_t))"/>
+   <macro name="QAPI_BLE_ATT_EXECUTE_WRITE_REQUEST_FLAGS_CANCEL_ALL" value="0x00"/>
+   <macro name="QAPI_BLE_ATT_EXECUTE_WRITE_REQUEST_FLAGS_IMMEDIATELY_WRITE" value="0x01"/>
+   <macro name="QAPI_BLE_ATT_EXECUTE_WRITE_RESPONSE_PDU_SIZE" value="(sizeof(qapi_BLE_ATT_Execute_Write_Response_PDU_t))"/>
+   <macro name="QAPI_BLE_ATT_HANDLE_VALUE_NOTIFICATION_PDU_SIZE" params="(_x)" value="(QAPI_BLE_BTPS_STRUCTURE_OFFSET(qapi_BLE_ATT_Handle_Value_Notification_PDU_t, AttributeValue) + ((_x)*sizeof(uint8_t)))"/>
+   <macro name="QAPI_BLE_ATT_HANDLE_VALUE_INDICATION_PDU_SIZE" params="(_x)" value="(QAPI_BLE_BTPS_STRUCTURE_OFFSET(qapi_BLE_ATT_Handle_Value_Indication_PDU_t, AttributeValue) + ((_x)*sizeof(uint8_t)))"/>
+   <macro name="QAPI_BLE_ATT_HANDLE_VALUE_CONFIRMATION_PDU_SIZE" value="(sizeof(qapi_BLE_ATT_Handle_Value_Confirmation_PDU_t))"/>
+   <structure name="qapi_BLE_ATT_Authentication_Signature_t">
+      <member attributes="value" name="Authentication_Signature0" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="Authentication_Signature1" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="Authentication_Signature2" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="Authentication_Signature3" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="Authentication_Signature4" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="Authentication_Signature5" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="Authentication_Signature6" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="Authentication_Signature7" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="Authentication_Signature8" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="Authentication_Signature9" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="Authentication_Signature10" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="Authentication_Signature11" type="qapi_BLE_NonAlignedByte_t"/>
+   </structure>
+   <structure name="qapi_BLE_ATT_PDU_Header_t">
+      <member attributes="value" name="Attribute_OpCode" type="qapi_BLE_NonAlignedByte_t"/>
+   </structure>
+   <structure name="qapi_BLE_ATT_Handle_Range_t">
+      <member attributes="value" name="StartingHandle" type="qapi_BLE_NonAlignedWord_t"/>
+      <member attributes="value" name="EndingHandle" type="qapi_BLE_NonAlignedWord_t"/>
+   </structure>
+   <structure name="qapi_BLE_ATT_Error_Response_PDU_t">
+      <member attributes="value" name="Attribute_OpCode" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="RequestOpCodeInError" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="AttributeHandleInError" type="qapi_BLE_NonAlignedWord_t"/>
+      <member attributes="value" name="ErrorCode" type="qapi_BLE_NonAlignedByte_t"/>
+   </structure>
+   <structure name="qapi_BLE_ATT_Exchange_MTU_Request_PDU_t">
+      <member attributes="value" name="Attribute_OpCode" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="ClientRxMTU" type="qapi_BLE_NonAlignedWord_t"/>
+   </structure>
+   <structure name="qapi_BLE_ATT_Exchange_MTU_Response_PDU_t">
+      <member attributes="value" name="Attribute_OpCode" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="ServerRxMTU" type="qapi_BLE_NonAlignedWord_t"/>
+   </structure>
+   <structure name="qapi_BLE_ATT_Find_Information_Request_PDU_t">
+      <member attributes="value" name="Attribute_OpCode" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="StartingHandle" type="qapi_BLE_NonAlignedWord_t"/>
+      <member attributes="value" name="EndingHandle" type="qapi_BLE_NonAlignedWord_t"/>
+   </structure>
+   <structure name="qapi_BLE_ATT_Read_Request_PDU_t">
+      <member attributes="value" name="Attribute_OpCode" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="AttributeHandle" type="qapi_BLE_NonAlignedWord_t"/>
+   </structure>
+   <structure name="qapi_BLE_ATT_Read_Blob_Request_PDU_t">
+      <member attributes="value" name="Attribute_OpCode" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="AttributeHandle" type="qapi_BLE_NonAlignedWord_t"/>
+      <member attributes="value" name="ValueOffset" type="qapi_BLE_NonAlignedWord_t"/>
+   </structure>
+   <structure name="qapi_BLE_ATT_Read_Multiple_Request_PDU_t">
+      <member attributes="value" name="Attribute_OpCode" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="2" name="SetOfHandles" type="qapi_BLE_NonAlignedWord_t"/>
+   </structure>
+   <structure name="qapi_BLE_ATT_Write_Response_PDU_t">
+      <member attributes="value" name="Attribute_OpCode" type="qapi_BLE_NonAlignedByte_t"/>
+   </structure>
+   <structure name="qapi_BLE_ATT_Execute_Write_Request_PDU_t">
+      <member attributes="value" name="Attribute_OpCode" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="Flags" type="qapi_BLE_NonAlignedByte_t"/>
+   </structure>
+   <structure name="qapi_BLE_ATT_Execute_Write_Response_PDU_t">
+      <member attributes="value" name="Attribute_OpCode" type="qapi_BLE_NonAlignedByte_t"/>
+   </structure>
+   <structure name="qapi_BLE_ATT_Handle_Value_Confirmation_PDU_t">
+      <member attributes="value" name="Attribute_OpCode" type="qapi_BLE_NonAlignedByte_t"/>
+   </structure>
+</header>

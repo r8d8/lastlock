@@ -1,0 +1,162 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="qapi_zb_cl.h"/>
+   <macro name="QAPI_ZB_CL_GROUPS_ATTR_ID_NAME_SUPPORT" value="(0x0000) "/>
+   <macro name="QAPI_ZB_CL_GROUPS_NAME_SUPPORT_GROUP_NAMES_SUPPORTED_MASK" value="(0x80)"/>
+   <macro name="QAPI_ZB_CL_GROUPS_CLIENT_COMMAND_ID_ADD_GROUP" value="(0x00) "/>
+   <macro name="QAPI_ZB_CL_GROUPS_CLIENT_COMMAND_ID_VIEW_GROUP" value="(0x01) "/>
+   <macro name="QAPI_ZB_CL_GROUPS_CLIENT_COMMAND_ID_GET_GROUP_MEMBERSHIP" value="(0x02) "/>
+   <macro name="QAPI_ZB_CL_GROUPS_CLIENT_COMMAND_ID_REMOVE_GROUP" value="(0x03) "/>
+   <macro name="QAPI_ZB_CL_GROUPS_CLIENT_COMMAND_ID_REMOVE_ALL_GROUPS" value="(0x04) "/>
+   <macro name="QAPI_ZB_CL_GROUPS_CLIENT_COMMAND_ID_ADD_GROUP_IF_IDENTIFYING" value="(0x05) "/>
+   <macro name="QAPI_ZB_CL_GROUPS_SERVER_COMMAND_ID_ADD_GROUP_RESPONSE" value="(0x00) "/>
+   <macro name="QAPI_ZB_CL_GROUPS_SERVER_COMMAND_ID_VIEW_GROUP_RESPONSE" value="(0x01) "/>
+   <macro name="QAPI_ZB_CL_GROUPS_SERVER_COMMAND_ID_GET_GROUP_MEMBERSHIP_RESPONSE" value="(0x02) "/>
+   <macro name="QAPI_ZB_CL_GROUPS_SERVER_COMMAND_ID_REMOVE_GROUP_RESPONSE" value="(0x03) "/>
+   <enum name="qapi_ZB_CL_Groups_Client_Event_Type_t">
+      <member name="QAPI_ZB_CL_GROUPS_CLIENT_EVENT_TYPE_ATTR_CUSTOM_READ_E" value="0"/>
+      <member name="QAPI_ZB_CL_GROUPS_CLIENT_EVENT_TYPE_ATTR_CUSTOM_WRITE_E" value="1"/>
+      <member name="QAPI_ZB_CL_GROUPS_CLIENT_EVENT_TYPE_DEFAULT_RESPONSE_E" value="2"/>
+      <member name="QAPI_ZB_CL_GROUPS_CLIENT_EVENT_TYPE_COMMAND_COMPLETE_E" value="3"/>
+      <member name="QAPI_ZB_CL_GROUPS_CLIENT_EVENT_TYPE_UNPARSED_RESPONSE_E" value="4"/>
+      <member name="QAPI_ZB_CL_GROUPS_CLIENT_EVENT_TYPE_ADD_GROUP_RESPONSE_E" value="5"/>
+      <member name="QAPI_ZB_CL_GROUPS_CLIENT_EVENT_TYPE_VIEW_GROUP_RESPONSE_E" value="6"/>
+      <member name="QAPI_ZB_CL_GROUPS_CLIENT_EVENT_TYPE_GET_GROUP_MEMBERSHIP_RESPONSE_E" value="7"/>
+      <member name="QAPI_ZB_CL_GROUPS_CLIENT_EVENT_TYPE_REMOVE_GROUP_RESPONSE_E" value="8"/>
+   </enum>
+   <enum name="qapi_ZB_CL_Groups_Server_Event_Type_t">
+      <member name="QAPI_ZB_CL_GROUPS_SERVER_EVENT_TYPE_ATTR_CUSTOM_READ_E" value="0"/>
+      <member name="QAPI_ZB_CL_GROUPS_SERVER_EVENT_TYPE_ATTR_CUSTOM_WRITE_E" value="1"/>
+      <member name="QAPI_ZB_CL_GROUPS_SERVER_EVENT_TYPE_UNPARSED_DATA_E" value="2"/>
+   </enum>
+   <structure name="qapi_ZB_CL_Groups_Add_Group_Response_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="GroupId" type="uint16_t"/>
+      <member attributes="value" name="Identifying" type="qbool_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Groups_View_Group_Response_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="GroupId" type="uint16_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="__strlen__" lengthVerified="yes" name="GroupName" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Groups_Get_Group_Membership_Response_t">
+      <member attributes="value" name="Capacity" type="uint8_t"/>
+      <member attributes="value" name="GroupCount" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="GroupCount" lengthVerified="yes" name="GroupList" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Groups_Remove_Group_Response_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="GroupId" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Groups_Client_Event_Data_t">
+      <member attributes="value" name="Event_Type" type="qapi_ZB_CL_Groups_Client_Event_Type_t"/>
+      <member attributes="union" name="Data">
+         <member attributes="value" name="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t"/>
+         <member attributes="value" name="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t"/>
+         <member attributes="value" name="Add_Group_Response" type="qapi_ZB_CL_Groups_Add_Group_Response_t"/>
+         <member attributes="value" name="View_Group_Response" type="qapi_ZB_CL_Groups_View_Group_Response_t"/>
+         <member attributes="value" name="Get_Group_Membership_Response" type="qapi_ZB_CL_Groups_Get_Group_Membership_Response_t"/>
+         <member attributes="value" name="Remove_Group_Response" type="qapi_ZB_CL_Groups_Remove_Group_Response_t"/>
+         <member attributes="value" name="Default_Response" type="qapi_ZB_CL_Default_Response_t"/>
+         <member attributes="value" name="Command_Complete" type="qapi_ZB_CL_Command_Complete_t"/>
+         <member attributes="value" name="Unparsed_Response" type="qapi_ZB_CL_Unparsed_Response_t"/>
+         <unionMap mapVerified="yes" name="Event_Type" type="qapi_ZB_CL_Groups_Client_Event_Type_t">
+            <mapEntry member="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t" value="QAPI_ZB_CL_GROUPS_CLIENT_EVENT_TYPE_ATTR_CUSTOM_READ_E"/>
+            <mapEntry member="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t" value="QAPI_ZB_CL_GROUPS_CLIENT_EVENT_TYPE_ATTR_CUSTOM_WRITE_E"/>
+            <mapEntry member="Add_Group_Response" type="qapi_ZB_CL_Groups_Add_Group_Response_t" value="QAPI_ZB_CL_GROUPS_CLIENT_EVENT_TYPE_ADD_GROUP_RESPONSE_E"/>
+            <mapEntry member="View_Group_Response" type="qapi_ZB_CL_Groups_View_Group_Response_t" value="QAPI_ZB_CL_GROUPS_CLIENT_EVENT_TYPE_VIEW_GROUP_RESPONSE_E"/>
+            <mapEntry member="Get_Group_Membership_Response" type="qapi_ZB_CL_Groups_Get_Group_Membership_Response_t" value="QAPI_ZB_CL_GROUPS_CLIENT_EVENT_TYPE_GET_GROUP_MEMBERSHIP_RESPONSE_E"/>
+            <mapEntry member="Remove_Group_Response" type="qapi_ZB_CL_Groups_Remove_Group_Response_t" value="QAPI_ZB_CL_GROUPS_CLIENT_EVENT_TYPE_REMOVE_GROUP_RESPONSE_E"/>
+            <mapEntry member="Default_Response" type="qapi_ZB_CL_Default_Response_t" value="QAPI_ZB_CL_GROUPS_CLIENT_EVENT_TYPE_DEFAULT_RESPONSE_E"/>
+            <mapEntry member="Command_Complete" type="qapi_ZB_CL_Command_Complete_t" value="QAPI_ZB_CL_GROUPS_CLIENT_EVENT_TYPE_COMMAND_COMPLETE_E"/>
+            <mapEntry member="Unparsed_Response" type="qapi_ZB_CL_Unparsed_Response_t" value="QAPI_ZB_CL_GROUPS_CLIENT_EVENT_TYPE_UNPARSED_RESPONSE_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_ZB_CL_Groups_Server_Event_Data_t">
+      <member attributes="value" name="Event_Type" type="qapi_ZB_CL_Groups_Server_Event_Type_t"/>
+      <member attributes="union" name="Data">
+         <member attributes="value" name="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t"/>
+         <member attributes="value" name="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t"/>
+         <member attributes="value" name="Unparsed_Data" type="qapi_ZB_CL_Unparsed_Data_t"/>
+         <unionMap mapVerified="yes" name="Event_Type" type="qapi_ZB_CL_Groups_Server_Event_Type_t">
+            <mapEntry member="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t" value="QAPI_ZB_CL_GROUPS_SERVER_EVENT_TYPE_ATTR_CUSTOM_READ_E"/>
+            <mapEntry member="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t" value="QAPI_ZB_CL_GROUPS_SERVER_EVENT_TYPE_ATTR_CUSTOM_WRITE_E"/>
+            <mapEntry member="Unparsed_Data" type="qapi_ZB_CL_Unparsed_Data_t" value="QAPI_ZB_CL_GROUPS_SERVER_EVENT_TYPE_UNPARSED_DATA_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <function name="qapi_ZB_CL_Groups_Create_Client">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Cluster_Info" type="qapi_ZB_CL_Cluster_Info_t"/>
+      <argument attributes="value" name="Event_CB" type="qapi_ZB_CL_Groups_Client_Event_CB_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Groups_Create_Server">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Cluster_Info" type="qapi_ZB_CL_Cluster_Info_t"/>
+      <argument attributes="value" name="IdentifyCluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="value" name="Event_CB" type="qapi_ZB_CL_Groups_Server_Event_CB_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Groups_Populate_Attributes">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Server" type="qbool_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="AttributeCount" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="AttributeCount" lengthVerified="yes" name="AttributeList" type="qapi_ZB_CL_Attribute_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Groups_Send_Add_Group">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="value" name="GroupId" type="uint16_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="__strlen__" lengthVerified="yes" name="GroupName" type="char"/>
+      <argument attributes="value" name="Identifying" type="qbool_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Groups_Send_View_Group">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="value" name="GroupId" type="uint16_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Groups_Send_Get_Group_Membership">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="value" name="GroupCount" type="uint8_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="GroupCount" lengthVerified="yes" name="GroupList" type="uint16_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Groups_Send_Remove_Group">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="value" name="GroupId" type="uint16_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Groups_Send_Remove_All_Groups">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+   </function>
+   <callback name="qapi_ZB_CL_Groups_Client_Event_CB_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Event_Data" type="qapi_ZB_CL_Groups_Client_Event_Data_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+      <createFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="" name="qapi_ZB_CL_Groups_Create_Client" param="CB_Param"/>
+      <destroyFunction ID="Cluster" funcSuccess="QAPI_OK" name="qapi_ZB_CL_Destroy_Cluster"/>
+   </callback>
+   <callback name="qapi_ZB_CL_Groups_Server_Event_CB_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Event_Data" type="qapi_ZB_CL_Groups_Server_Event_Data_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+      <createFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_Groups_Create_Server" param="CB_Param"/>
+      <destroyFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_Destroy_Cluster"/>
+   </callback>
+</header>

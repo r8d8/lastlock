@@ -1,0 +1,141 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="./qapi_ble_btapityp.h"/>
+   <include name="./qapi_ble_bttypes.h"/>
+   <include name="./qapi_ble_gatt.h"/>
+   <include name="./qapi_ble_ancstypes.h"/>
+   <macro name="QAPI_BLE_ANCS_ERROR_INVALID_PARAMETER" value="(-1000)"/>
+   <macro name="QAPI_BLE_ANCS_ERROR_INSUFFICIENT_RESOURCES" value="(-1001)"/>
+   <macro name="QAPI_BLE_ANCS_ERROR_INVALID_REQUEST_DATA" value="(-1002)"/>
+   <macro name="QAPI_BLE_ANCS_ERROR_INVALID_ATTRIBUTE_DATA" value="(-1003)"/>
+   <macro name="QAPI_BLE_ANCS_ERROR_UNKNOWN_ERROR" value="(-1004)"/>
+   <macro name="QAPI_BLE_ANCS_NOTIFICATION_RECEIVED_DATA_SIZE" value="(sizeof(qapi_BLE_ANCS_Notification_Received_Data_t))"/>
+   <macro name="QAPI_BLE_ANCS_NOTIFCATION_ATTRIBUTE_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_ANCS_Notification_Attribute_Request_Data_t))"/>
+   <macro name="QAPI_BLE_ANCS_APP_ATTRIBUTE_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_ANCS_App_Attribute_Request_Data_t))"/>
+   <macro name="QAPI_BLE_ANCS_APP_ATTRIBUTE_DATA_SIZE" params="(_x)" value="((sizeof(qapi_BLE_ANCS_App_Attribute_Data_t)) + (_x))"/>
+   <macro name="QAPI_BLE_ANCS_ATTRIBUTE_DATA_SIZE" value="(sizeof(qapi_BLE_ANCS_Attribute_Data_t))"/>
+   <macro name="QAPI_BLE_ANCS_PARSED_ATTRIBUTE_DATA_SIZE" value="(sizeof(qapi_BLE_ANCS_Parsed_Attribute_Data_t))"/>
+   <macro name="QAPI_BLE_ANCS_Free_Notification_Attribute_Request" params="(_x)" value="BTPS_FreeMemory(_x)"/>
+   <macro name="QAPI_BLE_ANCS_Free_App_Attribute_Request" params="(_x)" value="BTPS_FreeMemory(_x)"/>
+   <enum name="qapi_BLE_ANCS_Category_ID_t">
+      <member name="QAPI_BLE_ID_OTHER_E" value="QAPI_BLE_ANCS_CATEGORY_ID_OTHER"/>
+      <member name="QAPI_BLE_ID_INCOMING_CALL_E" value="QAPI_BLE_ANCS_CATEGORY_ID_INCOMING_CALL"/>
+      <member name="QAPI_BLE_ID_MISSED_CALL_E" value="QAPI_BLE_ANCS_CATEGORY_ID_MISSED_CALL"/>
+      <member name="QAPI_BLE_ID_VOICEMAIL_E" value="QAPI_BLE_ANCS_CATEGORY_ID_VOICEMAIL"/>
+      <member name="QAPI_BLE_ID_SOCIAL_E" value="QAPI_BLE_ANCS_CATEGORY_ID_SOCIAL"/>
+      <member name="QAPI_BLE_ID_SCHEDULE_E" value="QAPI_BLE_ANCS_CATEGORY_ID_SCHEDULE"/>
+      <member name="QAPI_BLE_ID_EMAIL_E" value="QAPI_BLE_ANCS_CATEGORY_ID_EMAIL"/>
+      <member name="QAPI_BLE_ID_NEWS_E" value="QAPI_BLE_ANCS_CATEGORY_ID_NEWS"/>
+      <member name="QAPI_BLE_ID_HEALTH_AND_FITNESS_E" value="QAPI_BLE_ANCS_CATEGORY_ID_HEALTH_AND_FITNESS"/>
+      <member name="QAPI_BLE_ID_BUSINESS_AND_FINANCE_E" value="QAPI_BLE_ANCS_CATEGORY_ID_BUSINESS_AND_FINANCE"/>
+      <member name="QAPI_BLE_ID_LOCATION_E" value="QAPI_BLE_ANCS_CATEGORY_ID_LOCATION"/>
+      <member name="QAPI_BLE_ID_ENTERTAINMENT_E" value="QAPI_BLE_ANCS_CATEGORY_ID_ENTERTAINMENT"/>
+   </enum>
+   <enum name="qapi_BLE_ANCS_Event_ID_t">
+      <member name="QAPI_BLE_ID_NOTIFICATION_ADDED_E" value="QAPI_BLE_ANCS_EVENT_ID_NOTIFICATION_ADDED"/>
+      <member name="QAPI_BLE_ID_NOTIFICATION_MODIFIED_E" value="QAPI_BLE_ANCS_EVENT_ID_NOTIFICATION_MODIFIED"/>
+      <member name="QAPI_BLE_ID_NOTIFICATION_REMOVED_E" value="QAPI_BLE_ANCS_EVENT_ID_NOTIFICATION_REMOVED"/>
+   </enum>
+   <enum name="qapi_BLE_ANCS_Command_ID_t">
+      <member name="QAPI_BLE_ID_GET_NOTIFICATION_ATTRIBUTES_E" value="QAPI_BLE_ANCS_COMMAND_ID_GET_NOTIFICATION_ATTRIBUTES"/>
+      <member name="QAPI_BLE_ID_GET_APP_ATTRIBUTES_E" value="QAPI_BLE_ANCS_COMMAND_ID_GET_APP_ATTRIBUTES"/>
+   </enum>
+   <enum name="qapi_BLE_ANCS_Notification_Attribute_ID_t">
+      <member name="QAPI_BLE_ID_APP_IDENTIFIER_E" value="QAPI_BLE_ANCS_NOTIFICATION_ATTRIBUTE_ID_APP_IDENTIFIER"/>
+      <member name="QAPI_BLE_ID_TITLE_E" value="QAPI_BLE_ANCS_NOTIFICATION_ATTRIBUTE_ID_TITLE"/>
+      <member name="QAPI_BLE_ID_SUBTITLE_E" value="QAPI_BLE_ANCS_NOTIFICATION_ATTRIBUTE_ID_SUBTITLE"/>
+      <member name="QAPI_BLE_ID_MESSAGE_E" value="QAPI_BLE_ANCS_NOTIFICATION_ATTRIBUTE_ID_MESSAGE"/>
+      <member name="QAPI_BLE_ID_MESSAGE_SIZE_E" value="QAPI_BLE_ANCS_NOTIFICATION_ATTRIBUTE_ID_MESSAGE_SIZE"/>
+      <member name="QAPI_BLE_ID_DATE_E" value="QAPI_BLE_ANCS_NOTIFICATION_ATTRIBUTE_ID_DATE"/>
+   </enum>
+   <enum name="qapi_BLE_ANCS_App_Attribute_ID_t">
+      <member name="QAPI_BLE_ID_DISPLAY_NAME_E" value="QAPI_BLE_ANCS_APP_ATTRIBUTE_ID_DISPLAY_NAME"/>
+   </enum>
+   <enum name="qapi_BLE_ANCS_Attribute_Data_Type_t">
+      <member name="QAPI_BLE_DT_NOTIFICATION_E" value="0"/>
+      <member name="QAPI_BLE_DT_APPLICATION_E" value="1"/>
+   </enum>
+   <structure name="qapi_BLE_ANCS_Notification_Received_Data_t">
+      <member attributes="value" name="EventID" type="qapi_BLE_ANCS_Event_ID_t"/>
+      <member attributes="value" name="EventFlags" type="uint8_t"/>
+      <member attributes="value" name="CategoryID" type="qapi_BLE_ANCS_Category_ID_t"/>
+      <member attributes="value" name="CategoryCount" type="uint8_t"/>
+      <member attributes="value" name="NotificationUID" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_BLE_ANCS_Notification_Attribute_Request_Data_t">
+      <member attributes="value" name="NotificationAttributeID" type="qapi_BLE_ANCS_Notification_Attribute_ID_t"/>
+      <member attributes="value" name="AttributeMaxLength" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_ANCS_App_Attribute_Request_Data_t">
+      <member attributes="value" name="AppAttributeID" type="qapi_BLE_ANCS_App_Attribute_ID_t"/>
+      <member attributes="value" name="AttributeMaxLength" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_ANCS_App_Attribute_Data_t">
+      <member attributes="value" name="AttributeID" type="qapi_BLE_ANCS_App_Attribute_ID_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="AttributeData" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_ANCS_Attribute_Data_t">
+      <member attributes="value" name="Type" type="qapi_BLE_ANCS_Attribute_Data_Type_t"/>
+      <member attributes="union" name="AttributeID">
+         <member attributes="value" name="NotificationAttributeID" type="qapi_BLE_ANCS_Notification_Attribute_ID_t"/>
+         <member attributes="value" name="AppAttributeID" type="qapi_BLE_ANCS_App_Attribute_ID_t"/>
+         <unionMap mapVerified="yes" name="Type" type="qapi_BLE_ANCS_Attribute_Data_Type_t">
+            <mapEntry member="NotificationAttributeID" type="qapi_BLE_ANCS_Notification_Attribute_ID_t" value="QAPI_BLE_DT_NOTIFICATION_E"/>
+            <mapEntry member="AppAttributeID" type="qapi_BLE_ANCS_App_Attribute_ID_t" value="QAPI_BLE_DT_APPLICATION_E"/>
+         </unionMap>
+      </member>
+      <member attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="AttributeData" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_ANCS_Parsed_Attribute_Data_t">
+      <member attributes="value" name="Type" type="qapi_BLE_ANCS_Attribute_Data_Type_t"/>
+      <member attributes="union" name="RequestIdentifier">
+         <member attributes="value" name="NotificationUID" type="uint32_t"/>
+         <member attributes="ptr" iotype="in" name="AppIdentifier" type="uint8_t"/>
+         <unionMap mapVerified="yes" name="Type" type="qapi_BLE_ANCS_Attribute_Data_Type_t">
+            <mapEntry member="NotificationUID" type="uint32_t" value="QAPI_BLE_DT_NOTIFICATION_E"/>
+            <mapEntry member="AppIdentifier" type="uint8_t" value="QAPI_BLE_DT_APPLICATION_E"/>
+         </unionMap>
+      </member>
+      <member attributes="value" name="NumberOfAttributes" type="uint32_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="NumberOfAttributes" lengthVerified="yes" name="AttributeData" type="qapi_BLE_ANCS_Attribute_Data_t"/>
+   </structure>
+   <function name="qapi_BLE_ANCS_Decode_Notification_Received_Data">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BufferLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="BufferLength" lengthVerified="yes" name="Buffer" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="NotificationReceivedData" type="qapi_BLE_ANCS_Notification_Received_Data_t"/>
+   </function>
+   <function name="qapi_BLE_ANCS_Encode_Notification_Attribute_Request">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="NotificationUID" type="uint32_t"/>
+      <argument attributes="value" name="NumberAttributes" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="NumberAttributes" lengthVerified="yes" name="NotificationAttributes" type="qapi_BLE_ANCS_Notification_Attribute_Request_Data_t"/>
+      <argument attributes="doubleptr" iotype="out" lengthParam="TotalLength" lengthVerified="yes" name="Buffer" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="TotalLength" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_ANCS_Encode_App_Attribute_Request">
+      <return attributes="value" type="int"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="AppIdentifier" type="char"/>
+      <argument attributes="value" name="NumberAttributes" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="NumberAttributes" lengthVerified="yes" name="AppAttributes" type="qapi_BLE_ANCS_App_Attribute_Request_Data_t"/>
+      <argument attributes="doubleptr" iotype="out" lengthParam="TotalLength" lengthVerified="yes" name="Buffer" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="TotalLength" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_ANCS_Is_Buffer_Complete">
+      <return attributes="value" type="boolean_t"/>
+      <argument attributes="value" name="BufferLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="BufferLength" lengthVerified="yes" name="Buffer" type="uint8_t"/>
+      <argument attributes="value" name="NumberAttributesRequested" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_ANCS_Decode_Attribute_Data">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="NumberAttributes" type="uint32_t"/>
+      <argument attributes="value" name="RawDataLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="RawDataLength" lengthVerified="yes" name="RawAttributeData" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ParsedAttributeData" type="qapi_BLE_ANCS_Parsed_Attribute_Data_t"/>
+   </function>
+   <function name="qapi_BLE_ANCS_Free_Parsed_Attribute_Data">
+      <return attributes="value" type="void"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name=" ParsedAttributeData" type="qapi_BLE_ANCS_Parsed_Attribute_Data_t"/>
+   </function>
+</header>

@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="qapi/qapi_types.h"/>
+   <include name="qapi/qapi_status.h"/>
+   <include name="qapi_zb_cl.h"/>
+   <macro name="QAPI_ZB_CL_TIME_ATTR_ID_TIME" value="(0x0000) "/>
+   <macro name="QAPI_ZB_CL_TIME_ATTR_ID_TIME_STATUS" value="(0x0001) "/>
+   <macro name="QAPI_ZB_CL_TIME_ATTR_ID_TIME_ZONE" value="(0x0002) "/>
+   <macro name="QAPI_ZB_CL_TIME_ATTR_ID_DST_START" value="(0x0003) "/>
+   <macro name="QAPI_ZB_CL_TIME_ATTR_ID_DST_END" value="(0x0004) "/>
+   <macro name="QAPI_ZB_CL_TIME_ATTR_ID_DST_SHIFT" value="(0x0005) "/>
+   <macro name="QAPI_ZB_CL_TIME_ATTR_ID_STANDARD_TIME" value="(0x0006) "/>
+   <macro name="QAPI_ZB_CL_TIME_ATTR_ID_LOCAL_TIME" value="(0x0007) "/>
+   <macro name="QAPI_ZB_CL_TIME_ATTR_ID_LAST_SET_TIME" value="(0x0008) "/>
+   <macro name="QAPI_ZB_CL_TIME_ATTR_ID_VALID_UNTIL_TIME" value="(0x0009) "/>
+   <macro name="QAPI_ZB_CL_TIME_TIME_STATUS_MASK_MASTER" value="(0x01) "/>
+   <macro name="QAPI_ZB_CL_TIME_TIME_STATUS_MASK_SYNCHRONIZED" value="(0x02) "/>
+   <macro name="QAPI_ZB_CL_TIME_TIME_STATUS_MASK_MASTER_ZONE_DST" value="(0x04) "/>
+   <macro name="QAPI_ZB_CL_TIME_TIME_STATUS_MASK_SUPERSEDING" value="(0x08) "/>
+   <function name="qapi_ZB_CL_Time_Server_Read_Attribute">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="AttrId" type="uint16_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="Length" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="Length" lengthVerified="yes" name="Data" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Time_Server_Write_Attribute">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="AttrId" type="uint16_t"/>
+      <argument attributes="value" name="Length" type="uint16_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="Length" lengthVerified="yes" name="Data" type="uint8_t"/>
+   </function>
+</header>

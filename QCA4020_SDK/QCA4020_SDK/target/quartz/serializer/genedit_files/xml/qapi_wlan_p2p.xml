@@ -1,0 +1,356 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="&lt;stdint.h&gt;"/>
+   <include name="qapi_wlan_base.h"/>
+   <macro name="__QAPI_WLAN_P2P_MAX_NOA_DESCRIPTORS" value="4"/>
+   <macro name="__QAPI_WLAN_P2P_MAX_PASSPHRASE_STR_LEN" value="9"/>
+   <macro name="__QAPI_WLAN_P2P_WPS_DEV_TYPE_LEN" value="8"/>
+   <macro name="__QAPI_WLAN_P2P_WPS_MAX_DEVNAME_LEN" value="32"/>
+   <macro name="__QAPI_WLAN_P2P_PERSISTENT_MAX_PASSPHRASE_LEN" value="32"/>
+   <macro name="__QAPI_WLAN_P2P_MAX_LIST_COUNT" value="8"/>
+   <macro name="__QAPI_WLAN_P2P_EVT_BUF_SIZE" value="512"/>
+   <macro name="__QAPI_WLAN_P2P_REQ_TO_AUTH_EVENTID" value="0"/>
+   <macro name="__QAPI_WLAN_P2P_GO_NEG_RESULT_EVENTID" value="1"/>
+   <macro name="__QAPI_WLAN_P2P_INVITE_REQ_EVENTID" value="2"/>
+   <macro name="__QAPI_WLAN_P2P_INVITE_RCVD_RESULT_EVENTID" value="3"/>
+   <macro name="__QAPI_WLAN_P2P_INVITE_SENT_RESULT_EVENTID" value="4"/>
+   <macro name="__QAPI_WLAN_P2P_PROV_DISC_RESP_EVENTID" value="5"/>
+   <macro name="__QAPI_WLAN_P2P_PROV_DISC_REQ_EVENTID" value="6"/>
+   <macro name="__QAPI_WLAN_P2P_SDPD_RX_EVENTID" value="7"/>
+   <macro name="__QAPI_WLAN_P2P_WPS_CONFIG_USBA" value="0x0001"/>
+   <macro name="__QAPI_WLAN_P2P_WPS_CONFIG_ETHERNET" value="0x0002"/>
+   <macro name="__QAPI_WLAN_P2P_WPS_CONFIG_LABEL" value="0x0004"/>
+   <macro name="__QAPI_WLAN_P2P_WPS_CONFIG_EXT_NFC_TOKEN" value="0x0010"/>
+   <macro name="__QAPI_WLAN_P2P_WPS_CONFIG_INT_NFC_TOKEN" value="0x0020"/>
+   <macro name="__QAPI_WLAN_P2P_WPS_CONFIG_NFC_INTERFACE" value="0x0040"/>
+   <macro name="__QAPI_WLAN_P2P_WPS_CONFIG_DISPLAY" value="0x0008"/>
+   <macro name="__QAPI_WLAN_P2P_WPS_CONFIG_PUSHBUTTON" value="0x0080"/>
+   <macro name="__QAPI_WLAN_P2P_WPS_CONFIG_KEYPAD" value="0x0100"/>
+   <macro name="__QAPI_WLAN_P2P_DEV" value="(1&lt;&lt;0)"/>
+   <macro name="__QAPI_WLAN_P2P_CLIENT" value="(1&lt;&lt;1)"/>
+   <macro name="__QAPI_WLAN_P2P_GO" value="(1&lt;&lt;2)"/>
+   <macro name="__QAPI_WLAN_P2P_PERSISTENT_FLAG" value="0x80"/>
+   <macro name="__QAPI_WLAN_P2P_AUTO_CHANNEL" value="0"/>
+   <macro name="__QAPI_WLAN_P2P_DEFAULT_CHAN" value="1"/>
+   <enum name="qapi_WLAN_P2P_WPS_Method_e"/>
+   <enum name="qapi_WLAN_P2P_Persistent_e"/>
+   <enum name="qapi_WLAN_P2P_Inv_Role_e"/>
+   <enum name="qapi_WLAN_P2P_Disc_Type_e"/>
+   <structure name="qapi_WLAN_P2P_Config_Params_t">
+      <member attributes="value" name="go_Intent" type="uint32_t"/>
+      <member attributes="value" name="listen_Chan" type="uint32_t"/>
+      <member attributes="value" name="op_Chan" type="uint32_t"/>
+      <member attributes="value" name="age" type="uint32_t"/>
+      <member attributes="value" name="reg_Class" type="uint32_t"/>
+      <member attributes="value" name="op_Reg_Class" type="uint32_t"/>
+      <member attributes="value" name="max_Node_Count" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_WLAN_P2P_Opps_Params_t">
+      <member attributes="value" name="enable" type="qapi_WLAN_Enable_e"/>
+      <member attributes="value" name="ct_Win" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_WLAN_P2P_Noa_Descriptor_Params_t">
+      <member attributes="value" name="duration_Us" type="uint32_t"/>
+      <member attributes="value" name="interval_Us" type="uint32_t"/>
+      <member attributes="value" name="start_Offset_Us" type="uint32_t"/>
+      <member attributes="value" name="type_Count" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_WLAN_P2P_Noa_Params_t">
+      <member attributes="value" name="enable" type="uint8_t"/>
+      <member attributes="value" name="count" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_P2P_MAX_NOA_DESCRIPTORS" name="noa_Desc_Params" type="qapi_WLAN_P2P_Noa_Descriptor_Params_t"/>
+   </structure>
+   <structure name="qapi_WLAN_P2P_Go_Params_t">
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_PASSPHRASE_LEN" name="passphrase" type="char"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAX_SSID_LEN" name="ssid" type="char"/>
+      <member attributes="value" name="ssid_Len" type="uint32_t"/>
+      <member attributes="value" name="passphrase_Len" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_WLAN_P2P_Node_List_Params_t">
+      <member attributes="value" name="buffer_Length" type="uint32_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="buffer_Length" lengthVerified="no" name="node_List_Buffer" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_P2P_Device_Lite_t">
+      <member attributes="value" name="wps_Method" type="uint32_t"/>
+      <member attributes="value" name="config_Methods" type="uint16_t"/>
+      <member attributes="value" name="oper_Freq" type="uint16_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="8" name="pri_Dev_Type" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAC_LEN" name="p2p_Device_Addr" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAC_LEN" name="interface_Addr" type="uint8_t"/>
+      <member attributes="value" name="dev_Capab" type="uint8_t"/>
+      <member attributes="value" name="group_Capab" type="uint8_t"/>
+      <member attributes="value" name="persistent_Grp" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="33" name="device_Name" type="int8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_P2P_Network_List_Params_t">
+      <member attributes="value" name="buffer_Length" type="uint32_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="buffer_Length" lengthVerified="no" name="network_List_Buffer" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_P2P_Persistent_Mac_List_t">
+      <member attributes="value" name="role" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAC_LEN" name="macaddr" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAX_SSID_LEN" name="ssid" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_P2P_PERSISTENT_MAX_PASSPHRASE_LEN" name="passphrase" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_P2P_Invite_Info_t">
+      <member attributes="value" name="force_Freq" type="uint16_t"/>
+      <member attributes="value" name="status" type="uint8_t"/>
+      <member attributes="value" name="dialog_Token" type="uint8_t"/>
+      <member attributes="value" name="is_GO" type="int32_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAC_LEN" name="group_Bss_ID" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_P2P_SSID_t">
+      <member attributes="value" name="ssid_Length" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAX_SSID_LEN" name="ssid" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_P2P_Go_Neg_Result_Event_t">
+      <member attributes="value" name="freq" type="uint16_t"/>
+      <member attributes="value" name="status" type="int8_t"/>
+      <member attributes="value" name="role_Go" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAX_SSID_LEN" name="ssid" type="uint8_t"/>
+      <member attributes="value" name="ssid_Len" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_P2P_MAX_PASSPHRASE_STR_LEN" name="pass_Phrase" type="int8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAC_LEN" name="peer_Device_Addr" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAC_LEN" name="peer_Interface_Addr" type="uint8_t"/>
+      <member attributes="value" name="wps_Method" type="uint8_t"/>
+      <member attributes="value" name="persistent_Grp" type="uint8_t"/>
+      <member attributes="value" name="passphrase_Len" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_P2P_Req_To_Auth_Event_t">
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAC_LEN" name="sa" type="uint8_t"/>
+      <member attributes="value" name="dialog_Token" type="uint8_t"/>
+      <member attributes="value" name="dev_Password_Id" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_WLAN_P2P_Prov_Disc_Req_Event_t">
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAC_LEN" name="sa" type="uint8_t"/>
+      <member attributes="value" name="wps_Config_Method" type="uint16_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAC_LEN" name="dev_Addr" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_P2P_WPS_DEV_TYPE_LEN" name="pri_Dev_Type" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_P2P_WPS_MAX_DEVNAME_LEN" name="device_Name" type="uint8_t"/>
+      <member attributes="value" name="dev_Name_Len" type="uint8_t"/>
+      <member attributes="value" name="dev_Config_Methods" type="uint16_t"/>
+      <member attributes="value" name="device_Capab" type="uint8_t"/>
+      <member attributes="value" name="group_Capab" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_P2P_Sdpd_Rx_Event_t">
+      <member attributes="value" name="type" type="uint8_t"/>
+      <member attributes="value" name="transaction_Status" type="uint8_t"/>
+      <member attributes="value" name="dialog_Token" type="uint8_t"/>
+      <member attributes="value" name="frag_Id" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAC_LEN" name="peer_Addr" type="uint8_t"/>
+      <member attributes="value" name="freq" type="uint16_t"/>
+      <member attributes="value" name="status_Code" type="uint16_t"/>
+      <member attributes="value" name="comeback_Delay" type="uint16_t"/>
+      <member attributes="value" name="tlv_Length" type="uint16_t"/>
+      <member attributes="value" name="update_Indic" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_WLAN_P2P_Invite_Req_Event_t">
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAC_LEN" name="sa" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAC_LEN" name="bssid" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAC_LEN" name="go_Dev_Addr" type="uint8_t"/>
+      <member attributes="value" name="ssid" type="qapi_WLAN_P2P_SSID_t"/>
+      <member attributes="value" name="is_Persistent" type="uint8_t"/>
+      <member attributes="value" name="dialog_Token" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_P2P_Invite_Rcvd_Result_Event_t">
+      <member attributes="value" name="oper_Freq" type="uint16_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAC_LEN" name="sa" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAC_LEN" name="bssid" type="uint8_t"/>
+      <member attributes="value" name="is_Bssid_Valid" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAC_LEN" name="go_Dev_Addr" type="uint8_t"/>
+      <member attributes="value" name="ssid" type="qapi_WLAN_P2P_SSID_t"/>
+      <member attributes="value" name="status" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_P2P_Invite_Sent_Result_Event_t">
+      <member attributes="value" name="status" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAC_LEN" name="bssid" type="uint8_t"/>
+      <member attributes="value" name="is_Bssid_Valid" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_P2P_Prov_Disc_Resp_Event_t">
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAC_LEN" name="peer" type="uint8_t"/>
+      <member attributes="value" name="config_Methods" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_WLAN_P2P_Event_Cb_Info_t">
+      <member attributes="value" name="event_ID" type="uint32_t"/>
+      <member attributes="union" name="WLAN_P2P_Event_Info">
+         <member attributes="value" name="go_Neg_Result_Event" type="qapi_WLAN_P2P_Go_Neg_Result_Event_t"/>
+         <member attributes="value" name="req_Auth_Event" type="qapi_WLAN_P2P_Req_To_Auth_Event_t"/>
+         <member attributes="value" name="prov_Disc_Req_Event" type="qapi_WLAN_P2P_Prov_Disc_Req_Event_t"/>
+         <member attributes="value" name="serv_Disc_Recv_Event" type="qapi_WLAN_P2P_Sdpd_Rx_Event_t"/>
+         <member attributes="value" name="invite_Req_Event" type="qapi_WLAN_P2P_Invite_Req_Event_t"/>
+         <member attributes="value" name="invite_Rcvd_Result_Event" type="qapi_WLAN_P2P_Invite_Rcvd_Result_Event_t"/>
+         <member attributes="value" name="invite_Sent_Result_Event" type="qapi_WLAN_P2P_Invite_Sent_Result_Event_t"/>
+         <member attributes="value" name="prov_Disc_Resp_Event" type="qapi_WLAN_P2P_Prov_Disc_Resp_Event_t"/>
+         <unionMap mapVerified="yes" name="event_ID" type="uint32_t">
+            <mapEntry member="go_Neg_Result_Event" type="qapi_WLAN_P2P_Go_Neg_Result_Event_t" value="__QAPI_WLAN_P2P_GO_NEG_RESULT_EVENTID"/>
+            <mapEntry member="req_Auth_Event" type="qapi_WLAN_P2P_Req_To_Auth_Event_t" value="__QAPI_WLAN_P2P_REQ_TO_AUTH_EVENTID"/>
+            <mapEntry member="prov_Disc_Req_Event" type="qapi_WLAN_P2P_Prov_Disc_Req_Event_t" value="__QAPI_WLAN_P2P_PROV_DISC_REQ_EVENTID"/>
+            <mapEntry member="serv_Disc_Recv_Event" type="qapi_WLAN_P2P_Sdpd_Rx_Event_t" value="__QAPI_WLAN_P2P_SDPD_RX_EVENTID"/>
+            <mapEntry member="invite_Req_Event" type="qapi_WLAN_P2P_Invite_Req_Event_t" value="__QAPI_WLAN_P2P_INVITE_REQ_EVENTID"/>
+            <mapEntry member="invite_Rcvd_Result_Event" type="qapi_WLAN_P2P_Invite_Rcvd_Result_Event_t" value="__QAPI_WLAN_P2P_INVITE_RCVD_RESULT_EVENTID"/>
+            <mapEntry member="invite_Sent_Result_Event" type="qapi_WLAN_P2P_Invite_Sent_Result_Event_t" value="__QAPI_WLAN_P2P_INVITE_SENT_RESULT_EVENTID"/>
+            <mapEntry member="prov_Disc_Resp_Event" type="qapi_WLAN_P2P_Prov_Disc_Resp_Event_t" value="__QAPI_WLAN_P2P_PROV_DISC_RESP_EVENTID"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_WLAN_P2P_Listen_Channel_t">
+      <member attributes="value" name="reg_Class" type="uint8_t"/>
+      <member attributes="value" name="channel" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_P2P_Set_Ssid_Postfix_t">
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAX_SSID_LEN-9" name="ssid_Postfix" type="uint8_t"/>
+      <member attributes="value" name="ssid_Postfix_Length" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_P2P_Set_Intra_Bss_t">
+      <member attributes="value" name="flag" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_P2P_Set_Cross_Connect_t">
+      <member attributes="value" name="flag" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_P2P_Set_Concurrent_Mode_t">
+      <member attributes="value" name="flag" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_P2P_Set_Go_Intent_t">
+      <member attributes="value" name="value" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_P2P_Set_Dev_Name_t">
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_P2P_WPS_MAX_DEVNAME_LEN+1" name="dev_Name" type="uint8_t"/>
+      <member attributes="value" name="dev_Name_Len" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_P2P_Set_Mode_t">
+      <member attributes="value" name="p2pmode" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_P2P_Set_Cck_Rates_t">
+      <member attributes="value" name="enable" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_P2P_Set_Cmd_t">
+      <member attributes="value" name="config_Id" type="uint8_t"/>
+      <member attributes="union" name="val">
+         <member attributes="value" name="listen_Channel" type="qapi_WLAN_P2P_Listen_Channel_t"/>
+         <member attributes="value" name="cross_Conn" type="qapi_WLAN_P2P_Set_Cross_Connect_t"/>
+         <member attributes="value" name="ssid_Postfix" type="qapi_WLAN_P2P_Set_Ssid_Postfix_t"/>
+         <member attributes="value" name="intra_Bss" type="qapi_WLAN_P2P_Set_Intra_Bss_t"/>
+         <member attributes="value" name="concurrent_Mode" type="qapi_WLAN_P2P_Set_Concurrent_Mode_t"/>
+         <member attributes="value" name="go_Intent" type="qapi_WLAN_P2P_Set_Go_Intent_t"/>
+         <member attributes="value" name="device_Name" type="qapi_WLAN_P2P_Set_Dev_Name_t"/>
+         <member attributes="value" name="mode" type="qapi_WLAN_P2P_Set_Mode_t"/>
+         <member attributes="value" name="cck_Rates" type="qapi_WLAN_P2P_Set_Cck_Rates_t"/>
+         <unionMap mapVerified="yes" name="config_Id" type="uint8_t">
+            <mapEntry member="listen_Channel" type="qapi_WLAN_P2P_Listen_Channel_t" value="__QAPI_WLAN_PARAM_GROUP_P2P_LISTEN_CHANNEL"/>
+            <mapEntry member="ssid_Postfix" type="qapi_WLAN_P2P_Set_Ssid_Postfix_t" value="__QAPI_WLAN_PARAM_GROUP_P2P_SSID_POSTFIX"/>
+            <mapEntry member="intra_Bss" type="qapi_WLAN_P2P_Set_Intra_Bss_t" value="__QAPI_WLAN_PARAM_GROUP_P2P_INTRA_BSS"/>
+            <mapEntry member="go_Intent" type="qapi_WLAN_P2P_Set_Go_Intent_t" value="__QAPI_WLAN_PARAM_GROUP_P2P_GO_INTENT"/>
+            <mapEntry member="device_Name" type="qapi_WLAN_P2P_Set_Dev_Name_t" value="__QAPI_WLAN_PARAM_GROUP_P2P_DEV_NAME"/>
+            <mapEntry member="mode" type="qapi_WLAN_P2P_Set_Mode_t" value="__QAPI_WLAN_PARAM_GROUP_P2P_OP_MODE"/>
+            <mapEntry member="cck_Rates" type="qapi_WLAN_P2P_Set_Cck_Rates_t" value="__QAPI_WLAN_PARAM_GROUP_P2P_CCK_RATES"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_WLAN_P2P_Connect_Cmd_t">
+      <member attributes="value" name="go_Oper_Freq" type="uint16_t"/>
+      <member attributes="value" name="dialog_Token" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAC_LEN" name="peer_Addr" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAC_LEN" name="own_Interface_Addr" type="uint8_t"/>
+      <member attributes="value" name="go_Dev_Dialog_Token" type="uint8_t"/>
+      <member attributes="value" name="peer_Go_Ssid" type="qapi_WLAN_P2P_SSID_t"/>
+      <member attributes="value" name="wps_Method" type="uint8_t"/>
+      <member attributes="value" name="dev_Capab" type="uint8_t"/>
+      <member attributes="value" name="dev_Auth" type="uint8_t"/>
+      <member attributes="value" name="go_Intent" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_P2P_Find_Cmd_t">
+      <member attributes="value" name="timeout" type="uint32_t"/>
+      <member attributes="value" name="type" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_P2P_Prov_Disc_Req_Cmd_t">
+      <member attributes="value" name="wps_Method" type="uint16_t"/>
+      <member attributes="value" name="dialog_Token" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAC_LEN" name="peer" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_P2P_Invite_Cmd_t">
+      <member attributes="value" name="role" type="uint8_t"/>
+      <member attributes="value" name="listen_Freq" type="uint16_t"/>
+      <member attributes="value" name="force_Freq" type="uint16_t"/>
+      <member attributes="value" name="dialog_Token" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAC_LEN" name="peer_Addr" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAC_LEN" name="bssid" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAC_LEN" name="go_Dev_Addr" type="uint8_t"/>
+      <member attributes="value" name="ssid" type="qapi_WLAN_P2P_SSID_t"/>
+      <member attributes="value" name="is_Persistent" type="uint8_t"/>
+      <member attributes="value" name="wps_Method" type="uint8_t"/>
+   </structure>
+   <function name="qapi_WLAN_P2P_Enable">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="device_ID" type="uint8_t"/>
+      <argument attributes="value" name="enable" type="qapi_WLAN_Enable_e"/>
+   </function>
+   <function name="qapi_WLAN_P2P_Cancel">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="device_ID" type="uint8_t"/>
+   </function>
+   <function name="qapi_WLAN_P2P_Find">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="device_ID" type="uint8_t"/>
+      <argument attributes="value" name="disc_Type" type="qapi_WLAN_P2P_Disc_Type_e"/>
+      <argument attributes="value" name="timeout_In_Secs" type="uint32_t"/>
+   </function>
+   <function name="qapi_WLAN_P2P_Stop_Find">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="device_ID" type="uint8_t"/>
+   </function>
+   <function name="qapi_WLAN_P2P_Prov">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="device_ID" type="uint8_t"/>
+      <argument attributes="value" name="wps_Method" type="uint16_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="no" name="mac" type="uint8_t"/>
+   </function>
+   <function name="qapi_WLAN_P2P_Auth">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="device_ID" type="uint8_t"/>
+      <argument attributes="value" name="dev_Auth" type="int32_t"/>
+      <argument attributes="value" name="wps_Method" type="qapi_WLAN_P2P_WPS_Method_e"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="no" name="peer_Mac" type="uint8_t"/>
+      <argument attributes="value" name="persistent" type="qapi_WLAN_P2P_Persistent_e"/>
+   </function>
+   <function name="qapi_WLAN_P2P_Connect">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="device_ID" type="uint8_t"/>
+      <argument attributes="value" name="wps_Method" type="qapi_WLAN_P2P_WPS_Method_e"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="no" name="peer_Mac" type="uint8_t"/>
+      <argument attributes="value" name="persistent" type="qapi_WLAN_P2P_Persistent_e"/>
+   </function>
+   <function name="qapi_WLAN_P2P_Start_Go">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="device_ID" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="no" name="params" type="qapi_WLAN_P2P_Go_Params_t"/>
+      <argument attributes="value" name="channel" type="int32_t"/>
+      <argument attributes="value" name="persistent" type="qapi_WLAN_P2P_Persistent_e"/>
+   </function>
+   <function name="qapi_WLAN_P2P_Invite">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="device_ID" type="uint8_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="__strlen__" lengthVerified="no" name="ssid" type="char"/>
+      <argument attributes="value" name="wps_Method" type="qapi_WLAN_P2P_WPS_Method_e"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="no" name="mac" type="uint8_t"/>
+      <argument attributes="value" name="persistent" type="qapi_WLAN_P2P_Persistent_e"/>
+      <argument attributes="value" name="role" type="qapi_WLAN_P2P_Inv_Role_e"/>
+   </function>
+   <function name="qapi_WLAN_P2P_Join">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="device_ID" type="uint8_t"/>
+      <argument attributes="value" name="wps_Method" type="qapi_WLAN_P2P_WPS_Method_e"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="no" name="mac" type="uint8_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="__strlen__" lengthVerified="no" name="pin" type="char"/>
+      <argument attributes="value" name="channel" type="uint16_t"/>
+   </function>
+   <function name="qapi_WLAN_P2P_Listen">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="device_ID" type="uint8_t"/>
+      <argument attributes="value" name="timeout_In_Secs" type="uint32_t"/>
+   </function>
+   <function name="qapi_WLAN_P2P_Invite_Auth">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="device_ID" type="uint8_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="no" name="invite_Info" type="qapi_WLAN_P2P_Invite_Info_t"/>
+   </function>
+</header>

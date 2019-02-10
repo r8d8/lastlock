@@ -1,0 +1,338 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="qapi_zb_cl.h"/>
+   <macro name="QAPI_ZB_CL_OTA_ATTR_ID_UPGRADE_SERVER_ID" value="(0x0000) "/>
+   <macro name="QAPI_ZB_CL_OTA_ATTR_ID_FILE_OFFSET" value="(0x0001) "/>
+   <macro name="QAPI_ZB_CL_OTA_ATTR_ID_CURRENT_FILE_VERSION" value="(0x0002) "/>
+   <macro name="QAPI_ZB_CL_OTA_ATTR_ID_CURRENT_STACK_VERSION" value="(0x0003) "/>
+   <macro name="QAPI_ZB_CL_OTA_ATTR_ID_DOWNLOAD_FILE_VERSION" value="(0x0004) "/>
+   <macro name="QAPI_ZB_CL_OTA_ATTR_ID_DOWNLOAD_STACK_VERSION" value="(0x0005) "/>
+   <macro name="QAPI_ZB_CL_OTA_ATTR_ID_IMAGE_UPGRADE_STATUS" value="(0x0006) "/>
+   <macro name="QAPI_ZB_CL_OTA_ATTR_ID_MANUFACTURER_ID" value="(0x0007) "/>
+   <macro name="QAPI_ZB_CL_OTA_ATTR_ID_IMAGE_TYPE_ID" value="(0x0008) "/>
+   <macro name="QAPI_ZB_CL_OTA_ATTR_ID_MIN_BLOCK_PERIOD" value="(0x0009) "/>
+   <macro name="QAPI_ZB_CL_OTA_ATTR_ID_IMAGE_STAMP" value="(0x000A) "/>
+   <macro name="QAPI_ZB_CL_OTA_ATTR_ID_UPGRADE_ACTIVATION_POLICY" value="(0x000B) "/>
+   <macro name="QAPI_ZB_CL_OTA_ATTR_ID_UPGRADE_TIMEOUT_POLICY" value="(0x000C) "/>
+   <macro name="QAPI_ZB_CL_OTA_STATUS_NORMAL" value="(0x00) "/>
+   <macro name="QAPI_ZB_CL_OTA_STATUS_DOWNLOAD_IN_PROGRESS" value="(0x01) "/>
+   <macro name="QAPI_ZB_CL_OTA_STATUS_DOWNLOAD_COMPLETE" value="(0x02) "/>
+   <macro name="QAPI_ZB_CL_OTA_STATUS_WAITING_TO_UPGRADE" value="(0x03) "/>
+   <macro name="QAPI_ZB_CL_OTA_STATUS_COUNT_DOWN" value="(0x04) "/>
+   <macro name="QAPI_ZB_CL_OTA_STATUS_WAIT_FOR_MORE" value="(0x05) "/>
+   <macro name="QAPI_ZB_CL_OTA_COMMAND_IMAGE_NOTIFY" value="(0x00) "/>
+   <macro name="QAPI_ZB_CL_OTA_COMMAND_QUERY_IMAGE_REQUEST" value="(0x01) "/>
+   <macro name="QAPI_ZB_CL_OTA_COMMAND_QUERY_IMAGE_RESPONSE" value="(0x02) "/>
+   <macro name="QAPI_ZB_CL_OTA_COMMAND_IMAGE_BLOCK_REQUEST" value="(0x03) "/>
+   <macro name="QAPI_ZB_CL_OTA_COMMAND_IMAGE_PAGE_REQUEST" value="(0x04) "/>
+   <macro name="QAPI_ZB_CL_OTA_COMMAND_IMAGE_BLOCK_RESPONSE" value="(0x05) "/>
+   <macro name="QAPI_ZB_CL_OTA_COMMAND_UPGRADE_END_REQUEST" value="(0x06) "/>
+   <macro name="QAPI_ZB_CL_OTA_COMMAND_UPGRADE_END_RESPONSE" value="(0x07) "/>
+   <macro name="QAPI_ZB_CL_OTA_COMMAND_QUERY_FILE_REQUEST" value="(0x08) "/>
+   <macro name="QAPI_ZB_CL_OTA_COMMAND_QUERY_FILE_RESPONSE" value="(0x09) "/>
+   <macro name="QAPI_ZB_CL_OTA_STACK_VERSION_2006" value="(0x0000) "/>
+   <macro name="QAPI_ZB_CL_OTA_STACK_VERSION_2007" value="(0x0001) "/>
+   <macro name="QAPI_ZB_CL_OTA_STACK_VERSION_PRO" value="(0x0002) "/>
+   <macro name="QAPI_ZB_CL_OTA_STACK_VERSION_IP" value="(0x0003) "/>
+   <macro name="QAPI_ZB_CL_OTA_ACTIVATION_POLICY_SERVER" value="(0x00) "/>
+   <macro name="QAPI_ZB_CL_OTA_ACTIVATION_POLICY_OUT_OF_BAND" value="(0x01) "/>
+   <macro name="QAPI_ZB_CL_OTA_TIMEOUT_POLICY_APPLY_UPGRADE" value="(0x00) "/>
+   <macro name="QAPI_ZB_CL_OTA_TIMEOUT_POLICY_DO_NOT_APPLY" value="(0x01) "/>
+   <macro name="QAPI_ZB_CL_OTA_SEC_CRED_SE_1_0" value="(0x00) "/>
+   <macro name="QAPI_ZB_CL_OTA_SEC_CRED_SE_1_1" value="(0x01) "/>
+   <macro name="QAPI_ZB_CL_OTA_SEC_CRED_SE_2_0" value="(0x02) "/>
+   <macro name="QAPI_ZB_CL_OTA_SEC_CRED_SE_1_2" value="(0x03) "/>
+   <macro name="QAPI_ZB_CL_OTA_NOTIFY_TYPE_JITTER" value="(0x00) "/>
+   <macro name="QAPI_ZB_CL_OTA_NOTIFY_TYPE_JITTER_MFG_CODE" value="(0x01) "/>
+   <macro name="QAPI_ZB_CL_OTA_NOTIFY_TYPE_JITTER_MFG_CODE_IMAGE_TYPE" value="(0x02) "/>
+   <macro name="QAPI_ZB_CL_OTA_NOTIFY_TYPE_JITTER_MFG_CODE_IMAGE_TYPE_FILE_VERSION" value="(0X03) "/>
+   <macro name="QAPI_ZB_CL_OTA_QUERY_FIELD_CONTROL_HW_VERSION" value="(0x01) "/>
+   <macro name="QAPI_ZB_CL_OTA_IMAGE_BLOCK_FIELD_CONTROL_IEEE" value="(0x01) "/>
+   <macro name="QAPI_ZB_CL_OTA_IMAGE_BLOCK_FIELD_CONTROL_MAX_BLOCK" value="(0x02) "/>
+   <macro name="QAPI_ZB_CL_OTA_HARDWARE_VERSION_UNDEFINED" value="(QAPI_ZB_CL_INVALID_UNSIGNED_16BIT) "/>
+   <macro name="QAPI_ZB_CL_OTA_HEADER_FIELD_CONTROL_SECURITY_CRED" value="(0x01) "/>
+   <macro name="QAPI_ZB_CL_OTA_HEADER_FIELD_CONTROL_DEVICE_SPECIFIC" value="(0x02) "/>
+   <macro name="QAPI_ZB_CL_OTA_HEADER_FIELD_CONTROL_HARDWARE_VERSIONS" value="(0x04) "/>
+   <macro name="QAPI_ZB_CL_OTA_HEADER_FILE_IDENTIFIER" value="(0x0BEEF11E) "/>
+   <macro name="QAPI_ZB_CL_OTA_HEADER_FILE_VERSION" value="(0x0100) "/>
+   <macro name="QAPI_ZB_CL_OTA_HEADER_STRING_LENGTH" value="(32) "/>
+   <macro name="QAPI_ZB_CL_OTA_HEADER_LENGTH_MIN" value="(56) "/>
+   <macro name="QAPI_ZB_CL_OTA_HEADER_LENGTH_MAX" value="(69) "/>
+   <macro name="QAPI_ZB_CL_OTA_IMAGE_BLOCK_SUB_ELEMENT_HEADER" value="(6) "/>
+   <macro name="QAPI_ZB_CL_OTA_IMAGE_BLOCK_ZCL_MESSAGE_SIZE" value="(14) "/>
+   <enum name="qapi_ZB_CL_OTA_Client_Event_Type_t">
+      <member name="QAPI_ZB_CL_OTA_CLIENT_EVENT_TYPE_ATTR_CUSTOM_READ_E" value="0"/>
+      <member name="QAPI_ZB_CL_OTA_CLIENT_EVENT_TYPE_ATTR_CUSTOM_WRITE_E" value="1"/>
+      <member name="QAPI_ZB_CL_OTA_CLIENT_EVENT_TYPE_DEFAULT_RESPONSE_E" value="2"/>
+      <member name="QAPI_ZB_CL_OTA_CLIENT_EVENT_TYPE_COMMAND_COMPLETE_E" value="3"/>
+      <member name="QAPI_ZB_CL_OTA_CLIENT_EVENT_TYPE_UNPARSED_RESPONSE_E" value="4"/>
+      <member name="QAPI_ZB_CL_OTA_CLIENT_EVENT_TYPE_QUERY_NEXT_IMAGE_E" value="5"/>
+      <member name="QAPI_ZB_CL_OTA_CLIENT_EVENT_TYPE_RAW_WRITE_E" value="6"/>
+      <member name="QAPI_ZB_CL_OTA_CLIENT_EVENT_TYPE_WRITE_E" value="7"/>
+      <member name="QAPI_ZB_CL_OTA_CLIENT_EVENT_TYPE_VALIDATE_E" value="8"/>
+      <member name="QAPI_ZB_CL_OTA_CLIENT_EVENT_TYPE_UPGRADE_E" value="9"/>
+      <member name="QAPI_ZB_CL_OTA_CLIENT_EVENT_TYPE_IMAGE_NOTIFY_E" value="10"/>
+      <member name="QAPI_ZB_CL_OTA_CLIENT_EVENT_TYPE_ABORT_E" value="11"/>
+   </enum>
+   <enum name="qapi_ZB_CL_OTA_Server_Event_Type_t">
+      <member name="QAPI_ZB_CL_OTA_SERVER_EVENT_TYPE_ATTR_CUSTOM_READ_E" value="0"/>
+      <member name="QAPI_ZB_CL_OTA_SERVER_EVENT_TYPE_ATTR_CUSTOM_WRITE_E" value="1"/>
+      <member name="QAPI_ZB_CL_OTA_SERVER_EVENT_TYPE_UNPARSED_DATA_E" value="2"/>
+      <member name="QAPI_ZB_CL_OTA_SERVER_EVENT_TYPE_IMAGE_EVAL_E" value="3"/>
+      <member name="QAPI_ZB_CL_OTA_SERVER_EVENT_TYPE_IMAGE_READ_E" value="4"/>
+      <member name="QAPI_ZB_CL_OTA_SERVER_EVENT_TYPE_IMAGE_UPGRADE_END_TIME_E" value="5"/>
+      <member name="QAPI_ZB_CL_OTA_SERVER_EVENT_TYPE_IMAGE_UPGRADE_END_ERROR_E" value="6"/>
+   </enum>
+   <structure name="qapi_ZB_CL_OTA_Header_t">
+      <member attributes="value" name="FileIdentifier" type="uint32_t"/>
+      <member attributes="value" name="HeaderVersion" type="uint16_t"/>
+      <member attributes="value" name="HeaderLength" type="uint16_t"/>
+      <member attributes="value" name="HeaderFieldControl" type="uint16_t"/>
+      <member attributes="value" name="ManufacturerCode" type="uint16_t"/>
+      <member attributes="value" name="ImageType" type="uint16_t"/>
+      <member attributes="value" name="FileVersion" type="uint32_t"/>
+      <member attributes="value" name="StackVersion" type="uint16_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="QAPI_ZB_CL_OTA_HEADER_STRING_LENGTH" name="HeaderString" type="uint8_t"/>
+      <member attributes="value" name="TotalImageSize" type="uint32_t"/>
+      <member attributes="value" name="SecCredentialVersion" type="uint8_t"/>
+      <member attributes="value" name="FileDestination" type="uint64_t"/>
+      <member attributes="value" name="MinHardwareVersion" type="uint16_t"/>
+      <member attributes="value" name="MaxHardwareVersion" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_OTA_Image_Definition_t">
+      <member attributes="value" name="ManufacturerCode" type="uint16_t"/>
+      <member attributes="value" name="ImageType" type="uint16_t"/>
+      <member attributes="value" name="FileVersion" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_OTA_Image_Data_t">
+      <member attributes="value" name="FileOffset" type="uint32_t"/>
+      <member attributes="value" name="DataSize" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="DataSize" lengthVerified="yes" name="Data" type="uint8_t"/>
+   </structure>
+   <structure name ="qapi_ZB_CL_OTA_Image_Block_Data_t">
+      <member attributes="value" name="ImageDefinition" type="qapi_ZB_CL_OTA_Image_Definition_t"/>
+      <member attributes="value" name="ImageData" type="qapi_ZB_CL_OTA_Image_Data_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_OTA_Image_Wait_t">
+      <member attributes="value" name="CurrentTime" type="uint32_t"/>
+      <member attributes="value" name="RequestTime" type="uint32_t"/>
+      <member attributes="value" name="MinimumBlockPeriod" type="uint16_t"/>
+   </structure>
+   <structure name ="qapi_ZB_CL_OTA_Image_Block_Response_t">
+      <member attributes="value" name="ResponseStatus" type="qapi_Status_t"/>
+      <member attributes="union" name="ResponseData">
+         <member attributes="value" name="Success" type="qapi_ZB_CL_OTA_Image_Block_Data_t"/>
+         <member attributes="value" name="WaitForData" type="qapi_ZB_CL_OTA_Image_Wait_t"/>
+         <unionMap mapVerified="yes" name="ResponseStatus" type="qapi_Status_t">
+            <mapEntry member="Success" type="qapi_ZB_CL_OTA_Image_Block_Data_t" value="QAPI_OK"/>
+            <mapEntry member="WaitForData" type="qapi_ZB_CL_OTA_Image_Wait_t" value="QAPI_ZB_ERR_ZCL_WAIT_FOR_DATA"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_ZB_CL_OTA_Client_Query_Next_Image_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="ImageDefinition" type="qapi_ZB_CL_OTA_Image_Definition_t"/>
+      <member attributes="value" name="ImageSize" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_OTA_Client_Raw_Write_t">
+      <member attributes="value" name="DataLength" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="DataLength" lengthVerified="yes" name="Data" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_OTA_Client_Write_t">
+      <member attributes="value" name="Header" type="qapi_ZB_CL_OTA_Header_t"/>
+      <member attributes="value" name="TagID" type="uint16_t"/>
+      <member attributes="value" name="TagLength" type="uint32_t"/>
+      <member attributes="value" name="DataLength" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="DataLength" lengthVerified="yes" name="Data" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_OTA_Client_Validate_t">
+      <member attributes="value" name="Header" type="qapi_ZB_CL_OTA_Header_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="ReturnStatus" type="qapi_Status_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_OTA_Client_Upgrade_t">
+      <member attributes="value" name="Header" type="qapi_ZB_CL_OTA_Header_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_OTA_Client_Image_Notify_t">
+      <member attributes="value" name="APSDEData" type="qapi_ZB_APSDE_Data_Indication_t"/>
+      <member attributes="value" name="Header" type="qapi_ZB_CL_Header_t"/>
+      <member attributes="value" name="PayloadType" type="uint8_t"/>
+      <member attributes="value" name="Jitter" type="uint8_t"/>
+      <member attributes="value" name="ImageDefinition" type="qapi_ZB_CL_OTA_Image_Definition_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_OTA_Client_Event_Data_t">
+      <member attributes="value" name="Event_Type" type="qapi_ZB_CL_OTA_Client_Event_Type_t"/>
+      <member attributes="union" name="Data">
+         <member attributes="value" name="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t"/>
+         <member attributes="value" name="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t"/>
+         <member attributes="value" name="Default_Response" type="qapi_ZB_CL_Default_Response_t"/>
+         <member attributes="value" name="Command_Complete" type="qapi_ZB_CL_Command_Complete_t"/>
+         <member attributes="value" name="Unparsed_Response" type="qapi_ZB_CL_Unparsed_Response_t"/>
+         <member attributes="value" name="Query_Next_Image" type="qapi_ZB_CL_OTA_Client_Query_Next_Image_t"/>
+         <member attributes="value" name="Raw_Write" type="qapi_ZB_CL_OTA_Client_Raw_Write_t"/>
+         <member attributes="value" name="Write" type="qapi_ZB_CL_OTA_Client_Write_t"/>
+         <member attributes="value" name="Validate" type="qapi_ZB_CL_OTA_Client_Validate_t"/>
+         <member attributes="value" name="Upgrade" type="qapi_ZB_CL_OTA_Client_Upgrade_t"/>
+         <member attributes="value" name="Image_Notify" type="qapi_ZB_CL_OTA_Client_Image_Notify_t"/>
+         <unionMap mapVerified="yes" name="Event_Type" type="qapi_ZB_CL_OTA_Client_Event_Type_t">
+            <mapEntry member="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t" value="QAPI_ZB_CL_OTA_CLIENT_EVENT_TYPE_ATTR_CUSTOM_READ_E"/>
+            <mapEntry member="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t" value="QAPI_ZB_CL_OTA_CLIENT_EVENT_TYPE_ATTR_CUSTOM_WRITE_E"/>
+            <mapEntry member="Default_Response" type="qapi_ZB_CL_Default_Response_t" value="QAPI_ZB_CL_OTA_CLIENT_EVENT_TYPE_DEFAULT_RESPONSE_E"/>
+            <mapEntry member="Command_Complete" type="qapi_ZB_CL_Command_Complete_t" value="QAPI_ZB_CL_OTA_CLIENT_EVENT_TYPE_COMMAND_COMPLETE_E"/>
+            <mapEntry member="Unparsed_Response" type="qapi_ZB_CL_Unparsed_Response_t" value="QAPI_ZB_CL_OTA_CLIENT_EVENT_TYPE_UNPARSED_RESPONSE_E"/>
+            <mapEntry member="Query_Next_Image" type="qapi_ZB_CL_OTA_Client_Query_Next_Image_t" value="QAPI_ZB_CL_OTA_CLIENT_EVENT_TYPE_QUERY_NEXT_IMAGE_E"/>
+            <mapEntry member="Raw_Write" type="qapi_ZB_CL_OTA_Client_Raw_Write_t" value="QAPI_ZB_CL_OTA_CLIENT_EVENT_TYPE_RAW_WRITE_E"/>
+            <mapEntry member="Write" type="qapi_ZB_CL_OTA_Client_Write_t" value="QAPI_ZB_CL_OTA_CLIENT_EVENT_TYPE_WRITE_E"/>
+            <mapEntry member="Validate" type="qapi_ZB_CL_OTA_Client_Validate_t" value="QAPI_ZB_CL_OTA_CLIENT_EVENT_TYPE_VALIDATE_E"/>
+            <mapEntry member="Upgrade" type="qapi_ZB_CL_OTA_Client_Upgrade_t" value="QAPI_ZB_CL_OTA_CLIENT_EVENT_TYPE_UPGRADE_E"/>
+            <mapEntry member="Image_Notify" type="qapi_ZB_CL_OTA_Client_Image_Notify_t" value="QAPI_ZB_CL_OTA_CLIENT_EVENT_TYPE_IMAGE_NOTIFY_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_ZB_CL_OTA_Server_Image_Eval_t">
+      <member attributes="value" name="ImageDefinition" type="qapi_ZB_CL_OTA_Image_Definition_t"/>
+      <member attributes="value" name="FieldControl" type="uint8_t"/>
+      <member attributes="value" name="HardwareVersion" type="uint16_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="ImageSize" type="uint32_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="EvalStatus" type="qbool_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_OTA_Server_Image_Read_t">
+      <member attributes="value" name="APSDEData" type="qapi_ZB_APSDE_Data_Indication_t"/>
+      <member attributes="value" name="ZCLHeader" type="qapi_ZB_CL_Header_t"/>
+      <member attributes="value" name="ImageDefinition" type="qapi_ZB_CL_OTA_Image_Definition_t"/>
+      <member attributes="value" name="ImageData" type="qapi_ZB_CL_OTA_Image_Data_t"/>
+      <member attributes="value" name="FieldControl" type="uint8_t"/>
+      <member attributes="value" name="RequestNodeAddress" type="uint64_t"/>
+      <member attributes="value" name="ImageWait" type="qapi_ZB_CL_OTA_Image_Wait_t"/>
+      <member attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ReturnStatus" type="qapi_Status_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_OTA_Server_Image_Upgrade_End_Time_t">
+      <member attributes="value" name="Header" type="qapi_ZB_CL_OTA_Header_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="CurrentTime" type="uint32_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="UpgradeTime" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_OTA_Server_Image_Upgrade_End_Error_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="Header" type="qapi_ZB_CL_OTA_Header_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_OTA_Server_Event_Data_t">
+      <member attributes="value" name="Event_Type" type="qapi_ZB_CL_OTA_Server_Event_Type_t"/>
+      <member attributes="union" name="Data">
+         <member attributes="value" name="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t"/>
+         <member attributes="value" name="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t"/>
+         <member attributes="value" name="Unparsed_Data" type="qapi_ZB_CL_Unparsed_Data_t"/>
+         <member attributes="value" name="Image_Eval" type="qapi_ZB_CL_OTA_Server_Image_Eval_t"/>
+         <member attributes="value" name="Image_Read" type="qapi_ZB_CL_OTA_Server_Image_Read_t"/>
+         <member attributes="value" name="Upgrade_End_Time" type="qapi_ZB_CL_OTA_Server_Image_Upgrade_End_Time_t"/>
+         <member attributes="value" name="Upgrade_End_Error" type="qapi_ZB_CL_OTA_Server_Image_Upgrade_End_Error_t"/>
+         <unionMap mapVerified="yes" name="Event_Type" type="qapi_ZB_CL_OTA_Server_Event_Type_t">
+            <mapEntry member="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t" value="QAPI_ZB_CL_OTA_SERVER_EVENT_TYPE_ATTR_CUSTOM_READ_E"/>
+            <mapEntry member="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t" value="QAPI_ZB_CL_OTA_SERVER_EVENT_TYPE_ATTR_CUSTOM_WRITE_E"/>
+            <mapEntry member="Unparsed_Data" type="qapi_ZB_CL_Unparsed_Data_t" value="QAPI_ZB_CL_OTA_SERVER_EVENT_TYPE_UNPARSED_DATA_E"/>
+            <mapEntry member="Image_Eval" type="qapi_ZB_CL_OTA_Server_Image_Eval_t" value="QAPI_ZB_CL_OTA_SERVER_EVENT_TYPE_IMAGE_EVAL_E"/>
+            <mapEntry member="Image_Read" type="qapi_ZB_CL_OTA_Server_Image_Read_t" value="QAPI_ZB_CL_OTA_SERVER_EVENT_TYPE_IMAGE_READ_E"/>
+            <mapEntry member="Upgrade_End_Time" type="qapi_ZB_CL_OTA_Server_Image_Upgrade_End_Time_t" value="QAPI_ZB_CL_OTA_SERVER_EVENT_TYPE_IMAGE_UPGRADE_END_TIME_E"/>
+            <mapEntry member="Upgrade_End_Error" type="qapi_ZB_CL_OTA_Server_Image_Upgrade_End_Error_t" value="QAPI_ZB_CL_OTA_SERVER_EVENT_TYPE_IMAGE_UPGRADE_END_ERROR_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_ZB_CL_OTA_Client_Config_t">
+      <member attributes="value" name="ProfileID" type="uint16_t"/>
+      <member attributes="value" name="ActivationPolicy" type="uint8_t"/>
+      <member attributes="value" name="TimeoutPolicy" type="uint8_t"/>
+      <member attributes="value" name="QueryJitter" type="uint8_t"/>
+      <member attributes="value" name="ImageBlockDelay" type="uint32_t"/>
+      <member attributes="value" name="FieldControl" type="uint8_t"/>
+      <member attributes="value" name="ManufacturerCode" type="uint16_t"/>
+      <member attributes="value" name="ImageType" type="uint16_t"/>
+      <member attributes="value" name="FileVersion" type="uint32_t"/>
+      <member attributes="value" name="HWVersion" type="uint16_t"/>
+      <member attributes="value" name="StackVersion" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_OTA_Server_Config_t">
+      <member attributes="value" name="ProfileID" type="uint16_t"/>
+      <member attributes="value" name="MinimumBlockPeriod" type="uint16_t"/>
+   </structure>
+   <function name="qapi_ZB_CL_OTA_Create_Client">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Cluster_Info" type="qapi_ZB_CL_Cluster_Info_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Client_Config" type="qapi_ZB_CL_OTA_Client_Config_t"/>
+      <argument attributes="value" name="Event_CB" type="qapi_ZB_CL_OTA_Client_CB_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+   </function>
+   <function name="qapi_ZB_CL_OTA_Create_Server">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Cluster_Info" type="qapi_ZB_CL_Cluster_Info_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Server_Config" type="qapi_ZB_CL_OTA_Server_Config_t"/>
+      <argument attributes="value" name="Event_CB" type="qapi_ZB_CL_OTA_Server_CB_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+   </function>
+   <function name="qapi_ZB_CL_OTA_Populate_Attributes">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Server" type="qbool_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="AttributeCount" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="AttributeCount" lengthVerified="yes" name="AttributeList" type="qapi_ZB_CL_Attribute_t"/>
+   </function>
+   <function name="qapi_ZB_CL_OTA_Client_Discover">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="value" name="DstAddrMode" type="qapi_ZB_Addr_Mode_t"/>
+      <argument attributes="value" name="DstAddress" type="qapi_ZB_Addr_t"/>
+   </function>
+   <function name="qapi_ZB_CL_OTA_Client_Reset">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+   </function>
+   <function name="qapi_ZB_CL_OTA_Client_Upgrade_End">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="value" name="Status" type="qapi_Status_t"/>
+   </function>
+   <function name="qapi_ZB_CL_OTA_Query_Next_Image">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="Image_Definition" type="qapi_ZB_CL_OTA_Image_Definition_t"/>
+      <argument attributes="value" name="Field_Control" type="uint8_t"/>
+      <argument attributes="value" name="Hardware_Version" type="uint16_t"/>
+   </function>
+   <function name="qapi_ZB_CL_OTA_Image_Block_Start_Transfer">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+   </function>
+   <function name="qapi_ZB_CL_OTA_Image_Notify">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="Send_Info" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="value" name="Notify_Payload_Type" type="uint8_t"/>
+      <argument attributes="value" name="Jitter" type="uint8_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="Image_Definition" type="qapi_ZB_CL_OTA_Image_Definition_t"/>
+   </function>
+   <function name="qapi_ZB_CL_OTA_Image_Block_Response">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="APSDEData" type="qapi_ZB_APSDE_Data_Indication_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="ZCLHeader" type="qapi_ZB_CL_Header_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="ResponseData" type="qapi_ZB_CL_OTA_Image_Block_Response_t"/>
+   </function>
+   <callback name="qapi_ZB_CL_OTA_Client_CB_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Event_Data" type="qapi_ZB_CL_OTA_Client_Event_Data_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+      <createFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_OTA_Create_Client" param="CB_Param"/>
+      <destroyFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_Destroy_Cluster"/>
+   </callback>
+   <callback name="qapi_ZB_CL_OTA_Server_CB_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Event_Data" type="qapi_ZB_CL_OTA_Server_Event_Data_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+      <createFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_OTA_Create_Server" param="CB_Param"/>
+      <destroyFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_Destroy_Cluster"/>
+   </callback>
+</header>

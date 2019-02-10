@@ -1,0 +1,658 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="./qapi_ble_btapityp.h"/>
+   <include name="./qapi_ble_bttypes.h"/>
+   <include name="./qapi_ble_gatt.h"/>
+   <include name="./qapi_ble_cgmstypes.h"/>
+   <macro name="QAPI_BLE_CGMS_ERROR_INVALID_PARAMETER" value="(-1000)"/>
+   <macro name="QAPI_BLE_CGMS_ERROR_INVALID_BLUETOOTH_STACK_ID" value="(-1001)"/>
+   <macro name="QAPI_BLE_CGMS_ERROR_INSUFFICIENT_RESOURCES" value="(-1002)"/>
+   <macro name="QAPI_BLE_CGMS_ERROR_INSUFFICIENT_BUFFER_SPACE" value="(-1003)"/>
+   <macro name="QAPI_BLE_CGMS_ERROR_SERVICE_ALREADY_REGISTERED" value="(-1004)"/>
+   <macro name="QAPI_BLE_CGMS_ERROR_INVALID_INSTANCE_ID" value="(-1005)"/>
+   <macro name="QAPI_BLE_CGMS_ERROR_MALFORMATTED_DATA" value="(-1006)"/>
+   <macro name="QAPI_BLE_CGMS_ERROR_INDICATION_OUTSTANDING" value="(-1007)"/>
+   <macro name="QAPI_BLE_CGMS_ERROR_INVALID_RESPONSE_CODE" value="(-1008)"/>
+   <macro name="QAPI_BLE_CGMS_ERROR_UNKNOWN_ERROR" value="(-1009)"/>
+   <macro name="QAPI_BLE_CGMS_ERROR_CRC_MISSING" value="(-1010)"/>
+   <macro name="QAPI_BLE_CGMS_ERROR_CRC_INVALID" value="(-1011)"/>
+   <macro name="QAPI_BLE_CGMS_ERROR_MEASUREMENT_SIZE_INVALID" value="(-1012)"/>
+   <macro name="QAPI_BLE_CGMS_ERROR_MEASUREMENT_AND_FLAG_SIZE_NOT_EQUAL" value="(-1013)"/>
+   <macro name="QAPI_BLE_CGMS_ERROR_MEASUREMENT_FAILED_TO_DECODE" value="(-1014)"/>
+   <macro name="QAPI_BLE_CGMS_ERROR_BUFFER_NOT_EMPTY" value="(-1015)"/>
+   <macro name="QAPI_BLE_CGMS_E2E_CRC_NOT_SUPPORTED" value="(0x00)"/>
+   <macro name="QAPI_BLE_CGMS_E2E_CRC_SUPPORTED" value="(0x01)"/>
+   <macro name="QAPI_BLE_CGMS_E2E_CRC_PRESENT" value="(0x01)"/>
+   <macro name="QAPI_BLE_CGMS_E2E_CRC_VALID" value="(0x02)"/>
+   <macro name="QAPI_BLE_CGMS_CLIENT_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_CGMS_Client_Information_t))"/>
+   <macro name="QAPI_BLE_CGMS_SERVER_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_CGMS_Server_Information_t))"/>
+   <macro name="QAPI_BLE_CGMS_MEASUREMENT_DATA_SIZE" value="(sizeof(qapi_BLE_CGMS_Measurement_Data_t))"/>
+   <macro name="QAPI_BLE_CGMS_FEATURE_DATA_SIZE" value="(sizeof(qapi_BLE_CGMS_Feature_Data_t))"/>
+   <macro name="QAPI_BLE_CGMS_STATUS_DATA_SIZE" value="(sizeof(qapi_BLE_CGMS_Status_Data_t))"/>
+   <macro name="QAPI_BLE_CGMS_DATE_TIME_DATA_SIZE" value="(sizeof(qapi_BLE_CGMS_Date_Time_Data_t))"/>
+   <macro name="QAPI_BLE_CGMS_DATE_TIME_VALID" params="(_x)" value="((QAPI_BLE_GATT_DATE_TIME_VALID_YEAR(((_x)).Year)) &amp;&amp; (QAPI_BLE_GATT_DATE_TIME_VALID_MONTH(((_x)).Month)) &amp;&amp; (QAPI_BLE_GATT_DATE_TIME_VALID_DAY(((_x)).Day)) &amp;&amp; (QAPI_BLE_GATT_DATE_TIME_VALID_HOURS(((_x)).Hours)) &amp;&amp; (QAPI_BLE_GATT_DATE_TIME_VALID_MINUTES(((_x)).Minutes)) &amp;&amp; (QAPI_BLE_GATT_DATE_TIME_VALID_SECONDS(((_x)).Seconds)))"/>
+   <macro name="QAPI_BLE_CGMS_TIME_ZONE_VALID" params="(_x)" value="(((_x) &gt;= QAPI_BLE_TIZ_UTC_MINUS_1200_E) &amp;&amp; ((_x) &lt;= QAPI_BLE_TIZ_UTC_PLUS_1400_E))"/>
+   <macro name="QAPI_BLE_CGMS_DST_OFFSET_VALID" params="(_x)" value="(((_x) &gt;= QAPI_BLE_DSO_STANDARD_TIME_E) &amp;&amp; ((_x) &lt;= QAPI_BLE_DSO_DOUBLE_DAY_LIGHT_TIME_E))"/>
+   <macro name="QAPI_BLE_CGMS_SESSION_START_TIME_DATA_SIZE" value="(sizeof(qapi_BLE_CGMS_Session_Start_Time_Data_t))"/>
+   <macro name="QAPI_BLE_CGMS_SESSION_TIME_VALID" params="(_x)" value="((QAPI_BLE_CGMS_DATE_TIME_VALID((_x).Time)) &amp;&amp; (QAPI_BLE_CGMS_TIME_ZONE_VALID((_x).TimeZone)) &amp;&amp; (QAPI_BLE_CGMS_DST_OFFSET_VALID((_x).DSTOffset)))"/>
+   <macro name="QAPI_BLE_CGMS_SESSION_RUN_TIME_DATA_SIZE" value="(sizeof(qapi_BLE_CGMS_Session_Run_Time_Data_t))"/>
+   <macro name="QAPI_BLE_CGMS_RACP_RESPONSE_CODE_VALUE_SIZE" value="(sizeof(qapi_BLE_CGMS_RACP_Response_Code_Value_t))"/>
+   <macro name="QAPI_BLE_CGMS_RACP_RESPONSE_DATA_SIZE" value="(sizeof(qapi_BLE_CGMS_RACP_Response_Data_t))"/>
+   <macro name="QAPI_BLE_CGMS_READ_CLIENT_CONFIGURATION_DATA_SIZE" value="(sizeof(qapi_BLE_CGMS_Read_Client_Configuration_Data_t))"/>
+   <macro name="QAPI_BLE_CGMS_CLIENT_CONFIGURATION_UPDATE_DATA_SIZE" value="(sizeof(qapi_BLE_CGMS_Client_Configuration_Update_Data_t))"/>
+   <macro name="QAPI_BLE_CGMS_READ_FEATURE_DATA_SIZE" value="(sizeof(qapi_BLE_CGMS_Read_Feature_Data_t))"/>
+   <macro name="QAPI_BLE_CGMS_READ_STATUS_DATA_SIZE" value="(sizeof(qapi_BLE_CGMS_Read_Status_Data_t))"/>
+   <macro name="QAPI_BLE_CGMS_READ_SESSION_START_TIME_DATA_SIZE" value="(sizeof(qapi_BLE_CGMS_Read_Session_Start_Time_Data_t))"/>
+   <macro name="QAPI_BLE_CGMS_WRITE_SESSION_START_TIME_DATA_SIZE" value="(sizeof(qapi_BLE_CGMS_Write_Session_Start_Time_Data_t))"/>
+   <macro name="QAPI_BLE_CGMS_READ_SESSION_RUN_TIME_DATA_SIZE" value="(sizeof(qapi_BLE_CGMS_Read_Session_Run_Time_Data_t))"/>
+   <macro name="QAPI_BLE_CGMS_TIME_OFFSET_RANGE_DATA_SIZE" value="(sizeof(qapi_BLE_CGMS_Time_Offset_Range_Data_t))"/>
+   <macro name="QAPI_BLE_CGMS_RACP_FORMAT_DATA_SIZE" value="(sizeof(qapi_BLE_CGMS_RACP_Format_Data_t))"/>
+   <macro name="QAPI_BLE_CGMS_RACP_COMMAND_DATA_SIZE" value="(sizeof(qapi_BLE_CGMS_Record_Access_Control_Point_Command_Data_t))"/>
+   <macro name="QAPI_BLE_CGMS_COMMUNICATION_INTERVAL_VALUE_DISABLE_PERIODIC_COMMUNICATION" value="0x00"/>
+   <macro name="QAPI_BLE_CGMS_COMMUNICATION_INTERVAL_SMALLEST_INTERVAL_VALUE" value="0xFF"/>
+   <macro name="QAPI_BLE_CGMS_GLUCOSE_CALIBRATION_DATA_RECORD_NUMBER_NO_STORED_CALIBRATION_DATA" value="0x0000"/>
+   <macro name="QAPI_BLE_CGMS_GLUCOSE_CALIBRATION_DATA_RECORD_NUMBER_LAST_STORED_CALIBRATION_DATA" value="0xFFFF"/>
+   <macro name="QAPI_BLE_CGMS_SOCP_RESPONSE_CODE_VALUE_SIZE" value="(sizeof(qapi_BLE_CGMS_SOCP_Response_Code_Value_t))"/>
+   <macro name="QAPI_BLE_CGMS_CALIBRATION_DATA_RECORD_SIZE" value="(sizeof(qapi_BLE_CGMS_Calibration_Data_Record_t))"/>
+   <macro name="QAPI_BLE_CGMS_SPECIFIC_OPS_CONTROL_POINT_FORMAT_DATA_SIZE" value="(sizeof(qapi_BLE_CGMS_Specific_Ops_Control_Point_Format_Data_t))"/>
+   <macro name="QAPI_BLE_CGMS_SPECIFIC_OPS_CONTROL_POINT_RESPONSE_DATA_SIZE" value="(sizeof(qapi_BLE_CGMS_Specific_Ops_Control_Point_Response_Data_t))"/>
+   <macro name="QAPI_BLE_CGMS_SPECIFIC_OPS_CONTROL_POINT_COMMAND_DATA_SIZE" value="(sizeof(qapi_BLE_CGMS_Specific_Ops_Control_Point_Command_Data_t))"/>
+   <macro name="QAPI_BLE_CGMS_CONFIRMATION_DATA_SIZE" value="(sizeof(qapi_BLE_CGMS_Confirmation_Data_t))"/>
+   <macro name="QAPI_BLE_CGMS_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_CGMS_Event_Data_t))"/>
+   <enum name="qapi_BLE_CGMS_Time_Zone_Type_t">
+      <member name="QAPI_BLE_CGMS_TIZ_UTC_MINUS_1200_E" value="QAPI_BLE_CGMS_TIME_ZONE_UTC_OFFSET_MINUS_12_00"/>
+      <member name="QAPI_BLE_CGMS_TIZ_UTC_MINUS_1100_E" value="QAPI_BLE_CGMS_TIME_ZONE_UTC_OFFSET_MINUS_11_00"/>
+      <member name="QAPI_BLE_CGMS_TIZ_UTC_MINUS_1000_E" value="QAPI_BLE_CGMS_TIME_ZONE_UTC_OFFSET_MINUS_10_00"/>
+      <member name="QAPI_BLE_CGMS_TIZ_UTC_MINUS_930_E" value="QAPI_BLE_CGMS_TIME_ZONE_UTC_OFFSET_MINUS_9_30"/>
+      <member name="QAPI_BLE_CGMS_TIZ_UTC_MINUS_900_E" value="QAPI_BLE_CGMS_TIME_ZONE_UTC_OFFSET_MINUS_9_00"/>
+      <member name="QAPI_BLE_CGMS_TIZ_UTC_MINUS_800_E" value="QAPI_BLE_CGMS_TIME_ZONE_UTC_OFFSET_MINUS_8_00"/>
+      <member name="QAPI_BLE_CGMS_TIZ_UTC_MINUS_700_E" value="QAPI_BLE_CGMS_TIME_ZONE_UTC_OFFSET_MINUS_7_00"/>
+      <member name="QAPI_BLE_CGMS_TIZ_UTC_MINUS_600_E" value="QAPI_BLE_CGMS_TIME_ZONE_UTC_OFFSET_MINUS_6_00"/>
+      <member name="QAPI_BLE_CGMS_TIZ_UTC_MINUS_500_E" value="QAPI_BLE_CGMS_TIME_ZONE_UTC_OFFSET_MINUS_5_00"/>
+      <member name="QAPI_BLE_CGMS_TIZ_UTC_MINUS_430_E" value="QAPI_BLE_CGMS_TIME_ZONE_UTC_OFFSET_MINUS_4_30"/>
+      <member name="QAPI_BLE_CGMS_TIZ_UTC_MINUS_400_E" value="QAPI_BLE_CGMS_TIME_ZONE_UTC_OFFSET_MINUS_4_00"/>
+      <member name="QAPI_BLE_CGMS_TIZ_UTC_MINUS_330_E" value="QAPI_BLE_CGMS_TIME_ZONE_UTC_OFFSET_MINUS_3_30"/>
+      <member name="QAPI_BLE_CGMS_TIZ_UTC_MINUS_300_E" value="QAPI_BLE_CGMS_TIME_ZONE_UTC_OFFSET_MINUS_3_00"/>
+      <member name="QAPI_BLE_CGMS_TIZ_UTC_MINUS_200_E" value="QAPI_BLE_CGMS_TIME_ZONE_UTC_OFFSET_MINUS_2_00"/>
+      <member name="QAPI_BLE_CGMS_TIZ_UTC_MINUS_100_E" value="QAPI_BLE_CGMS_TIME_ZONE_UTC_OFFSET_MINUS_1_00"/>
+      <member name="QAPI_BLE_CGMS_TIZ_UTC_PLUS_000_E" value="QAPI_BLE_CGMS_TIME_ZONE_UTC_OFFSET_PLUS_0_00"/>
+      <member name="QAPI_BLE_CGMS_TIZ_UTC_PLUS_100_E" value="QAPI_BLE_CGMS_TIME_ZONE_UTC_OFFSET_PLUS_1_00"/>
+      <member name="QAPI_BLE_CGMS_TIZ_UTC_PLUS_200_E" value="QAPI_BLE_CGMS_TIME_ZONE_UTC_OFFSET_PLUS_2_00"/>
+      <member name="QAPI_BLE_CGMS_TIZ_UTC_PLUS_300_E" value="QAPI_BLE_CGMS_TIME_ZONE_UTC_OFFSET_PLUS_3_00"/>
+      <member name="QAPI_BLE_CGMS_TIZ_UTC_PLUS_330_E" value="QAPI_BLE_CGMS_TIME_ZONE_UTC_OFFSET_PLUS_3_30"/>
+      <member name="QAPI_BLE_CGMS_TIZ_UTC_PLUS_400_E" value="QAPI_BLE_CGMS_TIME_ZONE_UTC_OFFSET_PLUS_4_00"/>
+      <member name="QAPI_BLE_CGMS_TIZ_UTC_PLUS_430_E" value="QAPI_BLE_CGMS_TIME_ZONE_UTC_OFFSET_PLUS_4_30"/>
+      <member name="QAPI_BLE_CGMS_TIZ_UTC_PLUS_500_E" value="QAPI_BLE_CGMS_TIME_ZONE_UTC_OFFSET_PLUS_5_00"/>
+      <member name="QAPI_BLE_CGMS_TIZ_UTC_PLUS_530_E" value="QAPI_BLE_CGMS_TIME_ZONE_UTC_OFFSET_PLUS_5_30"/>
+      <member name="QAPI_BLE_CGMS_TIZ_UTC_PLUS_545_E" value="QAPI_BLE_CGMS_TIME_ZONE_UTC_OFFSET_PLUS_5_45"/>
+      <member name="QAPI_BLE_CGMS_TIZ_UTC_PLUS_600_E" value="QAPI_BLE_CGMS_TIME_ZONE_UTC_OFFSET_PLUS_6_00"/>
+      <member name="QAPI_BLE_CGMS_TIZ_UTC_PLUS_630_E" value="QAPI_BLE_CGMS_TIME_ZONE_UTC_OFFSET_PLUS_6_30"/>
+      <member name="QAPI_BLE_CGMS_TIZ_UTC_PLUS_700_E" value="QAPI_BLE_CGMS_TIME_ZONE_UTC_OFFSET_PLUS_7_00"/>
+      <member name="QAPI_BLE_CGMS_TIZ_UTC_PLUS_800_E" value="QAPI_BLE_CGMS_TIME_ZONE_UTC_OFFSET_PLUS_8_00"/>
+      <member name="QAPI_BLE_CGMS_TIZ_UTC_PLUS_845_E" value="QAPI_BLE_CGMS_TIME_ZONE_UTC_OFFSET_PLUS_8_45"/>
+      <member name="QAPI_BLE_CGMS_TIZ_UTC_PLUS_900_E" value="QAPI_BLE_CGMS_TIME_ZONE_UTC_OFFSET_PLUS_9_00"/>
+      <member name="QAPI_BLE_CGMS_TIZ_UTC_PLUS_930_E" value="QAPI_BLE_CGMS_TIME_ZONE_UTC_OFFSET_PLUS_9_30"/>
+      <member name="QAPI_BLE_CGMS_TIZ_UTC_PLUS_1000_E" value="QAPI_BLE_CGMS_TIME_ZONE_UTC_OFFSET_PLUS_10_00"/>
+      <member name="QAPI_BLE_CGMS_TIZ_UTC_PLUS_1030_E" value="QAPI_BLE_CGMS_TIME_ZONE_UTC_OFFSET_PLUS_10_30"/>
+      <member name="QAPI_BLE_CGMS_TIZ_UTC_PLUS_1100_E" value="QAPI_BLE_CGMS_TIME_ZONE_UTC_OFFSET_PLUS_11_00"/>
+      <member name="QAPI_BLE_CGMS_TIZ_UTC_PLUS_1130_E" value="QAPI_BLE_CGMS_TIME_ZONE_UTC_OFFSET_PLUS_11_30"/>
+      <member name="QAPI_BLE_CGMS_TIZ_UTC_PLUS_1200_E" value="QAPI_BLE_CGMS_TIME_ZONE_UTC_OFFSET_PLUS_12_00"/>
+      <member name="QAPI_BLE_CGMS_TIZ_UTC_PLUS_1245_E" value="QAPI_BLE_CGMS_TIME_ZONE_UTC_OFFSET_PLUS_12_45"/>
+      <member name="QAPI_BLE_CGMS_TIZ_UTC_PLUS_1300_E" value="QAPI_BLE_CGMS_TIME_ZONE_UTC_OFFSET_PLUS_13_00"/>
+      <member name="QAPI_BLE_CGMS_TIZ_UTC_PLUS_1400_E" value="QAPI_BLE_CGMS_TIME_ZONE_UTC_OFFSET_PLUS_14_00"/>
+      <member name="QAPI_BLE_CGMS_TIZ_UTC_UNKNOWN_E" value="QAPI_BLE_CGMS_TIME_ZONE_UTC_OFFSET_UNKNOWN"/>
+   </enum>
+   <enum name="qapi_BLE_CGMS_DST_Offset_Type_t">
+      <member name="QAPI_BLE_CGMS_DSO_STANDARD_TIME_E" value="QAPI_BLE_CGMS_DST_OFFSET_STANDARD_TIME"/>
+      <member name="QAPI_BLE_CGMS_DSO_HALF_AN_HOUR_DAY_LIGHT_TIME_E" value="QAPI_BLE_CGMS_DST_OFFSET_HALF_AN_HOUR_DAYLIGHT_TIME"/>
+      <member name="QAPI_BLE_CGMS_DSO_DAY_LIGHT_TIME_E" value="QAPI_BLE_CGMS_DST_OFFSET_DAYLIGHT_TIME"/>
+      <member name="QAPI_BLE_CGMS_DSO_DOUBLE_DAY_LIGHT_TIME_E" value="QAPI_BLE_CGMS_DST_OFFSET_DOUBLE_DAYLIGHT_TIME"/>
+      <member name="QAPI_BLE_CGMS_DSO_UNKNOWN_E" value="QAPI_BLE_CGMS_DST_OFFSET_UNKNOWN"/>
+   </enum>
+   <enum name="qapi_BLE_CGMS_RACP_Response_Type_t">
+      <member name="QAPI_BLE_CGMS_NUMBER_OF_STORED_RECORDS_E" value="QAPI_BLE_CGMS_RACP_OPCODE_NUMBER_OF_STORED_RECORDS_RESPONSE"/>
+      <member name="QAPI_BLE_CGMS_RESPONSE_CODE_E" value="QAPI_BLE_CGMS_RACP_OPCODE_RESPONSE_CODE"/>
+   </enum>
+   <enum name="qapi_BLE_CGMS_Characteristic_Type_t">
+      <member name="QAPI_BLE_CGMS_CT_CGMS_MEASUREMENT_E" value="0"/>
+      <member name="QAPI_BLE_CGMS_CT_RECORD_ACCESS_CONTROL_POINT_E" value="1"/>
+      <member name="QAPI_BLE_CGMS_CT_SPECIFIC_OPS_CONTROL_POINT_E" value="2"/>
+   </enum>
+   <enum name="qapi_BLE_CGMS_Event_Type_t">
+      <member name="QAPI_BLE_ET_CGMS_SERVER_READ_CLIENT_CONFIGURATION_REQUEST_E" value="0"/>
+      <member name="QAPI_BLE_ET_CGMS_SERVER_CLIENT_CONFIGURATION_UPDATE_E" value="1"/>
+      <member name="QAPI_BLE_ET_CGMS_SERVER_READ_FEATURE_REQUEST_E" value="2"/>
+      <member name="QAPI_BLE_ET_CGMS_SERVER_READ_STATUS_REQUEST_E" value="3"/>
+      <member name="QAPI_BLE_ET_CGMS_SERVER_READ_SESSION_START_TIME_REQUEST_E" value="4"/>
+      <member name="QAPI_BLE_ET_CGMS_SERVER_WRITE_SESSION_START_TIME_REQUEST_E" value="5"/>
+      <member name="QAPI_BLE_ET_CGMS_SERVER_READ_SESSION_RUN_TIME_REQUEST_E" value="6"/>
+      <member name="QAPI_BLE_ET_CGMS_SERVER_RECORD_ACCESS_CONTROL_POINT_COMMAND_E" value="7"/>
+      <member name="QAPI_BLE_ET_CGMS_SERVER_SPECIFIC_OPS_CONTROL_POINT_COMMAND_E" value="8"/>
+      <member name="QAPI_BLE_ET_CGMS_SERVER_CONFIRMATION_DATA_E" value="9"/>
+   </enum>
+   <enum name="qapi_BLE_CGMS_RACP_Command_Type_t">
+      <member name="QAPI_BLE_CGMS_COMMAND_REPORT_STORED_RECORDS_REQUEST_E" value="QAPI_BLE_CGMS_RACP_OPCODE_REPORT_STORED_RECORDS"/>
+      <member name="QAPI_BLE_CGMS_COMMAND_DELETE_STORED_RECORDS_REQUEST_E" value="QAPI_BLE_CGMS_RACP_OPCODE_DELETE_STORED_RECORDS"/>
+      <member name="QAPI_BLE_CGMS_COMMAND_ABORT_OPERATION_REQUEST_E" value="QAPI_BLE_CGMS_RACP_OPCODE_ABORT_OPERATION"/>
+      <member name="QAPI_BLE_CGMS_COMMAND_NUMBER_OF_STORED_RECORDS_REQUEST_E" value="QAPI_BLE_CGMS_RACP_OPCODE_REPORT_NUMBER_OF_STORED_RECORDS"/>
+   </enum>
+   <enum name="qapi_BLE_CGMS_RACP_Operator_Type_t">
+      <member name="QAPI_BLE_CGMS_NULL_E" value="QAPI_BLE_CGMS_RACP_OPERATOR_NULL"/>
+      <member name="QAPI_BLE_CGMS_ALL_RECORDS_E" value="QAPI_BLE_CGMS_RACP_OPERATOR_ALL_RECORDS"/>
+      <member name="QAPI_BLE_CGMS_LESS_THAN_OR_EQUAL_TO_E" value="QAPI_BLE_CGMS_RACP_OPERATOR_LESS_THAN_OR_EQUAL_TO"/>
+      <member name="QAPI_BLE_CGMS_GREATER_THAN_OR_EQUAL_TO_E" value="QAPI_BLE_CGMS_RACP_OPERATOR_GREATER_THAN_OR_EQUAL_TO"/>
+      <member name="QAPI_BLE_CGMS_WITHIN_RANGE_OF_E" value="QAPI_BLE_CGMS_RACP_OPERATOR_WITHIN_RANGE_OF"/>
+      <member name="QAPI_BLE_CGMS_FIRST_RECORD_E" value="QAPI_BLE_CGMS_RACP_OPERATOR_FIRST_RECORD"/>
+      <member name="QAPI_BLE_CGMS_LAST_RECORD_E" value="QAPI_BLE_CGMS_RACP_OPERATOR_LAST_RECORD"/>
+   </enum>
+   <enum name="qapi_BLE_CGMS_RACP_Filter_Type_t">
+      <member name="QAPI_BLE_CGMS_FILTER_TIME_OFFSET_E" value="QAPI_BLE_CGMS_RACP_FILTER_TYPE_TIME_OFFSET"/>
+      <member name="" value="0"/>
+   </enum>
+   <enum name="qapi_BLE_CGMS_SOCP_Command_Type_t">
+      <member name="QAPI_BLE_CGMS_COMMAND_SET_CGM_COMMUNICATION_INTERVAL_E" value="QAPI_BLE_CGMS_SPECIFIC_OPS_CP_OPCODE_SET_CGM_COMMUNICATION_INTERVAL"/>
+      <member name="QAPI_BLE_CGMS_COMMAND_GET_CGM_COMMUNICATION_INTERVAL_E" value="QAPI_BLE_CGMS_SPECIFIC_OPS_CP_OPCODE_GET_CGM_COMMUNICATION_INTERVAL"/>
+      <member name="QAPI_BLE_CGMS_COMMAND_SET_GLUCOSE_CALIBRATION_VALUE_E" value="QAPI_BLE_CGMS_SPECIFIC_OPS_CP_OPCODE_SET_GLUCOSE_CALIBRATION_VALUE"/>
+      <member name="QAPI_BLE_CGMS_COMMAND_GET_GLUCOSE_CALIBRATION_VALUE_E" value="QAPI_BLE_CGMS_SPECIFIC_OPS_CP_OPCODE_GET_GLUCOSE_CALIBRATION_VALUE"/>
+      <member name="QAPI_BLE_CGMS_COMMAND_SET_PATIENT_HIGH_ALERT_LEVEL_E" value="QAPI_BLE_CGMS_SPECIFIC_OPS_CP_OPCODE_SET_PATIENT_HIGH_ALERT_LEVEL"/>
+      <member name="QAPI_BLE_CGMS_COMMAND_GET_PATIENT_HIGH_ALERT_LEVEL_E" value="QAPI_BLE_CGMS_SPECIFIC_OPS_CP_OPCODE_GET_PATIENT_HIGH_ALERT_LEVEL"/>
+      <member name="QAPI_BLE_CGMS_COMMAND_SET_PATIENT_LOW_ALERT_LEVEL_E" value="QAPI_BLE_CGMS_SPECIFIC_OPS_CP_OPCODE_SET_PATIENT_LOW_ALERT_LEVEL"/>
+      <member name="QAPI_BLE_CGMS_COMMAND_GET_PATIENT_LOW_ALERT_LEVEL_E" value="QAPI_BLE_CGMS_SPECIFIC_OPS_CP_OPCODE_GET_PATIENT_LOW_ALERT_LEVEL"/>
+      <member name="QAPI_BLE_CGMS_COMMAND_SET_HYPO_ALERT_LEVEL_E" value="QAPI_BLE_CGMS_SPECIFIC_OPS_CP_OPCODE_SET_HYPO_ALERT_LEVEL"/>
+      <member name="QAPI_BLE_CGMS_COMMAND_GET_HYPO_ALERT_LEVEL_E" value="QAPI_BLE_CGMS_SPECIFIC_OPS_CP_OPCODE_GET_HYPO_ALERT_LEVEL"/>
+      <member name="QAPI_BLE_CGMS_COMMAND_SET_HYPER_ALERT_LEVEL_E" value="QAPI_BLE_CGMS_SPECIFIC_OPS_CP_OPCODE_SET_HYPER_ALERT_LEVEL"/>
+      <member name="QAPI_BLE_CGMS_COMMAND_GET_HYPER_ALERT_LEVEL_E" value="QAPI_BLE_CGMS_SPECIFIC_OPS_CP_OPCODE_GET_HYPER_ALERT_LEVEL"/>
+      <member name="QAPI_BLE_CGMS_COMMAND_SET_RATE_OF_DECREASE_ALERT_LEVEL_E" value="QAPI_BLE_CGMS_SPECIFIC_OPS_CP_OPCODE_SET_RATE_OF_DECREASE_ALERT_LEVEL"/>
+      <member name="QAPI_BLE_CGMS_COMMAND_GET_RATE_OF_DECREASE_ALERT_LEVEL_E" value="QAPI_BLE_CGMS_SPECIFIC_OPS_CP_OPCODE_GET_RATE_OF_DECREASE_ALERT_LEVEL"/>
+      <member name="QAPI_BLE_CGMS_COMMAND_SET_RATE_OF_INCREASE_ALERT_LEVEL_E" value="QAPI_BLE_CGMS_SPECIFIC_OPS_CP_OPCODE_SET_RATE_OF_INCREASE_ALERT_LEVEL"/>
+      <member name="QAPI_BLE_CGMS_COMMAND_GET_RATE_OF_INCREASE_ALERT_LEVEL_E" value="QAPI_BLE_CGMS_SPECIFIC_OPS_CP_OPCODE_GET_RATE_OF_INCREASE_ALERT_LEVEL"/>
+      <member name="QAPI_BLE_CGMS_COMMAND_RESET_DEVICE_SPECIFIC_ALERT_E" value="QAPI_BLE_CGMS_SPECIFIC_OPS_CP_OPCODE_RESET_DEVICE_SPECIFIC_ALERT"/>
+      <member name="QAPI_BLE_CGMS_COMMAND_START_SESSION_E" value="QAPI_BLE_CGMS_SPECIFIC_OPS_CP_OPCODE_START_SESSION"/>
+      <member name="QAPI_BLE_CGMS_COMMAND_STOP_SESSION_E" value="QAPI_BLE_CGMS_SPECIFIC_OPS_CP_OPCODE_STOP_SESSION"/>
+   </enum>
+   <enum name="qapi_BLE_CGMS_SOCP_Response_Type_t">
+      <member name="QAPI_BLE_CGMS_RESPONSE_COMMUNICATION_INTERVAL_RESPONSE_E" value="QAPI_BLE_CGMS_SPECIFIC_OPS_CP_OPCODE_COMMUNICATION_INTERVAL_RESPONSE"/>
+      <member name="QAPI_BLE_CGMS_RESPONSE_CALIBRATION_VALUE_RESPONSE_E" value="QAPI_BLE_CGMS_SPECIFIC_OPS_CP_OPCODE_CALIBRATION_VALUE_RESPONSE"/>
+      <member name="QAPI_BLE_CGMS_RESPONSE_PATIENT_HIGH_ALERT_LEVEL_RESPONSE_E" value="QAPI_BLE_CGMS_SPECIFIC_OPS_CP_OPCODE_PATIENT_HIGH_ALERT_LEVEL_RESPONSE"/>
+      <member name="QAPI_BLE_CGMS_RESPONSE_PATIENT_LOW_ALERT_LEVEL_RESPONSE_E" value="QAPI_BLE_CGMS_SPECIFIC_OPS_CP_OPCODE_PATIENT_LOW_ALERT_LEVEL_RESPONSE"/>
+      <member name="QAPI_BLE_CGMS_RESPONSE_HYPO_ALERT_LEVEL_RESPONSE_E" value="QAPI_BLE_CGMS_SPECIFIC_OPS_CP_OPCODE_HYPO_ALERT_LEVEL_RESPONSE"/>
+      <member name="QAPI_BLE_CGMS_RESPONSE_HYPER_ALERT_LEVEL_RESPONSE_E" value="QAPI_BLE_CGMS_SPECIFIC_OPS_CP_OPCODE_HYPER_ALERT_LEVEL_RESPONSE"/>
+      <member name="QAPI_BLE_CGMS_RESPONSE_RATE_OF_DECREASE_ALERT_LEVEL_RESPONSE_E" value="QAPI_BLE_CGMS_SPECIFIC_OPS_CP_OPCODE_RATE_OF_DECREASE_ALERT_LEVEL_RESPONSE"/>
+      <member name="QAPI_BLE_CGMS_RESPONSE_RATE_OF_INCREASE_ALERT_LEVEL_RESPONSE_E" value="QAPI_BLE_CGMS_SPECIFIC_OPS_CP_OPCODE_RATE_OF_INCREASE_ALERT_LEVEL_RESPONSE"/>
+      <member name="QAPI_BLE_CGMS_RESPONSE_RESPONSE_E" value="QAPI_BLE_CGMS_SPECIFIC_OPS_CP_OPCODE_RESPONSE"/>
+   </enum>
+   <enum name="qapi_BLE_CGMS_SOCP_Response_Value_t">
+      <member name="QAPI_BLE_CGMS_RESPONSE_VALUE_SUCCESS_E" value="QAPI_BLE_CGMS_SPECIFIC_OPS_CP_RESPONSE_OPCODE_SUCCESS"/>
+      <member name="QAPI_BLE_CGMS_RESPONSE_VALUE_OPCODE_NOT_SUPPORTED_E" value="QAPI_BLE_CGMS_SPECIFIC_OPS_CP_RESPONSE_OPCODE_NOT_SUPPORTED"/>
+      <member name="QAPI_BLE_CGMS_RESPONSE_VALUE_INVALID_OPERAND_E" value="QAPI_BLE_CGMS_SPECIFIC_OPS_CP_RESPONSE_INVALID_OPERAND"/>
+      <member name="QAPI_BLE_CGMS_RESPONSE_VALUE_PROCEDURE_NOT_COMPLETED_E" value="QAPI_BLE_CGMS_SPECIFIC_OPS_CP_RESPONSE_OPCODE_PROCEDURE_NOT_COMPLETED"/>
+      <member name="QAPI_BLE_CGMS_RESPONSE_VALUE_PARAMETER_OUT_OF_RANGE_E" value="QAPI_BLE_CGMS_SPECIFIC_OPS_CP_RESPONSE_OPCODE_PARAMETER_OUT_OF_RANGE"/>
+   </enum>
+   <structure name="qapi_BLE_CGMS_Client_Information_t">
+      <member attributes="value" name="CGMS_Measurement" type="uint16_t"/>
+      <member attributes="value" name="CGMS_Measurement_Client_Configuration" type="uint16_t"/>
+      <member attributes="value" name="CGMS_Feature" type="uint16_t"/>
+      <member attributes="value" name="CGMS_Status" type="uint16_t"/>
+      <member attributes="value" name="CGMS_Session_Start_Time" type="uint16_t"/>
+      <member attributes="value" name="CGMS_Session_Run_Time" type="uint16_t"/>
+      <member attributes="value" name="Record_Access_Control_Point" type="uint16_t"/>
+      <member attributes="value" name="RACP_Client_Configuration" type="uint16_t"/>
+      <member attributes="value" name="Specific_Ops_Control_Point" type="uint16_t"/>
+      <member attributes="value" name="SOCP_Client_Configuration" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_CGMS_Server_Information_t">
+      <member attributes="value" name="CGMS_Measurement_Client_Configuration" type="uint16_t"/>
+      <member attributes="value" name="RACP_Client_Configuration" type="uint16_t"/>
+      <member attributes="value" name="SOCP_Client_Configuration" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_CGMS_Measurement_Data_t">
+      <member attributes="value" name="Size" type="uint32_t"/>
+      <member attributes="value" name="Flags" type="uint32_t"/>
+      <member attributes="value" name="GlucoseConcentration" type="uint16_t"/>
+      <member attributes="value" name="TimeOffset" type="uint16_t"/>
+      <member attributes="value" name="SensorStatus" type="uint8_t"/>
+      <member attributes="value" name="SensorCalTemp" type="uint8_t"/>
+      <member attributes="value" name="SensorWarning" type="uint8_t"/>
+      <member attributes="value" name="TrendInformation" type="uint16_t"/>
+      <member attributes="value" name="Quality" type="uint16_t"/>
+      <member attributes="value" name="CRCFlags" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_CGMS_Feature_Data_t">
+      <member attributes="value" name="Features" type="uint32_t"/>
+      <member attributes="value" name="TypeSampleLocation" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_CGMS_Status_Data_t">
+      <member attributes="value" name="TimeOffset" type="uint16_t"/>
+      <member attributes="value" name="Status" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_BLE_CGMS_Date_Time_Data_t">
+      <member attributes="value" name="Year" type="uint16_t"/>
+      <member attributes="value" name="Month" type="uint8_t"/>
+      <member attributes="value" name="Day" type="uint8_t"/>
+      <member attributes="value" name="Hours" type="uint8_t"/>
+      <member attributes="value" name="Minutes" type="uint8_t"/>
+      <member attributes="value" name="Seconds" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_CGMS_Session_Start_Time_Data_t">
+      <member attributes="value" name="Time" type="qapi_BLE_CGMS_Date_Time_Data_t"/>
+      <member attributes="value" name="TimeZone" type="qapi_BLE_CGMS_Time_Zone_Type_t"/>
+      <member attributes="value" name="DSTOffset" type="qapi_BLE_CGMS_DST_Offset_Type_t"/>
+   </structure>
+   <structure name="qapi_BLE_CGMS_Session_Run_Time_Data_t">
+      <member attributes="value" name="SessionRunTime" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_CGMS_RACP_Response_Code_Value_t">
+      <member attributes="value" name="RequestOpCode" type="uint8_t"/>
+      <member attributes="value" name="ResponseCodeValue" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_CGMS_RACP_Response_Data_t">
+      <member attributes="value" name="ResponseType" type="qapi_BLE_CGMS_RACP_Response_Type_t"/>
+      <member attributes="union" name="ResponseData">
+         <member attributes="value" name="NumberOfStoredRecordsResult" type="uint16_t"/>
+         <member attributes="value" name="ResponseCodeValue" type="qapi_BLE_CGMS_RACP_Response_Code_Value_t"/>
+         <unionMap mapVerified="yes" name="ResponseType" type="qapi_BLE_CGMS_RACP_Response_Type_t">
+            <mapEntry member="NumberOfStoredRecordsResult" type="uint16_t" value="QAPI_BLE_CGMS_NUMBER_OF_STORED_RECORDS_E"/>
+            <mapEntry member="ResponseCodeValue" type="qapi_BLE_CGMS_RACP_Response_Code_Value_t" value="QAPI_BLE_CGMS_RESPONSE_CODE_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_BLE_CGMS_Read_Client_Configuration_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ClientConfigurationType" type="qapi_BLE_CGMS_Characteristic_Type_t"/>
+   </structure>
+   <structure name="qapi_BLE_CGMS_Client_Configuration_Update_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ClientConfigurationType" type="qapi_BLE_CGMS_Characteristic_Type_t"/>
+      <member attributes="value" name="ClientConfiguration" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_CGMS_Read_Feature_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+   </structure>
+   <structure name="qapi_BLE_CGMS_Read_Status_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+   </structure>
+   <structure name="qapi_BLE_CGMS_Read_Session_Start_Time_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+   </structure>
+   <structure name="qapi_BLE_CGMS_Write_Session_Start_Time_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Flags" type="uint8_t"/>
+      <member attributes="value" name="SessionStartTime" type="qapi_BLE_CGMS_Session_Start_Time_Data_t"/>
+   </structure>
+   <structure name="qapi_BLE_CGMS_Read_Session_Run_Time_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+   </structure>
+   <structure name="qapi_BLE_CGMS_Time_Offset_Range_Data_t">
+      <member attributes="value" name="Minimum" type="uint16_t"/>
+      <member attributes="value" name="Maximum" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_CGMS_RACP_Format_Data_t">
+      <member attributes="value" name="CommandType" type="uint8_t"/>
+      <member attributes="value" name="OperatorType" type="uint8_t"/>
+      <member attributes="value" name="FilterType" type="uint8_t"/>
+      <member attributes="union" name="FilterParameters">
+         <member attributes="value" name="TimeOffset" type="uint16_t"/>
+         <member attributes="value" name="TimeOffsetRange" type="qapi_BLE_CGMS_Time_Offset_Range_Data_t"/>
+         <unionMap mapVerified="yes" name="OperatorType" type="uint8_t">
+            <mapEntry member="TimeOffset" type="uint16_t" value="QAPI_BLE_CGMS_RACP_OPERATOR_LESS_THAN_OR_EQUAL_TO"/>
+            <mapEntry member="TimeOffset" type="uint16_t" value="QAPI_BLE_CGMS_RACP_OPERATOR_GREATER_THAN_OR_EQUAL_TO"/>
+            <mapEntry member="TimeOffsetRange" type="qapi_BLE_CGMS_Time_Offset_Range_Data_t" value="QAPI_BLE_CGMS_RACP_OPERATOR_WITHIN_RANGE_OF"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_BLE_CGMS_Record_Access_Control_Point_Command_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="FormatData" type="qapi_BLE_CGMS_RACP_Format_Data_t"/>
+   </structure>
+   <structure name="qapi_BLE_CGMS_SOCP_Response_Code_Value_t">
+      <member attributes="value" name="RequestOpCode" type="uint8_t"/>
+      <member attributes="value" name="ResponseCodeValue" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_CGMS_Calibration_Data_Record_t">
+      <member attributes="value" name="CalibrationGlucoseConcentration" type="uint16_t"/>
+      <member attributes="value" name="CalibrationTime" type="uint16_t"/>
+      <member attributes="value" name="CalibrationTypeSampleLocation" type="uint8_t"/>
+      <member attributes="value" name="NextCalibrationTime" type="uint16_t"/>
+      <member attributes="value" name="CalibrationDataRecordNumber" type="uint16_t"/>
+      <member attributes="value" name="CalibrationStatus" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_CGMS_Specific_Ops_Control_Point_Format_Data_t">
+      <member attributes="value" name="CommandType" type="qapi_BLE_CGMS_SOCP_Command_Type_t"/>
+      <member attributes="union" name="CommandParameters">
+         <member attributes="value" name="CommunicationIntervalMinutes" type="uint8_t"/>
+         <member attributes="value" name="CalibrationDataRecord" type="qapi_BLE_CGMS_Calibration_Data_Record_t"/>
+         <member attributes="value" name="CalibrationDataRecordNumber" type="uint16_t"/>
+         <member attributes="value" name="AlertLevel" type="uint16_t"/>
+         <unionMap mapVerified="yes" name="CommandType" type="qapi_BLE_CGMS_SOCP_Command_Type_t">
+            <mapEntry member="CommunicationIntervalMinutes" type="uint8_t" value="QAPI_BLE_CGMS_COMMAND_SET_CGM_COMMUNICATION_INTERVAL_E"/>
+            <mapEntry member="CalibrationDataRecord" type="qapi_BLE_CGMS_Calibration_Data_Record_t" value="QAPI_BLE_CGMS_COMMAND_SET_GLUCOSE_CALIBRATION_VALUE_E"/>
+            <mapEntry member="CalibrationDataRecordNumber" type="uint16_t" value="QAPI_BLE_CGMS_COMMAND_GET_GLUCOSE_CALIBRATION_VALUE_E"/>
+            <mapEntry member="AlertLevel" type="uint16_t" value="QAPI_BLE_CGMS_COMMAND_SET_PATIENT_HIGH_ALERT_LEVEL_E"/>
+            <mapEntry member="AlertLevel" type="uint16_t" value="QAPI_BLE_CGMS_COMMAND_SET_PATIENT_LOW_ALERT_LEVEL_E"/>
+            <mapEntry member="AlertLevel" type="uint16_t" value="QAPI_BLE_CGMS_COMMAND_SET_HYPO_ALERT_LEVEL_E"/>
+            <mapEntry member="AlertLevel" type="uint16_t" value="QAPI_BLE_CGMS_COMMAND_SET_HYPER_ALERT_LEVEL_E"/>
+            <mapEntry member="AlertLevel" type="uint16_t" value="QAPI_BLE_CGMS_COMMAND_SET_RATE_OF_DECREASE_ALERT_LEVEL_E"/>
+            <mapEntry member="AlertLevel" type="uint16_t" value="QAPI_BLE_CGMS_COMMAND_SET_RATE_OF_INCREASE_ALERT_LEVEL_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_BLE_CGMS_Specific_Ops_Control_Point_Response_Data_t">
+      <member attributes="value" name="ResponseType" type="qapi_BLE_CGMS_SOCP_Response_Type_t"/>
+      <member attributes="union" name="ResponseData">
+         <member attributes="value" name="CommunicationIntervalMinutes" type="uint8_t"/>
+         <member attributes="value" name="CalibrationDataRecord" type="qapi_BLE_CGMS_Calibration_Data_Record_t"/>
+         <member attributes="value" name="AlertLevel" type="uint16_t"/>
+         <member attributes="value" name="ResponseCodeValue" type="qapi_BLE_CGMS_SOCP_Response_Code_Value_t"/>
+         <unionMap mapVerified="yes" name="ResponseType" type="qapi_BLE_CGMS_SOCP_Response_Type_t">
+            <mapEntry member="CommunicationIntervalMinutes" type="uint8_t" value="QAPI_BLE_CGMS_RESPONSE_COMMUNICATION_INTERVAL_RESPONSE_E"/>
+            <mapEntry member="CalibrationDataRecord" type="qapi_BLE_CGMS_Calibration_Data_Record_t" value="QAPI_BLE_CGMS_RESPONSE_CALIBRATION_VALUE_RESPONSE_E"/>
+            <mapEntry member="AlertLevel" type="uint16_t" value="QAPI_BLE_CGMS_RESPONSE_PATIENT_HIGH_ALERT_LEVEL_RESPONSE_E"/>
+            <mapEntry member="AlertLevel" type="uint16_t" value="QAPI_BLE_CGMS_RESPONSE_PATIENT_LOW_ALERT_LEVEL_RESPONSE_E"/>
+            <mapEntry member="AlertLevel" type="uint16_t" value="QAPI_BLE_CGMS_RESPONSE_HYPO_ALERT_LEVEL_RESPONSE_E"/>
+            <mapEntry member="AlertLevel" type="uint16_t" value="QAPI_BLE_CGMS_RESPONSE_HYPER_ALERT_LEVEL_RESPONSE_E"/>
+            <mapEntry member="AlertLevel" type="uint16_t" value="QAPI_BLE_CGMS_RESPONSE_RATE_OF_DECREASE_ALERT_LEVEL_RESPONSE_E"/>
+            <mapEntry member="AlertLevel" type="uint16_t" value="QAPI_BLE_CGMS_RESPONSE_RATE_OF_INCREASE_ALERT_LEVEL_RESPONSE_E"/>
+            <mapEntry member="ResponseCodeValue" type="qapi_BLE_CGMS_SOCP_Response_Code_Value_t" value="QAPI_BLE_CGMS_RESPONSE_RESPONSE_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_BLE_CGMS_Specific_Ops_Control_Point_Command_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Flags" type="uint8_t"/>
+      <member attributes="value" name="FormatData" type="qapi_BLE_CGMS_Specific_Ops_Control_Point_Format_Data_t"/>
+   </structure>
+   <structure name="qapi_BLE_CGMS_Confirmation_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="CharacteristicType" type="qapi_BLE_CGMS_Characteristic_Type_t"/>
+      <member attributes="value" name="Status" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_CGMS_Event_Data_t">
+      <member attributes="value" name="Event_Data_Type" type="qapi_BLE_CGMS_Event_Type_t"/>
+      <member attributes="value" name="Event_Data_Size" type="uint16_t"/>
+      <member attributes="union" name="Event_Data">
+         <member attributes="ptr" iotype="in" name="CGMS_Read_Client_Configuration_Data" type="qapi_BLE_CGMS_Read_Client_Configuration_Data_t"/>
+         <member attributes="ptr" iotype="in" name="CGMS_Client_Configuration_Update_Data" type="qapi_BLE_CGMS_Client_Configuration_Update_Data_t"/>
+         <member attributes="ptr" iotype="in" name="CGMS_Read_Feature_Data" type="qapi_BLE_CGMS_Read_Feature_Data_t"/>
+         <member attributes="ptr" iotype="in" name="CGMS_Read_Status_Data" type="qapi_BLE_CGMS_Read_Status_Data_t"/>
+         <member attributes="ptr" iotype="in" name="CGMS_Read_Session_Start_Time_Data" type="qapi_BLE_CGMS_Read_Session_Start_Time_Data_t"/>
+         <member attributes="ptr" iotype="in" name="CGMS_Write_Session_Start_Time_Data" type="qapi_BLE_CGMS_Write_Session_Start_Time_Data_t"/>
+         <member attributes="ptr" iotype="in" name="CGMS_Read_Session_Run_Time_Data" type="qapi_BLE_CGMS_Read_Session_Run_Time_Data_t"/>
+         <member attributes="ptr" iotype="in" name="CGMS_Record_Access_Control_Point_Command_Data" type="qapi_BLE_CGMS_Record_Access_Control_Point_Command_Data_t"/>
+         <member attributes="ptr" iotype="in" name="CGMS_Specific_Ops_Control_Point_Command_Data" type="qapi_BLE_CGMS_Specific_Ops_Control_Point_Command_Data_t"/>
+         <member attributes="ptr" iotype="in" name="CGMS_Confirmation_Data" type="qapi_BLE_CGMS_Confirmation_Data_t"/>
+         <unionMap mapVerified="yes" name="Event_Data_Type" type="qapi_BLE_CGMS_Event_Type_t">
+            <mapEntry member="CGMS_Read_Client_Configuration_Data" type="qapi_BLE_CGMS_Read_Client_Configuration_Data_t" value="QAPI_BLE_ET_CGMS_SERVER_READ_CLIENT_CONFIGURATION_REQUEST_E"/>
+            <mapEntry member="CGMS_Client_Configuration_Update_Data" type="qapi_BLE_CGMS_Client_Configuration_Update_Data_t" value="QAPI_BLE_ET_CGMS_SERVER_CLIENT_CONFIGURATION_UPDATE_E"/>
+            <mapEntry member="CGMS_Read_Feature_Data" type="qapi_BLE_CGMS_Read_Feature_Data_t" value="QAPI_BLE_ET_CGMS_SERVER_READ_FEATURE_REQUEST_E"/>
+            <mapEntry member="CGMS_Read_Status_Data" type="qapi_BLE_CGMS_Read_Status_Data_t" value="QAPI_BLE_ET_CGMS_SERVER_READ_STATUS_REQUEST_E"/>
+            <mapEntry member="CGMS_Read_Session_Start_Time_Data" type="qapi_BLE_CGMS_Read_Session_Start_Time_Data_t" value="QAPI_BLE_ET_CGMS_SERVER_READ_SESSION_START_TIME_REQUEST_E"/>
+            <mapEntry member="CGMS_Write_Session_Start_Time_Data" type="qapi_BLE_CGMS_Write_Session_Start_Time_Data_t" value="QAPI_BLE_ET_CGMS_SERVER_WRITE_SESSION_START_TIME_REQUEST_E"/>
+            <mapEntry member="CGMS_Read_Session_Run_Time_Data" type="qapi_BLE_CGMS_Read_Session_Run_Time_Data_t" value="QAPI_BLE_ET_CGMS_SERVER_READ_SESSION_RUN_TIME_REQUEST_E"/>
+            <mapEntry member="CGMS_Record_Access_Control_Point_Command_Data" type="qapi_BLE_CGMS_Record_Access_Control_Point_Command_Data_t" value="QAPI_BLE_ET_CGMS_SERVER_RECORD_ACCESS_CONTROL_POINT_COMMAND_E"/>
+            <mapEntry member="CGMS_Specific_Ops_Control_Point_Command_Data" type="qapi_BLE_CGMS_Specific_Ops_Control_Point_Command_Data_t" value="QAPI_BLE_ET_CGMS_SERVER_SPECIFIC_OPS_CONTROL_POINT_COMMAND_E"/>
+            <mapEntry member="CGMS_Confirmation_Data" type="qapi_BLE_CGMS_Confirmation_Data_t" value="QAPI_BLE_ET_CGMS_SERVER_CONFIRMATION_DATA_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <function name="qapi_BLE_CGMS_Initialize_Service">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Flags" type="uint32_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_CGMS_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_CGMS_Initialize_Service_Handle_Range">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Flags" type="uint32_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_CGMS_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="ServiceHandleRange" type="qapi_BLE_GATT_Attribute_Handle_Group_t"/>
+   </function>
+   <function name="qapi_BLE_CGMS_Cleanup_Service">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_CGMS_Query_Number_Attributes">
+      <return attributes="value" type="unsigned int"/>
+   </function>
+   <function name="qapi_BLE_CGMS_Read_Client_Configuration_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ClientConfiguration" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_CGMS_Notify_CGMS_Measurements">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="value" name="Flags" type="uint32_t"/>
+      <argument attributes="value" name="NumberOfMeasurements" type="uint32_t"/>
+      <argument attributes="doubleptr" iotype="in" lengthParam="NumberOfMeasurements" lengthVerified="yes" name="MeasurementData" type="qapi_BLE_CGMS_Measurement_Data_t"/>
+   </function>
+   <function name="qapi_BLE_CGMS_Feature_Read_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="Flags" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="CGMSFeature" type="qapi_BLE_CGMS_Feature_Data_t"/>
+   </function>
+   <function name="qapi_BLE_CGMS_Status_Read_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="Flags" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="CGMSStatus" type="qapi_BLE_CGMS_Status_Data_t"/>
+   </function>
+   <function name="qapi_BLE_CGMS_Session_Start_Time_Read_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="Flags" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="SessionStartTime" type="qapi_BLE_CGMS_Session_Start_Time_Data_t"/>
+   </function>
+   <function name="qapi_BLE_CGMS_Session_Start_Time_Write_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_CGMS_Session_Run_Time_Read_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="Flags" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="SessionRunTime" type="qapi_BLE_CGMS_Session_Run_Time_Data_t"/>
+   </function>
+   <function name="qapi_BLE_CGMS_Record_Access_Control_Point_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_CGMS_Indicate_Number_Of_Stored_Records">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="value" name="NumberOfStoredRecords" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_CGMS_Indicate_Record_Access_Control_Point_Result">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="value" name="RequestOpCode" type="uint8_t"/>
+      <argument attributes="value" name="ResponseCode" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_CGMS_Specific_Ops_Control_Point_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_CGMS_Indicate_CGMS_Specific_Ops_Control_Point_Result">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="value" name="Flags" type="uint32_t"/>
+      <argument attributes="value" name="RequestOpCode" type="uint8_t"/>
+      <argument attributes="value" name="ResponseCodeValue" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_CGMS_Indicate_Communication_Interval">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="value" name="Flags" type="uint32_t"/>
+      <argument attributes="value" name="CommunicationIntervalMinutes" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_CGMS_Indicate_Calibration_Data">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="value" name="Flags" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="CalibrationData" type="qapi_BLE_CGMS_Calibration_Data_Record_t"/>
+   </function>
+   <function name="qapi_BLE_CGMS_Indicate_Alert_Level">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="value" name="Flags" type="uint32_t"/>
+      <argument attributes="value" name="ResponseOpCode" type="qapi_BLE_CGMS_SOCP_Response_Type_t"/>
+      <argument attributes="value" name="AlertLevel" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_CGMS_Decode_CGMS_Measurement">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="value" name="NumberOfMeasurements" type="uint32_t"/>
+      <argument attributes="doubleptr" iotype="out" lengthParam="NumberOfMeasurements" lengthVerified="yes" name="MeasurementData" type="qapi_BLE_CGMS_Measurement_Data_t"/>
+   </function>
+   <function name="qapi_BLE_CGMS_Decode_CGMS_Feature">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="CGMSFeature" type="qapi_BLE_CGMS_Feature_Data_t"/>
+   </function>
+   <function name="qapi_BLE_CGMS_Decode_CGMS_Status">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="Flags" type="uint32_t"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="CGMSStatus" type="qapi_BLE_CGMS_Status_Data_t"/>
+   </function>
+   <function name="qapi_BLE_CGMS_Decode_Session_Start_Time">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="Flags" type="uint32_t"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="SessionTime" type="qapi_BLE_CGMS_Session_Start_Time_Data_t"/>
+   </function>
+   <function name="qapi_BLE_CGMS_Format_Session_Start_Time">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="Flags" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="SessionStartTime" type="qapi_BLE_CGMS_Session_Start_Time_Data_t"/>
+      <argument attributes="value" name="BufferLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="BufferLength" lengthVerified="yes" name="Buffer" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_CGMS_Decode_Session_Run_Time">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="Flags" type="uint32_t"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="CGMSRunTime" type="qapi_BLE_CGMS_Session_Run_Time_Data_t"/>
+   </function>
+   <function name="qapi_BLE_CGMS_Decode_Record_Access_Control_Point_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="RACPData" type="qapi_BLE_CGMS_RACP_Response_Data_t"/>
+   </function>
+   <function name="qapi_BLE_CGMS_Format_Record_Access_Control_Point_Command">
+      <return attributes="value" type="int"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="FormatData" type="qapi_BLE_CGMS_RACP_Format_Data_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="BufferLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="BufferLength" lengthVerified="yes" name="Buffer" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_CGMS_Decode_CGMS_Specific_Ops_Control_Point_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="Flags" type="uint32_t"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="CGMSCPData" type="qapi_BLE_CGMS_Specific_Ops_Control_Point_Response_Data_t"/>
+   </function>
+   <function name="qapi_BLE_CGMS_Format_CGMS_Specific_Ops_Control_Point_Command">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="Flags" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="FormatData" type="qapi_BLE_CGMS_Specific_Ops_Control_Point_Format_Data_t"/>
+      <argument attributes="value" name="BufferLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="BufferLength" lengthVerified="yes" name="Buffer" type="uint8_t"/>
+   </function>
+   <callback name="qapi_BLE_CGMS_Event_Callback_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="CGMS_Event_Data" type="qapi_BLE_CGMS_Event_Data_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <createFunction ID="qsRetVal" funcSuccess="0" moduleParam="BluetoothStackID" name="qapi_BLE_CGMS_Initialize_Service" param="CallbackParameter"/>
+      <createFunction ID="qsRetVal" funcSuccess="0" moduleParam="BluetoothStackID" name="qapi_BLE_CGMS_Initialize_Service_Handle_Range" param="CallbackParameter"/>
+      <destroyFunction ID="InstanceID" funcSuccess="0" name="qapi_BLE_CGMS_Cleanup_Service"/>
+   </callback>
+</header>

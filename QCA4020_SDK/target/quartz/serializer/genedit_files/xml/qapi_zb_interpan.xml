@@ -1,0 +1,100 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="qapi/qapi_types.h"/>
+   <include name="qapi/qapi_status.h"/>
+   <include name="qapi_zb.h"/>
+   <enum name="qapi_ZB_InterPAN_Event_Type_t">
+      <member name="QAPI_ZB_INTERPAN_EVENT_TYPE_DATA_INDICATION_E" value="0"/>
+      <member name="QAPI_ZB_INTERPAN_EVENT_TYPE_DATA_CONFIRM_E" value="1"/>
+   </enum>
+   <structure name="qapi_ZB_InterPAN_Data_Request_t">
+      <member attributes="value" name="SrcAddrMode" type="qapi_ZB_Addr_Mode_t"/>
+      <member attributes="value" name="DstAddrMode" type="qapi_ZB_Addr_Mode_t"/>
+      <member attributes="value" name="DstPanId" type="uint16_t"/>
+      <member attributes="union" name="DstAddress" type="qapi_ZB_Addr_t">
+         <member attributes="value" name="ShortAddress" type="uint16_t"/>
+         <member attributes="value" name="ExtendedAddress" type="uint64_t"/>
+         <unionMap mapVerified="yes" name="SrcAddrMode" type="qapi_ZB_Addr_Mode_t">
+            <mapEntry member="ShortAddress" type="uint16_t" value="QAPI_ZB_ADDRESS_MODE_GROUP_ADDRESS_E"/>
+            <mapEntry member="ShortAddress" type="uint16_t" value="QAPI_ZB_ADDRESS_MODE_SHORT_ADDRESS_E"/>
+            <mapEntry member="ExtendedAddress" type="uint64_t" value="QAPI_ZB_ADDRESS_MODE_EXTENDED_ADDRESS_E"/>
+         </unionMap>
+      </member>
+      <member attributes="value" name="ProfileId" type="uint16_t"/>
+      <member attributes="value" name="ClusterId" type="uint16_t"/>
+      <member attributes="value" name="ASDULength" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="ASDULength" lengthVerified="yes" name="ASDU" type="uint8_t"/>
+      <member attributes="value" name="ASDUHandle" type="uint8_t"/>
+      <member attributes="value" name="TxOption" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_InterPAN_Data_Confirm_t">
+      <member attributes="value" name="ASDUHandle" type="uint8_t"/>
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+   </structure>
+   <structure name="qapi_ZB_InterPAN_Data_Indication_t">
+      <member attributes="value" name="SrcAddrMode" type="qapi_ZB_Addr_Mode_t"/>
+      <member attributes="value" name="SrcPanId" type="uint16_t"/>
+      <member attributes="union" name="SrcAddr" type="qapi_ZB_Addr_t">
+         <member attributes="value" name="ShortAddress" type="uint16_t"/>
+         <member attributes="value" name="ExtendedAddress" type="uint64_t"/>
+         <unionMap mapVerified="yes" name="SrcAddrMode" type="qapi_ZB_Addr_Mode_t">
+            <mapEntry member="ShortAddress" type="uint16_t" value="QAPI_ZB_ADDRESS_MODE_GROUP_ADDRESS_E"/>
+            <mapEntry member="ShortAddress" type="uint16_t" value="QAPI_ZB_ADDRESS_MODE_SHORT_ADDRESS_E"/>
+            <mapEntry member="ExtendedAddress" type="uint64_t" value="QAPI_ZB_ADDRESS_MODE_EXTENDED_ADDRESS_E"/>
+         </unionMap>
+      </member>
+      <member attributes="value" name="DstAddrMode" type="qapi_ZB_Addr_Mode_t"/>
+      <member attributes="value" name="DstPanId" type="uint16_t"/>
+      <member attributes="union" name="DstAddr" type="qapi_ZB_Addr_t">
+         <member attributes="value" name="ShortAddress" type="uint16_t"/>
+         <member attributes="value" name="ExtendedAddress" type="uint64_t"/>
+         <unionMap mapVerified="yes" name="SrcAddrMode" type="qapi_ZB_Addr_Mode_t">
+            <mapEntry member="ShortAddress" type="uint16_t" value="QAPI_ZB_ADDRESS_MODE_GROUP_ADDRESS_E"/>
+            <mapEntry member="ShortAddress" type="uint16_t" value="QAPI_ZB_ADDRESS_MODE_SHORT_ADDRESS_E"/>
+            <mapEntry member="ExtendedAddress" type="uint64_t" value="QAPI_ZB_ADDRESS_MODE_EXTENDED_ADDRESS_E"/>
+         </unionMap>
+      </member>
+      <member attributes="value" name="ProfileId" type="uint16_t"/>
+      <member attributes="value" name="ClusterId" type="uint16_t"/>
+      <member attributes="value" name="ASDULength" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="ASDULength" lengthVerified="yes" name="ASDU" type="uint8_t"/>
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="SecurityStatus" type="qapi_Status_t"/>
+      <member attributes="value" name="LinkQuality" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_InterPAN_Event_t">
+      <member attributes="value" name="Event_Type" type="qapi_ZB_InterPAN_Event_Type_t"/>
+      <member attributes="union" name="Data">
+         <member attributes="value" name="Data_Indication" type="qapi_ZB_InterPAN_Data_Indication_t"/>
+         <member attributes="value" name="Data_Confirm" type="qapi_ZB_InterPAN_Data_Confirm_t"/>
+         <unionMap mapVerified="yes" name="Event_Type" type="qapi_ZB_InterPAN_Event_Type_t">
+            <mapEntry member="Data_Indication" type="qapi_ZB_InterPAN_Data_Indication_t" value="QAPI_ZB_INTERPAN_EVENT_TYPE_DATA_INDICATION_E"/>
+            <mapEntry member="Data_Confirm" type="qapi_ZB_InterPAN_Data_Confirm_t" value="QAPI_ZB_INTERPAN_EVENT_TYPE_DATA_CONFIRM_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <function name="qapi_ZB_InterPAN_Register_Callback">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value,const" name="InterPAN_Event_CB" type="qapi_ZB_InterPAN_Event_CB_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+   </function>
+   <function name="qapi_ZB_InterPAN_Unregister_Callback">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value,const" name="InterPAN_Event_CB" type="qapi_ZB_InterPAN_Event_CB_t"/>
+   </function>
+   <function name="qapi_ZB_InterPAN_Data_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="Data_Request" type="qapi_ZB_InterPAN_Data_Request_t"/>
+   </function>
+   <callback name="qapi_ZB_InterPAN_Event_CB_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr,const" iotype="out" lengthParam="1" lengthVerified="yes" name="InterPAN_Event_Data" type="qapi_ZB_InterPAN_Event_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+      <createFunction ID="InterPAN_Event_CB" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_InterPAN_Register_Callback" param="CB_Param"/>
+      <destroyFunction ID="InterPAN_Event_CB" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_InterPAN_Unregister_Callback"/>
+   </callback>
+</header>

@@ -1,0 +1,89 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="qapi/qapi_types.h"/>
+   <include name="qapi/qapi_status.h"/>
+   <include name="qapi_zb.h"/>
+   <macro name="QAPI_ZB_ERR_BDB_IN_PROGRESS" value="(QAPI_ZB_ERR(97)) "/>
+   <macro name="QAPI_ZB_ERR_BDB_NOT_ADDRESS_ASSIGNMENT_CAPABLE" value="(QAPI_ZB_ERR(98)) "/>
+   <macro name="QAPI_ZB_ERR_BDB_NO_NETWORK" value="(QAPI_ZB_ERR(99)) "/>
+   <macro name="QAPI_ZB_ERR_BDB_TARGET_FAILURE" value="(QAPI_ZB_ERR(100)) "/>
+   <macro name="QAPI_ZB_ERR_BDB_FORMATION_FAILURE" value="(QAPI_ZB_ERR(101)) "/>
+   <macro name="QAPI_ZB_ERR_BDB_NO_IDENTIFY_QUERY_RESPONSE" value="(QAPI_ZB_ERR(102)) "/>
+   <macro name="QAPI_ZB_ERR_BDB_NO_BINDING_TABLE_FULL" value="(QAPI_ZB_ERR(103)) "/>
+   <macro name="QAPI_ZB_ERR_BDB_NO_SCAN_RESPONSE" value="(QAPI_ZB_ERR(104)) "/>
+   <macro name="QAPI_ZB_ERR_BDB_NOT_PERMITTED" value="(QAPI_ZB_ERR(105)) "/>
+   <macro name="QAPI_ZB_ERR_BDB_TCLK_EX_FAILURE" value="(QAPI_ZB_ERR(106)) "/>
+   <macro name="QAPI_ZB_ERR_BDB_UNSUPPORTED_ATTRIBUTE" value="(QAPI_ZB_ERR(109)) "/>
+   <macro name="QAPI_ZB_ERR_BDB_INVALID_INDEX" value="(QAPI_ZB_ERR(110)) "/>
+   <macro name="QAPI_ZB_ERR_BDB_INVALID_PARAMETER" value="(QAPI_ZB_ERR(111)) "/>
+   <macro name="QAPI_ZB_BDB_COMMISSIONING_MODE_TOUCHLINK" value="(0x01) "/>
+   <macro name="QAPI_ZB_BDB_COMMISSIONING_MODE_NETWORK_STEERING" value="(0x02) "/>
+   <macro name="QAPI_ZB_BDB_COMMISSIONING_MODE_NETWORK_FORMATION" value="(0x04) "/>
+   <macro name="QAPI_ZB_BDB_COMMISSIONING_MODE_NETWORK_FINDING_AND_BINDING" value="(0x08) "/>
+   <macro name="QAPI_ZB_BDB_COMMISSIONING_MODE_DEFAULT" value="(QAPI_ZB_BDB_COMMISSIONING_MODE_NETWORK_FORMATION | QAPI_ZB_BDB_COMMISSIONING_MODE_NETWORK_STEERING)"/>
+   <macro name="QAPI_ZB_BDB_COMMISSIONING_CAPABILITY_NETWORK_STEERING" value="(0x01) "/>
+   <macro name="QAPI_ZB_BDB_COMMISSIONING_CAPABILITY_NETWORK_FORMATION" value="(0x02) "/>
+   <macro name="QAPI_ZB_BDB_COMMISSIONING_CAPABILITY_FINDING_AND_BINDING" value="(0x04) "/>
+   <macro name="QAPI_ZB_BDB_COMMISSIONING_CAPABILITY_TOUCHLINK" value="(0x08) "/>
+   <macro name="QAPI_ZB_BDB_COMMISSIONING_DFAULT_GROUP_ID" value="(0xFFFF) "/>
+   <enum name="qapi_ZB_BDB_Attribute_ID_t">
+      <member name="QAPI_ZB_BDB_ATTRIBUTE_ID_BDB_COMMISSIONING_MODE_E" value="0x1001"/>
+      <member name="QAPI_ZB_BDB_ATTRIBUTE_ID_BDB_JOINING_NODE_EUI64_E" value="0x1002"/>
+      <member name="QAPI_ZB_BDB_ATTRIBUTE_ID_BDB_JOINING_NODE_NEW_TC_LINK_KEY_E" value="0x1003"/>
+      <member name="QAPI_ZB_BDB_ATTRIBUTE_ID_BDB_JOIN_USES_INSTALL_CODE_KEY_E" value="0x1004"/>
+      <member name="QAPI_ZB_BDB_ATTRIBUTE_ID_BDB_NODE_COMMISSIONING_CAPABILITY_E" value="0x1005"/>
+      <member name="QAPI_ZB_BDB_ATTRIBUTE_ID_BDB_NODE_IS_ON_A_NETWORK_E" value="0x1006"/>
+      <member name="QAPI_ZB_BDB_ATTRIBUTE_ID_BDB_NODE_JOIN_LINK_KEY_TYPE_E" value="0x1007"/>
+      <member name="QAPI_ZB_BDB_ATTRIBUTE_ID_BDB_PRIMARY_CHANNEL_SET_E" value="0x1008"/>
+      <member name="QAPI_ZB_BDB_ATTRIBUTE_ID_BDB_SCAN_DURATION_E" value="0x1009"/>
+      <member name="QAPI_ZB_BDB_ATTRIBUTE_ID_BDB_SECONDARY_CHANNEL_SET_E" value="0x100A"/>
+      <member name="QAPI_ZB_BDB_ATTRIBUTE_ID_BDB_TC_LINK_KEY_EXCHANGE_ATTEMPS_E" value="0x100B"/>
+      <member name="QAPI_ZB_BDB_ATTRIBUTE_ID_BDB_TC_LINK_KEY_EXCHANGE_ATTEMPS_MAX_E" value="0x100C"/>
+      <member name="QAPI_ZB_BDB_ATTRIBUTE_ID_BDB_TC_LINK_KEY_EXCHANGE_METHOD_E" value="0x100D"/>
+      <member name="QAPI_ZB_BDB_ATTRIBUTE_ID_BDB_TC_NODE_JOIN_TIMEOUT_E" value="0x100E"/>
+      <member name="QAPI_ZB_BDB_ATTRIBUTE_ID_BDB_TC_REQUIRE_KEY_EXCHANGE_E" value="0x100F"/>
+   </enum>
+   <enum name="qapi_ZB_BDB_Node_Join_Link_Key_Type_t">
+      <member name="QAPI_ZB_BDB_NODE_JOIN_LINK_KEY_TYPE_DEFAULT_GLOBAL_TRUST_CENTER_E" value="0x00"/>
+      <member name="QAPI_ZB_BDB_NODE_JOIN_LINK_KEY_TYPE_DISTRIBUTED_SECURITY_GLOBAL_E" value="0x01"/>
+      <member name="QAPI_ZB_BDB_NODE_JOIN_LINK_KEY_TYPE_INSTALL_CODE_DERIVED_PRECONFIGURED_E" value="0x02"/>
+      <member name="QAPI_ZB_BDB_NODE_JOIN_LINK_KEY_TYPE_TOUCHLINK_PRECONFIGURED_E" value="0x03"/>
+   </enum>
+   <enum name="qapi_ZB_BDB_TC_Link_Key_Exchange_Method_t">
+      <member name="QAPI_ZB_BDB_TC_LINK_KEY_EXCHANGE_METHOD_APS_REQUEST_KEY_E" value="0x00"/>
+      <member name="QAPI_ZB_BDB_TC_LINK_KEY_EXCHANGE_METHOD_CERTIFICATE_BASED_KEY_EXCHANGE_E" value="0x01"/>
+   </enum>
+   <function name="qapi_ZB_BDB_Get_Endpoint_Commissioning_Status">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="Endpoint" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_BDB_Set_Endpoint_Commissioning_Status">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="Endpoint" type="uint8_t"/>
+      <argument attributes="value" name="NewStatus" type="qapi_Status_t"/>
+   </function>
+   <function name="qapi_ZB_BDB_Get_Endpoint_Commissioning_Group_ID">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="Endpoint" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="GroupID" type="uint16_t"/>
+   </function>
+   <function name="qapi_ZB_BDB_Get_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="AttributeId" type="qapi_ZB_BDB_Attribute_ID_t"/>
+      <argument attributes="value" name="AttributeIndex" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="AttributeLength" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="AttributeLength" lengthVerified="yes" name="AttributeValue" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_BDB_Set_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="AttributeId" type="qapi_ZB_BDB_Attribute_ID_t"/>
+      <argument attributes="value" name="AttributeIndex" type="uint8_t"/>
+      <argument attributes="value" name="AttributeLength" type="uint16_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="AttributeLength" lengthVerified="yes" name="AttributeValue" type="uint8_t"/>
+   </function>
+</header>

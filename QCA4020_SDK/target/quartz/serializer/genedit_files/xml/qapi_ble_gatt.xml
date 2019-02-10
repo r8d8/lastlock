@@ -1,0 +1,1064 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="./qapi_ble_btapityp.h"/>
+   <include name="./qapi_ble_bttypes.h"/>
+   <include name="./qapi_ble_gatttype.h"/>
+   <include name="./qapi_ble_atttypes.h"/>
+   <macro name="__QAPI_BLE_GATT_APIH__" value="#include &quot;./qapi_ble_btapityp.h&quot; "/>
+   <macro name="QAPI_BLE_GATT_ERROR_INVALID_PARAMETER" value="(-1000)"/>
+   <macro name="QAPI_BLE_GATT_ERROR_NOT_INITIALIZED" value="(-1001)"/>
+   <macro name="QAPI_BLE_GATT_ERROR_CONTEXT_ALREADY_EXISTS" value="(-1002)"/>
+   <macro name="QAPI_BLE_GATT_ERROR_INVALID_BLUETOOTH_STACK_ID" value="(-1004)"/>
+   <macro name="QAPI_BLE_GATT_ERROR_INSUFFICIENT_RESOURCES" value="(-1005)"/>
+   <macro name="QAPI_BLE_GATT_ERROR_INVALID_RESPONSE" value="(-1006)"/>
+   <macro name="QAPI_BLE_GATT_ERROR_INVALID_OPERATION" value="(-1007)"/>
+   <macro name="QAPI_BLE_GATT_ERROR_INVALID_HANDLE_VALUE" value="(-1008)"/>
+   <macro name="QAPI_BLE_GATT_ERROR_INVALID_CONNECTION_ID" value="(-1009)"/>
+   <macro name="QAPI_BLE_GATT_ERROR_OUTSTANDING_REQUEST_EXISTS" value="(-1010)"/>
+   <macro name="QAPI_BLE_GATT_ERROR_INVALID_SERVICE_TABLE_FORMAT" value="(-1011)"/>
+   <macro name="QAPI_BLE_GATT_ERROR_INVALID_TRANSACTION_ID" value="(-1012)"/>
+   <macro name="QAPI_BLE_GATT_ERROR_INSUFFICIENT_HANDLES" value="(-1013)"/>
+   <macro name="QAPI_BLE_GATT_INITIALIZATION_FLAGS_SUPPORT_LE" value="0x00000001L"/>
+   <macro name="QAPI_BLE_GATT_INITIALIZATION_FLAGS_DISABLE_SERVICE_CHANGED_CHARACTERISTIC" value="0x00000004L"/>
+   <macro name="QAPI_BLE_GATT_ATTRIBUTE_FLAGS_READABLE" value="0x01"/>
+   <macro name="QAPI_BLE_GATT_ATTRIBUTE_FLAGS_WRITABLE" value="0x02"/>
+   <macro name="QAPI_BLE_GATT_ATTRIBUTE_FLAGS_HIDDEN" value="0x04"/>
+   <macro name="QAPI_BLE_GATT_ATTRIBUTE_FLAGS_READABLE_WRITABLE" value="(QAPI_BLE_GATT_ATTRIBUTE_FLAGS_READABLE|QAPI_BLE_GATT_ATTRIBUTE_FLAGS_WRITABLE)"/>
+   <macro name="QAPI_BLE_GATT_SERVICE_FLAGS_LE_SERVICE" value="0x01"/>
+   <macro name="QAPI_BLE_GATT_EXECUTE_WRITE_CONFIRMATION_STATUS_NO_ERROR" value="0x00"/>
+   <macro name="QAPI_BLE_GATT_EXECUTE_WRITE_CONFIRMATION_STATUS_ERROR" value="0x01"/>
+   <macro name="QAPI_BLE_GATT_CONFIRMATION_STATUS_SUCCESS" value="0x00"/>
+   <macro name="QAPI_BLE_GATT_CONFIRMATION_STATUS_TIMEOUT" value="0x01"/>
+   <macro name="QAPI_BLE_GATT_DEFAULT_MAXIMUM_SUPPORTED_STACK_MTU" value="(517)"/>
+   <macro name="QAPI_BLE_GATT_UUID_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_UUID_t))"/>
+   <macro name="QAPI_BLE_GATT_PRIMARY_SERVICE_16_ENTRY_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Primary_Service_16_Entry_t))"/>
+   <macro name="QAPI_BLE_GATT_PRIMARY_SERVICE_32_ENTRY_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Primary_Service_32_Entry_t))"/>
+   <macro name="QAPI_BLE_GATT_PRIMARY_SERVICE_128_ENTRY_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Primary_Service_128_Entry_t))"/>
+   <macro name="QAPI_BLE_GATT_SECONDARY_SERVICE_16_ENTRY_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Secondary_Service_16_Entry_t))"/>
+   <macro name="QAPI_BLE_GATT_SECONDARY_SERVICE_32_ENTRY_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Secondary_Service_32_Entry_t))"/>
+   <macro name="QAPI_BLE_GATT_SECONDARY_SERVICE_128_ENTRY_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Secondary_Service_128_Entry_t))"/>
+   <macro name="QAPI_BLE_GATT_INCLUDE_DEFINITION_ENTRY_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Include_Definition_Entry_t))"/>
+   <macro name="QAPI_BLE_GATT_CHARACTERISTIC_DECLARATION_16_ENTRY_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Characteristic_Declaration_16_Entry_t))"/>
+   <macro name="QAPI_BLE_GATT_CHARACTERISTIC_DECLARATION_32_ENTRY_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Characteristic_Declaration_32_Entry_t))"/>
+   <macro name="QAPI_BLE_GATT_CHARACTERISTIC_DECLARATION_128_ENTRY_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Characteristic_Declaration_128_Entry_t))"/>
+   <macro name="QAPI_BLE_GATT_CHARACTERISTIC_VALUE_16_ENTRY_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Characteristic_Value_16_Entry_t))"/>
+   <macro name="QAPI_BLE_GATT_CHARACTERISTIC_VALUE_32_ENTRY_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Characteristic_Value_32_Entry_t))"/>
+   <macro name="QAPI_BLE_GATT_CHARACTERISTIC_VALUE_128_ENTRY_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Characteristic_Value_128_Entry_t))"/>
+   <macro name="QAPI_BLE_GATT_CHARACTERISTIC_DESCRIPTOR_16_ENTRY_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Characteristic_Descriptor_16_Entry_t))"/>
+   <macro name="QAPI_BLE_GATT_CHARACTERISTIC_DESCRIPTOR_32_ENTRY_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Characteristic_Descriptor_32_Entry_t))"/>
+   <macro name="QAPI_BLE_GATT_CHARACTERISTIC_DESCRIPTOR_128_ENTRY_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Characteristic_Descriptor_128_Entry_t))"/>
+   <macro name="QAPI_BLE_GATT_SERVICE_ATTRIBUTE_ENTRY_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Service_Attribute_Entry_t))"/>
+   <macro name="QAPI_BLE_GATT_ATTRIBUTE_HANDLE_GROUP_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Attribute_Handle_Group_t))"/>
+   <macro name="QAPI_BLE_GATT_SERVICE_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Service_Information_t))"/>
+   <macro name="QAPI_BLE_GATT_SERVICE_INFORMATION_BY_UUID_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Service_Information_By_UUID_t))"/>
+   <macro name="QAPI_BLE_GATT_INCLUDE_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Include_Information_t))"/>
+   <macro name="QAPI_BLE_GATT_SERVICE_CHANGED_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Service_Changed_Data_t))"/>
+   <macro name="QAPI_BLE_GATT_CHARACTERISTIC_DESCRIPTOR_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Characteristic_Descriptor_Information_t))"/>
+   <macro name="QAPI_BLE_GATT_CHARACTERISTIC_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Characteristic_Information_t))"/>
+   <macro name="QAPI_BLE_GATT_DEVICE_CONNECTION_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Device_Connection_Request_Data_t))"/>
+   <macro name="QAPI_BLE_GATT_DEVICE_CONNECTION_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Device_Connection_Data_t))"/>
+   <macro name="QAPI_BLE_GATT_DEVICE_CONNECTION_CONFIRMATION_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Device_Connection_Confirmation_Data_t))"/>
+   <macro name="QAPI_BLE_GATT_DEVICE_DISCONNECTION_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Device_Disconnection_Data_t))"/>
+   <macro name="QAPI_BLE_GATT_DEVICE_BUFFER_EMPTY_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Device_Buffer_Empty_Data_t))"/>
+   <macro name="QAPI_BLE_GATT_SERVER_NOTIFICATION_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Server_Notification_Data_t))"/>
+   <macro name="QAPI_BLE_GATT_SERVER_INDICATION_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Server_Indication_Data_t))"/>
+   <macro name="QAPI_BLE_GATT_DEVICE_CONNECTION_MTU_UPDATE_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Device_Connection_MTU_Update_Data_t))"/>
+   <macro name="QAPI_BLE_GATT_CONNECTION_SERVICE_DATABASE_UPDATE_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Connection_Service_Database_Update_Data_t))"/>
+   <macro name="QAPI_BLE_GATT_CONNECTION_SERVICE_CHANGED_READ_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Connection_Service_Changed_Read_Data_t))"/>
+   <macro name="QAPI_BLE_GATT_CONNECTION_SERVICE_CHANGED_CONFIRMATION_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Connection_Service_Changed_Confirmation_Data_t))"/>
+   <macro name="QAPI_BLE_GATT_CONNECTION_SERVICE_CHANGED_CCCD_READ_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Connection_Service_Changed_CCCD_Read_Data_t))"/>
+   <macro name="QAPI_BLE_GATT_CONNECTION_SERVICE_CHANGED_CCCD_UPDATE_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Connection_Service_Changed_CCCD_Update_Data_t))"/>
+   <macro name="QAPI_BLE_GATT_CONNECTION_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Connection_Event_Data_t))"/>
+   <macro name="QAPI_BLE_GATT_READ_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Read_Request_Data_t))"/>
+   <macro name="QAPI_BLE_GATT_WRITE_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Write_Request_Data_t))"/>
+   <macro name="QAPI_BLE_GATT_SIGNED_WRITE_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Signed_Write_Request_Data_t))"/>
+   <macro name="QAPI_BLE_GATT_EXECUTE_WRITE_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Execute_Write_Request_Data_t))"/>
+   <macro name="QAPI_BLE_GATT_EXECUTE_WRITE_CONFIRMATION_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Execute_Write_Confirmation_Data_t))"/>
+   <macro name="QAPI_BLE_GATT_CONFIRMATION_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Confirmation_Data_t))"/>
+   <macro name="QAPI_BLE_GATT_SERVER_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Server_Event_Data_t))"/>
+   <macro name="QAPI_BLE_GATT_REQUEST_ERROR_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Request_Error_Data_t))"/>
+   <macro name="QAPI_BLE_GATT_SERVICE_DISCOVERY_RESPONSE_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Service_Discovery_Response_Data_t))"/>
+   <macro name="QAPI_BLE_GATT_SERVICE_DISCOVERY_BY_UUID_RESPONSE_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Service_Discovery_By_UUID_Response_Data_t))"/>
+   <macro name="QAPI_BLE_GATT_INCLUDED_SERVICES_DISCOVERY_RESPONSE_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Included_Services_Discovery_Response_Data_t))"/>
+   <macro name="QAPI_BLE_GATT_CHARACTERISTIC_VALUE_SIZE" value="(sizeof(qapi_BLE_GATT_Characteristic_Value_t))"/>
+   <macro name="QAPI_BLE_GATT_CHARACTERISTIC_ENTRY_SIZE" value="(sizeof(qapi_BLE_GATT_Characteristic_Entry_t))"/>
+   <macro name="QAPI_BLE_GATT_CHARACTERISTIC_DISCOVERY_RESPONSE_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Characteristic_Discovery_Response_Data_t))"/>
+   <macro name="QAPI_BLE_GATT_CHARACTERISTIC_DESCRIPTOR_ENTRY_SIZE" value="(sizeof(qapi_BLE_GATT_Characteristic_Descriptor_Entry_t))"/>
+   <macro name="QAPI_BLE_GATT_CHARACTERISTIC_DESCRIPTOR_DISCOVERY_RESPONSE_DATA_SIZE" value="(sizeof(QAPI_BLE_GATT_Characteristic_Descriptor_Discovery_Response_Data_t))"/>
+   <macro name="QAPI_BLE_GATT_READ_RESPONSE_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Read_Response_Data_t))"/>
+   <macro name="QAPI_BLE_GATT_READ_LONG_RESPONSE_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Read_Long_Response_Data_t))"/>
+   <macro name="QAPI_BLE_GATT_READ_EVENT_ENTRY_SIZE" value="(sizeof(qapi_BLE_GATT_Read_Event_Entry_t))"/>
+   <macro name="QAPI_BLE_GATT_READ_BY_UUID_RESPONSE_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Read_By_UUID_Response_Data_t))"/>
+   <macro name="QAPI_BLE_GATT_READ_MULTIPLE_RESPONSE_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Read_Multiple_Response_Data_t))"/>
+   <macro name="QAPI_BLE_GATT_WRITE_RESPONSE_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Write_Response_Data_t))"/>
+   <macro name="QAPI_BLE_GATT_PREPARE_WRITE_RESPONSE_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Prepare_Write_Response_Data_t))"/>
+   <macro name="QAPI_BLE_GATT_EXECUTE_WRITE_RESPONSE_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Execute_Write_Response_Data_t))"/>
+   <macro name="QAPI_BLE_GATT_EXCHANGE_MTU_RESPONSE_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Exchange_MTU_Response_Data_t))"/>
+   <macro name="QAPI_BLE_GATT_CLIENT_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Client_Event_Data_t))"/>
+   <macro name="QAPI_BLE_GATT_SERVICE_DISCOVERY_INDICATION_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Service_Discovery_Indication_Data_t))"/>
+   <macro name="QAPI_BLE_GATT_SERVICE_DISCOVERY_COMPLETE_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Service_Discovery_Complete_Data_t))"/>
+   <macro name="QAPI_BLE_GATT_SERVICE_DISCOVERY_STATUS_SUCCESS" value="0x00"/>
+   <macro name="QAPI_BLE_GATT_SERVICE_DISCOVERY_STATUS_RESPONSE_ERROR" value="0x01"/>
+   <macro name="QAPI_BLE_GATT_SERVICE_DISCOVERY_STATUS_RESPONSE_TIMEOUT" value="0x02"/>
+   <macro name="QAPI_BLE_GATT_SERVICE_DISCOVERY_STATUS_UNKNOWN_ERROR" value="0x03"/>
+   <macro name="QAPI_BLE_GATT_SERVICE_DISCOVERY_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Service_Discovery_Event_Data_t))"/>
+   <enum name="qapi_BLE_GATT_Connection_Type_t">
+      <member name="QAPI_BLE_GCT_LE_E" value="0"/>
+      <member name="QAPI_BLE_GCT_BR_EDR_E" value="1"/>
+   </enum>
+   <enum name="qapi_BLE_GATT_Service_Type_t">
+      <member name="QAPI_BLE_ST_SECONDARY_E" value="0"/>
+      <member name="QAPI_BLE_ST_PRIMARY_E" value="1"/>
+   </enum>
+   <enum name="qapi_BLE_GATT_Request_Error_Type_t">
+      <member name="QAPI_BLE_RET_ERROR_RESPONSE_E" value="0"/>
+      <member name="QAPI_BLE_RET_PROTOCOL_TIMEOUT_E" value="1"/>
+      <member name="QAPI_BLE_RET_PREPARE_WRITE_DATA_MISMATCH_E" value="2"/>
+   </enum>
+   <enum name="qapi_BLE_GATT_UUID_Type_t">
+      <member name="QAPI_BLE_GU_UUID_16_E" value="0"/>
+      <member name="QAPI_BLE_GU_UUID_128_E" value="1"/>
+      <member name="QAPI_BLE_GU_UUID_32_E" value="2"/>
+   </enum>
+   <enum name="qapi_BLE_GATT_Service_Attribute_Entry_Type_t">
+      <member name="QAPI_BLE_AET_PRIMARY_SERVICE_16_E" value="0"/>
+      <member name="QAPI_BLE_AET_PRIMARY_SERVICE_128_E" value="1"/>
+      <member name="QAPI_BLE_AET_SECONDARY_SERVICE_16_E" value="2"/>
+      <member name="QAPI_BLE_AET_SECONDARY_SERVICE_128_E" value="3"/>
+      <member name="QAPI_BLE_AET_INCLUDE_DEFINITION_E" value="4"/>
+      <member name="QAPI_BLE_AET_CHARACTERISTIC_DECLARATION_16_E" value="5"/>
+      <member name="QAPI_BLE_AET_CHARACTERISTIC_DECLARATION_128_E" value="6"/>
+      <member name="QAPI_BLE_AET_CHARACTERISTIC_VALUE_16_E" value="7"/>
+      <member name="QAPI_BLE_AET_CHARACTERISTIC_VALUE_128_E" value="8"/>
+      <member name="QAPI_BLE_AET_CHARACTERISTIC_DESCRIPTOR_16_E" value="9"/>
+      <member name="QAPI_BLE_AET_CHARACTERISTIC_DESCRIPTOR_128_E" value="10"/>
+      <member name="QAPI_BLE_AET_PRIMARY_SERVICE_32_E" value="11"/>
+      <member name="QAPI_BLE_AET_SECONDARY_SERVICE_32_E" value="12"/>
+      <member name="QAPI_BLE_AET_CHARACTERISTIC_DECLARATION_32_E" value="13"/>
+      <member name="QAPI_BLE_AET_CHARACTERISTIC_VALUE_32_E" value="14"/>
+      <member name="QAPI_BLE_AET_CHARACTERISTIC_DESCRIPTOR_32_E" value="15"/>
+   </enum>
+   <enum name="qapi_BLE_GATT_Connection_Event_Type_t">
+      <member name="QAPI_BLE_ET_GATT_CONNECTION_DEVICE_CONNECTION_REQUEST_E" value="0"/>
+      <member name="QAPI_BLE_ET_GATT_CONNECTION_DEVICE_CONNECTION_E" value="1"/>
+      <member name="QAPI_BLE_ET_GATT_CONNECTION_DEVICE_CONNECTION_CONFIRMATION_E" value="2"/>
+      <member name="QAPI_BLE_ET_GATT_CONNECTION_DEVICE_DISCONNECTION_E" value="3"/>
+      <member name="QAPI_BLE_ET_GATT_CONNECTION_DEVICE_CONNECTION_MTU_UPDATE_E" value="4"/>
+      <member name="QAPI_BLE_ET_GATT_CONNECTION_SERVER_INDICATION_E" value="5"/>
+      <member name="QAPI_BLE_ET_GATT_CONNECTION_SERVER_NOTIFICATION_E" value="6"/>
+      <member name="QAPI_BLE_ET_GATT_CONNECTION_SERVICE_DATABASE_UPDATE_E" value="7"/>
+      <member name="QAPI_BLE_ET_GATT_CONNECTION_SERVICE_CHANGED_READ_REQUEST_E" value="8"/>
+      <member name="QAPI_BLE_ET_GATT_CONNECTION_SERVICE_CHANGED_CONFIRMATION_E" value="9"/>
+      <member name="QAPI_BLE_ET_GATT_CONNECTION_DEVICE_BUFFER_EMPTY_E" value="10"/>
+      <member name="QAPI_BLE_ET_GATT_CONNECTION_SERVICE_CHANGED_CCCD_READ_REQUEST_E" value="11"/>
+      <member name="QAPI_BLE_ET_GATT_CONNECTION_SERVICE_CHANGED_CCCD_UPDATE_E" value="12"/>
+   </enum>
+   <enum name="qapi_BLE_GATT_Server_Event_Type_t">
+      <member name="QAPI_BLE_ET_GATT_SERVER_DEVICE_CONNECTION_E" value="0"/>
+      <member name="QAPI_BLE_ET_GATT_SERVER_DEVICE_DISCONNECTION_E" value="1"/>
+      <member name="QAPI_BLE_ET_GATT_SERVER_READ_REQUEST_E" value="2"/>
+      <member name="QAPI_BLE_ET_GATT_SERVER_WRITE_REQUEST_E" value="3"/>
+      <member name="QAPI_BLE_ET_GATT_SERVER_SIGNED_WRITE_REQUEST_E" value="4"/>
+      <member name="QAPI_BLE_ET_GATT_SERVER_EXECUTE_WRITE_REQUEST_E" value="5"/>
+      <member name="QAPI_BLE_ET_GATT_SERVER_EXECUTE_WRITE_CONFIRMATION_E" value="6"/>
+      <member name="QAPI_BLE_ET_GATT_SERVER_CONFIRMATION_RESPONSE_E" value="7"/>
+      <member name="QAPI_BLE_ET_GATT_SERVER_DEVICE_CONNECTION_MTU_UPDATE_E" value="8"/>
+      <member name="QAPI_BLE_ET_GATT_SERVER_DEVICE_BUFFER_EMPTY_E" value="9"/>
+   </enum>
+   <enum name="qapi_BLE_GATT_Client_Event_Type_t">
+      <member name="QAPI_BLE_ET_GATT_CLIENT_ERROR_RESPONSE_E" value="0"/>
+      <member name="QAPI_BLE_ET_GATT_CLIENT_SERVICE_DISCOVERY_RESPONSE_E" value="1"/>
+      <member name="QAPI_BLE_ET_GATT_CLIENT_SERVICE_DISCOVERY_BY_UUID_RESPONSE_E" value="2"/>
+      <member name="QAPI_BLE_ET_GATT_CLIENT_INCLUDED_SERVICES_DISCOVERY_RESPONSE_E" value="3"/>
+      <member name="QAPI_BLE_ET_GATT_CLIENT_CHARACTERISTIC_DISCOVERY_RESPONSE_E" value="4"/>
+      <member name="QAPI_BLE_ET_GATT_CLIENT_CHARACTERISTIC_DESCRIPTOR_DISCOVERY_RESPONSE_E" value="5"/>
+      <member name="QAPI_BLE_ET_GATT_CLIENT_READ_RESPONSE_E" value="6"/>
+      <member name="QAPI_BLE_ET_GATT_CLIENT_READ_LONG_RESPONSE_E" value="7"/>
+      <member name="QAPI_BLE_ET_GATT_CLIENT_READ_BY_UUID_RESPONSE_E" value="8"/>
+      <member name="QAPI_BLE_ET_GATT_CLIENT_READ_MULTIPLE_RESPONSE_E" value="9"/>
+      <member name="QAPI_BLE_ET_GATT_CLIENT_WRITE_RESPONSE_E" value="10"/>
+      <member name="QAPI_BLE_ET_GATT_CLIENT_PREPARE_WRITE_RESPONSE_E" value="11"/>
+      <member name="QAPI_BLE_ET_GATT_CLIENT_EXECUTE_WRITE_RESPONSE_E" value="12"/>
+      <member name="QAPI_BLE_ET_GATT_CLIENT_EXCHANGE_MTU_RESPONSE_E" value="13"/>
+   </enum>
+   <enum name="qapi_BLE_GATT_Service_Discovery_Event_Type_t">
+      <member name="QAPI_BLE_ET_GATT_SERVICE_DISCOVERY_INDICATION_E" value="0"/>
+      <member name="QAPI_BLE_ET_GATT_SERVICE_DISCOVERY_COMPLETE_E" value="1"/>
+   </enum>
+   <structure name="qapi_BLE_GATT_UUID_t">
+      <member attributes="value" name="UUID_Type" type="qapi_BLE_GATT_UUID_Type_t"/>
+      <member attributes="union" name="UUID">
+         <member attributes="value" name="UUID_16" type="qapi_BLE_UUID_16_t"/>
+         <member attributes="value" name="UUID_32" type="qapi_BLE_UUID_32_t"/>
+         <member attributes="value" name="UUID_128" type="qapi_BLE_UUID_128_t"/>
+         <unionMap mapVerified="yes" name="UUID_Type" type="qapi_BLE_GATT_UUID_Type_t">
+            <mapEntry member="UUID_16" type="qapi_BLE_UUID_16_t" value="QAPI_BLE_GU_UUID_16_E"/>
+            <mapEntry member="UUID_32" type="qapi_BLE_UUID_32_t" value="QAPI_BLE_GU_UUID_32_E"/>
+            <mapEntry member="UUID_128" type="qapi_BLE_UUID_128_t" value="QAPI_BLE_GU_UUID_128_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_BLE_GATT_Primary_Service_16_Entry_t">
+      <member attributes="value" name="Service_UUID" type="qapi_BLE_UUID_16_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Primary_Service_32_Entry_t">
+      <member attributes="value" name="Service_UUID" type="qapi_BLE_UUID_32_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Primary_Service_128_Entry_t">
+      <member attributes="value" name="Service_UUID" type="qapi_BLE_UUID_128_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Secondary_Service_16_Entry_t">
+      <member attributes="value" name="Service_UUID" type="qapi_BLE_UUID_16_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Secondary_Service_32_Entry_t">
+      <member attributes="value" name="Service_UUID" type="qapi_BLE_UUID_32_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Secondary_Service_128_Entry_t">
+      <member attributes="value" name="Service_UUID" type="qapi_BLE_UUID_128_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Include_Definition_Entry_t">
+      <member attributes="value" name="ServiceID" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Characteristic_Declaration_16_Entry_t">
+      <member attributes="value" name="Properties" type="uint8_t"/>
+      <member attributes="value" name="Characteristic_Value_UUID" type="qapi_BLE_UUID_16_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Characteristic_Declaration_32_Entry_t">
+      <member attributes="value" name="Properties" type="uint8_t"/>
+      <member attributes="value" name="Characteristic_Value_UUID" type="qapi_BLE_UUID_32_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Characteristic_Declaration_128_Entry_t">
+      <member attributes="value" name="Properties" type="uint8_t"/>
+      <member attributes="value" name="Characteristic_Value_UUID" type="qapi_BLE_UUID_128_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Characteristic_Value_16_Entry_t">
+      <member attributes="value" name="Characteristic_Value_UUID" type="qapi_BLE_UUID_16_t"/>
+      <member attributes="value" name="Characteristic_Value_Length" type="uint32_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="Characteristic_Value_Length" lengthVerified="yes" name="Characteristic_Value" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Characteristic_Value_32_Entry_t">
+      <member attributes="value" name="Characteristic_Value_UUID" type="qapi_BLE_UUID_32_t"/>
+      <member attributes="value" name="Characteristic_Value_Length" type="uint32_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="Characteristic_Value_Length" lengthVerified="yes" name="Characteristic_Value" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Characteristic_Value_128_Entry_t">
+      <member attributes="value" name="Characteristic_Value_UUID" type="qapi_BLE_UUID_128_t"/>
+      <member attributes="value" name="Characteristic_Value_Length" type="uint32_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="Characteristic_Value_Length" lengthVerified="yes" name="Characteristic_Value" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Characteristic_Descriptor_16_Entry_t">
+      <member attributes="value" name="Characteristic_Descriptor_UUID" type="qapi_BLE_UUID_16_t"/>
+      <member attributes="value" name="Characteristic_Descriptor_Length" type="uint32_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="Characteristic_Descriptor_Length" lengthVerified="yes" name="Characteristic_Descriptor" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Characteristic_Descriptor_32_Entry_t">
+      <member attributes="value" name="Characteristic_Descriptor_UUID" type="qapi_BLE_UUID_32_t"/>
+      <member attributes="value" name="Characteristic_Descriptor_Length" type="uint32_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="Characteristic_Descriptor_Length" lengthVerified="yes" name="Characteristic_Descriptor" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Characteristic_Descriptor_128_Entry_t">
+      <member attributes="value" name="Characteristic_Descriptor_UUID" type="qapi_BLE_UUID_128_t"/>
+      <member attributes="value" name="Characteristic_Descriptor_Length" type="uint32_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="Characteristic_Descriptor_Length" lengthVerified="yes" name="Characteristic_Descriptor" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Service_Attribute_Entry_t">
+      <member attributes="value" name="Attribute_Flags" type="uint8_t"/>
+      <member attributes="value" name="Attribute_Entry_Type" type="qapi_BLE_GATT_Service_Attribute_Entry_Type_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Attribute_Value" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Attribute_Handle_Group_t">
+      <member attributes="value" name="Starting_Handle" type="uint16_t"/>
+      <member attributes="value" name="Ending_Handle" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Service_Information_t">
+      <member attributes="value" name="Service_Handle" type="uint16_t"/>
+      <member attributes="value" name="End_Group_Handle" type="uint16_t"/>
+      <member attributes="value" name="UUID" type="qapi_BLE_GATT_UUID_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Service_Information_By_UUID_t">
+      <member attributes="value" name="Service_Handle" type="uint16_t"/>
+      <member attributes="value" name="End_Group_Handle" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Include_Information_t">
+      <member attributes="value" name="Include_Attribute_Handle" type="uint16_t"/>
+      <member attributes="value" name="Included_Service_Handle" type="uint16_t"/>
+      <member attributes="value" name="Included_Service_End_Group_Handle" type="uint16_t"/>
+      <member attributes="value" name="UUID_Valid" type="boolean_t"/>
+      <member attributes="value" name="UUID" type="qapi_BLE_GATT_UUID_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Service_Changed_Data_t">
+      <member attributes="value" name="Affected_Start_Handle" type="uint16_t"/>
+      <member attributes="value" name="Affected_End_Handle" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Characteristic_Descriptor_Information_t">
+      <member attributes="value" name="Characteristic_Descriptor_Handle" type="uint16_t"/>
+      <member attributes="value" name="Characteristic_Descriptor_UUID" type="qapi_BLE_GATT_UUID_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Characteristic_Information_t">
+      <member attributes="value" name="Characteristic_UUID" type="qapi_BLE_GATT_UUID_t"/>
+      <member attributes="value" name="Characteristic_Handle" type="uint16_t"/>
+      <member attributes="value" name="Characteristic_Properties" type="uint8_t"/>
+      <member attributes="value" name="NumberOfDescriptors" type="uint32_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="NumberOfDescriptors" lengthVerified="yes" name="DescriptorList" type="qapi_BLE_GATT_Characteristic_Descriptor_Information_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Device_Connection_Request_Data_t">
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Device_Connection_Data_t">
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="MTU" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Device_Connection_Confirmation_Data_t">
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionStatus" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="MTU" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Device_Disconnection_Data_t">
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Device_Buffer_Empty_Data_t">
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Server_Notification_Data_t">
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="AttributeHandle" type="uint16_t"/>
+      <member attributes="value" name="AttributeValueLength" type="uint16_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="AttributeValueLength" lengthVerified="yes" name="AttributeValue" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Server_Indication_Data_t">
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="AttributeHandle" type="uint16_t"/>
+      <member attributes="value" name="AttributeValueLength" type="uint16_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="AttributeValueLength" lengthVerified="yes" name="AttributeValue" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Device_Connection_MTU_Update_Data_t">
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="MTU" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Connection_Service_Database_Update_Data_t">
+      <member attributes="value" name="ServiceAdded" type="boolean_t"/>
+      <member attributes="value" name="ServiceChangedData" type="qapi_BLE_GATT_Service_Changed_Data_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Connection_Service_Changed_Read_Data_t">
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Connection_Service_Changed_Confirmation_Data_t">
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Status" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Connection_Service_Changed_CCCD_Read_Data_t">
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Connection_Service_Changed_CCCD_Update_Data_t">
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ClientConfigurationValue" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Connection_Event_Data_t">
+      <member attributes="value" name="Event_Data_Type" type="qapi_BLE_GATT_Connection_Event_Type_t"/>
+      <member attributes="value" name="Event_Data_Size" type="uint16_t"/>
+      <member attributes="union" name="Event_Data">
+         <member attributes="ptr" iotype="in" name="GATT_Device_Connection_Request_Data" type="qapi_BLE_GATT_Device_Connection_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GATT_Device_Connection_Data" type="qapi_BLE_GATT_Device_Connection_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GATT_Device_Connection_Confirmation_Data" type="qapi_BLE_GATT_Device_Connection_Confirmation_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GATT_Device_Disconnection_Data" type="qapi_BLE_GATT_Device_Disconnection_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GATT_Device_Buffer_Empty_Data" type="qapi_BLE_GATT_Device_Buffer_Empty_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GATT_Server_Notification_Data" type="qapi_BLE_GATT_Server_Notification_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GATT_Server_Indication_Data" type="qapi_BLE_GATT_Server_Indication_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GATT_Device_Connection_MTU_Update_Data" type="qapi_BLE_GATT_Device_Connection_MTU_Update_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GATT_Connection_Service_Database_Update_Data" type="qapi_BLE_GATT_Connection_Service_Database_Update_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GATT_Connection_Service_Changed_Read_Data" type="qapi_BLE_GATT_Connection_Service_Changed_Read_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GATT_Connection_Service_Changed_Confirmation_Data" type="qapi_BLE_GATT_Connection_Service_Changed_Confirmation_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GATT_Connection_Service_Changed_CCCD_Read_Data" type="qapi_BLE_GATT_Connection_Service_Changed_CCCD_Read_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GATT_Connection_Service_Changed_CCCD_Update_Data" type="qapi_BLE_GATT_Connection_Service_Changed_CCCD_Update_Data_t"/>
+         <unionMap mapVerified="yes" name="Event_Data_Type" type="qapi_BLE_GATT_Connection_Event_Type_t">
+            <mapEntry member="GATT_Device_Connection_Request_Data" type="qapi_BLE_GATT_Device_Connection_Request_Data_t" value="QAPI_BLE_ET_GATT_CONNECTION_DEVICE_CONNECTION_REQUEST_E"/>
+            <mapEntry member="GATT_Device_Connection_Data" type="qapi_BLE_GATT_Device_Connection_Data_t" value="QAPI_BLE_ET_GATT_CONNECTION_DEVICE_CONNECTION_E"/>
+            <mapEntry member="GATT_Device_Connection_Confirmation_Data" type="qapi_BLE_GATT_Device_Connection_Confirmation_Data_t" value="QAPI_BLE_ET_GATT_CONNECTION_DEVICE_CONNECTION_CONFIRMATION_E"/>
+            <mapEntry member="GATT_Device_Disconnection_Data" type="qapi_BLE_GATT_Device_Disconnection_Data_t" value="QAPI_BLE_ET_GATT_CONNECTION_DEVICE_DISCONNECTION_E"/>
+            <mapEntry member="GATT_Device_Buffer_Empty_Data" type="qapi_BLE_GATT_Device_Buffer_Empty_Data_t" value="QAPI_BLE_ET_GATT_CONNECTION_DEVICE_BUFFER_EMPTY_E"/>
+            <mapEntry member="GATT_Server_Notification_Data" type="qapi_BLE_GATT_Server_Notification_Data_t" value="QAPI_BLE_ET_GATT_CONNECTION_SERVER_NOTIFICATION_E"/>
+            <mapEntry member="GATT_Server_Indication_Data" type="qapi_BLE_GATT_Server_Indication_Data_t" value="QAPI_BLE_ET_GATT_CONNECTION_SERVER_INDICATION_E"/>
+            <mapEntry member="GATT_Device_Connection_MTU_Update_Data" type="qapi_BLE_GATT_Device_Connection_MTU_Update_Data_t" value="QAPI_BLE_ET_GATT_CONNECTION_DEVICE_CONNECTION_MTU_UPDATE_E"/>
+            <mapEntry member="GATT_Connection_Service_Database_Update_Data" type="qapi_BLE_GATT_Connection_Service_Database_Update_Data_t" value="QAPI_BLE_ET_GATT_CONNECTION_SERVICE_DATABASE_UPDATE_E"/>
+            <mapEntry member="GATT_Connection_Service_Changed_Read_Data" type="qapi_BLE_GATT_Connection_Service_Changed_Read_Data_t" value="QAPI_BLE_ET_GATT_CONNECTION_SERVICE_CHANGED_READ_REQUEST_E"/>
+            <mapEntry member="GATT_Connection_Service_Changed_Confirmation_Data" type="qapi_BLE_GATT_Connection_Service_Changed_Confirmation_Data_t" value="QAPI_BLE_ET_GATT_CONNECTION_SERVICE_CHANGED_CONFIRMATION_E"/>
+            <mapEntry member="GATT_Connection_Service_Changed_CCCD_Read_Data" type="qapi_BLE_GATT_Connection_Service_Changed_CCCD_Read_Data_t" value="QAPI_BLE_ET_GATT_CONNECTION_SERVICE_CHANGED_CCCD_READ_REQUEST_E"/>
+            <mapEntry member="GATT_Connection_Service_Changed_CCCD_Update_Data" type="qapi_BLE_GATT_Connection_Service_Changed_CCCD_Update_Data_t" value="QAPI_BLE_ET_GATT_CONNECTION_SERVICE_CHANGED_CCCD_UPDATE_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_BLE_GATT_Read_Request_Data_t">
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ServiceID" type="uint32_t"/>
+      <member attributes="value" name="AttributeOffset" type="uint16_t"/>
+      <member attributes="value" name="AttributeValueOffset" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Write_Request_Data_t">
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ServiceID" type="uint32_t"/>
+      <member attributes="value" name="AttributeOffset" type="uint16_t"/>
+      <member attributes="value" name="AttributeValueLength" type="uint16_t"/>
+      <member attributes="value" name="AttributeValueOffset" type="uint16_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="AttributeValueLength" lengthVerified="yes" name="AttributeValue" type="uint8_t"/>
+      <member attributes="value" name="DelayWrite" type="boolean_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Signed_Write_Request_Data_t">
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ServiceID" type="uint32_t"/>
+      <member attributes="value" name="AttributeOffset" type="uint16_t"/>
+      <member attributes="value" name="AttributeValueLength" type="uint16_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="AttributeValueLength" lengthVerified="yes" name="AttributeValue" type="uint8_t"/>
+      <member attributes="value" name="AuthenticationSignature" type="qapi_BLE_ATT_Authentication_Signature_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Execute_Write_Request_Data_t">
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ServiceID" type="uint32_t"/>
+      <member attributes="value" name="CancelWrite" type="boolean_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Execute_Write_Confirmation_Data_t">
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ServiceID" type="uint32_t"/>
+      <member attributes="value" name="Status" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Confirmation_Data_t">
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Status" type="uint8_t"/>
+      <member attributes="value" name="BytesWritten" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Server_Event_Data_t">
+      <member attributes="value" name="Event_Data_Type" type="qapi_BLE_GATT_Server_Event_Type_t"/>
+      <member attributes="value" name="Event_Data_Size" type="uint16_t"/>
+      <member attributes="union" name="Event_Data">
+         <member attributes="ptr" iotype="in" name="GATT_Device_Connection_Data" type="qapi_BLE_GATT_Device_Connection_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GATT_Device_Disconnection_Data" type="qapi_BLE_GATT_Device_Disconnection_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GATT_Device_Buffer_Empty_Data" type="qapi_BLE_GATT_Device_Buffer_Empty_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GATT_Device_Connection_MTU_Update_Data" type="qapi_BLE_GATT_Device_Connection_MTU_Update_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GATT_Read_Request_Data" type="qapi_BLE_GATT_Read_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GATT_Write_Request_Data" type="qapi_BLE_GATT_Write_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GATT_Signed_Write_Request_Data" type="qapi_BLE_GATT_Signed_Write_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GATT_Execute_Write_Request_Data" type="qapi_BLE_GATT_Execute_Write_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GATT_Execute_Write_Confirmation_Data" type="qapi_BLE_GATT_Execute_Write_Confirmation_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GATT_Confirmation_Data" type="qapi_BLE_GATT_Confirmation_Data_t"/>
+         <unionMap mapVerified="yes" name="Event_Data_Type" type="qapi_BLE_GATT_Server_Event_Type_t">
+            <mapEntry member="GATT_Device_Connection_Data" type="qapi_BLE_GATT_Device_Connection_Data_t" value="QAPI_BLE_ET_GATT_SERVER_DEVICE_CONNECTION_E"/>
+            <mapEntry member="GATT_Device_Disconnection_Data" type="qapi_BLE_GATT_Device_Disconnection_Data_t" value="QAPI_BLE_ET_GATT_SERVER_DEVICE_DISCONNECTION_E"/>
+            <mapEntry member="GATT_Device_Buffer_Empty_Data" type="qapi_BLE_GATT_Device_Buffer_Empty_Data_t" value="QAPI_BLE_ET_GATT_SERVER_DEVICE_BUFFER_EMPTY_E"/>
+            <mapEntry member="GATT_Device_Connection_MTU_Update_Data" type="qapi_BLE_GATT_Device_Connection_MTU_Update_Data_t" value="QAPI_BLE_ET_GATT_SERVER_DEVICE_CONNECTION_MTU_UPDATE_E"/>
+            <mapEntry member="GATT_Read_Request_Data" type="qapi_BLE_GATT_Read_Request_Data_t" value="QAPI_BLE_ET_GATT_SERVER_READ_REQUEST_E"/>
+            <mapEntry member="GATT_Write_Request_Data" type="qapi_BLE_GATT_Write_Request_Data_t" value="QAPI_BLE_ET_GATT_SERVER_WRITE_REQUEST_E"/>
+            <mapEntry member="GATT_Signed_Write_Request_Data" type="qapi_BLE_GATT_Signed_Write_Request_Data_t" value="QAPI_BLE_ET_GATT_SERVER_SIGNED_WRITE_REQUEST_E"/>
+            <mapEntry member="GATT_Execute_Write_Request_Data" type="qapi_BLE_GATT_Execute_Write_Request_Data_t" value="QAPI_BLE_ET_GATT_SERVER_EXECUTE_WRITE_REQUEST_E"/>
+            <mapEntry member="GATT_Execute_Write_Confirmation_Data" type="qapi_BLE_GATT_Execute_Write_Confirmation_Data_t" value="QAPI_BLE_ET_GATT_SERVER_EXECUTE_WRITE_CONFIRMATION_E"/>
+            <mapEntry member="GATT_Confirmation_Data" type="qapi_BLE_GATT_Confirmation_Data_t" value="QAPI_BLE_ET_GATT_SERVER_CONFIRMATION_RESPONSE_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_BLE_GATT_Request_Error_Data_t">
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ErrorType" type="qapi_BLE_GATT_Request_Error_Type_t"/>
+      <member attributes="value" name="RequestOpCode" type="uint8_t"/>
+      <member attributes="value" name="RequestHandle" type="uint16_t"/>
+      <member attributes="value" name="ErrorCode" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Service_Discovery_Response_Data_t">
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="NumberOfServices" type="uint16_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="NumberOfServices" lengthVerified="yes" name="ServiceInformationList" type="qapi_BLE_GATT_Service_Information_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Service_Discovery_By_UUID_Response_Data_t">
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="NumberOfServices" type="uint16_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="NumberOfServices" lengthVerified="yes" name="ServiceInformationList" type="qapi_BLE_GATT_Service_Information_By_UUID_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Included_Services_Discovery_Response_Data_t">
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="NumberOfIncludes" type="uint16_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="NumberOfIncludes" lengthVerified="yes" name="IncludeInformationList" type="qapi_BLE_GATT_Include_Information_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Characteristic_Value_t">
+      <member attributes="value" name="CharacteristicProperties" type="uint8_t"/>
+      <member attributes="value" name="CharacteristicValueHandle" type="uint16_t"/>
+      <member attributes="value" name="CharacteristicUUID" type="qapi_BLE_GATT_UUID_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Characteristic_Entry_t">
+      <member attributes="value" name="DeclarationHandle" type="uint16_t"/>
+      <member attributes="value" name="CharacteristicValue" type="qapi_BLE_GATT_Characteristic_Value_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Characteristic_Discovery_Response_Data_t">
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="NumberOfCharacteristics" type="uint16_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="NumberOfCharacteristics" lengthVerified="yes" name="CharacteristicEntryList" type="qapi_BLE_GATT_Characteristic_Entry_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Characteristic_Descriptor_Entry_t">
+      <member attributes="value" name="Handle" type="uint16_t"/>
+      <member attributes="value" name="UUID" type="qapi_BLE_GATT_UUID_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Characteristic_Descriptor_Discovery_Response_Data_t">
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="NumberOfCharacteristicDescriptors" type="uint16_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="NumberOfCharacteristicDescriptors" lengthVerified="yes" name="CharacteristicDescriptorEntryList" type="qapi_BLE_GATT_Characteristic_Descriptor_Entry_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Read_Response_Data_t">
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="AttributeValueLength" type="uint16_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="AttributeValueLength" lengthVerified="yes" name="AttributeValue" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Read_Long_Response_Data_t">
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="AttributeValueLength" type="uint16_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="AttributeValueLength" lengthVerified="yes" name="AttributeValue" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Read_Event_Entry_t">
+      <member attributes="value" name="AttributeHandle" type="uint16_t"/>
+      <member attributes="value" name="AttributeValueLength" type="uint16_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="AttributeValueLength" lengthVerified="yes" name="AttributeValue" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Read_By_UUID_Response_Data_t">
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="NumberOfAttributes" type="uint16_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="NumberOfAttributes" lengthVerified="yes" name="AttributeList" type="qapi_BLE_GATT_Read_Event_Entry_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Read_Multiple_Response_Data_t">
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="AttributeValuesLength" type="uint16_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="AttributeValuesLength" lengthVerified="yes" name="AttributeValues" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Write_Response_Data_t">
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="BytesWritten" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Prepare_Write_Response_Data_t">
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="BytesWritten" type="uint32_t"/>
+      <member attributes="value" name="AttributeHandle" type="uint16_t"/>
+      <member attributes="value" name="AttributeValueOffset" type="uint16_t"/>
+      <member attributes="value" name="AttributeValueLength" type="uint16_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="AttributeValueLength" lengthVerified="yes" name="AttributeValue" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Execute_Write_Response_Data_t">
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Exchange_MTU_Response_Data_t">
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ServerMTU" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Client_Event_Data_t">
+      <member attributes="value" name="Event_Data_Type" type="qapi_BLE_GATT_Client_Event_Type_t"/>
+      <member attributes="value" name="Event_Data_Size" type="uint16_t"/>
+      <member attributes="union" name="Event_Data">
+         <member attributes="ptr" iotype="in" name="GATT_Request_Error_Data" type="qapi_BLE_GATT_Request_Error_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GATT_Service_Discovery_Response_Data" type="qapi_BLE_GATT_Service_Discovery_Response_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GATT_Service_Discovery_By_UUID_Response_Data" type="qapi_BLE_GATT_Service_Discovery_By_UUID_Response_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GATT_Included_Services_Discovery_Response_Data" type="qapi_BLE_GATT_Included_Services_Discovery_Response_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GATT_Characteristic_Discovery_Response_Data" type="qapi_BLE_GATT_Characteristic_Discovery_Response_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GATT_Characteristic_Descriptor_Discovery_Response_Data" type="qapi_BLE_GATT_Characteristic_Descriptor_Discovery_Response_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GATT_Read_Response_Data" type="qapi_BLE_GATT_Read_Response_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GATT_Read_By_UUID_Response_Data" type="qapi_BLE_GATT_Read_By_UUID_Response_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GATT_Read_Long_Response_Data" type="qapi_BLE_GATT_Read_Long_Response_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GATT_Read_Multiple_Response_Data" type="qapi_BLE_GATT_Read_Multiple_Response_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GATT_Write_Response_Data" type="qapi_BLE_GATT_Write_Response_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GATT_Prepare_Write_Response_Data" type="qapi_BLE_GATT_Prepare_Write_Response_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GATT_Execute_Write_Response_Data" type="qapi_BLE_GATT_Execute_Write_Response_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GATT_Exchange_MTU_Response_Data" type="qapi_BLE_GATT_Exchange_MTU_Response_Data_t"/>
+         <unionMap mapVerified="yes" name="Event_Data_Type" type="qapi_BLE_GATT_Client_Event_Type_t">
+            <mapEntry member="GATT_Request_Error_Data" type="qapi_BLE_GATT_Request_Error_Data_t" value="QAPI_BLE_ET_GATT_CLIENT_ERROR_RESPONSE_E"/>
+            <mapEntry member="GATT_Service_Discovery_Response_Data" type="qapi_BLE_GATT_Service_Discovery_Response_Data_t" value="QAPI_BLE_ET_GATT_CLIENT_SERVICE_DISCOVERY_RESPONSE_E"/>
+            <mapEntry member="GATT_Service_Discovery_By_UUID_Response_Data" type="qapi_BLE_GATT_Service_Discovery_By_UUID_Response_Data_t" value="QAPI_BLE_ET_GATT_CLIENT_SERVICE_DISCOVERY_BY_UUID_RESPONSE_E"/>
+            <mapEntry member="GATT_Included_Services_Discovery_Response_Data" type="qapi_BLE_GATT_Included_Services_Discovery_Response_Data_t" value="QAPI_BLE_ET_GATT_CLIENT_INCLUDED_SERVICES_DISCOVERY_RESPONSE_E"/>
+            <mapEntry member="GATT_Characteristic_Discovery_Response_Data" type="qapi_BLE_GATT_Characteristic_Discovery_Response_Data_t" value="QAPI_BLE_ET_GATT_CLIENT_CHARACTERISTIC_DISCOVERY_RESPONSE_E"/>
+            <mapEntry member="GATT_Characteristic_Descriptor_Discovery_Response_Data" type="qapi_BLE_GATT_Characteristic_Descriptor_Discovery_Response_Data_t" value="QAPI_BLE_ET_GATT_CLIENT_CHARACTERISTIC_DESCRIPTOR_DISCOVERY_RESPONSE_E"/>
+            <mapEntry member="GATT_Read_Response_Data" type="qapi_BLE_GATT_Read_Response_Data_t" value="QAPI_BLE_ET_GATT_CLIENT_READ_RESPONSE_E"/>
+            <mapEntry member="GATT_Read_By_UUID_Response_Data" type="qapi_BLE_GATT_Read_By_UUID_Response_Data_t" value="QAPI_BLE_ET_GATT_CLIENT_READ_BY_UUID_RESPONSE_E"/>
+            <mapEntry member="GATT_Read_Long_Response_Data" type="qapi_BLE_GATT_Read_Long_Response_Data_t" value="QAPI_BLE_ET_GATT_CLIENT_READ_LONG_RESPONSE_E"/>
+            <mapEntry member="GATT_Read_Multiple_Response_Data" type="qapi_BLE_GATT_Read_Multiple_Response_Data_t" value="QAPI_BLE_ET_GATT_CLIENT_READ_MULTIPLE_RESPONSE_E"/>
+            <mapEntry member="GATT_Write_Response_Data" type="qapi_BLE_GATT_Write_Response_Data_t" value="QAPI_BLE_ET_GATT_CLIENT_WRITE_RESPONSE_E"/>
+            <mapEntry member="GATT_Prepare_Write_Response_Data" type="qapi_BLE_GATT_Prepare_Write_Response_Data_t" value="QAPI_BLE_ET_GATT_CLIENT_PREPARE_WRITE_RESPONSE_E"/>
+            <mapEntry member="GATT_Execute_Write_Response_Data" type="qapi_BLE_GATT_Execute_Write_Response_Data_t" value="QAPI_BLE_ET_GATT_CLIENT_EXECUTE_WRITE_RESPONSE_E"/>
+            <mapEntry member="GATT_Exchange_MTU_Response_Data" type="qapi_BLE_GATT_Exchange_MTU_Response_Data_t" value="QAPI_BLE_ET_GATT_CLIENT_EXCHANGE_MTU_RESPONSE_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_BLE_GATT_Service_Discovery_Indication_Data_t">
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ServiceInformation" type="qapi_BLE_GATT_Service_Information_t"/>
+      <member attributes="value" name="NumberOfIncludedService" type="uint32_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="NumberOfIncludedService" lengthVerified="yes" name="IncludedServiceList" type="qapi_BLE_GATT_Service_Information_t"/>
+      <member attributes="value" name="NumberOfCharacteristics" type="uint32_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="NumberOfCharacteristics" lengthVerified="yes" name="CharacteristicInformationList" type="qapi_BLE_GATT_Characteristic_Information_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Service_Discovery_Complete_Data_t">
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="Status" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Service_Discovery_Event_Data_t">
+      <member attributes="value" name="Event_Data_Type" type="qapi_BLE_GATT_Service_Discovery_Event_Type_t"/>
+      <member attributes="value" name="Event_Data_Size" type="uint16_t"/>
+      <member attributes="union" name="Event_Data">
+         <member attributes="ptr" iotype="in" name="GATT_Service_Discovery_Indication_Data" type="qapi_BLE_GATT_Service_Discovery_Indication_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GATT_Service_Discovery_Complete_Data" type="qapi_BLE_GATT_Service_Discovery_Complete_Data_t"/>
+         <unionMap mapVerified="yes" name="Event_Data_Type" type="qapi_BLE_GATT_Service_Discovery_Event_Type_t">
+            <mapEntry member="GATT_Service_Discovery_Indication_Data" type="qapi_BLE_GATT_Service_Discovery_Indication_Data_t" value="QAPI_BLE_ET_GATT_SERVICE_DISCOVERY_INDICATION_E"/>
+            <mapEntry member="GATT_Service_Discovery_Complete_Data" type="qapi_BLE_GATT_Service_Discovery_Complete_Data_t" value="QAPI_BLE_ET_GATT_SERVICE_DISCOVERY_COMPLETE_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <function name="qapi_BLE_GATT_Initialize">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Flags" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionEventCallback" type="qapi_BLE_GATT_Connection_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GATT_Cleanup">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GATT_Register_Connection_Events">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionEventCallback" type="qapi_BLE_GATT_Connection_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GATT_Un_Register_Connection_Events">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="EventCallbackID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GATT_Register_Service">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="ServiceFlags" type="uint8_t"/>
+      <argument attributes="value" name="NumberOfServiceAttributeEntries" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="NumberOfServiceAttributeEntries" lengthVerified="yes" name="ServiceTable" type="qapi_BLE_GATT_Service_Attribute_Entry_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="ServiceHandleGroupResult" type="qapi_BLE_GATT_Attribute_Handle_Group_t"/>
+      <argument attributes="value" name="ServerEventCallback" type="qapi_BLE_GATT_Server_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GATT_Un_Register_Service">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="ServiceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GATT_Read_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="DataLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="DataLength" lengthVerified="yes" name="Data" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_GATT_Write_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GATT_Execute_Write_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GATT_Error_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="AttributeOffset" type="uint16_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_GATT_Handle_Value_Indication">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="ServiceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="value" name="AttributeOffset" type="uint16_t"/>
+      <argument attributes="value" name="AttributeValueLength" type="uint16_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="AttributeValueLength" lengthVerified="yes" name="AttributeValue" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_GATT_Handle_Value_Notification">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="ServiceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="value" name="AttributeOffset" type="uint16_t"/>
+      <argument attributes="value" name="AttributeValueLength" type="uint16_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="AttributeValueLength" lengthVerified="yes" name="AttributeValue" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_GATT_Verify_Signature">
+      <return attributes="value" type="boolean_t"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="ServiceID" type="uint32_t"/>
+      <argument attributes="value" name="AttributeOffset" type="uint16_t"/>
+      <argument attributes="value" name="AttributeValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="AttributeValueLength" lengthVerified="yes" name="AttributeValue" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="ReceivedSignature" type="qapi_BLE_ATT_Authentication_Signature_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="CSRK" type="qapi_BLE_Encryption_Key_t"/>
+   </function>
+   <function name="qapi_BLE_GATT_Service_Changed_Read_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Service_Changed_Data" type="qapi_BLE_GATT_Service_Changed_Data_t"/>
+   </function>
+   <function name="qapi_BLE_GATT_Service_Changed_CCCD_Read_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="CCCD" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_GATT_Service_Changed_Indication">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Service_Changed_Data" type="qapi_BLE_GATT_Service_Changed_Data_t"/>
+   </function>
+   <function name="qapi_BLE_GATT_Exchange_MTU_Request">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="value" name="RequestedMTU" type="uint16_t"/>
+      <argument attributes="value" name="ClientEventCallback" type="qapi_BLE_GATT_Client_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GATT_Discover_Services">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="value" name="StartingHandle" type="uint16_t"/>
+      <argument attributes="value" name="EndingHandle" type="uint16_t"/>
+      <argument attributes="value" name="ClientEventCallback" type="qapi_BLE_GATT_Client_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GATT_Discover_Services_By_UUID">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="value" name="StartingHandle" type="uint16_t"/>
+      <argument attributes="value" name="EndingHandle" type="uint16_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="UUID" type="qapi_BLE_GATT_UUID_t"/>
+      <argument attributes="value" name="ClientEventCallback" type="qapi_BLE_GATT_Client_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GATT_Discover_Included_Services">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="value" name="ServiceStartingHandle" type="uint16_t"/>
+      <argument attributes="value" name="ServiceEndingHandle" type="uint16_t"/>
+      <argument attributes="value" name="ClientEventCallback" type="qapi_BLE_GATT_Client_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GATT_Discover_Characteristics">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="value" name="ServiceStartingHandle" type="uint16_t"/>
+      <argument attributes="value" name="ServiceEndingHandle" type="uint16_t"/>
+      <argument attributes="value" name="ClientEventCallback" type="qapi_BLE_GATT_Client_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GATT_Discover_Characteristic_Descriptors">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="value" name="CharacteristicStartingHandle" type="uint16_t"/>
+      <argument attributes="value" name="CharacteristicEndingHandle" type="uint16_t"/>
+      <argument attributes="value" name="ClientEventCallback" type="qapi_BLE_GATT_Client_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GATT_Read_Value_Request">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="value" name="AttributeHandle" type="uint16_t"/>
+      <argument attributes="value" name="ClientEventCallback" type="qapi_BLE_GATT_Client_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GATT_Read_Long_Value_Request">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="value" name="AttributeHandle" type="uint16_t"/>
+      <argument attributes="value" name="AttributeOffset" type="uint16_t"/>
+      <argument attributes="value" name="ClientEventCallback" type="qapi_BLE_GATT_Client_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GATT_Read_Value_By_UUID_Request">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="AttributeUUID" type="qapi_BLE_GATT_UUID_t"/>
+      <argument attributes="value" name="ServiceStartHandle" type="uint16_t"/>
+      <argument attributes="value" name="ServiceEndHandle" type="uint16_t"/>
+      <argument attributes="value" name="ClientEventCallback" type="qapi_BLE_GATT_Client_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GATT_Read_Multiple_Values_Request">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="value" name="NumberOfHandles" type="uint16_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="NumberOfHandles" lengthVerified="yes" name="AttributeHandleList" type="uint16_t"/>
+      <argument attributes="value" name="ClientEventCallback" type="qapi_BLE_GATT_Client_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GATT_Write_Request">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="value" name="AttributeHandle" type="uint16_t"/>
+      <argument attributes="value" name="AttributeLength" type="uint16_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="AttributeLength" lengthVerified="yes" name="AttributeValue" type="void"/>
+      <argument attributes="value" name="ClientEventCallback" type="qapi_BLE_GATT_Client_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GATT_Write_Without_Response_Request">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="value" name="AttributeHandle" type="uint16_t"/>
+      <argument attributes="value" name="AttributeLength" type="uint16_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="AttributeLength" lengthVerified="yes" name="AttributeValue" type="void"/>
+   </function>
+   <function name="qapi_BLE_GATT_Signed_Write_Without_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="value" name="AttributeHandle" type="uint16_t"/>
+      <argument attributes="value" name="SignCounter" type="uint32_t"/>
+      <argument attributes="value" name="AttributeLength" type="uint16_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="AttributeLength" lengthVerified="yes" name="AttributeValue" type="void"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="CSRK" type="qapi_BLE_Encryption_Key_t"/>
+   </function>
+   <function name="qapi_BLE_GATT_Prepare_Write_Request">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="value" name="AttributeHandle" type="uint16_t"/>
+      <argument attributes="value" name="AttributeLength" type="uint16_t"/>
+      <argument attributes="value" name="AttributeValueOffset" type="uint16_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="AttributeLength" lengthVerified="yes" name="AttributeValue" type="void"/>
+      <argument attributes="value" name="ClientEventCallback" type="qapi_BLE_GATT_Client_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GATT_Execute_Write_Request">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="value" name="CancelWrite" type="boolean_t"/>
+      <argument attributes="value" name="ClientEventCallback" type="qapi_BLE_GATT_Client_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GATT_Handle_Value_Confirmation">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GATT_Start_Service_Discovery">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="value" name="NumberOfUUID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="NumberOfUUID" lengthVerified="yes" name="UUIDList" type="qapi_BLE_GATT_UUID_t"/>
+      <argument attributes="value" name="ServiceDiscoveryCallback" type="qapi_BLE_GATT_Service_Discovery_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GATT_Start_Service_Discovery_Handle_Range">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="DiscoveryHandleRange" type="qapi_BLE_GATT_Attribute_Handle_Group_t"/>
+      <argument attributes="value" name="NumberOfUUID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="NumberOfUUID" lengthVerified="yes" name="UUIDList" type="qapi_BLE_GATT_UUID_t"/>
+      <argument attributes="value" name="ServiceDiscoveryCallback" type="qapi_BLE_GATT_Service_Discovery_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GATT_Stop_Service_Discovery">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GATT_Cancel_Transaction">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GATT_Query_Maximum_Supported_MTU">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="MTU" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_GATT_Change_Maximum_Supported_MTU">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="MTU" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_GATT_Query_Connection_MTU">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="MTU" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_GATT_Query_Connection_ID">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <argument attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ConnectionID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GATT_Query_Transaction_Opcode">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Opcode" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_GATT_Set_Queuing_Parameters">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="MaximumNumberDataPackets" type="uint32_t"/>
+      <argument attributes="value" name="QueuedDataPacketsThreshold" type="uint32_t"/>
+      <argument attributes="value" name="DiscardOldest" type="boolean_t"/>
+   </function>
+   <function name="qapi_BLE_GATT_Get_Queuing_Parameters">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="MaximumNumberDataPackets" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="QueuedDataPacketsThreshold" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="DiscardOldest" type="boolean_t"/>
+   </function>
+   <function name="qapi_BLE_GATT_Query_Service_Range_Availability">
+      <return attributes="value" type="boolean_t"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceHandleGroup" type="qapi_BLE_GATT_Attribute_Handle_Group_t"/>
+   </function>
+   <callback name="qapi_BLE_GATT_Connection_Event_Callback_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="GATT_Connection_Event_Data" type="qapi_BLE_GATT_Connection_Event_Data_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <createFunction ID="0" funcSuccess="__positive__" moduleParam="BluetoothStackID" name="qapi_BLE_GATT_Initialize" param="CallbackParameter"/>
+      <createFunction ID="qsRetVal" funcSuccess="__positive__" moduleParam="BluetoothStackID" name="qapi_BLE_GATT_Register_Connection_Events" param="CallbackParameter"/>
+      <destroyFunction ID="0" funcSuccess="0" name="qapi_BLE_GATT_Cleanup"/>
+      <destroyFunction ID="EventCallbackID" funcSuccess="0" name="qapi_BLE_GATT_Un_Register_Connection_Events"/>
+   </callback>
+   <callback name="qapi_BLE_GATT_Server_Event_Callback_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="GATT_Server_Event_Data" type="qapi_BLE_GATT_Server_Event_Data_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <createFunction ID="qsRetVal" funcSuccess="__positive__" moduleParam="BluetoothStackID" name="qapi_BLE_GATT_Register_Service" param="CallbackParameter"/>
+      <destroyFunction ID="ServiceID" funcSuccess="" name="qapi_BLE_GATT_Un_Register_Service"/>
+   </callback>
+   <callback name="qapi_BLE_GATT_Client_Event_Callback_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="GATT_Client_Event_Data" type="qapi_BLE_GATT_Client_Event_Data_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <createFunction ID="0" funcSuccess="__positive__" moduleParam="BluetoothStackID" name="qapi_BLE_GATT_Exchange_MTU_Request" param="CallbackParameter"/>
+      <createFunction ID="0" funcSuccess="__positive__" moduleParam="BluetoothStackID" name="qapi_BLE_GATT_Discover_Services" param="CallbackParameter"/>
+      <createFunction ID="0" funcSuccess="__positive__" moduleParam="BluetoothStackID" name="qapi_BLE_GATT_Discover_Services_By_UUID" param="CallbackParameter"/>
+      <createFunction ID="0" funcSuccess="__positive__" moduleParam="BluetoothStackID" name="qapi_BLE_GATT_Discover_Included_Services" param="CallbackParameter"/>
+      <createFunction ID="0" funcSuccess="__positive__" moduleParam="BluetoothStackID" name="qapi_BLE_GATT_Discover_Characteristics" param="CallbackParameter"/>
+      <createFunction ID="0" funcSuccess="__positive__" moduleParam="BluetoothStackID" name="qapi_BLE_GATT_Discover_Characteristic_Descriptors" param="CallbackParameter"/>
+      <createFunction ID="0" funcSuccess="__positive__" moduleParam="BluetoothStackID" name="qapi_BLE_GATT_Read_Value_Request" param="CallbackParameter"/>
+      <createFunction ID="0" funcSuccess="__positive__" moduleParam="BluetoothStackID" name="qapi_BLE_GATT_Read_Long_Value_Request" param="CallbackParameter"/>
+      <createFunction ID="0" funcSuccess="__positive__" moduleParam="BluetoothStackID" name="qapi_BLE_GATT_Read_Value_By_UUID_Request" param="CallbackParameter"/>
+      <createFunction ID="0" funcSuccess="__positive__" moduleParam="BluetoothStackID" name="qapi_BLE_GATT_Read_Multiple_Values_Request" param="CallbackParameter"/>
+      <createFunction ID="0" funcSuccess="__positive__" moduleParam="BluetoothStackID" name="qapi_BLE_GATT_Write_Request" param="CallbackParameter"/>
+      <createFunction ID="0" funcSuccess="__positive__" moduleParam="BluetoothStackID" name="qapi_BLE_GATT_Prepare_Write_Request" param="CallbackParameter"/>
+      <createFunction ID="0" funcSuccess="__positive__" moduleParam="BluetoothStackID" name="qapi_BLE_GATT_Execute_Write_Request" param="CallbackParameter"/>
+   </callback>
+   <callback name="qapi_BLE_GATT_Service_Discovery_Event_Callback_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="GATT_Service_Discovery_Event_Data" type="qapi_BLE_GATT_Service_Discovery_Event_Data_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <createFunction ID="0" funcSuccess="__positive__" moduleParam="BluetoothStackID" name="qapi_BLE_GATT_Start_Service_Discovery" param="CallbackParameter"/>
+      <createFunction ID="0" funcSuccess="__positive__" moduleParam="BluetoothStackID" name="qapi_BLE_GATT_Start_Service_Discovery_Handle_Range" param="CallbackParameter"/>
+   </callback>
+</header>

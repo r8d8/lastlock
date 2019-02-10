@@ -1,0 +1,82 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="./qapi_ble_bttypes.h"/>
+   <macro name="QAPI_BLE_AIOS_ERROR_CODE_SUCCESS" value="0x00"/>
+   <macro name="QAPI_BLE_AIOS_ERROR_CODE_TRIGGER_CONDITION_VALUE_NOT_SUPPORTED" value="0x80"/>
+   <macro name="QAPI_BLE_AIOS_ASSIGN_AIOS_SERVICE_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16(*((qapi_BLE_UUID_16_t *)(_x)), 0x18, 0x15)"/>
+   <macro name="QAPI_BLE_AIOS_COMPARE_AIOS_SERVICE_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x18, 0x15)"/>
+   <macro name="QAPI_BLE_AIOS_SERVICE_BLUETOOTH_UUID_CONSTANT" value="{ 0x15, 0x18 }"/>
+   <macro name="QAPI_BLE_AIOS_ASSIGN_AIOS_SERVICE_SDP_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_SDP_UUID_16((_x), 0x18, 0x15)"/>
+   <macro name="QAPI_BLE_AIOS_ASSIGN_DIGITAL_CHARACTERISTIC_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x56)"/>
+   <macro name="QAPI_BLE_AIOS_COMPARE_DIGITAL_CHARACTERISTIC_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x56)"/>
+   <macro name="QAPI_BLE_AIOS_DIGITAL_CHARACTERISTIC_BLUETOOTH_UUID_CONSTANT" value="{ 0x56, 0x2A }"/>
+   <macro name="QAPI_BLE_AIOS_ASSIGN_ANALOG_CHARACTERISTIC_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x58)"/>
+   <macro name="QAPI_BLE_AIOS_COMPARE_ANALOG_CHARACTERISTIC_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x58)"/>
+   <macro name="QAPI_BLE_AIOS_ANALOG_CHARACTERISTIC_BLUETOOTH_UUID_CONSTANT" value="{ 0x58, 0x2A }"/>
+   <macro name="QAPI_BLE_AIOS_ASSIGN_AGGREGATE_CHARACTERISTIC_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x5A)"/>
+   <macro name="QAPI_BLE_AIOS_COMPARE_AGGREGATE_CHARACTERISTIC_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x5A)"/>
+   <macro name="QAPI_BLE_AIOS_AGGREGATE_CHARACTERISTIC_BLUETOOTH_UUID_CONSTANT" value="{ 0x5A, 0x2A }"/>
+   <macro name="QAPI_BLE_AIOS_ASSIGN_VALUE_TRIGGER_SETTING_CD_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x29, 0x0A)"/>
+   <macro name="QAPI_BLE_AIOS_COMPARE_VALUE_TRIGGER_SETTING_CD_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x29, 0x0A)"/>
+   <macro name="QAPI_BLE_AIOS_VALUE_TRIGGER_SETTING_CD_BLUETOOTH_UUID_CONSTANT" value="{ 0x0A, 0x29 }"/>
+   <macro name="QAPI_BLE_AIOS_ASSIGN_TIME_TRIGGER_SETTING_CD_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x29, 0x0E)"/>
+   <macro name="QAPI_BLE_AIOS_COMPARE_TIME_TRIGGER_SETTING_CD_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x29, 0x0E)"/>
+   <macro name="QAPI_BLE_AIOS_TIME_TRIGGER_SETTING_CD_BLUETOOTH_UUID_CONSTANT" value="{ 0x0E, 0x29 }"/>
+   <macro name="QAPI_BLE_AIOS_ASSIGN_NUMBER_OF_DIGITALS_CD_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x29, 0x09)"/>
+   <macro name="QAPI_BLE_AIOS_COMPARE_NUMBER_OF_DIGITALS_CD_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x29, 0x09)"/>
+   <macro name="QAPI_BLE_AIOS_NUMBER_OF_DIGITALS_CD_BLUETOOTH_UUID_CONSTANT" value="{ 0x09, 0x29 }"/>
+   <macro name="QAPI_BLE_AIOS_ASSIGN_VALID_RANGE_CD_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x29, 0x06)"/>
+   <macro name="QAPI_BLE_AIOS_COMPARE_VALID_RANGE_CD_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x29, 0x06)"/>
+   <macro name="QAPI_BLE_AIOS_VALID_RANGE_CD_BLUETOOTH_UUID_CONSTANT" value="{ 0x06, 0x29 }"/>
+   <macro name="QAPI_BLE_AIOS_DIGITAL_CHARACTERISTIC_STATE_INACTIVE" value="0x00"/>
+   <macro name="QAPI_BLE_AIOS_DIGITAL_CHARACTERISTIC_STATE_ACTIVE" value="0x01"/>
+   <macro name="QAPI_BLE_AIOS_DIGITAL_CHARACTERISTIC_STATE_TRI_STATE" value="0x02"/>
+   <macro name="QAPI_BLE_AIOS_DIGITAL_CHARACTERISTIC_STATE_UNKNOWN" value="0x03"/>
+   <macro name="QAPI_BLE_AIOS_VALUE_TRIGGER_SETTING_CONDITION_STATE_CHANGED" value="0x00"/>
+   <macro name="QAPI_BLE_AIOS_VALUE_TRIGGER_SETTING_CONDITION_CROSSED_BOUNDARY_ANALOG_VALUE" value="0x01"/>
+   <macro name="QAPI_BLE_AIOS_VALUE_TRIGGER_SETTING_CONDITION_ON_BOUNDARY_ANALOG_VALUE" value="0x02"/>
+   <macro name="QAPI_BLE_AIOS_VALUE_TRIGGER_SETTING_CONDITION_STATE_CHANGED_ANALOG_VALUE" value="0x03"/>
+   <macro name="QAPI_BLE_AIOS_VALUE_TRIGGER_SETTING_CONDITION_DIGITAL_STATE_CHANGED_BIT_MASK" value="0x04"/>
+   <macro name="QAPI_BLE_AIOS_VALUE_TRIGGER_SETTING_CONDITION_CROSSED_BOUNDARY_ANALOG_INTERVAL" value="0x05"/>
+   <macro name="QAPI_BLE_AIOS_VALUE_TRIGGER_SETTING_CONDITION_ON_BOUNDARY_ANALOG_INTERVAL" value="0x06"/>
+   <macro name="QAPI_BLE_AIOS_VALUE_TRIGGER_SETTING_CONDITION_NO_VALUE_TRIGGER" value="0x07"/>
+   <macro name="QAPI_BLE_AIOS_TIME_TRIGGER_SETTING_CONDITION_NO_TIME_BASED_TRIGGERING_USED" value="0x00"/>
+   <macro name="QAPI_BLE_AIOS_TIME_TRIGGER_SETTING_CONDITION_TIME_INTERVAL_IGNORE_VALUE_TRIGGER" value="0x01"/>
+   <macro name="QAPI_BLE_AIOS_TIME_TRIGGER_SETTING_CONDITION_TIME_INTERVAL_CHECK_VALUE_TRIGGER" value="0x02"/>
+   <macro name="QAPI_BLE_AIOS_TIME_TRIGGER_SETTING_CONDITION_COUNT_CHANGED_MORE_OFTEN_THAN" value="0x03"/>
+   <macro name="QAPI_BLE_AIOS_DIGITAL_PRESENTATION_FORMAT_STRUCT" value="(27)"/>
+   <macro name="QAPI_BLE_AIOS_ANALOG_PRESENTATION_FORMAT_UINT8" value="(4)"/>
+   <macro name="QAPI_BLE_AIOS_ANALOG_PRESENTATION_FORMAT_UINT12" value="(5)"/>
+   <macro name="QAPI_BLE_AIOS_ANALOG_PRESENTATION_FORMAT_UINT16" value="(6)"/>
+   <macro name="QAPI_BLE_AIOS_ANALOG_PRESENTATION_FORMAT_SINT8" value="(12)"/>
+   <macro name="QAPI_BLE_AIOS_ANALOG_PRESENTATION_FORMAT_SINT12" value="(13)"/>
+   <macro name="QAPI_BLE_AIOS_ANALOG_PRESENTATION_FORMAT_SINT16" value="(14)"/>
+   <macro name="QAPI_BLE_AIOS_ANALOG_PRESENTATION_FORMAT_SFLOAT_16" value="(22)"/>
+   <macro name="QAPI_BLE_AIOS_PRESENTATION_FORMAT_NAMESPACE_BT_SIG" value="(1)"/>
+   <macro name="QAPI_BLE_AIOS_PRESENTATION_FORMAT_SIZE" value="(sizeof(qapi_BLE_AIOS_Presentation_Format_t))"/>
+   <macro name="QAPI_BLE_AIOS_VALUE_TRIGGER_SIZE" params="(_x)" value="(QAPI_BLE_BTPS_STRUCTURE_OFFSET(qapi_BLE_AIOS_Value_Trigger_t, Variable_Data) + (_x))"/>
+   <macro name="QAPI_BLE_AIOS_UINT24_SIZE" value="(sizeof(qapi_BLE_AIOS_UINT24_t))"/>
+   <macro name="QAPI_BLE_AIOS_TIME_TRIGGER_SIZE" params="(_x)" value="(QAPI_BLE_BTPS_STRUCTURE_OFFSET(qapi_BLE_AIOS_Time_Trigger_t, Variable_Data) + (_x))"/>
+   <macro name="QAPI_BLE_AIOS_VALID_RANGE_SIZE" value="(sizeof(qapi_BLE_AIOS_Valid_Range_t))"/>
+   <macro name="QAPI_BLE_AIOS_CLIENT_CHARACTERISTIC_CONFIGURATION_NOTIFY_ENABLE" value="(QAPI_BLE_GATT_CLIENT_CONFIGURATION_CHARACTERISTIC_NOTIFY_ENABLE)"/>
+   <macro name="QAPI_BLE_AIOS_CLIENT_CHARACTERISTIC_CONFIGURATION_INDICATE_ENABLE" value="(QAPI_BLE_GATT_CLIENT_CONFIGURATION_CHARACTERISTIC_INDICATE_ENABLE)"/>
+   <macro name="QAPI_BLE_AIOS_EXTENDED_PROPERTIES_WRITE_AUXILARIES" value="(QAPI_BLE_GATT_CHARACTERISTIC_EXTENDED_PROPERTIES_WRITABLE_AUXILARIES)"/>
+   <macro name="QAPI_BLE_AIOS_SERVICE_FLAGS_LE" value="(QAPI_BLE_GATT_SERVICE_FLAGS_LE_SERVICE)"/>
+   <macro name="QAPI_BLE_AIOS_SERVICE_FLAGS_BR_EDR" value="(QAPI_BLE_GATT_SERVICE_FLAGS_BR_EDR_SERVICE)"/>
+   <macro name="QAPI_BLE_AIOS_SERVICE_FLAGS_DUAL_MODE" value="(QAPI_BLE_GATT_SERVICE_FLAGS_LE_SERVICE | QAPI_BLE_GATT_SERVICE_FLAGS_BR_EDR_SERVICE)"/>
+   <structure name="qapi_BLE_AIOS_Presentation_Format_t">
+      <member attributes="value" name="Format" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="Exponent" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="Unit" type="qapi_BLE_NonAlignedWord_t"/>
+      <member attributes="value" name="NameSpace" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="Description" type="qapi_BLE_NonAlignedWord_t"/>
+   </structure>
+   <structure name="qapi_BLE_AIOS_UINT24_t">
+      <member attributes="value" name="Lower" type="qapi_BLE_NonAlignedWord_t"/>
+      <member attributes="value" name="Upper" type="qapi_BLE_NonAlignedByte_t"/>
+   </structure>
+   <structure name="qapi_BLE_AIOS_Valid_Range_t">
+      <member attributes="value" name="Lower" type="qapi_BLE_NonAlignedWord_t"/>
+      <member attributes="value" name="Upper" type="qapi_BLE_NonAlignedWord_t"/>
+   </structure>
+</header>

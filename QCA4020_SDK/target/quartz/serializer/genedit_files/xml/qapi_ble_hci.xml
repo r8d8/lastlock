@@ -1,0 +1,1153 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="./qapi_ble_btapityp.h"/>
+   <include name="./qapi_ble_bttypes.h"/>
+   <include name="./qapi_ble_hcitypes.h"/>
+   <macro name="QAPI_BLE_HCI_HOST_COMPLETED_PACKETS_INFO_SIZE" value="(sizeof(qapi_BLE_HCI_Host_Completed_Packets_Info_t))"/>
+   <macro name="QAPI_BLE_HCI_MWS_TRANSPORT_INFO_SIZE" value="(sizeof(qapi_BLE_HCI_MWS_Transport_Info_t))"/>
+   <macro name="QAPI_BLE_HCI_MWS_TRANSPORT_LAYER_CONFIGURATION_INFO_SIZE" value="(sizeof(qapi_BLE_HCI_MWS_Transport_Layer_Configuration_Info_t))"/>
+   <macro name="QAPI_BLE_HCI_SET_MWS_SIGNALING_PARAMETERS_SIZE" value="(sizeof(qapi_BLE_HCI_Set_MWS_Signaling_Parameters_t))"/>
+   <macro name="QAPI_BLE_HCI_SET_MWS_SIGNALING_RESULT_SIZE" value="(sizeof(qapi_BLE_HCI_Set_MWS_Signaling_Result_t))"/>
+   <macro name="QAPI_BLE_HCI_DISCONNECTION_COMPLETE_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_HCI_Disconnection_Complete_Event_Data_t))"/>
+   <macro name="QAPI_BLE_HCI_ENCRYPTION_CHANGE_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_HCI_Encryption_Change_Event_Data_t))"/>
+   <macro name="QAPI_BLE_HCI_READ_REMOTE_VERSION_INFORMATION_COMPLETE_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_HCI_Read_Remote_Version_Information_Complete_Event_Data_t))"/>
+   <macro name="QAPI_BLE_HCI_HARDWARE_ERROR_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_HCI_Hardware_Error_Event_Data_t))"/>
+   <macro name="QAPI_BLE_HCI_NUMBER_OF_COMPLETED_PACKETS_DATA_SIZE" value="(sizeof(qapi_BLE_HCI_Number_Of_Completed_Packets_Data_t))"/>
+   <macro name="QAPI_BLE_HCI_NUMBER_OF_COMPLETED_PACKETS_EVENT_DATA_SIZE" params="(_x)" value="((sizeof(qapi_BLE_HCI_Number_Of_Completed_Packets_Event_Data_t) - sizeof(qapi_BLE_HCI_Number_Of_Completed_Packets_Data_t)) + (((uint8_t)(_x))*sizeof(qapi_BLE_HCI_Number_Of_Completed_Packets_Data_t)))"/>
+   <macro name="QAPI_BLE_HCI_NUMBER_OF_COMPLETED_PACKETS_EVENT_MAX_DATA_ENTRIES" value="((((sizeof(uint8_t))*256)-QAPI_BLE_HCI_NUMBER_OF_COMPLETED_PACKETS_EVENT_DATA_SIZE(0))/sizeof(qapi_BLE_HCI_Number_Of_Completed_Packets_Data_t))"/>
+   <macro name="QAPI_BLE_HCI_DATA_BUFFER_OVERFLOW_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_HCI_Data_Buffer_Overflow_Event_Data_t))"/>
+   <macro name="QAPI_BLE_HCI_ENCRYPTION_KEY_REFRESH_COMPLETE_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_HCI_Encryption_Key_Refresh_Complete_Event_Data_t))"/>
+   <macro name="QAPI_BLE_HCI_LE_CONNECTION_COMPLETE_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_HCI_LE_Connection_Complete_Event_Data_t))"/>
+   <macro name="QAPI_BLE_HCI_LE_ADVERTISING_REPORT_DATA_SIZE" value="(sizeof(qapi_BLE_HCI_LE_Advertising_Report_Data_t))"/>
+   <macro name="QAPI_BLE_HCI_LE_ADVERTISING_REPORT_EVENT_DATA_SIZE" params="(_x)" value="((sizeof(qapi_BLE_HCI_LE_Advertising_Report_Event_Data_t) - sizeof(qapi_BLE_HCI_LE_Advertising_Report_Event_Data_t)) + (((uint32_t)(_x))*sizeof(qapi_BLE_HCI_LE_Advertising_Report_Event_Data_t)))"/>
+   <macro name="QAPI_BLE_HCI_LE_ADVERTISING_REPORT_EVENT_MAX_DATA_ENTRIES" value="((((sizeof(uint8_t))*256)-QAPI_BLE_HCI_LE_ADVERTISING_REPORT_EVENT_DATA_SIZE(0))/sizeof(qapi_BLE_HCI_LE_Advertising_Report_Event_Data_t))"/>
+   <macro name="QAPI_BLE_HCI_LE_CONNECTION_UPDATE_COMPLETE_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_HCI_LE_Connection_Update_Complete_Event_Data_t))"/>
+   <macro name="QAPI_BLE_HCI_LE_READ_REMOTE_USED_FEATURES_COMPLETE_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_HCI_LE_Read_Remote_Used_Features_Complete_Event_Data_t))"/>
+   <macro name="QAPI_BLE_HCI_LE_LONG_TERM_KEY_REQUEST_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_HCI_LE_Long_Term_Key_Request_Event_Data_t))"/>
+   <macro name="QAPI_BLE_HCI_LE_REMOTE_CONNECTION_PARAMETER_REQUEST_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_HCI_LE_Remote_Connection_Parameter_Request_Event_Data_t))"/>
+   <macro name="QAPI_BLE_HCI_LE_DATA_LENGTH_CHANGE_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_HCI_LE_Data_Length_Change_Event_Data_t))"/>
+   <macro name="QAPI_BLE_HCI_LE_READ_LOCAL_P256_PUBLIC_KEY_COMPLETE_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_HCI_LE_Read_Local_P256_Public_Key_Complete_Event_Data_t))"/>
+   <macro name="QAPI_BLE_HCI_LE_GENERATE_DHKEY_COMPLETE_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_HCI_LE_Generate_DHKey_Complete_Event_Data_t))"/>
+   <macro name="QAPI_BLE_HCI_LE_ENHANCED_CONNECTION_COMPLETE_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_HCI_LE_Enhanced_Connection_Complete_Event_Data_t))"/>
+   <macro name="QAPI_BLE_HCI_LE_DIRECT_ADVERTISING_REPORT_DATA_SIZE" value="(sizeof(qapi_BLE_HCI_LE_Direct_Advertising_Report_Data_t))"/>
+   <macro name="QAPI_BLE_HCI_LE_DIRECT_ADVERTISING_REPORT_EVENT_DATA_SIZE" params="(_x)" value="((sizeof(qapi_BLE_HCI_LE_Direct_Advertising_Report_Event_Data_t) - sizeof(qapi_BLE_HCI_LE_Direct_Advertising_Report_Data_t)) + (((uint32_t)(_x))*sizeof(qapi_BLE_HCI_LE_Direct_Advertising_Report_Data_t)))"/>
+   <macro name="QAPI_BLE_HCI_LE_DIRECT_ADVERTISING_REPORT_EVENT_MAX_DATA_ENTRIES" value="((((sizeof(uint8_t))*256)-QAPI_BLE_HCI_LE_DIRECT_ADVERTISING_REPORT_EVENT_DATA_SIZE(0))/sizeof(qapi_BLE_HCI_LE_Direct_Advertising_Report_Data_t))"/>
+   <macro name="QAPI_BLE_HCI_LE_PHY_UPDATE_COMPLETE_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_HCI_LE_PHY_Update_Complete_Event_Data_t))"/>
+   <macro name="QAPI_BLE_HCI_LE_EXTENDED_ADVERTISING_REPORT_DATA_SIZE" value="(sizeof(qapi_BLE_HCI_LE_Extended_Advertising_Report_Data_t))"/>
+   <macro name="QAPI_BLE_HCI_LE_EXTENDED_ADVERTISING_REPORT_EVENT_DATA_SIZE" params="(_x)" value="((sizeof(qapi_BLE_HCI_LE_Extended_Advertising_Report_Event_Data_t) - sizeof(qapi_BLE_HCI_LE_Extended_Advertising_Report_Data_t)) + (((unsigned int)(_x))*sizeof(qapi_BLE_HCI_LE_Extended_Advertising_Report_Data_t)))"/>
+   <macro name="QAPI_BLE_HCI_LE_EXTENDED_ADVERTISING_REPORT_EVENT_MAX_DATA_ENTRIES" value="((((sizeof(uint8_t))*256)-QAPI_BLE_HCI_LE_EXTENDED_ADVERTISING_REPORT_EVENT_DATA_SIZE(0))/sizeof(qapi_BLE_HCI_LE_Extended_Advertising_Report_Data_t))"/>
+   <macro name="QAPI_BLE_HCI_LE_ADVERTISING_SET_TERMINATED_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_HCI_LE_Advertising_Set_Terminated_Event_Data_t))"/>
+   <macro name="QAPI_BLE_HCI_LE_SCAN_REQUEST_RECEIVED_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_HCI_LE_Scan_Request_Received_Event_Data_t))"/>
+   <macro name="QAPI_BLE_HCI_LE_CHANNEL_SELECTION_ALGORITHM_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_HCI_LE_Channel_Selection_Algorithm_Event_Data_t))"/>
+   <macro name="QAPI_BLE_HCI_LE_META_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_HCI_LE_Meta_Event_Data_t))"/>
+   <macro name="QAPI_BLE_HCI_PLATFORM_SPECIFIC_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_HCI_Platform_Specific_Event_Data_t))"/>
+   <macro name="QAPI_BLE_HCI_AUTHENTICATED_PAYLOAD_TIMEOUT_EXPIRED_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_HCI_Authenticated_Payload_Timeout_Expired_Event_Data_t))"/>
+   <macro name="QAPI_BLE_HCI_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_HCI_Event_Data_t))"/>
+   <enum name="qapi_BLE_HCI_Version_t">
+      <member name="QAPI_BLE_HV_SPECIFICATION_1_0B_E" value="0"/>
+      <member name="QAPI_BLE_HV_SPECIFICATION_1_1_E" value="1"/>
+      <member name="QAPI_BLE_HV_SPECIFICATION_1_2_E" value="2"/>
+      <member name="QAPI_BLE_HV_SPECIFICATION_2_0_E" value="3"/>
+      <member name="QAPI_BLE_HV_SPECIFICATION_2_1_E" value="4"/>
+      <member name="QAPI_BLE_HV_SPECIFICATION_3_0_E" value="5"/>
+      <member name="QAPI_BLE_HV_SPECIFICATION_4_0_E" value="6"/>
+      <member name="QAPI_BLE_HV_SPECIFICATION_4_1_E" value="7"/>
+      <member name="QAPI_BLE_HV_SPECIFICATION_4_2_E" value="8"/>
+      <member name="QAPI_BLE_HV_SPECIFICATION_5_0_E" value="9"/>
+   </enum>
+   <enum name="qapi_BLE_HCI_Event_Type_t">
+      <member name="QAPI_BLE_ET_DISCONNECTION_COMPLETE_EVENT_E" value="0"/>
+      <member name="QAPI_BLE_ET_ENCRYPTION_CHANGE_EVENT_E" value="1"/>
+      <member name="QAPI_BLE_ET_READ_REMOTE_VERSION_INFORMATION_COMPLETE_EVENT_E" value="2"/>
+      <member name="QAPI_BLE_ET_HARDWARE_ERROR_EVENT_E" value="3"/>
+      <member name="QAPI_BLE_ET_NUMBER_OF_COMPLETED_PACKETS_EVENT_E" value="4"/>
+      <member name="QAPI_BLE_ET_DATA_BUFFER_OVERFLOW_EVENT_E" value="5"/>
+      <member name="QAPI_BLE_ET_VENDOR_SPECIFIC_DEBUG_EVENT_E" value="6"/>
+      <member name="QAPI_BLE_ET_DEVICE_RESET_EVENT_E" value="7"/>
+      <member name="QAPI_BLE_ET_ENCRYPTION_KEY_REFRESH_COMPLETE_EVENT_E" value="8"/>
+      <member name="QAPI_BLE_ET_LE_META_EVENT_E" value="9"/>
+      <member name="QAPI_BLE_ET_PLATFORM_SPECIFIC_EVENT_E" value="10"/>
+      <member name="QAPI_BLE_ET_AUTHENTICATED_PAYLOAD_TIMEOUT_EXPIRED_EVENT_E" value="11"/>
+   </enum>
+   <enum name="qapi_BLE_HCI_LE_Meta_Event_Type_t">
+      <member name="QAPI_BLE_ME_CONNECTION_COMPLETE_EVENT_E" value="0"/>
+      <member name="QAPI_BLE_ME_ADVERTISING_REPORT_EVENT_E" value="1"/>
+      <member name="QAPI_BLE_ME_CONNECTION_UPDATE_COMPLETE_EVENT_E" value="2"/>
+      <member name="QAPI_BLE_ME_READ_REMOTE_USED_FEATURES_COMPLETE_EVENT_E" value="3"/>
+      <member name="QAPI_BLE_ME_LONG_TERM_KEY_REQUEST_EVENT_E" value="4"/>
+      <member name="QAPI_BLE_ME_REMOTE_CONNECTION_PARAMETER_REQUEST_EVENT_E" value="5"/>
+      <member name="QAPI_BLE_ME_DATA_LENGTH_CHANGE_EVENT_E" value="6"/>
+      <member name="QAPI_BLE_ME_READ_LOCAL_P256_PUBLIC_KEY_COMPLETE_EVENT_E" value="7"/>
+      <member name="QAPI_BLE_ME_GENERATE_DHKEY_COMPLETE_EVENT_E" value="8"/>
+      <member name="QAPI_BLE_ME_ENHANCED_CONNECTION_COMPLETE_EVENT_E" value="9"/>
+      <member name="QAPI_BLE_ME_DIRECT_ADVERTISING_REPORT_EVENT_E" value="10"/>
+      <member name="QAPI_BLE_ME_PHY_UPDATE_COMPLETE_EVENT_E" value="11"/>
+      <member name="QAPI_BLE_ME_EXTENDED_ADVERTISING_REPORT_EVENT_E" value="12"/>
+      <member name="QAPI_BLE_ME_RFU0_E" value="13"/>
+      <member name="QAPI_BLE_ME_RFU1_E" value="14"/>
+      <member name="QAPI_BLE_ME_RFU2_E" value="15"/>
+      <member name="QAPI_BLE_ME_SCAN_TIMEOUT_EVENT_E" value="16"/>
+      <member name="QAPI_BLE_ME_ADVERTISING_SET_TERMINATED_EVENT_E" value="17"/>
+      <member name="QAPI_BLE_ME_SCAN_REQUEST_RECEIVED_EVENT_E" value="18"/>
+      <member name="QAPI_BLE_ME_CHANNEL_SELECTION_ALGORITHM_EVENT_E" value="19"/>
+   </enum>
+   <structure name="qapi_BLE_HCI_Host_Completed_Packets_Info_t">
+      <member attributes="value" name="Connection_Handle" type="uint16_t"/>
+      <member attributes="value" name="Host_Num_Of_Completed_Packets" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_HCI_MWS_Transport_Info_t">
+      <member attributes="value" name="TransportLayer" type="uint8_t"/>
+      <member attributes="value" name="NumberOfBaudRates" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="NumberOfBaudRates" lengthVerified="yes" name="To_MWS_Baud_Rate" type="uint32_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="NumberOfBaudRates" lengthVerified="yes" name="From_MWS_Baud_Rate" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_BLE_HCI_MWS_Transport_Layer_Configuration_Info_t">
+      <member attributes="value" name="NumberOfTransports" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="NumberOfTransports" lengthVerified="yes" name="TransportLayerInfo" type="qapi_BLE_HCI_MWS_Transport_Info_t"/>
+   </structure>
+   <structure name="qapi_BLE_HCI_Set_MWS_Signaling_Parameters_t">
+      <member attributes="value" name="MWS_RX_Assert_Offset" type="uint16_t"/>
+      <member attributes="value" name="MWS_RX_Assert_Jitter" type="uint16_t"/>
+      <member attributes="value" name="MWS_RX_Deassert_Offset" type="uint16_t"/>
+      <member attributes="value" name="MWS_RX_Deassert_Jitter" type="uint16_t"/>
+      <member attributes="value" name="MWS_TX_Assert_Offset" type="uint16_t"/>
+      <member attributes="value" name="MWS_TX_Assert_Jitter" type="uint16_t"/>
+      <member attributes="value" name="MWS_TX_Deassert_Offset" type="uint16_t"/>
+      <member attributes="value" name="MWS_TX_Deassert_Jitter" type="uint16_t"/>
+      <member attributes="value" name="MWS_Pattern_Assert_Offset" type="uint16_t"/>
+      <member attributes="value" name="MWS_Pattern_Assert_Jitter" type="uint16_t"/>
+      <member attributes="value" name="MWS_Inactivity_Duration_Assert_Offset" type="uint16_t"/>
+      <member attributes="value" name="MWS_Inactivity_Duration_Assert_Jitter" type="uint16_t"/>
+      <member attributes="value" name="MWS_Scan_Frequency_Assert_Offset" type="uint16_t"/>
+      <member attributes="value" name="MWS_Scan_Frequency_Assert_Jitter" type="uint16_t"/>
+      <member attributes="value" name="MWS_Priority_Assert_Offset_Request" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_HCI_Set_MWS_Signaling_Result_t">
+      <member attributes="value" name="Bluetooth_RX_Priority_Assert_Offset" type="uint16_t"/>
+      <member attributes="value" name="Bluetooth_RX_Priority_Assert_Jitter" type="uint16_t"/>
+      <member attributes="value" name="Bluetooth_RX_Priority_Deassert_Offset" type="uint16_t"/>
+      <member attributes="value" name="Bluetooth_RX_Priority_Deassert_Jitter" type="uint16_t"/>
+      <member attributes="value" name="_802_RX_Priority_Assert_Offset" type="uint16_t"/>
+      <member attributes="value" name="_802_RX_Priority_Assert_Jitter" type="uint16_t"/>
+      <member attributes="value" name="_802_RX_Priority_Deassert_Offset" type="uint16_t"/>
+      <member attributes="value" name="_802_RX_Priority_Deassert_Jitter" type="uint16_t"/>
+      <member attributes="value" name="Bluetooth_TX_On_Assert_Offset" type="uint16_t"/>
+      <member attributes="value" name="Bluetooth_TX_On_Assert_Jitter" type="uint16_t"/>
+      <member attributes="value" name="Bluetooth_TX_On_Deassert_Offset" type="uint16_t"/>
+      <member attributes="value" name="Bluetooth_TX_On_Deassert_Jitter" type="uint16_t"/>
+      <member attributes="value" name="_802_TX_On_Assert_Offset" type="uint16_t"/>
+      <member attributes="value" name="_802_TX_On_Assert_Jitter" type="uint16_t"/>
+      <member attributes="value" name="_802_TX_On_Deassert_Offset" type="uint16_t"/>
+      <member attributes="value" name="_802_TX_On_Deassert_Jitter" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_HCI_Disconnection_Complete_Event_Data_t">
+      <member attributes="value" name="Status" type="uint8_t"/>
+      <member attributes="value" name="Connection_Handle" type="uint16_t"/>
+      <member attributes="value" name="Reason" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_HCI_Encryption_Change_Event_Data_t">
+      <member attributes="value" name="Status" type="uint8_t"/>
+      <member attributes="value" name="Connection_Handle" type="uint16_t"/>
+      <member attributes="value" name="Encryption_Enable" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_HCI_Read_Remote_Version_Information_Complete_Event_Data_t">
+      <member attributes="value" name="Status" type="uint8_t"/>
+      <member attributes="value" name="Connection_Handle" type="uint16_t"/>
+      <member attributes="value" name="LMP_Version" type="uint8_t"/>
+      <member attributes="value" name="Manufacturer_Name" type="uint16_t"/>
+      <member attributes="value" name="LMP_Subversion" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_HCI_Hardware_Error_Event_Data_t">
+      <member attributes="value" name="Hardware_Code" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_HCI_Number_Of_Completed_Packets_Data_t">
+      <member attributes="value" name="Connection_Handle" type="uint16_t"/>
+      <member attributes="value" name="HC_Num_Of_Completed_Packets" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_HCI_Number_Of_Completed_Packets_Event_Data_t">
+      <member attributes="value" name="Number_of_Handles" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="1" name="HCI_Number_Of_Completed_Packets_Data" type="qapi_BLE_HCI_Number_Of_Completed_Packets_Data_t"/>
+   </structure>
+   <structure name="qapi_BLE_HCI_Data_Buffer_Overflow_Event_Data_t">
+      <member attributes="value" name="Link_Type" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_HCI_Encryption_Key_Refresh_Complete_Event_Data_t">
+      <member attributes="value" name="Status" type="uint8_t"/>
+      <member attributes="value" name="Connection_Handle" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_HCI_LE_Connection_Complete_Event_Data_t">
+      <member attributes="value" name="Status" type="uint8_t"/>
+      <member attributes="value" name="Connection_Handle" type="uint16_t"/>
+      <member attributes="value" name="Role" type="uint8_t"/>
+      <member attributes="value" name="Peer_Address_Type" type="uint8_t"/>
+      <member attributes="value" name="Peer_Address" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Conn_Interval" type="uint16_t"/>
+      <member attributes="value" name="Conn_Latency" type="uint16_t"/>
+      <member attributes="value" name="Supervision_Timeout" type="uint16_t"/>
+      <member attributes="value" name="Master_Clock_Accuracy" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_HCI_LE_Advertising_Report_Data_t">
+      <member attributes="value" name="Event_Type" type="uint8_t"/>
+      <member attributes="value" name="Address_Type" type="uint8_t"/>
+      <member attributes="value" name="Address" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Data_Length" type="uint8_t"/>
+      <member attributes="value" name="Data" type="qapi_BLE_Advertising_Data_t"/>
+      <member attributes="value" name="RSSI" type="int8_t"/>
+   </structure>
+   <structure name="qapi_BLE_HCI_LE_Advertising_Report_Event_Data_t">
+      <member attributes="value" name="Num_Responses" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="1" name="HCI_LE_Advertising_Report_Data" type="qapi_BLE_HCI_LE_Advertising_Report_Data_t"/>
+   </structure>
+   <structure name="qapi_BLE_HCI_LE_Connection_Update_Complete_Event_Data_t">
+      <member attributes="value" name="Status" type="uint8_t"/>
+      <member attributes="value" name="Connection_Handle" type="uint16_t"/>
+      <member attributes="value" name="Conn_Interval" type="uint16_t"/>
+      <member attributes="value" name="Conn_Latency" type="uint16_t"/>
+      <member attributes="value" name="Supervision_Timeout" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_HCI_LE_Read_Remote_Used_Features_Complete_Event_Data_t">
+      <member attributes="value" name="Status" type="uint8_t"/>
+      <member attributes="value" name="Connection_Handle" type="uint16_t"/>
+      <member attributes="value" name="LE_Features" type="qapi_BLE_LE_Features_t"/>
+   </structure>
+   <structure name="qapi_BLE_HCI_LE_Long_Term_Key_Request_Event_Data_t">
+      <member attributes="value" name="Connection_Handle" type="uint16_t"/>
+      <member attributes="value" name="Random_Number" type="qapi_BLE_Random_Number_t"/>
+      <member attributes="value" name="Encrypted_Diversifier" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_HCI_LE_Remote_Connection_Parameter_Request_Event_Data_t">
+      <member attributes="value" name="Connection_Handle" type="uint16_t"/>
+      <member attributes="value" name="Conn_Interval_Min" type="uint16_t"/>
+      <member attributes="value" name="Conn_Interval_Max" type="uint16_t"/>
+      <member attributes="value" name="Conn_Latency" type="uint16_t"/>
+      <member attributes="value" name="Supervision_Timeout" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_HCI_LE_Data_Length_Change_Event_Data_t">
+      <member attributes="value" name="Connection_Handle" type="uint16_t"/>
+      <member attributes="value" name="MaxTxOctets" type="uint16_t"/>
+      <member attributes="value" name="MaxTxTime" type="uint16_t"/>
+      <member attributes="value" name="MaxRxOctets" type="uint16_t"/>
+      <member attributes="value" name="MaxRxTime" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_HCI_LE_Read_Local_P256_Public_Key_Complete_Event_Data_t">
+      <member attributes="value" name="Status" type="uint8_t"/>
+      <member attributes="value" name="P256_Public_Key" type="qapi_BLE_P256_Public_Key_t"/>
+   </structure>
+   <structure name="qapi_BLE_HCI_LE_Generate_DHKey_Complete_Event_Data_t">
+      <member attributes="value" name="Status" type="uint8_t"/>
+      <member attributes="value" name="DHKey" type="qapi_BLE_Diffie_Hellman_Key_t"/>
+   </structure>
+   <structure name="qapi_BLE_HCI_LE_Enhanced_Connection_Complete_Event_Data_t">
+      <member attributes="value" name="Status" type="uint8_t"/>
+      <member attributes="value" name="Connection_Handle" type="uint16_t"/>
+      <member attributes="value" name="Role" type="uint8_t"/>
+      <member attributes="value" name="Peer_Address_Type" type="uint8_t"/>
+      <member attributes="value" name="Peer_Address" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Conn_Interval" type="uint16_t"/>
+      <member attributes="value" name="Conn_Latency" type="uint16_t"/>
+      <member attributes="value" name="Supervision_Timeout" type="uint16_t"/>
+      <member attributes="value" name="Master_Clock_Accuracy" type="uint8_t"/>
+      <member attributes="value" name="Local_Resolvable_Private_Address" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Peer_Resolvable_Private_Address" type="qapi_BLE_BD_ADDR_t"/>
+   </structure>
+   <structure name="qapi_BLE_HCI_LE_Direct_Advertising_Report_Data_t">
+      <member attributes="value" name="Event_Type" type="uint8_t"/>
+      <member attributes="value" name="Direct_Address_Type" type="uint8_t"/>
+      <member attributes="value" name="Direct_Address" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Address_Type" type="uint8_t"/>
+      <member attributes="value" name="Address" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="RSSI" type="int8_t"/>
+   </structure>
+   <structure name="qapi_BLE_HCI_LE_Direct_Advertising_Report_Event_Data_t">
+      <member attributes="value" name="Num_Responses" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="1" name="HCI_LE_Direct_Advertising_Report_Data" type="qapi_BLE_HCI_LE_Direct_Advertising_Report_Data_t"/>
+   </structure>
+   <structure name="qapi_BLE_HCI_LE_PHY_Update_Complete_Event_Data_t">
+      <member attributes="value" name="Status" type="uint8_t"/>
+      <member attributes="value" name="Connection_Handle" type="uint16_t"/>
+      <member attributes="value" name="TX_PHY" type="uint8_t"/>
+      <member attributes="value" name="RX_PHY" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_HCI_LE_Extended_Advertising_Report_Data_t">
+      <member attributes="value" name="Event_Type" type="uint16_t"/>
+      <member attributes="value" name="Address_Type" type="uint8_t"/>
+      <member attributes="value" name="Address" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Primary_PHY" type="uint8_t"/>
+      <member attributes="value" name="Secondary_PHY" type="uint8_t"/>
+      <member attributes="value" name="Advertising_SID" type="uint8_t"/>
+      <member attributes="value" name="TX_Power" type="uint8_t"/>
+      <member attributes="value" name="RSSI" type="uint8_t"/>
+      <member attributes="value" name="Periodic_Advertising_Interval" type="uint16_t"/>
+      <member attributes="value" name="Direct_Address_Type" type="uint8_t"/>
+      <member attributes="value" name="Direct_Address" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Data_Length" type="uint8_t"/>
+      <member attributes="value" name="Data" type="qapi_BLE_Extended_Advertising_Data_t"/>
+   </structure>
+   <structure name="qapi_BLE_HCI_LE_Extended_Advertising_Report_Event_Data_t">
+      <member attributes="value" name="Num_Reports" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="1" name="HCI_LE_Extended_Advertising_Report_Data" type="qapi_BLE_HCI_LE_Extended_Advertising_Report_Data_t"/>
+   </structure>
+   <structure name="qapi_BLE_HCI_LE_Advertising_Set_Terminated_Event_Data_t">
+      <member attributes="value" name="Status" type="uint8_t"/>
+      <member attributes="value" name="Advertising_Handle" type="uint8_t"/>
+      <member attributes="value" name="Connection_Handle" type="uint16_t"/>
+      <member attributes="value" name="Num_Completed_Extended_Advertising_Events" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_HCI_LE_Scan_Request_Received_Event_Data_t">
+      <member attributes="value" name="Advertising_Handle" type="uint8_t"/>
+      <member attributes="value" name="Scanner_Address_Type" type="uint16_t"/>
+      <member attributes="value" name="Scanner_Address" type="qapi_BLE_BD_ADDR_t"/>
+   </structure>
+   <structure name="qapi_BLE_HCI_LE_Channel_Selection_Algorithm_Event_Data_t">
+      <member attributes="value" name="Connection_Handle" type="uint16_t"/>
+      <member attributes="value" name="Channel_Selection_Algorithm" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_HCI_LE_Meta_Event_Data_t">
+      <member attributes="value" name="LE_Event_Data_Type" type="qapi_BLE_HCI_LE_Meta_Event_Type_t"/>
+      <member attributes="union" name="Event_Data">
+         <member attributes="value" name="HCI_LE_Connection_Complete_Event_Data" type="qapi_BLE_HCI_LE_Connection_Complete_Event_Data_t"/>
+         <member attributes="value" name="HCI_LE_Advertising_Report_Event_Data" type="qapi_BLE_HCI_LE_Advertising_Report_Event_Data_t"/>
+         <member attributes="value" name="HCI_LE_Connection_Update_Complete_Event_Data" type="qapi_BLE_HCI_LE_Connection_Update_Complete_Event_Data_t"/>
+         <member attributes="value" name="HCI_LE_Read_Remote_Used_Features_Complete_Event_Data" type="qapi_BLE_HCI_LE_Read_Remote_Used_Features_Complete_Event_Data_t"/>
+         <member attributes="value" name="HCI_LE_Long_Term_Key_Request_Event_Data" type="qapi_BLE_HCI_LE_Long_Term_Key_Request_Event_Data_t"/>
+         <member attributes="value" name="HCI_LE_Remote_Connection_Parameter_Request_Event_Data" type="qapi_BLE_HCI_LE_Remote_Connection_Parameter_Request_Event_Data_t"/>
+         <member attributes="value" name="HCI_LE_Data_Length_Change_Event_Data" type="qapi_BLE_HCI_LE_Data_Length_Change_Event_Data_t"/>
+         <member attributes="value" name="HCI_LE_Read_Local_P256_Public_Key_Complete_Event_Data" type="qapi_BLE_HCI_LE_Read_Local_P256_Public_Key_Complete_Event_Data_t"/>
+         <member attributes="value" name="HCI_LE_Generate_DHKey_Complete_Event_Data" type="qapi_BLE_HCI_LE_Generate_DHKey_Complete_Event_Data_t"/>
+         <member attributes="value" name="HCI_LE_Enhanced_Connection_Complete_Event_Data" type="qapi_BLE_HCI_LE_Enhanced_Connection_Complete_Event_Data_t"/>
+         <member attributes="value" name="HCI_LE_Direct_Advertising_Report_Event_Data" type="qapi_BLE_HCI_LE_Direct_Advertising_Report_Event_Data_t"/>
+         <member attributes="value" name="HCI_LE_PHY_Update_Complete_Event_Data" type="qapi_BLE_HCI_LE_PHY_Update_Complete_Event_Data_t"/>
+         <member attributes="value" name="HCI_LE_Extended_Advertising_Report_Event_Data" type="qapi_BLE_HCI_LE_Extended_Advertising_Report_Event_Data_t"/>
+         <member attributes="value" name="HCI_LE_Advertising_Set_Terminated_Event_Data" type="qapi_BLE_HCI_LE_Advertising_Set_Terminated_Event_Data_t"/>
+         <member attributes="value" name="HCI_LE_Scan_Request_Received_Event_Data" type="qapi_BLE_HCI_LE_Scan_Request_Received_Event_Data_t"/>
+         <member attributes="value" name="HCI_LE_Channel_Selection_Algorithm_Event_Data" type="qapi_BLE_HCI_LE_Channel_Selection_Algorithm_Event_Data_t"/>
+         <unionMap mapVerified="yes" name="LE_Event_Data_Type" type="qapi_BLE_HCI_LE_Meta_Event_Type_t">
+            <mapEntry member="HCI_LE_Connection_Complete_Event_Data" type="qapi_BLE_HCI_LE_Connection_Complete_Event_Data_t" value="QAPI_BLE_ME_CONNECTION_COMPLETE_EVENT_E"/>
+            <mapEntry member="HCI_LE_Advertising_Report_Event_Data" type="qapi_BLE_HCI_LE_Advertising_Report_Event_Data_t" value="QAPI_BLE_ME_ADVERTISING_REPORT_EVENT_E"/>
+            <mapEntry member="HCI_LE_Connection_Update_Complete_Event_Data" type="qapi_BLE_HCI_LE_Connection_Update_Complete_Event_Data_t" value="QAPI_BLE_ME_CONNECTION_UPDATE_COMPLETE_EVENT_E"/>
+            <mapEntry member="HCI_LE_Read_Remote_Used_Features_Complete_Event_Data" type="qapi_BLE_HCI_LE_Read_Remote_Used_Features_Complete_Event_Data_t" value="QAPI_BLE_ME_READ_REMOTE_USED_FEATURES_COMPLETE_EVENT_E"/>
+            <mapEntry member="HCI_LE_Long_Term_Key_Request_Event_Data" type="qapi_BLE_HCI_LE_Long_Term_Key_Request_Event_Data_t" value="QAPI_BLE_ME_LONG_TERM_KEY_REQUEST_EVENT_E"/>
+            <mapEntry member="HCI_LE_Remote_Connection_Parameter_Request_Event_Data" type="qapi_BLE_HCI_LE_Remote_Connection_Parameter_Request_Event_Data_t" value="QAPI_BLE_ME_REMOTE_CONNECTION_PARAMETER_REQUEST_EVENT_E"/>
+            <mapEntry member="HCI_LE_Data_Length_Change_Event_Data" type="qapi_BLE_HCI_LE_Data_Length_Change_Event_Data_t" value="QAPI_BLE_ME_DATA_LENGTH_CHANGE_EVENT_E"/>
+            <mapEntry member="HCI_LE_Read_Local_P256_Public_Key_Complete_Event_Data" type="qapi_BLE_HCI_LE_Read_Local_P256_Public_Key_Complete_Event_Data_t" value="QAPI_BLE_ME_READ_LOCAL_P256_PUBLIC_KEY_COMPLETE_EVENT_E"/>
+            <mapEntry member="HCI_LE_Generate_DHKey_Complete_Event_Data" type="qapi_BLE_HCI_LE_Generate_DHKey_Complete_Event_Data_t" value="QAPI_BLE_ME_GENERATE_DHKEY_COMPLETE_EVENT_E"/>
+            <mapEntry member="HCI_LE_Enhanced_Connection_Complete_Event_Data" type="qapi_BLE_HCI_LE_Enhanced_Connection_Complete_Event_Data_t" value="QAPI_BLE_ME_ENHANCED_CONNECTION_COMPLETE_EVENT_E"/>
+            <mapEntry member="HCI_LE_Direct_Advertising_Report_Event_Data" type="qapi_BLE_HCI_LE_Direct_Advertising_Report_Event_Data_t" value="QAPI_BLE_ME_DIRECT_ADVERTISING_REPORT_EVENT_E"/>
+            <mapEntry member="HCI_LE_PHY_Update_Complete_Event_Data" type="qapi_BLE_HCI_LE_PHY_Update_Complete_Event_Data_t" value="QAPI_BLE_ME_PHY_UPDATE_COMPLETE_EVENT_E"/>
+            <mapEntry member="HCI_LE_Extended_Advertising_Report_Event_Data" type="qapi_BLE_HCI_LE_Extended_Advertising_Report_Event_Data_t" value="QAPI_BLE_ME_EXTENDED_ADVERTISING_REPORT_EVENT_E"/>
+            <mapEntry member="HCI_LE_Advertising_Set_Terminated_Event_Data" type="qapi_BLE_HCI_LE_Advertising_Set_Terminated_Event_Data_t" value="QAPI_BLE_ME_ADVERTISING_SET_TERMINATED_EVENT_E"/>
+            <mapEntry member="HCI_LE_Scan_Request_Received_Event_Data" type="qapi_BLE_HCI_LE_Scan_Request_Received_Event_Data_t" value="QAPI_BLE_ME_SCAN_REQUEST_RECEIVED_EVENT_E"/>
+            <mapEntry member="HCI_LE_Channel_Selection_Algorithm_Event_Data" type="qapi_BLE_HCI_LE_Channel_Selection_Algorithm_Event_Data_t" value="QAPI_BLE_ME_CHANNEL_SELECTION_ALGORITHM_EVENT_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_BLE_HCI_Platform_Specific_Event_Data_t">
+      <member attributes="value" name="Platform_Event_Type" type="uint32_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Platform_Event_Data" type="void"/>
+   </structure>
+   <structure name="qapi_BLE_HCI_Authenticated_Payload_Timeout_Expired_Event_Data_t">
+      <member attributes="value" name="Connection_Handle" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_HCI_Event_Data_t">
+      <member attributes="value" name="Event_Data_Type" type="qapi_BLE_HCI_Event_Type_t"/>
+      <member attributes="value" name="Event_Data_Size" type="uint16_t"/>
+      <member attributes="union" name="Event_Data">
+         <member attributes="ptr" iotype="in" name="HCI_Disconnection_Complete_Event_Data" type="qapi_BLE_HCI_Disconnection_Complete_Event_Data_t"/>
+         <member attributes="ptr" iotype="in" name="HCI_Encryption_Change_Event_Data" type="qapi_BLE_HCI_Encryption_Change_Event_Data_t"/>
+         <member attributes="ptr" iotype="in" name="HCI_Read_Remote_Version_Information_Complete_Event_Data" type="qapi_BLE_HCI_Read_Remote_Version_Information_Complete_Event_Data_t"/>
+         <member attributes="ptr" iotype="in" name="HCI_Hardware_Error_Event_Data" type="qapi_BLE_HCI_Hardware_Error_Event_Data_t"/>
+         <member attributes="ptr" iotype="in" name="HCI_Number_Of_Completed_Packets_Event_Data" type="qapi_BLE_HCI_Number_Of_Completed_Packets_Event_Data_t"/>
+         <member attributes="ptr" iotype="in" name="HCI_Data_Buffer_Overflow_Event_Data" type="qapi_BLE_HCI_Data_Buffer_Overflow_Event_Data_t"/>
+         <member attributes="ptr" iotype="in" name="HCI_Encryption_Key_Refresh_Complete_Event_Data" type="qapi_BLE_HCI_Encryption_Key_Refresh_Complete_Event_Data_t"/>
+         <member attributes="ptr" iotype="in" name="HCI_LE_Meta_Event_Data" type="qapi_BLE_HCI_LE_Meta_Event_Data_t"/>
+         <member attributes="ptr" iotype="in" name="HCI_Platform_Specific_Event_Data" type="qapi_BLE_HCI_Platform_Specific_Event_Data_t"/>
+         <member attributes="ptr" iotype="in" name="HCI_Authenticated_Payload_Timeout_Expired_Event_Data" type="qapi_BLE_HCI_Authenticated_Payload_Timeout_Expired_Event_Data_t"/>
+         <unionMap mapVerified="yes" name="Event_Data_Type" type="qapi_BLE_HCI_Event_Type_t">
+            <mapEntry member="HCI_Disconnection_Complete_Event_Data" type="qapi_BLE_HCI_Disconnection_Complete_Event_Data_t" value="QAPI_BLE_ET_DISCONNECTION_COMPLETE_EVENT_E"/>
+            <mapEntry member="HCI_Encryption_Change_Event_Data" type="qapi_BLE_HCI_Encryption_Change_Event_Data_t" value="QAPI_BLE_ET_ENCRYPTION_CHANGE_EVENT_E"/>
+            <mapEntry member="HCI_Read_Remote_Version_Information_Complete_Event_Data" type="qapi_BLE_HCI_Read_Remote_Version_Information_Complete_Event_Data_t" value="QAPI_BLE_ET_READ_REMOTE_VERSION_INFORMATION_COMPLETE_EVENT_E"/>
+            <mapEntry member="HCI_Hardware_Error_Event_Data" type="qapi_BLE_HCI_Hardware_Error_Event_Data_t" value="QAPI_BLE_ET_HARDWARE_ERROR_EVENT_E"/>
+            <mapEntry member="HCI_Number_Of_Completed_Packets_Event_Data" type="qapi_BLE_HCI_Number_Of_Completed_Packets_Event_Data_t" value="QAPI_BLE_ET_NUMBER_OF_COMPLETED_PACKETS_EVENT_E"/>
+            <mapEntry member="HCI_Data_Buffer_Overflow_Event_Data" type="qapi_BLE_HCI_Data_Buffer_Overflow_Event_Data_t" value="QAPI_BLE_ET_DATA_BUFFER_OVERFLOW_EVENT_E"/>
+            <mapEntry member="HCI_Encryption_Key_Refresh_Complete_Event_Data" type="qapi_BLE_HCI_Encryption_Key_Refresh_Complete_Event_Data_t" value="QAPI_BLE_ET_ENCRYPTION_KEY_REFRESH_COMPLETE_EVENT_E"/>
+            <mapEntry member="HCI_LE_Meta_Event_Data" type="qapi_BLE_HCI_LE_Meta_Event_Data_t" value="QAPI_BLE_ET_LE_META_EVENT_E"/>
+            <mapEntry member="HCI_Platform_Specific_Event_Data" type="qapi_BLE_HCI_Platform_Specific_Event_Data_t" value="QAPI_BLE_ET_PLATFORM_SPECIFIC_EVENT_E"/>
+            <mapEntry member="HCI_Authenticated_Payload_Timeout_Expired_Event_Data" type="qapi_BLE_HCI_Authenticated_Payload_Timeout_Expired_Event_Data_t" value="QAPI_BLE_ET_AUTHENTICATED_PAYLOAD_TIMEOUT_EXPIRED_EVENT_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <function name="qapi_BLE_HCI_Version_Supported">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="HCI_Version" type="qapi_BLE_HCI_Version_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_Command_Supported">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="SupportedCommandBitNumber" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_Register_Event_Callback">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="HCI_EventCallback" type="qapi_BLE_HCI_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_Register_ACL_Data_Callback">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="HCI_ACLDataCallback" type="qapi_BLE_HCI_ACL_Data_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_Un_Register_Callback">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="CallbackID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_Send_ACL_Data">
+      <return attributes="value" type="int" noResp="true"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Connection_Handle" type="uint16_t"/>
+      <argument attributes="value" name="Flags" type="uint16_t"/>
+      <argument attributes="value" name="ACLDataLength" type="uint16_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ACLDataLength" lengthVerified="yes" name="ACLData" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_Send_Raw_Command">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Command_OGF" type="uint8_t"/>
+      <argument attributes="value" name="Command_OCF" type="uint16_t"/>
+      <argument attributes="value" name="Command_Length" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="Command_Length" lengthVerified="yes" name="Command_Data" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="LengthResult" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="LengthResult" lengthVerified="yes" name="BufferResult" type="uint8_t"/>
+      <argument attributes="value" name="WaitForResponse" type="boolean_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_Reconfigure_Driver">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="ResetStateMachines" type="boolean_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="DriverReconfigureData" type="qapi_BLE_HCI_Driver_Reconfigure_Data_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_Set_Host_Flow_Control">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="NumberOfACLPackets" type="uint16_t"/>
+      <argument attributes="value" name="NumberOfSCOPackets" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_Query_Host_Flow_Control">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="NumberOfACLPackets" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="NumberOfSCOPackets" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_Disconnect">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Connection_Handle" type="uint16_t"/>
+      <argument attributes="value" name="Reason" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_Read_Remote_Version_Information">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Connection_Handle" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_Set_Event_Mask">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Event_Mask" type="qapi_BLE_Event_Mask_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_Reset">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_Read_Transmit_Power_Level">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Connection_Handle" type="uint16_t"/>
+      <argument attributes="value" name="Type" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Connection_HandleResult" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Transmit_Power_LevelResult" type="int8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_Set_Event_Mask_Page_2">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Event_Mask" type="qapi_BLE_Event_Mask_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_Set_MWS_Channel_Parameters">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="MWS_Channel_Enable" type="uint8_t"/>
+      <argument attributes="value" name="MWS_RX_Center_Frequency" type="uint16_t"/>
+      <argument attributes="value" name="MWS_TX_Center_Frequency" type="uint16_t"/>
+      <argument attributes="value" name="MWS_RX_Channel_Bandwidth" type="uint16_t"/>
+      <argument attributes="value" name="MWS_TX_Channel_Bandwidth" type="uint16_t"/>
+      <argument attributes="value" name="MWS_Channel_Type" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_Set_External_Frame_Configuration">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Ext_Frame_Duration" type="uint16_t"/>
+      <argument attributes="value" name="Ext_Frame_Sync_Assert_Offset" type="uint16_t"/>
+      <argument attributes="value" name="Ext_Frame_Sync_Assert_Jitter" type="uint16_t"/>
+      <argument attributes="value" name="Ext_Num_Periods" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="Ext_Num_Periods" lengthVerified="yes" name="Period_Duration" type="uint16_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="Ext_Num_Periods" lengthVerified="yes" name="Period_Type" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_Set_MWS_Signaling">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Set_MWS_Signaling_Parameters" type="qapi_BLE_HCI_Set_MWS_Signaling_Parameters_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Set_MWS_Signaling_Result" type="qapi_BLE_HCI_Set_MWS_Signaling_Result_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_Set_MWS_Transport_Layer">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Transport_Layer" type="uint8_t"/>
+      <argument attributes="value" name="To_MWS_Baud_Rate" type="uint32_t"/>
+      <argument attributes="value" name="From_MWS_Baud_Rate" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_Set_MWS_Scan_Frequency_Table">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Num_Scan_Frequencies" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="Num_Scan_Frequencies" lengthVerified="yes" name="Scan_Frequency_Low" type="uint16_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="Num_Scan_Frequencies" lengthVerified="yes" name="Scan_Frequency_High" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_Set_MWS_PATTERN_Configuration">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="MWS_PATTERN_Index" type="uint8_t"/>
+      <argument attributes="value" name="MWS_PATTERN_NumIntervals" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="MWS_PATTERN_NumIntervals" lengthVerified="yes" name="MWS_PATTERN_IntervalDuration" type="uint16_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="MWS_PATTERN_NumIntervals" lengthVerified="yes" name="MWS_PATTERN_IntervalType" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_Read_Authenticated_Payload_Timeout">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Connection_Handle" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Connection_HandleResult" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Authenticated_Payload_TimeoutResult" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_Write_Authenticated_Payload_Timeout">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Connection_Handle" type="uint16_t"/>
+      <argument attributes="value" name="Authenticated_Payload_Timeout" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Connection_HandleResult" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_Read_Local_Version_Information">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="HCI_VersionResult" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="HCI_RevisionResult" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="LMP_VersionResult" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Manufacturer_NameResult" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="LMP_SubversionResult" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_Read_Local_Supported_Features">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="LMP_FeaturesResult" type="qapi_BLE_LMP_Features_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_Read_BD_ADDR">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="BD_ADDRResult" type="qapi_BLE_BD_ADDR_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_Read_Local_Supported_Commands">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Supported_CommandsResult" type="qapi_BLE_Supported_Commands_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_Read_RSSI">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Connection_Handle" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Connection_HandleResult" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="RSSIResult" type="int8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_Get_MWS_Transport_Layer_Configuration">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Transport_Layer_ConfigurationResult" type="qapi_BLE_HCI_MWS_Transport_Layer_Configuration_Info_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_Free_MWS_Transport_Layer_Configuration">
+      <return attributes="value" type="void"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Transport_Layer_Configuration" type="qapi_BLE_HCI_MWS_Transport_Layer_Configuration_Info_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Set_Event_Mask">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="LE_Event_Mask" type="qapi_BLE_Event_Mask_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Read_Buffer_Size">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="HC_LE_ACL_Data_Packet_Length" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="HC_Total_Num_LE_ACL_Data_Packets" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Read_Local_Supported_Features">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="LE_FeaturesResult" type="qapi_BLE_LE_Features_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Set_Random_Address">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Set_Advertising_Parameters">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Advertising_Interval_Min" type="uint16_t"/>
+      <argument attributes="value" name="Advertising_Interval_Max" type="uint16_t"/>
+      <argument attributes="value" name="Advertising_Type" type="uint8_t"/>
+      <argument attributes="value" name="Own_Address_Type" type="uint8_t"/>
+      <argument attributes="value" name="Direct_Address_Type" type="uint8_t"/>
+      <argument attributes="value" name="Direct_Address" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="value" name="Advertising_Channel_Map" type="uint8_t"/>
+      <argument attributes="value" name="Advertising_Filter_Policy" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Read_Advertising_Channel_Tx_Power">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Transmit_Power_LevelResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Set_Advertising_Data">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Advertising_Data_Length" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="Advertising_Data_Length" lengthVerified="yes" name="Advertising_Data" type="qapi_BLE_Advertising_Data_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Set_Scan_Response_Data">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Scan_Response_Data_Length" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="Scan_Response_Data_Length" lengthVerified="yes" name="Scan_Response_Data" type="qapi_BLE_Scan_Response_Data_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Set_Advertise_Enable">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Advertising_Enable" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Set_Scan_Parameters">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="LE_Scan_Type" type="uint8_t"/>
+      <argument attributes="value" name="LE_Scan_Interval" type="uint16_t"/>
+      <argument attributes="value" name="LE_Scan_Window" type="uint16_t"/>
+      <argument attributes="value" name="Own_Address_Type" type="uint8_t"/>
+      <argument attributes="value" name="Scanning_Filter_Policy" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Set_Scan_Enable">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="LE_Scan_Enable" type="uint8_t"/>
+      <argument attributes="value" name="Filter_Duplicates" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Create_Connection">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="LE_Scan_Interval" type="uint16_t"/>
+      <argument attributes="value" name="LE_Scan_Window" type="uint16_t"/>
+      <argument attributes="value" name="Initiator_Filter_Policy" type="uint8_t"/>
+      <argument attributes="value" name="Peer_Address_Type" type="uint8_t"/>
+      <argument attributes="value" name="Peer_Address" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="value" name="Own_Address_Type" type="uint8_t"/>
+      <argument attributes="value" name="Conn_Interval_Min" type="uint16_t"/>
+      <argument attributes="value" name="Conn_Interval_Max" type="uint16_t"/>
+      <argument attributes="value" name="Conn_Latency" type="uint16_t"/>
+      <argument attributes="value" name="Supervision_Timeout" type="uint16_t"/>
+      <argument attributes="value" name="Minimum_CE_Length" type="uint16_t"/>
+      <argument attributes="value" name="Maximum_CE_Length" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Create_Connection_Cancel">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Read_White_List_Size">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="White_List_SizeResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Clear_White_List">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Add_Device_To_White_List">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Address_Type" type="uint8_t"/>
+      <argument attributes="value" name="Address" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Remove_Device_From_White_List">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Address_Type" type="uint8_t"/>
+      <argument attributes="value" name="Address" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Connection_Update">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Connection_Handle" type="uint16_t"/>
+      <argument attributes="value" name="Conn_Interval_Min" type="uint16_t"/>
+      <argument attributes="value" name="Conn_Interval_Max" type="uint16_t"/>
+      <argument attributes="value" name="Conn_Latency" type="uint16_t"/>
+      <argument attributes="value" name="Supervision_Timeout" type="uint16_t"/>
+      <argument attributes="value" name="Minimum_CE_Length" type="uint16_t"/>
+      <argument attributes="value" name="Maximum_CE_Length" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Set_Host_Channel_Classification">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Channel_Map" type="qapi_BLE_LE_Channel_Map_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Read_Channel_Map">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Connection_Handle" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Connection_HandleResult" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Channel_MapResult" type="qapi_BLE_LE_Channel_Map_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Read_Remote_Used_Features">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Connection_Handle" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Encrypt">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Key" type="qapi_BLE_Encryption_Key_t"/>
+      <argument attributes="value" name="Plain_Text_Data" type="qapi_BLE_Plain_Text_Data_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Encrypted_DataResult" type="qapi_BLE_Encrypted_Data_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Rand">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Random_NumberResult" type="qapi_BLE_Random_Number_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Start_Encryption">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Connection_Handle" type="uint16_t"/>
+      <argument attributes="value" name="Random_Number" type="qapi_BLE_Random_Number_t"/>
+      <argument attributes="value" name="Encrypted_Diversifier" type="uint16_t"/>
+      <argument attributes="value" name="Long_Term_Key" type="qapi_BLE_Long_Term_Key_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Long_Term_Key_Request_Reply">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Connection_Handle" type="uint16_t"/>
+      <argument attributes="value" name="Long_Term_Key" type="qapi_BLE_Long_Term_Key_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Connection_HandleResult" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Long_Term_Key_Request_Negative_Reply">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Connection_Handle" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Connection_HandleResult" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Read_Supported_States">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="LE_StatesResult" type="qapi_BLE_LE_States_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Receiver_Test">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="RX_Frequency" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Transmitter_Test">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="TX_Frequency" type="uint8_t"/>
+      <argument attributes="value" name="Length_Of_Test_Data" type="uint8_t"/>
+      <argument attributes="value" name="Packet_Payload" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Test_End">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Number_Of_PacketsResult" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Remote_Connection_Parameter_Request_Reply">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Connection_Handle" type="uint16_t"/>
+      <argument attributes="value" name="Conn_Interval_Min" type="uint16_t"/>
+      <argument attributes="value" name="Conn_Interval_Max" type="uint16_t"/>
+      <argument attributes="value" name="Conn_Latency" type="uint16_t"/>
+      <argument attributes="value" name="Supervision_Timeout" type="uint16_t"/>
+      <argument attributes="value" name="Minimum_CE_Length" type="uint16_t"/>
+      <argument attributes="value" name="Maximum_CE_Length" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Connection_HandleResult" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Remote_Connection_Parameter_Request_Negative_Reply">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Connection_Handle" type="uint16_t"/>
+      <argument attributes="value" name="Reason" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Connection_HandleResult" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Set_Data_Length">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Connection_Handle" type="uint16_t"/>
+      <argument attributes="value" name="TxOctets" type="uint16_t"/>
+      <argument attributes="value" name="Txtime" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Connection_HandleResult" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Read_Suggested_Default_Data_Length">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="SuggestedMaxTxOctetsResult" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="SuggestedMaxTxTimeResult" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Write_Suggested_Default_Data_Length">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="SuggestedMaxTxOctets" type="uint16_t"/>
+      <argument attributes="value" name="SuggestedMaxTxTime" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Read_Local_P256_Public_Key">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Generate_DHKey">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Remote_P256_Public_Key" type="qapi_BLE_P256_Public_Key_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Add_Device_To_Resolving_List">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Peer_Identity_Address_Type" type="uint8_t"/>
+      <argument attributes="value" name="Peer_Identity_Address" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="value" name="Peer_IRK" type="qapi_BLE_Encryption_Key_t"/>
+      <argument attributes="value" name="Local_IRK" type="qapi_BLE_Encryption_Key_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Remove_Device_From_Resolving_List">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Peer_Identity_Address_Type" type="uint8_t"/>
+      <argument attributes="value" name="Peer_Identity_Address" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Clear_Resolving_List">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Read_Resolving_List_Size">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Resolving_List_SizeResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Read_Peer_Resolvable_Address">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Peer_Identity_Address_Type" type="uint8_t"/>
+      <argument attributes="value" name="Peer_Identity_Address" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Peer_Resolvable_AddressResult" type="qapi_BLE_BD_ADDR_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Read_Local_Resolvable_Address">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Peer_Identity_Address_Type" type="uint8_t"/>
+      <argument attributes="value" name="Peer_Identity_Address" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Local_Resolvable_AddressResult" type="qapi_BLE_BD_ADDR_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Set_Address_Resolution_Enable">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Address_Resolution_Enable" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Set_Resolvable_Private_Address_Timeout">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="RPA_Timeout" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Read_Maximum_Data_Length">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="SupportedMaxTxOctetsResult" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="SupportedMaxTxTimeResult" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="SupportedMaxRxOctetsResult" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="SupportedMaxRxTimeResult" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Read_PHY">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Connection_Handle" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Connection_HandleResult" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="TX_PHYResult" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="RX_PHYResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Set_Default_PHY">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="ALL_PHYS" type="uint8_t"/>
+      <argument attributes="value" name="TX_PHYS" type="uint8_t"/>
+      <argument attributes="value" name="RX_PHYS" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Set_PHY">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Connection_Handle" type="uint16_t"/>
+      <argument attributes="value" name="ALL_PHYS" type="uint8_t"/>
+      <argument attributes="value" name="TX_PHYS" type="uint8_t"/>
+      <argument attributes="value" name="RX_PHYS" type="uint8_t"/>
+      <argument attributes="value" name="PHY_Options" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Enhanced_Receiver_Test">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="RX_Channel" type="uint8_t"/>
+      <argument attributes="value" name="PHY" type="uint8_t"/>
+      <argument attributes="value" name="Modulation_Index" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Enhanced_Transmitter_Test">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="TX_Channel" type="uint8_t"/>
+      <argument attributes="value" name="Length_Of_Test_Data" type="uint8_t"/>
+      <argument attributes="value" name="Packet_Payload" type="uint8_t"/>
+      <argument attributes="value" name="PHY" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Set_Advertising_Set_Random_Address">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Advertising_Handle" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Advertising_Random_Address" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Set_Extended_Advertising_Parameters">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Advertising_Handle" type="uint8_t"/>
+      <argument attributes="value" name="Advertising_Event_Properties" type="uint16_t"/>
+      <argument attributes="value" name="Primary_Advertising_Interval_Min" type="uint32_t"/>
+      <argument attributes="value" name="Primary_Advertising_Interval_Max" type="uint32_t"/>
+      <argument attributes="value" name="Primary_Advertising_Channel_Map" type="uint8_t"/>
+      <argument attributes="value" name="Own_Address_Type" type="uint8_t"/>
+      <argument attributes="value" name="Peer_Address_Type" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Peer_Address" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="value" name="Advertising_Filter_Policy" type="uint8_t"/>
+      <argument attributes="value" name="Advertising_TX_Power" type="int8_t"/>
+      <argument attributes="value" name="Primary_Advertising_PHY" type="uint8_t"/>
+      <argument attributes="value" name="Secondary_Advertising_Max_Skip" type="uint8_t"/>
+      <argument attributes="value" name="Secondary_Advertising_PHY" type="uint8_t"/>
+      <argument attributes="value" name="Advertising_SID" type="uint8_t"/>
+      <argument attributes="value" name="Scan_Request_Notification_Enable" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Selected_TX_PowerResult" type="int8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Set_Extended_Advertising_Data">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Advertising_Handle" type="uint8_t"/>
+      <argument attributes="value" name="Operation" type="uint8_t"/>
+      <argument attributes="value" name="Fragment_Preference" type="uint8_t"/>
+      <argument attributes="value" name="Advertising_Data_Length" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="Advertising_Data_Length" lengthVerified="yes" name="Advertising_Data" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Set_Extended_Scan_Response_Data">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Advertising_Handle" type="uint8_t"/>
+      <argument attributes="value" name="Operation" type="uint8_t"/>
+      <argument attributes="value" name="Fragment_Preference" type="uint8_t"/>
+      <argument attributes="value" name="Scan_Response_Data_Length" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="Scan_Response_Data_Length" lengthVerified="yes" name="Scan_Response_Data" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Set_Extended_Advertising_Enable">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Enable" type="uint8_t"/>
+      <argument attributes="value" name="Number_of_Sets" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="Number_of_Sets" lengthVerified="yes" name="Advertising_Handle" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="Number_of_Sets" lengthVerified="yes" name="Duration" type="uint16_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="Number_of_Sets" lengthVerified="yes" name="Max_Extended_Advertising_Events" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Read_Maximum_Advertising_Data_Length">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Maximum_Advertising_Data_Length" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Read_Number_Of_Supported_Advertising_Sets">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Num_Supported_Advertising_Sets" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Remove_Advertising_Set">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Advertising_Handle" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Clear_Advertising_Sets">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Set_Extended_Scan_Parameters">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Own_Address_Type" type="uint8_t"/>
+      <argument attributes="value" name="Scanning_Filter_Policy" type="uint8_t"/>
+      <argument attributes="value" name="Scanning_PHYS" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="Scanning_PHYS" lengthVerified="yes" name="Scan_Type" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="Scanning_PHYS" lengthVerified="yes" name="Scan_Interval" type="uint16_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="Scanning_PHYS" lengthVerified="yes" name="Scan_Window" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Set_Extended_Scan_Enable">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Enable" type="uint8_t"/>
+      <argument attributes="value" name="Filter_Duplicates" type="uint8_t"/>
+      <argument attributes="value" name="Duration" type="uint16_t"/>
+      <argument attributes="value" name="Period" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Extended_Create_Connection">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Initiating_Filter_Policy" type="uint8_t"/>
+      <argument attributes="value" name="Own_Address_Type" type="uint8_t"/>
+      <argument attributes="value" name="Peer_Address_Type" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Peer_Address" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="value" name="Initiating_PHYS" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="Initiating_PHYS" lengthVerified="yes" name="Scan_Interval" type="uint16_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="Initiating_PHYS" lengthVerified="yes" name="Scan_Window" type="uint16_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="Initiating_PHYS" lengthVerified="yes" name="Conn_Interval_Min" type="uint16_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="Initiating_PHYS" lengthVerified="yes" name="Conn_Interval_Max" type="uint16_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="Initiating_PHYS" lengthVerified="yes" name="Conn_Latency" type="uint16_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="Initiating_PHYS" lengthVerified="yes" name="Supervision_Timeout" type="uint16_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="Initiating_PHYS" lengthVerified="yes" name="Minimum_CE_Length" type="uint16_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="Initiating_PHYS" lengthVerified="yes" name="Maximum_CE_Length" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Read_Transmit_Power">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Min_TX_Power" type="int8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Max_TX_Power" type="int8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Read_RF_Path_Compensation">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="RF_TX_Path_Compensation_Value" type="int16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="RF_RX_Path_Compensation_Value" type="int16_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Write_RF_Path_Compensation">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="RF_TX_Path_Compensation_Value" type="int16_t"/>
+      <argument attributes="value" name="RF_RX_Path_Compensation_Value" type="int16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HCI_LE_Set_Privacy_Mode">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Peer_Identity_Address_Type" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Peer_Identity_Address" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="value" name="Privacy_Mode" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StatusResult" type="uint8_t"/>
+   </function>
+   <callback name="qapi_BLE_HCI_Event_Callback_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="HCI_Event_Data" type="qapi_BLE_HCI_Event_Data_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <createFunction ID="qsRetVal" funcSuccess="__positive__" moduleParam="BluetoothStackID" name="qapi_BLE_HCI_Register_Event_Callback" param="CallbackParameter"/>
+      <destroyFunction ID="CallbackID" funcSuccess="0" name="qapi_BLE_HCI_Un_Register_Callback"/>
+   </callback>
+   <callback name="qapi_BLE_HCI_ACL_Data_Callback_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Connection_Handle" type="uint16_t"/>
+      <argument attributes="value" name="Flags" type="uint16_t"/>
+      <argument attributes="value" name="ACLDataLength" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="ACLDataLength" lengthVerified="yes" name="ACLData" type="uint8_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <createFunction ID="qsRetVal" funcSuccess="__positive__" moduleParam="BluetoothStackID" name="qapi_BLE_HCI_Register_ACL_Data_Callback" param="CallbackParameter"/>
+      <destroyFunction ID="CallbackID" funcSuccess="0" name="qapi_BLE_HCI_Un_Register_Callback"/>
+   </callback>
+</header>

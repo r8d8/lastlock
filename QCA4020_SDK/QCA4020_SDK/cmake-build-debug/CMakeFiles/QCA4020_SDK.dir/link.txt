@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   @CMakeFiles/QCA4020_SDK.dir/objects1.rsp  -o QCA4020_SDK 

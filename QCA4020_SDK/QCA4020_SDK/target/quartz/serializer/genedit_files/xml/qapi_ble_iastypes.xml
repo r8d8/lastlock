@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="./qapi_ble_bttypes.h"/>
+   <macro name="QAPI_BLE_IAS_ASSIGN_IAS_SERVICE_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16(*((qapi_BLE_UUID_16_t *)(_x)), 0x18, 0x02)"/>
+   <macro name="QAPI_BLE_IAS_COMPARE_IAS_SERVICE_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x18, 0x02)"/>
+   <macro name="QAPI_BLE_IAS_SERVICE_BLUETOOTH_UUID_CONSTANT" value="{ 0x02, 0x18 }"/>
+   <macro name="QAPI_BLE_IAS_ASSIGN_ALERT_LEVEL_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x06)"/>
+   <macro name="QAPI_BLE_IAS_COMPARE_ALERT_LEVEL_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x06)"/>
+   <macro name="QAPI_BLE_IAS_ALERT_LEVEL_CHARACTERISTIC_BLUETOOTH_UUID_CONSTANT" value="{ 0x06, 0x2A }"/>
+   <macro name="QAPI_BLE_IAS_ALERT_LEVEL_NO_ALERT" value="0x00"/>
+   <macro name="QAPI_BLE_IAS_ALERT_LEVEL_MILD_ALERT" value="0x01"/>
+   <macro name="QAPI_BLE_IAS_ALERT_LEVEL_HIGH_ALERT" value="0x02"/>
+   <macro name="QAPI_BLE_IAS_ALERT_LEVEL_VALID" params="(_x)" value="((((uint8_t)(_x)) &gt;= QAPI_BLE_IAS_ALERT_LEVEL_NO_ALERT) &amp;&amp; (((uint8_t)(_x)) &lt;= QAPI_BLE_IAS_ALERT_LEVEL_HIGH_ALERT))"/>
+   <macro name="QAPI_BLE_IAS_ALERT_LEVEL_CONTROL_POINT_VALUE_LENGTH" value="(QAPI_BLE_NON_ALIGNED_BYTE_SIZE)"/>
+   <macro name="QAPI_BLE_IAS_SERVICE_FLAGS" value="(QAPI_BLE_GATT_SERVICE_FLAGS_LE_SERVICE)"/>
+</header>

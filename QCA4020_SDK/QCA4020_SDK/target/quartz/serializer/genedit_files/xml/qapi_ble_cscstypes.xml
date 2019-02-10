@@ -1,0 +1,73 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="./qapi_ble_bttypes.h"/>
+   <macro name="QAPI_BLE_CSCS_ERROR_CODE_SUCCESS" value="0x00"/>
+   <macro name="QAPI_BLE_CSCS_ERROR_CODE_PROCEDURE_ALREADY_IN_PROGRESS" value="0x80"/>
+   <macro name="QAPI_BLE_CSCS_ERROR_CODE_CHARACTERISTIC_CONFIGURATION_IMPROPERLY_CONFIGURED" value="0x81"/>
+   <macro name="QAPI_BLE_CSCS_ASSIGN_SERVICE_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16(*((qapi_BLE_UUID_16_t *)(_x)), 0x18, 0x16)"/>
+   <macro name="QAPI_BLE_CSCS_COMPARE_SERVICE_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x18, 0x16)"/>
+   <macro name="QAPI_BLE_CSCS_SERVICE_BLUETOOTH_UUID_CONSTANT" value="{ 0x16, 0x18 }"/>
+   <macro name="QAPI_BLE_CSCS_ASSIGN_CSC_MEASUREMENT_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x5B)"/>
+   <macro name="QAPI_BLE_CSCS_COMPARE_CSC_MEASUREMENT_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x5B)"/>
+   <macro name="QAPI_BLE_CSCS_CSC_MEASUREMENT_CHARACTERISTIC_BLUETOOTH_UUID_CONSTANT" value="{ 0x5B, 0x2A }"/>
+   <macro name="QAPI_BLE_CSCS_ASSIGN_CSC_FEATURE_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x5C)"/>
+   <macro name="QAPI_BLE_CSCS_COMPARE_CSC_FEATURE_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x5C)"/>
+   <macro name="QAPI_BLE_CSCS_CSC_FEATURE_CHARACTERISTIC_BLUETOOTH_UUID_CONSTANT" value="{ 0x5C, 0x2A }"/>
+   <macro name="QAPI_BLE_CSCS_ASSIGN_SENSOR_LOCATION_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x5D)"/>
+   <macro name="QAPI_BLE_CSCS_COMPARE_SENSOR_LOCATION_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x5D)"/>
+   <macro name="QAPI_BLE_CSCS_SENSOR_LOCATION_CHARACTERISTIC_BLUETOOTH_UUID_CONSTANT" value="{ 0x5D, 0x2A }"/>
+   <macro name="QAPI_BLE_CSCS_ASSIGN_SC_CONTROL_POINT_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x55)"/>
+   <macro name="QAPI_BLE_CSCS_COMPARE_SC_CONTROL_POINT_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x55)"/>
+   <macro name="QAPI_BLE_CSCS_SC_CONTROL_POINT_CHARACTERISTIC_BLUETOOTH_UUID_CONSTANT" value="{ 0x55, 0x2A }"/>
+   <macro name="QAPI_BLE_CSCS_CSC_MEASUREMENT_FLAGS_WHEEL_REVOLUTION_DATA_PRESENT" value="0x01"/>
+   <macro name="QAPI_BLE_CSCS_CSC_MEASUREMENT_FLAGS_CRANK_REVOLUTION_DATA_PRESENT" value="0x02"/>
+   <macro name="QAPI_BLE_CSCS_CSC_FEATURE_WHEEL_REVOLUTION_DATA_SUPPORTED" value="0x0001"/>
+   <macro name="QAPI_BLE_CSCS_CSC_FEATURE_CRANK_REVOLUTION_DATA_SUPPORTED" value="0x0002"/>
+   <macro name="QAPI_BLE_CSCS_CSC_FEATURE_MULTIPLE_SENSOR_LOCATIONS_SUPPORTED" value="0x0004"/>
+   <macro name="QAPI_BLE_CSCS_SENSOR_LOCATION_OTHER" value="0x00"/>
+   <macro name="QAPI_BLE_CSCS_SENSOR_LOCATION_TOP_OF_SHOE" value="0x01"/>
+   <macro name="QAPI_BLE_CSCS_SENSOR_LOCATION_IN_SHOE" value="0x02"/>
+   <macro name="QAPI_BLE_CSCS_SENSOR_LOCATION_HIP" value="0x03"/>
+   <macro name="QAPI_BLE_CSCS_SENSOR_LOCATION_FRONT_WHEEL" value="0x04"/>
+   <macro name="QAPI_BLE_CSCS_SENSOR_LOCATION_LEFT_CRANK" value="0x05"/>
+   <macro name="QAPI_BLE_CSCS_SENSOR_LOCATION_RIGHT_CRANK" value="0x06"/>
+   <macro name="QAPI_BLE_CSCS_SENSOR_LOCATION_LEFT_PEDAL" value="0x07"/>
+   <macro name="QAPI_BLE_CSCS_SENSOR_LOCATION_RIGHT_PEDAL" value="0x08"/>
+   <macro name="QAPI_BLE_CSCS_SENSOR_LOCATION_FRONT_HUB" value="0x09"/>
+   <macro name="QAPI_BLE_CSCS_SENSOR_LOCATION_REAR_DROPOUT" value="0x0A"/>
+   <macro name="QAPI_BLE_CSCS_SENSOR_LOCATION_CHAINSTAY" value="0x0B"/>
+   <macro name="QAPI_BLE_CSCS_SENSOR_LOCATION_REAR_WHEEL" value="0x0C"/>
+   <macro name="QAPI_BLE_CSCS_SENSOR_LOCATION_REAR_HUB" value="0x0D"/>
+   <macro name="QAPI_BLE_CSCS_SENSOR_LOCATION_CHEST" value="0x0E"/>
+   <macro name="QAPI_BLE_CSCS_SENSOR_LOCATION_VALID" params="(_x)" value="((((uint8_t)(_x)) &gt;= QAPI_BLE_CSCS_SENSOR_LOCATION_OTHER) &amp;&amp; (((uint8_t)(_x)) &lt;= QAPI_BLE_CSCS_SENSOR_LOCATION_CHEST))"/>
+   <macro name="QAPI_BLE_CSCS_SC_CONTROL_POINT_OPCODE_SET_CUMULATIVE_VALUE" value="0x01"/>
+   <macro name="QAPI_BLE_CSCS_SC_CONTROL_POINT_OPCODE_START_SENSOR_CALIBRATION" value="0x02"/>
+   <macro name="QAPI_BLE_CSCS_SC_CONTROL_POINT_OPCODE_UPDATE_SENSOR_LOCATION" value="0x03"/>
+   <macro name="QAPI_BLE_CSCS_SC_CONTROL_POINT_OPCODE_REQUEST_SUPPORTED_SENSOR_LOCATIONS" value="0x04"/>
+   <macro name="QAPI_BLE_CSCS_SC_CONTROL_POINT_OPCODE_RESPONSE_CODE" value="0x10"/>
+   <macro name="QAPI_BLE_CSCS_SC_CONTROL_POINT_VALID_COMMAND" params="(_x)" value="((((uint8_t)(_x)) &gt;= QAPI_BLE_CSCS_SC_CONTROL_POINT_OPCODE_SET_CUMULATIVE_VALUE) &amp;&amp; (((uint8_t)(_x)) &lt;= QAPI_BLE_CSCS_SC_CONTROL_POINT_OPCODE_REQUEST_SUPPORTED_SENSOR_LOCATIONS))"/>
+   <macro name="QAPI_BLE_CSCS_SC_CONTROL_POINT_RESPONSE_CODE_SUCCESS" value="0x01"/>
+   <macro name="QAPI_BLE_CSCS_SC_CONTROL_POINT_RESPONSE_CODE_OPCODE_NOT_SUPPORTED" value="0x02"/>
+   <macro name="QAPI_BLE_CSCS_SC_CONTROL_POINT_RESPONSE_CODE_INVALID_PARAMETER" value="0x03"/>
+   <macro name="QAPI_BLE_CSCS_SC_CONTROL_POINT_RESPONSE_CODE_OPERATION_FAILED" value="0x04"/>
+   <macro name="QAPI_BLE_CSCS_SC_CONTROL_POINT_VALID_COMMAND" params="(_x)" value="((((uint8_t)(_x)) &gt;= QAPI_BLE_CSCS_SC_CONTROL_POINT_OPCODE_SET_CUMULATIVE_VALUE) &amp;&amp; (((uint8_t)(_x)) &lt;= QAPI_BLE_CSCS_SC_CONTROL_POINT_OPCODE_REQUEST_SUPPORTED_SENSOR_LOCATIONS))"/>
+   <macro name="QAPI_BLE_CSCS_CSC_MEASUREMENT_SIZE" params="(_x)" value="(QAPI_BLE_BTPS_STRUCTURE_OFFSET(qapi_BLE_CSCS_CSC_Measurement_t, Variable_Data) + (_x))"/>
+   <macro name="QAPI_BLE_CSCS_WHEEL_REVOLUTION_SIZE" value="(sizeof(qapi_BLE_CSCS_Wheel_Revolution_t))"/>
+   <macro name="QAPI_BLE_CSCS_CRANK_REVOLUTION_SIZE" value="(sizeof(qapi_BLE_CSCS_Crank_Revolution_t))"/>
+   <macro name="QAPI_BLE_CSCS_SCCP_RESPONSE_CODE_SIZE" value="(sizeof(qapi_BLE_CSCS_SCCP_Response_Code_t))"/>
+   <macro name="QAPI_BLE_CSCS_SC_CONTROL_POINT_SIZE" params="(_x)" value="(QAPI_BLE_BTPS_STRUCTURE_OFFSET(qapi_BLE_CSCS_SC_Control_Point_t, Variable_Data) + _x)"/>
+   <macro name="QAPI_BLE_CSCS_CSC_FEATURE_VALUE_LENGTH" value="(QAPI_BLE_NON_ALIGNED_WORD_SIZE)"/>
+   <macro name="QAPI_BLE_CSCS_SENSOR_LOCATION_VALUE_LENGTH" value="(QAPI_BLE_NON_ALIGNED_BYTE_SIZE)"/>
+   <structure name="qapi_BLE_CSCS_Wheel_Revolution_t">
+      <member attributes="value" name="Cumulative_Wheel_Revolutions" type="qapi_BLE_NonAlignedDWord_t"/>
+      <member attributes="value" name="Last_Wheel_Event_Time" type="qapi_BLE_NonAlignedWord_t"/>
+   </structure>
+   <structure name="qapi_BLE_CSCS_Crank_Revolution_t">
+      <member attributes="value" name="Cumulative_Crank_Revolutions" type="qapi_BLE_NonAlignedWord_t"/>
+      <member attributes="value" name="Last_Crank_Event_Time" type="qapi_BLE_NonAlignedWord_t"/>
+   </structure>
+   <structure name="qapi_BLE_CSCS_SCCP_Response_Code_t">
+      <member attributes="value" name="Request_Op_Code" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="Response_Code_Value" type="qapi_BLE_NonAlignedByte_t"/>
+   </structure>
+</header>

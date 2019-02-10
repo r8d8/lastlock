@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<header>
+   <macro name="QAPI_BLE_QAPI_BLE_HCI_USB_INFORMATION_INITIALIZATION_DELAY_MAXIMUM" value="5000"/>
+   <macro name="QAPI_BLE_QAPI_BLE_HCI_USB_INFORMATION_INITIALIZATION_DELAY_DEFAULT" value="0"/>
+   <macro name="QAPI_BLE_HCI_USB_DRIVER_RECONFIGURE_DATA_COMMAND_CHANGE_PARAMETERS" value="(QAPI_BLE_HCI_DRIVER_RECONFIGURE_DATA_RECONFIGURE_COMMAND_TRANSPORT_START)"/>
+   <enum name="qapi_BLE_HCI_USB_Driver_t">
+      <member name="QAPI_BLE_USB_DRIVER_SS1_E" value="0"/>
+      <member name="QAPI_BLE_USB_DRIVER_GARMIN_E" value="1"/>
+   </enum>
+   <structure name="qapi_BLE_HCI_USBDriverInformation_t">
+      <member attributes="value" name="DriverInformationSize" type="uint32_t"/>
+      <member attributes="value" name="DriverType" type="qapi_BLE_HCI_USB_Driver_t"/>
+      <member attributes="value" name="InitializationDelay" type="uint32_t"/>
+   </structure>
+</header>

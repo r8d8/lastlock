@@ -1,0 +1,108 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="./qapi_ble_btapityp.h"/>
+   <include name="./qapi_ble_bttypes.h"/>
+   <include name="./qapi_ble_gatt.h"/>
+   <include name="./qapi_ble_ndcstypes.h"/>
+   <macro name="QAPI_BLE_NDCS_ERROR_INVALID_PARAMETER" value="(-1000)"/>
+   <macro name="QAPI_BLE_NDCS_ERROR_INVALID_BLUETOOTH_STACK_ID" value="(-1001)"/>
+   <macro name="QAPI_BLE_NDCS_ERROR_INSUFFICIENT_RESOURCES" value="(-1002)"/>
+   <macro name="QAPI_BLE_NDCS_ERROR_SERVICE_ALREADY_REGISTERED" value="(-1003)"/>
+   <macro name="QAPI_BLE_NDCS_ERROR_INVALID_INSTANCE_ID" value="(-1004)"/>
+   <macro name="QAPI_BLE_NDCS_ERROR_MALFORMATTED_DATA" value="(-1005)"/>
+   <macro name="QAPI_BLE_NDCS_ERROR_UNKNOWN_ERROR" value="(-1006)"/>
+   <macro name="QAPI_BLE_NDCS_DATE_TIME_DATA_SIZE" value="(sizeof(qapi_BLE_NDCS_Date_Time_Data_t))"/>
+   <macro name="QAPI_BLE_NDCS_TIME_WITH_DST_DATA_SIZE" value="(sizeof(qapi_BLE_NDCS_Time_With_Dst_Data_t))"/>
+   <macro name="QAPI_BLE_NDCS_READ_TIME_WITH_DST_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_NDCS_Read_Time_With_DST_Request_Data_t))"/>
+   <macro name="QAPI_BLE_NDCS_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_NDCS_Event_Data_t))"/>
+   <macro name="QAPI_BLE_NDCS_CLIENT_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_NDCS_Client_Information_t))"/>
+   <macro name="QAPI_BLE_NDCS_SERVER_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_NDCS_Server_Information_t))"/>
+   <enum name="qapi_BLE_NDCS_Event_Type_t">
+      <member name="QAPI_BLE_ET_NDCS_SERVER_READ_CURRENT_TIME_REQUEST_E" value="0"/>
+   </enum>
+   <structure name="qapi_BLE_NDCS_Date_Time_Data_t">
+      <member attributes="value" name="Year" type="uint16_t"/>
+      <member attributes="value" name="Month" type="uint8_t"/>
+      <member attributes="value" name="Day" type="uint8_t"/>
+      <member attributes="value" name="Hours" type="uint8_t"/>
+      <member attributes="value" name="Minutes" type="uint8_t"/>
+      <member attributes="value" name="Seconds" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_NDCS_Time_With_Dst_Data_t">
+      <member attributes="value" name="Date_Time" type="qapi_BLE_NDCS_Date_Time_Data_t"/>
+      <member attributes="value" name="Dst_Offset" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_NDCS_Read_Time_With_DST_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+   </structure>
+   <structure name="qapi_BLE_NDCS_Event_Data_t">
+      <member attributes="value" name="Event_Data_Type" type="qapi_BLE_NDCS_Event_Type_t"/>
+      <member attributes="value" name="Event_Data_Size" type="uint16_t"/>
+      <member attributes="union" name="Event_Data">
+         <member attributes="ptr" iotype="in" name="NDCS_Read_Time_With_DST_Request_Data" type="qapi_BLE_NDCS_Read_Time_With_DST_Request_Data_t"/>
+         <unionMap mapVerified="yes" name="Event_Data_Type" type="qapi_BLE_NDCS_Event_Type_t">
+            <mapEntry member="NDCS_Read_Time_With_DST_Request_Data" type="qapi_BLE_NDCS_Read_Time_With_DST_Request_Data_t" value="QAPI_BLE_ET_NDCS_SERVER_READ_CURRENT_TIME_REQUEST_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_BLE_NDCS_Client_Information_t">
+      <member attributes="value" name="Time_With_Dst" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_NDCS_Server_Information_t">
+      <member attributes="value" name="Time_With_Dst" type="uint16_t"/>
+   </structure>
+   <function name="qapi_BLE_NDCS_Initialize_Service">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_NDCS_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_NDCS_Initialize_Service_Handle_Range">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_NDCS_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="ServiceHandleRange" type="qapi_BLE_GATT_Attribute_Handle_Group_t"/>
+   </function>
+   <function name="qapi_BLE_NDCS_Cleanup_Service">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_NDCS_Query_Number_Attributes">
+      <return attributes="value" type="unsigned int"/>
+   </function>
+   <function name="qapi_BLE_NDCS_Time_With_DST_Read_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Next_Dst_Change_Time" type="qapi_BLE_NDCS_Time_With_Dst_Data_t"/>
+   </function>
+   <function name="qapi_BLE_NDCS_Time_With_DST_Read_Request_Error_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_NDCS_Decode_Time_With_Dst">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Next_Dst_Change_Time" type="qapi_BLE_NDCS_Time_With_Dst_Data_t"/>
+   </function>
+   <callback name="qapi_BLE_NDCS_Event_Callback_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="NDCS_Event_Data" type="qapi_BLE_NDCS_Event_Data_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <createFunction ID="qsRetVal" funcSuccess="0" moduleParam="BluetoothStackID" name="qapi_BLE_NDCS_Initialize_Service" param="CallbackParameter"/>
+      <createFunction ID="qsRetVal" funcSuccess="0" moduleParam="BluetoothStackID" name="qapi_BLE_NDCS_Initialize_Service_Handle_Range" param="CallbackParameter"/>
+      <destroyFunction ID="InstanceID" funcSuccess="0" name="qapi_BLE_NDCS_Cleanup_Service"/>
+   </callback>
+</header>

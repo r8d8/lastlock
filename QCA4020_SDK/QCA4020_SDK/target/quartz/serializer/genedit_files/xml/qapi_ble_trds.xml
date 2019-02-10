@@ -1,0 +1,231 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="./qapi_ble_btapityp.h"/>
+   <include name="./qapi_ble_bttypes.h"/>
+   <include name="./qapi_ble_gatt.h"/>
+   <include name="./qapi_ble_trdstypes.h"/>
+   <macro name="QAPI_BLE_TRDS_ERROR_INVALID_PARAMETER" value="(-1000)"/>
+   <macro name="QAPI_BLE_TRDS_ERROR_INVALID_BLUETOOTH_STACK_ID" value="(-1001)"/>
+   <macro name="QAPI_BLE_TRDS_ERROR_INSUFFICIENT_RESOURCES" value="(-1002)"/>
+   <macro name="QAPI_BLE_TRDS_ERROR_SERVICE_ALREADY_REGISTERED" value="(-1003)"/>
+   <macro name="QAPI_BLE_TRDS_ERROR_INVALID_INSTANCE_ID" value="(-1004)"/>
+   <macro name="QAPI_BLE_TRDS_ERROR_MALFORMATTED_DATA" value="(-1005)"/>
+   <macro name="QAPI_BLE_TRDS_ERROR_INSUFFICIENT_BUFFER_SPACE" value="(-1006)"/>
+   <macro name="QAPI_BLE_TRDS_ERROR_INVALID_CCCD_TYPE" value="(-1007)"/>
+   <macro name="QAPI_BLE_TRDS_ERROR_INVALID_ATTRIBUTE_HANDLE" value="(-1008)"/>
+   <macro name="QAPI_BLE_TRDS_ERROR_CONTROL_POINT_NOT_SUPPORTED" value="(-1009)"/>
+   <macro name="QAPI_BLE_TRDS_ERROR_MTU_EXCEEDED" value="(-1010)"/>
+   <macro name="QAPI_BLE_TRDS_INITIALIZE_DATA_SIZE" value="(sizeof(qapi_BLE_TRDS_Initialize_Data_t))"/>
+   <macro name="QAPI_BLE_TRDS_CLIENT_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_TRDS_Client_Information_t))"/>
+   <macro name="QAPI_BLE_TRDS_SERVER_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_TRDS_Server_Information_t))"/>
+   <macro name="QAPI_BLE_TRDS_TRANSPORT_BLOCK_DATA_SIZE" value="(sizeof(qapi_BLE_TRDS_Transport_Block_Data_t))"/>
+   <macro name="QAPI_BLE_TRDS_CONTROL_POINT_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_TRDS_Control_Point_Request_Data_t))"/>
+   <macro name="QAPI_BLE_TRDS_CONTROL_POINT_RESPONSE_DATA_SIZE" value="(sizeof(qapi_BLE_TRDS_Control_Point_Response_Data_t))"/>
+   <macro name="QAPI_BLE_TRDS_WRITE_CONTROL_POINT_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_TRDS_Write_Control_Point_Request_Data_t))"/>
+   <macro name="QAPI_BLE_TRDS_READ_CCCD_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_TRDS_Read_CCCD_Request_Data_t))"/>
+   <macro name="QAPI_BLE_TRDS_WRITE_CCCD_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_TRDS_Write_CCCD_Request_Data_t))"/>
+   <macro name="QAPI_BLE_TRDS_CONFIRMATION_DATA_SIZE" value="(sizeof(qapi_BLE_TRDS_Confirmation_Data_t))"/>
+   <macro name="QAPI_BLE_TRDS_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_TRDS_Event_Data_t))"/>
+   <enum name="qapi_BLE_TRDS_CCCD_Type_t">
+      <member name="QAPI_BLE_TRDS_CCT_CONTROL_POINT_E" value="0"/>
+   </enum>
+   <enum name="qapi_BLE_TRDS_Transport_Role_t">
+      <member name="QAPI_BLE_TRDS_TR_NOT_SPECIFIED_E" value="0"/>
+      <member name="QAPI_BLE_TRDS_TR_SEEKER_ONLY_E" value="1"/>
+      <member name="QAPI_BLE_TRDS_TR_PROVIDER_ONLY_E" value="2"/>
+      <member name="QAPI_BLE_TRDS_TR_SEEKER_AND_PROVIDER_E" value="3"/>
+   </enum>
+   <enum name="qapi_BLE_TRDS_Transport_State_t">
+      <member name="QAPI_BLE_TRDS_TS_OFF_E" value="0"/>
+      <member name="QAPI_BLE_TRDS_TS_ON_E" value="1"/>
+      <member name="QAPI_BLE_TRDS_TS_TEMPORARILY_UNAVAILABLE_E" value="2"/>
+      <member name="QAPI_BLE_TRDS_TS_RFU_E" value="3"/>
+   </enum>
+   <enum name="qapi_BLE_TRDS_Control_Point_Request_Type_t">
+      <member name="QAPI_BLE_TRDS_CPRT_ACTIVATE_TRANSPORT_E" value="QAPI_BLE_TRDS_CONTROL_POINT_OP_CODE_ACTIVATE_TRANSPORT"/>
+   </enum>
+   <enum name="qapi_BLE_TRDS_Control_Point_Result_Code_t">
+      <member name="QAPI_BLE_TRDS_TCP_SUCCESS_E" value="QAPI_BLE_TRDS_CONTROL_POINT_RESULT_CODE_SUCCESS"/>
+      <member name="QAPI_BLE_TRDS_TCP_OPCODE_NOT_SUPPORTED_E" value="QAPI_BLE_TRDS_CONTROL_POINT_RESULT_CODE_OP_CODE_NOT_SUPPORTED"/>
+      <member name="QAPI_BLE_TRDS_TCP_INVALID_PARAMETER_E" value="QAPI_BLE_TRDS_CONTROL_POINT_RESULT_CODE_INVALID_PARAMETER"/>
+      <member name="QAPI_BLE_TRDS_TCP_UNSUPPORTED_ORGANIZATION_ID_E" value="QAPI_BLE_TRDS_CONTROL_POINT_RESULT_CODE_UNSUPPORTED_ORGANIZATION_ID"/>
+      <member name="QAPI_BLE_TRDS_TCP_OPERATION_FAILED_E" value="QAPI_BLE_TRDS_CONTROL_POINT_RESULT_CODE_OPERATION_FAILED"/>
+   </enum>
+   <enum name="qapi_BLE_TRDS_Event_Type_t">
+      <member name="QAPI_BLE_TRDS_ET_SERVER_WRITE_CONTROL_POINT_REQUEST_E" value="0"/>
+      <member name="QAPI_BLE_TRDS_ET_SERVER_READ_CCCD_REQUEST_E" value="1"/>
+      <member name="QAPI_BLE_TRDS_ET_SERVER_WRITE_CCCD_REQUEST_E" value="2"/>
+      <member name="QAPI_BLE_TRDS_ET_SERVER_CONFIRMATION_E" value="3"/>
+   </enum>
+   <structure name="qapi_BLE_TRDS_Initialize_Data_t">
+      <member attributes="value" name="Control_Point_Supported" type="boolean_t"/>
+   </structure>
+   <structure name="qapi_BLE_TRDS_Client_Information_t">
+      <member attributes="value" name="Control_Point" type="uint16_t"/>
+      <member attributes="value" name="Control_Point_CCCD" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_TRDS_Server_Information_t">
+      <member attributes="value" name="Control_Point_Configuration" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_TRDS_Transport_Block_Data_t">
+      <member attributes="value" name="Organization_ID" type="uint8_t"/>
+      <member attributes="value" name="Flags" type="uint8_t"/>
+      <member attributes="value" name="Transport_Data_Length" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="Transport_Data_Length" lengthVerified="yes" name="Transport_Data" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_TRDS_Control_Point_Request_Data_t">
+      <member attributes="value" name="Op_Code" type="qapi_BLE_TRDS_Control_Point_Request_Type_t"/>
+      <member attributes="value" name="Organization_ID" type="uint8_t"/>
+      <member attributes="value" name="Parameter_Length" type="uint16_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="Parameter_Length" lengthVerified="yes" name="Parameter" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_TRDS_Control_Point_Response_Data_t">
+      <member attributes="value" name="Request_Op_Code" type="qapi_BLE_TRDS_Control_Point_Request_Type_t"/>
+      <member attributes="value" name="Result_Code" type="qapi_BLE_TRDS_Control_Point_Result_Code_t"/>
+      <member attributes="value" name="Parameter_Length" type="uint16_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="Parameter_Length" lengthVerified="yes" name="Parameter" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_TRDS_Write_Control_Point_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="RequestData" type="qapi_BLE_TRDS_Control_Point_Request_Data_t"/>
+   </structure>
+   <structure name="qapi_BLE_TRDS_Read_CCCD_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Type" type="qapi_BLE_TRDS_CCCD_Type_t"/>
+   </structure>
+   <structure name="qapi_BLE_TRDS_Write_CCCD_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Type" type="qapi_BLE_TRDS_CCCD_Type_t"/>
+      <member attributes="value" name="Configuration" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_TRDS_Confirmation_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Status" type="uint8_t"/>
+      <member attributes="value" name="BytesWritten" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_TRDS_Event_Data_t">
+      <member attributes="value" name="Event_Data_Type" type="qapi_BLE_TRDS_Event_Type_t"/>
+      <member attributes="value" name="Event_Data_Size" type="uint16_t"/>
+      <member attributes="union" name="Event_Data">
+         <member attributes="ptr" iotype="in" name="TRDS_Write_Control_Point_Request_Data" type="qapi_BLE_TRDS_Write_Control_Point_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="TRDS_Read_CCCD_Request_Data" type="qapi_BLE_TRDS_Read_CCCD_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="TRDS_Write_CCCD_Request_Data" type="qapi_BLE_TRDS_Write_CCCD_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="TRDS_Confirmation_Data" type="qapi_BLE_TRDS_Confirmation_Data_t"/>
+         <unionMap mapVerified="yes" name="Event_Data_Type" type="qapi_BLE_TRDS_Event_Type_t">
+            <mapEntry member="TRDS_Write_Control_Point_Request_Data" type="qapi_BLE_TRDS_Write_Control_Point_Request_Data_t" value="QAPI_BLE_TRDS_ET_SERVER_WRITE_CONTROL_POINT_REQUEST_E"/>
+            <mapEntry member="TRDS_Read_CCCD_Request_Data" type="qapi_BLE_TRDS_Read_CCCD_Request_Data_t" value="QAPI_BLE_TRDS_ET_SERVER_READ_CCCD_REQUEST_E"/>
+            <mapEntry member="TRDS_Write_CCCD_Request_Data" type="qapi_BLE_TRDS_Write_CCCD_Request_Data_t" value="QAPI_BLE_TRDS_ET_SERVER_WRITE_CCCD_REQUEST_E"/>
+            <mapEntry member="TRDS_Confirmation_Data" type="qapi_BLE_TRDS_Confirmation_Data_t" value="QAPI_BLE_TRDS_ET_SERVER_CONFIRMATION_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <function name="qapi_BLE_TRDS_Initialize_Service">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Service_Flags" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="InitializeData" type="qapi_BLE_TRDS_Initialize_Data_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_TRDS_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_TRDS_Initialize_Service_Handle_Range">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Service_Flags" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="InitializeData" type="qapi_BLE_TRDS_Initialize_Data_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_TRDS_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="ServiceHandleRange" type="qapi_BLE_GATT_Attribute_Handle_Group_t"/>
+   </function>
+   <function name="qapi_BLE_TRDS_Cleanup_Service">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_TRDS_Query_Number_Attributes">
+      <return attributes="value" type="uint32_t"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_TRDS_Write_Control_Point_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_TRDS_Indicate_Control_Point_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="ResponseData" type="qapi_BLE_TRDS_Control_Point_Response_Data_t"/>
+   </function>
+   <function name="qapi_BLE_TRDS_Read_CCCD_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="value" name="Type" type="qapi_BLE_TRDS_CCCD_Type_t"/>
+      <argument attributes="value" name="Configuration" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_TRDS_Write_CCCD_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="value" name="Type" type="qapi_BLE_TRDS_CCCD_Type_t"/>
+   </function>
+   <function name="qapi_BLE_TRDS_Format_Control_Point_Request">
+      <return attributes="value" type="int"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="RequestData" type="qapi_BLE_TRDS_Control_Point_Request_Data_t"/>
+      <argument attributes="value" name="BufferLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="BufferLength" lengthVerified="yes" name="Buffer" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_TRDS_Decode_Control_Point_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ResponseData" type="qapi_BLE_TRDS_Control_Point_Response_Data_t"/>
+   </function>
+   <function name="qapi_BLE_TRDS_Format_Transport_Block">
+      <return attributes="value" type="int"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="TransportBlockData" type="qapi_BLE_TRDS_Transport_Block_Data_t"/>
+      <argument attributes="value" name="BufferLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="BufferLength" lengthVerified="yes" name="Buffer" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_TRDS_Decode_Transport_Block">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="RemainingLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="RemainingLength" lengthVerified="yes" name="Buffer" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="TransportBlockData" type="qapi_BLE_TRDS_Transport_Block_Data_t"/>
+   </function>
+   <callback name="qapi_BLE_TRDS_Event_Callback_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="TRDS_Event_Data" type="qapi_BLE_TRDS_Event_Data_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <createFunction ID="qsRetVal" funcSuccess="0" moduleParam="BluetoothStackID" name="qapi_BLE_TRDS_Initialize_Service" param="CallbackParameter"/>
+      <createFunction ID="qsRetVal" funcSuccess="0" moduleParam="BluetoothStackID" name="qapi_BLE_TRDS_Initialize_Service_Handle_Range" param="CallbackParameter"/>
+      <destroyFunction ID="InstanceID" funcSuccess="0" name="qapi_BLE_TRDS_Cleanup_Service"/>
+   </callback>
+</header>

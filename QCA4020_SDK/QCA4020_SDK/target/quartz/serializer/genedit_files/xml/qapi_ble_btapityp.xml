@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<header>
+   <macro name="#endif" value="#ifndef "/>
+   <macro name="#endif" value="#ifndef QAPI_BLE_CONST"/>
+   <macro name="QAPI_BLE_CONST" value="const"/>
+   <macro name="__QAPI_BLE_TRY" value="#endif"/>
+   <macro name="__QAPI_BLE_EXCEPT" params="(_x)" value="if(0)"/>
+   <macro name="QAPI_BLE_BTPS_STRUCTURE_OFFSET" params="(_x, _y)" value="((unsigned int)&amp;(((_x *)0)-&gt;_y))"/>
+</header>

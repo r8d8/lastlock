@@ -1,0 +1,345 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="qapi_zb_cl.h"/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_CURRENT_HUE" value="(0x0000) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_CURRENT_SATURATION" value="(0x0001) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_REMAINING_TIME" value="(0x0002) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_CURRENT_X" value="(0x0003) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_CURRENT_Y" value="(0x0004) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_DRIFT_COMPENSATION" value="(0x0005) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_COMPENSATION_TEXT" value="(0x0006) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_COLOR_TEMP_MIREDS" value="(0x0007) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_COLOR_MODE" value="(0x0008) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_ENHANCED_CURRENT_HUE" value="(0x4000) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_ENHANCED_COLOR_MODE" value="(0x4001) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_COLOR_LOOP_ACTIVE" value="(0x4002) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_COLOR_LOOP_DIRECTION" value="(0x4003) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_COLOR_LOOP_TIME" value="(0x4004) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_COLOR_LOOP_START_ENHANCED_HUE" value="(0x4005) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_COLOR_LOOP_STORED_ENHANCED_HUE" value="(0x4006) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_COLOR_CAPABILITIES" value="(0x400A) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_COLOR_TEMP_PHYSICAL_MIN_MIREDS" value="(0x400B) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_COLOR_TEMP_PHYSICAL_MAX_MIREDS" value="(0x400C) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_NUMBER_OF_PRIMARIES" value="(0x0010) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_PRIMARY_1_X" value="(0x0011) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_PRIMARY_1_Y" value="(0x0012) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_PRIMARY_1_INTENSITY" value="(0x0013) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_PRIMARY_2_X" value="(0x0015) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_PRIMARY_2_Y" value="(0x0016) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_PRIMARY_2_INTENSITY" value="(0x0017) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_PRIMARY_3_X" value="(0x0019) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_PRIMARY_3_Y" value="(0x001A) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_PRIMARY_3_INTENSITY" value="(0x001B) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_PRIMARY_4_X" value="(0x0020) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_PRIMARY_4_Y" value="(0x0021) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_PRIMARY_4_INTENSITY" value="(0x0022) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_PRIMARY_5_X" value="(0x0024) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_PRIMARY_5_Y" value="(0x0025) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_PRIMARY_5_INTENSITY" value="(0x0026) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_PRIMARY_6_X" value="(0x0028) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_PRIMARY_6_Y" value="(0x0029) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_PRIMARY_6_INTENSITY" value="(0x002A) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_WHITE_POINT_X" value="(0x0030) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_WHITE_POINT_Y" value="(0x0031) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_COLOR_POINT_R_X" value="(0x0032) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_COLOR_POINT_R_Y" value="(0x0033) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_COLOR_POINT_R_INTENSITY" value="(0x0034) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_COLOR_POINT_G_X" value="(0x0036) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_COLOR_POINT_G_Y" value="(0x0037) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_COLOR_POINT_G_INTENSITY" value="(0x0038) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_COLOR_POINT_B_X" value="(0x003A) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_COLOR_POINT_B_Y" value="(0x003B) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ATTR_ID_COLOR_POINT_B_INTENSITY" value="(0x003C) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_CAPABILITY_HUE_SATURATION_SUPPORTED" value="(0x0001) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_CAPABILITY_ENHANCED_HUE_SUPPORTED" value="(0x0002) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_CAPABILITY_COLOR_LOOP_SUPPORTED" value="(0x0004) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_CAPABILITY_X_Y_SUPPORTED" value="(0x0008) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_CAPABILITY_COLOR_TEMP_SUPPORTED" value="(0x0010) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_CURRENT_HUE_MIN" value="(0) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_CURRENT_HUE_MAX" value="(0xFE) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_CURRENT_X_MIN" value="(0) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_CURRENT_X_MAX" value="(0xFEFF) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_CURRENT_Y_MIN" value="(0) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_CURRENT_Y_MAX" value="(0xFEFF) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_COLOR_TEMPERATURE_MIREDS_MIN" value="(0) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_COLOR_TEMPERATURE_MIREDS_MAX" value="(0xFEFF) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ENHANCED_CURRENT_HUE_MIN" value="(0) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_ENHANCED_CURRENT_HUE_MAX" value="(0xFFFF) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_CLIENT_COMMAND_ID_MOVE_TO_HUE" value="(0x00) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_CLIENT_COMMAND_ID_MOVE_HUE" value="(0x01) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_CLIENT_COMMAND_ID_STEP_HUE" value="(0x02) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_CLIENT_COMMAND_ID_MOVE_TO_SATURATION" value="(0x03) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_CLIENT_COMMAND_ID_MOVE_SATURATION" value="(0x04) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_CLIENT_COMMAND_ID_STEP_SATURATION" value="(0x05) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_CLIENT_COMMAND_ID_MOVE_TO_HUEAND_SATURATION" value="(0x06) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_CLIENT_COMMAND_ID_MOVE_TO_COLOR" value="(0x07) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_CLIENT_COMMAND_ID_MOVE_COLOR" value="(0x08) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_CLIENT_COMMAND_ID_STEP_COLOR" value="(0x09) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_CLIENT_COMMAND_ID_MOVE_TO_COLOR_TEMPERATURE" value="(0x0A) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_CLIENT_COMMAND_ID_ENHANCED_MOVE_TO_HUE" value="(0x40) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_CLIENT_COMMAND_ID_ENHANCED_MOVE_HUE" value="(0x41) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_CLIENT_COMMAND_ID_ENHANCED_STEP_HUE" value="(0x42) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_CLIENT_COMMAND_ID_ENHANCED_MOVE_TO_HUE_AND_SATURATION" value="(0x43) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_CLIENT_COMMAND_ID_COLOR_LOOP_SET" value="(0x44) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_CLIENT_COMMAND_ID_STOP_MOVE_STEP" value="(0x47) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_CLIENT_COMMAND_ID_MOVE_COLOR_TEMPERATURE" value="(0x4B) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_CLIENT_COMMAND_ID_STEP_COLOR_TEMPERATURE" value="(0x4C) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_COLORLOOP_SET_FLAG_UPDATE_ACTION" value="(0x01) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_COLORLOOP_SET_FLAG_UPDATE_DIRECTION" value="(0x02) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_COLORLOOP_SET_FLAG_UPDATE_TIME" value="(0x04) "/>
+   <macro name="QAPI_ZB_CL_COLORCONTROL_COLORLOOP_SET_FLAG_UPDATE_START_HUE" value="(0x08) "/>
+   <enum name="qapi_ZB_CL_ColorControl_Client_Event_Type_t">
+      <member name="QAPI_ZB_CL_COLORCONTROL_CLIENT_EVENT_TYPE_ATTR_CUSTOM_READ_E" value="0"/>
+      <member name="QAPI_ZB_CL_COLORCONTROL_CLIENT_EVENT_TYPE_ATTR_CUSTOM_WRITE_E" value="1"/>
+      <member name="QAPI_ZB_CL_COLORCONTROL_CLIENT_EVENT_TYPE_DEFAULT_RESPONSE_E" value="2"/>
+      <member name="QAPI_ZB_CL_COLORCONTROL_CLIENT_EVENT_TYPE_UNPARSED_RESPONSE_E" value="3"/>
+      <member name="QAPI_ZB_CL_COLORCONTROL_CLIENT_EVENT_TYPE_COMMAND_COMPLETE_E" value="4"/>
+   </enum>
+   <enum name="qapi_ZB_CL_ColorControl_Server_Event_Type_t">
+      <member name="QAPI_ZB_CL_COLORCONTROL_SERVER_EVENT_TYPE_ATTR_CUSTOM_READ_E" value="0"/>
+      <member name="QAPI_ZB_CL_COLORCONTROL_SERVER_EVENT_TYPE_ATTR_CUSTOM_WRITE_E" value="1"/>
+      <member name="QAPI_ZB_CL_COLORCONTROL_SERVER_EVENT_TYPE_UNPARSED_DATA_E" value="2"/>
+      <member name="QAPI_ZB_CL_COLORCONTROL_SERVER_EVENT_TYPE_MOVE_TO_HUE_AND_SAT_E" value="3"/>
+      <member name="QAPI_ZB_CL_COLORCONTROL_SERVER_EVENT_TYPE_MOVE_TO_COLOR_E" value="4"/>
+      <member name="QAPI_ZB_CL_COLORCONTROL_SERVER_EVENT_TYPE_MOVE_TO_COLOR_TEMP_E" value="5"/>
+      <member name="QAPI_ZB_CL_COLORCONTROL_SERVER_EVENT_TYPE_COLOR_LOOP_SET_E" value="6"/>
+      <member name="QAPI_ZB_CL_COLORCONTROL_SERVER_EVENT_TYPE_STOP_MOVE_STEP_E" value="7"/>
+   </enum>
+   <enum name="qapi_ZB_CL_ColorControl_Move_Mode_t">
+      <member name="QAPI_ZB_CL_COLORCONTROL_MOVE_MODE_SHORTEST_DISTANCE_E" value="0"/>
+      <member name="QAPI_ZB_CL_COLORCONTROL_MOVE_MODE_LONGEST_DISTANCE_E" value="1"/>
+      <member name="QAPI_ZB_CL_COLORCONTROL_MOVE_MODE_UP_E" value="2"/>
+      <member name="QAPI_ZB_CL_COLORCONTROL_MOVE_MODE_DOWN_E" value="3"/>
+      <member name="QAPI_ZB_CL_COLORCONTROL_MOVE_MODE_STOP_E" value="4"/>
+   </enum>
+   <enum name="qapi_ZB_CL_ColorControl_Loop_Action_t">
+      <member name="QAPI_ZB_CL_COLORCONTROL_LOOP_ACTION_DEACTIVATE_E" value="0"/>
+      <member name="QAPI_ZB_CL_COLORCONTROL_LOOP_ACTION_ACTIVATE_FROM_COLOR_LOOP_START_ENHANCED_HUE_E" value="1"/>
+      <member name="QAPI_ZB_CL_COLORCONTROL_LOOP_ACTION_ACTIVATE_FROM_ENHANCED_CURRENT_HUE_E" value="2"/>
+   </enum>
+   <structure name="qapi_ZB_CL_ColorControl_Color_Loop_Set_t">
+      <member attributes="value" name="UpdateFlag" type="uint8_t"/>
+      <member attributes="value" name="Action" type="qapi_ZB_CL_ColorControl_Loop_Action_t"/>
+      <member attributes="value" name="Direction" type="qapi_ZB_CL_ColorControl_Move_Mode_t"/>
+      <member attributes="value" name="Time" type="uint16_t"/>
+      <member attributes="value" name="StartHue" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_ColorControl_Step_Color_Temp_t">
+      <member attributes="value" name="StepMode" type="qapi_ZB_CL_ColorControl_Move_Mode_t"/>
+      <member attributes="value" name="StepSize" type="uint16_t"/>
+      <member attributes="value" name="TransitionTime" type="uint16_t"/>
+      <member attributes="value" name="Limit" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_ColorControl_Client_Event_Data_t">
+      <member attributes="value" name="Event_Type" type="qapi_ZB_CL_ColorControl_Client_Event_Type_t"/>
+      <member attributes="union" name="Data">
+         <member attributes="value" name="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t"/>
+         <member attributes="value" name="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t"/>
+         <member attributes="value" name="Command_Complete" type="qapi_ZB_CL_Command_Complete_t"/>
+         <member attributes="value" name="Default_Response" type="qapi_ZB_CL_Default_Response_t"/>
+         <member attributes="value" name="Unparsed_Response" type="qapi_ZB_CL_Unparsed_Response_t"/>
+         <unionMap mapVerified="yes" name="Event_Type" type="qapi_ZB_CL_ColorControl_Client_Event_Type_t">
+            <mapEntry member="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t" value="QAPI_ZB_CL_COLORCONTROL_CLIENT_EVENT_TYPE_ATTR_CUSTOM_READ_E"/>
+            <mapEntry member="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t" value="QAPI_ZB_CL_COLORCONTROL_CLIENT_EVENT_TYPE_ATTR_CUSTOM_WRITE_E"/>
+            <mapEntry member="Command_Complete" type="qapi_ZB_CL_Command_Complete_t" value="QAPI_ZB_CL_COLORCONTROL_CLIENT_EVENT_TYPE_COMMAND_COMPLETE_E"/>
+            <mapEntry member="Default_Response" type="qapi_ZB_CL_Default_Response_t" value="QAPI_ZB_CL_COLORCONTROL_CLIENT_EVENT_TYPE_DEFAULT_RESPONSE_E"/>
+            <mapEntry member="Unparsed_Response" type="qapi_ZB_CL_Unparsed_Response_t" value="QAPI_ZB_CL_COLORCONTROL_CLIENT_EVENT_TYPE_UNPARSED_RESPONSE_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_ZB_CL_ColorControl_Server_Move_To_Hue_And_Sat_t">
+      <member attributes="value" name="Mode" type="qapi_ZB_CL_ColorControl_Move_Mode_t"/>
+      <member attributes="value" name="Hue" type="uint16_t"/>
+      <member attributes="value" name="Saturation" type="uint8_t"/>
+      <member attributes="value" name="TransitionTime" type="uint16_t"/>
+      <member attributes="value" name="IsEnhanced" type="qbool_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_ColorControl_Server_Move_To_Color_t">
+      <member attributes="value" name="ColorX" type="uint16_t"/>
+      <member attributes="value" name="ColorY" type="uint16_t"/>
+      <member attributes="value" name="TransitionTimeX" type="uint32_t"/>
+      <member attributes="value" name="TransitionTimeY" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_ColorControl_Server_Move_To_Color_Temp_t">
+      <member attributes="value" name="Mode" type="qapi_ZB_CL_ColorControl_Move_Mode_t"/>
+      <member attributes="value" name="Mireds" type="uint16_t"/>
+      <member attributes="value" name="TransitionTime" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_ColorControl_Server_Event_Data_t">
+      <member attributes="value" name="Event_Type" type="qapi_ZB_CL_ColorControl_Server_Event_Type_t"/>
+      <member attributes="union" name="Data">
+         <member attributes="value" name="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t"/>
+         <member attributes="value" name="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t"/>
+         <member attributes="value" name="Unparsed_Data" type="qapi_ZB_CL_Unparsed_Data_t"/>
+         <member attributes="value" name="Move_To_Hue_And_Sat" type="qapi_ZB_CL_ColorControl_Server_Move_To_Hue_And_Sat_t"/>
+         <member attributes="value" name="Move_To_Color" type="qapi_ZB_CL_ColorControl_Server_Move_To_Color_t"/>
+         <member attributes="value" name="Move_To_Color_Temp" type="qapi_ZB_CL_ColorControl_Server_Move_To_Color_Temp_t"/>
+         <member attributes="value" name="Color_Loop_Set" type="qapi_ZB_CL_ColorControl_Color_Loop_Set_t"/>
+         <unionMap mapVerified="yes" name="Event_Type" type="qapi_ZB_CL_ColorControl_Server_Event_Type_t">
+            <mapEntry member="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t" value="QAPI_ZB_CL_COLORCONTROL_SERVER_EVENT_TYPE_ATTR_CUSTOM_READ_E"/>
+            <mapEntry member="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t" value="QAPI_ZB_CL_COLORCONTROL_SERVER_EVENT_TYPE_ATTR_CUSTOM_WRITE_E"/>
+            <mapEntry member="Unparsed_Data" type="qapi_ZB_CL_Unparsed_Data_t" value="QAPI_ZB_CL_COLORCONTROL_SERVER_EVENT_TYPE_UNPARSED_DATA_E"/>
+            <mapEntry member="Move_To_Hue_And_Sat" type="qapi_ZB_CL_ColorControl_Server_Move_To_Hue_And_Sat_t" value="QAPI_ZB_CL_COLORCONTROL_SERVER_EVENT_TYPE_MOVE_TO_HUE_AND_SAT_E"/>
+            <mapEntry member="Move_To_Color" type="qapi_ZB_CL_ColorControl_Server_Move_To_Color_t" value="QAPI_ZB_CL_COLORCONTROL_SERVER_EVENT_TYPE_MOVE_TO_COLOR_E"/>
+            <mapEntry member="Move_To_Color_Temp" type="qapi_ZB_CL_ColorControl_Server_Move_To_Color_Temp_t" value="QAPI_ZB_CL_COLORCONTROL_SERVER_EVENT_TYPE_MOVE_TO_COLOR_TEMP_E"/>
+            <mapEntry member="Color_Loop_Set" type="qapi_ZB_CL_ColorControl_Color_Loop_Set_t" value="QAPI_ZB_CL_COLORCONTROL_SERVER_EVENT_TYPE_COLOR_LOOP_SET_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <function name="qapi_ZB_CL_ColorControl_Create_Client">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Cluster_Info" type="qapi_ZB_CL_Cluster_Info_t"/>
+      <argument attributes="value" name="Event_CB" type="qapi_ZB_CL_ColorControl_Client_CB_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+   </function>
+   <function name="qapi_ZB_CL_ColorControl_Create_Server">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="value" name="CapabilityFlag" type="uint16_t"/>
+      <argument attributes="value" name="NumberOfPrimaries" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Cluster_Info" type="qapi_ZB_CL_Cluster_Info_t"/>
+      <argument attributes="value" name="Event_CB" type="qapi_ZB_CL_ColorControl_Server_CB_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+   </function>
+   <function name="qapi_ZB_CL_ColorControl_Populate_Attributes">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Server" type="qbool_t"/>
+      <argument attributes="value" name="Capability" type="uint16_t"/>
+      <argument attributes="value" name="NumberOfPrimaries" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="AttributeCount" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="AttributeCount" lengthVerified="yes" name="AttributeList" type="qapi_ZB_CL_Attribute_t"/>
+   </function>
+   <function name="qapi_ZB_CL_ColorControl_Send_Move_To_Hue">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="value" name="Hue" type="uint16_t"/>
+      <argument attributes="value" name="Direction" type="qapi_ZB_CL_ColorControl_Move_Mode_t"/>
+      <argument attributes="value" name="TransitionTime" type="uint16_t"/>
+      <argument attributes="value" name="IsEnhanced" type="qbool_t"/>
+   </function>
+   <function name="qapi_ZB_CL_ColorControl_Send_Move_Hue">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="value" name="MoveMode" type="qapi_ZB_CL_ColorControl_Move_Mode_t"/>
+      <argument attributes="value" name="Rate" type="uint16_t"/>
+      <argument attributes="value" name="IsEnhanced" type="qbool_t"/>
+   </function>
+   <function name="qapi_ZB_CL_ColorControl_Send_Step_Hue">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="value" name="StepMode" type="qapi_ZB_CL_ColorControl_Move_Mode_t"/>
+      <argument attributes="value" name="StepSize" type="uint16_t"/>
+      <argument attributes="value" name="TransitionTime" type="uint16_t"/>
+      <argument attributes="value" name="IsEnhanced" type="qbool_t"/>
+   </function>
+   <function name="qapi_ZB_CL_ColorControl_Send_Move_To_Saturation">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="value" name="Saturation" type="uint8_t"/>
+      <argument attributes="value" name="TransitionTime" type="uint16_t"/>
+   </function>
+   <function name="qapi_ZB_CL_ColorControl_Send_Move_Saturation">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="value" name="MoveMode" type="qapi_ZB_CL_ColorControl_Move_Mode_t"/>
+      <argument attributes="value" name="Rate" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_CL_ColorControl_Send_Step_Saturation">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="value" name="StepMode" type="qapi_ZB_CL_ColorControl_Move_Mode_t"/>
+      <argument attributes="value" name="StepSize" type="uint8_t"/>
+      <argument attributes="value" name="TransitionTime" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_CL_ColorControl_Send_Move_To_HueAndSaturation">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="value" name="Hue" type="uint16_t"/>
+      <argument attributes="value" name="Saturation" type="uint8_t"/>
+      <argument attributes="value" name="TransitionTime" type="uint16_t"/>
+      <argument attributes="value" name="IsEnhanced" type="qbool_t"/>
+   </function>
+   <function name="qapi_ZB_CL_ColorControl_Send_Move_To_Color">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="value" name="ColorX" type="uint16_t"/>
+      <argument attributes="value" name="ColorY" type="uint16_t"/>
+      <argument attributes="value" name="TransitionTime" type="uint16_t"/>
+   </function>
+   <function name="qapi_ZB_CL_ColorControl_Send_Move_Color">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="value" name="RateX" type="int16_t"/>
+      <argument attributes="value" name="RateY" type="int16_t"/>
+   </function>
+   <function name="qapi_ZB_CL_ColorControl_Send_Step_Color">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="value" name="StepX" type="int16_t"/>
+      <argument attributes="value" name="StepY" type="int16_t"/>
+      <argument attributes="value" name="TransitionTime" type="uint16_t"/>
+   </function>
+   <function name="qapi_ZB_CL_ColorControl_Send_Move_To_Color_Temp">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="value" name="ColorTempMireds" type="uint16_t"/>
+      <argument attributes="value" name="TransitionTime" type="uint16_t"/>
+   </function>
+   <function name="qapi_ZB_CL_ColorControl_Send_Color_Loop_Set">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="ColorLoopSet" type="qapi_ZB_CL_ColorControl_Color_Loop_Set_t"/>
+   </function>
+   <function name="qapi_ZB_CL_ColorControl_Send_Stop_Move_Step">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+   </function>
+   <function name="qapi_ZB_CL_ColorControl_Send_Move_Color_Temp">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="value" name="MoveMode" type="qapi_ZB_CL_ColorControl_Move_Mode_t"/>
+      <argument attributes="value" name="Rate" type="uint16_t"/>
+      <argument attributes="value" name="Limit" type="uint16_t"/>
+   </function>
+   <function name="qapi_ZB_CL_ColorControl_Send_Step_Color_Temp">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="StepColorTemp" type="qapi_ZB_CL_ColorControl_Step_Color_Temp_t"/>
+   </function>
+   <callback name="qapi_ZB_CL_ColorControl_Client_CB_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Event_Data" type="qapi_ZB_CL_ColorControl_Client_Event_Data_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+      <createFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_ColorControl_Create_Client" param="CB_Param"/>
+      <destroyFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_Destroy_Cluster"/>
+   </callback>
+   <callback name="qapi_ZB_CL_ColorControl_Server_CB_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Event_Data" type="qapi_ZB_CL_ColorControl_Server_Event_Data_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+      <createFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_ColorControl_Create_Server" param="CB_Param"/>
+      <destroyFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_Destroy_Cluster"/>
+   </callback>
+</header>

@@ -1,0 +1,104 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="./qapi_ble_btapityp.h"/>
+   <include name="./qapi_ble_bttypes.h"/>
+   <include name="./qapi_ble_gatt.h"/>
+   <include name="./qapi_ble_gapstypes.h"/>
+   <macro name="QAPI_BLE_GAPS_ERROR_INVALID_PARAMETER" value="(-1000)"/>
+   <macro name="QAPI_BLE_GAPS_ERROR_INVALID_BLUETOOTH_STACK_ID" value="(-1001)"/>
+   <macro name="QAPI_BLE_GAPS_ERROR_INSUFFICIENT_RESOURCES" value="(-1002)"/>
+   <macro name="QAPI_BLE_GAPS_ERROR_SERVICE_ALREADY_REGISTERED" value="(-1003)"/>
+   <macro name="QAPI_BLE_GAPS_ERROR_INVALID_INSTANCE_ID" value="(-1004)"/>
+   <macro name="QAPI_BLE_GAPS_ERROR_MALFORMATTED_DATA" value="(-1005)"/>
+   <macro name="QAPI_BLE_GAPS_ERROR_UNKNOWN_ERROR" value="(-1006)"/>
+   <macro name="QAPI_BLE_GAP_PREFERRED_CONNECTION_PARAMETERS_DATA_SIZE" value="(sizeof(qapi_BLE_GAP_Preferred_Connection_Parameters_t))"/>
+   <enum name="qapi_BLE_GAP_Central_Address_Resolution_t">
+      <member name="QAPI_BLE_GAR_DISABLED_E" value="0"/>
+      <member name="QAPI_BLE_GAR_ENABLED_E" value="1"/>
+   </enum>
+   <structure name="qapi_BLE_GAP_Preferred_Connection_Parameters_t">
+      <member attributes="value" name="Minimum_Connection_Interval" type="uint16_t"/>
+      <member attributes="value" name="Maximum_Connection_Interval" type="uint16_t"/>
+      <member attributes="value" name="Slave_Latency" type="uint16_t"/>
+      <member attributes="value" name="Supervision_Timeout" type="uint16_t"/>
+   </structure>
+   <function name="qapi_BLE_GAPS_Initialize_Service">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GAPS_Initialize_Service_Handle_Range">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="ServiceHandleRange" type="qapi_BLE_GATT_Attribute_Handle_Group_t"/>
+   </function>
+   <function name="qapi_BLE_GAPS_Cleanup_Service">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GAPS_Query_Number_Attributes">
+      <return attributes="value" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GAPS_Set_Device_Name">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="__strlen__" lengthVerified="yes" name="DeviceName" type="char"/>
+   </function>
+   <function name="qapi_BLE_GAPS_Query_Device_Name">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="__strlen__" lengthVerified="yes" name="NameBuffer" type="char"/>
+   </function>
+   <function name="qapi_BLE_GAPS_Set_Device_Appearance">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="DeviceAppearance" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_GAPS_Query_Device_Appearance">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="DeviceAppearance" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_GAPS_Set_Preferred_Connection_Parameters">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="PreferredConnectionParameters" type="qapi_BLE_GAP_Preferred_Connection_Parameters_t"/>
+   </function>
+   <function name="qapi_BLE_GAPS_Query_Preferred_Connection_Parameters">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="PreferredConnectionParameters" type="qapi_BLE_GAP_Preferred_Connection_Parameters_t"/>
+   </function>
+   <function name="qapi_BLE_GAPS_Set_Central_Address_Resolution">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="CentralAddressResolution" type="qapi_BLE_GAP_Central_Address_Resolution_t"/>
+   </function>
+   <function name="qapi_BLE_GAPS_Query_Central_Address_Resolution">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="CentralAddressResolution" type="qapi_BLE_GAP_Central_Address_Resolution_t"/>
+   </function>
+   <function name="qapi_BLE_GAPS_Decode_Preferred_Connection_Parameters">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="PreferredConnectionParameters" type="qapi_BLE_GAP_Preferred_Connection_Parameters_t"/>
+   </function>
+   <function name="qapi_BLE_GAPS_Decode_Central_Address_Resolution">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="CentralAddressResolution" type="qapi_BLE_GAP_Central_Address_Resolution_t"/>
+   </function>
+</header>

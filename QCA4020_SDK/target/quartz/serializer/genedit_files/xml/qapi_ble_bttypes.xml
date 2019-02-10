@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="qapi_ble_basetypes.h"/>
+   <include name="qapi_ble_btbtypes.h"/>
+   <macro name="__packed" value="#else"/>
+   <macro name="#endif" value="#ifdef __GNUC__"/>
+   <macro name="__attribute__" value="((packed))"/>
+   <macro name="#endif" value="#define __QAPI_BLE_BTTYPESH_INC__"/>
+</header>

@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<header>
+   <macro name="_QAPI_FIRMWARE_UPGRADE_EXT_H_" value="#define QAPI_FW_UPGRADE_FLAG_AUTO_REBOOT (1&lt;&lt;0)"/>
+   <macro name="QAPI_FW_UPGRADE_FLAG_DUPLICATE_ACTIVE_FS" value="(1&lt;&lt;1) "/>
+   <macro name="QAPI_FW_UPGRADE_FLAG_DUPLICATE_KEEP_TRIAL_FS" value="(1&lt;&lt;2) "/>
+   <macro name="QAPI_FW_UPGRADE_FWD_BIT_GOLDEN" value="(0)"/>
+   <macro name="QAPI_FW_UPGRADE_FWD_BIT_CURRENT" value="(1)"/>
+   <macro name="QAPI_FW_UPGRADE_FWD_BIT_TRIAL" value="(2)"/>
+   <macro name="QAPI_FW_UPGRADE_FWD_BOOT_TYPE_GOLDEN" value="(1&lt;&lt;QAPI_FW_UPGRADE_FWD_BIT_GOLDEN)"/>
+   <macro name="QAPI_FW_UPGRADE_FWD_BOOT_TYPE_CURRENT" value="(1&lt;&lt;QAPI_FW_UPGRADE_FWD_BIT_CURRENT)"/>
+   <macro name="QAPI_FW_UPGRADE_FWD_BOOT_TYPE_TRIAL" value="(1&lt;&lt;QAPI_FW_UPGRADE_FWD_BIT_TRIAL)"/>
+   <enum name="qapi_Fw_Upgrade_State_t"/>
+   <enum name="qapi_Fw_Upgrade_Status_Code_t"/>
+   <structure name="qapi_FW_Ver_t">
+      <member attributes="value" name="qapi_Version_Number" type="uint32_t"/>
+      <member attributes="value" name="crm_Build_Number" type="uint32_t"/>
+   </structure>
+   <function name="qapi_Fw_Upgrade_Get_Active_FWD">
+      <return attributes="value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="fwd_boot_type" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="valid_fwd" type="uint32_t"/>
+   </function>
+   <function name="qapi_Fw_Upgrade_Reboot_System">
+      <return attributes="value" type="qapi_Status_t"/>
+   </function>
+   <function name="qapi_Fw_Upgrade_Done">
+      <return attributes="value" type="qapi_Fw_Upgrade_Status_Code_t"/>
+      <argument attributes="value" name="result" type="uint32_t"/>
+      <argument attributes="value" name="flags" type="uint32_t"/>
+   </function>
+   <function name="qapi_Fw_Upgrade_Host_Init">
+      <return attributes="value" type="qapi_Fw_Upgrade_Status_Code_t"/>
+      <argument attributes="value" name="flags" type="uint32_t"/>
+   </function>
+   <function name="qapi_Fw_Upgrade_Host_Deinit">
+      <return attributes="value" type="qapi_Fw_Upgrade_Status_Code_t"/>
+   </function>
+   <function name="qapi_Fw_Upgrade_Host_Write">
+      <return attributes="value" type="qapi_Fw_Upgrade_Status_Code_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="len" lengthVerified="yes" name="buffer" type="char"/>
+      <argument attributes="value" name="len" type="int32_t"/>
+   </function>
+   <function name="qapi_Fw_Upgrade_Get_State">
+      <return attributes="value" type="qapi_Fw_Upgrade_State_t"/>
+   </function>
+   <function name="qapi_Fw_Upgrade_Get_Status">
+      <return attributes="value" type="qapi_Fw_Upgrade_Status_Code_t"/>
+   </function>
+   <function name="qapi_Get_FW_Ver">
+      <return attributes="value" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ver" type="qapi_FW_Ver_t"/>
+   </function>
+</header>

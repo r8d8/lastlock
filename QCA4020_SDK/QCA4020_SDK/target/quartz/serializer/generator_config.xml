@@ -1,0 +1,398 @@
+<?xml version="1.0" ?>
+<config xmldir="genedit_files/xml/" cdir="genedit_files/" fileiddir="genedit_files/fileID" manualdir="manual/">
+   <module name="ble"/>
+      <manualStructure name="qapi_BLE_Condition_t"/>
+
+      <manualFunction name="qapi_BLE_BSC_Query_Host_Version"/>
+      <manualFunction name="qapi_BLE_BSC_LockBluetoothStack"/>
+      <manualFunction name="qapi_BLE_BSC_UnLockBluetoothStack"/>
+
+      <manualStructure name="qapi_BLE_GAP_LE_Advertising_Data_Entry_t"/>
+      <manualStructure name="qapi_BLE_GAP_LE_Authentication_Response_Information_t"/>
+      <manualStructure name="qapi_BLE_GAP_LE_Authentication_Event_Data_t"/>
+      <manualFunction name="qapi_BLE_GAP_LE_Set_Advertising_Data"/>
+      <manualFunction name="qapi_BLE_GAP_LE_Convert_Advertising_Data"/>
+      <manualFunction name="qapi_BLE_GAP_LE_Parse_Advertising_Data"/>
+      <manualFunction name="qapi_BLE_GAP_LE_Set_Scan_Response_Data"/>
+      <manualFunction name="qapi_BLE_GAP_LE_Convert_Scan_Response_Data"/>
+      <manualFunction name="qapi_BLE_GAP_LE_Parse_Scan_Response_Data"/>
+
+      <manualCallback name="qapi_BLE_HCI_Driver_Packet_Write_Callback_t"/>
+      <manualCallback name="qapi_BLE_HCI_Sleep_Callback_t"/>
+      <!--
+      <manualFunction name="qapi_BLE_HCI_Get_MWS_Transport_Layer_Configuration"/>
+      <manualFunction name="qapi_BLE_HCI_Free_MWS_Transport_Layer_Configuration"/>
+      -->
+
+      <manualFunction name="qapi_BLE_HCI_LE_Set_Extended_Scan_Parameters"/>
+      <manualFunction name="qapi_BLE_HCI_LE_Extended_Create_Connection"/>
+
+      <manualStructure name="qapi_BLE_GATT_Service_Attribute_Entry_t"/>
+      <manualFunction name="qapi_BLE_GATT_Register_Service"/>
+      <manualFunction name="qapi_BLE_GATT_Un_Register_Service"/>
+
+      <manualStructure name="qapi_BLE_AIOS_Characteristic_Data_t"/>
+      <manualStructure name="qapi_BLE_AIOS_Write_Characteristic_Request_Data_t"/>
+      <manualFunction name="qapi_BLE_AIOS_Read_Characteristic_Request_Response"/>
+      <manualFunction name="qapi_BLE_AIOS_Notify_Characteristic"/>
+      <manualFunction name="qapi_BLE_AIOS_Indicate_Characteristic"/>
+      <!--
+      <manualCallback name="qapi_BLE_AIOS_Event_Callback_t"/>
+      <manualFunction name="qapi_BLE_AIOS_Initialize_Service"/>
+      <manualFunction name="qapi_BLE_AIOS_Initialize_Service_Handle_Range"/>
+      <manualFunction name="qapi_BLE_AIOS_Cleanup_Service"/>
+      -->
+
+      <manualStructure name="qapi_BLE_ANCS_App_Attribute_Data_t"/>
+      <manualStructure name="qapi_BLE_ANCS_Attribute_Data_t"/>
+
+      <manualFunction name="qapi_BLE_ANCS_Encode_Notification_Attribute_Request"/>
+      <!-- <manualFunction name="qapi_BLE_ANCS_Decode_Attribute_Data"/> -->
+      <manualFunction name="qapi_BLE_ANCS_Encode_App_Attribute_Request"/>
+      <!-- <manualFunction name="qapi_BLE_ANCS_Free_Parsed_Attribute_Data"/> -->
+
+      <!--
+      <manualCallback name="qapi_BLE_ANS_Event_Callback_t"/>
+      <manualFunction name="qapi_BLE_ANS_Initialize_Service"/>
+      <manualFunction name="qapi_BLE_ANS_Initialize_Service_Handle_Range"/>
+      <manualFunction name="qapi_BLE_ANS_Cleanup_Service"/>
+      -->
+      <manualFunction name="qapi_BLE_ANS_Decode_New_Alert_Notification"/>
+      <manualFunction name="qapi_BLE_ANS_Free_New_Alert_Data"/>
+
+      <!--
+      <manualCallback name="qapi_BLE_BAS_Event_Callback_t"/>
+      <manualFunction name="qapi_BLE_BAS_Initialize_Service"/>
+      <manualFunction name="qapi_BLE_BAS_Initialize_Service_Handle_Range"/>
+      <manualFunction name="qapi_BLE_BAS_Cleanup_Service"/>
+      -->
+
+      <!--
+      <manualCallback name="qapi_BLE_BCS_Event_Callback_t"/>
+      <manualFunction name="qapi_BLE_BCS_Initialize_Service"/>
+      <manualFunction name="qapi_BLE_BCS_Initialize_Service_Handle_Range"/>
+      <manualFunction name="qapi_BLE_BCS_Cleanup_Service"/>
+      -->
+
+      <!--
+      <manualCallback name="qapi_BLE_BLS_Event_Callback_t"/>
+      <manualFunction name="qapi_BLE_BLS_Initialize_Service"/>
+      <manualFunction name="qapi_BLE_BLS_Initialize_Service_Handle_Range"/>
+      <manualFunction name="qapi_BLE_BLS_Cleanup_Service"/>
+      -->
+
+      <!--
+      <manualCallback name="qapi_BLE_BMS_Event_Callback_t"/>
+      <manualFunction name="qapi_BLE_BMS_Initialize_Service"/>
+      <manualFunction name="qapi_BLE_BMS_Initialize_Service_Handle_Range"/>
+      <manualFunction name="qapi_BLE_BMS_Cleanup_Service"/>\
+      -->
+
+      <manualStructure name="qapi_BLE_CGMS_RACP_Format_Data_t"/>
+
+      <!--
+      <manualCallback name="qapi_BLE_CGMS_Event_Callback_t"/>
+      <manualFunction name="qapi_BLE_CGMS_Initialize_Service"/>
+      <manualFunction name="qapi_BLE_CGMS_Initialize_Service_Handle_Range"/>
+      <manualFunction name="qapi_BLE_CGMS_Cleanup_Service"/>
+      -->
+
+      <manualFunction name="qapi_BLE_CGMS_Notify_CGMS_Measurements"/>
+      <manualFunction name="qapi_BLE_CGMS_Decode_CGMS_Measurement"/>
+
+      <!--
+      <manualCallback name="qapi_BLE_CPS_Event_Callback_t"/>
+      <manualFunction name="qapi_BLE_CPS_Initialize_Service"/>
+      <manualFunction name="qapi_BLE_CPS_Initialize_Service_Handle_Range"/>
+      <manualFunction name="qapi_BLE_CPS_Cleanup_Service"/>
+      -->
+      <manualFunction name="qapi_BLE_CPS_Decode_CP_Vector"/>
+      <manualFunction name="qapi_BLE_CPS_Free_CP_Vector_Data"/>
+      <manualFunction name="qapi_BLE_CPS_Decode_Control_Point_Response"/>
+      <manualFunction name="qapi_BLE_CPS_Free_Supported_Sensor_Locations_Data"/>
+
+      <!--
+      <manualCallback name="qapi_BLE_CSCS_Event_Callback_t"/>
+      <manualFunction name="qapi_BLE_CSCS_Initialize_Service"/>
+      <manualFunction name="qapi_BLE_CSCS_Initialize_Service_Handle_Range"/>
+      <manualFunction name="qapi_BLE_CSCS_Cleanup_Service"/>
+      -->
+
+      <!--
+      <manualCallback name="qapi_BLE_CTS_Event_Callback_t"/>
+      <manualFunction name="qapi_BLE_CTS_Initialize_Service"/>
+      <manualFunction name="qapi_BLE_CTS_Initialize_Service_Handle_Range"/>
+      <manualFunction name="qapi_BLE_CTS_Cleanup_Service"/>
+      -->
+
+      <!--
+      <manualCallback name="qapi_BLE_DIS_Event_Callback_t"/>
+      <manualFunction name="qapi_BLE_DIS_Initialize_Service"/>
+      <manualFunction name="qapi_BLE_DIS_Initialize_Service_Handle_Range"/>
+      <manualFunction name="qapi_BLE_DIS_Cleanup_Service"/>
+      -->
+      <manualFunction name="qapi_BLE_DIS_Query_Manufacturer_Name"/>
+      <manualFunction name="qapi_BLE_DIS_Query_Model_Number"/>
+      <manualFunction name="qapi_BLE_DIS_Query_Serial_Number"/>
+      <manualFunction name="qapi_BLE_DIS_Query_Hardware_Revision"/>
+      <manualFunction name="qapi_BLE_DIS_Query_Firmware_Revision"/>
+      <manualFunction name="qapi_BLE_DIS_Query_Software_Revision"/>
+      <manualFunction name="qapi_BLE_DIS_Query_IEEE_Certification_Data"/>
+
+      <manualStructure name="qapi_BLE_ESS_Characteristic_Data_t"/>
+      <manualStructure name="qapi_BLE_ESS_ES_Trigger_Setting_Data_t"/>
+      <!--
+      <manualCallback name="qapi_BLE_ESS_Event_Callback_t"/>
+      <manualFunction name="qapi_BLE_ESS_Initialize_Service"/>
+      <manualFunction name="qapi_BLE_ESS_Initialize_Service_Handle_Range"/>
+      <manualFunction name="qapi_BLE_ESS_Cleanup_Service"/>
+      -->
+      <manualFunction name="qapi_BLE_ESS_Read_Characteristic_Request_Response"/>
+      <manualFunction name="qapi_BLE_ESS_Notify_Characteristic"/>
+      <manualFunction name="qapi_BLE_ESS_Decode_Characteristic"/>
+
+      <!--
+      <manualCallback name="qapi_BLE_GAPS_Event_Callback_t"/>
+      <manualFunction name="qapi_BLE_GAPS_Initialize_Service"/>
+      <manualFunction name="qapi_BLE_GAPS_Initialize_Service_Handle_Range"/>
+      <manualFunction name="qapi_BLE_GAPS_Cleanup_Service"/>
+      -->
+      <manualFunction name="qapi_BLE_GAPS_Query_Device_Name"/>
+
+      <manualStructure name="qapi_BLE_GLS_Record_Access_Control_Point_Format_Data_t"/>
+
+      <!--
+      <manualCallback name="qapi_BLE_GLS_Event_Callback_t"/>
+      <manualFunction name="qapi_BLE_GLS_Initialize_Service"/>
+      <manualFunction name="qapi_BLE_GLS_Initialize_Service_Handle_Range"/>
+      <manualFunction name="qapi_BLE_GLS_Cleanup_Service"/>
+      -->
+
+      <!--
+      <manualCallback name="qapi_BLE_HIDS_Event_Callback_t"/>
+      <manualFunction name="qapi_BLE_HIDS_Initialize_Service"/>
+      <manualFunction name="qapi_BLE_HIDS_Initialize_Service_Handle_Range"/>
+      <manualFunction name="qapi_BLE_HIDS_Cleanup_Service"/>
+      -->
+
+      <!--
+      <manualCallback name="qapi_BLE_HPS_Event_Callback_t"/>
+      <manualFunction name="qapi_BLE_HPS_Initialize_Service"/>
+      <manualFunction name="qapi_BLE_HPS_Initialize_Service_Handle_Range"/>
+      <manualFunction name="qapi_BLE_HPS_Cleanup_Service"/>
+      -->
+
+      <!--
+      <manualCallback name="qapi_BLE_HTS_Event_Callback_t"/>
+      <manualFunction name="qapi_BLE_HTS_Initialize_Service"/>
+      <manualFunction name="qapi_BLE_HTS_Initialize_Service_Handle_Range"/>
+      <manualFunction name="qapi_BLE_HTS_Cleanup_Service"/>
+      -->
+
+      <!--
+      <manualCallback name="qapi_BLE_IAS_Event_Callback_t"/>
+      <manualFunction name="qapi_BLE_IAS_Initialize_Service"/>
+      <manualFunction name="qapi_BLE_IAS_Initialize_Service_Handle_Range"/>
+      <manualFunction name="qapi_BLE_IAS_Cleanup_Service"/>
+      -->
+
+      <!--
+      <manualCallback name="qapi_BLE_IPS_Event_Callback_t"/>
+      <manualFunction name="qapi_BLE_IPS_Initialize_Service"/>
+      <manualFunction name="qapi_BLE_IPS_Initialize_Service_Handle_Range"/>
+      <manualFunction name="qapi_BLE_IPS_Cleanup_Service"/>
+      -->
+
+      <!--
+      <manualCallback name="qapi_BLE_IPSP_Event_Callback_t"/>
+      -->
+
+      <!--
+      <manualCallback name="qapi_BLE_LLS_Event_Callback_t"/>
+      <manualFunction name="qapi_BLE_LLS_Initialize_Service"/>
+      <manualFunction name="qapi_BLE_LLS_Initialize_Service_Handle_Range"/>
+      <manualFunction name="qapi_BLE_LLS_Cleanup_Service"/>
+      -->
+
+      <!--
+      <manualCallback name="qapi_BLE_LNS_Event_Callback_t"/>
+      <manualFunction name="qapi_BLE_LNS_Initialize_Service"/>
+      <manualFunction name="qapi_BLE_LNS_Initialize_Service_Handle_Range"/>
+      <manualFunction name="qapi_BLE_LNS_Cleanup_Service"/>
+      -->
+      <manualStructure name="qapi_BLE_LNS_LN_Control_Point_Response_Data_t"/>
+      <manualFunction name="qapi_BLE_LNS_Decode_LN_Control_Point_Response"/>
+      <manualFunction name="qapi_BLE_LNS_Free_LN_Control_Point_Response"/>
+
+      <manualStructure name="qapi_BLE_OTS_Object_Metadata_Data_t"/>
+      <manualStructure name="qapi_BLE_OTS_OACP_Response_Data_t"/>
+      <manualStructure name="qapi_BLE_OTS_OLCP_Response_Data_t"/>
+      <manualStructure name="qapi_BLE_OTS_Write_Object_Metadata_Request_Data_t"/>
+      <!-- <manualCallback name="qapi_BLE_OTS_Event_Callback_t"/> -->
+      <manualCallback name="qapi_BLE_OTS_Channel_Event_Callback_t"/>
+      <manualFunction name="qapi_BLE_OTS_Initialize_Service"/>
+      <manualFunction name="qapi_BLE_OTS_Initialize_Service_Handle_Range"/>
+      <!-- <manualFunction name="qapi_BLE_OTS_Cleanup_Service"/> -->
+      <manualFunction name="qapi_BLE_OTS_Read_Object_Metadata_Request_Response"/>
+      <manualFunction name="qapi_BLE_OTS_Format_Object_Metadata"/>
+      <manualFunction name="qapi_BLE_OTS_Decode_Object_Metadata"/>
+
+      <!--
+      <manualCallback name="qapi_BLE_PASS_Event_Callback_t"/>
+      <manualFunction name="qapi_BLE_PASS_Initialize_Service"/>
+      <manualFunction name="qapi_BLE_PASS_Initialize_Service_Handle_Range"/>
+      <manualFunction name="qapi_BLE_PASS_Cleanup_Service"/>
+      -->
+
+      <!--
+      <manualCallback name="qapi_BLE_PLXS_Event_Callback_t"/>
+      <manualFunction name="qapi_BLE_PLXS_Initialize_Service"/>
+      <manualFunction name="qapi_BLE_PLXS_Initialize_Service_Handle_Range"/>
+      <manualFunction name="qapi_BLE_PLXS_Cleanup_Service"/>
+      -->
+
+      <!--
+      <manualCallback name="qapi_BLE_RSCS_Event_Callback_t"/>
+      <manualFunction name="qapi_BLE_RSCS_Initialize_Service"/>
+      <manualFunction name="qapi_BLE_RSCS_Initialize_Service_Handle_Range"/>
+      <manualFunction name="qapi_BLE_RSCS_Cleanup_Service"/>
+      -->
+
+      <!--
+      <manualCallback name="qapi_BLE_RTUS_Event_Callback_t"/>
+      <manualFunction name="qapi_BLE_RTUS_Initialize_Service"/>
+      <manualFunction name="qapi_BLE_RTUS_Initialize_Service_Handle_Range"/>
+      <manualFunction name="qapi_BLE_RTUS_Cleanup_Service"/>
+      -->
+
+      <!--
+      <manualCallback name="qapi_BLE_SCPS_Event_Callback_t"/>
+      <manualFunction name="qapi_BLE_SCPS_Initialize_Service"/>
+      <manualFunction name="qapi_BLE_SCPS_Initialize_Service_Handle_Range"/>
+      <manualFunction name="qapi_BLE_SCPS_Cleanup_Service"/>
+      -->
+
+      <!--
+      <manualCallback name="qapi_BLE_SLoWP_Event_Callback_t"/>
+      -->
+
+      <!--
+      <manualCallback name="qapi_BLE_TPS_Event_Callback_t"/>
+      <manualFunction name="qapi_BLE_TPS_Initialize_Service"/>
+      <manualFunction name="qapi_BLE_TPS_Initialize_Service_Handle_Range"/>
+      <manualFunction name="qapi_BLE_TPS_Cleanup_Service"/>
+      -->
+
+      <!--
+      <manualCallback name="qapi_BLE_TRDS_Event_Callback_t"/>
+      <manualFunction name="qapi_BLE_TRDS_Initialize_Service"/>
+      <manualFunction name="qapi_BLE_TRDS_Initialize_Service_Handle_Range"/>
+      <manualFunction name="qapi_BLE_TRDS_Cleanup_Service"/>
+      -->
+
+      <manualStructure name="qapi_BLE_UDS_Characteristic_t"/>
+      <manualStructure name="qapi_BLE_UDS_User_Control_Point_Request_Data_t"/>
+      <manualStructure name="qapi_BLE_UDS_User_Control_Point_Response_Data_t"/>
+      <manualStructure name="qapi_BLE_UDS_Write_Characteristic_Request_Data_t"/>
+      <!--
+      <manualCallback name="qapi_BLE_UDS_Event_Callback_t"/>
+      <manualFunction name="qapi_BLE_UDS_Initialize_Service"/>
+      <manualFunction name="qapi_BLE_UDS_Initialize_Service_Handle_Range"/>
+      <manualFunction name="qapi_BLE_UDS_Cleanup_Service"/>
+      -->
+      <manualFunction name="qapi_BLE_UDS_Read_Characteristic_Request_Response"/>
+      <manualFunction name="qapi_BLE_UDS_Format_UDS_Characteristic_Request"/>
+      <manualFunction name="qapi_BLE_UDS_Decode_UDS_Characteristic_Response"/>
+
+      <!--
+      <manualCallback name="qapi_BLE_WSS_Event_Callback_t"/>
+      <manualFunction name="qapi_BLE_WSS_Initialize_Service"/>
+      <manualFunction name="qapi_BLE_WSS_Initialize_Service_Handle_Range"/>
+      <manualFunction name="qapi_BLE_WSS_Cleanup_Service"/>
+      -->
+
+   <module name="zb"/>
+     <manualStructure name="qapi_ZB_ZGP_Key_Request_t"/>
+     <manualStructure name="qapi_ZB_CL_Read_Attr_Status_Record_t"/>
+     <manualStructure name="qapi_ZB_CL_Cluster_Info_t"/>
+     <manualStructure name="qapi_ZB_ZDP_Extended_Simple_Desc_Rsp_t"/>
+     <manualFunction name="qapi_ZB_APS_Create_Test_Endpoint"/>
+     <manualFunction name="qapi_ZB_APS_Test_Endpoint_Data_Request"/>
+     <manualFunction name="qapi_ZB_APSME_Get_Request"/>
+     <manualFunction name="qapi_ZB_APSME_Set_Request"/>
+     <manualFunction name="qapi_ZB_CL_OTA_Client_Discover"/>
+     <manualFunction name="qapi_ZB_CL_Create_Cluster"/>
+     <manualFunction name="qapi_ZB_CL_DoorLock_Server_Get_PIN_Code"/>
+     <!-- <manualStructure name="qapi_ZB_CL_Unparsed_Response_t"/> -->
+
+     <manualCallback name="qapi_ZB_CL_Custom_Cluster_Event_CB_t"/>
+     <manualCallback name="qapi_ZB_CL_Alarm_Client_CB_t"/>
+     <manualCallback name="qapi_ZB_CL_Alarm_Server_CB_t"/>
+     <manualCallback name="qapi_ZB_CL_Ballast_Server_CB_t"/>
+     <manualCallback name="qapi_ZB_CL_Basic_Client_CB_t"/>
+     <manualCallback name="qapi_ZB_CL_ColorControl_Client_CB_t"/>
+     <manualCallback name="qapi_ZB_CL_ColorControl_Server_CB_t"/>
+     <manualCallback name="qapi_ZB_CL_DeviceTemp_Server_CB_t"/>
+     <manualCallback name="qapi_ZB_CL_DoorLock_Client_CB_t"/>
+     <manualCallback name="qapi_ZB_CL_DoorLock_Server_CB_t"/>
+     <manualCallback name="qapi_ZB_CL_FanControl_Server_CB_t"/>
+     <manualCallback name="qapi_ZB_CL_Groups_Client_Event_CB_t"/>
+     <manualCallback name="qapi_ZB_CL_Groups_Server_Event_CB_t"/>
+     <manualCallback name="qapi_ZB_CL_IASACE_Client_CB_t"/>
+     <manualCallback name="qapi_ZB_CL_IASACE_Server_CB_t"/>
+     <manualCallback name="qapi_ZB_CL_IASWD_Client_CB_t"/>
+     <manualCallback name="qapi_ZB_CL_IASWD_Server_CB_t"/>
+     <manualCallback name="qapi_ZB_CL_IASZone_Client_CB_t"/>
+     <manualCallback name="qapi_ZB_CL_IASZone_Server_CB_t"/>
+     <manualCallback name="qapi_ZB_CL_Identify_Client_Event_CB_t"/>
+     <manualCallback name="qapi_ZB_CL_Identify_Server_Event_CB_t"/>
+     <manualCallback name="qapi_ZB_CL_Illuminance_Server_CB_t"/>
+     <manualCallback name="qapi_ZB_CL_LevelControl_Client_CB_t"/>
+     <manualCallback name="qapi_ZB_CL_LevelControl_Server_CB_t"/>
+     <manualCallback name="qapi_ZB_CL_Occupancy_Server_CB_t"/>
+     <manualCallback name="qapi_ZB_CL_OnOff_Client_CB_t"/>
+     <manualCallback name="qapi_ZB_CL_OnOff_Server_CB_t"/>
+     <manualCallback name="qapi_ZB_CL_OTA_Client_CB_t"/>
+     <manualCallback name="qapi_ZB_CL_OTA_Server_CB_t"/>
+     <manualCallback name="qapi_ZB_CL_PowerConfig_Server_CB_t"/>
+     <manualCallback name="qapi_ZB_CL_RelHumid_Server_CB_t"/>
+     <manualCallback name="qapi_ZB_CL_Scenes_Client_Event_CB_t"/>
+     <manualCallback name="qapi_ZB_CL_Scenes_Client_Server_CB_t"/>
+     <manualCallback name="qapi_ZB_CL_TempMeasure_Server_CB_t"/>
+     <manualCallback name="qapi_ZB_CL_Thermostat_Client_CB_t"/>
+     <manualCallback name="qapi_ZB_CL_Thermostat_Server_CB_t"/>
+     <manualCallback name="qapi_ZB_CL_WinCover_Client_CB_t"/>
+     <manualCallback name="qapi_ZB_CL_WinCover_Server_CB_t"/>
+
+   <module name="hmi"/>
+      <manualStructure name="qapi_HMI_PAN_Descriptor_t"/>
+      <manualStructure name="qapi_HMI_MLME_Beacon_Notify_Indication_t"/>
+      <manualStructure name="qapi_HMI_MLME_Scan_Confirm_t"/>
+      <manualFunction name="qapi_HMI_MLME_Get_Request"/>
+      <manualFunction name="qapi_HMI_MLME_Set_Request"/>
+
+
+   <module name="coex"/>
+   <module name="twn"/>
+      <manualStructure name="qapi_TWN_IPv6_Prefix_t"/>
+      <manualFunction name="qapi_TWN_IPv6_Remove_Unicast_Address"/>
+      <manualFunction name="qapi_TWN_IPv6_Subscribe_Multicast_Address"/>
+      <manualFunction name="qapi_TWN_IPv6_Unsubscribe_Multicast_Address"/>
+      <manualFunction name="qapi_TWN_Start_Border_Agent"/>
+      <manualFunction name="qapi_TWN_Stop_Border_Agent"/>
+      <manualFunction name="qapi_TWN_Commissioner_Send_Mgmt_Active_Get"/>
+      <manualFunction name="qapi_TWN_Commissioner_Send_PanId_Query"/>
+
+      <manualStructure name="qapi_TWN_Hosted_Socket_Info_t"/>
+      <manualStructure name="qapi_TWN_Hosted_UDP_Transmit_Data_t"/>
+      <manualFunction name="qapi_TWN_Hosted_Start_Border_Agent"/>
+      <manualFunction name="qapi_TWN_Hosted_Stop_Border_Agent"/>
+      <manualFunction name="qapi_TWN_Hosted_Receive_UDP_Data"/>
+      <manualCallback name="qapi_TWN_Hosted_Event_Callback_t"/>
+
+   <module name="HERH"/>
+   <module name="wlan"/>
+      <manualFunction name="qapi_WLAN_Set_Callback"/>
+   <module name="firmware_upgrade_ext"/>
+   <module name="tlmm"/>
+</config>

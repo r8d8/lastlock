@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="&lt;stdint.h&gt;"/>
+   <macro name="NULL" value="((void *)0)"/>
+   <macro name="TRUE" value="(1 == 1)"/>
+   <macro name="FALSE" value="(0 == 1)"/>
+   <macro name="QAPI_BLE_NON_ALIGNED_BYTE_SIZE" value="(sizeof(qapi_BLE_NonAlignedByte_t))"/>
+   <macro name="QAPI_BLE_NON_ALIGNED_WORD_SIZE" value="(sizeof(qapi_BLE_NonAlignedWord_t))"/>
+   <macro name="QAPI_BLE_NON_ALIGNED_DWORD_SIZE" value="(sizeof(qapi_BLE_NonAlignedDWord_t))"/>
+   <macro name="QAPI_BLE_NON_ALIGNED_QWORD_SIZE" value="(sizeof(qapi_BLE_NonAlignedQWord_t))"/>
+   <macro name="QAPI_BLE_NON_ALIGNED_SBYTE_SIZE" value="(sizeof(qapi_BLE_NonAlignedSByte_t))"/>
+   <macro name="QAPI_BLE_NON_ALIGNED_SWORD_SIZE" value="(sizeof(qapi_BLE_NonAlignedSWord_t))"/>
+   <macro name="QAPI_BLE_NON_ALIGNED_SDWORD_SIZE" value="(sizeof(qapi_BLE_NonAlignedSDWord_t))"/>
+   <macro name="QAPI_BLE_NON_ALIGNED_SQWORD_SIZE" value="(sizeof(qapi_BLE_NonAlignedSQWord_t))"/>
+   <structure name="qapi_BLE_NonAlignedWord_t">
+      <member attributes="value" name="NonAlignedWord0" type="uint8_t"/>
+      <member attributes="value" name="NonAlignedWord1" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_NonAlignedDWord_t">
+      <member attributes="value" name="NonAlignedDWord0" type="uint8_t"/>
+      <member attributes="value" name="NonAlignedDWord1" type="uint8_t"/>
+      <member attributes="value" name="NonAlignedDWord2" type="uint8_t"/>
+      <member attributes="value" name="NonAlignedDWord3" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_NonAlignedQWord_t">
+      <member attributes="value" name="NonAlignedQWord0" type="uint8_t"/>
+      <member attributes="value" name="NonAlignedQWord1" type="uint8_t"/>
+      <member attributes="value" name="NonAlignedQWord2" type="uint8_t"/>
+      <member attributes="value" name="NonAlignedQWord3" type="uint8_t"/>
+      <member attributes="value" name="NonAlignedQWord4" type="uint8_t"/>
+      <member attributes="value" name="NonAlignedQWord5" type="uint8_t"/>
+      <member attributes="value" name="NonAlignedQWord6" type="uint8_t"/>
+      <member attributes="value" name="NonAlignedQWord7" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_NonAlignedSWord_t">
+      <member attributes="value" name="NonAlignedSWord0" type="int8_t"/>
+      <member attributes="value" name="NonAlignedSWord1" type="int8_t"/>
+   </structure>
+   <structure name="qapi_BLE_NonAlignedSDWord_t">
+      <member attributes="value" name="NonAlignedSDWord0" type="int8_t"/>
+      <member attributes="value" name="NonAlignedSDWord1" type="int8_t"/>
+      <member attributes="value" name="NonAlignedSDWord2" type="int8_t"/>
+      <member attributes="value" name="NonAlignedSDWord3" type="int8_t"/>
+   </structure>
+   <structure name="qapi_BLE_NonAlignedSQWord_t">
+      <member attributes="value" name="NonAlignedSQWord0" type="int8_t"/>
+      <member attributes="value" name="NonAlignedSQWord1" type="int8_t"/>
+      <member attributes="value" name="NonAlignedSQWord2" type="int8_t"/>
+      <member attributes="value" name="NonAlignedSQWord3" type="int8_t"/>
+      <member attributes="value" name="NonAlignedSQWord4" type="int8_t"/>
+      <member attributes="value" name="NonAlignedSQWord5" type="int8_t"/>
+      <member attributes="value" name="NonAlignedSQWord6" type="int8_t"/>
+      <member attributes="value" name="NonAlignedSQWord7" type="int8_t"/>
+   </structure>
+</header>

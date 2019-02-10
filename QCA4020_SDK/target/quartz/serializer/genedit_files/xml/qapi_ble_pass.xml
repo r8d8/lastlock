@@ -1,0 +1,180 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="./qapi_ble_btapityp.h"/>
+   <include name="./qapi_ble_bttypes.h"/>
+   <include name="./qapi_ble_gatt.h"/>
+   <include name="./qapi_ble_passtypes.h"/>
+   <macro name="QAPI_BLE_PASS_ERROR_INVALID_PARAMETER" value="(-1000)"/>
+   <macro name="QAPI_BLE_PASS_ERROR_INVALID_BLUETOOTH_STACK_ID" value="(-1001)"/>
+   <macro name="QAPI_BLE_PASS_ERROR_INSUFFICIENT_RESOURCES" value="(-1002)"/>
+   <macro name="QAPI_BLE_PASS_ERROR_SERVICE_ALREADY_REGISTERED" value="(-1003)"/>
+   <macro name="QAPI_BLE_PASS_ERROR_INVALID_INSTANCE_ID" value="(-1004)"/>
+   <macro name="QAPI_BLE_PASS_ERROR_MALFORMATTED_DATA" value="(-1005)"/>
+   <macro name="QAPI_BLE_PASS_ERROR_UNKNOWN_ERROR" value="(-1006)"/>
+   <macro name="QAPI_BLE_PASS_ALERT_STATUS_DATA_SIZE" value="(sizeof(qapi_BLE_PASS_Alert_Status_t))"/>
+   <macro name="QAPI_BLE_PASS_CLIENT_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_PASS_Client_Information_t))"/>
+   <macro name="QAPI_BLE_PASS_SERVER_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_PASS_Server_Information_t))"/>
+   <macro name="QAPI_BLE_PASS_READ_CLIENT_CONFIGURATION_DATA_SIZE" value="(sizeof(qapi_BLE_PASS_Read_Client_Configuration_Data_t))"/>
+   <macro name="QAPI_BLE_PASS_CLIENT_CONFIGURATION_UPDATE_DATA_SIZE" value="(sizeof(qapi_BLE_PASS_Client_Configuration_Update_Data_t))"/>
+   <macro name="QAPI_BLE_PASS_RINGER_CONTROL_COMMAND_DATA_SIZE" value="(sizeof(qapi_BLE_PASS_Ringer_Control_Command_Data_t))"/>
+   <macro name="QAPI_BLE_PASS_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_PASS_Event_Data_t))"/>
+   <enum name="qapi_BLE_PASS_Ringer_Setting_t">
+      <member name="QAPI_BLE_RS_SILENT_E" value="QAPI_BLE_PASS_RINGER_SETTING_RINGER_SILENT"/>
+      <member name="QAPI_BLE_RS_NORMAL_E" value="QAPI_BLE_PASS_RINGER_SETTING_RINGER_NORMAL"/>
+   </enum>
+   <enum name="qapi_BLE_PASS_Ringer_Control_Command_t">
+      <member name="QAPI_BLE_RC_SILENT_E" value="QAPI_BLE_PASS_RINGER_CONTROL_COMMAND_SILENT_MODE"/>
+      <member name="QAPI_BLE_RC_MUTE_ONCE_E" value="QAPI_BLE_PASS_RINGER_CONTROL_COMMAND_MUTE_ONCE"/>
+      <member name="QAPI_BLE_RC_CANCEL_SILENT_E" value="QAPI_BLE_PASS_RINGER_CONTROL_COMMAND_CANCEL_SILENT_MODE"/>
+   </enum>
+   <enum name="qapi_BLE_PASS_Characteristic_Type_t">
+      <member name="QAPI_BLE_RR_ALERT_STATUS_E" value="0"/>
+      <member name="QAPI_BLE_RR_RINGER_SETTING_E" value="1"/>
+   </enum>
+   <enum name="qapi_BLE_PASS_Event_Type_t">
+      <member name="QAPI_BLE_ET_PASS_SERVER_READ_CLIENT_CONFIGURATION_REQUEST_E" value="0"/>
+      <member name="QAPI_BLE_ET_PASS_SERVER_CLIENT_CONFIGURATION_UPDATE_E" value="1"/>
+      <member name="QAPI_BLE_ET_PASS_SERVER_RINGER_CONTROL_COMMAND_INDICATION_E" value="2"/>
+   </enum>
+   <structure name="qapi_BLE_PASS_Alert_Status_t">
+      <member attributes="value" name="RingerStateActive" type="boolean_t"/>
+      <member attributes="value" name="VibrateStateActive" type="boolean_t"/>
+      <member attributes="value" name="DisplayStateActive" type="boolean_t"/>
+   </structure>
+   <structure name="qapi_BLE_PASS_Client_Information_t">
+      <member attributes="value" name="Alert_Status" type="uint16_t"/>
+      <member attributes="value" name="Alert_Status_Client_Configuration" type="uint16_t"/>
+      <member attributes="value" name="Ringer_Setting" type="uint16_t"/>
+      <member attributes="value" name="Ringer_Setting_Client_Configuration" type="uint16_t"/>
+      <member attributes="value" name="Ringer_Control_Point" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_PASS_Server_Information_t">
+      <member attributes="value" name="Alert_Status_Client_Configuration" type="boolean_t"/>
+      <member attributes="value" name="Ringer_Setting_Client_Configuration" type="boolean_t"/>
+   </structure>
+   <structure name="qapi_BLE_PASS_Read_Client_Configuration_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ClientConfigurationType" type="qapi_BLE_PASS_Characteristic_Type_t"/>
+   </structure>
+   <structure name="qapi_BLE_PASS_Client_Configuration_Update_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ClientConfigurationType" type="qapi_BLE_PASS_Characteristic_Type_t"/>
+      <member attributes="value" name="NotificationsEnabled" type="boolean_t"/>
+   </structure>
+   <structure name="qapi_BLE_PASS_Ringer_Control_Command_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Command" type="qapi_BLE_PASS_Ringer_Control_Command_t"/>
+   </structure>
+   <structure name="qapi_BLE_PASS_Event_Data_t">
+      <member attributes="value" name="Event_Data_Type" type="qapi_BLE_PASS_Event_Type_t"/>
+      <member attributes="value" name="Event_Data_Size" type="uint16_t"/>
+      <member attributes="union" name="Event_Data">
+         <member attributes="ptr" iotype="in" name="PASS_Read_Client_Configuration_Data" type="qapi_BLE_PASS_Read_Client_Configuration_Data_t"/>
+         <member attributes="ptr" iotype="in" name="PASS_Client_Configuration_Update_Data" type="qapi_BLE_PASS_Client_Configuration_Update_Data_t"/>
+         <member attributes="ptr" iotype="in" name="PASS_Ringer_Control_Command_Data" type="qapi_BLE_PASS_Ringer_Control_Command_Data_t"/>
+         <unionMap mapVerified="yes" name="Event_Data_Type" type="qapi_BLE_PASS_Event_Type_t">
+            <mapEntry member="PASS_Read_Client_Configuration_Data" type="qapi_BLE_PASS_Read_Client_Configuration_Data_t" value="QAPI_BLE_ET_PASS_SERVER_READ_CLIENT_CONFIGURATION_REQUEST_E"/>
+            <mapEntry member="PASS_Client_Configuration_Update_Data" type="qapi_BLE_PASS_Client_Configuration_Update_Data_t" value="QAPI_BLE_ET_PASS_SERVER_CLIENT_CONFIGURATION_UPDATE_E"/>
+            <mapEntry member="PASS_Ringer_Control_Command_Data" type="qapi_BLE_PASS_Ringer_Control_Command_Data_t" value="QAPI_BLE_ET_PASS_SERVER_RINGER_CONTROL_COMMAND_INDICATION_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <function name="qapi_BLE_PASS_Initialize_Service">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_PASS_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_PASS_Initialize_Service_Handle_Range">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_PASS_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="ServiceHandleRange" type="qapi_BLE_GATT_Attribute_Handle_Group_t"/>
+   </function>
+   <function name="qapi_BLE_PASS_Cleanup_Service">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_PASS_Query_Number_Attributes">
+      <return attributes="value" type="unsigned int"/>
+   </function>
+   <function name="qapi_BLE_PASS_Set_Alert_Status">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="AlertStatus" type="qapi_BLE_PASS_Alert_Status_t"/>
+   </function>
+   <function name="qapi_BLE_PASS_Query_Alert_Status">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="AlertStatus" type="qapi_BLE_PASS_Alert_Status_t"/>
+   </function>
+   <function name="qapi_BLE_PASS_Set_Ringer_Setting">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="RingerSetting" type="qapi_BLE_PASS_Ringer_Setting_t"/>
+   </function>
+   <function name="qapi_BLE_PASS_Query_Ringer_Setting">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="RingerSetting" type="qapi_BLE_PASS_Ringer_Setting_t"/>
+   </function>
+   <function name="qapi_BLE_PASS_Read_Client_Configuration_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="NotificationsEnabled" type="boolean_t"/>
+   </function>
+   <function name="qapi_BLE_PASS_Send_Notification">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="value" name="CharacteristicType" type="qapi_BLE_PASS_Characteristic_Type_t"/>
+   </function>
+   <function name="qapi_BLE_PASS_Decode_Alert_Status">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="AlertStatusResult" type="qapi_BLE_PASS_Alert_Status_t"/>
+   </function>
+   <function name="qapi_BLE_PASS_Decode_Ringer_Setting">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="RingerSetting" type="qapi_BLE_PASS_Ringer_Setting_t"/>
+   </function>
+   <function name="qapi_BLE_PASS_Format_Ringer_Control_Command">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="RingerControlCommand" type="qapi_BLE_PASS_Ringer_Control_Command_t"/>
+      <argument attributes="value" name="BufferLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="BufferLength" lengthVerified="yes" name="Buffer" type="uint8_t"/>
+   </function>
+   <callback name="qapi_BLE_PASS_Event_Callback_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="PASS_Event_Data" type="qapi_BLE_PASS_Event_Data_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <createFunction ID="qsRetVal" funcSuccess="0" moduleParam="BluetoothStackID" name="qapi_BLE_PASS_Initialize_Service" param="CallbackParameter"/>
+      <createFunction ID="qsRetVal" funcSuccess="0" moduleParam="BluetoothStackID" name="qapi_BLE_PASS_Initialize_Service_Handle_Range" param="CallbackParameter"/>
+      <destroyFunction ID="InstanceID" funcSuccess="0" name="qapi_BLE_PASS_Cleanup_Service"/>
+   </callback>
+</header>

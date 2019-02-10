@@ -1,0 +1,282 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="./qapi_ble_btapityp.h"/>
+   <include name="./qapi_ble_bttypes.h"/>
+   <macro name="QAPI_BLE_L2CAP_MAXIMUM_SUPPORTED_STACK_MTU" value="(QAPI_BLE_HCI_PACKET_TYPE_3_DH5_MAXIMUM_PAYLOAD_SIZE - (QAPI_BLE_NON_ALIGNED_WORD_SIZE*2))"/>
+   <macro name="QAPI_BLE_L2CAP_RTX_TIMER_MINIMUM_VALUE" value="1"/>
+   <macro name="QAPI_BLE_L2CAP_RTX_TIMER_MAXIMUM_VALUE" value="60"/>
+   <macro name="QAPI_BLE_L2CAP_RTX_TIMER_DEFAULT_VALUE" value="15"/>
+   <macro name="QAPI_BLE_L2CAP_RECEIVE_TIMER_MINIMUM_VALUE" value="1"/>
+   <macro name="QAPI_BLE_L2CAP_RECEIVE_TIMER_MAXIMUM_VALUE" value="60"/>
+   <macro name="QAPI_BLE_L2CAP_RECEIVE_TIMER_DEFAULT_VALUE" value="60"/>
+   <macro name="QAPI_BLE_L2CAP_LE_CONNECT_RESULT_CONNECTION_SUCCESSFUL" value="0x0000"/>
+   <macro name="QAPI_BLE_L2CAP_LE_CONNECT_RESULT_CONNECTION_REFUSED_LE_PSM_NOT_REGISTERED" value="0x0002"/>
+   <macro name="QAPI_BLE_L2CAP_LE_CONNECT_RESULT_CONNECTION_REFUSED_NO_RESOURCES" value="0x0004"/>
+   <macro name="QAPI_BLE_L2CAP_LE_CONNECT_RESULT_CONNECTION_REFUSED_INSUFFICIENT_AUTHENTICATION" value="0x0005"/>
+   <macro name="QAPI_BLE_L2CAP_LE_CONNECT_RESULT_CONNECTION_REFUSED_INSUFFICIENT_AUTHORIZATION" value="0x0006"/>
+   <macro name="QAPI_BLE_L2CAP_LE_CONNECT_RESULT_CONNECTION_REFUSED_INSUFFICIENT_ENCRYPTION_KEY_SIZE" value="0x0007"/>
+   <macro name="QAPI_BLE_L2CAP_LE_CONNECT_RESULT_CONNECTION_REFUSED_INSUFFICIENT_ENCRYPTION" value="0x0008"/>
+   <macro name="QAPI_BLE_L2CA_QUEUEING_PARAMETERS_SIZE" value="(sizeof(qapi_BLE_L2CA_Queueing_Parameters_t))"/>
+   <macro name="QAPI_BLE_L2CA_QUEUEING_FLAG_LIMIT_BY_PACKETS" value="0x00000000L"/>
+   <macro name="QAPI_BLE_L2CA_QUEUEING_FLAG_LIMIT_BY_SIZE" value="0x00000001L"/>
+   <macro name="QAPI_BLE_L2CA_QUEUEING_FLAG_DISCARD_OLDEST" value="0x00000002L"/>
+   <macro name="QAPI_BLE_L2CA_LE_CHANNEL_PARAMETERS_SIZE" value="(sizeof(qapi_BLE_L2CA_LE_Channel_Parameters_t))"/>
+   <macro name="QAPI_BLE_L2CA_LE_CHANNEL_PARAMETER_FLAGS_MANUAL_CREDIT_MODE" value="0x0001"/>
+   <macro name="QAPI_BLE_L2CA_CONNECTION_PARAMETER_UPDATE_INDICATION_SIZE" value="(sizeof(qapi_BLE_L2CA_Connection_Parameter_Update_Indication_t))"/>
+   <macro name="QAPI_BLE_L2CA_CONNECTION_PARAMETER_UPDATE_CONFIRMATION_SIZE" value="(sizeof(qapi_BLE_L2CA_Connection_Parameter_Update_Confirmation_t))"/>
+   <macro name="QAPI_BLE_L2CA_FIXED_CHANNEL_CONNECT_INDICATION_SIZE" value="(sizeof(qapi_BLE_L2CA_Fixed_Channel_Connect_Indication_t))"/>
+   <macro name="QAPI_BLE_L2CA_FIXED_CHANNEL_DISCONNECT_INDICATION_SIZE" value="(sizeof(qapi_BLE_L2CA_Fixed_Channel_Disconnect_Indication_t))"/>
+   <macro name="QAPI_BLE_L2CA_FIXED_CHANNEL_DATA_INDICATION_SIZE" value="(sizeof(qapi_BLE_L2CA_Fixed_Channel_Data_Indication_t))"/>
+   <macro name="QAPI_BLE_L2CA_FIXED_CHANNEL_BUFFER_EMPTY_INDICATION_SIZE" value="(sizeof(qapi_BLE_L2CA_Fixed_Channel_Buffer_Empty_Indication_t))"/>
+   <macro name="QAPI_BLE_L2CA_LE_CONNECT_INDICATION_SIZE" value="(sizeof(qapi_BLE_L2CA_LE_Connect_Indication_t))"/>
+   <macro name="QAPI_BLE_L2CA_LE_CONNECT_CONFIRMATION_SIZE" value="(sizeof(qapi_BLE_L2CA_LE_Connect_Confirmation_t))"/>
+   <macro name="QAPI_BLE_L2CA_LE_DISCONNECT_INDICATION_SIZE" value="(sizeof(qapi_BLE_L2CA_LE_Disconnect_Indication_t))"/>
+   <macro name="QAPI_BLE_L2CA_LE_DISCONNECT_CONFIRMATION_SIZE" value="(sizeof(qapi_BLE_L2CA_LE_Disconnect_Confirmation_t))"/>
+   <macro name="QAPI_BLE_L2CA_LE_DATA_INDICATION_SIZE" value="(sizeof(qapi_BLE_L2CA_LE_Data_Indication_t))"/>
+   <macro name="QAPI_BLE_L2CA_LE_CHANNEL_BUFFER_EMPTY_INDICATION_SIZE" value="(sizeof(qapi_BLE_L2CA_LE_Channel_Buffer_Empty_Indication_t))"/>
+   <macro name="QAPI_BLE_L2CA_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_L2CA_Event_Data_t))"/>
+   <enum name="qapi_BLE_L2CA_Controller_Type_t">
+      <member name="QAPI_BLE_CT_BR_EDR_E" value="0"/>
+      <member name="QAPI_BLE_CT_LE_E" value="1"/>
+   </enum>
+   <enum name="qapi_BLE_L2CA_Event_Type_t">
+      <member name="QAPI_BLE_ET_CONNECTION_PARAMETER_UPDATE_INDICATION_E" value="0"/>
+      <member name="QAPI_BLE_ET_CONNECTION_PARAMETER_UPDATE_CONFIRMATION_E" value="1"/>
+      <member name="QAPI_BLE_ET_FIXED_CHANNEL_CONNECT_INDICATION_E" value="2"/>
+      <member name="QAPI_BLE_ET_FIXED_CHANNEL_DISCONNECT_INDICATION_E" value="3"/>
+      <member name="QAPI_BLE_ET_FIXED_CHANNEL_DATA_INDICATION_E" value="4"/>
+      <member name="QAPI_BLE_ET_FIXED_CHANNEL_BUFFER_EMPTY_INDICATION_E" value="5"/>
+      <member name="QAPI_BLE_ET_LE_CONNECT_INDICATION_E" value="6"/>
+      <member name="QAPI_BLE_ET_LE_CONNECT_CONFIRMATION_E" value="7"/>
+      <member name="QAPI_BLE_ET_LE_DISCONNECT_INDICATION_E" value="8"/>
+      <member name="QAPI_BLE_ET_LE_DISCONNECT_CONFIRMATION_E" value="9"/>
+      <member name="QAPI_BLE_ET_LE_DATA_INDICATION_E" value="10"/>
+      <member name="QAPI_BLE_ET_LE_CHANNEL_BUFFER_EMPTY_INDICATION_E" value="11"/>
+   </enum>
+   <structure name="qapi_BLE_L2CA_Queueing_Parameters_t">
+      <member attributes="value" name="Flags" type="uint32_t"/>
+      <member attributes="value" name="QueueLimit" type="uint32_t"/>
+      <member attributes="value" name="LowThreshold" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_BLE_L2CA_LE_Channel_Parameters_t">
+      <member attributes="value" name="ChannelFlags" type="uint16_t"/>
+      <member attributes="value" name="MaxSDUSize" type="uint16_t"/>
+      <member attributes="value" name="MaxPDUSize" type="uint16_t"/>
+      <member attributes="value" name="PDUQueueDepth" type="uint16_t"/>
+      <member attributes="value" name="MaximumCredits" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_L2CA_Connection_Parameter_Update_Indication_t">
+      <member attributes="value" name="FCID" type="uint16_t"/>
+      <member attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="IntervalMin" type="uint16_t"/>
+      <member attributes="value" name="IntervalMax" type="uint16_t"/>
+      <member attributes="value" name="SlaveLatency" type="uint16_t"/>
+      <member attributes="value" name="TimeoutMultiplier" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_L2CA_Connection_Parameter_Update_Confirmation_t">
+      <member attributes="value" name="FCID" type="uint16_t"/>
+      <member attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Result" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_L2CA_Fixed_Channel_Connect_Indication_t">
+      <member attributes="value" name="FCID" type="uint16_t"/>
+      <member attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ControllerType" type="qapi_BLE_L2CA_Controller_Type_t"/>
+   </structure>
+   <structure name="qapi_BLE_L2CA_Fixed_Channel_Disconnect_Indication_t">
+      <member attributes="value" name="FCID" type="uint16_t"/>
+      <member attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ControllerType" type="qapi_BLE_L2CA_Controller_Type_t"/>
+   </structure>
+   <structure name="qapi_BLE_L2CA_Fixed_Channel_Data_Indication_t">
+      <member attributes="value" name="FCID" type="uint16_t"/>
+      <member attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Data_Length" type="uint16_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="Data_Length" lengthVerified="yes" name="Variable_Data" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_L2CA_Fixed_Channel_Buffer_Empty_Indication_t">
+      <member attributes="value" name="FCID" type="uint16_t"/>
+      <member attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+   </structure>
+   <structure name="qapi_BLE_L2CA_LE_Connect_Indication_t">
+      <member attributes="value" name="PSM" type="uint16_t"/>
+      <member attributes="value" name="LCID" type="uint16_t"/>
+      <member attributes="value" name="Identifier" type="uint8_t"/>
+      <member attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="MaxSDUSize" type="uint16_t"/>
+      <member attributes="value" name="MaxPDUSize" type="uint16_t"/>
+      <member attributes="value" name="InitialCredits" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_L2CA_LE_Connect_Confirmation_t">
+      <member attributes="value" name="LCID" type="uint16_t"/>
+      <member attributes="value" name="Result" type="uint16_t"/>
+      <member attributes="value" name="MaxSDUSize" type="uint16_t"/>
+      <member attributes="value" name="MaxPDUSize" type="uint16_t"/>
+      <member attributes="value" name="InitialCredits" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_L2CA_LE_Disconnect_Indication_t">
+      <member attributes="value" name="LCID" type="uint16_t"/>
+      <member attributes="value" name="Reason" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_L2CA_LE_Disconnect_Confirmation_t">
+      <member attributes="value" name="LCID" type="uint16_t"/>
+      <member attributes="value" name="Result" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_L2CA_LE_Data_Indication_t">
+      <member attributes="value" name="CID" type="uint16_t"/>
+      <member attributes="value" name="CreditsConsumed" type="uint16_t"/>
+      <member attributes="value" name="Data_Length" type="uint16_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="Data_Length" lengthVerified="yes" name="Variable_Data" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_L2CA_LE_Channel_Buffer_Empty_Indication_t">
+      <member attributes="value" name="CID" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_L2CA_Event_Data_t">
+      <member attributes="value" name="L2CA_Event_Type" type="qapi_BLE_L2CA_Event_Type_t"/>
+      <member attributes="value" name="Event_Data_Length" type="uint32_t"/>
+      <member attributes="union" name="Event_Data">
+         <member attributes="ptr" iotype="in" name="L2CA_Connection_Parameter_Update_Indication" type="qapi_BLE_L2CA_Connection_Parameter_Update_Indication_t"/>
+         <member attributes="ptr" iotype="in" name="L2CA_Connection_Parameter_Update_Confirmation" type="qapi_BLE_L2CA_Connection_Parameter_Update_Confirmation_t"/>
+         <member attributes="ptr" iotype="in" name="L2CA_Fixed_Channel_Connect_Indication" type="qapi_BLE_L2CA_Fixed_Channel_Connect_Indication_t"/>
+         <member attributes="ptr" iotype="in" name="L2CA_Fixed_Channel_Disconnect_Indication" type="qapi_BLE_L2CA_Fixed_Channel_Disconnect_Indication_t"/>
+         <member attributes="ptr" iotype="in" name="L2CA_Fixed_Channel_Data_Indication" type="qapi_BLE_L2CA_Fixed_Channel_Data_Indication_t"/>
+         <member attributes="ptr" iotype="in" name="L2CA_Fixed_Channel_Buffer_Empty_Indication" type="qapi_BLE_L2CA_Fixed_Channel_Buffer_Empty_Indication_t"/>
+         <member attributes="ptr" iotype="in" name="L2CA_LE_Connect_Indication" type="qapi_BLE_L2CA_LE_Connect_Indication_t"/>
+         <member attributes="ptr" iotype="in" name="L2CA_LE_Connect_Confirmation" type="qapi_BLE_L2CA_LE_Connect_Confirmation_t"/>
+         <member attributes="ptr" iotype="in" name="L2CA_LE_Disconnect_Indication" type="qapi_BLE_L2CA_LE_Disconnect_Indication_t"/>
+         <member attributes="ptr" iotype="in" name="L2CA_LE_Disconnect_Confirmation" type="qapi_BLE_L2CA_LE_Disconnect_Confirmation_t"/>
+         <member attributes="ptr" iotype="in" name="L2CA_LE_Data_Indication" type="qapi_BLE_L2CA_LE_Data_Indication_t"/>
+         <member attributes="ptr" iotype="in" name="L2CA_LE_Channel_Buffer_Empty_Indication" type="qapi_BLE_L2CA_LE_Channel_Buffer_Empty_Indication_t"/>
+         <unionMap mapVerified="yes" name="L2CA_Event_Type" type="qapi_BLE_L2CA_Event_Type_t">
+            <mapEntry member="L2CA_Connection_Parameter_Update_Indication" type="qapi_BLE_L2CA_Connection_Parameter_Update_Indication_t" value="QAPI_BLE_ET_CONNECTION_PARAMETER_UPDATE_INDICATION_E"/>
+            <mapEntry member="L2CA_Connection_Parameter_Update_Confirmation" type="qapi_BLE_L2CA_Connection_Parameter_Update_Confirmation_t" value="QAPI_BLE_ET_CONNECTION_PARAMETER_UPDATE_CONFIRMATION_E"/>
+            <mapEntry member="L2CA_Fixed_Channel_Connect_Indication" type="qapi_BLE_L2CA_Fixed_Channel_Connect_Indication_t" value="QAPI_BLE_ET_FIXED_CHANNEL_CONNECT_INDICATION_E"/>
+            <mapEntry member="L2CA_Fixed_Channel_Disconnect_Indication" type="qapi_BLE_L2CA_Fixed_Channel_Disconnect_Indication_t" value="QAPI_BLE_ET_FIXED_CHANNEL_DISCONNECT_INDICATION_E"/>
+            <mapEntry member="L2CA_Fixed_Channel_Data_Indication" type="qapi_BLE_L2CA_Fixed_Channel_Data_Indication_t" value="QAPI_BLE_ET_FIXED_CHANNEL_DATA_INDICATION_E"/>
+            <mapEntry member="L2CA_Fixed_Channel_Buffer_Empty_Indication" type="qapi_BLE_L2CA_Fixed_Channel_Buffer_Empty_Indication_t" value="QAPI_BLE_ET_FIXED_CHANNEL_BUFFER_EMPTY_INDICATION_E"/>
+            <mapEntry member="L2CA_LE_Connect_Indication" type="qapi_BLE_L2CA_LE_Connect_Indication_t" value="QAPI_BLE_ET_LE_CONNECT_INDICATION_E"/>
+            <mapEntry member="L2CA_LE_Connect_Confirmation" type="qapi_BLE_L2CA_LE_Connect_Confirmation_t" value="QAPI_BLE_ET_LE_CONNECT_CONFIRMATION_E"/>
+            <mapEntry member="L2CA_LE_Disconnect_Indication" type="qapi_BLE_L2CA_LE_Disconnect_Indication_t" value="QAPI_BLE_ET_LE_DISCONNECT_INDICATION_E"/>
+            <mapEntry member="L2CA_LE_Disconnect_Confirmation" type="qapi_BLE_L2CA_LE_Disconnect_Confirmation_t" value="QAPI_BLE_ET_LE_DISCONNECT_CONFIRMATION_E"/>
+            <mapEntry member="L2CA_LE_Data_Indication" type="qapi_BLE_L2CA_LE_Data_Indication_t" value="QAPI_BLE_ET_LE_DATA_INDICATION_E"/>
+            <mapEntry member="L2CA_LE_Channel_Buffer_Empty_Indication" type="qapi_BLE_L2CA_LE_Channel_Buffer_Empty_Indication_t" value="QAPI_BLE_ET_LE_CHANNEL_BUFFER_EMPTY_INDICATION_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <function name="qapi_BLE_L2CA_Register_LE_PSM">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="LE_PSM" type="uint16_t"/>
+      <argument attributes="value" name="L2CA_Event_Callback" type="qapi_BLE_L2CA_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_L2CA_Un_Register_LE_PSM">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="L2CAP_PSMID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_L2CA_Register_Fixed_Channel">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="FixedChannel" type="uint16_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="ChannelParameters" type="void"/>
+      <argument attributes="value" name="L2CA_Event_Callback" type="qapi_BLE_L2CA_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_L2CA_Un_Register_Fixed_Channel">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="FCID" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_L2CA_LE_Connect_Request">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="value" name="LE_PSM" type="uint16_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="ChannelParameters" type="qapi_BLE_L2CA_LE_Channel_Parameters_t"/>
+      <argument attributes="value" name="L2CA_Event_Callback" type="qapi_BLE_L2CA_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_L2CA_LE_Connect_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="value" name="Identifier" type="uint8_t"/>
+      <argument attributes="value" name="LCID" type="uint16_t"/>
+      <argument attributes="value" name="Result" type="uint16_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="ChannelParameters" type="qapi_BLE_L2CA_LE_Channel_Parameters_t"/>
+   </function>
+   <function name="qapi_BLE_L2CA_LE_Disconnect_Request">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="LCID" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_L2CA_LE_Disconnect_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="LCID" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_L2CA_Fixed_Channel_Data_Write">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="value" name="FCID" type="uint16_t"/>
+      <argument attributes="value" name="Data_Length" type="uint16_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="Data_Length" lengthVerified="yes" name="Data" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_L2CA_Enhanced_Fixed_Channel_Data_Write">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="value" name="FCID" type="uint16_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="QueueingParameters" type="qapi_BLE_L2CA_Queueing_Parameters_t"/>
+      <argument attributes="value" name="Data_Length" type="uint16_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="Data_Length" lengthVerified="yes" name="Data" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_L2CA_Enhanced_Dynamic_Channel_Data_Write">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="LCID" type="uint16_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="QueueingParameters" type="qapi_BLE_L2CA_Queueing_Parameters_t"/>
+      <argument attributes="value" name="Data_Length" type="uint16_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="Data_Length" lengthVerified="yes" name="Data" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_L2CA_LE_Flush_Channel_Data">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="CID" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_L2CA_LE_Grant_Credits">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="CID" type="uint16_t"/>
+      <argument attributes="value" name="CreditsToGrant" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_L2CA_Connection_Parameter_Update_Request">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="value" name="IntervalMin" type="uint16_t"/>
+      <argument attributes="value" name="IntervalMax" type="uint16_t"/>
+      <argument attributes="value" name="SlaveLatency" type="uint16_t"/>
+      <argument attributes="value" name="TimeoutMultiplier" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_L2CA_Connection_Parameter_Update_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="value" name="Result" type="uint16_t"/>
+   </function>
+   <callback name="qapi_BLE_L2CA_Event_Callback_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="L2CA_Event_Data" type="qapi_BLE_L2CA_Event_Data_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <createFunction ID="qsRetVal" funcSuccess="__positive__" moduleParam="BluetoothStackID" name="qapi_BLE_L2CA_Register_LE_PSM" param="CallbackParameter"/>
+      <createFunction ID="qsRetVal" funcSuccess="__positive__" moduleParam="BluetoothStackID" name="qapi_BLE_L2CA_Register_Fixed_Channel" param="CallbackParameter"/>
+      <createFunction ID="qsRetVal" funcSuccess="__positive__" moduleParam="BluetoothStackID" name="qapi_BLE_L2CA_LE_Connect_Request" param="CallbackParameter"/>
+      <destroyFunction ID="L2CAP_PSMID" funcSuccess="0" name="qapi_BLE_L2CA_Un_Register_LE_PSM"/>
+      <destroyFunction ID="FCID" funcSuccess="0" name="qapi_BLE_L2CA_Un_Register_Fixed_Channel"/>
+      <destroyFunction ID="LCID" funcSuccess="0" name="qapi_BLE_L2CA_LE_Disconnect_Request"/>
+   </callback>
+</header>

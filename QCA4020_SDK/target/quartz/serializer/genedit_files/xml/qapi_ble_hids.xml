@@ -1,0 +1,294 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="./qapi_ble_btapityp.h"/>
+   <include name="./qapi_ble_bttypes.h"/>
+   <include name="./qapi_ble_gatt.h"/>
+   <include name="./qapi_ble_hidstypes.h"/>
+   <macro name="QAPI_BLE_HIDS_ERROR_INVALID_PARAMETER" value="(-1000)"/>
+   <macro name="QAPI_BLE_HIDS_ERROR_INVALID_BLUETOOTH_STACK_ID" value="(-1001)"/>
+   <macro name="QAPI_BLE_HIDS_ERROR_INSUFFICIENT_RESOURCES" value="(-1002)"/>
+   <macro name="QAPI_BLE_HIDS_ERROR_SERVICE_ALREADY_REGISTERED" value="(-1003)"/>
+   <macro name="QAPI_BLE_HIDS_ERROR_INVALID_INSTANCE_ID" value="(-1004)"/>
+   <macro name="QAPI_BLE_HIDS_ERROR_MALFORMATTED_DATA" value="(-1005)"/>
+   <macro name="QAPI_BLE_HIDS_ERROR_INDICATION_OUTSTANDING" value="(-1006)"/>
+   <macro name="QAPI_BLE_HIDS_ERROR_UNKNOWN_ERROR" value="(-1007)"/>
+   <macro name="QAPI_BLE_HIDS_FLAGS_SUPPORT_MOUSE" value="0x01"/>
+   <macro name="QAPI_BLE_HIDS_FLAGS_SUPPORT_KEYBOARD" value="0x02"/>
+   <macro name="QAPI_BLE_HIDS_FLAGS_BOOT_MOUSE_INPUT_REPORT_WRITABLE" value="0x04"/>
+   <macro name="QAPI_BLE_HIDS_FLAGS_BOOT_KEYBOARD_INPUT_REPORT_WRITABLE" value="0x08"/>
+   <macro name="QAPI_BLE_HIDS_REPORT_REFERENCE_DATA_SIZE" value="(sizeof(qapi_BLE_HIDS_Report_Reference_Data_t))"/>
+   <macro name="QAPI_BLE_HIDS_REPORT_REFERENCE_SUPPORT_INPUT_WRITE_FEATURE" value="0x80"/>
+   <macro name="QAPI_BLE_HIDS_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_HIDS_HID_Information_Data_t))"/>
+   <macro name="QAPI_BLE_HIDS_READ_CLIENT_CONFIGURATION_DATA_SIZE" value="(sizeof(qapi_BLE_HIDS_Read_Client_Configuration_Data_t))"/>
+   <macro name="QAPI_BLE_HIDS_CLIENT_CONFIGURATION_UPDATE_DATA_SIZE" value="(sizeof(qapi_BLE_HIDS_Client_Configuration_Update_Data_t))"/>
+   <macro name="QAPI_BLE_HIDS_GET_PROTOCOL_MODE_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_HIDS_Get_Protocol_Mode_Request_Data_t))"/>
+   <macro name="QAPI_BLE_HIDS_SET_PROTOCOL_MODE_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_HIDS_Set_Protocol_Mode_Request_Data_t))"/>
+   <macro name="QAPI_BLE_HIDS_GET_REPORT_MAP_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_HIDS_Get_Report_Map_Request_Data_t))"/>
+   <macro name="QAPI_BLE_HIDS_GET_REPORT_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_HIDS_Get_Report_Request_Data_t))"/>
+   <macro name="QAPI_BLE_HIDS_SET_REPORT_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_HIDS_Set_Report_Request_Data_t))"/>
+   <macro name="QAPI_BLE_HIDS_CONTROL_POINT_COMMAND_DATA_SIZE" value="(sizeof(qapi_BLE_HIDS_Control_Point_Command_Data_t))"/>
+   <macro name="QAPI_BLE_HIDS_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_HIDS_Event_Data_t))"/>
+   <enum name="qapi_BLE_HIDS_Protocol_Mode_t">
+      <member name="QAPI_BLE_PM_BOOT_E" value="0"/>
+      <member name="QAPI_BLE_PM_REPORT_E" value="1"/>
+   </enum>
+   <enum name="qapi_BLE_HIDS_Control_Point_Command_t">
+      <member name="QAPI_BLE_PC_SUSPEND_E" value="0"/>
+      <member name="QAPI_BLE_PC_EXIT_SUSPEND_E" value="1"/>
+   </enum>
+   <enum name="qapi_BLE_HIDS_Report_Type_t">
+      <member name="QAPI_BLE_RT_REPORT_E" value="0"/>
+      <member name="QAPI_BLE_RT_BOOT_KEYBOARD_INPUT_REPORT_E" value="1"/>
+      <member name="QAPI_BLE_RT_BOOT_KEYBOARD_OUTPUT_REPORT_E" value="2"/>
+      <member name="QAPI_BLE_RT_BOOT_MOUSE_INPUT_REPORT" value="3"/>
+   </enum>
+   <enum name="qapi_BLE_HIDS_Event_Type_t">
+      <member name="QAPI_BLE_ET_HIDS_SERVER_READ_CLIENT_CONFIGURATION_REQUEST_E" value="0"/>
+      <member name="QAPI_BLE_ET_HIDS_SERVER_CLIENT_CONFIGURATION_UPDATE_REQUEST_E" value="1"/>
+      <member name="QAPI_BLE_ET_HIDS_SERVER_GET_PROTOCOL_MODE_REQUEST_E" value="2"/>
+      <member name="QAPI_BLE_ET_HIDS_SERVER_SET_PROTOCOL_MODE_REQUEST_E" value="3"/>
+      <member name="QAPI_BLE_ET_HIDS_SERVER_GET_REPORT_MAP_REQUEST_E" value="4"/>
+      <member name="QAPI_BLE_ET_HIDS_SERVER_GET_REPORT_REQUEST_E" value="5"/>
+      <member name="QAPI_BLE_ET_HIDS_SERVER_SET_REPORT_REQUEST_E" value="6"/>
+      <member name="QAPI_BLE_ET_HIDS_SERVER_CONTROL_POINT_COMMAND_INDICATION_E" value="7"/>
+   </enum>
+   <structure name="qapi_BLE_HIDS_Report_Reference_Data_t">
+      <member attributes="value" name="ReportID" type="uint8_t"/>
+      <member attributes="value" name="ReportType" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_HIDS_HID_Information_Data_t">
+      <member attributes="value" name="Version" type="uint16_t"/>
+      <member attributes="value" name="CountryCode" type="uint8_t"/>
+      <member attributes="value" name="Flags" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_HIDS_Read_Client_Configuration_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ReportType" type="qapi_BLE_HIDS_Report_Type_t"/>
+      <member attributes="value" name="ReportReferenceData" type="qapi_BLE_HIDS_Report_Reference_Data_t"/>
+   </structure>
+   <structure name="qapi_BLE_HIDS_Client_Configuration_Update_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ReportType" type="qapi_BLE_HIDS_Report_Type_t"/>
+      <member attributes="value" name="ReportReferenceData" type="qapi_BLE_HIDS_Report_Reference_Data_t"/>
+      <member attributes="value" name="ClientConfiguration" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_HIDS_Get_Protocol_Mode_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+   </structure>
+   <structure name="qapi_BLE_HIDS_Set_Protocol_Mode_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ProtocolMode" type="qapi_BLE_HIDS_Protocol_Mode_t"/>
+   </structure>
+   <structure name="qapi_BLE_HIDS_Get_Report_Map_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ReportMapOffset" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_HIDS_Get_Report_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ReportOffset" type="uint16_t"/>
+      <member attributes="value" name="ReportType" type="qapi_BLE_HIDS_Report_Type_t"/>
+      <member attributes="value" name="ReportReferenceData" type="qapi_BLE_HIDS_Report_Reference_Data_t"/>
+   </structure>
+   <structure name="qapi_BLE_HIDS_Set_Report_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ReportType" type="qapi_BLE_HIDS_Report_Type_t"/>
+      <member attributes="value" name="ReportReferenceData" type="qapi_BLE_HIDS_Report_Reference_Data_t"/>
+      <member attributes="value" name="ReportLength" type="uint32_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="ReportLength" lengthVerified="yes" name="Report" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_HIDS_Control_Point_Command_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ControlPointCommand" type="qapi_BLE_HIDS_Control_Point_Command_t"/>
+   </structure>
+   <structure name="qapi_BLE_HIDS_Event_Data_t">
+      <member attributes="value" name="Event_Data_Type" type="qapi_BLE_HIDS_Event_Type_t"/>
+      <member attributes="value" name="Event_Data_Size" type="uint16_t"/>
+      <member attributes="union" name="Event_Data">
+         <member attributes="ptr" iotype="in" name="HIDS_Read_Client_Configuration_Data" type="qapi_BLE_HIDS_Read_Client_Configuration_Data_t"/>
+         <member attributes="ptr" iotype="in" name="HIDS_Client_Configuration_Update_Data" type="qapi_BLE_HIDS_Client_Configuration_Update_Data_t"/>
+         <member attributes="ptr" iotype="in" name="HIDS_Get_Protocol_Mode_Request_Data" type="qapi_BLE_HIDS_Get_Protocol_Mode_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="HIDS_Set_Protocol_Mode_Request_Data" type="qapi_BLE_HIDS_Set_Protocol_Mode_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="HIDS_Get_Report_Map_Data" type="qapi_BLE_HIDS_Get_Report_Map_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="HIDS_Get_Report_Request_Data" type="qapi_BLE_HIDS_Get_Report_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="HIDS_Set_Report_Request_Data" type="qapi_BLE_HIDS_Set_Report_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="HIDS_Control_Point_Command_Data" type="qapi_BLE_HIDS_Control_Point_Command_Data_t"/>
+         <unionMap mapVerified="yes" name="Event_Data_Type" type="qapi_BLE_HIDS_Event_Type_t">
+            <mapEntry member="HIDS_Read_Client_Configuration_Data" type="qapi_BLE_HIDS_Read_Client_Configuration_Data_t" value="QAPI_BLE_ET_HIDS_SERVER_READ_CLIENT_CONFIGURATION_REQUEST_E"/>
+            <mapEntry member="HIDS_Client_Configuration_Update_Data" type="qapi_BLE_HIDS_Client_Configuration_Update_Data_t" value="QAPI_BLE_ET_HIDS_SERVER_CLIENT_CONFIGURATION_UPDATE_REQUEST_E"/>
+            <mapEntry member="HIDS_Get_Protocol_Mode_Request_Data" type="qapi_BLE_HIDS_Get_Protocol_Mode_Request_Data_t" value="QAPI_BLE_ET_HIDS_SERVER_GET_PROTOCOL_MODE_REQUEST_E"/>
+            <mapEntry member="HIDS_Set_Protocol_Mode_Request_Data" type="qapi_BLE_HIDS_Set_Protocol_Mode_Request_Data_t" value="QAPI_BLE_ET_HIDS_SERVER_SET_PROTOCOL_MODE_REQUEST_E"/>
+            <mapEntry member="HIDS_Get_Report_Map_Data" type="qapi_BLE_HIDS_Get_Report_Map_Request_Data_t" value="QAPI_BLE_ET_HIDS_SERVER_GET_REPORT_MAP_REQUEST_E"/>
+            <mapEntry member="HIDS_Get_Report_Request_Data" type="qapi_BLE_HIDS_Get_Report_Request_Data_t" value="QAPI_BLE_ET_HIDS_SERVER_GET_REPORT_REQUEST_E"/>
+            <mapEntry member="HIDS_Set_Report_Request_Data" type="qapi_BLE_HIDS_Set_Report_Request_Data_t" value="QAPI_BLE_ET_HIDS_SERVER_SET_REPORT_REQUEST_E"/>
+            <mapEntry member="HIDS_Control_Point_Command_Data" type="qapi_BLE_HIDS_Control_Point_Command_Data_t" value="QAPI_BLE_ET_HIDS_SERVER_CONTROL_POINT_COMMAND_INDICATION_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <function name="qapi_BLE_HIDS_Initialize_Service">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Flags" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="HIDInformation" type="qapi_BLE_HIDS_HID_Information_Data_t"/>
+      <argument attributes="value" name="NumIncludedServices" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="NumIncludedServices" lengthVerified="yes" name="ServiceIDList" type="uint32_t"/>
+      <argument attributes="value" name="NumExternalReportReferences" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="NumExternalReportReferences" lengthVerified="yes" name="ReferenceUUID" type="qapi_BLE_GATT_UUID_t"/>
+      <argument attributes="value" name="NumReports" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="NumReports" lengthVerified="yes" name="ReportReference" type="qapi_BLE_HIDS_Report_Reference_Data_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_HIDS_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_HIDS_Initialize_Service_Handle_Range">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Flags" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="HIDInformation" type="qapi_BLE_HIDS_HID_Information_Data_t"/>
+      <argument attributes="value" name="NumIncludedServices" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="NumIncludedServices" lengthVerified="yes" name="ServiceIDList" type="uint32_t"/>
+      <argument attributes="value" name="NumExternalReportReferences" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="NumExternalReportReferences" lengthVerified="yes" name="ReferenceUUID" type="qapi_BLE_GATT_UUID_t"/>
+      <argument attributes="value" name="NumReports" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="NumReports" lengthVerified="yes" name="ReportReference" type="qapi_BLE_HIDS_Report_Reference_Data_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_HIDS_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="ServiceHandleRange" type="qapi_BLE_GATT_Attribute_Handle_Group_t"/>
+   </function>
+   <function name="qapi_BLE_HIDS_Cleanup_Service">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_HIDS_Query_Number_Attributes">
+      <return attributes="value" type="uint32_t"/>
+      <argument attributes="value" name="Flags" type="uint8_t"/>
+      <argument attributes="value" name="NumIncludedServices" type="uint32_t"/>
+      <argument attributes="value" name="NumExternalReportReferences" type="uint32_t"/>
+      <argument attributes="value" name="NumReports" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="NumReports" lengthVerified="yes" name="ReportReference" type="qapi_BLE_HIDS_Report_Reference_Data_t"/>
+   </function>
+   <function name="qapi_BLE_HIDS_Read_Client_Configuration_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="Client_Configuration" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_HIDS_Get_Protocol_Mode_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="value" name="CurrentProtocolMode" type="qapi_BLE_HIDS_Protocol_Mode_t"/>
+   </function>
+   <function name="qapi_BLE_HIDS_Get_Report_Map_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="value" name="ReportMapLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ReportMapLength" lengthVerified="yes" name="ReportMap" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HIDS_Get_Report_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ReportType" type="qapi_BLE_HIDS_Report_Type_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="ReportReferenceData" type="qapi_BLE_HIDS_Report_Reference_Data_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="value" name="ReportLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ReportLength" lengthVerified="yes" name="Report" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HIDS_Set_Report_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ReportType" type="qapi_BLE_HIDS_Report_Type_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="ReportReferenceData" type="qapi_BLE_HIDS_Report_Reference_Data_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HIDS_Notify_Input_Report">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="value" name="ReportType" type="qapi_BLE_HIDS_Report_Type_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="InputReportLength" lengthVerified="yes" name="ReportReferenceData" type="qapi_BLE_HIDS_Report_Reference_Data_t"/>
+      <argument attributes="value" name="InputReportLength" type="uint16_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="InputReportLength" lengthVerified="yes" name="InputReportData" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HIDS_Decode_HID_Information">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="HIDSHIDInformation" type="qapi_BLE_HIDS_HID_Information_Data_t"/>
+   </function>
+   <function name="qapi_BLE_HIDS_Decode_Report_Reference">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ReportReferenceData" type="qapi_BLE_HIDS_Report_Reference_Data_t"/>
+   </function>
+   <function name="qapi_BLE_HIDS_Decode_External_Report_Reference">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ExternalReportReferenceUUID" type="qapi_BLE_GATT_UUID_t"/>
+   </function>
+   <function name="qapi_BLE_HIDS_Format_Protocol_Mode">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ProtocolMode" type="qapi_BLE_HIDS_Protocol_Mode_t"/>
+      <argument attributes="value" name="BufferLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="BufferLength" lengthVerified="yes" name="Buffer" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HIDS_Format_Control_Point_Command">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="Command" type="qapi_BLE_HIDS_Control_Point_Command_t"/>
+      <argument attributes="value" name="BufferLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="BufferLength" lengthVerified="yes" name="Buffer" type="uint8_t"/>
+   </function>
+   <callback name="qapi_BLE_HIDS_Event_Callback_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="HIDS_Event_Data" type="qapi_BLE_HIDS_Event_Data_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <createFunction ID="qsRetVal" funcSuccess="0" moduleParam="BluetoothStackID" name="qapi_BLE_HIDS_Initialize_Service" param="CallbackParameter"/>
+      <createFunction ID="qsRetVal" funcSuccess="0" moduleParam="BluetoothStackID" name="qapi_BLE_HIDS_Initialize_Service_Handle_Range" param="CallbackParameter"/>
+      <destroyFunction ID="InstanceID" funcSuccess="0" name="qapi_BLE_HIDS_Cleanup_Service"/>
+   </callback>
+</header>

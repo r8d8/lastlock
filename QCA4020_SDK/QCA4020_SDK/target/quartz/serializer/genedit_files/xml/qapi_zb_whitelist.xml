@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="qapi_zb.h"/>
+   <macro name="QAPI_ZB_WHITELIST_UNKOWN_EXTENDED_ADDRESS" value="(0xFFFFFFFFFFFFFFFFULL)"/>
+   <macro name="QAPI_ZB_WHITELIST_UNKOWN_SHORT_ADDRESS" value="(0xFFFF)"/>
+   <function name="qapi_ZB_Whitelist_Enable">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="Enable" type="qbool_t"/>
+   </function>
+   <function name="qapi_ZB_Whitelist_Add">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="ExtendedAddress" type="uint64_t"/>
+      <argument attributes="value" name="ShortAddress" type="uint16_t"/>
+   </function>
+   <function name="qapi_ZB_Whitelist_Remove">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="ExtendedAddress" type="uint64_t"/>
+      <argument attributes="value" name="ShortAddress" type="uint16_t"/>
+   </function>
+</header>

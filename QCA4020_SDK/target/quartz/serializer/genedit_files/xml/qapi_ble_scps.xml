@@ -1,0 +1,130 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="./qapi_ble_btapityp.h"/>
+   <include name="./qapi_ble_bttypes.h"/>
+   <include name="./qapi_ble_gatt.h"/>
+   <include name="./qapi_ble_scpstypes.h"/>
+   <macro name="QAPI_BLE_SCPS_ERROR_INVALID_PARAMETER" value="(-1000)"/>
+   <macro name="QAPI_BLE_SCPS_ERROR_INVALID_BLUETOOTH_STACK_ID" value="(-1001)"/>
+   <macro name="QAPI_BLE_SCPS_ERROR_INSUFFICIENT_RESOURCES" value="(-1002)"/>
+   <macro name="QAPI_BLE_SCPS_ERROR_SERVICE_ALREADY_REGISTERED" value="(-1003)"/>
+   <macro name="QAPI_BLE_SCPS_ERROR_INVALID_INSTANCE_ID" value="(-1004)"/>
+   <macro name="QAPI_BLE_SCPS_ERROR_MALFORMATTED_DATA" value="(-1005)"/>
+   <macro name="QAPI_BLE_SCPS_ERROR_UNKNOWN_ERROR" value="(-1006)"/>
+   <macro name="QAPI_BLE_SCPS_SCAN_INTERVAL_WINDOW_DATA_SIZE" value="(sizeof(qapi_BLE_SCPS_Scan_Interval_Window_Data_t))"/>
+   <macro name="QAPI_BLE_SCPS_READ_CLIENT_CONFIGURATION_DATA_SIZE" value="(sizeof(qapi_BLE_SCPS_Read_Client_Configuration_Data_t))"/>
+   <macro name="QAPI_BLE_SCPS_CLIENT_CONFIGURATION_UPDATE_DATA_SIZE" value="(sizeof(qapi_BLE_SCPS_Client_Configuration_Update_Data_t))"/>
+   <macro name="QAPI_BLE_SCPS_WRITE_SCAN_INTERVAL_WINDOW_DATA_SIZE" value="(sizeof(qapi_BLE_SCPS_Write_Scan_Interval_Window_Data_t))"/>
+   <macro name="QAPI_BLE_SCPS_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_SCPS_Event_Data_t))"/>
+   <macro name="QAPI_BLE_SCPS_CLIENT_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_SCPS_Client_Information_t))"/>
+   <macro name="QAPI_BLE_SCPS_SERVER_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_SCPS_Server_Information_t))"/>
+   <enum name="qapi_BLE_SCPS_Characteristic_Type_t">
+      <member name="QAPI_BLE_CT_SCAN_REFRESH_E" value="0"/>
+   </enum>
+   <enum name="qapi_BLE_SCPS_Event_Type_t">
+      <member name="QAPI_BLE_ET_SCPS_SERVER_READ_CLIENT_CONFIGURATION_REQUEST_E" value="0"/>
+      <member name="QAPI_BLE_ET_SCPS_SERVER_UPDATE_CLIENT_CONFIGURATION_REQUEST_E" value="1"/>
+      <member name="QAPI_BLE_ET_SCPS_SERVER_WRITE_SCAN_INTERVAL_WINDOW_REQUEST_E" value="2"/>
+   </enum>
+   <structure name="qapi_BLE_SCPS_Scan_Interval_Window_Data_t">
+      <member attributes="value" name="LE_Scan_Interval" type="uint16_t"/>
+      <member attributes="value" name="LE_Scan_Window" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_SCPS_Read_Client_Configuration_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ClientConfigurationType" type="qapi_BLE_SCPS_Characteristic_Type_t"/>
+   </structure>
+   <structure name="qapi_BLE_SCPS_Client_Configuration_Update_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ClientConfigurationType" type="qapi_BLE_SCPS_Characteristic_Type_t"/>
+      <member attributes="value" name="ClientConfiguration" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_SCPS_Write_Scan_Interval_Window_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ScanIntervalWindowData" type="qapi_BLE_SCPS_Scan_Interval_Window_Data_t"/>
+   </structure>
+   <structure name="qapi_BLE_SCPS_Event_Data_t">
+      <member attributes="value" name="Event_Data_Type" type="qapi_BLE_SCPS_Event_Type_t"/>
+      <member attributes="value" name="Event_Data_Size" type="uint16_t"/>
+      <member attributes="union" name="Event_Data">
+         <member attributes="ptr" iotype="in" name="SCPS_Read_Client_Configuration_Data" type="qapi_BLE_SCPS_Read_Client_Configuration_Data_t"/>
+         <member attributes="ptr" iotype="in" name="SCPS_Client_Configuration_Update_Data" type="qapi_BLE_SCPS_Client_Configuration_Update_Data_t"/>
+         <member attributes="ptr" iotype="in" name="SCPS_Write_Scan_Interval_Window_Data" type="qapi_BLE_SCPS_Write_Scan_Interval_Window_Data_t"/>
+         <unionMap mapVerified="yes" name="Event_Data_Type" type="qapi_BLE_SCPS_Event_Type_t">
+            <mapEntry member="SCPS_Read_Client_Configuration_Data" type="qapi_BLE_SCPS_Read_Client_Configuration_Data_t" value="QAPI_BLE_ET_SCPS_SERVER_READ_CLIENT_CONFIGURATION_REQUEST_E"/>
+            <mapEntry member="SCPS_Client_Configuration_Update_Data" type="qapi_BLE_SCPS_Client_Configuration_Update_Data_t" value="QAPI_BLE_ET_SCPS_SERVER_UPDATE_CLIENT_CONFIGURATION_REQUEST_E"/>
+            <mapEntry member="SCPS_Write_Scan_Interval_Window_Data" type="qapi_BLE_SCPS_Write_Scan_Interval_Window_Data_t" value="QAPI_BLE_ET_SCPS_SERVER_WRITE_SCAN_INTERVAL_WINDOW_REQUEST_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_BLE_SCPS_Client_Information_t">
+      <member attributes="value" name="Scan_Interval_Window" type="uint16_t"/>
+      <member attributes="value" name="Scan_Refresh" type="uint16_t"/>
+      <member attributes="value" name="Scan_Refresh_Client_Configuration" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_SCPS_Server_Information_t">
+      <member attributes="value" name="Scan_Refresh_Client_Configuration" type="uint16_t"/>
+   </structure>
+   <function name="qapi_BLE_SCPS_Initialize_Service">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_SCPS_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_SCPS_Initialize_Service_Handle_Range">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_SCPS_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="ServiceHandleRange" type="qapi_BLE_GATT_Attribute_Handle_Group_t"/>
+   </function>
+   <function name="qapi_BLE_SCPS_Cleanup_Service">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_SCPS_Query_Number_Attributes">
+      <return attributes="value" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_SCPS_Read_Client_Configuration_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="Client_Configuration" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_SCPS_Notify_Scan_Refresh">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="value" name="ScanRefreshValue" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_SCPS_Format_Scan_Interval_Window">
+      <return attributes="value" type="int"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Scan_Interval_Window" type="qapi_BLE_SCPS_Scan_Interval_Window_Data_t"/>
+      <argument attributes="value" name="BufferLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="BufferLength" lengthVerified="yes" name="Buffer" type="uint8_t"/>
+   </function>
+   <callback name="qapi_BLE_SCPS_Event_Callback_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="SCPS_Event_Data" type="qapi_BLE_SCPS_Event_Data_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <createFunction ID="qsRetVal" funcSuccess="0" moduleParam="BluetoothStackID" name="qapi_BLE_SCPS_Initialize_Service" param="CallbackParameter"/>
+      <createFunction ID="qsRetVal" funcSuccess="0" moduleParam="BluetoothStackID" name="qapi_BLE_SCPS_Initialize_Service_Handle_Range" param="CallbackParameter"/>
+      <destroyFunction ID="InstanceID" funcSuccess="0" name="qapi_BLE_SCPS_Cleanup_Service"/>
+   </callback>
+</header>

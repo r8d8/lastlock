@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="./qapi_ble_bttypes.h"/>
+   <include name="./qapi_ble_gatttype.h"/>
+   <macro name="QAPI_BLE_NDCS_ASSIGN_NDCS_SERVICE_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16(*((qapi_BLE_UUID_16_t *)(_x)), 0x18, 0x07)"/>
+   <macro name="QAPI_BLE_NDCS_COMPARE_NDCS_SERVICE_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x18, 0x07)"/>
+   <macro name="QAPI_BLE_NDCS_SERVICE_BLUETOOTH_UUID_CONSTANT" value="{ 0x07, 0x18 }"/>
+   <macro name="QAPI_BLE_NDCS_ASSIGN_TIME_WITH_DST_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x11)"/>
+   <macro name="QAPI_BLE_NDCS_COMPARE_NDCS_TIME_WITH_DST_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x11)"/>
+   <macro name="QAPI_BLE_NDCS_TIME_WITH_DST_CHARACTERISTIC_BLUETOOTH_UUID_CONSTANT" value="{ 0x11, 0x2A }"/>
+   <macro name="QAPI_BLE_NDCS_DST_OFFSET_STANDARD_TIME" value="0x00"/>
+   <macro name="QAPI_BLE_NDCS_DST_OFFSET_HALF_HOUR_DAYLIGHT_TIME" value="0x02"/>
+   <macro name="QAPI_BLE_NDCS_DST_OFFSET_DAYLIGHT_TIME" value="0x04"/>
+   <macro name="QAPI_BLE_NDCS_DST_OFFSET_DOUBLE_DAYLIGHT_TIME" value="0x08"/>
+   <macro name="QAPI_BLE_NDCS_DST_OFFSET_NOT_KNOWN" value="0xFF"/>
+   <macro name="QAPI_BLE_NDCS_DATE_TIME_VALID" params="(_x)" value="((QAPI_BLE_GATT_DATE_TIME_VALID_YEAR(((_x)).Year)) &amp;&amp; (QAPI_BLE_GATT_DATE_TIME_VALID_MONTH(((_x)).Month)) &amp;&amp; (QAPI_BLE_GATT_DATE_TIME_VALID_DAY(((_x)).Day)) &amp;&amp; (QAPI_BLE_GATT_DATE_TIME_VALID_HOURS(((_x)).Hours)) &amp;&amp; (QAPI_BLE_GATT_DATE_TIME_VALID_MINUTES(((_x)).Minutes)) &amp;&amp; (QAPI_BLE_GATT_DATE_TIME_VALID_SECONDS(((_x)).Seconds)))"/>
+   <macro name="QAPI_BLE_NDCS_TIME_WITH_DST_SIZE" value="(sizeof(qapi_BLE_NDCS_Time_With_Dst_t))"/>
+   <macro name="QAPI_BLE_NDCS_DST_OFFSET_VALID" params="(_x)" value="((((uint8_t)(_x)) &gt;= QAPI_BLE_NDCS_DST_OFFSET_STANDARD_TIME) &amp;&amp; (((uint8_t)(_x)) &lt;= QAPI_BLE_NDCS_DST_OFFSET_DOUBLE_DAYLIGHT_TIME))"/>
+   <macro name="QAPI_BLE_NDCS_DST_OFFSET_DATA_SIZE" value="(QAPI_BLE_NON_ALIGNED_BYTE_SIZE)"/>
+   <macro name="QAPI_BLE_NDCS_SERVICE_FLAGS" value="(QAPI_BLE_GATT_SERVICE_FLAGS_LE_SERVICE)"/>
+   <structure name="qapi_BLE_NDCS_Time_With_Dst_t">
+      <member attributes="value" name="Date_Time" type="qapi_BLE_GATT_Date_Time_Characteristic_t"/>
+      <member attributes="value" name="Dst_Offset" type="qapi_BLE_NonAlignedByte_t"/>
+   </structure>
+</header>

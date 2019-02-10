@@ -1,0 +1,172 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="qapi_zb_cl.h"/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_ATTR_ID_LOCAL_TEMPERATURE" value="(0x0000) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_ATTR_ID_OUTDOOR_TEMPERATURE" value="(0x0001) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_ATTR_ID_OCCUPANCY" value="(0x0002) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_ATTR_ID_ABS_MIN_HEAT_SETPOINT_LIMIT" value="(0x0003) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_ATTR_ID_ABS_MAX_HEAT_SETPOINT_LIMIT" value="(0x0004) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_ATTR_ID_ABS_MIN_COOL_SETPOINT_LIMIT" value="(0x0005) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_ATTR_ID_ABS_MAX_COOL_SETPOINT_LIMIT" value="(0x0006) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_ATTR_ID_PI_COOLING_DEMAND" value="(0x0007) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_ATTR_ID_PI_HEATING_DEMAND" value="(0x0008) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_ATTR_ID_HVAC_SYSTEM_TYPE_CFG" value="(0x0009) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_ATTR_ID_LOCAL_TEMPERATURE_CALIBRATION" value="(0x0010) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_ATTR_ID_OCCUPIED_COOLING_SETPOINT" value="(0x0011) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_ATTR_ID_OCCUPIED_HEATING_SETPOINT" value="(0x0012) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_ATTR_ID_UNOCCUPIED_COOLING_SETPOINT" value="(0x0013) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_ATTR_ID_UNOCCUPIED_HEATING_SETPOINT" value="(0x0014) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_ATTR_ID_MIN_HEAT_SETPOINT_LIMIT" value="(0x0015) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_ATTR_ID_MAX_HEAT_SETPOINT_LIMIT" value="(0x0016) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_ATTR_ID_MIN_COOL_SETPOINT_LIMIT" value="(0x0017) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_ATTR_ID_MAX_COOL_SETPOINT_LIMIT" value="(0x0018) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_ATTR_ID_MIN_SETPOINT_DEAD_BAND" value="(0x0019) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_ATTR_ID_REMOTE_SENSING" value="(0x001A) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_ATTR_ID_CONTROL_SEQUENCE_OF_OPERATION" value="(0x001B) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_ATTR_ID_SYSTEM_MODE" value="(0x001C) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_ATTR_ID_ALARM_MASK" value="(0x001D) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_ATTR_ID_THERMOSTAT_RUNNING_MODE" value="(0x001E) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_ATTR_ID_START_OF_WEEK" value="(0x0020) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_ATTR_ID_NUMBER_OF_WEEKLY_TRANSITIONS" value="(0x0021) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_ATTR_ID_NUMBER_OF_DAILY_TRANSITIONS" value="(0x0022) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_ATTR_ID_TEMPERATURE_SETPOINT_HOLD" value="(0x0023) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_ATTR_ID_TEMPERATURE_SETPOINT_HOLD_DURATION" value="(0x0024) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_ATTR_ID_THERMOSTAT_PROGRAMMING_OPERATION_MODE" value="(0x0025) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_ATTR_ID_THERMOSTAT_RUNNING_STATE" value="(0x0029) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_ATTR_ID_SETPOINT_CHANGE_SOURCE" value="(0x0030) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_ATTR_ID_SETPOINT_CHANGE_AMOUNT" value="(0x0031) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_ATTR_ID_SETPOINT_CHANGE_SOURCE_TIMESTAMP" value="(0x0032) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_ATTR_ID_AC_TYPE" value="(0x0040) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_ATTR_ID_AC_CAPACITY" value="(0x0041) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_ATTR_ID_AC_REFRIGERANT_TYPE" value="(0x0042) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_ATTR_ID_AC_COMPRESSOR_TYPE" value="(0x0043) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_ATTR_ID_AC_ERROR_CODE" value="(0x0044) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_ATTR_ID_AC_LOUVER_POSITION" value="(0x0045) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_ATTR_ID_AC_COIL_TEMPERATURE" value="(0x0046) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_ATTR_ID_AC_CAPACITY_FORMAT" value="(0x0047) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_CLIENT_COMMAND_ID_SETPOINT_RAISE_LOWER" value="(0x00) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_CLIENT_COMMAND_ID_SET_WEEKLY_SCHEDULE" value="(0x01) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_CLIENT_COMMAND_ID_GET_WEEKLY_SCHEDULE" value="(0x02) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_CLIENT_COMMAND_ID_CLEAR_WEEKLY_SCHEDULE" value="(0x04) "/>
+   <macro name="QAPI_ZB_CL_THERMOSTAT_CLIENT_COMMAND_ID_GET_RELAY_STATUS_LOG" value="(0x05) "/>
+   <enum name="qapi_ZB_CL_Thermostat_Client_Event_Type_t">
+      <member name="QAPI_ZB_CL_THERMOSTAT_CLIENT_EVENT_TYPE_ATTR_CUSTOM_READ_E" value="0"/>
+      <member name="QAPI_ZB_CL_THERMOSTAT_CLIENT_EVENT_TYPE_ATTR_CUSTOM_WRITE_E" value="1"/>
+      <member name="QAPI_ZB_CL_THERMOSTAT_CLIENT_EVENT_TYPE_DEFAULT_RESPONSE_E" value="2"/>
+      <member name="QAPI_ZB_CL_THERMOSTAT_CLIENT_EVENT_TYPE_UNPARSED_RESPONSE_E" value="3"/>
+      <member name="QAPI_ZB_CL_THERMOSTAT_CLIENT_EVENT_TYPE_COMMAND_COMPLETE_E" value="4"/>
+   </enum>
+   <enum name="qapi_ZB_CL_Thermostat_Server_Event_Type_t">
+      <member name="QAPI_ZB_CL_THERMOSTAT_SERVER_EVENT_TYPE_ATTR_CUSTOM_READ_E" value="0"/>
+      <member name="QAPI_ZB_CL_THERMOSTAT_SERVER_EVENT_TYPE_ATTR_CUSTOM_WRITE_E" value="1"/>
+      <member name="QAPI_ZB_CL_THERMOSTAT_SERVER_EVENT_TYPE_UNPARSED_DATA_E" value="2"/>
+      <member name="QAPI_ZB_CL_THERMOSTAT_SERVER_EVENT_TYPE_SETPOINT_CHANGE_E" value="3"/>
+   </enum>
+   <enum name="qapi_ZB_CL_Thermostat_Control_Sequence_t">
+      <member name="QAPI_ZB_CL_THERMOSTAT_CONTROL_SEQUENCE_COOLING_ONLY_E" value="0x00"/>
+      <member name="QAPI_ZB_CL_THERMOSTAT_CONTROL_SEQUENCE_COOLING_WITH_REHEAT_E" value="0x01"/>
+      <member name="QAPI_ZB_CL_THERMOSTAT_CONTROL_SEQUENCE_HEATING_ONLY_E" value="0x02"/>
+      <member name="QAPI_ZB_CL_THERMOSTAT_CONTROL_SEQUENCE_HEATING_WITH_REHEAT_E" value="0x03"/>
+      <member name="QAPI_ZB_CL_THERMOSTAT_CONTROL_SEQUENCE_COOLING_AND_HEATING_E" value="0x04"/>
+      <member name="QAPI_ZB_CL_THERMOSTAT_CONTROL_SEQUENCE_COOLING_AND_HEATING_WITH_REHEAT_E" value="0x05"/>
+   </enum>
+   <enum name="qapi_ZB_CL_Thermostat_System_Mode_t">
+      <member name="QAPI_ZB_CL_THERMOSTAT_SYSTEM_MODE_OFF_E" value="0x00"/>
+      <member name="QAPI_ZB_CL_THERMOSTAT_SYSTEM_MODE_AUTO_E" value="0x01"/>
+      <member name="QAPI_ZB_CL_THERMOSTAT_SYSTEM_MODE_COOL_E" value="0x03"/>
+      <member name="QAPI_ZB_CL_THERMOSTAT_SYSTEM_MODE_HEAT_E" value="0x04"/>
+      <member name="QAPI_ZB_CL_THERMOSTAT_SYSTEM_MODE_EMERGENCY_HEATING_E" value="0x05"/>
+      <member name="QAPI_ZB_CL_THERMOSTAT_SYSTEM_MODE_PRECOOLING_E" value="0x06"/>
+      <member name="QAPI_ZB_CL_THERMOSTAT_SYSTEM_MODE_FAN_ONLY_E" value="0x07"/>
+      <member name="QAPI_ZB_CL_THERMOSTAT_SYSTEM_MODE_DRY_E" value="0x08"/>
+      <member name="QAPI_ZB_CL_THERMOSTAT_SYSTEM_MODE_SLEEP_E" value="0x09"/>
+   </enum>
+   <enum name="qapi_ZB_CL_Thermostat_Setpoint_Mode_t">
+      <member name="QAPI_ZB_CL_THERMOSTAT_SETPOINT_MODE_HEAT_E" value="0x00"/>
+      <member name="QAPI_ZB_CL_THERMOSTAT_SETPOINT_MODE_COOL_E" value="0x01"/>
+      <member name="QAPI_ZB_CL_THERMOSTAT_SETPOINT_MODE_BOTH_E" value="0x02"/>
+   </enum>
+   <structure name="qapi_ZB_CL_Thermostat_Client_Event_Data_t">
+      <member attributes="value" name="Event_Type" type="qapi_ZB_CL_Thermostat_Client_Event_Type_t"/>
+      <member attributes="union" name="Data">
+         <member attributes="value" name="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t"/>
+         <member attributes="value" name="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t"/>
+         <member attributes="value" name="Default_Response" type="qapi_ZB_CL_Default_Response_t"/>
+         <member attributes="value" name="Command_Complete" type="qapi_ZB_CL_Command_Complete_t"/>
+         <member attributes="value" name="Unparsed_Response" type="qapi_ZB_CL_Unparsed_Response_t"/>
+         <unionMap mapVerified="yes" name="Event_Type" type="qapi_ZB_CL_Thermostat_Client_Event_Type_t">
+            <mapEntry member="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t" value="QAPI_ZB_CL_THERMOSTAT_CLIENT_EVENT_TYPE_ATTR_CUSTOM_READ_E"/>
+            <mapEntry member="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t" value="QAPI_ZB_CL_THERMOSTAT_CLIENT_EVENT_TYPE_ATTR_CUSTOM_WRITE_E"/>
+            <mapEntry member="Default_Response" type="qapi_ZB_CL_Default_Response_t" value="QAPI_ZB_CL_THERMOSTAT_CLIENT_EVENT_TYPE_DEFAULT_RESPONSE_E"/>
+            <mapEntry member="Command_Complete" type="qapi_ZB_CL_Command_Complete_t" value="QAPI_ZB_CL_THERMOSTAT_CLIENT_EVENT_TYPE_COMMAND_COMPLETE_E"/>
+            <mapEntry member="Unparsed_Response" type="qapi_ZB_CL_Unparsed_Response_t" value="QAPI_ZB_CL_THERMOSTAT_CLIENT_EVENT_TYPE_UNPARSED_RESPONSE_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_ZB_CL_Thermostat_Server_Setpoint_Change_t">
+      <member attributes="value" name="Mode" type="qapi_ZB_CL_Thermostat_Setpoint_Mode_t"/>
+      <member attributes="value" name="Amount" type="int8_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Thermostat_Server_Event_Data_t">
+      <member attributes="value" name="Event_Type" type="qapi_ZB_CL_Thermostat_Server_Event_Type_t"/>
+      <member attributes="union" name="Data">
+         <member attributes="value" name="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t"/>
+         <member attributes="value" name="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t"/>
+         <member attributes="value" name="Unparsed_Data" type="qapi_ZB_CL_Unparsed_Data_t"/>
+         <member attributes="value" name="Setpoint_Change" type="qapi_ZB_CL_Thermostat_Server_Setpoint_Change_t"/>
+         <unionMap mapVerified="yes" name="Event_Type" type="qapi_ZB_CL_Thermostat_Server_Event_Type_t">
+            <mapEntry member="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t" value="QAPI_ZB_CL_THERMOSTAT_SERVER_EVENT_TYPE_ATTR_CUSTOM_READ_E"/>
+            <mapEntry member="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t" value="QAPI_ZB_CL_THERMOSTAT_SERVER_EVENT_TYPE_ATTR_CUSTOM_WRITE_E"/>
+            <mapEntry member="Unparsed_Data" type="qapi_ZB_CL_Unparsed_Data_t" value="QAPI_ZB_CL_THERMOSTAT_SERVER_EVENT_TYPE_UNPARSED_DATA_E"/>
+            <mapEntry member="Setpoint_Change" type="qapi_ZB_CL_Thermostat_Server_Setpoint_Change_t" value="QAPI_ZB_CL_THERMOSTAT_SERVER_EVENT_TYPE_SETPOINT_CHANGE_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <function name="qapi_ZB_CL_Thermostat_Create_Client">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Cluster_Info" type="qapi_ZB_CL_Cluster_Info_t"/>
+      <argument attributes="value" name="Event_CB" type="qapi_ZB_CL_Thermostat_Client_CB_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Thermostat_Create_Server">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Cluster_Info" type="qapi_ZB_CL_Cluster_Info_t"/>
+      <argument attributes="value" name="Event_CB" type="qapi_ZB_CL_Thermostat_Server_CB_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Thermostat_Populate_Attributes">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Server" type="qbool_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="AttributeCount" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="AttributeCount" lengthVerified="yes" name="AttributeList" type="qapi_ZB_CL_Attribute_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Thermostat_Send_Change_Setpoint">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="value" name="Mode" type="qapi_ZB_CL_Thermostat_Setpoint_Mode_t"/>
+      <argument attributes="value" name="ChangeAmount" type="int8_t"/>
+   </function>
+   <callback name="qapi_ZB_CL_Thermostat_Client_CB_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Event_Data" type="qapi_ZB_CL_Thermostat_Client_Event_Data_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+      <createFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_Thermostat_Create_Client" param="CB_Param"/>
+      <destroyFunction ID="Cluster" funcSuccess="QAPI_OK" name="qapi_ZB_CL_Destroy_Cluster"/>
+   </callback>
+   <callback name="qapi_ZB_CL_Thermostat_Server_CB_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Event_Data" type="qapi_ZB_CL_Thermostat_Server_Event_Data_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+      <createFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_Thermostat_Create_Server" param="CB_Param"/>
+      <destroyFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_Destroy_Cluster"/>
+   </callback>
+</header>

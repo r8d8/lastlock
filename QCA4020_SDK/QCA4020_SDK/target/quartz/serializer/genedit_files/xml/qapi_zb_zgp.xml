@@ -1,0 +1,78 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="qapi/qapi_types.h"/>
+   <include name="qapi/qapi_status.h"/>
+   <include name="qapi_zb.h"/>
+   <enum name="qapi_ZB_ZGP_Security_Key_t">
+      <member name="QAPI_ZB_ZGP_SECURITY_KEY_TYPE_NO_KEY" value="0x00"/>
+      <member name="QAPI_ZB_ZGP_SECURITY_KEY_TYPE_NWK_KEY" value="0x01"/>
+      <member name="QAPI_ZB_ZGP_SECURITY_KEY_TYPE_GP_GROUP_KEY" value="0x02"/>
+      <member name="QAPI_ZB_ZGP_SECURITY_KEY_TYPE_NWK_KEY_DERIVED_GP_GROUP_KEY" value="0x03"/>
+      <member name="QAPI_ZB_ZGP_SECURITY_KEY_TYPE_DERIVED_INDIVIDUAL_GPD_KEY" value="0x07"/>
+   </enum>
+   <enum name="qapi_ZB_ZGP_Event_Type_t">
+      <member name="QAPI_ZB_ZGP_EVENT_TYPE_GP_DATA_CONFIRM_E" value="0"/>
+   </enum>
+   <structure name="qapi_ZB_ZGP_GP_Data_Request_t">
+      <member attributes="value" name="TxOptions" type="uint8_t"/>
+      <member attributes="value" name="ApplicationId" type="uint8_t"/>
+      <member attributes="value" name="SrcId" type="uint32_t"/>
+      <member attributes="value" name="GPDIEEEAddr" type="uint64_t"/>
+      <member attributes="value" name="Endpoint" type="uint8_t"/>
+      <member attributes="value" name="GPDCommandId" type="uint8_t"/>
+      <member attributes="value" name="GPDASDULength" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="GPDASDULength" lengthVerified="yes" name="GPDASDU" type="uint8_t"/>
+      <member attributes="value" name="GPEPHandle" type="uint32_t"/>
+      <member attributes="value" name="gpTxQueueEntryLifeTime" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_ZB_ZGP_Data_Confirm_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="GPEPHandle" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_ZB_ZGP_Key_Request_t">
+      <member attributes="value" name="ApplicationId" type="uint8_t"/>
+      <member attributes="value" name="GPDId" type="uint64_t"/>
+      <member attributes="value" name="EndPoint" type="uint8_t"/>
+      <member attributes="value" name="SecurityLevel" type="uint8_t"/>
+      <member attributes="value" name="KeyType" type="qapi_ZB_ZGP_Security_Key_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="16" lengthVerified="yes" name="Key" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_ZGP_Event_t">
+      <member attributes="value" name="Event_Type" type="qapi_ZB_ZGP_Event_Type_t"/>
+      <member attributes="union" name="Data">
+         <member attributes="value" name="GP_Data_Confirm" type="qapi_ZB_ZGP_Data_Confirm_t"/>
+         <unionMap mapVerified="yes" name="Event_Type" type="qapi_ZB_ZGP_Event_Type_t">
+            <mapEntry member="GP_Data_Confirm" type="qapi_ZB_ZGP_Data_Confirm_t" value="QAPI_ZB_ZGP_EVENT_TYPE_GP_DATA_CONFIRM_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <function name="qapi_ZB_ZGP_Register_Callback">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value,const" name="ZGP_Event_CB" type="qapi_ZB_ZGP_Event_CB_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+   </function>
+   <function name="qapi_ZB_ZGP_Unregister_Callback">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value,const" name="ZGP_Event_CB" type="qapi_ZB_ZGP_Event_CB_t"/>
+   </function>
+   <function name="qapi_ZB_ZGP_Data_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="Data_Request" type="qapi_ZB_ZGP_GP_Data_Request_t"/>
+   </function>
+   <function name="qapi_ZB_ZGP_Add_Key">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="Key_Request" type="qapi_ZB_ZGP_Key_Request_t"/>
+   </function>
+   <callback name="qapi_ZB_ZGP_Event_CB_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr,const" iotype="out" lengthParam="1" lengthVerified="yes" name="ZGP_Event_Data" type="qapi_ZB_ZGP_Event_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+      <createFunction ID="ZGP_Event_CB" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_ZGP_Register_Callback" param="CB_Param"/>
+      <destroyFunction ID="ZGP_Event_CB" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_ZGP_Unregister_Callback"/>
+   </callback>
+</header>

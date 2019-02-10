@@ -1,0 +1,414 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="qapi_zb_cl.h"/>
+   <include name="qapi_zb_cl_ias_zone.h"/>
+   <macro name="QAPI_ZB_CL_IASACE_CLIENT_COMMAND_ID_ARM" value="(0x00) "/>
+   <macro name="QAPI_ZB_CL_IASACE_CLIENT_COMMAND_ID_BYPASS" value="(0x01) "/>
+   <macro name="QAPI_ZB_CL_IASACE_CLIENT_COMMAND_ID_EMERGENCY" value="(0x02) "/>
+   <macro name="QAPI_ZB_CL_IASACE_CLIENT_COMMAND_ID_FIRE" value="(0x03) "/>
+   <macro name="QAPI_ZB_CL_IASACE_CLIENT_COMMAND_ID_PANIC" value="(0x04) "/>
+   <macro name="QAPI_ZB_CL_IASACE_CLIENT_COMMAND_ID_GET_ZONE_ID_MAP" value="(0x05) "/>
+   <macro name="QAPI_ZB_CL_IASACE_CLIENT_COMMAND_ID_GET_ZONE_INFORMATION" value="(0x06) "/>
+   <macro name="QAPI_ZB_CL_IASACE_CLIENT_COMMAND_ID_GET_PANEL_STATUS" value="(0x07) "/>
+   <macro name="QAPI_ZB_CL_IASACE_CLIENT_COMMAND_ID_GET_BYPASSED_ZONE_LIST" value="(0x08) "/>
+   <macro name="QAPI_ZB_CL_IASACE_CLIENT_COMMAND_ID_GET_ZONE_STATUS" value="(0x09) "/>
+   <macro name="QAPI_ZB_CL_IASACE_SERVER_COMMAND_ID_ARM_RESPONSE" value="(0x00) "/>
+   <macro name="QAPI_ZB_CL_IASACE_SERVER_COMMAND_ID_GET_ZONE_ID_MAP_RESPONSE" value="(0x01) "/>
+   <macro name="QAPI_ZB_CL_IASACE_SERVER_COMMAND_ID_GET_ZONE_INFORMATION_RESPONSE" value="(0x02) "/>
+   <macro name="QAPI_ZB_CL_IASACE_SERVER_COMMAND_ID_ZONE_STATUS_CHANGED" value="(0x03) "/>
+   <macro name="QAPI_ZB_CL_IASACE_SERVER_COMMAND_ID_PANEL_STATUS_CHANGED" value="(0x04) "/>
+   <macro name="QAPI_ZB_CL_IASACE_SERVER_COMMAND_ID_GET_PANEL_STATUS_RESPONSE" value="(0x05) "/>
+   <macro name="QAPI_ZB_CL_IASACE_SERVER_COMMAND_ID_SET_BYPASSED_ZONE_LIST" value="(0x06) "/>
+   <macro name="QAPI_ZB_CL_IASACE_SERVER_COMMAND_ID_BYPASS_RESPONSE" value="(0x07) "/>
+   <macro name="QAPI_ZB_CL_IASACE_SERVER_COMMAND_ID_GET_ZONE_STATUS_RESPONSE" value="(0x08) "/>
+   <macro name="QAPI_ZB_CL_IASACE_ZONE_STATUS_ALARM1" value="(0x0001) "/>
+   <macro name="QAPI_ZB_CL_IASACE_ZONE_STATUS_ALARM2" value="(0x0002) "/>
+   <macro name="QAPI_ZB_CL_IASACE_ZONE_STATUS_TAMPER" value="(0x0004) "/>
+   <macro name="QAPI_ZB_CL_IASACE_ZONE_STATUS_BATTERY" value="(0x0008) "/>
+   <macro name="QAPI_ZB_CL_IASACE_ZONE_STATUS_SUPERVISION_REPORTS" value="(0x0010) "/>
+   <macro name="QAPI_ZB_CL_IASACE_ZONE_STATUS_RESTORE_REPORTS" value="(0x0020) "/>
+   <macro name="QAPI_ZB_CL_IASACE_ZONE_STATUS_TROUBLE" value="(0x0040) "/>
+   <macro name="QAPI_ZB_CL_IASACE_ZONE_STATUS_AC_MAINS" value="(0x0080) "/>
+   <macro name="QAPI_ZB_CL_IASACE_ZONE_STATUS_TEST" value="(0x0100) "/>
+   <macro name="QAPI_ZB_CL_IASACE_ZONE_STATUS_BATTERY_DEFECT" value="(0x0200) "/>
+   <macro name="QAPI_ZB_CL_IASACE_AUDIBLE_NOTIFICATION_MUTE" value="(0x00) "/>
+   <macro name="QAPI_ZB_CL_IASACE_AUDIBLE_NOTIFICATION_DEFAULT_SOUND" value="(0x01) "/>
+   <macro name="QAPI_ZB_CL_IASACE_AUDIBLE_NOTIFICATION_MANUFACTURER_SPECIFIC_START" value="(0x80) "/>
+   <macro name="QAPI_ZB_CL_IASACE_AUDIBLE_NOTIFICATION_MANUFACTURER_SPECIFIC_END" value="(0xFF) "/>
+   <macro name="QAPI_ZB_CL_IASACE_ZONE_ID_MAP_RESPONSE_SIZE" value="(16) "/>
+   <macro name="QAPI_ZB_CL_IASACE_ZONE_LABEL_MAX_LENGTH" value="(32) "/>
+   <macro name="QAPI_ZB_CL_IASACE_ARM_CODE_MAX_LENGTH" value="(32) "/>
+   <enum name="qapi_ZB_CL_IASACE_Client_Event_Type_t">
+      <member name="QAPI_ZB_CL_IASACE_CLIENT_EVENT_TYPE_ATTR_CUSTOM_READ_E" value="0"/>
+      <member name="QAPI_ZB_CL_IASACE_CLIENT_EVENT_TYPE_ATTR_CUSTOM_WRITE_E" value="1"/>
+      <member name="QAPI_ZB_CL_IASACE_CLIENT_EVENT_TYPE_DEFAULT_RESPONSE_E" value="2"/>
+      <member name="QAPI_ZB_CL_IASACE_CLIENT_EVENT_TYPE_COMMAND_COMPLETE_E" value="3"/>
+      <member name="QAPI_ZB_CL_IASACE_CLIENT_EVENT_TYPE_UNPARSED_RESPONSE_E" value="4"/>
+      <member name="QAPI_ZB_CL_IASACE_CLIENT_EVENT_TYPE_ARM_RESPONSE_E" value="5"/>
+      <member name="QAPI_ZB_CL_IASACE_CLIENT_EVENT_TYPE_GET_ZONE_ID_MAP_RESPONSE_E" value="6"/>
+      <member name="QAPI_ZB_CL_IASACE_CLIENT_EVENT_TYPE_GET_ZONE_INFORMATION_RESPONSE_E" value="7"/>
+      <member name="QAPI_ZB_CL_IASACE_CLIENT_EVENT_TYPE_ZONE_STATUS_CHANGED_E" value="8"/>
+      <member name="QAPI_ZB_CL_IASACE_CLIENT_EVENT_TYPE_PANEL_STATUS_CHANGED_E" value="9"/>
+      <member name="QAPI_ZB_CL_IASACE_CLIENT_EVENT_TYPE_GET_PANEL_STATUS_RESPONSE_E" value="10"/>
+      <member name="QAPI_ZB_CL_IASACE_CLIENT_EVENT_TYPE_SET_BYPASSED_ZONE_LIST_E" value="11"/>
+      <member name="QAPI_ZB_CL_IASACE_CLIENT_EVENT_TYPE_BYPASS_RESPONSE_E" value="12"/>
+      <member name="QAPI_ZB_CL_IASACE_CLIENT_EVENT_TYPE_GET_ZONE_STATUS_RESPONSE_E" value="13"/>
+   </enum>
+   <enum name="qapi_ZB_CL_IASACE_Server_Event_Type_t">
+      <member name="QAPI_ZB_CL_IASACE_SERVER_EVENT_TYPE_ATTR_CUSTOM_READ_E" value="0"/>
+      <member name="QAPI_ZB_CL_IASACE_SERVER_EVENT_TYPE_ATTR_CUSTOM_WRITE_E" value="1"/>
+      <member name="QAPI_ZB_CL_IASACE_SERVER_EVENT_TYPE_UNPARSED_DATA_E" value="2"/>
+      <member name="QAPI_ZB_CL_IASACE_SERVER_EVENT_TYPE_ARM_E" value="3"/>
+      <member name="QAPI_ZB_CL_IASACE_SERVER_EVENT_TYPE_BYPASS_E" value="4"/>
+      <member name="QAPI_ZB_CL_IASACE_SERVER_EVENT_TYPE_EMERGENCY_E" value="5"/>
+      <member name="QAPI_ZB_CL_IASACE_SERVER_EVENT_TYPE_FIRE_E" value="6"/>
+      <member name="QAPI_ZB_CL_IASACE_SERVER_EVENT_TYPE_PANIC_E" value="7"/>
+      <member name="QAPI_ZB_CL_IASACE_SERVER_EVENT_TYPE_DELAY_TIMEOUT_E" value="8"/>
+   </enum>
+   <enum name="qapi_ZB_CL_IASACE_Arm_Mode_t">
+      <member name="QAPI_ZB_CL_IASACE_ARM_MODE_DISARM_E" value="0x00"/>
+      <member name="QAPI_ZB_CL_IASACE_ARM_MODE_ARM_DAY_ZONES_ONLY_E" value="0x01"/>
+      <member name="QAPI_ZB_CL_IASACE_ARM_MODE_ARM_NIGHT_ZONES_ONLY_E" value="0x02"/>
+      <member name="QAPI_ZB_CL_IASACE_ARM_MODE_ARM_ALL_ZONES_E" value="0x03"/>
+   </enum>
+   <enum name="qapi_ZB_CL_IASACE_Arm_Notification_t">
+      <member name="QAPI_ZB_CL_IASACE_ARM_NOTIFICATION_ALL_ZONES_DISARMED_E" value="0x00"/>
+      <member name="QAPI_ZB_CL_IASACE_ARM_NOTIFICATION_ONLY_DAY_ZONES_ARMED_E" value="0x01"/>
+      <member name="QAPI_ZB_CL_IASACE_ARM_NOTIFICATION_ONLY_NIGHT_ZONES_ARMED_E" value="0x02"/>
+      <member name="QAPI_ZB_CL_IASACE_ARM_NOTIFICATION_ALL_ZONES_ARMED_E" value="0x03"/>
+      <member name="QAPI_ZB_CL_IASACE_ARM_NOTIFICATION_INVALID_ARM_CODE_E" value="0x04"/>
+      <member name="QAPI_ZB_CL_IASACE_ARM_NOTIFICATION_NOT_READY_TO_ARM_E" value="0x05"/>
+      <member name="QAPI_ZB_CL_IASACE_ARM_NOTIFICATION_ALREADY_DISARMED_E" value="0x06"/>
+   </enum>
+   <enum name="qapi_ZB_CL_IASACE_Panel_Status_t">
+      <member name="QAPI_ZB_CL_IASACE_PANEL_STATUS_READY_TO_ARM_E" value="0x00"/>
+      <member name="QAPI_ZB_CL_IASACE_PANEL_STATUS_ARMED_STAY_E" value="0x01"/>
+      <member name="QAPI_ZB_CL_IASACE_PANEL_STATUS_ARMED_NIGHT_E" value="0x02"/>
+      <member name="QAPI_ZB_CL_IASACE_PANEL_STATUS_ARMED_AWAY_E" value="0x03"/>
+      <member name="QAPI_ZB_CL_IASACE_PANEL_STATUS_EXIT_DELAY_E" value="0x04"/>
+      <member name="QAPI_ZB_CL_IASACE_PANEL_STATUS_ENTRY_DELAY_E" value="0x05"/>
+      <member name="QAPI_ZB_CL_IASACE_PANEL_STATUS_NOT_READY_TO_ARM_E" value="0x06"/>
+      <member name="QAPI_ZB_CL_IASACE_PANEL_STATUS_IN_ALARM_E" value="0x07"/>
+      <member name="QAPI_ZB_CL_IASACE_PANEL_STATUS_ARMING_STAY_E" value="0x08"/>
+      <member name="QAPI_ZB_CL_IASACE_PANEL_STATUS_ARMING_NIGHT_E" value="0x09"/>
+      <member name="QAPI_ZB_CL_IASACE_PANEL_STATUS_ARMING_AWAY_E" value="0x0A"/>
+   </enum>
+   <enum name="qapi_ZB_CL_IASACE_Alarm_Status_t">
+      <member name="QAPI_ZB_CL_IASACE_ALARM_STATUS_NO_ALARM_E" value="0x00"/>
+      <member name="QAPI_ZB_CL_IASACE_ALARM_STATUS_BURGLAR_E" value="0x01"/>
+      <member name="QAPI_ZB_CL_IASACE_ALARM_STATUS_FIRE_E" value="0x02"/>
+      <member name="QAPI_ZB_CL_IASACE_ALARM_STATUS_EMERGENCY_E" value="0x03"/>
+      <member name="QAPI_ZB_CL_IASACE_ALARM_STATUS_POLICE_PANIC_E" value="0x04"/>
+      <member name="QAPI_ZB_CL_IASACE_ALARM_STATUS_FIRE_PANIC_E" value="0x05"/>
+      <member name="QAPI_ZB_CL_IASACE_ALARM_STATUS_EMERGENCY_PANIC_E" value="0x06"/>
+   </enum>
+   <enum name="qapi_ZB_CL_IASACE_Bypass_Result_t">
+      <member name="QAPI_ZB_CL_IASACE_BYPASS_RESULT_ZONE_BYPASSED_E" value="0x00"/>
+      <member name="QAPI_ZB_CL_IASACE_BYPASS_RESULT_ZONE_NOT_BYPASSED_E" value="0x01"/>
+      <member name="QAPI_ZB_CL_IASACE_BYPASS_RESULT_NOT_ALLOWED_E" value="0x02"/>
+      <member name="QAPI_ZB_CL_IASACE_BYPASS_RESULT_INVALID_ZONE_ID_E" value="0x03"/>
+      <member name="QAPI_ZB_CL_IASACE_BYPASS_RESULT_UNKNOWN_ZONE_ID_E" value="0x04"/>
+      <member name="QAPI_ZB_CL_IASACE_BYPASS_RESULT_INVALID_ARM_CODE_E" value="0x05"/>
+   </enum>
+   <structure name="qapi_ZB_CL_IASACE_Zone_Table_Entry_t">
+      <member attributes="value" name="ZoneID" type="uint8_t"/>
+      <member attributes="value" name="ZoneType" type="qapi_ZB_CL_IASZone_Zone_Type_t"/>
+      <member attributes="value" name="ZoneAddress" type="uint64_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="QAPI_ZB_CL_IASACE_ZONE_LABEL_MAX_LENGTH + 1" lengthVerified="yes" name="ZoneLabel" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_IASACE_Arm_Response_t">
+      <member attributes="value" name="ArmNotification" type="qapi_ZB_CL_IASACE_Arm_Notification_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_IASACE_Get_Zone_ID_Map_Response_t">
+      <member attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="ZoneIDMap" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_IASACE_Get_Zone_Info_Response_t">
+      <member attributes="value" name="ZoneID" type="uint8_t"/>
+      <member attributes="value" name="ZoneType" type="qapi_ZB_CL_IASZone_Zone_Type_t"/>
+      <member attributes="value" name="ZoneAddress" type="uint64_t"/>
+      <member attributes="ptr,const" iotype="in" lengthParam="__strlen__" lengthVerified="yes" name="ZoneLabel" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_IASACE_Zone_Status_Changed_t">
+      <member attributes="value" name="ZoneID" type="uint8_t"/>
+      <member attributes="value" name="Status" type="uint16_t"/>
+      <member attributes="value" name="AudibleNotification" type="uint8_t"/>
+      <member attributes="ptr,const" iotype="in" lengthParam="__strlen__" lengthVerified="yes" name="ZoneLabel" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_IASACE_Panel_Status_Info_t">
+      <member attributes="value" name="PanelStatus" type="qapi_ZB_CL_IASACE_Panel_Status_t"/>
+      <member attributes="value" name="SecondsRemaining" type="uint8_t"/>
+      <member attributes="value" name="AudibleNotification" type="uint8_t"/>
+      <member attributes="value" name="AlarmStatus" type="qapi_ZB_CL_IASACE_Alarm_Status_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_IASACE_Set_Bypassed_Zone_List_t">
+      <member attributes="value" name="NumberOfZones" type="uint8_t"/>
+      <member attributes="ptr,const" iotype="in" lengthParam="NumberOfZones" lengthVerified="yes" name="ZoneIDList" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_IASACE_Zone_Status_t">
+      <member attributes="value" name="ZoneID" type="uint8_t"/>
+      <member attributes="value" name="Status" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_IASACE_Bypass_Response_t">
+      <member attributes="value" name="NumberOfZones" type="uint8_t"/>
+      <member attributes="ptr,const" iotype="in" lengthParam="NumberOfZones" lengthVerified="yes" name="BypassResultList" type="qapi_ZB_CL_IASACE_Bypass_Result_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_IASACE_Get_Zone_Status_Response_t">
+      <member attributes="value" name="ZoneStatusComplete" type="qbool_t"/>
+      <member attributes="value" name="NumberOfZones" type="uint8_t"/>
+      <member attributes="ptr,const" iotype="in" lengthParam="NumberOfZones" lengthVerified="yes" name="ZoneStatusList" type="qapi_ZB_CL_IASACE_Zone_Status_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_IASACE_Arm_t">
+      <member attributes="value" name="APSDEData" type="qapi_ZB_APSDE_Data_Indication_t"/>
+      <member attributes="value" name="ZCLHeader" type="qapi_ZB_CL_Header_t"/>
+      <member attributes="value" name="ArmMode" type="qapi_ZB_CL_IASACE_Arm_Mode_t"/>
+      <member attributes="value" name="ZoneID" type="uint8_t"/>
+      <member attributes="ptr,const" iotype="in" lengthParam="__strlen__" lengthVerified="yes" name="ArmCode" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="StatusResult" type="qapi_Status_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="ArmResponse" type="qapi_ZB_CL_IASACE_Arm_Notification_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_IASACE_Bypass_t">
+      <member attributes="value" name="APSDEData" type="qapi_ZB_APSDE_Data_Indication_t"/>
+      <member attributes="value" name="ZCLHeader" type="qapi_ZB_CL_Header_t"/>
+      <member attributes="value" name="NumberOfZones" type="uint8_t"/>
+      <member attributes="ptr,const" iotype="in" lengthParam="NumberOfZones" lengthVerified="yes" name="ZoneIDList" type="uint8_t"/>
+      <member attributes="ptr,const" iotype="in" lengthParam="__strlen__" lengthVerified="yes" name="ArmCode" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="StatusResult" type="qapi_Status_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="BypassResultList" type="qapi_ZB_CL_IASACE_Bypass_Result_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_IASACE_Delay_Timeout_t">
+      <member attributes="value" name="PanelStatus" type="qapi_ZB_CL_IASACE_Panel_Status_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_IASACE_Get_Zone_Info_t">
+      <member attributes="value" name="ZoneID" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_IASACE_Get_Zone_Status_t">
+      <member attributes="value" name="StartingZoneID" type="uint8_t"/>
+      <member attributes="value" name="MaxNumberOfZones" type="uint8_t"/>
+      <member attributes="value" name="ZoneStatusMaskFlag" type="qbool_t"/>
+      <member attributes="value" name="ZoneStatusMask" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_IASACE_Client_Event_Data_t">
+      <member attributes="value" name="Event_Type" type="qapi_ZB_CL_IASACE_Client_Event_Type_t"/>
+      <member attributes="union" name="Data">
+         <member attributes="value" name="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t"/>
+         <member attributes="value" name="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t"/>
+         <member attributes="value" name="Default_Response" type="qapi_ZB_CL_Default_Response_t"/>
+         <member attributes="value" name="Command_Complete" type="qapi_ZB_CL_Command_Complete_t"/>
+         <member attributes="value" name="Unparsed_Response" type="qapi_ZB_CL_Unparsed_Response_t"/>
+         <member attributes="value" name="Arm_Response" type="qapi_ZB_CL_IASACE_Arm_Response_t"/>
+         <member attributes="value" name="Get_Zone_ID_Map_Response" type="qapi_ZB_CL_IASACE_Get_Zone_ID_Map_Response_t"/>
+         <member attributes="value" name="Get_Zone_Info_Response" type="qapi_ZB_CL_IASACE_Get_Zone_Info_Response_t"/>
+         <member attributes="value" name="Zone_Status_Changed" type="qapi_ZB_CL_IASACE_Zone_Status_Changed_t"/>
+         <member attributes="value" name="Panel_Status_Changed" type="qapi_ZB_CL_IASACE_Panel_Status_Info_t"/>
+         <member attributes="value" name="Get_Panel_Status_Response" type="qapi_ZB_CL_IASACE_Panel_Status_Info_t"/>
+         <member attributes="value" name="Set_Bypassed_Zone_List" type="qapi_ZB_CL_IASACE_Set_Bypassed_Zone_List_t"/>
+         <member attributes="value" name="Bypass_Response" type="qapi_ZB_CL_IASACE_Bypass_Response_t"/>
+         <member attributes="value" name="Get_Zone_Status_Response" type="qapi_ZB_CL_IASACE_Get_Zone_Status_Response_t"/>
+         <unionMap mapVerified="yes" name="Event_Type" type="qapi_ZB_CL_IASACE_Client_Event_Type_t">
+            <mapEntry member="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t" value="QAPI_ZB_CL_IASACE_CLIENT_EVENT_TYPE_ATTR_CUSTOM_READ_E"/>
+            <mapEntry member="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t" value="QAPI_ZB_CL_IASACE_CLIENT_EVENT_TYPE_ATTR_CUSTOM_WRITE_E"/>
+            <mapEntry member="Default_Response" type="qapi_ZB_CL_Default_Response_t" value="QAPI_ZB_CL_IASACE_CLIENT_EVENT_TYPE_DEFAULT_RESPONSE_E"/>
+            <mapEntry member="Command_Complete" type="qapi_ZB_CL_Command_Complete_t" value="QAPI_ZB_CL_IASACE_CLIENT_EVENT_TYPE_COMMAND_COMPLETE_E"/>
+            <mapEntry member="Unparsed_Response" type="qapi_ZB_CL_Unparsed_Response_t" value="QAPI_ZB_CL_IASACE_CLIENT_EVENT_TYPE_UNPARSED_RESPONSE_E"/>
+            <mapEntry member="Arm_Response" type="qapi_ZB_CL_IASACE_Arm_Response_t" value="QAPI_ZB_CL_IASACE_CLIENT_EVENT_TYPE_ARM_RESPONSE_E"/>
+            <mapEntry member="Get_Zone_ID_Map_Response" type="qapi_ZB_CL_IASACE_Get_Zone_ID_Map_Response_t" value="QAPI_ZB_CL_IASACE_CLIENT_EVENT_TYPE_GET_ZONE_ID_MAP_RESPONSE_E"/>
+            <mapEntry member="Get_Zone_Info_Response" type="qapi_ZB_CL_IASACE_Get_Zone_Info_Response_t" value="QAPI_ZB_CL_IASACE_CLIENT_EVENT_TYPE_GET_ZONE_INFORMATION_RESPONSE_E"/>
+            <mapEntry member="Zone_Status_Changed" type="qapi_ZB_CL_IASACE_Zone_Status_Changed_t" value="QAPI_ZB_CL_IASACE_CLIENT_EVENT_TYPE_ZONE_STATUS_CHANGED_E"/>
+            <mapEntry member="Panel_Status_Changed" type="qapi_ZB_CL_IASACE_Panel_Status_Info_t" value="QAPI_ZB_CL_IASACE_CLIENT_EVENT_TYPE_PANEL_STATUS_CHANGED_E"/>
+            <mapEntry member="Get_Panel_Status_Response" type="qapi_ZB_CL_IASACE_Panel_Status_Info_t" value="QAPI_ZB_CL_IASACE_CLIENT_EVENT_TYPE_GET_PANEL_STATUS_RESPONSE_E"/>
+            <mapEntry member="Set_Bypassed_Zone_List" type="qapi_ZB_CL_IASACE_Set_Bypassed_Zone_List_t" value="QAPI_ZB_CL_IASACE_CLIENT_EVENT_TYPE_SET_BYPASSED_ZONE_LIST_E"/>
+            <mapEntry member="Bypass_Response" type="qapi_ZB_CL_IASACE_Bypass_Response_t" value="QAPI_ZB_CL_IASACE_CLIENT_EVENT_TYPE_BYPASS_RESPONSE_E"/>
+            <mapEntry member="Get_Zone_Status_Response" type="qapi_ZB_CL_IASACE_Get_Zone_Status_Response_t" value="QAPI_ZB_CL_IASACE_CLIENT_EVENT_TYPE_GET_ZONE_STATUS_RESPONSE_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_ZB_CL_IASACE_Server_Event_Data_t">
+      <member attributes="value" name="Event_Type" type="qapi_ZB_CL_IASACE_Server_Event_Type_t"/>
+      <member attributes="union" name="Data">
+         <member attributes="value" name="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t"/>
+         <member attributes="value" name="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t"/>
+         <member attributes="value" name="Unparsed_Data" type="qapi_ZB_CL_Unparsed_Data_t"/>
+         <member attributes="value" name="Arm" type="qapi_ZB_CL_IASACE_Arm_t"/>
+         <member attributes="value" name="Bypass" type="qapi_ZB_CL_IASACE_Bypass_t"/>
+         <member attributes="value" name="Delay_Timeout" type="qapi_ZB_CL_IASACE_Delay_Timeout_t"/>
+         <unionMap mapVerified="yes" name="Event_Type" type="qapi_ZB_CL_IASACE_Server_Event_Type_t">
+            <mapEntry member="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t" value="QAPI_ZB_CL_IASACE_SERVER_EVENT_TYPE_ATTR_CUSTOM_READ_E"/>
+            <mapEntry member="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t" value="QAPI_ZB_CL_IASACE_SERVER_EVENT_TYPE_ATTR_CUSTOM_WRITE_E"/>
+            <mapEntry member="Unparsed_Data" type="qapi_ZB_CL_Unparsed_Data_t" value="QAPI_ZB_CL_IASACE_SERVER_EVENT_TYPE_UNPARSED_DATA_E"/>
+            <mapEntry member="Arm" type="qapi_ZB_CL_IASACE_Arm_t" value="QAPI_ZB_CL_IASACE_SERVER_EVENT_TYPE_ARM_E"/>
+            <mapEntry member="Bypass" type="qapi_ZB_CL_IASACE_Bypass_t" value="QAPI_ZB_CL_IASACE_SERVER_EVENT_TYPE_BYPASS_E"/>
+            <mapEntry member="Delay_Timeout" type="qapi_ZB_CL_IASACE_Delay_Timeout_t" value="QAPI_ZB_CL_IASACE_SERVER_EVENT_TYPE_DELAY_TIMEOUT_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <function name="qapi_ZB_CL_IASACE_Create_Client">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Cluster_Info" type="qapi_ZB_CL_Cluster_Info_t"/>
+      <argument attributes="value" name="Event_CB" type="qapi_ZB_CL_IASACE_Client_CB_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+   </function>
+   <function name="qapi_ZB_CL_IASACE_Create_Server">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Cluster_Info" type="qapi_ZB_CL_Cluster_Info_t"/>
+      <argument attributes="value" name="Event_CB" type="qapi_ZB_CL_IASACE_Server_CB_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+   </function>
+   <function name="qapi_ZB_CL_IASACE_Populate_Attributes">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Server" type="qbool_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="AttributeCount" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="AttributeCount" lengthVerified="yes" name="AttributeList" type="qapi_ZB_CL_Attribute_t"/>
+   </function>
+   <function name="qapi_ZB_CL_IASACE_Client_Send_Arm">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="value" name="ZoneID" type="uint8_t"/>
+      <argument attributes="value" name="ArmMode" type="qapi_ZB_CL_IASACE_Arm_Mode_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="__strlen__" lengthVerified="yes" name="ArmCode" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_CL_IASACE_Client_Send_Bypass">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="value" name="NumberOfZones" type="uint8_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="NumberOfZones" lengthVerified="yes" name="ZoneIDList" type="uint8_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="__strlen__" lengthVerified="yes" name="ArmCode" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_CL_IASACE_Client_Send_Emergency">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+   </function>
+   <function name="qapi_ZB_CL_IASACE_Client_Send_Fire">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+   </function>
+   <function name="qapi_ZB_CL_IASACE_Client_Send_Panic">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+   </function>
+   <function name="qapi_ZB_CL_IASACE_Client_Send_Get_ZoneID_Map">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+   </function>
+   <function name="qapi_ZB_CL_IASACE_Client_Send_Get_Zone_Info">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="value" name="ZoneID" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_CL_IASACE_Client_Send_Get_Panel_Status">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+   </function>
+   <function name="qapi_ZB_CL_IASACE_Client_Send_Get_Bypassed_Zone_List">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+   </function>
+   <function name="qapi_ZB_CL_IASACE_Client_Send_Get_Zone_Status">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="Request" type="qapi_ZB_CL_IASACE_Get_Zone_Status_t"/>
+   </function>
+   <function name="qapi_ZB_CL_IASACE_Server_Set_Arm_Code">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="__strlen__" lengthVerified="yes" name="ArmCode" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_CL_IASACE_Server_Get_Arm_Code">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="value" name="ArmCodeLength" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="ArmCodeLength" lengthVerified="yes" name="ArmCode" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_CL_IASACE_Server_Set_Panel_Status">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="PanelStatus" type="qapi_ZB_CL_IASACE_Panel_Status_Info_t"/>
+   </function>
+   <function name="qapi_ZB_CL_IASACE_Server_Get_Panel_Status">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="PanelStatus" type="qapi_ZB_CL_IASACE_Panel_Status_Info_t"/>
+   </function>
+   <function name="qapi_ZB_CL_IASACE_Server_Add_Zone">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="Request" type="qapi_ZB_CL_IASACE_Zone_Table_Entry_t"/>
+   </function>
+   <function name="qapi_ZB_CL_IASACE_Server_Delete_Zone">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="value" name="ZoneID" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_CL_IASACE_Server_Set_Zone_Status">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="value" name="ZoneID" type="uint8_t"/>
+      <argument attributes="value" name="ZoneStatus" type="uint16_t"/>
+      <argument attributes="value" name="AudibleNotification" type="uint8_t"/>
+      <argument attributes="value" name="AlarmStatus" type="qapi_ZB_CL_IASACE_Alarm_Status_t"/>
+   </function>
+   <function name="qapi_ZB_CL_IASACE_Server_Set_Bypass_Permit">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="value" name="ZoneID" type="uint8_t"/>
+      <argument attributes="value" name="Permit" type="qbool_t"/>
+   </function>
+   <function name="qapi_ZB_CL_IASACE_Server_Set_Bypass">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="value" name="ZoneID" type="uint8_t"/>
+      <argument attributes="value" name="Bypass" type="qbool_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="BypassResult" type="qapi_ZB_CL_IASACE_Bypass_Result_t"/>
+   </function>
+   <function name="qapi_ZB_CL_IASACE_Server_Find_Zone_By_ID">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="value" name="ZoneID" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ZoneInfo" type="qapi_ZB_CL_IASACE_Zone_Table_Entry_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ZoneStatus" type="uint16_t"/>
+   </function>
+   <function name="qapi_ZB_CL_IASACE_Server_Find_Zone_By_Address">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="value" name="ZoneAddress" type="uint64_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ZoneInfo" type="qapi_ZB_CL_IASACE_Zone_Table_Entry_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ZoneStatus" type="uint16_t"/>
+   </function>
+   <function name="qapi_ZB_CL_IASACE_Server_Get_Zone_List">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="ListSize" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="ListSize" lengthVerified="yes" name="ZoneList" type="uint8_t"/>
+   </function>
+   <callback name="qapi_ZB_CL_IASACE_Client_CB_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Event_Data" type="qapi_ZB_CL_IASACE_Client_Event_Data_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+      <createFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_IASACE_Create_Client" param="CB_Param"/>
+      <destroyFunction ID="Cluster" funcSuccess="QAPI_OK" name="qapi_ZB_CL_Destroy_Cluster"/>
+   </callback>
+   <callback name="qapi_ZB_CL_IASACE_Server_CB_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Event_Data" type="qapi_ZB_CL_IASACE_Server_Event_Data_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+      <createFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_IASACE_Create_Server" param="CB_Param"/>
+      <destroyFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_Destroy_Cluster"/>
+   </callback>
+</header>

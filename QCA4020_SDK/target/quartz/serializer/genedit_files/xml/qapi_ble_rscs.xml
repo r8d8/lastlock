@@ -1,0 +1,246 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="./qapi_ble_btapityp.h"/>
+   <include name="./qapi_ble_bttypes.h"/>
+   <include name="./qapi_ble_gatt.h"/>
+   <include name="./qapi_ble_rscstypes.h"/>
+   <macro name="QAPI_BLE_RSCS_ERROR_INVALID_PARAMETER" value="(-1000)"/>
+   <macro name="QAPI_BLE_RSCS_ERROR_INVALID_BLUETOOTH_STACK_ID" value="(-1001)"/>
+   <macro name="QAPI_BLE_RSCS_ERROR_INSUFFICIENT_RESOURCES" value="(-1002)"/>
+   <macro name="QAPI_BLE_RSCS_ERROR_INSUFFICIENT_BUFFER_SPACE" value="(-1003)"/>
+   <macro name="QAPI_BLE_RSCS_ERROR_SERVICE_ALREADY_REGISTERED" value="(-1004)"/>
+   <macro name="QAPI_BLE_RSCS_ERROR_INVALID_INSTANCE_ID" value="(-1005)"/>
+   <macro name="QAPI_BLE_RSCS_ERROR_MALFORMATTED_DATA" value="(-1006)"/>
+   <macro name="QAPI_BLE_RSCS_ERROR_INDICATION_OUTSTANDING" value="(-1007)"/>
+   <macro name="QAPI_BLE_RSCS_CLIENT_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_RSCS_Client_Information_t))"/>
+   <macro name="QAPI_BLE_RSCS_SERVER_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_RSCS_Server_Information_t))"/>
+   <macro name="QAPI_BLE_RSCS_RSC_MEASUREMENT_DATA_SIZE" value="(sizeof(qapi_BLE_RSCS_RSC_Measurement_Data_t))"/>
+   <macro name="QAPI_BLE_RSCS_READ_CLIENT_CONFIGURATION_DATA_SIZE" value="(sizeof(qapi_BLE_RSCS_Read_Client_Configuration_Data_t))"/>
+   <macro name="QAPI_BLE_RSCS_CLIENT_CONFIGURATION_UPDATE_DATA_SIZE" value="(sizeof(qapi_BLE_RSCS_Client_Configuration_Update_Data_t))"/>
+   <macro name="QAPI_BLE_MAXIMUM_SUPPORTED_SENSOR_LOCATIONS" value="(17)"/>
+   <macro name="QAPI_BLE_RSCS_SCCP_SUPPORTED_SENSOR_LOCATIONS_SIZE" value="(sizeof(qapi_BLE_RSCS_SCCP_Supported_Sensor_Locations_t))"/>
+   <macro name="QAPI_BLE_RSCS_SC_CONTROL_POINT_FORMAT_DATA_SIZE" value="(sizeof(qapi_BLE_RSCS_SC_Control_Point_Format_Data_t))"/>
+   <macro name="QAPI_BLE_RSCS_SC_CONTROL_POINT_RESPONSE_DATA_SIZE" value="(sizeof(qapi_BLE_RSCS_SC_Control_Point_Response_Data_t))"/>
+   <macro name="QAPI_BLE_RSCS_SC_CONTROL_POINT_COMMAND_DATA_SIZE" value="(sizeof(qapi_BLE_RSCS_SC_Control_Point_Command_Data_t))"/>
+   <macro name="QAPI_BLE_RSCS_CONFIRMATION_DATA_SIZE" value="(sizeof(qapi_BLE_RSCS_Confirmation_Data_t))"/>
+   <macro name="QAPI_BLE_RSCS_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_RSCS_Event_Data_t))"/>
+   <enum name="qapi_BLE_RSCS_Characteristic_Type_t">
+      <member name="QAPI_BLE_CT_RSC_MEASUREMENT_E" value="0"/>
+      <member name="QAPI_BLE_CT_RSC_CONTROL_POINT_E" value="1"/>
+   </enum>
+   <enum name="qapi_BLE_RSCS_Event_Type_t">
+      <member name="QAPI_BLE_ET_RSCS_READ_CLIENT_CONFIGURATION_REQUEST_E" value="0"/>
+      <member name="QAPI_BLE_ET_RSCS_CLIENT_CONFIGURATION_UPDATE_E" value="1"/>
+      <member name="QAPI_BLE_ET_RSCS_SC_CONTROL_POINT_COMMAND_E" value="2"/>
+      <member name="QAPI_BLE_ET_RSCS_CONFIRMATION_DATA_E" value="3"/>
+   </enum>
+   <enum name="qapi_BLE_RSCS_SCCP_Command_Type_t">
+      <member name="QAPI_BLE_SCC_SET_CUMULATIVE_VALUE_E" value="QAPI_BLE_RSCS_SC_CONTROL_POINT_OPCODE_SET_CUMULATIVE_VALUE"/>
+      <member name="QAPI_BLE_SCC_START_SENSOR_CALIBRATION_E" value="QAPI_BLE_RSCS_SC_CONTROL_POINT_OPCODE_START_SENSOR_CALIBRATION"/>
+      <member name="QAPI_BLE_SCC_UPDATE_SENSOR_LOCATION_E" value="QAPI_BLE_RSCS_SC_CONTROL_POINT_OPCODE_UPDATE_SENSOR_LOCATION"/>
+      <member name="QAPI_BLE_SCC_REQUEST_SUPPORTED_SENSOR_LOCATION_E" value="QAPI_BLE_RSCS_SC_CONTROL_POINT_OPCODE_REQUEST_SUPPORTED_SENSOR_LOCATIONS"/>
+   </enum>
+   <enum name="qapi_BLE_RSCS_SCCP_Response_Value_t">
+      <member name="QAPI_BLE_SCC_SUCCESS_E" value="QAPI_BLE_RSCS_SC_CONTROL_POINT_RESPONSE_CODE_SUCCESS"/>
+      <member name="QAPI_BLE_SCC_OPCODE_NOT_SUPPORTED_E" value="QAPI_BLE_RSCS_SC_CONTROL_POINT_RESPONSE_OPCODE_NOT_SUPPORTED"/>
+      <member name="QAPI_BLE_SCC_INVALID_PARAMETER_E" value="QAPI_BLE_RSCS_SC_CONTROL_POINT_RESPONSE_INVALID_PARAMETER"/>
+      <member name="QAPI_BLE_SCC_OPERATION_FAILED_E" value="QAPI_BLE_RSCS_SC_CONTROL_POINT_RESPONSE_OPERATION_FAILED"/>
+   </enum>
+   <structure name="qapi_BLE_RSCS_Client_Information_t">
+      <member attributes="value" name="RSC_Measurement" type="uint16_t"/>
+      <member attributes="value" name="RSC_Measurement_Client_Configuration" type="uint16_t"/>
+      <member attributes="value" name="RSC_Feature" type="uint16_t"/>
+      <member attributes="value" name="Sensor_Location" type="uint16_t"/>
+      <member attributes="value" name="SC_Control_Point" type="uint16_t"/>
+      <member attributes="value" name="SC_Control_Point_Client_Configuration" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_RSCS_Server_Information_t">
+      <member attributes="value" name="RSC_Measurement_Client_Configuration" type="uint16_t"/>
+      <member attributes="value" name="SC_Control_Point_Client_Configuration" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_RSCS_RSC_Measurement_Data_t">
+      <member attributes="value" name="Flags" type="uint8_t"/>
+      <member attributes="value" name="Instantaneous_Speed" type="uint16_t"/>
+      <member attributes="value" name="Instantaneous_Cadence" type="uint8_t"/>
+      <member attributes="value" name="Instantaneous_Stride_Length" type="uint16_t"/>
+      <member attributes="value" name="Total_Distance" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_BLE_RSCS_Read_Client_Configuration_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ClientConfigurationType" type="qapi_BLE_RSCS_Characteristic_Type_t"/>
+   </structure>
+   <structure name="qapi_BLE_RSCS_Client_Configuration_Update_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ClientConfigurationType" type="qapi_BLE_RSCS_Characteristic_Type_t"/>
+      <member attributes="value" name="ClientConfiguration" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_RSCS_SCCP_Supported_Sensor_Locations_t">
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="QAPI_BLE_MAXIMUM_SUPPORTED_SENSOR_LOCATIONS" name="SensorLocations" type="uint8_t"/>
+      <member attributes="value" name="NumberOfSensorLocations" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_RSCS_SC_Control_Point_Format_Data_t">
+      <member attributes="value" name="CommandType" type="qapi_BLE_RSCS_SCCP_Command_Type_t"/>
+      <member attributes="union" name="FilterParameters">
+         <member attributes="value" name="CumulativeValue" type="uint32_t"/>
+         <member attributes="value" name="SensorLocation" type="uint8_t"/>
+         <unionMap mapVerified="yes" name="CommandType" type="qapi_BLE_RSCS_SCCP_Command_Type_t">
+            <mapEntry member="CumulativeValue" type="uint32_t" value="QAPI_BLE_SCC_SET_CUMULATIVE_VALUE_E"/>
+            <mapEntry member="SensorLocation" type="uint8_t" value="QAPI_BLE_SCC_UPDATE_SENSOR_LOCATION_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_BLE_RSCS_SC_Control_Point_Response_Data_t">
+      <member attributes="value" name="ResponseOpCode" type="uint8_t"/>
+      <member attributes="value" name="RequestOpCode" type="qapi_BLE_RSCS_SCCP_Command_Type_t"/>
+      <member attributes="value" name="SupportedSensorLocations" type="qapi_BLE_RSCS_SCCP_Supported_Sensor_Locations_t"/>
+   </structure>
+   <structure name="qapi_BLE_RSCS_SC_Control_Point_Command_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="FormatData" type="qapi_BLE_RSCS_SC_Control_Point_Format_Data_t"/>
+   </structure>
+   <structure name="qapi_BLE_RSCS_Confirmation_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="CharacteristicType" type="qapi_BLE_RSCS_Characteristic_Type_t"/>
+      <member attributes="value" name="Status" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_RSCS_Event_Data_t">
+      <member attributes="value" name="Event_Data_Type" type="qapi_BLE_RSCS_Event_Type_t"/>
+      <member attributes="value" name="Event_Data_Size" type="uint16_t"/>
+      <member attributes="union" name="Event_Data">
+         <member attributes="ptr" iotype="in" name="RSCS_Read_Client_Configuration_Data" type="qapi_BLE_RSCS_Read_Client_Configuration_Data_t"/>
+         <member attributes="ptr" iotype="in" name="RSCS_Client_Configuration_Update_Data" type="qapi_BLE_RSCS_Client_Configuration_Update_Data_t"/>
+         <member attributes="ptr" iotype="in" name="RSCS_SC_Control_Point_Command_Data" type="qapi_BLE_RSCS_SC_Control_Point_Command_Data_t"/>
+         <member attributes="ptr" iotype="in" name="RSCS_Confirmation_Data" type="qapi_BLE_RSCS_Confirmation_Data_t"/>
+         <unionMap mapVerified="yes" name="Event_Data_Type" type="qapi_BLE_RSCS_Event_Type_t">
+            <mapEntry member="RSCS_Read_Client_Configuration_Data" type="qapi_BLE_RSCS_Read_Client_Configuration_Data_t" value="QAPI_BLE_ET_RSCS_READ_CLIENT_CONFIGURATION_REQUEST_E"/>
+            <mapEntry member="RSCS_Client_Configuration_Update_Data" type="qapi_BLE_RSCS_Client_Configuration_Update_Data_t" value="QAPI_BLE_ET_RSCS_CLIENT_CONFIGURATION_UPDATE_E"/>
+            <mapEntry member="RSCS_SC_Control_Point_Command_Data" type="qapi_BLE_RSCS_SC_Control_Point_Command_Data_t" value="QAPI_BLE_ET_RSCS_SC_CONTROL_POINT_COMMAND_E"/>
+            <mapEntry member="RSCS_Confirmation_Data" type="qapi_BLE_RSCS_Confirmation_Data_t" value="QAPI_BLE_ET_RSCS_CONFIRMATION_DATA_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <function name="qapi_BLE_RSCS_Initialize_Service">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_RSCS_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_RSCS_Initialize_Service_Handle_Range">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_RSCS_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="ServiceHandleRange" type="qapi_BLE_GATT_Attribute_Handle_Group_t"/>
+   </function>
+   <function name="qapi_BLE_RSCS_Cleanup_Service">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_RSCS_Query_Number_Attributes">
+      <return attributes="value" type="unsigned int"/>
+   </function>
+   <function name="qapi_BLE_RSCS_Read_Client_Configuration_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ClientConfiguration" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_RSCS_Notify_RSC_Measurement">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="MeasurementData" type="qapi_BLE_RSCS_RSC_Measurement_Data_t"/>
+   </function>
+   <function name="qapi_BLE_RSCS_Set_RSC_Feature">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="SupportedFeatures" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_RSCS_Query_RSC_Feature">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="SupportedFeatures" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_RSCS_Set_Sensor_Location">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="SensorLocation" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_RSCS_Query_Sensor_Location">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="SensorLocation" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_RSCS_SC_Control_Point_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_RSCS_Indicate_SC_Control_Point_Result">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="value" name="CommandType" type="qapi_BLE_RSCS_SCCP_Command_Type_t"/>
+      <argument attributes="value" name="ResponseCode" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_RSCS_Indicate_Supported_Sensor_Locations">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="SupportedSensorLocations" type="qapi_BLE_RSCS_SCCP_Supported_Sensor_Locations_t"/>
+   </function>
+   <function name="qapi_BLE_RSCS_Decode_RSC_Measurement">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="MeasurementData" type="qapi_BLE_RSCS_RSC_Measurement_Data_t"/>
+   </function>
+   <function name="qapi_BLE_RSCS_Format_SC_Control_Point_Command">
+      <return attributes="value" type="int"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="FormatData" type="qapi_BLE_RSCS_SC_Control_Point_Format_Data_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="BufferLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="BufferLength" lengthVerified="yes" name="Buffer" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_RSCS_Decode_SC_Control_Point_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="SCCPResponseData" type="qapi_BLE_RSCS_SC_Control_Point_Response_Data_t"/>
+   </function>
+   <callback name="qapi_BLE_RSCS_Event_Callback_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="RSCS_Event_Data" type="qapi_BLE_RSCS_Event_Data_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <createFunction ID="qsRetVal" funcSuccess="0" moduleParam="BluetoothStackID" name="qapi_BLE_RSCS_Initialize_Service" param="CallbackParameter"/>
+      <createFunction ID="qsRetVal" funcSuccess="0" moduleParam="BluetoothStackID" name="qapi_BLE_RSCS_Initialize_Service_Handle_Range" param="CallbackParameter"/>
+      <destroyFunction ID="InstanceID" funcSuccess="0" name="qapi_BLE_RSCS_Cleanup_Service"/>
+   </callback>
+</header>

@@ -1,0 +1,664 @@
+<?xml version="1.0" ?>
+<header>
+   <macro name="QAPI_BLE_BD_ADDR_SIZE" value="(sizeof(qapi_BLE_BD_ADDR_t))"/>
+   <macro name="QAPI_BLE_ASSIGN_BD_ADDR" params="(_dest, _a, _b, _c, _d, _e, _f)" value="\ { \  (_dest).BD_ADDR0 = (_f); \  (_dest).BD_ADDR1 = (_e); \  (_dest).BD_ADDR2 = (_d); \  (_dest).BD_ADDR3 = (_c); \  (_dest).BD_ADDR4 = (_b); \  (_dest).BD_ADDR5 = (_a); \ }"/>
+   <macro name="QAPI_BLE_COMPARE_BD_ADDR" params="(_x, _y)" value="(((_x).BD_ADDR0 == (_y).BD_ADDR0) &amp;&amp; ((_x).BD_ADDR1 == (_y).BD_ADDR1) &amp;&amp; ((_x).BD_ADDR2 == (_y).BD_ADDR2) &amp;&amp; ((_x).BD_ADDR3 == (_y).BD_ADDR3) &amp;&amp; ((_x).BD_ADDR4 == (_y).BD_ADDR4) &amp;&amp; ((_x).BD_ADDR5 == (_y).BD_ADDR5))"/>
+   <macro name="QAPI_BLE_COMPARE_NULL_BD_ADDR" params="(_x)" value="(((_x).BD_ADDR0 == 0x00) &amp;&amp; ((_x).BD_ADDR1 == 0x00) &amp;&amp; ((_x).BD_ADDR2 == 0x00) &amp;&amp; ((_x).BD_ADDR3 == 0x00) &amp;&amp; ((_x).BD_ADDR4 == 0x00) &amp;&amp; ((_x).BD_ADDR5 == 0x00))"/>
+   <macro name="QAPI_BLE_LAP_SIZE" value="(sizeof(qapi_BLE_LAP_t))"/>
+   <macro name="QAPI_BLE_ASSIGN_LAP" params="(_dest, _x, _y, _z)" value="\ { \  (_dest).LAP0 = (_z); \  (_dest).LAP1 = (_y); \  (_dest).LAP2 = (_x); \ }"/>
+   <macro name="QAPI_BLE_COMPARE_LAP" params="(_x, _y)" value="(((_x).LAP0 == (_y).LAP0) &amp;&amp; ((_x).LAP1 == (_y).LAP1) &amp;&amp; ((_x).LAP2 == (_y).LAP2))"/>
+   <macro name="QAPI_BLE_LINK_KEY_SIZE" value="(sizeof(qapi_BLE_Link_Key_t))"/>
+   <macro name="QAPI_BLE_ASSIGN_LINK_KEY" params="(_dest, _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p)" value="\ { \  (_dest).Link_Key0 = (_p); (_dest).Link_Key1 = (_o); (_dest).Link_Key2 = (_n); \  (_dest).Link_Key3 = (_m); (_dest).Link_Key4 = (_l); (_dest).Link_Key5 = (_k); \  (_dest).Link_Key6 = (_j); (_dest).Link_Key7 = (_i); (_dest).Link_Key8 = (_h); \  (_dest).Link_Key9 = (_g); (_dest).Link_Key10 = (_f); (_dest).Link_Key11 = (_e); \  (_dest).Link_Key12 = (_d); (_dest).Link_Key13 = (_c); (_dest).Link_Key14 = (_b); \  (_dest).Link_Key15 = (_a); \ }"/>
+   <macro name="QAPI_BLE_COMPARE_LINK_KEY" params="(_x, _y)" value="\ ( \  ((_x).Link_Key0 == (_y).Link_Key0) &amp;&amp; ((_x).Link_Key1 == (_y).Link_Key1) &amp;&amp; ((_x).Link_Key2 == (_y).Link_Key2) &amp;&amp; \  ((_x).Link_Key3 == (_y).Link_Key3) &amp;&amp; ((_x).Link_Key4 == (_y).Link_Key4) &amp;&amp; ((_x).Link_Key5 == (_y).Link_Key5) &amp;&amp; \  ((_x).Link_Key6 == (_y).Link_Key6) &amp;&amp; ((_x).Link_Key7 == (_y).Link_Key7) &amp;&amp; ((_x).Link_Key8 == (_y).Link_Key8) &amp;&amp; \  ((_x).Link_Key9 == (_y).Link_Key9) &amp;&amp; ((_x).Link_Key10 == (_y).Link_Key10) &amp;&amp; ((_x).Link_Key11 == (_y).Link_Key11) &amp;&amp; \  ((_x).Link_Key12 == (_y).Link_Key12) &amp;&amp; ((_x).Link_Key13 == (_y).Link_Key13) &amp;&amp; ((_x).Link_Key14 == (_y).Link_Key14) &amp;&amp; \  ((_x).Link_Key15 == (_y).Link_Key15) \ )"/>
+   <macro name="QAPI_BLE_PIN_CODE_SIZE" value="(sizeof(qapi_BLE_PIN_Code_t))"/>
+   <macro name="QAPI_BLE_ASSIGN_PIN_CODE" params="(_dest, _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p)" value="\ { \  (_dest).PIN_Code0 = (_a); (_dest).PIN_Code1 = (_b); (_dest).PIN_Code2 = (_c); \  (_dest).PIN_Code3 = (_d); (_dest).PIN_Code4 = (_e); (_dest).PIN_Code5 = (_f); \  (_dest).PIN_Code6 = (_g); (_dest).PIN_Code7 = (_h); (_dest).PIN_Code8 = (_i); \  (_dest).PIN_Code9 = (_j); (_dest).PIN_Code10 = (_k); (_dest).PIN_Code11 = (_l); \  (_dest).PIN_Code12 = (_m); (_dest).PIN_Code13 = (_n); (_dest).PIN_Code14 = (_o); \  (_dest).PIN_Code15 = (_p); \ }"/>
+   <macro name="QAPI_BLE_COMPARE_PIN_CODE" params="(_x, _y)" value="\ ( \  ((_x).PIN_Code0 == (_y).PIN_Code0) &amp;&amp; ((_x).PIN_Code1 == (_y).PIN_Code1) &amp;&amp; ((_x).PIN_Code2 == (_y).PIN_Code2) &amp;&amp; \  ((_x).PIN_Code3 == (_y).PIN_Code3) &amp;&amp; ((_x).PIN_Code4 == (_y).PIN_Code4) &amp;&amp; ((_x).PIN_Code5 == (_y).PIN_Code5) &amp;&amp; \  ((_x).PIN_Code6 == (_y).PIN_Code6) &amp;&amp; ((_x).PIN_Code7 == (_y).PIN_Code7) &amp;&amp; ((_x).PIN_Code8 == (_y).PIN_Code8) &amp;&amp; \  ((_x).PIN_Code9 == (_y).PIN_Code9) &amp;&amp; ((_x).PIN_Code10 == (_y).PIN_Code10) &amp;&amp; ((_x).PIN_Code11 == (_y).PIN_Code11) &amp;&amp; \  ((_x).PIN_Code12 == (_y).PIN_Code12) &amp;&amp; ((_x).PIN_Code13 == (_y).PIN_Code13) &amp;&amp; ((_x).PIN_Code14 == (_y).PIN_Code14) &amp;&amp; \  ((_x).PIN_Code15 == (_y).PIN_Code15) \ )"/>
+   <macro name="QAPI_BLE_EVENT_MASK_SIZE" value="(sizeof(qapi_BLE_Event_Mask_t))"/>
+   <macro name="QAPI_BLE_ASSIGN_EVENT_MASK" params="(_dest, _a, _b, _c, _d, _e, _f, _g, _h)" value="\ { \  (_dest).Event_Mask0 = (_h); \  (_dest).Event_Mask1 = (_g); \  (_dest).Event_Mask2 = (_f); \  (_dest).Event_Mask3 = (_e); \  (_dest).Event_Mask4 = (_d); \  (_dest).Event_Mask5 = (_c); \  (_dest).Event_Mask6 = (_b); \  (_dest).Event_Mask7 = (_a); \ }"/>
+   <macro name="QAPI_BLE_COMPARE_EVENT_MASK" params="(_x, _y)" value="\ ( \  ((_x).Event_Mask0 == (_y).Event_Mask0) &amp;&amp; ((_x).Event_Mask1 == (_y).Event_Mask1) &amp;&amp; ((_x).Event_Mask2 == (_y).Event_Mask2) &amp;&amp; \  ((_x).Event_Mask3 == (_y).Event_Mask3) &amp;&amp; ((_x).Event_Mask4 == (_y).Event_Mask4) &amp;&amp; ((_x).Event_Mask5 == (_y).Event_Mask5) &amp;&amp; \  ((_x).Event_Mask6 == (_y).Event_Mask6) &amp;&amp; ((_x).Event_Mask7 == (_y).Event_Mask7) \ )"/>
+   <macro name="QAPI_BLE_SET_EVENT_MASK_BIT" params="(_x, _y)" value="\  ((uint8_t *)&amp;(_x))[(_y)/(sizeof(uint8_t)*8)] |= (uint8_t)(1 &lt;&lt; ((_y)%(sizeof(uint8_t)*8)))"/>
+   <macro name="QAPI_BLE_CLEAR_EVENT_MASK_BIT" params="(_x, _y)" value="\  ((uint8_t *)&amp;(_x))[(_y)/(sizeof(uint8_t)*8)] &amp;= (uint8_t)~(1 &lt;&lt; ((_y)%(sizeof(uint8_t)*8)))"/>
+   <macro name="QAPI_BLE_TEST_EVENT_MASK_BIT" params="(_x, _y)" value="\  (((uint8_t *)&amp;(_x))[(_y)/(sizeof(uint8_t)*8)] &amp; (uint8_t)(1 &lt;&lt; ((_y)%(sizeof(uint8_t)*8))))"/>
+   <macro name="QAPI_BLE_CLASS_OF_DEVICE_SIZE" value="(sizeof(qapi_BLE_Class_of_Device_t))"/>
+   <macro name="QAPI_BLE_ASSIGN_CLASS_OF_DEVICE" params="(_dest, _x, _y, _z)" value="\ { \  (_dest).Class_of_Device0 = (_z); \  (_dest).Class_of_Device1 = (_y); \  (_dest).Class_of_Device2 = (_x); \ }"/>
+   <macro name="QAPI_BLE_COMPARE_CLASS_OF_DEVICE" params="(_x, _y)" value="(((_x).Class_of_Device0 == (_y).Class_of_Device0) &amp;&amp; ((_x).Class_of_Device1 == (_y).Class_of_Device1) &amp;&amp; ((_x).Class_of_Device2 == (_y).Class_of_Device2))"/>
+   <macro name="QAPI_BLE_SET_CLASS_OF_DEVICE_BIT" params="(_x, _y)" value="\  ((uint8_t *)&amp;(_x))[(_y)/(sizeof(uint8_t)*8)] |= (uint8_t)(1 &lt;&lt; ((_y)%(sizeof(uint8_t)*8)))"/>
+   <macro name="QAPI_BLE_CLEAR_CLASS_OF_DEVICE_BIT" params="(_x, _y)" value="\  ((uint8_t *)&amp;(_x))[(_y)/(sizeof(uint8_t)*8)] &amp;= (uint8_t)~(1 &lt;&lt; ((_y)%(sizeof(uint8_t)*8)))"/>
+   <macro name="QAPI_BLE_TEST_CLASS_OF_DEVICE_BIT" params="(_x, _y)" value="\  (((uint8_t *)&amp;(_x))[(_y)/(sizeof(uint8_t)*8)] &amp; (uint8_t)(1 &lt;&lt; ((_y)%(sizeof(uint8_t)*8))))"/>
+   <macro name="QAPI_BLE_GET_CLASS_OF_DEVICE_FORMAT_TYPE" params="(_x)" value="\  ((uint8_t)((_x).Class_of_Device0 &amp; 0x03))"/>
+   <macro name="QAPI_BLE_SET_CLASS_OF_DEVICE_FORMAT_TYPE" params="(_x, _y)" value="\  ((_x).Class_of_Device0 = ((_x).Class_of_Device0 &amp; 0xFC) | ((_y) &amp; 0x03))"/>
+   <macro name="QAPI_BLE_GET_MAJOR_SERVICE_CLASS" params="(_x)" value="\  ((uint16_t)(((_x).Class_of_Device2 &lt;&lt; 0x03) | ((_x).Class_of_Device1 &gt;&gt; 0x05)))"/>
+   <macro name="QAPI_BLE_SET_MAJOR_SERVICE_CLASS" params="(_x, _y)" value="\ { \  (_x).Class_of_Device2 = (uint8_t)(((_y) &amp; 0x7FF) &gt;&gt; 0x03); \  (_x).Class_of_Device1 &amp;= (uint8_t)0x1F; \  (_x).Class_of_Device1 |= (uint8_t)((((_y) &amp; 0xFF) &lt;&lt; 0x05) &amp; 0xFF); \ }"/>
+   <macro name="QAPI_BLE_GET_MAJOR_DEVICE_CLASS" params="(_x)" value="\  ((uint8_t)((_x).Class_of_Device1 &amp; 0x1F))"/>
+   <macro name="QAPI_BLE_SET_MAJOR_DEVICE_CLASS" params="(_x, _y)" value="\ { \  (_x).Class_of_Device1 &amp;= 0xE0; \  (_x).Class_of_Device1 |= (uint8_t)((_y) &amp; 0x1F); \ }"/>
+   <macro name="QAPI_BLE_GET_MINOR_DEVICE_CLASS" params="(_x)" value="\  ((uint8_t)((_x).Class_of_Device0 &gt;&gt; 0x02))"/>
+   <macro name="QAPI_BLE_SET_MINOR_DEVICE_CLASS" params="(_x, _y)" value="\ { \  (_x).Class_of_Device0 &amp;= (uint8_t)0x03; \  (_x).Class_of_Device0 |= (uint8_t)(((_y) &lt;&lt; 0x02) &amp; 0xFC); \ }"/>
+   <macro name="QAPI_BLE_SUPPORTED_COMMANDS_SIZE" value="(sizeof(qapi_BLE_Supported_Commands_t))"/>
+   <macro name="QAPI_BLE_ASSIGN_SUPPORTED_COMMANDS" params="(_dest, _a0, _b0, _c0, _d0, _e0, _f0, _g0, _h0, _a1, _b1, _c1, _d1, _e1, _f1, _g1, _h1, _a2, _b2, _c2, _d2, _e2, _f2, _g2, _h2, _a3, _b3, _c3, _d3, _e3, _f3, _g3, _h3, _a4, _b4, _c4, _d4, _e4, _f4, _g4, _h4, _a5, _b5, _c5, _d5, _e5, _f5, _g5, _h5, _a6, _b6, _c6, _d6, _e6, _f6, _g6, _h6, _a7, _b7, _c7, _d7, _e7, _f7, _g7, _h7)" value="\ { \  (_dest).Supported_Commands0 = (_h7); \  (_dest).Supported_Commands1 = (_g7); \  (_dest).Supported_Commands2 = (_f7); \  (_dest).Supported_Commands3 = (_e7); \  (_dest).Supported_Commands4 = (_d7); \  (_dest).Supported_Commands5 = (_c7); \  (_dest).Supported_Commands6 = (_b7); \  (_dest).Supported_Commands7 = (_a7); \  (_dest).Supported_Commands8 = (_h6); \  (_dest).Supported_Commands9 = (_g6); \  (_dest).Supported_Commands10 = (_f6); \  (_dest).Supported_Commands11 = (_e6); \  (_dest).Supported_Commands12 = (_d6); \  (_dest).Supported_Commands13 = (_c6); \  (_dest).Supported_Commands14 = (_b6); \  (_dest).Supported_Commands15 = (_a6); \  (_dest).Supported_Commands16 = (_h5); \  (_dest).Supported_Commands17 = (_g5); \  (_dest).Supported_Commands18 = (_f5); \  (_dest).Supported_Commands19 = (_e5); \  (_dest).Supported_Commands20 = (_d5); \  (_dest).Supported_Commands21 = (_c5); \  (_dest).Supported_Commands22 = (_b5); \  (_dest).Supported_Commands23 = (_a5); \  (_dest).Supported_Commands24 = (_h4); \  (_dest).Supported_Commands25 = (_g4); \  (_dest).Supported_Commands26 = (_f4); \  (_dest).Supported_Commands27 = (_e4); \  (_dest).Supported_Commands28 = (_d4); \  (_dest).Supported_Commands29 = (_c4); \  (_dest).Supported_Commands30 = (_b4); \  (_dest).Supported_Commands31 = (_a4); \  (_dest).Supported_Commands32 = (_h3); \  (_dest).Supported_Commands33 = (_g3); \  (_dest).Supported_Commands34 = (_f3); \  (_dest).Supported_Commands35 = (_e3); \  (_dest).Supported_Commands36 = (_d3); \  (_dest).Supported_Commands37 = (_c3); \  (_dest).Supported_Commands38 = (_b3); \  (_dest).Supported_Commands39 = (_a3); \  (_dest).Supported_Commands40 = (_h2); \  (_dest).Supported_Commands41 = (_g2); \  (_dest).Supported_Commands42 = (_f2); \  (_dest).Supported_Commands43 = (_e2); \  (_dest).Supported_Commands44 = (_d2); \  (_dest).Supported_Commands45 = (_c2); \  (_dest).Supported_Commands46 = (_b2); \  (_dest).Supported_Commands47 = (_a2); \  (_dest).Supported_Commands48 = (_h1); \  (_dest).Supported_Commands49 = (_g1); \  (_dest).Supported_Commands50 = (_f1); \  (_dest).Supported_Commands51 = (_e1); \  (_dest).Supported_Commands52 = (_d1); \  (_dest).Supported_Commands53 = (_c1); \  (_dest).Supported_Commands54 = (_b1); \  (_dest).Supported_Commands55 = (_a1); \  (_dest).Supported_Commands56 = (_h0); \  (_dest).Supported_Commands57 = (_g0); \  (_dest).Supported_Commands58 = (_f0); \  (_dest).Supported_Commands59 = (_e0); \  (_dest).Supported_Commands60 = (_d0); \  (_dest).Supported_Commands61 = (_c0); \  (_dest).Supported_Commands62 = (_b0); \  (_dest).Supported_Commands63 = (_a0); \ }"/>
+   <macro name="QAPI_BLE_COMPARE_SUPPORTED_COMMANDS" params="(_x, _y)" value="\ ( \  ((_x).Supported_Commands0 == (_y).Supported_Commands0) &amp;&amp; ((_x).Supported_Commands1 == (_y).Supported_Commands1) &amp;&amp; ((_x).Supported_Commands2 == (_y).Supported_Commands2) &amp;&amp; \  ((_x).Supported_Commands3 == (_y).Supported_Commands3) &amp;&amp; ((_x).Supported_Commands4 == (_y).Supported_Commands4) &amp;&amp; ((_x).Supported_Commands5 == (_y).Supported_Commands5) &amp;&amp; \  ((_x).Supported_Commands6 == (_y).Supported_Commands6) &amp;&amp; ((_x).Supported_Commands7 == (_y).Supported_Commands7) &amp;&amp; \  ((_x).Supported_Commands8 == (_y).Supported_Commands8) &amp;&amp; ((_x).Supported_Commands9 == (_y).Supported_Commands9) &amp;&amp; ((_x).Supported_Commands10 == (_y).Supported_Commands10) &amp;&amp; \  ((_x).Supported_Commands11 == (_y).Supported_Commands11) &amp;&amp; ((_x).Supported_Commands12 == (_y).Supported_Commands12) &amp;&amp; ((_x).Supported_Commands13 == (_y).Supported_Commands13) &amp;&amp; \  ((_x).Supported_Commands14 == (_y).Supported_Commands14) &amp;&amp; ((_x).Supported_Commands15 == (_y).Supported_Commands15) &amp;&amp; \  ((_x).Supported_Commands16 == (_y).Supported_Commands16) &amp;&amp; ((_x).Supported_Commands17 == (_y).Supported_Commands17) &amp;&amp; ((_x).Supported_Commands18 == (_y).Supported_Commands18) &amp;&amp; \  ((_x).Supported_Commands19 == (_y).Supported_Commands19) &amp;&amp; ((_x).Supported_Commands20 == (_y).Supported_Commands20) &amp;&amp; ((_x).Supported_Commands21 == (_y).Supported_Commands21) &amp;&amp; \  ((_x).Supported_Commands22 == (_y).Supported_Commands22) &amp;&amp; ((_x).Supported_Commands23 == (_y).Supported_Commands23) &amp;&amp; \  ((_x).Supported_Commands24 == (_y).Supported_Commands24) &amp;&amp; ((_x).Supported_Commands25 == (_y).Supported_Commands25) &amp;&amp; ((_x).Supported_Commands26 == (_y).Supported_Commands26) &amp;&amp; \  ((_x).Supported_Commands27 == (_y).Supported_Commands27) &amp;&amp; ((_x).Supported_Commands28 == (_y).Supported_Commands28) &amp;&amp; ((_x).Supported_Commands29 == (_y).Supported_Commands29) &amp;&amp; \  ((_x).Supported_Commands30 == (_y).Supported_Commands30) &amp;&amp; ((_x).Supported_Commands31 == (_y).Supported_Commands31) &amp;&amp; \  ((_x).Supported_Commands32 == (_y).Supported_Commands32) &amp;&amp; ((_x).Supported_Commands33 == (_y).Supported_Commands33) &amp;&amp; ((_x).Supported_Commands34 == (_y).Supported_Commands34) &amp;&amp; \  ((_x).Supported_Commands35 == (_y).Supported_Commands35) &amp;&amp; ((_x).Supported_Commands36 == (_y).Supported_Commands36) &amp;&amp; ((_x).Supported_Commands37 == (_y).Supported_Commands37) &amp;&amp; \  ((_x).Supported_Commands38 == (_y).Supported_Commands38) &amp;&amp; ((_x).Supported_Commands39 == (_y).Supported_Commands39) &amp;&amp; \  ((_x).Supported_Commands40 == (_y).Supported_Commands40) &amp;&amp; ((_x).Supported_Commands41 == (_y).Supported_Commands41) &amp;&amp; ((_x).Supported_Commands42 == (_y).Supported_Commands42) &amp;&amp; \  ((_x).Supported_Commands43 == (_y).Supported_Commands43) &amp;&amp; ((_x).Supported_Commands44 == (_y).Supported_Commands44) &amp;&amp; ((_x).Supported_Commands45 == (_y).Supported_Commands45) &amp;&amp; \  ((_x).Supported_Commands46 == (_y).Supported_Commands46) &amp;&amp; ((_x).Supported_Commands47 == (_y).Supported_Commands47) &amp;&amp; \  ((_x).Supported_Commands48 == (_y).Supported_Commands48) &amp;&amp; ((_x).Supported_Commands49 == (_y).Supported_Commands49) &amp;&amp; ((_x).Supported_Commands50 == (_y).Supported_Commands50) &amp;&amp; \  ((_x).Supported_Commands51 == (_y).Supported_Commands51) &amp;&amp; ((_x).Supported_Commands52 == (_y).Supported_Commands52) &amp;&amp; ((_x).Supported_Commands53 == (_y).Supported_Commands53) &amp;&amp; \  ((_x).Supported_Commands54 == (_y).Supported_Commands54) &amp;&amp; ((_x).Supported_Commands55 == (_y).Supported_Commands55) &amp;&amp; \  ((_x).Supported_Commands56 == (_y).Supported_Commands56) &amp;&amp; ((_x).Supported_Commands57 == (_y).Supported_Commands57) &amp;&amp; ((_x).Supported_Commands58 == (_y).Supported_Commands58) &amp;&amp; \  ((_x).Supported_Commands59 == (_y).Supported_Commands59) &amp;&amp; ((_x).Supported_Commands60 == (_y).Supported_Commands60) &amp;&amp; ((_x).Supported_Commands61 == (_y).Supported_Commands61) &amp;&amp; \  ((_x).Supported_Commands62 == (_y).Supported_Commands62) &amp;&amp; ((_x).Supported_Commands63 == (_y).Supported_Commands63) \ )"/>
+   <macro name="QAPI_BLE_SET_SUPPORTED_COMMANDS_BIT" params="(_x, _y)" value="\  ((uint8_t *)&amp;(_x))[(_y)/(sizeof(uint8_t)*8)] |= (uint8_t)(1 &lt;&lt; ((_y)%(sizeof(uint8_t)*8)))"/>
+   <macro name="QAPI_BLE_CLEAR_SUPPORTED_COMMANDS_BIT" params="(_x, _y)" value="\  ((uint8_t *)&amp;(_x))[(_y)/(sizeof(uint8_t)*8)] &amp;= (uint8_t)~(1 &lt;&lt; ((_y)%(sizeof(uint8_t)*8)))"/>
+   <macro name="QAPI_BLE_TEST_SUPPORTED_COMMANDS_BIT" params="(_x, _y)" value="\  (((uint8_t *)&amp;(_x))[(_y)/(sizeof(uint8_t)*8)] &amp; (uint8_t)(1 &lt;&lt; ((_y)%(sizeof(uint8_t)*8))))"/>
+   <macro name="QAPI_BLE_LMP_FEATURES_SIZE" value="(sizeof(qapi_BLE_LMP_Features_t))"/>
+   <macro name="QAPI_BLE_ASSIGN_LMP_FEATURES" params="(_dest, _a, _b, _c, _d, _e, _f, _g, _h)" value="\ { \  (_dest).LMP_Features0 = (_h); \  (_dest).LMP_Features1 = (_g); \  (_dest).LMP_Features2 = (_f); \  (_dest).LMP_Features3 = (_e); \  (_dest).LMP_Features4 = (_d); \  (_dest).LMP_Features5 = (_c); \  (_dest).LMP_Features6 = (_b); \  (_dest).LMP_Features7 = (_a); \ }"/>
+   <macro name="QAPI_BLE_COMPARE_LMP_FEATURES" params="(_x, _y)" value="\ ( \  ((_x).LMP_Features0 == (_y).LMP_Features0) &amp;&amp; ((_x).LMP_Features1 == (_y).LMP_Features1) &amp;&amp; ((_x).LMP_Features2 == (_y).LMP_Features2) &amp;&amp; \  ((_x).LMP_Features3 == (_y).LMP_Features3) &amp;&amp; ((_x).LMP_Features4 == (_y).LMP_Features4) &amp;&amp; ((_x).LMP_Features5 == (_y).LMP_Features5) &amp;&amp; \  ((_x).LMP_Features6 == (_y).LMP_Features6) &amp;&amp; ((_x).LMP_Features7 == (_y).LMP_Features7) \ )"/>
+   <macro name="QAPI_BLE_SET_FEATURES_BIT" params="(_x, _y)" value="\  ((uint8_t *)&amp;(_x))[(_y)/(sizeof(uint8_t)*8)] |= (uint8_t)(1 &lt;&lt; ((_y)%(sizeof(uint8_t)*8)))"/>
+   <macro name="QAPI_BLE_CLEAR_FEATURES_BIT" params="(_x, _y)" value="\  ((uint8_t *)&amp;(_x))[(_y)/(sizeof(uint8_t)*8)] &amp;= (uint8_t)~(1 &lt;&lt; ((_y)%(sizeof(uint8_t)*8)))"/>
+   <macro name="QAPI_BLE_TEST_FEATURES_BIT" params="(_x, _y)" value="\  (((uint8_t *)&amp;(_x))[(_y)/(sizeof(uint8_t)*8)] &amp; (uint8_t)(1 &lt;&lt; ((_y)%(sizeof(uint8_t)*8))))"/>
+   <macro name="QAPI_BLE_INQUIRY_RESULT_FILTER_TYPE_CLASS_OF_DEVICE_CONDITION_SIZE" value="(sizeof(qapi_BLE_Inquiry_Result_Filter_Type_Class_of_Device_Condition_t))"/>
+   <macro name="QAPI_BLE_INQUIRY_RESULT_FILTER_TYPE_BD_ADDR_CONDITION_SIZE" value="(sizeof(qapi_BLE_Inquiry_Result_Filter_Type_BD_ADDR_Condition_t))"/>
+   <macro name="QAPI_BLE_CONNECTION_SETUP_FILTER_TYPE_ALL_DEVICES_CONDITION_SIZE" value="(sizeof(qapi_BLE_Connection_Setup_Filter_Type_All_Devices_Condition_t))"/>
+   <macro name="QAPI_BLE_CONNECTION_SETUP_FILTER_TYPE_CLASS_OF_DEVICE_CONDITION_SIZE" value="(sizeof(qapi_BLE_Connection_Setup_Filter_Type_Class_of_Device_Condition_t))"/>
+   <macro name="QAPI_BLE_CONNECTION_SETUP_FILTER_TYPE_BD_ADDR_CONDITION_SIZE" value="(sizeof(qapi_BLE_Connection_Setup_Filter_Type_BD_ADDR_Condition_t))"/>
+   <macro name="QAPI_BLE_RAW_CONDITION_SIZE" value="(sizeof(qapi_BLE_Raw_Condition_Bytes_t))"/>
+   <macro name="QAPI_BLE_MAX_CONDITION_SIZE" value="(sizeof(qapi_BLE_Condition_t))"/>
+   <macro name="QAPI_BLE_ASSIGN_RAW_CONDITION" params="(_dest, _a, _b, _c, _d, _e, _f, _g)" value="\ { \  (_dest).Condition.Raw_Condition_Bytes.Condition0 = (_g); \  (_dest).Condition.Raw_Condition_Bytes.Condition1 = (_f); \  (_dest).Condition.Raw_Condition_Bytes.Condition2 = (_e); \  (_dest).Condition.Raw_Condition_Bytes.Condition3 = (_d); \  (_dest).Condition.Raw_Condition_Bytes.Condition4 = (_c); \  (_dest).Condition.Raw_Condition_Bytes.Condition5 = (_b); \  (_dest).Condition.Raw_Condition_Bytes.Condition6 = (_a); \ }"/>
+   <macro name="QAPI_BLE_COMPARE_RAW_CONDITION" params="(_x, _y)" value="\ ( \  ((_x).Condition.Raw_Condition_Bytes.Condition0 == (_y).Condition.Raw_Condition_Bytes.Condition0) &amp;&amp; \  ((_x).Condition.Raw_Condition_Bytes.Condition1 == (_y).Condition.Raw_Condition_Bytes.Condition1) &amp;&amp; \  ((_x).Condition.Raw_Condition_Bytes.Condition2 == (_y).Condition.Raw_Condition_Bytes.Condition2) &amp;&amp; \  ((_x).Condition.Raw_Condition_Bytes.Condition3 == (_y).Condition.Raw_Condition_Bytes.Condition3) &amp;&amp; \  ((_x).Condition.Raw_Condition_Bytes.Condition4 == (_y).Condition.Raw_Condition_Bytes.Condition4) &amp;&amp; \  ((_x).Condition.Raw_Condition_Bytes.Condition5 == (_y).ondition.Raw_Condition_Bytes.CCondition5) &amp;&amp; \  ((_x).Condition.Raw_Condition_Bytes.Condition6 == (_y).Condition.Raw_Condition_Bytes.Condition6) \ )"/>
+   <macro name="QAPI_BLE_AFH_CHANNEL_MAP_SIZE" value="(sizeof(qapi_BLE_AFH_Channel_Map_t))"/>
+   <macro name="QAPI_BLE_ASSIGN_AFH_CHANNEL_MAP" params="(_dest, _a, _b, _c, _d, _e, _f, _g, _h, _i, _j)" value="\ { \  (_dest).AFH_Channel_Map0 = (_j); \  (_dest).AFH_Channel_Map1 = (_i); \  (_dest).AFH_Channel_Map2 = (_h); \  (_dest).AFH_Channel_Map3 = (_g); \  (_dest).AFH_Channel_Map4 = (_f); \  (_dest).AFH_Channel_Map5 = (_e); \  (_dest).AFH_Channel_Map6 = (_d); \  (_dest).AFH_Channel_Map7 = (_c); \  (_dest).AFH_Channel_Map8 = (_b); \  (_dest).AFH_Channel_Map9 = (_a); \ }"/>
+   <macro name="QAPI_BLE_COMPARE_AFH_CHANNEL_MAP" params="(_x, _y)" value="\ ( \  ((_x).AFH_Channel_Map0 == (_y).AFH_Channel_Map0) &amp;&amp; ((_x).AFH_Channel_Map1 == (_y).AFH_Channel_Map1) &amp;&amp; ((_x).AFH_Channel_Map2 == (_y).AFH_Channel_Map2) &amp;&amp; \  ((_x).AFH_Channel_Map3 == (_y).AFH_Channel_Map3) &amp;&amp; ((_x).AFH_Channel_Map4 == (_y).AFH_Channel_Map4) &amp;&amp; ((_x).AFH_Channel_Map5 == (_y).AFH_Channel_Map5) &amp;&amp; \  ((_x).AFH_Channel_Map6 == (_y).AFH_Channel_Map6) &amp;&amp; ((_x).AFH_Channel_Map7 == (_y).AFH_Channel_Map7) &amp;&amp; ((_x).AFH_Channel_Map8 == (_y).AFH_Channel_Map8) &amp;&amp; \  ((_x).AFH_Channel_Map9 == (_y).AFH_Channel_Map9) \ )"/>
+   <macro name="QAPI_BLE_SET_AFH_CHANNEL_MAP_CHANNEL" params="(_x, _y)" value="\  ((uint8_t *)&amp;(_x))[(_y)/(sizeof(uint8_t)*8)] |= (uint8_t)(1 &lt;&lt; ((_y)%(sizeof(uint8_t)*8)))"/>
+   <macro name="QAPI_BLE_CLEAR_AFH_CHANNEL_MAP_CHANNEL" params="(_x, _y)" value="\  ((uint8_t *)&amp;(_x))[(_y)/(sizeof(uint8_t)*8)] &amp;= (uint8_t)~(1 &lt;&lt; ((_y)%(sizeof(uint8_t)*8)))"/>
+   <macro name="QAPI_BLE_TEST_AFH_CHANNEL_MAP_CHANNEL" params="(_x, _y)" value="\  (((uint8_t *)&amp;(_x))[(_y)/(sizeof(uint8_t)*8)] &amp; (1 &lt;&lt; ((_y)%(sizeof(uint8_t)*8))))"/>
+   <macro name="QAPI_BLE_MAX_NAME_LENGTH" value="248"/>
+   <macro name="QAPI_BLE_BLUETOOTH_NAME_SIZE" value="(sizeof(qapi_BLE_Bluetooth_Name_t))"/>
+   <macro name="QAPI_BLE_EXTENDED_INQUIRY_RESPONSE_DATA_MAXIMUM_SIZE" value="240"/>
+   <macro name="QAPI_BLE_EXTENDED_INQUIRY_RESPONSE_DATA_SIZE" value="(sizeof(qapi_BLE_Extended_Inquiry_Response_Data_t))"/>
+   <macro name="QAPI_BLE_EXTENDED_INQUIRY_RESPONSE_DATA_STRUCTURE_DATA_SIZE" params="(_x)" value="((sizeof(qapi_BLE_Extended_Inquiry_Response_Data_Structure_Data_t) - sizeof(uint8_t)) + ((uint32_t)(_x)))"/>
+   <macro name="QAPI_BLE_L2CAP_EXTENDED_FEATURE_MASK_SIZE" value="(sizeof(qapi_BLE_L2CAP_Extended_Feature_Mask_t))"/>
+   <macro name="QAPI_BLE_ASSIGN_L2CAP_EXTENDED_FEATURE_MASK" params="(_dest, _a, _b, _c, _d)" value="\ { \  (_dest).Extended_Feature_Mask0 = (_a); \  (_dest).Extended_Feature_Mask1 = (_b); \  (_dest).Extended_Feature_Mask2 = (_c); \  (_dest).Extended_Feature_Mask3 = (_d); \ }"/>
+   <macro name="QAPI_BLE_COMPARE_L2CAP_EXTENDED_FEATURE_MASK" params="(_x, _y)" value="\ ( \  ((_x).Extended_Feature_Mask0 == (_y).Extended_Feature_Mask0) &amp;&amp; \  ((_x).Extended_Feature_Mask1 == (_y).Extended_Feature_Mask1) &amp;&amp; \  ((_x).Extended_Feature_Mask2 == (_y).Extended_Feature_Mask2) &amp;&amp; \  ((_x).Extended_Feature_Mask3 == (_y).Extended_Feature_Mask3) \ )"/>
+   <macro name="QAPI_BLE_SET_L2CAP_EXTENDED_FEATURE_MASK_BIT" params="(_x, _y)" value="\  ((uint8_t *)&amp;(_x))[(_y)/(sizeof(uint8_t)*8)] |= (uint8_t)(1 &lt;&lt; ((_y)%(sizeof(uint8_t)*8)))"/>
+   <macro name="QAPI_BLE_CLEAR_L2CAP_EXTENDED_FEATURE_MASK_BIT" params="(_x, _y)" value="\  ((uint8_t *)&amp;(_x))[(_y)/(sizeof(uint8_t)*8)] &amp;= (uint8_t)~(1 &lt;&lt; ((_y)%(sizeof(uint8_t)*8)))"/>
+   <macro name="QAPI_BLE_TEST_L2CAP_EXTENDED_FEATURE_MASK_BIT" params="(_x, _y)" value="\  (((uint8_t *)&amp;(_x))[(_y)/(sizeof(uint8_t)*8)] &amp; (uint8_t)(1 &lt;&lt; ((_y)%(sizeof(uint8_t)*8))))"/>
+   <macro name="QAPI_BLE_L2CAP_FIXED_CHANNELS_SUPPORTED_MASK_SIZE" value="(sizeof(qapi_BLE_L2CAP_Fixed_Channels_Supported_Mask_t))"/>
+   <macro name="QAPI_BLE_ASSIGN_L2CAP_FIXED_CHANNELS_SUPPORTED_MASK" params="(_dest, _a, _b, _c, _d, _e, _f, _g, _h)" value="\ { \  (_dest).Fixed_Channels_Supported_Mask0 = (_h); \  (_dest).Fixed_Channels_Supported_Mask1 = (_g); \  (_dest).Fixed_Channels_Supported_Mask2 = (_f); \  (_dest).Fixed_Channels_Supported_Mask3 = (_e); \  (_dest).Fixed_Channels_Supported_Mask4 = (_d); \  (_dest).Fixed_Channels_Supported_Mask5 = (_c); \  (_dest).Fixed_Channels_Supported_Mask6 = (_b); \  (_dest).Fixed_Channels_Supported_Mask7 = (_a); \ }"/>
+   <macro name="QAPI_BLE_COMPARE_L2CAP_FIXED_CHANNELS_SUPPORTED_MASK" params="(_x, _y)" value="\ ( \  ((_x).Fixed_Channels_Supported_Mask0 == (_y).Fixed_Channels_Supported_Mask0) &amp;&amp; \  ((_x).Fixed_Channels_Supported_Mask1 == (_y).Fixed_Channels_Supported_Mask1) &amp;&amp; \  ((_x).Fixed_Channels_Supported_Mask2 == (_y).Fixed_Channels_Supported_Mask2) &amp;&amp; \  ((_x).Fixed_Channels_Supported_Mask3 == (_y).Fixed_Channels_Supported_Mask3) &amp;&amp; \  ((_x).Fixed_Channels_Supported_Mask4 == (_y).Fixed_Channels_Supported_Mask4) &amp;&amp; \  ((_x).Fixed_Channels_Supported_Mask5 == (_y).Fixed_Channels_Supported_Mask5) &amp;&amp; \  ((_x).Fixed_Channels_Supported_Mask6 == (_y).Fixed_Channels_Supported_Mask6) &amp;&amp; \  ((_x).Fixed_Channels_Supported_Mask7 == (_y).Fixed_Channels_Supported_Mask7) \ )"/>
+   <macro name="QAPI_BLE_SET_L2CAP_FIXED_CHANNELS_SUPPORTED_MASK_BIT" params="(_x, _y)" value="\  ((uint8_t *)&amp;(_x))[(_y)/(sizeof(uint8_t)*8)] |= (1 &lt;&lt; ((_y)%(sizeof(uint8_t)*8)))"/>
+   <macro name="QAPI_BLE_CLEAR_L2CAP_FIXED_CHANNELS_SUPPORTED_MASK_BIT" params="(_x, _y)" value="\  ((uint8_t *)&amp;(_x))[(_y)/(sizeof(uint8_t)*8)] &amp;= ~(1 &lt;&lt; ((_y)%(sizeof(uint8_t)*8)))"/>
+   <macro name="QAPI_BLE_TEST_L2CAP_FIXED_CHANNELS_SUPPORTED_MASK_BIT" params="(_x, _y)" value="\  (((uint8_t *)&amp;(_x))[(_y)/(sizeof(uint8_t)*8)] &amp; (1 &lt;&lt; ((_y)%(sizeof(uint8_t)*8))))"/>
+   <macro name="QAPI_BLE_UUID_128_SIZE" value="(sizeof(qapi_BLE_UUID_128_t))"/>
+   <macro name="QAPI_BLE_ASSIGN_SDP_UUID_128" params="(_dest, _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p)" value="\ { \  (_dest).UUID_Byte0 = (_a); (_dest).UUID_Byte1 = (_b); (_dest).UUID_Byte2 = (_c); \  (_dest).UUID_Byte3 = (_d); (_dest).UUID_Byte4 = (_e); (_dest).UUID_Byte5 = (_f); \  (_dest).UUID_Byte6 = (_g); (_dest).UUID_Byte7 = (_h); (_dest).UUID_Byte8 = (_i); \  (_dest).UUID_Byte9 = (_j); (_dest).UUID_Byte10 = (_k); (_dest).UUID_Byte11 = (_l); \  (_dest).UUID_Byte12 = (_m); (_dest).UUID_Byte13 = (_n); (_dest).UUID_Byte14 = (_o); \  (_dest).UUID_Byte15 = (_p); \ }"/>
+   <macro name="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_128" params="(_dest, _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p)" value="\ { \  (_dest).UUID_Byte0 = (_p); (_dest).UUID_Byte1 = (_o); (_dest).UUID_Byte2 = (_n); \  (_dest).UUID_Byte3 = (_m); (_dest).UUID_Byte4 = (_l); (_dest).UUID_Byte5 = (_k); \  (_dest).UUID_Byte6 = (_j); (_dest).UUID_Byte7 = (_i); (_dest).UUID_Byte8 = (_h); \  (_dest).UUID_Byte9 = (_g); (_dest).UUID_Byte10 = (_f); (_dest).UUID_Byte11 = (_e); \  (_dest).UUID_Byte12 = (_d); (_dest).UUID_Byte13 = (_c); (_dest).UUID_Byte14 = (_b); \  (_dest).UUID_Byte15 = (_a); \ }"/>
+   <macro name="QAPI_BLE_CONVERT_SDP_UUID_128_TO_BLUETOOTH_UUID_128" params="(_dest, _src)" value="\ { \  (_dest).UUID_Byte0 = (_src).UUID_Byte15; (_dest).UUID_Byte1 = (_src).UUID_Byte14; (_dest).UUID_Byte2 = (_src).UUID_Byte13; \  (_dest).UUID_Byte3 = (_src).UUID_Byte12; (_dest).UUID_Byte4 = (_src).UUID_Byte11; (_dest).UUID_Byte5 = (_src).UUID_Byte10; \  (_dest).UUID_Byte6 = (_src).UUID_Byte9; (_dest).UUID_Byte7 = (_src).UUID_Byte8; (_dest).UUID_Byte8 = (_src).UUID_Byte7; \  (_dest).UUID_Byte9 = (_src).UUID_Byte6; (_dest).UUID_Byte10 = (_src).UUID_Byte5; (_dest).UUID_Byte11 = (_src).UUID_Byte4; \  (_dest).UUID_Byte12 = (_src).UUID_Byte3; (_dest).UUID_Byte13 = (_src).UUID_Byte2; (_dest).UUID_Byte14 = (_src).UUID_Byte1; \  (_dest).UUID_Byte15 = (_src).UUID_Byte0; \ }"/>
+   <macro name="QAPI_BLE_CONVERT_BLUETOOTH_UUID_128_TO_SDP_UUID_128" params="(_dest, _src)" value="\ { \  (_dest).UUID_Byte0 = (_src).UUID_Byte15; (_dest).UUID_Byte1 = (_src).UUID_Byte14; (_dest).UUID_Byte2 = (_src).UUID_Byte13; \  (_dest).UUID_Byte3 = (_src).UUID_Byte12; (_dest).UUID_Byte4 = (_src).UUID_Byte11; (_dest).UUID_Byte5 = (_src).UUID_Byte10; \  (_dest).UUID_Byte6 = (_src).UUID_Byte9; (_dest).UUID_Byte7 = (_src).UUID_Byte8; (_dest).UUID_Byte8 = (_src).UUID_Byte7; \  (_dest).UUID_Byte9 = (_src).UUID_Byte6; (_dest).UUID_Byte10 = (_src).UUID_Byte5; (_dest).UUID_Byte11 = (_src).UUID_Byte4; \  (_dest).UUID_Byte12 = (_src).UUID_Byte3; (_dest).UUID_Byte13 = (_src).UUID_Byte2; (_dest).UUID_Byte14 = (_src).UUID_Byte1; \  (_dest).UUID_Byte15 = (_src).UUID_Byte0; \ }"/>
+   <macro name="QAPI_BLE_COMPARE_UUID_128" params="(_x, _y)" value="\ ( \  ((_x).UUID_Byte0 == (_y).UUID_Byte0) &amp;&amp; ((_x).UUID_Byte1 == (_y).UUID_Byte1) &amp;&amp; ((_x).UUID_Byte2 == (_y).UUID_Byte2) &amp;&amp; \  ((_x).UUID_Byte3 == (_y).UUID_Byte3) &amp;&amp; ((_x).UUID_Byte4 == (_y).UUID_Byte4) &amp;&amp; ((_x).UUID_Byte5 == (_y).UUID_Byte5) &amp;&amp; \  ((_x).UUID_Byte6 == (_y).UUID_Byte6) &amp;&amp; ((_x).UUID_Byte7 == (_y).UUID_Byte7) &amp;&amp; ((_x).UUID_Byte8 == (_y).UUID_Byte8) &amp;&amp; \  ((_x).UUID_Byte9 == (_y).UUID_Byte9) &amp;&amp; ((_x).UUID_Byte10 == (_y).UUID_Byte10) &amp;&amp; ((_x).UUID_Byte11 == (_y).UUID_Byte11) &amp;&amp; \  ((_x).UUID_Byte12 == (_y).UUID_Byte12) &amp;&amp; ((_x).UUID_Byte13 == (_y).UUID_Byte13) &amp;&amp; ((_x).UUID_Byte14 == (_y).UUID_Byte14) &amp;&amp; \  ((_x).UUID_Byte15 == (_y).UUID_Byte15) \ )"/>
+   <macro name="QAPI_BLE_UUID_16_SIZE" value="(sizeof(qapi_BLE_UUID_16_t))"/>
+   <macro name="QAPI_BLE_ASSIGN_SDP_UUID_16" params="(_dest, _a, _b)" value="\ { \  (_dest).UUID_Byte0 = (_a); (_dest).UUID_Byte1 = (_b); \ }"/>
+   <macro name="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16" params="(_dest, _a, _b)" value="\ { \  (_dest).UUID_Byte0 = (_b); (_dest).UUID_Byte1 = (_a); \ }"/>
+   <macro name="QAPI_BLE_QAPI_BLE_ASSIGN_SDP_UUID_16_TO_SDP_UUID_128" params="(_dest, _src)" value="\ { \  (_dest).UUID_Byte0 = 0; (_dest).UUID_Byte1 = 0; \  (_dest).UUID_Byte2 = (_src).UUID_Byte0; (_dest).UUID_Byte3 = (_src).UUID_Byte1; \ }"/>
+   <macro name="QAPI_BLE_QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16_TO_BLUETOOTH_UUID_128" params="(_dest, _src)" value="\ { \  (_dest).UUID_Byte12 = (_src).UUID_Byte0; (_dest).UUID_Byte13 = (_src).UUID_Byte1; \  (_dest).UUID_Byte14 = 0; (_dest).UUID_Byte15 = 0; \ }"/>
+   <macro name="QAPI_BLE_CONVERT_SDP_UUID_16_TO_BLUETOOTH_UUID_16" params="(_dest, _src)" value="\ { \  (_dest).UUID_Byte0 = (_src).UUID_Byte1; (_dest).UUID_Byte1 = (_src).UUID_Byte0; \ }"/>
+   <macro name="QAPI_BLE_CONVERT_BLUETOOTH_UUID_16_TO_SDP_UUID_16" params="(_dest, _src)" value="\ { \  (_dest).UUID_Byte0 = (_src).UUID_Byte1; (_dest).UUID_Byte1 = (_src).UUID_Byte0; \ }"/>
+   <macro name="QAPI_BLE_COMPARE_UUID_16" params="(_x, _y)" value="\ ( \  ((_x).UUID_Byte0 == (_y).UUID_Byte0) &amp;&amp; ((_x).UUID_Byte1 == (_y).UUID_Byte1) \ )"/>
+   <macro name="QAPI_BLE_UUID_32_SIZE" value="(sizeof(qapi_BLE_UUID_32_t))"/>
+   <macro name="QAPI_BLE_ASSIGN_SDP_UUID_32" params="(_dest, _a, _b, _c, _d)" value="\ { \  (_dest).UUID_Byte0 = (_a); (_dest).UUID_Byte1 = (_b); \  (_dest).UUID_Byte2 = (_c); (_dest).UUID_Byte3 = (_d); \ }"/>
+   <macro name="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_32" params="(_dest, _a, _b, _c, _d)" value="\ { \  (_dest).UUID_Byte0 = (_d); (_dest).UUID_Byte1 = (_c); \  (_dest).UUID_Byte2 = (_b); (_dest).UUID_Byte3 = (_a); \ }"/>
+   <macro name="QAPI_BLE_QAPI_BLE_ASSIGN_SDP_UUID_32_TO_SDP_UUID_128" params="(_dest, _src)" value="\ { \  (_dest).UUID_Byte0 = (_src).UUID_Byte0; (_dest).UUID_Byte1 = (_src).UUID_Byte1; \  (_dest).UUID_Byte2 = (_src).UUID_Byte2; (_dest).UUID_Byte3 = (_src).UUID_Byte3; \ }"/>
+   <macro name="QAPI_BLE_QAPI_BLE_ASSIGN_BLUETOOTH_UUID_32_TO_BLUETOOTH_UUID_128" params="(_dest, _src)" value="\ { \  (_dest).UUID_Byte0 = (_src).UUID_Byte0; (_dest).UUID_Byte1 = (_src).UUID_Byte1; \  (_dest).UUID_Byte2 = (_src).UUID_Byte2; (_dest).UUID_Byte3 = (_src).UUID_Byte3; \ }"/>
+   <macro name="QAPI_BLE_CONVERT_SDP_UUID_32_TO_BLUETOOTH_UUID_32" params="(_dest, _src)" value="\ { \  (_dest).UUID_Byte0 = (_src).UUID_Byte3; (_dest).UUID_Byte1 = (_src).UUID_Byte2; \  (_dest).UUID_Byte2 = (_src).UUID_Byte1; (_dest).UUID_Byte3 = (_src).UUID_Byte0; \ }"/>
+   <macro name="QAPI_BLE_CONVERT_BLUETOOTH_UUID_32_TO_SDP_UUID_32" params="(_dest, _src)" value="\ { \  (_dest).UUID_Byte0 = (_src).UUID_Byte3; (_dest).UUID_Byte1 = (_src).UUID_Byte2; \  (_dest).UUID_Byte2 = (_src).UUID_Byte1; (_dest).UUID_Byte3 = (_src).UUID_Byte0; \ }"/>
+   <macro name="QAPI_BLE_COMPARE_UUID_32" params="(_x, _y)" value="\ ( \  ((_x).UUID_Byte0 == (_y).UUID_Byte0) &amp;&amp; ((_x).UUID_Byte1 == (_y).UUID_Byte1) &amp;&amp; \  ((_x).UUID_Byte2 == (_y).UUID_Byte2) &amp;&amp; ((_x).UUID_Byte3 == (_y).UUID_Byte3) \ )"/>
+   <macro name="QAPI_BLE_SIMPLE_PAIRING_HASH_SIZE" value="(sizeof(qapi_BLE_Simple_Pairing_Hash_t))"/>
+   <macro name="QAPI_BLE_ASSIGN_PAIRING_HASH" params="(_dest, _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p)" value="\ { \  (_dest).Pairing_Hash0 = (_p); (_dest).Pairing_Hash1 = (_o); (_dest).Pairing_Hash2 = (_n); \  (_dest).Pairing_Hash3 = (_m); (_dest).Pairing_Hash4 = (_l); (_dest).Pairing_Hash5 = (_k); \  (_dest).Pairing_Hash6 = (_j); (_dest).Pairing_Hash7 = (_i); (_dest).Pairing_Hash8 = (_h); \  (_dest).Pairing_Hash9 = (_g); (_dest).Pairing_Hash10 = (_f); (_dest).Pairing_Hash11 = (_e); \  (_dest).Pairing_Hash12 = (_d); (_dest).Pairing_Hash13 = (_c); (_dest).Pairing_Hash14 = (_b); \  (_dest).Pairing_Hash15 = (_a); \ }"/>
+   <macro name="QAPI_BLE_COMPARE_PAIRING_HASH" params="(_x, _y)" value="\ ( \  ((_x).Pairing_Hash0 == (_y).Pairing_Hash0) &amp;&amp; ((_x).Pairing_Hash1 == (_y).Pairing_Hash1) &amp;&amp; ((_x).Pairing_Hash2 == (_y).Pairing_Hash2) &amp;&amp; \  ((_x).Pairing_Hash3 == (_y).Pairing_Hash3) &amp;&amp; ((_x).Pairing_Hash4 == (_y).Pairing_Hash4) &amp;&amp; ((_x).Pairing_Hash5 == (_y).Pairing_Hash5) &amp;&amp; \  ((_x).Pairing_Hash6 == (_y).Pairing_Hash6) &amp;&amp; ((_x).Pairing_Hash7 == (_y).Pairing_Hash7) &amp;&amp; ((_x).Pairing_Hash8 == (_y).Pairing_Hash8) &amp;&amp; \  ((_x).Pairing_Hash9 == (_y).Pairing_Hash9) &amp;&amp; ((_x).Pairing_Hash10 == (_y).Pairing_Hash10) &amp;&amp; ((_x).Pairing_Hash11 == (_y).Pairing_Hash11) &amp;&amp; \  ((_x).Pairing_Hash12 == (_y).Pairing_Hash12) &amp;&amp; ((_x).Pairing_Hash13 == (_y).Pairing_Hash13) &amp;&amp; ((_x).Pairing_Hash14 == (_y).Pairing_Hash14) &amp;&amp; \  ((_x).Pairing_Hash15 == (_y).Pairing_Hash15) \ )"/>
+   <macro name="QAPI_BLE_SIMPLE_PAIRING_RANDOMIZER_SIZE" value="(sizeof(qapi_BLE_Simple_Pairing_Randomizer_t))"/>
+   <macro name="QAPI_BLE_ASSIGN_PAIRING_RANDOMIZER" params="(_dest, _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p)" value="\ { \  (_dest).Pairing_Randomizer0 = (_p); (_dest).Pairing_Randomizer1 = (_o); (_dest).Pairing_Randomizer2 = (_n); \  (_dest).Pairing_Randomizer3 = (_m); (_dest).Pairing_Randomizer4 = (_l); (_dest).Pairing_Randomizer5 = (_k); \  (_dest).Pairing_Randomizer6 = (_j); (_dest).Pairing_Randomizer7 = (_i); (_dest).Pairing_Randomizer8 = (_h); \  (_dest).Pairing_Randomizer9 = (_g); (_dest).Pairing_Randomizer10 = (_f); (_dest).Pairing_Randomizer11 = (_e); \  (_dest).Pairing_Randomizer12 = (_d); (_dest).Pairing_Randomizer13 = (_c); (_dest).Pairing_Randomizer14 = (_b); \  (_dest).Pairing_Randomizer15 = (_a); \ }"/>
+   <macro name="QAPI_BLE_COMPARE_PAIRING_RANDOMIZER" params="(_x, _y)" value="\ ( \  ((_x).Pairing_Randomizer0 == (_y).Pairing_Randomizer0) &amp;&amp; ((_x).Pairing_Randomizer1 == (_y).Pairing_Randomizer1) &amp;&amp; ((_x).Pairing_Randomizer2 == (_y).Pairing_Randomizer2) &amp;&amp; \  ((_x).Pairing_Randomizer3 == (_y).Pairing_Randomizer3) &amp;&amp; ((_x).Pairing_Randomizer4 == (_y).Pairing_Randomizer4) &amp;&amp; ((_x).Pairing_Randomizer5 == (_y).Pairing_Randomizer5) &amp;&amp; \  ((_x).Pairing_Randomizer6 == (_y).Pairing_Randomizer6) &amp;&amp; ((_x).Pairing_Randomizer7 == (_y).Pairing_Randomizer7) &amp;&amp; ((_x).Pairing_Randomizer8 == (_y).Pairing_Randomizer8) &amp;&amp; \  ((_x).Pairing_Randomizer9 == (_y).Pairing_Randomizer9) &amp;&amp; ((_x).Pairing_Randomizer10 == (_y).Pairing_Randomizer10) &amp;&amp; ((_x).Pairing_Randomizer11 == (_y).Pairing_Randomizer11) &amp;&amp; \  ((_x).Pairing_Randomizer12 == (_y).Pairing_Randomizer12) &amp;&amp; ((_x).Pairing_Randomizer13 == (_y).Pairing_Randomizer13) &amp;&amp; ((_x).Pairing_Randomizer14 == (_y).Pairing_Randomizer14) &amp;&amp; \  ((_x).Pairing_Randomizer15 == (_y).Pairing_Randomizer15) \ )"/>
+   <macro name="QAPI_BLE_LE_FEATURES_SIZE" value="(sizeof(qapi_BLE_LE_Features_t))"/>
+   <macro name="QAPI_BLE_ASSIGN_LE_FEATURES" params="(_dest, _a, _b, _c, _d, _e, _f, _g, _h)" value="\ { \  (_dest).LE_Features0 = (_h); \  (_dest).LE_Features1 = (_g); \  (_dest).LE_Features2 = (_f); \  (_dest).LE_Features3 = (_e); \  (_dest).LE_Features4 = (_d); \  (_dest).LE_Features5 = (_c); \  (_dest).LE_Features6 = (_b); \  (_dest).LE_Features7 = (_a); \ }"/>
+   <macro name="QAPI_BLE_COMPARE_LE_FEATURES" params="(_x, _y)" value="\ ( \  ((_x).LE_Features0 == (_y).LE_Features0) &amp;&amp; ((_x).LE_Features1 == (_y).LE_Features1) &amp;&amp; ((_x).LE_Features2 == (_y).LE_Features2) &amp;&amp; \  ((_x).LE_Features3 == (_y).LE_Features3) &amp;&amp; ((_x).LE_Features4 == (_y).LE_Features4) &amp;&amp; ((_x).LE_Features5 == (_y).LE_Features5) &amp;&amp; \  ((_x).LE_Features6 == (_y).LE_Features6) &amp;&amp; ((_x).LE_Features7 == (_y).LE_Features7) \ )"/>
+   <macro name="QAPI_BLE_SET_LE_FEATURES_BIT" params="(_x, _y)" value="\  ((uint8_t *)&amp;(_x))[(_y)/(sizeof(uint8_t)*8)] |= (uint8_t)(1 &lt;&lt; ((_y)%(sizeof(uint8_t)*8)))"/>
+   <macro name="QAPI_BLE_CLEAR_LE_FEATURES_BIT" params="(_x, _y)" value="\  ((uint8_t *)&amp;(_x))[(_y)/(sizeof(uint8_t)*8)] &amp;= (uint8_t)~(1 &lt;&lt; ((_y)%(sizeof(uint8_t)*8)))"/>
+   <macro name="QAPI_BLE_TEST_LE_FEATURES_BIT" params="(_x, _y)" value="\  (((uint8_t *)&amp;(_x))[(_y)/(sizeof(uint8_t)*8)] &amp; (uint8_t)(1 &lt;&lt; ((_y)%(sizeof(uint8_t)*8))))"/>
+   <macro name="QAPI_BLE_ADVERTISING_DATA_MAXIMUM_SIZE" value="31"/>
+   <macro name="QAPI_BLE_ADVERTISING_DATA_SIZE" value="(sizeof(qapi_BLE_Advertising_Data_t))"/>
+   <macro name="QAPI_BLE_EXTENDED_ADVERTISING_DATA_MAXIMUM_SIZE" value="252"/>
+   <macro name="QAPI_BLE_EXTENDED_ADVERTISING_DATA_SIZE" value="(sizeof(qapi_BLE_Extended_Advertising_Data_t))"/>
+   <macro name="QAPI_BLE_PERIODIC_ADVERTISING_DATA_MAXIMUM_SIZE" value="253"/>
+   <macro name="QAPI_BLE_PERIODIC_ADVERTISING_DATA_SIZE" value="(sizeof(qapi_BLE_Periodic_Advertising_Data_t))"/>
+   <macro name="QAPI_BLE_SCAN_RESPONSE_DATA_MAXIMUM_SIZE" value="31"/>
+   <macro name="QAPI_BLE_SCAN_RESPONSE_DATA_SIZE" value="(sizeof(qapi_BLE_Scan_Response_Data_t))"/>
+   <macro name="QAPI_BLE_EXTENDED_SCAN_RESPONSE_DATA_MAXIMUM_SIZE" value="252"/>
+   <macro name="QAPI_BLE_EXTENDED_SCAN_RESPONSE_DATA_SIZE" value="(sizeof(qapi_BLE_Extended_Scan_Response_Data_t))"/>
+   <macro name="QAPI_BLE_LE_CHANNEL_MAP_SIZE" value="(sizeof(qapi_BLE_LE_Channel_Map_t))"/>
+   <macro name="QAPI_BLE_ASSIGN_LE_CHANNEL_MAP" params="(_dest, _a, _b, _c, _d, _e)" value="\ { \  (_dest).LE_Channel_Map0 = (_e); \  (_dest).LE_Channel_Map1 = (_d); \  (_dest).LE_Channel_Map2 = (_c); \  (_dest).LE_Channel_Map3 = (_b); \  (_dest).LE_Channel_Map4 = (_a); \ }"/>
+   <macro name="QAPI_BLE_COMPARE_LE_CHANNEL_MAP" params="(_x, _y)" value="\ ( \  ((_x).LE_Channel_Map0 == (_y).LE_Channel_Map0) &amp;&amp; ((_x).LE_Channel_Map1 == (_y).LE_Channel_Map1) &amp;&amp; \  ((_x).LE_Channel_Map2 == (_y).LE_Channel_Map2) &amp;&amp; ((_x).LE_Channel_Map3 == (_y).LE_Channel_Map3) &amp;&amp; \  ((_x).LE_Channel_Map4 == (_y).LE_Channel_Map4) \ )"/>
+   <macro name="QAPI_BLE_SET_LE_CHANNEL_MAP_CHANNEL" params="(_x, _y)" value="\  ((uint8_t *)&amp;(_x))[(_y)/(sizeof(uint8_t)*8)] |= (uint8_t)(1 &lt;&lt; ((_y)%(sizeof(uint8_t)*8)))"/>
+   <macro name="QAPI_BLE_CLEAR_LE_CHANNEL_MAP_CHANNEL" params="(_x, _y)" value="\  ((uint8_t *)&amp;(_x))[(_y)/(sizeof(uint8_t)*8)] &amp;= (uint8_t)~(1 &lt;&lt; ((_y)%(sizeof(uint8_t)*8)))"/>
+   <macro name="QAPI_BLE_TEST_LE_CHANNEL_MAP_CHANNEL" params="(_x, _y)" value="\  (((uint8_t *)&amp;(_x))[(_y)/(sizeof(uint8_t)*8)] &amp; (1 &lt;&lt; ((_y)%(sizeof(uint8_t)*8))))"/>
+   <macro name="QAPI_BLE_ENCRYPTION_KEY_SIZE" value="(sizeof(qapi_BLE_Encryption_Key_t))"/>
+   <macro name="QAPI_BLE_ASSIGN_ENCRYPTION_KEY" params="(_dest, _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p)" value="\ { \  (_dest).Encryption_Key0 = (_p); (_dest).Encryption_Key1 = (_o); (_dest).Encryption_Key2 = (_n); \  (_dest).Encryption_Key3 = (_m); (_dest).Encryption_Key4 = (_l); (_dest).Encryption_Key5 = (_k); \  (_dest).Encryption_Key6 = (_j); (_dest).Encryption_Key7 = (_i); (_dest).Encryption_Key8 = (_h); \  (_dest).Encryption_Key9 = (_g); (_dest).Encryption_Key10 = (_f); (_dest).Encryption_Key11 = (_e); \  (_dest).Encryption_Key12 = (_d); (_dest).Encryption_Key13 = (_c); (_dest).Encryption_Key14 = (_b); \  (_dest).Encryption_Key15 = (_a); \ }"/>
+   <macro name="QAPI_BLE_COMPARE_ENCRYPTION_KEY" params="(_x, _y)" value="\ ( \  ((_x).Encryption_Key0 == (_y).Encryption_Key0) &amp;&amp; ((_x).Encryption_Key1 == (_y).Encryption_Key1) &amp;&amp; ((_x).Encryption_Key2 == (_y).Encryption_Key2) &amp;&amp; \  ((_x).Encryption_Key3 == (_y).Encryption_Key3) &amp;&amp; ((_x).Encryption_Key4 == (_y).Encryption_Key4) &amp;&amp; ((_x).Encryption_Key5 == (_y).Encryption_Key5) &amp;&amp; \  ((_x).Encryption_Key6 == (_y).Encryption_Key6) &amp;&amp; ((_x).Encryption_Key7 == (_y).Encryption_Key7) &amp;&amp; ((_x).Encryption_Key8 == (_y).Encryption_Key8) &amp;&amp; \  ((_x).Encryption_Key9 == (_y).Encryption_Key9) &amp;&amp; ((_x).Encryption_Key10 == (_y).Encryption_Key10) &amp;&amp; ((_x).Encryption_Key11 == (_y).Encryption_Key11) &amp;&amp; \  ((_x).Encryption_Key12 == (_y).Encryption_Key12) &amp;&amp; ((_x).Encryption_Key13 == (_y).Encryption_Key13) &amp;&amp; ((_x).Encryption_Key14 == (_y).Encryption_Key14) &amp;&amp; \  ((_x).Encryption_Key15 == (_y).Encryption_Key15) \ )"/>
+   <macro name="QAPI_BLE_PLAIN_TEXT_DATA_MAXIMUM_SIZE" value="16"/>
+   <macro name="QAPI_BLE_PLAIN_TEXT_DATA_SIZE" value="(sizeof(qapi_BLE_Plain_Text_Data_t))"/>
+   <macro name="QAPI_BLE_ENCRYPTED_DATA_MAXIMUM_SIZE" value="16"/>
+   <macro name="QAPI_BLE_ENCRYPTED_DATA_SIZE" value="(sizeof(qapi_BLE_Encrypted_Data_t))"/>
+   <macro name="QAPI_BLE_RANDOM_NUMBER_DATA_SIZE" value="(sizeof(qapi_BLE_Random_Number_t))"/>
+   <macro name="QAPI_BLE_ASSIGN_RANDOM_NUMBER" params="(_dest, _a, _b, _c, _d, _e, _f, _g, _h)" value="\ { \  (_dest).Random_Number0 = (_h); \  (_dest).Random_Number1 = (_g); \  (_dest).Random_Number2 = (_f); \  (_dest).Random_Number3 = (_e); \  (_dest).Random_Number4 = (_d); \  (_dest).Random_Number5 = (_c); \  (_dest).Random_Number6 = (_b); \  (_dest).Random_Number7 = (_a); \ }"/>
+   <macro name="QAPI_BLE_COMPARE_RANDOM_NUMBER" params="(_x, _y)" value="\ ( \  ((_x).Random_Number0 == (_y).Random_Number0) &amp;&amp; ((_x).Random_Number1 == (_y).Random_Number1) &amp;&amp; ((_x).Random_Number2 == (_y).Random_Number2) &amp;&amp; \  ((_x).Random_Number3 == (_y).Random_Number3) &amp;&amp; ((_x).Random_Number4 == (_y).Random_Number4) &amp;&amp; ((_x).Random_Number5 == (_y).Random_Number5) &amp;&amp; \  ((_x).Random_Number6 == (_y).Random_Number6) &amp;&amp; ((_x).Random_Number7 == (_y).Random_Number7) \ )"/>
+   <macro name="QAPI_BLE_LONG_TERM_KEY_SIZE" value="(sizeof(qapi_BLE_Long_Term_Key_t))"/>
+   <macro name="QAPI_BLE_ASSIGN_LONG_TERM_KEY" params="(_dest, _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p)" value="\ { \  (_dest).Long_Term_Key0 = (_p); (_dest).Long_Term_Key1 = (_o); (_dest).Long_Term_Key2 = (_n); \  (_dest).Long_Term_Key3 = (_m); (_dest).Long_Term_Key4 = (_l); (_dest).Long_Term_Key5 = (_k); \  (_dest).Long_Term_Key6 = (_j); (_dest).Long_Term_Key7 = (_i); (_dest).Long_Term_Key8 = (_h); \  (_dest).Long_Term_Key9 = (_g); (_dest).Long_Term_Key10 = (_f); (_dest).Long_Term_Key11 = (_e); \  (_dest).Long_Term_Key12 = (_d); (_dest).Long_Term_Key13 = (_c); (_dest).Long_Term_Key14 = (_b); \  (_dest).Long_Term_Key15 = (_a); \ }"/>
+   <macro name="QAPI_BLE_COMPARE_LONG_TERM_KEY" params="(_x, _y)" value="\ ( \  ((_x).Long_Term_Key0 == (_y).Long_Term_Key0) &amp;&amp; ((_x).Long_Term_Key1 == (_y).Long_Term_Key1) &amp;&amp; ((_x).Long_Term_Key2 == (_y).Long_Term_Key2) &amp;&amp; \  ((_x).Long_Term_Key3 == (_y).Long_Term_Key3) &amp;&amp; ((_x).Long_Term_Key4 == (_y).Long_Term_Key4) &amp;&amp; ((_x).Long_Term_Key5 == (_y).Long_Term_Key5) &amp;&amp; \  ((_x).Long_Term_Key6 == (_y).Long_Term_Key6) &amp;&amp; ((_x).Long_Term_Key7 == (_y).Long_Term_Key7) &amp;&amp; ((_x).Long_Term_Key8 == (_y).Long_Term_Key8) &amp;&amp; \  ((_x).Long_Term_Key9 == (_y).Long_Term_Key9) &amp;&amp; ((_x).Long_Term_Key10 == (_y).Long_Term_Key10) &amp;&amp; ((_x).Long_Term_Key11 == (_y).Long_Term_Key11) &amp;&amp; \  ((_x).Long_Term_Key12 == (_y).Long_Term_Key12) &amp;&amp; ((_x).Long_Term_Key13 == (_y).Long_Term_Key13) &amp;&amp; ((_x).Long_Term_Key14 == (_y).Long_Term_Key14) &amp;&amp; \  ((_x).Long_Term_Key15 == (_y).Long_Term_Key15) \ )"/>
+   <macro name="QAPI_BLE_LE_STATES_SIZE" value="(sizeof(qapi_BLE_LE_States_t))"/>
+   <macro name="QAPI_BLE_ASSIGN_LE_STATES" params="(_dest, _a, _b, _c, _d, _e, _f, _g, _h)" value="\ { \  (_dest).LE_States0 = (_h); \  (_dest).LE_States1 = (_g); \  (_dest).LE_States2 = (_f); \  (_dest).LE_States3 = (_e); \  (_dest).LE_States4 = (_d); \  (_dest).LE_States5 = (_c); \  (_dest).LE_States6 = (_b); \  (_dest).LE_States7 = (_a); \ }"/>
+   <macro name="QAPI_BLE_COMPARE_LE_STATES" params="(_x, _y)" value="\ ( \  ((_x).LE_States0 == (_y).LE_States0) &amp;&amp; ((_x).LE_States1 == (_y).LE_States1) &amp;&amp; ((_x).LE_States2 == (_y).LE_States2) &amp;&amp; \  ((_x).LE_States3 == (_y).LE_States3) &amp;&amp; ((_x).LE_States4 == (_y).LE_States4) &amp;&amp; ((_x).LE_States5 == (_y).LE_States5) &amp;&amp; \  ((_x).LE_States6 == (_y).LE_States6) &amp;&amp; ((_x).LE_States7 == (_y).LE_States7) \ )"/>
+   <macro name="QAPI_BLE_SET_LE_STATES_BIT" params="(_x, _y)" value="\  ((uint8_t *)&amp;(_x))[(_y)/(sizeof(uint8_t)*8)] |= (uint8_t)(1 &lt;&lt; ((_y)%(sizeof(uint8_t)*8)))"/>
+   <macro name="QAPI_BLE_CLEAR_LE_STATES_BIT" params="(_x, _y)" value="\  ((uint8_t *)&amp;(_x))[(_y)/(sizeof(uint8_t)*8)] &amp;= (uint8_t)~(1 &lt;&lt; ((_y)%(sizeof(uint8_t)*8)))"/>
+   <macro name="QAPI_BLE_TEST_LE_STATES_BIT" params="(_x, _y)" value="\  (((uint8_t *)&amp;(_x))[(_y)/(sizeof(uint8_t)*8)] &amp; (uint8_t)(1 &lt;&lt; ((_y)%(sizeof(uint8_t)*8))))"/>
+   <macro name="QAPI_BLE_VENDOR_SPECIFIC_CODEC_SIZE" value="(sizeof(qapi_BLE_Vendor_Specific_Codec_t))"/>
+   <macro name="QAPI_BLE_ASSIGN_VENDOR_SPECIFIC_CODEC" params="(_dest, _CompanyID, _VendorCodecID)" value="\ { \  ASSIGN_HOST_WORD_TO_LITTLE_ENDIAN_UNALIGNED_WORD(&amp;((_dest).CompanyID), (_CompanyID)); \  ASSIGN_HOST_WORD_TO_LITTLE_ENDIAN_UNALIGNED_WORD(&amp;((_dest).VendorCodecID), (_VendorCodecID)); \ }"/>
+   <macro name="QAPI_BLE_COMPARE_VENDOR_SPECIFIC_CODEC" params="(_x, _y)" value="\ ( \  (READ_UNALIGNED_WORD_LITTLE_ENDIAN(&amp;((_x).CompanyID)) == READ_UNALIGNED_WORD_LITTLE_ENDIAN(&amp;((_y).CompanyID))) &amp;&amp; \  (READ_UNALIGNED_WORD_LITTLE_ENDIAN(&amp;((_x).VendorCodecID)) == READ_UNALIGNED_WORD_LITTLE_ENDIAN(&amp;((_y).VendorCodecID))) \ )"/>
+   <macro name="QAPI_BLE_SCO_CODING_FORMAT_SIZE" value="(sizeof(qapi_BLE_SCO_Coding_Format_t))"/>
+   <macro name="QAPI_BLE_ASSIGN_SCO_CODING_FORMAT" params="(_dest, _CodingFormat, _CompanyID, _VendorCodecID)" value="\ { \  ASSIGN_HOST_BYTE_TO_LITTLE_ENDIAN_UNALIGNED_BYTE(&amp;((_dest).Coding_Format), (_CodingFormat)); \  QAPI_BLE_ASSIGN_VENDOR_SPECIFIC_CODEC(((_dest).VendorSpecificCodec), (_CompanyID), (_VendorCodecID)); \ }"/>
+   <macro name="QAPI_BLE_DIFFIE_HELLMAN_KEY_SIZE" value="(sizeof(qapi_BLE_Diffie_Hellman_Key_t))"/>
+   <macro name="QAPI_BLE_PUBLIC_KEY_COORDINATE_SIZE" value="(sizeof(qapi_BLE_Public_Key_Coordinate_t))"/>
+   <macro name="QAPI_BLE_P256_PUBLIC_KEY_SIZE" value="(sizeof(qapi_BLE_P256_Public_Key_t))"/>
+   <macro name="QAPI_BLE_P256_PRIVATE_KEY_SIZE" value="(sizeof(qapi_BLE_P256_Private_Key_t))"/>
+   <macro name="QAPI_BLE_SECURE_CONNECTIONS_CONFIRMATION_SIZE" value="(sizeof(qapi_BLE_Secure_Connections_Confirmation_t))"/>
+   <macro name="QAPI_BLE_SECURE_CONNECTIONS_RANDOMIZER_SIZE" value="(sizeof(qapi_BLE_Secure_Connections_Randomizer_t))"/>
+   <structure name="qapi_BLE_BD_ADDR_t">
+      <member attributes="value" name="BD_ADDR0" type="uint8_t"/>
+      <member attributes="value" name="BD_ADDR1" type="uint8_t"/>
+      <member attributes="value" name="BD_ADDR2" type="uint8_t"/>
+      <member attributes="value" name="BD_ADDR3" type="uint8_t"/>
+      <member attributes="value" name="BD_ADDR4" type="uint8_t"/>
+      <member attributes="value" name="BD_ADDR5" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_LAP_t">
+      <member attributes="value" name="LAP0" type="uint8_t"/>
+      <member attributes="value" name="LAP1" type="uint8_t"/>
+      <member attributes="value" name="LAP2" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_Link_Key_t">
+      <member attributes="value" name="Link_Key0" type="uint8_t"/>
+      <member attributes="value" name="Link_Key1" type="uint8_t"/>
+      <member attributes="value" name="Link_Key2" type="uint8_t"/>
+      <member attributes="value" name="Link_Key3" type="uint8_t"/>
+      <member attributes="value" name="Link_Key4" type="uint8_t"/>
+      <member attributes="value" name="Link_Key5" type="uint8_t"/>
+      <member attributes="value" name="Link_Key6" type="uint8_t"/>
+      <member attributes="value" name="Link_Key7" type="uint8_t"/>
+      <member attributes="value" name="Link_Key8" type="uint8_t"/>
+      <member attributes="value" name="Link_Key9" type="uint8_t"/>
+      <member attributes="value" name="Link_Key10" type="uint8_t"/>
+      <member attributes="value" name="Link_Key11" type="uint8_t"/>
+      <member attributes="value" name="Link_Key12" type="uint8_t"/>
+      <member attributes="value" name="Link_Key13" type="uint8_t"/>
+      <member attributes="value" name="Link_Key14" type="uint8_t"/>
+      <member attributes="value" name="Link_Key15" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_PIN_Code_t">
+      <member attributes="value" name="PIN_Code0" type="uint8_t"/>
+      <member attributes="value" name="PIN_Code1" type="uint8_t"/>
+      <member attributes="value" name="PIN_Code2" type="uint8_t"/>
+      <member attributes="value" name="PIN_Code3" type="uint8_t"/>
+      <member attributes="value" name="PIN_Code4" type="uint8_t"/>
+      <member attributes="value" name="PIN_Code5" type="uint8_t"/>
+      <member attributes="value" name="PIN_Code6" type="uint8_t"/>
+      <member attributes="value" name="PIN_Code7" type="uint8_t"/>
+      <member attributes="value" name="PIN_Code8" type="uint8_t"/>
+      <member attributes="value" name="PIN_Code9" type="uint8_t"/>
+      <member attributes="value" name="PIN_Code10" type="uint8_t"/>
+      <member attributes="value" name="PIN_Code11" type="uint8_t"/>
+      <member attributes="value" name="PIN_Code12" type="uint8_t"/>
+      <member attributes="value" name="PIN_Code13" type="uint8_t"/>
+      <member attributes="value" name="PIN_Code14" type="uint8_t"/>
+      <member attributes="value" name="PIN_Code15" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_Event_Mask_t">
+      <member attributes="value" name="Event_Mask0" type="uint8_t"/>
+      <member attributes="value" name="Event_Mask1" type="uint8_t"/>
+      <member attributes="value" name="Event_Mask2" type="uint8_t"/>
+      <member attributes="value" name="Event_Mask3" type="uint8_t"/>
+      <member attributes="value" name="Event_Mask4" type="uint8_t"/>
+      <member attributes="value" name="Event_Mask5" type="uint8_t"/>
+      <member attributes="value" name="Event_Mask6" type="uint8_t"/>
+      <member attributes="value" name="Event_Mask7" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_Class_of_Device_t">
+      <member attributes="value" name="Class_of_Device0" type="uint8_t"/>
+      <member attributes="value" name="Class_of_Device1" type="uint8_t"/>
+      <member attributes="value" name="Class_of_Device2" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_Supported_Commands_t">
+      <member attributes="value" name="Supported_Commands0" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands1" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands2" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands3" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands4" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands5" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands6" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands7" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands8" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands9" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands10" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands11" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands12" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands13" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands14" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands15" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands16" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands17" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands18" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands19" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands20" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands21" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands22" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands23" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands24" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands25" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands26" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands27" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands28" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands29" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands30" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands31" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands32" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands33" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands34" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands35" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands36" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands37" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands38" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands39" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands40" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands41" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands42" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands43" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands44" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands45" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands46" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands47" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands48" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands49" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands50" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands51" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands52" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands53" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands54" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands55" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands56" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands57" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands58" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands59" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands60" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands61" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands62" type="uint8_t"/>
+      <member attributes="value" name="Supported_Commands63" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_LMP_Features_t">
+      <member attributes="value" name="LMP_Features0" type="uint8_t"/>
+      <member attributes="value" name="LMP_Features1" type="uint8_t"/>
+      <member attributes="value" name="LMP_Features2" type="uint8_t"/>
+      <member attributes="value" name="LMP_Features3" type="uint8_t"/>
+      <member attributes="value" name="LMP_Features4" type="uint8_t"/>
+      <member attributes="value" name="LMP_Features5" type="uint8_t"/>
+      <member attributes="value" name="LMP_Features6" type="uint8_t"/>
+      <member attributes="value" name="LMP_Features7" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_Inquiry_Result_Filter_Type_Class_of_Device_Condition_t">
+      <member attributes="value" name="Class_of_Device" type="qapi_BLE_Class_of_Device_t"/>
+      <member attributes="value" name="Class_of_Device_Mask" type="qapi_BLE_Class_of_Device_t"/>
+   </structure>
+   <structure name="qapi_BLE_Inquiry_Result_Filter_Type_BD_ADDR_Condition_t">
+      <member attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+   </structure>
+   <structure name="qapi_BLE_Connection_Setup_Filter_Type_All_Devices_Condition_t">
+      <member attributes="value" name="Auto_Accept_Flag" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_Connection_Setup_Filter_Type_Class_of_Device_Condition_t">
+      <member attributes="value" name="Class_of_Device" type="qapi_BLE_Class_of_Device_t"/>
+      <member attributes="value" name="Class_of_Device_Mask" type="qapi_BLE_Class_of_Device_t"/>
+      <member attributes="value" name="Auto_Accept_Flag" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_Connection_Setup_Filter_Type_BD_ADDR_Condition_t">
+      <member attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Auto_Accept_Flag" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_Raw_Condition_Bytes_t">
+      <member attributes="value" name="Condition0" type="uint8_t"/>
+      <member attributes="value" name="Condition1" type="uint8_t"/>
+      <member attributes="value" name="Condition2" type="uint8_t"/>
+      <member attributes="value" name="Condition3" type="uint8_t"/>
+      <member attributes="value" name="Condition4" type="uint8_t"/>
+      <member attributes="value" name="Condition5" type="uint8_t"/>
+      <member attributes="value" name="Condition6" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_AFH_Channel_Map_t">
+      <member attributes="value" name="AFH_Channel_Map0" type="uint8_t"/>
+      <member attributes="value" name="AFH_Channel_Map1" type="uint8_t"/>
+      <member attributes="value" name="AFH_Channel_Map2" type="uint8_t"/>
+      <member attributes="value" name="AFH_Channel_Map3" type="uint8_t"/>
+      <member attributes="value" name="AFH_Channel_Map4" type="uint8_t"/>
+      <member attributes="value" name="AFH_Channel_Map5" type="uint8_t"/>
+      <member attributes="value" name="AFH_Channel_Map6" type="uint8_t"/>
+      <member attributes="value" name="AFH_Channel_Map7" type="uint8_t"/>
+      <member attributes="value" name="AFH_Channel_Map8" type="uint8_t"/>
+      <member attributes="value" name="AFH_Channel_Map9" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_Extended_Inquiry_Response_Data_t">
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="QAPI_BLE_EXTENDED_INQUIRY_RESPONSE_DATA_MAXIMUM_SIZE" name="Extended_Inquiry_Response_Data" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_L2CAP_Extended_Feature_Mask_t">
+      <member attributes="value" name="Extended_Feature_Mask0" type="uint8_t"/>
+      <member attributes="value" name="Extended_Feature_Mask1" type="uint8_t"/>
+      <member attributes="value" name="Extended_Feature_Mask2" type="uint8_t"/>
+      <member attributes="value" name="Extended_Feature_Mask3" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_L2CAP_Fixed_Channels_Supported_Mask_t">
+      <member attributes="value" name="Fixed_Channels_Supported_Mask0" type="uint8_t"/>
+      <member attributes="value" name="Fixed_Channels_Supported_Mask1" type="uint8_t"/>
+      <member attributes="value" name="Fixed_Channels_Supported_Mask2" type="uint8_t"/>
+      <member attributes="value" name="Fixed_Channels_Supported_Mask3" type="uint8_t"/>
+      <member attributes="value" name="Fixed_Channels_Supported_Mask4" type="uint8_t"/>
+      <member attributes="value" name="Fixed_Channels_Supported_Mask5" type="uint8_t"/>
+      <member attributes="value" name="Fixed_Channels_Supported_Mask6" type="uint8_t"/>
+      <member attributes="value" name="Fixed_Channels_Supported_Mask7" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_UUID_128_t">
+      <member attributes="value" name="UUID_Byte0" type="uint8_t"/>
+      <member attributes="value" name="UUID_Byte1" type="uint8_t"/>
+      <member attributes="value" name="UUID_Byte2" type="uint8_t"/>
+      <member attributes="value" name="UUID_Byte3" type="uint8_t"/>
+      <member attributes="value" name="UUID_Byte4" type="uint8_t"/>
+      <member attributes="value" name="UUID_Byte5" type="uint8_t"/>
+      <member attributes="value" name="UUID_Byte6" type="uint8_t"/>
+      <member attributes="value" name="UUID_Byte7" type="uint8_t"/>
+      <member attributes="value" name="UUID_Byte8" type="uint8_t"/>
+      <member attributes="value" name="UUID_Byte9" type="uint8_t"/>
+      <member attributes="value" name="UUID_Byte10" type="uint8_t"/>
+      <member attributes="value" name="UUID_Byte11" type="uint8_t"/>
+      <member attributes="value" name="UUID_Byte12" type="uint8_t"/>
+      <member attributes="value" name="UUID_Byte13" type="uint8_t"/>
+      <member attributes="value" name="UUID_Byte14" type="uint8_t"/>
+      <member attributes="value" name="UUID_Byte15" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_UUID_16_t">
+      <member attributes="value" name="UUID_Byte0" type="uint8_t"/>
+      <member attributes="value" name="UUID_Byte1" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_UUID_32_t">
+      <member attributes="value" name="UUID_Byte0" type="uint8_t"/>
+      <member attributes="value" name="UUID_Byte1" type="uint8_t"/>
+      <member attributes="value" name="UUID_Byte2" type="uint8_t"/>
+      <member attributes="value" name="UUID_Byte3" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_Simple_Pairing_Hash_t">
+      <member attributes="value" name="Pairing_Hash0" type="uint8_t"/>
+      <member attributes="value" name="Pairing_Hash1" type="uint8_t"/>
+      <member attributes="value" name="Pairing_Hash2" type="uint8_t"/>
+      <member attributes="value" name="Pairing_Hash3" type="uint8_t"/>
+      <member attributes="value" name="Pairing_Hash4" type="uint8_t"/>
+      <member attributes="value" name="Pairing_Hash5" type="uint8_t"/>
+      <member attributes="value" name="Pairing_Hash6" type="uint8_t"/>
+      <member attributes="value" name="Pairing_Hash7" type="uint8_t"/>
+      <member attributes="value" name="Pairing_Hash8" type="uint8_t"/>
+      <member attributes="value" name="Pairing_Hash9" type="uint8_t"/>
+      <member attributes="value" name="Pairing_Hash10" type="uint8_t"/>
+      <member attributes="value" name="Pairing_Hash11" type="uint8_t"/>
+      <member attributes="value" name="Pairing_Hash12" type="uint8_t"/>
+      <member attributes="value" name="Pairing_Hash13" type="uint8_t"/>
+      <member attributes="value" name="Pairing_Hash14" type="uint8_t"/>
+      <member attributes="value" name="Pairing_Hash15" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_Simple_Pairing_Randomizer_t">
+      <member attributes="value" name="Pairing_Randomizer0" type="uint8_t"/>
+      <member attributes="value" name="Pairing_Randomizer1" type="uint8_t"/>
+      <member attributes="value" name="Pairing_Randomizer2" type="uint8_t"/>
+      <member attributes="value" name="Pairing_Randomizer3" type="uint8_t"/>
+      <member attributes="value" name="Pairing_Randomizer4" type="uint8_t"/>
+      <member attributes="value" name="Pairing_Randomizer5" type="uint8_t"/>
+      <member attributes="value" name="Pairing_Randomizer6" type="uint8_t"/>
+      <member attributes="value" name="Pairing_Randomizer7" type="uint8_t"/>
+      <member attributes="value" name="Pairing_Randomizer8" type="uint8_t"/>
+      <member attributes="value" name="Pairing_Randomizer9" type="uint8_t"/>
+      <member attributes="value" name="Pairing_Randomizer10" type="uint8_t"/>
+      <member attributes="value" name="Pairing_Randomizer11" type="uint8_t"/>
+      <member attributes="value" name="Pairing_Randomizer12" type="uint8_t"/>
+      <member attributes="value" name="Pairing_Randomizer13" type="uint8_t"/>
+      <member attributes="value" name="Pairing_Randomizer14" type="uint8_t"/>
+      <member attributes="value" name="Pairing_Randomizer15" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_LE_Features_t">
+      <member attributes="value" name="LE_Features0" type="uint8_t"/>
+      <member attributes="value" name="LE_Features1" type="uint8_t"/>
+      <member attributes="value" name="LE_Features2" type="uint8_t"/>
+      <member attributes="value" name="LE_Features3" type="uint8_t"/>
+      <member attributes="value" name="LE_Features4" type="uint8_t"/>
+      <member attributes="value" name="LE_Features5" type="uint8_t"/>
+      <member attributes="value" name="LE_Features6" type="uint8_t"/>
+      <member attributes="value" name="LE_Features7" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_Advertising_Data_t">
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="QAPI_BLE_ADVERTISING_DATA_MAXIMUM_SIZE" name="Advertising_Data" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_Extended_Advertising_Data_t">
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="QAPI_BLE_EXTENDED_ADVERTISING_DATA_MAXIMUM_SIZE" name="Advertising_Data" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_Scan_Response_Data_t">
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="QAPI_BLE_SCAN_RESPONSE_DATA_MAXIMUM_SIZE" name="Scan_Response_Data" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_Extended_Scan_Response_Data_t">
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="QAPI_BLE_EXTENDED_SCAN_RESPONSE_DATA_MAXIMUM_SIZE" name="Scan_Response_Data" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_LE_Channel_Map_t">
+      <member attributes="value" name="LE_Channel_Map0" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="LE_Channel_Map1" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="LE_Channel_Map2" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="LE_Channel_Map3" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="LE_Channel_Map4" type="qapi_BLE_NonAlignedByte_t"/>
+   </structure>
+   <structure name="qapi_BLE_Encryption_Key_t">
+      <member attributes="value" name="Encryption_Key0" type="uint8_t"/>
+      <member attributes="value" name="Encryption_Key1" type="uint8_t"/>
+      <member attributes="value" name="Encryption_Key2" type="uint8_t"/>
+      <member attributes="value" name="Encryption_Key3" type="uint8_t"/>
+      <member attributes="value" name="Encryption_Key4" type="uint8_t"/>
+      <member attributes="value" name="Encryption_Key5" type="uint8_t"/>
+      <member attributes="value" name="Encryption_Key6" type="uint8_t"/>
+      <member attributes="value" name="Encryption_Key7" type="uint8_t"/>
+      <member attributes="value" name="Encryption_Key8" type="uint8_t"/>
+      <member attributes="value" name="Encryption_Key9" type="uint8_t"/>
+      <member attributes="value" name="Encryption_Key10" type="uint8_t"/>
+      <member attributes="value" name="Encryption_Key11" type="uint8_t"/>
+      <member attributes="value" name="Encryption_Key12" type="uint8_t"/>
+      <member attributes="value" name="Encryption_Key13" type="uint8_t"/>
+      <member attributes="value" name="Encryption_Key14" type="uint8_t"/>
+      <member attributes="value" name="Encryption_Key15" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_Plain_Text_Data_t">
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="QAPI_BLE_PLAIN_TEXT_DATA_MAXIMUM_SIZE" name="Plain_Text_Data" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_Encrypted_Data_t">
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="QAPI_BLE_ENCRYPTED_DATA_MAXIMUM_SIZE" name="Encrypted_Data" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_Random_Number_t">
+      <member attributes="value" name="Random_Number0" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="Random_Number1" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="Random_Number2" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="Random_Number3" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="Random_Number4" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="Random_Number5" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="Random_Number6" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="Random_Number7" type="qapi_BLE_NonAlignedByte_t"/>
+   </structure>
+   <structure name="qapi_BLE_Long_Term_Key_t">
+      <member attributes="value" name="Long_Term_Key0" type="uint8_t"/>
+      <member attributes="value" name="Long_Term_Key1" type="uint8_t"/>
+      <member attributes="value" name="Long_Term_Key2" type="uint8_t"/>
+      <member attributes="value" name="Long_Term_Key3" type="uint8_t"/>
+      <member attributes="value" name="Long_Term_Key4" type="uint8_t"/>
+      <member attributes="value" name="Long_Term_Key5" type="uint8_t"/>
+      <member attributes="value" name="Long_Term_Key6" type="uint8_t"/>
+      <member attributes="value" name="Long_Term_Key7" type="uint8_t"/>
+      <member attributes="value" name="Long_Term_Key8" type="uint8_t"/>
+      <member attributes="value" name="Long_Term_Key9" type="uint8_t"/>
+      <member attributes="value" name="Long_Term_Key10" type="uint8_t"/>
+      <member attributes="value" name="Long_Term_Key11" type="uint8_t"/>
+      <member attributes="value" name="Long_Term_Key12" type="uint8_t"/>
+      <member attributes="value" name="Long_Term_Key13" type="uint8_t"/>
+      <member attributes="value" name="Long_Term_Key14" type="uint8_t"/>
+      <member attributes="value" name="Long_Term_Key15" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_LE_States_t">
+      <member attributes="value" name="LE_States0" type="uint8_t"/>
+      <member attributes="value" name="LE_States1" type="uint8_t"/>
+      <member attributes="value" name="LE_States2" type="uint8_t"/>
+      <member attributes="value" name="LE_States3" type="uint8_t"/>
+      <member attributes="value" name="LE_States4" type="uint8_t"/>
+      <member attributes="value" name="LE_States5" type="uint8_t"/>
+      <member attributes="value" name="LE_States6" type="uint8_t"/>
+      <member attributes="value" name="LE_States7" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_Vendor_Specific_Codec_t">
+      <member attributes="value" name="CompanyID" type="qapi_BLE_NonAlignedWord_t"/>
+      <member attributes="value" name="VendorCodecID" type="qapi_BLE_NonAlignedWord_t"/>
+   </structure>
+   <structure name="qapi_BLE_SCO_Coding_Format_t">
+      <member attributes="value" name="Coding_Format" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="VendorSpecificCodec" type="qapi_BLE_Vendor_Specific_Codec_t"/>
+   </structure>
+   <structure name="qapi_BLE_Diffie_Hellman_Key_t">
+      <member attributes="value" name="Diffie_Hellman_Key0" type="uint8_t"/>
+      <member attributes="value" name="Diffie_Hellman_Key1" type="uint8_t"/>
+      <member attributes="value" name="Diffie_Hellman_Key2" type="uint8_t"/>
+      <member attributes="value" name="Diffie_Hellman_Key3" type="uint8_t"/>
+      <member attributes="value" name="Diffie_Hellman_Key4" type="uint8_t"/>
+      <member attributes="value" name="Diffie_Hellman_Key5" type="uint8_t"/>
+      <member attributes="value" name="Diffie_Hellman_Key6" type="uint8_t"/>
+      <member attributes="value" name="Diffie_Hellman_Key7" type="uint8_t"/>
+      <member attributes="value" name="Diffie_Hellman_Key8" type="uint8_t"/>
+      <member attributes="value" name="Diffie_Hellman_Key9" type="uint8_t"/>
+      <member attributes="value" name="Diffie_Hellman_Key10" type="uint8_t"/>
+      <member attributes="value" name="Diffie_Hellman_Key11" type="uint8_t"/>
+      <member attributes="value" name="Diffie_Hellman_Key12" type="uint8_t"/>
+      <member attributes="value" name="Diffie_Hellman_Key13" type="uint8_t"/>
+      <member attributes="value" name="Diffie_Hellman_Key14" type="uint8_t"/>
+      <member attributes="value" name="Diffie_Hellman_Key15" type="uint8_t"/>
+      <member attributes="value" name="Diffie_Hellman_Key16" type="uint8_t"/>
+      <member attributes="value" name="Diffie_Hellman_Key17" type="uint8_t"/>
+      <member attributes="value" name="Diffie_Hellman_Key18" type="uint8_t"/>
+      <member attributes="value" name="Diffie_Hellman_Key19" type="uint8_t"/>
+      <member attributes="value" name="Diffie_Hellman_Key20" type="uint8_t"/>
+      <member attributes="value" name="Diffie_Hellman_Key21" type="uint8_t"/>
+      <member attributes="value" name="Diffie_Hellman_Key22" type="uint8_t"/>
+      <member attributes="value" name="Diffie_Hellman_Key23" type="uint8_t"/>
+      <member attributes="value" name="Diffie_Hellman_Key24" type="uint8_t"/>
+      <member attributes="value" name="Diffie_Hellman_Key25" type="uint8_t"/>
+      <member attributes="value" name="Diffie_Hellman_Key26" type="uint8_t"/>
+      <member attributes="value" name="Diffie_Hellman_Key27" type="uint8_t"/>
+      <member attributes="value" name="Diffie_Hellman_Key28" type="uint8_t"/>
+      <member attributes="value" name="Diffie_Hellman_Key29" type="uint8_t"/>
+      <member attributes="value" name="Diffie_Hellman_Key30" type="uint8_t"/>
+      <member attributes="value" name="Diffie_Hellman_Key31" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_Public_Key_Coordinate_t">
+      <member attributes="value" name="Public_Key_Coordinate0" type="uint8_t"/>
+      <member attributes="value" name="Public_Key_Coordinate1" type="uint8_t"/>
+      <member attributes="value" name="Public_Key_Coordinate2" type="uint8_t"/>
+      <member attributes="value" name="Public_Key_Coordinate3" type="uint8_t"/>
+      <member attributes="value" name="Public_Key_Coordinate4" type="uint8_t"/>
+      <member attributes="value" name="Public_Key_Coordinate5" type="uint8_t"/>
+      <member attributes="value" name="Public_Key_Coordinate6" type="uint8_t"/>
+      <member attributes="value" name="Public_Key_Coordinate7" type="uint8_t"/>
+      <member attributes="value" name="Public_Key_Coordinate8" type="uint8_t"/>
+      <member attributes="value" name="Public_Key_Coordinate9" type="uint8_t"/>
+      <member attributes="value" name="Public_Key_Coordinate10" type="uint8_t"/>
+      <member attributes="value" name="Public_Key_Coordinate11" type="uint8_t"/>
+      <member attributes="value" name="Public_Key_Coordinate12" type="uint8_t"/>
+      <member attributes="value" name="Public_Key_Coordinate13" type="uint8_t"/>
+      <member attributes="value" name="Public_Key_Coordinate14" type="uint8_t"/>
+      <member attributes="value" name="Public_Key_Coordinate15" type="uint8_t"/>
+      <member attributes="value" name="Public_Key_Coordinate16" type="uint8_t"/>
+      <member attributes="value" name="Public_Key_Coordinate17" type="uint8_t"/>
+      <member attributes="value" name="Public_Key_Coordinate18" type="uint8_t"/>
+      <member attributes="value" name="Public_Key_Coordinate19" type="uint8_t"/>
+      <member attributes="value" name="Public_Key_Coordinate20" type="uint8_t"/>
+      <member attributes="value" name="Public_Key_Coordinate21" type="uint8_t"/>
+      <member attributes="value" name="Public_Key_Coordinate22" type="uint8_t"/>
+      <member attributes="value" name="Public_Key_Coordinate23" type="uint8_t"/>
+      <member attributes="value" name="Public_Key_Coordinate24" type="uint8_t"/>
+      <member attributes="value" name="Public_Key_Coordinate25" type="uint8_t"/>
+      <member attributes="value" name="Public_Key_Coordinate26" type="uint8_t"/>
+      <member attributes="value" name="Public_Key_Coordinate27" type="uint8_t"/>
+      <member attributes="value" name="Public_Key_Coordinate28" type="uint8_t"/>
+      <member attributes="value" name="Public_Key_Coordinate29" type="uint8_t"/>
+      <member attributes="value" name="Public_Key_Coordinate30" type="uint8_t"/>
+      <member attributes="value" name="Public_Key_Coordinate31" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_P256_Public_Key_t">
+      <member attributes="value" name="X" type="qapi_BLE_Public_Key_Coordinate_t"/>
+      <member attributes="value" name="Y" type="qapi_BLE_Public_Key_Coordinate_t"/>
+   </structure>
+   <structure name="qapi_BLE_P256_Private_Key_t">
+      <member attributes="value" name="Private_Key_Byte0" type="uint8_t"/>
+      <member attributes="value" name="Private_Key_Byte1" type="uint8_t"/>
+      <member attributes="value" name="Private_Key_Byte2" type="uint8_t"/>
+      <member attributes="value" name="Private_Key_Byte3" type="uint8_t"/>
+      <member attributes="value" name="Private_Key_Byte4" type="uint8_t"/>
+      <member attributes="value" name="Private_Key_Byte5" type="uint8_t"/>
+      <member attributes="value" name="Private_Key_Byte6" type="uint8_t"/>
+      <member attributes="value" name="Private_Key_Byte7" type="uint8_t"/>
+      <member attributes="value" name="Private_Key_Byte8" type="uint8_t"/>
+      <member attributes="value" name="Private_Key_Byte9" type="uint8_t"/>
+      <member attributes="value" name="Private_Key_Byte10" type="uint8_t"/>
+      <member attributes="value" name="Private_Key_Byte11" type="uint8_t"/>
+      <member attributes="value" name="Private_Key_Byte12" type="uint8_t"/>
+      <member attributes="value" name="Private_Key_Byte13" type="uint8_t"/>
+      <member attributes="value" name="Private_Key_Byte14" type="uint8_t"/>
+      <member attributes="value" name="Private_Key_Byte15" type="uint8_t"/>
+      <member attributes="value" name="Private_Key_Byte16" type="uint8_t"/>
+      <member attributes="value" name="Private_Key_Byte17" type="uint8_t"/>
+      <member attributes="value" name="Private_Key_Byte18" type="uint8_t"/>
+      <member attributes="value" name="Private_Key_Byte19" type="uint8_t"/>
+      <member attributes="value" name="Private_Key_Byte20" type="uint8_t"/>
+      <member attributes="value" name="Private_Key_Byte21" type="uint8_t"/>
+      <member attributes="value" name="Private_Key_Byte22" type="uint8_t"/>
+      <member attributes="value" name="Private_Key_Byte23" type="uint8_t"/>
+      <member attributes="value" name="Private_Key_Byte24" type="uint8_t"/>
+      <member attributes="value" name="Private_Key_Byte25" type="uint8_t"/>
+      <member attributes="value" name="Private_Key_Byte26" type="uint8_t"/>
+      <member attributes="value" name="Private_Key_Byte27" type="uint8_t"/>
+      <member attributes="value" name="Private_Key_Byte28" type="uint8_t"/>
+      <member attributes="value" name="Private_Key_Byte29" type="uint8_t"/>
+      <member attributes="value" name="Private_Key_Byte30" type="uint8_t"/>
+      <member attributes="value" name="Private_Key_Byte31" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_Secure_Connections_Confirmation_t">
+      <member attributes="value" name="Confirmation0" type="uint8_t"/>
+      <member attributes="value" name="Confirmation1" type="uint8_t"/>
+      <member attributes="value" name="Confirmation2" type="uint8_t"/>
+      <member attributes="value" name="Confirmation3" type="uint8_t"/>
+      <member attributes="value" name="Confirmation4" type="uint8_t"/>
+      <member attributes="value" name="Confirmation5" type="uint8_t"/>
+      <member attributes="value" name="Confirmation6" type="uint8_t"/>
+      <member attributes="value" name="Confirmation7" type="uint8_t"/>
+      <member attributes="value" name="Confirmation8" type="uint8_t"/>
+      <member attributes="value" name="Confirmation9" type="uint8_t"/>
+      <member attributes="value" name="Confirmation10" type="uint8_t"/>
+      <member attributes="value" name="Confirmation11" type="uint8_t"/>
+      <member attributes="value" name="Confirmation12" type="uint8_t"/>
+      <member attributes="value" name="Confirmation13" type="uint8_t"/>
+      <member attributes="value" name="Confirmation14" type="uint8_t"/>
+      <member attributes="value" name="Confirmation15" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_Secure_Connections_Randomizer_t">
+      <member attributes="value" name="Randomizer0" type="uint8_t"/>
+      <member attributes="value" name="Randomizer1" type="uint8_t"/>
+      <member attributes="value" name="Randomizer2" type="uint8_t"/>
+      <member attributes="value" name="Randomizer3" type="uint8_t"/>
+      <member attributes="value" name="Randomizer4" type="uint8_t"/>
+      <member attributes="value" name="Randomizer5" type="uint8_t"/>
+      <member attributes="value" name="Randomizer6" type="uint8_t"/>
+      <member attributes="value" name="Randomizer7" type="uint8_t"/>
+      <member attributes="value" name="Randomizer8" type="uint8_t"/>
+      <member attributes="value" name="Randomizer9" type="uint8_t"/>
+      <member attributes="value" name="Randomizer10" type="uint8_t"/>
+      <member attributes="value" name="Randomizer11" type="uint8_t"/>
+      <member attributes="value" name="Randomizer12" type="uint8_t"/>
+      <member attributes="value" name="Randomizer13" type="uint8_t"/>
+      <member attributes="value" name="Randomizer14" type="uint8_t"/>
+      <member attributes="value" name="Randomizer15" type="uint8_t"/>
+   </structure>
+</header>

@@ -1,0 +1,151 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="qapi_zb_cl.h"/>
+   <macro name="QAPI_ZB_CL_WINCOVER_ATTR_ID_WINDOW_COVERING_TYPE" value="(0x0000) "/>
+   <macro name="QAPI_ZB_CL_WINCOVER_ATTR_ID_LIFT_CLOSED_LIMIT" value="(0x0001) "/>
+   <macro name="QAPI_ZB_CL_WINCOVER_ATTR_ID_TILT_CLOSED_LIMIT" value="(0x0002) "/>
+   <macro name="QAPI_ZB_CL_WINCOVER_ATTR_ID_CURRENT_LIFT_POSITION" value="(0x0003) "/>
+   <macro name="QAPI_ZB_CL_WINCOVER_ATTR_ID_CURRENT_TILT_POSITION" value="(0x0004) "/>
+   <macro name="QAPI_ZB_CL_WINCOVER_ATTR_ID_NUM_LIFT_ACTUATORS" value="(0x0005) "/>
+   <macro name="QAPI_ZB_CL_WINCOVER_ATTR_ID_NUM_TILT_ACTUATORS" value="(0x0006) "/>
+   <macro name="QAPI_ZB_CL_WINCOVER_ATTR_ID_CONFIG_STATUS" value="(0x0007) "/>
+   <macro name="QAPI_ZB_CL_WINCOVER_ATTR_ID_CURRENT_LIFT_PERCENTAGE" value="(0x0008) "/>
+   <macro name="QAPI_ZB_CL_WINCOVER_ATTR_ID_CURRENT_TILT_PERCENTAGE" value="(0x0009) "/>
+   <macro name="QAPI_ZB_CL_WINCOVER_ATTR_ID_INSTALLED_LIFT_OPEN_LIMIT" value="(0x0010) "/>
+   <macro name="QAPI_ZB_CL_WINCOVER_ATTR_ID_INSTALLED_LIFT_CLOSED_LIMIT" value="(0x0011) "/>
+   <macro name="QAPI_ZB_CL_WINCOVER_ATTR_ID_INSTALLED_TILT_OPEN_LIMIT" value="(0x0012) "/>
+   <macro name="QAPI_ZB_CL_WINCOVER_ATTR_ID_INSTALLED_TILT_CLOSED_LIMIT" value="(0x0013) "/>
+   <macro name="QAPI_ZB_CL_WINCOVER_ATTR_ID_LIFT_VELOCITY" value="(0x0014) "/>
+   <macro name="QAPI_ZB_CL_WINCOVER_ATTR_ID_LIFT_ACCELERATION_TIME" value="(0x0015) "/>
+   <macro name="QAPI_ZB_CL_WINCOVER_ATTR_ID_LIFT_DECELERATION_TIME" value="(0x0016) "/>
+   <macro name="QAPI_ZB_CL_WINCOVER_ATTR_ID_MODE" value="(0x0017) "/>
+   <macro name="QAPI_ZB_CL_WINCOVER_ATTR_ID_INTERMEDIATE_LIFT_SETPOINTS" value="(0x0018) "/>
+   <macro name="QAPI_ZB_CL_WINCOVER_ATTR_ID_INTERMEDIATE_TILT_SETPOINTS" value="(0x0019) "/>
+   <macro name="QAPI_ZB_CL_WINCOVER_CLIENT_COMMAND_ID_UP_OPEN" value="(0x00) "/>
+   <macro name="QAPI_ZB_CL_WINCOVER_CLIENT_COMMAND_ID_DOWN_CLOSE" value="(0x01) "/>
+   <macro name="QAPI_ZB_CL_WINCOVER_CLIENT_COMMAND_ID_STOP" value="(0x02) "/>
+   <macro name="QAPI_ZB_CL_WINCOVER_CLIENT_COMMAND_ID_GO_TO_LIFT_VALUE" value="(0x04) "/>
+   <macro name="QAPI_ZB_CL_WINCOVER_CLIENT_COMMAND_ID_GO_TO_LIFT_PERCENTAGE" value="(0x05) "/>
+   <macro name="QAPI_ZB_CL_WINCOVER_CLIENT_COMMAND_ID_GO_TO_TILT_VALUE" value="(0x07) "/>
+   <macro name="QAPI_ZB_CL_WINCOVER_CLIENT_COMMAND_ID_GO_TO_TILT_PERCENTAGE" value="(0x08) "/>
+   <enum name="qapi_ZB_CL_WinCover_Client_Event_Type_t">
+      <member name="QAPI_ZB_CL_WINCOVER_CLIENT_EVENT_TYPE_ATTR_CUSTOM_READ_E" value="0"/>
+      <member name="QAPI_ZB_CL_WINCOVER_CLIENT_EVENT_TYPE_ATTR_CUSTOM_WRITE_E" value="1"/>
+      <member name="QAPI_ZB_CL_WINCOVER_CLIENT_EVENT_TYPE_DEFAULT_RESPONSE_E" value="2"/>
+      <member name="QAPI_ZB_CL_WINCOVER_CLIENT_EVENT_TYPE_UNPARSED_RESPONSE_E" value="3"/>
+      <member name="QAPI_ZB_CL_WINCOVER_CLIENT_EVENT_TYPE_COMMAND_COMPLETE_E" value="4"/>
+   </enum>
+   <enum name="qapi_ZB_CL_WinCover_Server_Event_Type_t">
+      <member name="QAPI_ZB_CL_WINCOVER_SERVER_EVENT_TYPE_ATTR_CUSTOM_READ_E" value="0"/>
+      <member name="QAPI_ZB_CL_WINCOVER_SERVER_EVENT_TYPE_ATTR_CUSTOM_WRITE_E" value="1"/>
+      <member name="QAPI_ZB_CL_WINCOVER_SERVER_EVENT_TYPE_UNPARSED_DATA_E" value="2"/>
+      <member name="QAPI_ZB_CL_WINCOVER_SERVER_EVENT_TYPE_ACTION_E" value="3"/>
+   </enum>
+   <enum name="qapi_ZB_CL_WinCover_Cover_Type_t">
+      <member name="QAPI_ZB_CL_WINCOVER_COVER_TYPE_ROLLERSHADE_E" value="0x00"/>
+      <member name="QAPI_ZB_CL_WINCOVER_COVER_TYPE_ROLLERSHADE_2_MOTOR_E" value="0x00"/>
+      <member name="QAPI_ZB_CL_WINCOVER_COVER_TYPE_ROLLERSHADE_EXTERIOR_E" value="0x00"/>
+      <member name="QAPI_ZB_CL_WINCOVER_COVER_TYPE_ROLLERSHADE_EXTERIOR_2_MOTOR_E" value="0x00"/>
+      <member name="QAPI_ZB_CL_WINCOVER_COVER_TYPE_DRAPERY_E" value="0x00"/>
+      <member name="QAPI_ZB_CL_WINCOVER_COVER_TYPE_AWNING_E" value="0x00"/>
+      <member name="QAPI_ZB_CL_WINCOVER_COVER_TYPE_SHUTTER_E" value="0x00"/>
+      <member name="QAPI_ZB_CL_WINCOVER_COVER_TYPE_TILT_BLIND_TILT_ONLY_E" value="0x00"/>
+      <member name="QAPI_ZB_CL_WINCOVER_COVER_TYPE_TILT_BLIND_LIFT_AND_TILT_E" value="0x00"/>
+      <member name="QAPI_ZB_CL_WINCOVER_COVER_TYPE_PROJECTOR_SCREEN_E" value="0x00"/>
+   </enum>
+   <enum name="qapi_ZB_CL_WinCover_Action_t">
+      <member name="QAPI_ZB_CL_WINCOVER_ACTION_OPEN_E" value="0"/>
+      <member name="QAPI_ZB_CL_WINCOVER_ACTION_CLOSE_E" value="1"/>
+      <member name="QAPI_ZB_CL_WINCOVER_ACTION_STOP_E" value="2"/>
+   </enum>
+   <structure name="qapi_ZB_CL_WinCover_Client_Event_Data_t">
+      <member attributes="value" name="Event_Type" type="qapi_ZB_CL_WinCover_Client_Event_Type_t"/>
+      <member attributes="union" name="Data">
+         <member attributes="value" name="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t"/>
+         <member attributes="value" name="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t"/>
+         <member attributes="value" name="Default_Response" type="qapi_ZB_CL_Default_Response_t"/>
+         <member attributes="value" name="Command_Complete" type="qapi_ZB_CL_Command_Complete_t"/>
+         <member attributes="value" name="Unparsed_Response" type="qapi_ZB_CL_Unparsed_Response_t"/>
+         <unionMap mapVerified="yes" name="Event_Type" type="qapi_ZB_CL_WinCover_Client_Event_Type_t">
+            <mapEntry member="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t" value="QAPI_ZB_CL_WINCOVER_CLIENT_EVENT_TYPE_ATTR_CUSTOM_READ_E"/>
+            <mapEntry member="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t" value="QAPI_ZB_CL_WINCOVER_CLIENT_EVENT_TYPE_ATTR_CUSTOM_WRITE_E"/>
+            <mapEntry member="Default_Response" type="qapi_ZB_CL_Default_Response_t" value="QAPI_ZB_CL_WINCOVER_CLIENT_EVENT_TYPE_DEFAULT_RESPONSE_E"/>
+            <mapEntry member="Command_Complete" type="qapi_ZB_CL_Command_Complete_t" value="QAPI_ZB_CL_WINCOVER_CLIENT_EVENT_TYPE_COMMAND_COMPLETE_E"/>
+            <mapEntry member="Unparsed_Response" type="qapi_ZB_CL_Unparsed_Response_t" value="QAPI_ZB_CL_WINCOVER_CLIENT_EVENT_TYPE_UNPARSED_RESPONSE_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_ZB_CL_WinCover_Server_Action_t">
+      <member attributes="value" name="Action" type="qapi_ZB_CL_WinCover_Action_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_WinCover_Server_Event_Data_t">
+      <member attributes="value" name="Event_Type" type="qapi_ZB_CL_WinCover_Server_Event_Type_t"/>
+      <member attributes="union" name="Data">
+         <member attributes="value" name="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t"/>
+         <member attributes="value" name="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t"/>
+         <member attributes="value" name="Unparsed_Data" type="qapi_ZB_CL_Unparsed_Data_t"/>
+         <member attributes="value" name="Action" type="qapi_ZB_CL_WinCover_Server_Action_t"/>
+         <unionMap mapVerified="yes" name="Event_Type" type="qapi_ZB_CL_WinCover_Server_Event_Type_t">
+            <mapEntry member="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t" value="QAPI_ZB_CL_WINCOVER_SERVER_EVENT_TYPE_ATTR_CUSTOM_READ_E"/>
+            <mapEntry member="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t" value="QAPI_ZB_CL_WINCOVER_SERVER_EVENT_TYPE_ATTR_CUSTOM_WRITE_E"/>
+            <mapEntry member="Unparsed_Data" type="qapi_ZB_CL_Unparsed_Data_t" value="QAPI_ZB_CL_WINCOVER_SERVER_EVENT_TYPE_UNPARSED_DATA_E"/>
+            <mapEntry member="Action" type="qapi_ZB_CL_WinCover_Server_Action_t" value="QAPI_ZB_CL_WINCOVER_SERVER_EVENT_TYPE_ACTION_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <function name="qapi_ZB_CL_WinCover_Create_Client">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Cluster_Info" type="qapi_ZB_CL_Cluster_Info_t"/>
+      <argument attributes="value" name="Event_CB" type="qapi_ZB_CL_WinCover_Client_CB_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+   </function>
+   <function name="qapi_ZB_CL_WinCover_Create_Server">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Cluster_Info" type="qapi_ZB_CL_Cluster_Info_t"/>
+      <argument attributes="value" name="Event_CB" type="qapi_ZB_CL_WinCover_Server_CB_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+   </function>
+   <function name="qapi_ZB_CL_WinCover_Populate_Attributes">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Server" type="qbool_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="AttributeCount" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="AttributeCount" lengthVerified="yes" name="AttributeList" type="qapi_ZB_CL_Attribute_t"/>
+   </function>
+   <function name="qapi_ZB_CL_WinCover_Send_Open">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+   </function>
+   <function name="qapi_ZB_CL_WinCover_Send_Close">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+   </function>
+   <function name="qapi_ZB_CL_WinCover_Send_Stop">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+   </function>
+   <callback name="qapi_ZB_CL_WinCover_Client_CB_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Event_Data" type="qapi_ZB_CL_WinCover_Client_Event_Data_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+      <createFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_WinCover_Create_Client" param="CB_Param"/>
+      <destroyFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_Destroy_Cluster"/>
+   </callback>
+   <callback name="qapi_ZB_CL_WinCover_Server_CB_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Event_Data" type="qapi_ZB_CL_WinCover_Server_Event_Data_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+      <createFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_WinCover_Create_Server" param="CB_Param"/>
+      <destroyFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_Destroy_Cluster"/>
+   </callback>
+</header>

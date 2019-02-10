@@ -1,0 +1,1221 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="./qapi_ble_btapityp.h"/>
+   <include name="./qapi_ble_bttypes.h"/>
+   <include name="./qapi_ble_hcitypes.h"/>
+   <macro name="QAPI_BLE_MINIMUM_LE_SCAN_INTERVAL" value="3"/>
+   <macro name="QAPI_BLE_MAXIMUM_LE_SCAN_INTERVAL" value="10240"/>
+   <macro name="QAPI_BLE_MINIMUM_LE_SCAN_WINDOW" value="3"/>
+   <macro name="QAPI_BLE_MAXIMUM_LE_SCAN_WINDOW" value="10240"/>
+   <macro name="QAPI_BLE_MINIMUM_LIMITED_DISCOVERABLE_SCAN_LENGTH" value="11"/>
+   <macro name="QAPI_BLE_MINIMUM_GENERAL_DISCOVERABLE_SCAN_LENGTH" value="11"/>
+   <macro name="QAPI_BLE_MINIMUM_ADVERTISING_INTERVAL" value="20"/>
+   <macro name="QAPI_BLE_MAXIMUM_ADVERTISING_INTERVAL" value="10240"/>
+   <macro name="QAPI_BLE_MINIMUM_NONCONNECTABLE_ADVERTISING_INTERVAL" value="100"/>
+   <macro name="QAPI_BLE_MINIMUM_PRIMARY_ADVERTISING_INTERVAL" value="20"/>
+   <macro name="QAPI_BLE_MAXIMUM_PRIMARY_ADVERTISING_INTERVAL" value="10485759"/>
+   <macro name="QAPI_BLE_MINIMUM_PERIODIC_ADVERTISING_INTERVAL" value="8"/>
+   <macro name="QAPI_BLE_MAXIMUM_PERIODIC_ADVERTISING_INTERVAL" value="81919"/>
+   <macro name="QAPI_BLE_MINIMUM_ADVERITISING_HANDLE" value="0"/>
+   <macro name="QAPI_BLE_MAXIMUM_ADVERITISING_HANDLE" value="0xEF"/>
+   <macro name="QAPI_BLE_MINIMUM_EXTENDED_SCAN_INTERVAL" value="3"/>
+   <macro name="QAPI_BLE_MAXIMUM_EXTENDED_SCAN_INTERVAL" value="40959"/>
+   <macro name="QAPI_BLE_MINIMUM_EXTENDED_SCAN_WINDOW" value="3"/>
+   <macro name="QAPI_BLE_MAXIMUM_EXTENDED_SCAN_WINDOW" value="40959"/>
+   <macro name="QAPI_BLE_MINIMUM_EXTENDED_ADVERTISING_DURATION" value="0"/>
+   <macro name="QAPI_BLE_MAXIMUM_EXTENDED_ADVERTISING_DURATION" value="655350"/>
+   <macro name="QAPI_BLE_MINIMUM_EXTENDED_SCAN_DURATION" value="10"/>
+   <macro name="QAPI_BLE_MAXIMUM_EXTENDED_SCAN_DURATION" value="655350"/>
+   <macro name="QAPI_BLE_MINIMUM_EXTENDED_SCAN_PERIOD" value="1280"/>
+   <macro name="QAPI_BLE_MAXIMUM_EXTENDED_SCAN_PERIOD" value="83884800"/>
+   <macro name="QAPI_BLE_MINIMUM_MINIMUM_CONNECTION_INTERVAL" value="8"/>
+   <macro name="QAPI_BLE_MAXIMUM_MINIMUM_CONNECTION_INTERVAL" value="4000"/>
+   <macro name="QAPI_BLE_MINIMUM_MAXIMUM_CONNECTION_INTERVAL" value="8"/>
+   <macro name="QAPI_BLE_MAXIMUM_MAXIMUM_CONNECTION_INTERVAL" value="4000"/>
+   <macro name="QAPI_BLE_GAP_LE_ADVERTISING_CHANNEL_MAP_USE_CHANNEL_37" value="(QAPI_BLE_HCI_LE_ADVERTISING_CHANNEL_MAP_ENABLE_CHANNEL_37)"/>
+   <macro name="QAPI_BLE_GAP_LE_ADVERTISING_CHANNEL_MAP_USE_CHANNEL_38" value="(QAPI_BLE_HCI_LE_ADVERTISING_CHANNEL_MAP_ENABLE_CHANNEL_38)"/>
+   <macro name="QAPI_BLE_GAP_LE_ADVERTISING_CHANNEL_MAP_USE_CHANNEL_39" value="(QAPI_BLE_HCI_LE_ADVERTISING_CHANNEL_MAP_ENABLE_CHANNEL_39)"/>
+   <macro name="QAPI_BLE_GAP_LE_ADVERTISING_CHANNEL_MAP_USE_ALL_CHANNELS" value="(QAPI_BLE_HCI_LE_ADVERTISING_CHANNEL_MAP_ENABLE_ALL_CHANNELS)"/>
+   <macro name="QAPI_BLE_MINIMUM_SLAVE_LATENCY" value="0"/>
+   <macro name="QAPI_BLE_MAXIMUM_SLAVE_LATENCY" value="500"/>
+   <macro name="QAPI_BLE_MINIMUM_LINK_SUPERVISION_TIMEOUT" value="100"/>
+   <macro name="QAPI_BLE_MAXIMUM_LINK_SUPERVISION_TIMEOUT" value="32000"/>
+   <macro name="QAPI_BLE_MINIMUM_CONNECTION_EVENT_LENGTH" value="0"/>
+   <macro name="QAPI_BLE_MAXIMUM_CONNECTION_EVENT_LENGTH" value="40959"/>
+   <macro name="MAXIMUM_ENABLE_DISABLE_EXTENDED_ADVERTISING_SETS" value="0x3F"/>
+   <macro name="MINIMUM_SYNCHRONIZATION_TIMEOUT" value="100"/>
+   <macro name="MAXIMUM_SYNCHRONIZATION_TIMEOUT" value="163840"/>
+   <macro name="QAPI_BLE_MINIMUM_RESOLVABLE_PRIVATE_ADDRESS_TIMEOUT" value="1"/>
+   <macro name="QAPI_BLE_MAXIMUM_RESOLVABLE_PRIVATE_ADDRESS_TIMEOUT" value="0xA1B8"/>
+   <macro name="QAPI_BLE_GAP_LE_MINIMUM_ENCRYPTION_KEY_SIZE" value="7"/>
+   <macro name="QAPI_BLE_GAP_LE_MAXIMUM_ENCRYPTION_KEY_SIZE" value="16"/>
+   <macro name="QAPI_BLE_GAP_LE_ENCRYPTION_KEY_SIZE_VALID" params="(_x)" value="(((_x) &gt;= QAPI_BLE_GAP_LE_MINIMUM_ENCRYPTION_KEY_SIZE) &amp;&amp; ((_x) &lt;= QAPI_BLE_GAP_LE_MAXIMUM_ENCRYPTION_KEY_SIZE))"/>
+   <macro name="QAPI_BLE_GAP_LE_TEST_STATIC_ADDRESS_BITS" params="(_x)" value="\  ((((_x).BD_ADDR5) &amp; (1 &lt;&lt; 6)) &amp;&amp; (((_x).BD_ADDR5) &amp; (1 &lt;&lt; 7)))"/>
+   <macro name="QAPI_BLE_GAP_LE_TEST_NONRESOLVABLE_ADDRESS_BITS" params="(_x)" value="\  ((!(((_x).BD_ADDR5) &amp; (1 &lt;&lt; 6))) &amp;&amp; (!(((_x).BD_ADDR5) &amp; (1 &lt;&lt; 7))))"/>
+   <macro name="QAPI_BLE_GAP_LE_TEST_RESOLVABLE_ADDRESS_BITS" params="(_x)" value="\  ((((_x).BD_ADDR5) &amp; (1 &lt;&lt; 6)) &amp;&amp; (!(((_x).BD_ADDR5) &amp; (1 &lt;&lt; 7))))"/>
+   <macro name="QAPI_BLE_GAP_LE_PASSKEY_MAXIMUM_NUMBER_OF_DIGITS" value="6"/>
+   <macro name="QAPI_BLE_GAP_LE_CONNECTABILITY_PARAMETERS_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Connectability_Parameters_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_ADVERTISING_PARAMETERS_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Advertising_Parameters_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_CONNECTION_PARAMETERS_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Connection_Parameters_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_WHITE_LIST_ENTRY_SIZE" value="(sizeof(qapi_BLE_GAP_LE_White_List_Entry_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_RESOLVING_LIST_ENTRY_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Resolving_List_Entry_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_PHY_PREFERENCE_NO_PHY_PREFERENCE" value="0x00000000"/>
+   <macro name="QAPI_BLE_GAP_LE_PHY_PREFERENCE_1M_PHY" value="0x00000001"/>
+   <macro name="QAPI_BLE_GAP_LE_PHY_PREFERENCE_2M_PHY" value="0x00000002"/>
+   <macro name="QAPI_BLE_GAP_LE_PHY_PREFERENCE_CODED_PHY" value="0x00000004"/>
+   <macro name="QAPI_BLE_GAP_LE_PHY_PREFERENCE_CODED_PHY_TX_S2_CODING" value="0x00000010"/>
+   <macro name="QAPI_BLE_GAP_LE_PHY_PREFERENCE_CODED_PHY_TX_S8_CODING" value="0x00000020"/>
+   <macro name="QAPI_BLE_GAP_LE_EXTENDED_ADVERTISING_PARAMETERS_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Extended_Advertising_Parameters_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_EXTENDED_ADVERTISING_ADVERTISING_TX_POWER_NO_PREFERENCE" value="127"/>
+   <macro name="QAPI_BLE_GAP_LE_EXTENDED_ADVERTISING_EVENT_PROPERTIES_CONNECTABLE" value="0x0001"/>
+   <macro name="QAPI_BLE_GAP_LE_EXTENDED_ADVERTISING_EVENT_PROPERTIES_SCANNABLE" value="0x0002"/>
+   <macro name="QAPI_BLE_GAP_LE_EXTENDED_ADVERTISING_EVENT_PROPERTIES_DIRECTED" value="0x0004"/>
+   <macro name="QAPI_BLE_GAP_LE_EXTENDED_ADVERTISING_EVENT_PROPERTIES_HIGH_DUTY_CYCLE_DIRECTED" value="0x0008"/>
+   <macro name="QAPI_BLE_GAP_LE_EXTENDED_ADVERTISING_EVENT_PROPERTIES_USE_LEGACY_PDUS" value="0x0010"/>
+   <macro name="QAPI_BLE_GAP_LE_EXTENDED_ADVERTISING_EVENT_PROPERTIES_ANONYMOUS_ADVERTISING" value="0x0020"/>
+   <macro name="QAPI_BLE_GAP_LE_EXTENDED_ADVERTISING_EVENT_PROPERTIES_INCLUDE_TX_POWER" value="0x0040"/>
+   <macro name="QAPI_BLE_GAP_LE_EXTENDED_SCANNING_PHY_PARAMETERS_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Extended_Scanning_PHY_Parameters_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_EXTENDED_CONNECTION_PARAMETERS_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Extended_Connection_Parameters_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_REMOTE_FEATURES_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Remote_Features_Event_Data_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_KEY_DISTRIBUTION_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Key_Distribution_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_EXTENDED_KEY_DISTRIBUTION_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Extended_Key_Distribution_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_SECURE_CONNECTIONS_OOB_DATA_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Secure_Connections_OOB_Data_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_SECURE_CONNECTIONS_OOB_DATA_FLAGS_OOB_NOT_RECEIVED" value="0x00000001"/>
+   <macro name="QAPI_BLE_GAP_LE_PAIRING_CAPABILITIES_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Pairing_Capabilities_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_EXTENDED_PAIRING_CAPABILITIES_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Extended_Pairing_Capabilities_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_EXTENDED_PAIRING_CAPABILITIES_FLAGS_KEYPRESS_NOTIFICATIONS" value="0x00000001"/>
+   <macro name="QAPI_BLE_GAP_LE_EXTENDED_PAIRING_CAPABILITIES_FLAGS_SECURE_CONNECTIONS" value="0x00000002"/>
+   <macro name="QAPI_BLE_GAP_LE_EXTENDED_PAIRING_CAPABILITIES_FLAGS_MITM_REQUESTED" value="0x00000004"/>
+   <macro name="QAPI_BLE_GAP_LE_EXTENDED_PAIRING_CAPABILITIES_FLAGS_OOB_DATA_PRESENT" value="0x00000008"/>
+   <macro name="QAPI_BLE_GAP_LE_EXTENDED_PAIRING_CAPABILITIES_FLAGS_LOCAL_OOB_DATA_VALID" value="0x00000010"/>
+   <macro name="QAPI_BLE_GAP_LE_OOB_DATA_SIZE" value="(sizeof(qapi_BLE_GAP_LE_OOB_Data_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_ENCRYPTION_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Encryption_Information_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_IDENTITY_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Identity_Information_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_SIGNING_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Signing_Information_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_LONG_TERM_KEY_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Long_Term_Key_Information_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_AUTHENTICATION_RESPONSE_INFORMATION_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Authentication_Response_Information_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_SLAVE_SECURITY_INFORMATION_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Slave_Security_Information_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_MASTER_SECURITY_INFORMATION_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Master_Security_Information_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_SECURITY_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Security_Information_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_ADVERTISING_DATA_ENTRY_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Advertising_Data_Entry_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_ADVERTISING_DATA_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Advertising_Data_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_ADVERTISING_REPORT_DATA_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Advertising_Report_Data_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_ADVERTISING_REPORT_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Advertising_Report_Event_Data_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_DIRECT_ADVERTISING_REPORT_DATA_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Direct_Advertising_Report_Data_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_DIRECT_ADVERTISING_REPORT_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Direct_Advertising_Report_Event_Data_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_EXTENDED_ADVERTISING_REPORT_DATA_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Extended_Advertising_Report_Data_t))"/>
+   <macro name="GAP_LE_EXTENDED_ADVERTISING_EVENT_TYPE_CONNECTABLE" value="0x00000001"/>
+   <macro name="GAP_LE_EXTENDED_ADVERTISING_EVENT_TYPE_SCANNABLE" value="0x00000002"/>
+   <macro name="GAP_LE_EXTENDED_ADVERTISING_EVENT_TYPE_DIRECTED" value="0x00000004"/>
+   <macro name="GAP_LE_EXTENDED_ADVERTISING_EVENT_TYPE_SCAN_RESPONSE" value="0x00000008"/>
+   <macro name="GAP_LE_EXTENDED_ADVERTISING_EVENT_TYPE_LEGACY_PDU" value="0x00000010"/>
+   <macro name="GAP_LE_EXTENDED_ADVERTISING_EVENT_TYPE_SECONDARY_PHY_VALID" value="0x80000000"/>
+   <macro name="QAPI_BLE_GAP_LE_EXTENDED_ADVERTISING_REPORT_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Extended_Advertising_Report_Event_Data_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_CONNECTION_COMPLETE_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Connection_Complete_Event_Data_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_DISCONNECTION_COMPLETE_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Disconnection_Complete_Event_Data_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_ENCRYPTION_CHANGE_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Encryption_Change_Event_Data_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_ENCRYPTION_REFRESH_COMPLETE_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Encryption_Refresh_Complete_Event_Data_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_KEY_REQUEST_INFO_DATA_SIZE" value="(sizeof(GAP_LE_Link_Key_Request_Info_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_SECURITY_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Security_Request_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_EXTENDED_CONFIRMATION_REQUEST_FLAGS_SECURE_CONNECTIONS" value="0x00000001"/>
+   <macro name="QAPI_BLE_GAP_LE_EXTENDED_CONFIRMATION_REQUEST_FLAGS_KEYPRESS_NOTIFICATIONS_REQUESTED" value="0x00000002"/>
+   <macro name="QAPI_BLE_GAP_LE_EXTENDED_CONFIRMATION_REQUEST_FLAGS_JUST_WORKS_PAIRING" value="0x00000004"/>
+   <macro name="QAPI_BLE_GAP_LE_PAIRING_STATUS_DATA_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Pairing_Status_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_PAIRING_STATUS_NO_ERROR" value="0x00"/>
+   <macro name="QAPI_BLE_GAP_LE_PAIRING_STATUS_DISCONNECTED" value="0x01"/>
+   <macro name="QAPI_BLE_GAP_LE_PAIRING_STATUS_LOCAL_RESOURCES" value="0x02"/>
+   <macro name="QAPI_BLE_GAP_LE_PAIRING_STATUS_PROTOCOL_TIMEOUT" value="0x03"/>
+   <macro name="QAPI_BLE_GAP_LE_PAIRING_STATUS_PASSKEY_ENTRY_FAILED" value="0x04"/>
+   <macro name="QAPI_BLE_GAP_LE_PAIRING_STATUS_OOB_NOT_AVAILABLE" value="0x05"/>
+   <macro name="QAPI_BLE_GAP_LE_PAIRING_STATUS_AUTHENTICATION_REQUIREMENTS" value="0x06"/>
+   <macro name="QAPI_BLE_GAP_LE_PAIRING_STATUS_CONFIRM_VALUE_FAILED" value="0x07"/>
+   <macro name="QAPI_BLE_GAP_LE_PAIRING_STATUS_PAIRING_NOT_SUPPORTED" value="0x08"/>
+   <macro name="QAPI_BLE_GAP_LE_PAIRING_STATUS_QAPI_BLE_ENCRYPTION_KEY_SIZE" value="0x09"/>
+   <macro name="QAPI_BLE_GAP_LE_PAIRING_STATUS_COMMAND_NOT_SUPPORTED" value="0x0A"/>
+   <macro name="QAPI_BLE_GAP_LE_PAIRING_STATUS_UNSPECIFIED_REASON" value="0x0B"/>
+   <macro name="QAPI_BLE_GAP_LE_PAIRING_STATUS_REPEATED_ATTEMPTS" value="0x0C"/>
+   <macro name="QAPI_BLE_GAP_LE_PAIRING_STATUS_INVALID_PARAMETERS" value="0x0D"/>
+   <macro name="QAPI_BLE_GAP_LE_PAIRING_STATUS_DHKEY_CHECK_FAILED" value="0x0E"/>
+   <macro name="QAPI_BLE_GAP_LE_PAIRING_STATUS_NUMERIC_COMPARISON_FAILED" value="0x0F"/>
+   <macro name="QAPI_BLE_GAP_LE_PAIRING_STATUS_CLASSIC_PAIRING_IN_PROGRESS" value="0x10"/>
+   <macro name="QAPI_BLE_GAP_LE_PAIRING_STATUS_CROSS_TRANSPORT_KEY_GENERATION_NOT_ALLOWED" value="0x11"/>
+   <macro name="QAPI_BLE_GAP_LE_ENCRYPTION_REQUEST_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Encryption_Request_Information_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_SECURITY_ESTABLISHMENT_COMPLETE_DATA_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Security_Establishment_Complete_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_SECURITY_ESTABLISHMENT_STATUS_CODE_NO_ERROR" value="0x00"/>
+   <macro name="QAPI_BLE_GAP_LE_SECURITY_ESTABLISHMENT_STATUS_CODE_LONG_TERM_KEY_ERROR" value="0x01"/>
+   <macro name="QAPI_BLE_GAP_LE_SECURITY_ESTABLISHMENT_STATUS_CODE_EDIV_RAND_INVALID" value="0x02"/>
+   <macro name="QAPI_BLE_GAP_LE_SECURITY_ESTABLISHMENT_STATUS_CODE_DEVICE_TRIED_TO_REPAIR" value="0x03"/>
+   <macro name="QAPI_BLE_GAP_LE_SECURITY_ESTABLISHMENT_STATUS_CODE_LINK_DISCONNECTED" value="0x04"/>
+   <macro name="QAPI_BLE_GAP_LE_SECURITY_ESTABLISHMENT_STATUS_CODE_TIMEOUT" value="0x05"/>
+   <macro name="QAPI_BLE_GAP_LE_AUTHENTICATION_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Authentication_Event_Data_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_CONNECTION_PARAMETER_UPDATE_REQUEST_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Connection_Parameter_Update_Request_Event_Data_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_CONNECTION_PARAMETER_UPDATE_RESPONSE_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Connection_Parameter_Update_Response_Event_Data_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_CONNECTION_PARAMETER_UPDATED_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Connection_Parameter_Updated_Event_Data_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_AUTHENTICATED_PAYLOAD_TIMEOUT_EXPIRED_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Authenticated_Payload_Timeout_Expired_Event_Data_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_DATA_LENGTH_CHANGE_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Data_Length_Change_Event_Data_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_PHY_UPDATE_COMPLETE_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Phy_Update_Complete_Event_Data_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_ADVERTISING_SET_TERMINATED_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Advertising_Set_Terminated_Event_Data_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_SCAN_REQUEST_RECEIVED_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Scan_Request_Received_Event_Data_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_CHANNEL_SELECTION_ALGORITHM_UPDATE_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Channel_Selection_Algorithm_Update_Event_Data_t))"/>
+   <macro name="QAPI_BLE_GAP_LE_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_GAP_LE_Event_Data_t))"/>
+   <enum name="qapi_BLE_GAP_Discoverability_Mode_t">
+      <member name="QAPI_BLE_DM_NON_DISCOVERABLE_MODE_E" value="0"/>
+      <member name="QAPI_BLE_DM_LIMITED_DISCOVERABLE_MODE_E" value="1"/>
+      <member name="QAPI_BLE_DM_GENERAL_DISCOVERABLE_MODE_E" value="2"/>
+   </enum>
+   <enum name="qapi_BLE_GAP_Encryption_Mode_t">
+      <member name="QAPI_BLE_EM_DISABLED_E" value="0"/>
+      <member name="QAPI_BLE_EM_ENABLED_E" value="1"/>
+   </enum>
+   <enum name="qapi_BLE_GAP_LE_Scan_Type_t">
+      <member name="QAPI_BLE_ST_PASSIVE_E" value="0"/>
+      <member name="QAPI_BLE_ST_ACTIVE_E" value="1"/>
+   </enum>
+   <enum name="qapi_BLE_GAP_LE_Filter_Policy_t">
+      <member name="QAPI_BLE_FP_NO_FILTER_E" value="0"/>
+      <member name="QAPI_BLE_FP_WHITE_LIST_E" value="1"/>
+      <member name="QAPI_BLE_FP_NO_WHITE_LIST_DIRECTED_RPA_E" value="2"/>
+      <member name="QAPI_BLE_FP_WHITE_LIST_DIRECTED_RPA_E" value="3"/>
+   </enum>
+   <enum name="qapi_BLE_GAP_LE_Advertising_Report_Type_t">
+      <member name="QAPI_BLE_RT_CONNECTABLE_UNDIRECTED_E" value="0"/>
+      <member name="QAPI_BLE_RT_CONNECTABLE_DIRECTED_E" value="1"/>
+      <member name="QAPI_BLE_RT_SCANNABLE_UNDIRECTED_E" value="2"/>
+      <member name="QAPI_BLE_RT_NON_CONNECTABLE_UNDIRECTED_E" value="3"/>
+      <member name="QAPI_BLE_RT_SCAN_RESPONSE_E" value="4"/>
+   </enum>
+   <enum name="qapi_BLE_GAP_LE_Connectability_Mode_t">
+      <member name="QAPI_BLE_LCM_NON_CONNECTABLE_E" value="0"/>
+      <member name="QAPI_BLE_LCM_CONNECTABLE_E" value="1"/>
+      <member name="QAPI_BLE_LCM_DIRECT_CONNECTABLE_E" value="2"/>
+      <member name="QAPI_BLE_LCM_LOW_DUTY_CYCLE_DIRECT_CONNECTABLE_E" value="3"/>
+   </enum>
+   <enum name="qapi_BLE_GAP_LE_Pairability_Mode_t">
+      <member name="QAPI_BLE_LPM_NON_PAIRABLEMODE_E" value="0"/>
+      <member name="QAPI_BLE_LPM_PAIRABLE_MODE_E" value="1"/>
+      <member name="QAPI_BLE_LPM_PAIRABLE_MODE_ENABLE_EXTENDED_EVENTS_E" value="2"/>
+   </enum>
+   <enum name="qapi_BLE_GAP_LE_IO_Capability_t">
+      <member name="QAPI_BLE_LIC_DISPLAY_ONLY_E" value="0"/>
+      <member name="QAPI_BLE_LIC_DISPLAY_YES_NO_E" value="1"/>
+      <member name="QAPI_BLE_LIC_KEYBOARD_ONLY_E" value="2"/>
+      <member name="QAPI_BLE_LIC_NO_INPUT_NO_OUTPUT_E" value="3"/>
+      <member name="QAPI_BLE_LIC_KEYBOARD_DISPLAY_E" value="4"/>
+   </enum>
+   <enum name="qapi_BLE_GAP_LE_Keypress_t">
+      <member name="QAPI_BLE_LKP_ENTRY_STARTED_E" value="0"/>
+      <member name="QAPI_BLE_LKP_DIGIT_ENTERED_E" value="1"/>
+      <member name="QAPI_BLE_LKP_DIGIT_ERASED_E" value="2"/>
+      <member name="QAPI_BLE_LKP_CLEARED_E" value="3"/>
+      <member name="QAPI_BLE_LKP_ENTRY_COMPLETED_E" value="4"/>
+   </enum>
+   <enum name="qapi_BLE_GAP_LE_Bonding_Type_t">
+      <member name="QAPI_BLE_LBT_NO_BONDING_E" value="0"/>
+      <member name="QAPI_BLE_LBT_BONDING_E" value="1"/>
+   </enum>
+   <enum name="qapi_BLE_GAP_LE_Address_Type_t">
+      <member name="QAPI_BLE_LAT_PUBLIC_E" value="0"/>
+      <member name="QAPI_BLE_LAT_RANDOM_E" value="1"/>
+      <member name="QAPI_BLE_LAT_PUBLIC_IDENTITY_E" value="2"/>
+      <member name="QAPI_BLE_LAT_RANDOM_IDENTITY_E" value="3"/>
+      <member name="QAPI_BLE_LAT_RESOLVABLE_FALLBACK_PUBLIC_E" value="4"/>
+      <member name="QAPI_BLE_LAT_RESOLVABLE_FALLBACK_PRIVATE_E" value="5"/>
+      <member name="QAPI_BLE_LAT_ANONYMOUS_E" value="6"/>
+   </enum>
+   <enum name="qapi_BLE_GAP_LE_Privacy_Mode_t">
+      <member name="QAPI_BLE_PM_NETWORK_PRIVACY_E" value="0"/>
+      <member name="QAPI_BLE_PM_DEVICE_PRIVACY_E" value="1"/>
+   </enum>
+   <enum name="qapi_BLE_GAP_LE_PHY_Type_t">
+      <member name="QAPI_BLE_LPT_PHY_LE_1M_E" value="0"/>
+      <member name="QAPI_BLE_LPT_PHY_LE_2M_E" value="1"/>
+      <member name="QAPI_BLE_LPT_PHY_LE_CODED_E" value="2"/>
+   </enum>
+   <enum name="qapi_BLE_GAP_LE_Advertising_Operation_Type_t">
+      <member name="QAPI_BLE_AOT_SET_DATA_E" value="0"/>
+      <member name="QAPI_BLE_AOT_UPDATE_DID_E" value="1"/>
+   </enum>
+   <enum name="qapi_BLE_GAP_LE_Advertising_Fragment_Preference_t">
+      <member name="QAPI_BLE_PT_FRAGMENTATION_ALLOWED_E" value="0"/>
+      <member name="QAPI_BLE_PT_NO_FRAGMENTATION_ALLOWED_E" value="1"/>
+   </enum>
+   <enum name="qapi_BLE_GAP_LE_Extended_Scan_Filter_Duplicates_Type_t">
+      <member name="QAPI_BLE_FD_DISABLED_E" value="0"/>
+      <member name="QAPI_BLE_FD_ENABLED_E" value="1"/>
+      <member name="QAPI_BLE_FD_ENABLED_RESET_EACH_SCAN_PERIOD_E" value="2"/>
+   </enum>
+   <enum name="qapi_BLE_GAP_LE_Authentication_Response_Type_t">
+      <member name="QAPI_BLE_LAR_LONG_TERM_KEY_E" value="0"/>
+      <member name="QAPI_BLE_LAR_OUT_OF_BAND_DATA_E" value="1"/>
+      <member name="QAPI_BLE_LAR_PAIRING_CAPABILITIES_E" value="2"/>
+      <member name="QAPI_BLE_LAR_PASSKEY_E" value="3"/>
+      <member name="QAPI_BLE_LAR_CONFIRMATION_E" value="4"/>
+      <member name="QAPI_BLE_LAR_ERROR_E" value="5"/>
+      <member name="QAPI_BLE_LAR_ENCRYPTION_INFORMATION_E" value="6"/>
+      <member name="QAPI_BLE_LAR_IDENTITY_INFORMATION_E" value="7"/>
+      <member name="QAPI_BLE_LAR_SIGNING_INFORMATION_E" value="8"/>
+      <member name="QAPI_BLE_LAR_KEY_PRESS_E" value="9"/>
+   </enum>
+   <enum name="qapi_BLE_GAP_LE_Event_Type_t">
+      <member name="QAPI_BLE_ET_LE_REMOTE_FEATURES_RESULT_E" value="0"/>
+      <member name="QAPI_BLE_ET_LE_ADVERTISING_REPORT_E" value="1"/>
+      <member name="QAPI_BLE_ET_LE_CONNECTION_COMPLETE_E" value="2"/>
+      <member name="QAPI_BLE_ET_LE_DISCONNECTION_COMPLETE_E" value="3"/>
+      <member name="QAPI_BLE_ET_LE_ENCRYPTION_CHANGE_E" value="4"/>
+      <member name="QAPI_BLE_ET_LE_ENCRYPTION_REFRESH_COMPLETE_E" value="5"/>
+      <member name="QAPI_BLE_ET_LE_AUTHENTICATION_E" value="6"/>
+      <member name="QAPI_BLE_ET_LE_CONNECTION_PARAMETER_UPDATE_REQUEST_E" value="7"/>
+      <member name="QAPI_BLE_ET_LE_CONNECTION_PARAMETER_UPDATE_RESPONSE_E" value="8"/>
+      <member name="QAPI_BLE_ET_LE_CONNECTION_PARAMETER_UPDATED_E" value="9"/>
+      <member name="QAPI_BLE_ET_LE_AUTHENTICATED_PAYLOAD_TIMEOUT_EXPIRED_E" value="10"/>
+      <member name="QAPI_BLE_ET_LE_DIRECT_ADVERTISING_REPORT_E" value="11"/>
+      <member name="QAPI_BLE_ET_LE_DATA_LENGTH_CHANGE_E" value="12"/>
+      <member name="QAPI_BLE_ET_LE_PHY_UPDATE_COMPLETE_E" value="13"/>
+      <member name="QAPI_BLE_ET_LE_EXTENDED_ADVERTISING_REPORT_E" value="14"/>
+      <member name="QAPI_BLE_ET_LE_RFU0_E" value="15"/>
+      <member name="QAPI_BLE_ET_LE_RFU1_E" value="16"/>
+      <member name="QAPI_BLE_ET_LE_RFU2_E" value="17"/>
+      <member name="QAPI_BLE_ET_LE_SCAN_TIMEOUT_E" value="18"/>
+      <member name="QAPI_BLE_ET_LE_ADVERTISING_SET_TERMINATED_E" value="19"/>
+      <member name="QAPI_BLE_ET_LE_SCAN_REQUEST_RECEIVED_E" value="20"/>
+      <member name="QAPI_BLE_ET_LE_CHANNEL_SELECTION_ALGORITHM_UPDATE_E" value="21"/>
+   </enum>
+   <enum name="qapi_BLE_GAP_LE_Advertising_Data_Status_t">
+      <member name="QAPI_BLE_DS_COMPLETE_E" value="0"/>
+      <member name="QAPI_BLE_DS_INCOMPLETE_DATA_PENDING_E" value="1"/>
+      <member name="QAPI_BLE_DS_INCOMPLETE_DATA_TRUNCATED_E" value="2"/>
+   </enum>
+   <enum name="qapi_BLE_GAP_LE_Authentication_Event_Type_t">
+      <member name="QAPI_BLE_LAT_LONG_TERM_KEY_REQUEST_E" value="0"/>
+      <member name="QAPI_BLE_LAT_SECURITY_REQUEST_E" value="1"/>
+      <member name="QAPI_BLE_LAT_PAIRING_REQUEST_E" value="2"/>
+      <member name="QAPI_BLE_LAT_CONFIRMATION_REQUEST_E" value="3"/>
+      <member name="QAPI_BLE_LAT_PAIRING_STATUS_E" value="4"/>
+      <member name="QAPI_BLE_LAT_ENCRYPTION_INFORMATION_REQUEST_E" value="5"/>
+      <member name="QAPI_BLE_LAT_IDENTITY_INFORMATION_REQUEST_E" value="6"/>
+      <member name="QAPI_BLE_LAT_SIGNING_INFORMATION_REQUEST_E" value="7"/>
+      <member name="QAPI_BLE_LAT_ENCRYPTION_INFORMATION_E" value="8"/>
+      <member name="QAPI_BLE_LAT_IDENTITY_INFORMATION_E" value="9"/>
+      <member name="QAPI_BLE_LAT_SIGNING_INFORMATION_E" value="10"/>
+      <member name="QAPI_BLE_LAT_SECURITY_ESTABLISHMENT_COMPLETE_E" value="11"/>
+      <member name="QAPI_BLE_LAT_KEYPRESS_NOTIFICATION_E" value="12"/>
+      <member name="QAPI_BLE_LAT_EXTENDED_PAIRING_REQUEST_E" value="13"/>
+      <member name="QAPI_BLE_LAT_EXTENDED_CONFIRMATION_REQUEST_E" value="14"/>
+      <member name="QAPI_BLE_LAT_EXTENDED_OUT_OF_BAND_INFORMATION_E" value="15"/>
+   </enum>
+   <enum name="qapi_BLE_GAP_LE_Confirmation_Request_Type_t">
+      <member name="QAPI_BLE_CRT_NONE_E" value="0"/>
+      <member name="QAPI_BLE_CRT_PASSKEY_E" value="1"/>
+      <member name="QAPI_BLE_CRT_DISPLAY_E" value="2"/>
+      <member name="QAPI_BLE_CRT_OOB_E" value="3"/>
+      <member name="QAPI_BLE_CRT_DISPLAY_YES_NO_E" value="4"/>
+      <member name="QAPI_BLE_CRT_OOB_SECURE_CONNECTIONS_E" value="5"/>
+   </enum>
+   <enum name="qapi_BLE_GAP_LE_Channel_Selection_Algorithm_t">
+      <member name="QAPI_BLE_SA_ALGORITHM_NUM1_E" value="0"/>
+      <member name="QAPI_BLE_SA_ALGORITHM_NUM2_E" value="1"/>
+   </enum>
+   <structure name="qapi_BLE_GAP_LE_Connectability_Parameters_t">
+      <member attributes="value" name="Connectability_Mode" type="qapi_BLE_GAP_LE_Connectability_Mode_t"/>
+      <member attributes="value" name="Own_Address_Type" type="qapi_BLE_GAP_LE_Address_Type_t"/>
+      <member attributes="value" name="Direct_Address_Type" type="qapi_BLE_GAP_LE_Address_Type_t"/>
+      <member attributes="value" name="Direct_Address" type="qapi_BLE_BD_ADDR_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Advertising_Parameters_t">
+      <member attributes="value" name="Advertising_Interval_Min" type="uint16_t"/>
+      <member attributes="value" name="Advertising_Interval_Max" type="uint16_t"/>
+      <member attributes="value" name="Advertising_Channel_Map" type="uint8_t"/>
+      <member attributes="value" name="Scan_Request_Filter" type="qapi_BLE_GAP_LE_Filter_Policy_t"/>
+      <member attributes="value" name="Connect_Request_Filter" type="qapi_BLE_GAP_LE_Filter_Policy_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Connection_Parameters_t">
+      <member attributes="value" name="Connection_Interval_Min" type="uint16_t"/>
+      <member attributes="value" name="Connection_Interval_Max" type="uint16_t"/>
+      <member attributes="value" name="Slave_Latency" type="uint16_t"/>
+      <member attributes="value" name="Supervision_Timeout" type="uint16_t"/>
+      <member attributes="value" name="Minimum_Connection_Length" type="uint16_t"/>
+      <member attributes="value" name="Maximum_Connection_Length" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Current_Connection_Parameters_t">
+      <member attributes="value" name="Connection_Interval" type="uint16_t"/>
+      <member attributes="value" name="Slave_Latency" type="uint16_t"/>
+      <member attributes="value" name="Supervision_Timeout" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_White_List_Entry_t">
+      <member attributes="value" name="Address_Type" type="qapi_BLE_GAP_LE_Address_Type_t"/>
+      <member attributes="value" name="Address" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="WakeOnBLESource" type="boolean_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Resolving_List_Entry_t">
+      <member attributes="value" name="Peer_Identity_Address_Type" type="qapi_BLE_GAP_LE_Address_Type_t"/>
+      <member attributes="value" name="Peer_Identity_Address" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Peer_IRK" type="qapi_BLE_Encryption_Key_t"/>
+      <member attributes="value" name="Local_IRK" type="qapi_BLE_Encryption_Key_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Extended_Advertising_Parameters_t">
+      <member attributes="value" name="Advertising_Event_Properties" type="uint16_t"/>
+      <member attributes="value" name="Primary_Advertising_Interval_Min" type="uint32_t"/>
+      <member attributes="value" name="Primary_Advertising_Interval_Max" type="uint32_t"/>
+      <member attributes="value" name="Primary_Advertising_Channel_Map" type="uint8_t"/>
+      <member attributes="value" name="Own_Address_Type" type="qapi_BLE_GAP_LE_Address_Type_t"/>
+      <member attributes="value" name="Peer_Address_Type" type="qapi_BLE_GAP_LE_Address_Type_t"/>
+      <member attributes="value" name="Peer_Address" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Scan_Request_Filter" type="qapi_BLE_GAP_LE_Filter_Policy_t"/>
+      <member attributes="value" name="Connect_Request_Filter" type="qapi_BLE_GAP_LE_Filter_Policy_t"/>
+      <member attributes="value" name="Advertising_Tx_Power" type="int8_t"/>
+      <member attributes="value" name="Primary_Advertising_PHY" type="qapi_BLE_GAP_LE_PHY_Type_t"/>
+      <member attributes="value" name="Secondary_Advertising_Max_Skip" type="uint8_t"/>
+      <member attributes="value" name="Secondary_Advertising_PHY" type="qapi_BLE_GAP_LE_PHY_Type_t"/>
+      <member attributes="value" name="Advertising_SID" type="uint8_t"/>
+      <member attributes="value" name="Scan_Request_Notifications_Enable" type="boolean_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Extended_Scanning_PHY_Parameters_t">
+      <member attributes="value" name="Scan_PHY" type="qapi_BLE_GAP_LE_PHY_Type_t"/>
+      <member attributes="value" name="Scan_Type" type="qapi_BLE_GAP_LE_Scan_Type_t"/>
+      <member attributes="value" name="Scan_Interval" type="uint32_t"/>
+      <member attributes="value" name="Scan_Window" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Extended_Connection_Parameters_t">
+      <member attributes="value" name="Initiating_PHY" type="qapi_BLE_GAP_LE_PHY_Type_t"/>
+      <member attributes="value" name="Scan_Interval" type="uint32_t"/>
+      <member attributes="value" name="Scan_Window" type="uint32_t"/>
+      <member attributes="value" name="Connection_Interval_Min" type="uint16_t"/>
+      <member attributes="value" name="Connection_Interval_Max" type="uint16_t"/>
+      <member attributes="value" name="Slave_Latency" type="uint16_t"/>
+      <member attributes="value" name="Supervision_Timeout" type="uint16_t"/>
+      <member attributes="value" name="Minimum_Connection_Length" type="uint16_t"/>
+      <member attributes="value" name="Maximum_Connection_Length" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Remote_Features_Event_Data_t">
+      <member attributes="value" name="Status" type="uint8_t"/>
+      <member attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="LE_Features" type="qapi_BLE_LE_Features_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Key_Distribution_t">
+      <member attributes="value" name="Encryption_Key" type="boolean_t"/>
+      <member attributes="value" name="Identification_Key" type="boolean_t"/>
+      <member attributes="value" name="Signing_Key" type="boolean_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Extended_Key_Distribution_t">
+      <member attributes="value" name="Encryption_Key" type="boolean_t"/>
+      <member attributes="value" name="Identification_Key" type="boolean_t"/>
+      <member attributes="value" name="Signing_Key" type="boolean_t"/>
+      <member attributes="value" name="Link_Key" type="boolean_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Secure_Connections_OOB_Data_t">
+      <member attributes="value" name="Flags" type="uint32_t"/>
+      <member attributes="value" name="Confirmation" type="qapi_BLE_Secure_Connections_Confirmation_t"/>
+      <member attributes="value" name="Randomizer" type="qapi_BLE_Secure_Connections_Randomizer_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Pairing_Capabilities_t">
+      <member attributes="value" name="IO_Capability" type="qapi_BLE_GAP_LE_IO_Capability_t"/>
+      <member attributes="value" name="OOB_Present" type="boolean_t"/>
+      <member attributes="value" name="Bonding_Type" type="qapi_BLE_GAP_LE_Bonding_Type_t"/>
+      <member attributes="value" name="MITM" type="boolean_t"/>
+      <member attributes="value" name="Maximum_Encryption_Key_Size" type="uint8_t"/>
+      <member attributes="value" name="Receiving_Keys" type="qapi_BLE_GAP_LE_Key_Distribution_t"/>
+      <member attributes="value" name="Sending_Keys" type="qapi_BLE_GAP_LE_Key_Distribution_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Extended_Pairing_Capabilities_t">
+      <member attributes="value" name="Flags" type="uint32_t"/>
+      <member attributes="value" name="IO_Capability" type="qapi_BLE_GAP_LE_IO_Capability_t"/>
+      <member attributes="value" name="Bonding_Type" type="qapi_BLE_GAP_LE_Bonding_Type_t"/>
+      <member attributes="value" name="Maximum_Encryption_Key_Size" type="uint8_t"/>
+      <member attributes="value" name="Receiving_Keys" type="qapi_BLE_GAP_LE_Extended_Key_Distribution_t"/>
+      <member attributes="value" name="Sending_Keys" type="qapi_BLE_GAP_LE_Extended_Key_Distribution_t"/>
+      <member attributes="value" name="LocalOOBData" type="qapi_BLE_GAP_LE_Secure_Connections_OOB_Data_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_OOB_Data_t">
+      <member attributes="value" name="OOB_Key" type="qapi_BLE_Encryption_Key_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Encryption_Information_t">
+      <member attributes="value" name="Encryption_Key_Size" type="uint8_t"/>
+      <member attributes="value" name="LTK" type="qapi_BLE_Long_Term_Key_t"/>
+      <member attributes="value" name="EDIV" type="uint16_t"/>
+      <member attributes="value" name="Rand" type="qapi_BLE_Random_Number_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Identity_Information_t">
+      <member attributes="value" name="IRK" type="qapi_BLE_Encryption_Key_t"/>
+      <member attributes="value" name="Address_Type" type="qapi_BLE_GAP_LE_Address_Type_t"/>
+      <member attributes="value" name="Address" type="qapi_BLE_BD_ADDR_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Signing_Information_t">
+      <member attributes="value" name="CSRK" type="qapi_BLE_Encryption_Key_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Long_Term_Key_Information_t">
+      <member attributes="value" name="Encryption_Key_Size" type="uint8_t"/>
+      <member attributes="value" name="Long_Term_Key" type="qapi_BLE_Long_Term_Key_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Authentication_Response_Information_t">
+      <member attributes="value" name="GAP_LE_Authentication_Type" type="qapi_BLE_GAP_LE_Authentication_Response_Type_t"/>
+      <member attributes="value" name="Authentication_Data_Length" type="uint8_t"/>
+      <member attributes="union" name="Authentication_Data">
+         <member attributes="value" name="Long_Term_Key_Information" type="qapi_BLE_GAP_LE_Long_Term_Key_Information_t"/>
+         <member attributes="value" name="Pairing_Capabilities" type="qapi_BLE_GAP_LE_Pairing_Capabilities_t"/>
+         <member attributes="value" name="Extended_Pairing_Capabilities" type="qapi_BLE_GAP_LE_Extended_Pairing_Capabilities_t"/>
+         <member attributes="value" name="Out_Of_Band_Data" type="qapi_BLE_GAP_LE_OOB_Data_t"/>
+         <member attributes="value" name="Secure_Connections_OOB_Data" type="qapi_BLE_GAP_LE_Secure_Connections_OOB_Data_t"/>
+         <member attributes="value" name="Passkey" type="uint32_t"/>
+         <member attributes="value" name="Error_Code" type="uint8_t"/>
+         <member attributes="value" name="Encryption_Information" type="qapi_BLE_GAP_LE_Encryption_Information_t"/>
+         <member attributes="value" name="Identity_Information" type="qapi_BLE_GAP_LE_Identity_Information_t"/>
+         <member attributes="value" name="Signing_Information" type="qapi_BLE_GAP_LE_Signing_Information_t"/>
+         <member attributes="value" name="Keypress" type="qapi_BLE_GAP_LE_Keypress_t"/>
+         <unionMap mapVerified="yes" name="GAP_LE_Authentication_Type" type="qapi_BLE_GAP_LE_Authentication_Response_Type_t">
+            <mapEntry member="Long_Term_Key_Information" type="qapi_BLE_GAP_LE_Long_Term_Key_Information_t" value="QAPI_BLE_LAR_LONG_TERM_KEY_E"/>
+            <mapEntry member="Pairing_Capabilities" type="qapi_BLE_GAP_LE_Pairing_Capabilities_t" value="QAPI_BLE_LAR_PAIRING_CAPABILITIES_E"/>
+            <mapEntry member="Extended_Pairing_Capabilities" type="qapi_BLE_GAP_LE_Extended_Pairing_Capabilities_t" value="QAPI_BLE_LAR_PAIRING_CAPABILITIES_E"/>
+            <mapEntry member="Out_Of_Band_Data" type="qapi_BLE_GAP_LE_OOB_Data_t" value="QAPI_BLE_LAR_OUT_OF_BAND_DATA_E"/>
+            <mapEntry member="Secure_Connections_OOB_Data" type="qapi_BLE_GAP_LE_Secure_Connections_OOB_Data_t" value="QAPI_BLE_LAR_OUT_OF_BAND_DATA_E"/>
+            <mapEntry member="Passkey" type="uint32_t" value="QAPI_BLE_LAR_PASSKEY_E"/>
+            <mapEntry member="Error_Code" type="uint8_t" value="QAPI_BLE_LAR_ERROR_E"/>
+            <mapEntry member="Encryption_Information" type="qapi_BLE_GAP_LE_Encryption_Information_t" value="QAPI_BLE_LAR_ENCRYPTION_INFORMATION_E"/>
+            <mapEntry member="Identity_Information" type="qapi_BLE_GAP_LE_Identity_Information_t" value="QAPI_BLE_LAR_IDENTITY_INFORMATION_E"/>
+            <mapEntry member="Signing_Information" type="qapi_BLE_GAP_LE_Signing_Information_t" value="QAPI_BLE_LAR_SIGNING_INFORMATION_E"/>
+            <mapEntry member="Keypress" type="qapi_BLE_GAP_LE_Keypress_t" value="QAPI_BLE_LAR_KEY_PRESS_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Slave_Security_Information_t">
+      <member attributes="value" name="Bonding_Type" type="qapi_BLE_GAP_LE_Bonding_Type_t"/>
+      <member attributes="value" name="MITM" type="boolean_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Master_Security_Information_t">
+      <member attributes="value" name="Encryption_Key_Size" type="uint8_t"/>
+      <member attributes="value" name="LTK" type="qapi_BLE_Long_Term_Key_t"/>
+      <member attributes="value" name="EDIV" type="uint16_t"/>
+      <member attributes="value" name="Rand" type="qapi_BLE_Random_Number_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Security_Information_t">
+      <member attributes="value" name="Local_Device_Is_Master" type="boolean_t"/>
+      <member attributes="union" name="Security_Information">
+         <member attributes="value" name="Slave_Information" type="qapi_BLE_GAP_LE_Slave_Security_Information_t"/>
+         <member attributes="value" name="Master_Information" type="qapi_BLE_GAP_LE_Master_Security_Information_t"/>
+         <unionMap mapVerified="yes" name="Local_Device_Is_Master" type="boolean_t">
+            <mapEntry member="Slave_Information" type="qapi_BLE_GAP_LE_Slave_Security_Information_t" value="FALSE"/>
+            <mapEntry member="Master_Information" type="qapi_BLE_GAP_LE_Master_Security_Information_t" value="TRUE"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Advertising_Data_Entry_t">
+      <member attributes="value" name="AD_Type" type="uint32_t"/>
+      <member attributes="value" name="AD_Data_Length" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="AD_Data_Length" lengthVerified="yes" name="AD_Data_Buffer" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Advertising_Data_t">
+      <member attributes="value" name="Number_Data_Entries" type="uint32_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="Number_Data_Entries" lengthVerified="yes" name="Data_Entries" type="qapi_BLE_GAP_LE_Advertising_Data_Entry_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Advertising_Report_Data_t">
+      <member attributes="value" name="Advertising_Report_Type" type="qapi_BLE_GAP_LE_Advertising_Report_Type_t"/>
+      <member attributes="value" name="Address_Type" type="qapi_BLE_GAP_LE_Address_Type_t"/>
+      <member attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="RSSI" type="int8_t"/>
+      <member attributes="value" name="Advertising_Data" type="qapi_BLE_GAP_LE_Advertising_Data_t"/>
+      <member attributes="value" name="Raw_Report_Length" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="Raw_Report_Length" lengthVerified="yes" name="Raw_Report_Data" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Advertising_Report_Event_Data_t">
+      <member attributes="value" name="Number_Device_Entries" type="uint32_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="Number_Device_Entries" lengthVerified="yes" name="Advertising_Data" type="qapi_BLE_GAP_LE_Advertising_Report_Data_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Direct_Advertising_Report_Data_t">
+      <member attributes="value" name="Address_Type" type="qapi_BLE_GAP_LE_Address_Type_t"/>
+      <member attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Direct_Address_Type" type="qapi_BLE_GAP_LE_Address_Type_t"/>
+      <member attributes="value" name="Direct_BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="RSSI" type="int8_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Direct_Advertising_Report_Event_Data_t">
+      <member attributes="value" name="Number_Device_Entries" type="uint32_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="Number_Device_Entries" lengthVerified="yes" name="Direct_Advertising_Data" type="qapi_BLE_GAP_LE_Direct_Advertising_Report_Data_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Extended_Advertising_Report_Data_t">
+      <member attributes="value" name="Event_Type_Flags" type="uint32_t"/>
+      <member attributes="value" name="Data_Status" type="qapi_BLE_GAP_LE_Advertising_Data_Status_t"/>
+      <member attributes="value" name="Address_Type" type="qapi_BLE_GAP_LE_Address_Type_t"/>
+      <member attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Primary_PHY" type="qapi_BLE_GAP_LE_PHY_Type_t"/>
+      <member attributes="value" name="Secondary_PHY" type="qapi_BLE_GAP_LE_PHY_Type_t"/>
+      <member attributes="value" name="Advertising_SID" type="uint8_t"/>
+      <member attributes="value" name="Tx_Power" type="int8_t"/>
+      <member attributes="value" name="RSSI" type="int8_t"/>
+      <member attributes="value" name="Periodic_Advertising_Interval" type="uint32_t"/>
+      <member attributes="value" name="Direct_Address_Type" type="qapi_BLE_GAP_LE_Address_Type_t"/>
+      <member attributes="value" name="Direct_BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Raw_Report_Length" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="Raw_Report_Length" lengthVerified="yes" name="Raw_Report_Data" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Extended_Advertising_Report_Event_Data_t">
+      <member attributes="value" name="Number_Device_Entries" type="uint32_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="Number_Device_Entries" lengthVerified="yes" name="Extended_Advertising_Data" type="qapi_BLE_GAP_LE_Extended_Advertising_Report_Data_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Connection_Complete_Event_Data_t">
+      <member attributes="value" name="Status" type="uint8_t"/>
+      <member attributes="value" name="Master" type="boolean_t"/>
+      <member attributes="value" name="Peer_Address_Type" type="qapi_BLE_GAP_LE_Address_Type_t"/>
+      <member attributes="value" name="Peer_Address" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Current_Connection_Parameters" type="qapi_BLE_GAP_LE_Current_Connection_Parameters_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Disconnection_Complete_Event_Data_t">
+      <member attributes="value" name="Status" type="uint8_t"/>
+      <member attributes="value" name="Reason" type="uint8_t"/>
+      <member attributes="value" name="Peer_Address_Type" type="qapi_BLE_GAP_LE_Address_Type_t"/>
+      <member attributes="value" name="Peer_Address" type="qapi_BLE_BD_ADDR_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Encryption_Change_Event_Data_t">
+      <member attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Encryption_Change_Status" type="uint8_t"/>
+      <member attributes="value" name="Encryption_Mode" type="qapi_BLE_GAP_Encryption_Mode_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Encryption_Refresh_Complete_Event_Data_t">
+      <member attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Status" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Key_Request_Info_t">
+      <member attributes="value" name="Rand" type="qapi_BLE_Random_Number_t"/>
+      <member attributes="value" name="EDIV" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Security_Request_t">
+      <member attributes="value" name="Bonding_Type" type="qapi_BLE_GAP_LE_Bonding_Type_t"/>
+      <member attributes="value" name="MITM" type="boolean_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Confirmation_Request_t">
+      <member attributes="value" name="Request_Type" type="qapi_BLE_GAP_LE_Confirmation_Request_Type_t"/>
+      <member attributes="value" name="Display_Passkey" type="uint32_t"/>
+      <member attributes="value" name="Negotiated_Encryption_Key_Size" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Extended_Confirmation_Request_t">
+      <member attributes="value" name="Request_Type" type="qapi_BLE_GAP_LE_Confirmation_Request_Type_t"/>
+      <member attributes="value" name="Display_Passkey" type="uint32_t"/>
+      <member attributes="value" name="Negotiated_Encryption_Key_Size" type="uint8_t"/>
+      <member attributes="value" name="Flags" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Extended_Out_Of_Band_Information_t">
+      <member attributes="value" name="AddressType" type="qapi_BLE_GAP_LE_Address_Type_t"/>
+      <member attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ConfirmationValue" type="qapi_BLE_Secure_Connections_Confirmation_t"/>
+      <member attributes="value" name="RandomNumber" type="qapi_BLE_Secure_Connections_Randomizer_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Pairing_Status_t">
+      <member attributes="value" name="Authenticated_Encryption_Key" type="boolean_t"/>
+      <member attributes="value" name="Status" type="uint8_t"/>
+      <member attributes="value" name="Negotiated_Encryption_Key_Size" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Encryption_Request_Information_t">
+      <member attributes="value" name="Encryption_Key_Size" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Security_Establishment_Complete_t">
+      <member attributes="value" name="Status" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Authentication_Event_Data_t">
+      <member attributes="value" name="GAP_LE_Authentication_Event_Type" type="qapi_BLE_GAP_LE_Authentication_Event_Type_t"/>
+      <member attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="union" name="Authentication_Event_Data">
+         <member attributes="value" name="Long_Term_Key_Request" type="qapi_BLE_GAP_LE_Key_Request_Info_t"/>
+         <member attributes="value" name="Pairing_Request" type="qapi_BLE_GAP_LE_Pairing_Capabilities_t"/>
+         <member attributes="value" name="Extended_Pairing_Request" type="qapi_BLE_GAP_LE_Extended_Pairing_Capabilities_t"/>
+         <member attributes="value" name="Security_Request" type="qapi_BLE_GAP_LE_Security_Request_t"/>
+         <member attributes="value" name="Confirmation_Request" type="qapi_BLE_GAP_LE_Confirmation_Request_t"/>
+         <member attributes="value" name="Extended_Confirmation_Request" type="qapi_BLE_GAP_LE_Extended_Confirmation_Request_t"/>
+         <member attributes="value" name="Extended_Out_Of_Band_Information" type="qapi_BLE_GAP_LE_Extended_Out_Of_Band_Information_t"/>
+         <member attributes="value" name="Pairing_Status" type="qapi_BLE_GAP_LE_Pairing_Status_t"/>
+         <member attributes="value" name="Keypress_Notification" type="qapi_BLE_GAP_LE_Keypress_t"/>
+         <member attributes="value" name="Encryption_Request_Information" type="qapi_BLE_GAP_LE_Encryption_Request_Information_t"/>
+         <member attributes="value" name="Encryption_Information" type="qapi_BLE_GAP_LE_Encryption_Information_t"/>
+         <member attributes="value" name="Identity_Information" type="qapi_BLE_GAP_LE_Identity_Information_t"/>
+         <member attributes="value" name="Signing_Information" type="qapi_BLE_GAP_LE_Signing_Information_t"/>
+         <member attributes="value" name="Security_Establishment_Complete" type="qapi_BLE_GAP_LE_Security_Establishment_Complete_t"/>
+         <unionMap mapVerified="yes" name="GAP_LE_Authentication_Event_Type" type="qapi_BLE_GAP_LE_Authentication_Event_Type_t">
+            <mapEntry member="Long_Term_Key_Request" type="qapi_BLE_GAP_LE_Key_Request_Info_t" value="QAPI_BLE_LAT_LONG_TERM_KEY_REQUEST_E"/>
+            <mapEntry member="Pairing_Request" type="qapi_BLE_GAP_LE_Pairing_Capabilities_t" value="QAPI_BLE_LAT_PAIRING_REQUEST_E"/>
+            <mapEntry member="Extended_Pairing_Request" type="qapi_BLE_GAP_LE_Extended_Pairing_Capabilities_t" value="QAPI_BLE_LAT_EXTENDED_PAIRING_REQUEST_E"/>
+            <mapEntry member="Security_Request" type="qapi_BLE_GAP_LE_Security_Request_t" value="QAPI_BLE_LAT_SECURITY_REQUEST_E"/>
+            <mapEntry member="Confirmation_Request" type="qapi_BLE_GAP_LE_Confirmation_Request_t" value="QAPI_BLE_LAT_CONFIRMATION_REQUEST_E"/>
+            <mapEntry member="Extended_Confirmation_Request" type="qapi_BLE_GAP_LE_Extended_Confirmation_Request_t" value="QAPI_BLE_LAT_EXTENDED_CONFIRMATION_REQUEST_E"/>
+            <mapEntry member="Extended_Out_Of_Band_Information" type="qapi_BLE_GAP_LE_Extended_Out_Of_Band_Information_t" value="QAPI_BLE_LAT_EXTENDED_OUT_OF_BAND_INFORMATION_E"/>
+            <mapEntry member="Pairing_Status" type="qapi_BLE_GAP_LE_Pairing_Status_t" value="QAPI_BLE_LAT_PAIRING_STATUS_E"/>
+            <mapEntry member="Keypress_Notification" type="qapi_BLE_GAP_LE_Keypress_t" value="QAPI_BLE_LAT_KEYPRESS_NOTIFICATION_E"/>
+            <mapEntry member="Encryption_Request_Information" type="qapi_BLE_GAP_LE_Encryption_Request_Information_t" value="QAPI_BLE_LAT_ENCRYPTION_INFORMATION_REQUEST_E"/>
+            <mapEntry member="Encryption_Information" type="qapi_BLE_GAP_LE_Encryption_Information_t" value="QAPI_BLE_LAT_ENCRYPTION_INFORMATION_E"/>
+            <mapEntry member="Identity_Information" type="qapi_BLE_GAP_LE_Identity_Information_t" value="QAPI_BLE_LAT_IDENTITY_INFORMATION_E"/>
+            <mapEntry member="Signing_Information" type="qapi_BLE_GAP_LE_Signing_Information_t" value="QAPI_BLE_LAT_SIGNING_INFORMATION_E"/>
+            <mapEntry member="Security_Establishment_Complete" type="qapi_BLE_GAP_LE_Security_Establishment_Complete_t" value="QAPI_BLE_LAT_SECURITY_ESTABLISHMENT_COMPLETE_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Connection_Parameter_Update_Request_Event_Data_t">
+      <member attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Conn_Interval_Min" type="uint16_t"/>
+      <member attributes="value" name="Conn_Interval_Max" type="uint16_t"/>
+      <member attributes="value" name="Slave_Latency" type="uint16_t"/>
+      <member attributes="value" name="Conn_Supervision_Timeout" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Connection_Parameter_Update_Response_Event_Data_t">
+      <member attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Accepted" type="boolean_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Connection_Parameter_Updated_Event_Data_t">
+      <member attributes="value" name="Status" type="uint8_t"/>
+      <member attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Current_Connection_Parameters" type="qapi_BLE_GAP_LE_Current_Connection_Parameters_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Authenticated_Payload_Timeout_Expired_Event_Data_t">
+      <member attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Data_Length_Change_Event_Data_t">
+      <member attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="MaxTxOctets" type="uint16_t"/>
+      <member attributes="value" name="MaxTxTime" type="uint16_t"/>
+      <member attributes="value" name="MaxRxOctets" type="uint16_t"/>
+      <member attributes="value" name="MaxRxTime" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Phy_Update_Complete_Event_Data_t">
+      <member attributes="value" name="Status" type="uint8_t"/>
+      <member attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="TX_PHY" type="qapi_BLE_GAP_LE_PHY_Type_t"/>
+      <member attributes="value" name="RX_PHY" type="qapi_BLE_GAP_LE_PHY_Type_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Advertising_Set_Terminated_Event_Data_t">
+      <member attributes="value" name="Status" type="uint8_t"/>
+      <member attributes="value" name="Advertising_Handle" type="uint8_t"/>
+      <member attributes="value" name="Num_Completed_Ext_Advertising_Events" type="uint8_t"/>
+      <member attributes="value" name="Connection_Address_Type" type="qapi_BLE_GAP_LE_Address_Type_t"/>
+      <member attributes="value" name="Connection_Address" type="qapi_BLE_BD_ADDR_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Scan_Request_Received_Event_Data_t">
+      <member attributes="value" name="Advertising_Handle" type="uint8_t"/>
+      <member attributes="value" name="Scanner_Address_Type" type="qapi_BLE_GAP_LE_Address_Type_t"/>
+      <member attributes="value" name="Scanner_Address" type="qapi_BLE_BD_ADDR_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Channel_Selection_Algorithm_Update_Event_Data_t">
+      <member attributes="value" name="Channel_Selection_Algorithm" type="qapi_BLE_GAP_LE_Channel_Selection_Algorithm_t"/>
+      <member attributes="value" name="Connection_Address_Type" type="qapi_BLE_GAP_LE_Address_Type_t"/>
+      <member attributes="value" name="Connection_Address" type="qapi_BLE_BD_ADDR_t"/>
+   </structure>
+   <structure name="qapi_BLE_GAP_LE_Event_Data_t">
+      <member attributes="value" name="Event_Data_Type" type="qapi_BLE_GAP_LE_Event_Type_t"/>
+      <member attributes="value" name="Event_Data_Size" type="uint16_t"/>
+      <member attributes="union" name="Event_Data">
+         <member attributes="ptr" iotype="in" name="GAP_LE_Remote_Features_Event_Data" type="qapi_BLE_GAP_LE_Remote_Features_Event_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GAP_LE_Advertising_Report_Event_Data" type="qapi_BLE_GAP_LE_Advertising_Report_Event_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GAP_LE_Direct_Advertising_Report_Event_Data" type="qapi_BLE_GAP_LE_Direct_Advertising_Report_Event_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GAP_LE_Connection_Complete_Event_Data" type="qapi_BLE_GAP_LE_Connection_Complete_Event_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GAP_LE_Disconnection_Complete_Event_Data" type="qapi_BLE_GAP_LE_Disconnection_Complete_Event_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GAP_LE_Encryption_Change_Event_Data" type="qapi_BLE_GAP_LE_Encryption_Change_Event_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GAP_LE_Encryption_Refresh_Complete_Event_Data" type="qapi_BLE_GAP_LE_Encryption_Refresh_Complete_Event_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GAP_LE_Authentication_Event_Data" type="qapi_BLE_GAP_LE_Authentication_Event_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GAP_LE_Connection_Parameter_Update_Request_Event_Data" type="qapi_BLE_GAP_LE_Connection_Parameter_Update_Request_Event_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GAP_LE_Connection_Parameter_Update_Response_Event_Data" type="qapi_BLE_GAP_LE_Connection_Parameter_Update_Response_Event_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GAP_LE_Connection_Parameter_Updated_Event_Data" type="qapi_BLE_GAP_LE_Connection_Parameter_Updated_Event_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GAP_LE_Authenticated_Payload_Timeout_Expired_Event_Data" type="qapi_BLE_GAP_LE_Authenticated_Payload_Timeout_Expired_Event_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GAP_LE_Data_Length_Change_Event_Data" type="qapi_BLE_GAP_LE_Data_Length_Change_Event_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GAP_LE_Phy_Update_Complete_Event_Data" type="qapi_BLE_GAP_LE_Phy_Update_Complete_Event_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GAP_LE_Extended_Advertising_Report_Event_Data" type="qapi_BLE_GAP_LE_Extended_Advertising_Report_Event_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GAP_LE_Advertising_Set_Terminated_Event_Data" type="qapi_BLE_GAP_LE_Advertising_Set_Terminated_Event_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GAP_LE_Scan_Request_Received_Event_Data" type="qapi_BLE_GAP_LE_Scan_Request_Received_Event_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GAP_LE_Channel_Selection_Algorithm_Update_Event_Data" type="qapi_BLE_GAP_LE_Channel_Selection_Algorithm_Update_Event_Data_t"/>
+         <unionMap mapVerified="yes" name="Event_Data_Type" type="qapi_BLE_GAP_LE_Event_Type_t">
+            <mapEntry member="GAP_LE_Remote_Features_Event_Data" type="qapi_BLE_GAP_LE_Remote_Features_Event_Data_t" value="QAPI_BLE_ET_LE_REMOTE_FEATURES_RESULT_E"/>
+            <mapEntry member="GAP_LE_Advertising_Report_Event_Data" type="qapi_BLE_GAP_LE_Advertising_Report_Event_Data_t" value="QAPI_BLE_ET_LE_ADVERTISING_REPORT_E"/>
+            <mapEntry member="GAP_LE_Direct_Advertising_Report_Event_Data" type="qapi_BLE_GAP_LE_Direct_Advertising_Report_Event_Data_t" value="QAPI_BLE_ET_LE_DIRECT_ADVERTISING_REPORT_E"/>
+            <mapEntry member="GAP_LE_Connection_Complete_Event_Data" type="qapi_BLE_GAP_LE_Connection_Complete_Event_Data_t" value="QAPI_BLE_ET_LE_CONNECTION_COMPLETE_E"/>
+            <mapEntry member="GAP_LE_Disconnection_Complete_Event_Data" type="qapi_BLE_GAP_LE_Disconnection_Complete_Event_Data_t" value="QAPI_BLE_ET_LE_DISCONNECTION_COMPLETE_E"/>
+            <mapEntry member="GAP_LE_Encryption_Change_Event_Data" type="qapi_BLE_GAP_LE_Encryption_Change_Event_Data_t" value="QAPI_BLE_ET_LE_ENCRYPTION_CHANGE_E"/>
+            <mapEntry member="GAP_LE_Encryption_Refresh_Complete_Event_Data" type="qapi_BLE_GAP_LE_Encryption_Refresh_Complete_Event_Data_t" value="QAPI_BLE_ET_LE_ENCRYPTION_REFRESH_COMPLETE_E"/>
+            <mapEntry member="GAP_LE_Authentication_Event_Data" type="qapi_BLE_GAP_LE_Authentication_Event_Data_t" value="QAPI_BLE_ET_LE_AUTHENTICATION_E"/>
+            <mapEntry member="GAP_LE_Connection_Parameter_Update_Request_Event_Data" type="qapi_BLE_GAP_LE_Connection_Parameter_Update_Request_Event_Data_t" value="QAPI_BLE_ET_LE_CONNECTION_PARAMETER_UPDATE_REQUEST_E"/>
+            <mapEntry member="GAP_LE_Connection_Parameter_Update_Response_Event_Data" type="qapi_BLE_GAP_LE_Connection_Parameter_Update_Response_Event_Data_t" value="QAPI_BLE_ET_LE_CONNECTION_PARAMETER_UPDATE_RESPONSE_E"/>
+            <mapEntry member="GAP_LE_Connection_Parameter_Updated_Event_Data" type="qapi_BLE_GAP_LE_Connection_Parameter_Updated_Event_Data_t" value="QAPI_BLE_ET_LE_CONNECTION_PARAMETER_UPDATED_E"/>
+            <mapEntry member="GAP_LE_Authenticated_Payload_Timeout_Expired_Event_Data" type="qapi_BLE_GAP_LE_Authenticated_Payload_Timeout_Expired_Event_Data_t" value="QAPI_BLE_ET_LE_AUTHENTICATED_PAYLOAD_TIMEOUT_EXPIRED_E"/>
+            <mapEntry member="GAP_LE_Data_Length_Change_Event_Data" type="qapi_BLE_GAP_LE_Data_Length_Change_Event_Data_t" value="QAPI_BLE_ET_LE_DATA_LENGTH_CHANGE_E"/>
+            <mapEntry member="GAP_LE_Phy_Update_Complete_Event_Data" type="qapi_BLE_GAP_LE_Phy_Update_Complete_Event_Data_t" value="QAPI_BLE_ET_LE_PHY_UPDATE_COMPLETE_E"/>
+            <mapEntry member="GAP_LE_Extended_Advertising_Report_Event_Data" type="qapi_BLE_GAP_LE_Extended_Advertising_Report_Event_Data_t" value="QAPI_BLE_ET_LE_EXTENDED_ADVERTISING_REPORT_E"/>
+            <mapEntry member="GAP_LE_Advertising_Set_Terminated_Event_Data" type="qapi_BLE_GAP_LE_Advertising_Set_Terminated_Event_Data_t" value="QAPI_BLE_ET_LE_ADVERTISING_SET_TERMINATED_E"/>
+            <mapEntry member="GAP_LE_Scan_Request_Received_Event_Data" type="qapi_BLE_GAP_LE_Scan_Request_Received_Event_Data_t" value="QAPI_BLE_ET_LE_SCAN_REQUEST_RECEIVED_E"/>
+            <mapEntry member="GAP_LE_Channel_Selection_Algorithm_Update_Event_Data" type="qapi_BLE_GAP_LE_Channel_Selection_Algorithm_Update_Event_Data_t" value="QAPI_BLE_ET_LE_CHANNEL_SELECTION_ALGORITHM_UPDATE_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <function name="qapi_BLE_GAP_Query_Local_BD_ADDR">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Create_Connection">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="ScanInterval" type="uint32_t"/>
+      <argument attributes="value" name="ScanWindow" type="uint32_t"/>
+      <argument attributes="value" name="InitatorFilterPolicy" type="qapi_BLE_GAP_LE_Filter_Policy_t"/>
+      <argument attributes="value" name="RemoteAddressType" type="qapi_BLE_GAP_LE_Address_Type_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="value" name="LocalAddressType" type="qapi_BLE_GAP_LE_Address_Type_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="ConnectionParameters" type="qapi_BLE_GAP_LE_Connection_Parameters_t"/>
+      <argument attributes="value" name="GAP_LE_Event_Callback" type="qapi_BLE_GAP_LE_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Cancel_Create_Connection">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Disconnect">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Read_Remote_Features">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Perform_Scan">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="ScanType" type="qapi_BLE_GAP_LE_Scan_Type_t"/>
+      <argument attributes="value" name="ScanInterval" type="uint32_t"/>
+      <argument attributes="value" name="ScanWindow" type="uint32_t"/>
+      <argument attributes="value" name="LocalAddressType" type="qapi_BLE_GAP_LE_Address_Type_t"/>
+      <argument attributes="value" name="FilterPolicy" type="qapi_BLE_GAP_LE_Filter_Policy_t"/>
+      <argument attributes="value" name="FilterDuplicates" type="boolean_t"/>
+      <argument attributes="value" name="GAP_LE_Event_Callback" type="qapi_BLE_GAP_LE_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Cancel_Scan">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Set_Advertising_Data">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Length" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="Length" lengthVerified="yes" name="Advertising_Data" type="qapi_BLE_Advertising_Data_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Convert_Advertising_Data">
+      <return attributes="value" type="int"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="GAP_LE_Advertising_Data" type="qapi_BLE_GAP_LE_Advertising_Data_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Advertising_Data" type="qapi_BLE_Advertising_Data_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Parse_Advertising_Data">
+      <return attributes="value" type="int"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Advertising_Data" type="qapi_BLE_Advertising_Data_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="GAP_LE_Advertising_Data" type="qapi_BLE_GAP_LE_Advertising_Data_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Set_Scan_Response_Data">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Length" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="Length" lengthVerified="yes" name="Scan_Response_Data" type="qapi_BLE_Scan_Response_Data_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Convert_Scan_Response_Data">
+      <return attributes="value" type="int"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="GAP_LE_Advertising_Data" type="qapi_BLE_GAP_LE_Advertising_Data_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Scan_Response_Data" type="qapi_BLE_Scan_Response_Data_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Parse_Scan_Response_Data">
+      <return attributes="value" type="int"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Scan_Response_Data" type="qapi_BLE_Scan_Response_Data_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="GAP_LE_Advertising_Data" type="qapi_BLE_GAP_LE_Advertising_Data_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Advertising_Enable">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="EnableScanResponse" type="boolean_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="GAP_LE_Advertising_Parameters" type="qapi_BLE_GAP_LE_Advertising_Parameters_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="GAP_LE_Connectability_Parameters" type="qapi_BLE_GAP_LE_Connectability_Parameters_t"/>
+      <argument attributes="value" name="GAP_LE_Event_Callback" type="qapi_BLE_GAP_LE_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Advertising_Disable">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Wake_On_Scan_Request">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="WakeOnScanRequestEnabled" type="boolean_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Generate_Non_Resolvable_Address">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="NonResolvableAddress_Result" type="qapi_BLE_BD_ADDR_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Generate_Static_Address">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="StaticAddress_Result" type="qapi_BLE_BD_ADDR_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Generate_Resolvable_Address">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="IRK" type="qapi_BLE_Encryption_Key_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ResolvableAddress_Result" type="qapi_BLE_BD_ADDR_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Resolve_Address">
+      <return attributes="value" type="boolean_t"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="IRK" type="qapi_BLE_Encryption_Key_t"/>
+      <argument attributes="value" name="ResolvableAddress" type="qapi_BLE_BD_ADDR_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Set_Random_Address">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="RandomAddress" type="qapi_BLE_BD_ADDR_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Add_Device_To_White_List">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="DeviceCount" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="DeviceCount" lengthVerified="yes" name="WhiteListEntries" type="qapi_BLE_GAP_LE_White_List_Entry_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="AddedDeviceCount" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Remove_Device_From_White_List">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="DeviceCount" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="DeviceCount" lengthVerified="yes" name="WhiteListEntries" type="qapi_BLE_GAP_LE_White_List_Entry_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="RemovedDeviceCount" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Read_White_List_Size">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="WhiteListSize" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Set_Pairability_Mode">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="PairableMode" type="qapi_BLE_GAP_LE_Pairability_Mode_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Register_Remote_Authentication">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="GAP_LE_Event_Callback" type="qapi_BLE_GAP_LE_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Un_Register_Remote_Authentication">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Pair_Remote_Device">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Capabilities" type="qapi_BLE_GAP_LE_Pairing_Capabilities_t"/>
+      <argument attributes="value" name="GAP_LE_Event_Callback" type="qapi_BLE_GAP_LE_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Extended_Pair_Remote_Device">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Extended_Capabilities" type="qapi_BLE_GAP_LE_Extended_Pairing_Capabilities_t"/>
+      <argument attributes="value" name="GAP_LE_Event_Callback" type="qapi_BLE_GAP_LE_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Authentication_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="GAP_LE_Authentication_Information" type="qapi_BLE_GAP_LE_Authentication_Response_Information_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Reestablish_Security">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="SecurityInformation" type="qapi_BLE_GAP_LE_Security_Information_t"/>
+      <argument attributes="value" name="GAP_LE_Event_Callback" type="qapi_BLE_GAP_LE_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Request_Security">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="value" name="Bonding_Type" type="qapi_BLE_GAP_LE_Bonding_Type_t"/>
+      <argument attributes="value" name="MITM" type="boolean_t"/>
+      <argument attributes="value" name="GAP_LE_Event_Callback" type="qapi_BLE_GAP_LE_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Extended_Request_Security">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="ExtendedCapabilities" type="qapi_BLE_GAP_LE_Extended_Pairing_Capabilities_t"/>
+      <argument attributes="value" name="GAP_LE_Event_Callback" type="qapi_BLE_GAP_LE_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Set_Fixed_Passkey">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Fixed_Display_Passkey" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Update_Local_P256_Public_Key">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Query_Encryption_Mode">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="GAP_Encryption_Mode" type="qapi_BLE_GAP_Encryption_Mode_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Query_Connection_Handle">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Connection_Handle" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Query_Connection_Parameters">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Current_Connection_Parameters" type="qapi_BLE_GAP_LE_Current_Connection_Parameters_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Generate_Long_Term_Key">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="DHK" type="qapi_BLE_Encryption_Key_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="ER" type="qapi_BLE_Encryption_Key_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="LTK_Result" type="qapi_BLE_Long_Term_Key_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="DIV_Result" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="EDIV_Result" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Rand_Result" type="qapi_BLE_Random_Number_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Regenerate_Long_Term_Key">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="DHK" type="qapi_BLE_Encryption_Key_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="ER" type="qapi_BLE_Encryption_Key_t"/>
+      <argument attributes="value" name="EDIV" type="uint16_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Rand" type="qapi_BLE_Random_Number_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="LTK_Result" type="qapi_BLE_Long_Term_Key_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Diversify_Function">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Key" type="qapi_BLE_Encryption_Key_t"/>
+      <argument attributes="value" name="DIn" type="uint16_t"/>
+      <argument attributes="value" name="RIn" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Result" type="qapi_BLE_Encryption_Key_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Connection_Parameter_Update_Request">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="value" name="Connection_Interval_Min" type="uint16_t"/>
+      <argument attributes="value" name="Connection_Interval_Max" type="uint16_t"/>
+      <argument attributes="value" name="Slave_Latency" type="uint16_t"/>
+      <argument attributes="value" name="Supervision_Timeout" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Connection_Parameter_Update_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="value" name="Accept" type="boolean_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="ConnectionParameters" type="qapi_BLE_GAP_LE_Connection_Parameters_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Update_Connection_Parameters">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="ConnectionParameters" type="qapi_BLE_GAP_LE_Connection_Parameters_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Set_Authenticated_Payload_Timeout">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="value" name="AuthenticatedPayloadTimeout" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Query_Authenticated_Payload_Timeout">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="AuthenticatedPayloadTimeout" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Set_Resolvable_Private_Address_Timeout">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="RPA_Timeout" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Set_Address_Resolution_Enable">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="EnableAddressResolution" type="boolean_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Add_Device_To_Resolving_List">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="DeviceCount" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="DeviceCount" lengthVerified="yes" name="ResolvingListEntries" type="qapi_BLE_GAP_LE_Resolving_List_Entry_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="AddedDeviceCount" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Remove_Device_From_Resolving_List">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="DeviceCount" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="DeviceCount" lengthVerified="yes" name="ResolvingListEntries" type="qapi_BLE_GAP_LE_Resolving_List_Entry_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="RemovedDeviceCount" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Read_Resolving_List_Size">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ResolvingListSize" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Set_Resolving_List_Privacy_Mode">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Peer_Identity_Address_Type" type="qapi_BLE_GAP_LE_Address_Type_t"/>
+      <argument attributes="value" name="Peer_Identity_Address" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="value" name="PrivacyMode" type="qapi_BLE_GAP_LE_Privacy_Mode_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Set_Data_Length">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="value" name="SuggestedTxPacketSize" type="uint16_t"/>
+      <argument attributes="value" name="SuggestedTxPacketTime" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Set_Default_Data_Length">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="SuggestedTxPacketSize" type="uint16_t"/>
+      <argument attributes="value" name="SuggestedTxPacketTime" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Query_Default_Data_Length">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="SuggestedTxPacketSize" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="SuggestedTxPacketTime" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Set_Default_Connection_PHY">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="TxPHYSPreference" type="uint32_t"/>
+      <argument attributes="value" name="RxPHYSPreference" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Set_Connection_PHY">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="value" name="TxPHYSPreference" type="uint32_t"/>
+      <argument attributes="value" name="RxPHYSPreference" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Query_Connection_PHY">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="TxPHY" type="qapi_BLE_GAP_LE_PHY_Type_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="RxPHY" type="qapi_BLE_GAP_LE_PHY_Type_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Query_Maximum_Advertising_Data_Length">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="MaximumAdvertisingDataLength" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Query_Number_Of_Advertising_Sets">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="NumberSupportedSets" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Set_Extended_Advertising_Parameters">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="AdvertisingHandle" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="AdvertisingParameters" type="qapi_BLE_GAP_LE_Extended_Advertising_Parameters_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="SelectedTxPower" type="int8_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Set_Extended_Advertising_Random_Address">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="AdvertisingHandle" type="uint8_t"/>
+      <argument attributes="value" name="RandomAddress" type="qapi_BLE_BD_ADDR_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Set_Extended_Advertising_Data">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="AdvertisingHandle" type="uint8_t"/>
+      <argument attributes="value" name="Operation" type="qapi_BLE_GAP_LE_Advertising_Operation_Type_t"/>
+      <argument attributes="value" name="FragmentationPreference" type="qapi_BLE_GAP_LE_Advertising_Fragment_Preference_t"/>
+      <argument attributes="value" name="Length" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="Length" lengthVerified="yes" name="Advertising_Data" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Set_Extended_Scan_Response_Data">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="AdvertisingHandle" type="uint8_t"/>
+      <argument attributes="value" name="FragmentationPreference" type="qapi_BLE_GAP_LE_Advertising_Fragment_Preference_t"/>
+      <argument attributes="value" name="Length" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="Length" lengthVerified="yes" name="Scan_Response_Data" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Enable_Extended_Advertising">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Enable" type="boolean_t"/>
+      <argument attributes="value" name="NumberOfSets" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="NumberOfSets" lengthVerified="yes" name="AdvertisingHandleList" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="NumberOfSets" lengthVerified="yes" name="DurationList" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="NumberOfSets" lengthVerified="yes" name="MaxExtendedAdvertisingEventList" type="uint8_t"/>
+      <argument attributes="value" name="GAP_LE_Event_Callback" type="qapi_BLE_GAP_LE_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Remove_Advertising_Sets">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="NumberAdvertisingSetHandles" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="NumberAdvertisingSetHandles" lengthVerified="yes" name="AdvertisingHandles" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="RemovedSetCount" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Set_Extended_Scan_Parameters">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="LocalAddressType" type="qapi_BLE_GAP_LE_Address_Type_t"/>
+      <argument attributes="value" name="FilterPolicy" type="qapi_BLE_GAP_LE_Filter_Policy_t"/>
+      <argument attributes="value" name="NumberScanningPHYs" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="NumberScanningPHYs" lengthVerified="yes" name="ScanningParameterList" type="qapi_BLE_GAP_LE_Extended_Scanning_PHY_Parameters_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Enable_Extended_Scan">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Enable" type="boolean_t"/>
+      <argument attributes="value" name="FilterDuplicates" type="qapi_BLE_GAP_LE_Extended_Scan_Filter_Duplicates_Type_t"/>
+      <argument attributes="value" name="Duration" type="uint32_t"/>
+      <argument attributes="value" name="Period" type="uint32_t"/>
+      <argument attributes="value" name="GAP_LE_Event_Callback" type="qapi_BLE_GAP_LE_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Extended_Create_Connection">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InitatorFilterPolicy" type="qapi_BLE_GAP_LE_Filter_Policy_t"/>
+      <argument attributes="value" name="RemoteAddressType" type="qapi_BLE_GAP_LE_Address_Type_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="value" name="LocalAddressType" type="qapi_BLE_GAP_LE_Address_Type_t"/>
+      <argument attributes="value" name="NumberOfConnectionParameters" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="NumberOfConnectionParameters" lengthVerified="yes" name="ConnectionParameterList" type="qapi_BLE_GAP_LE_Extended_Connection_Parameters_t"/>
+      <argument attributes="value" name="GAP_LE_Event_Callback" type="qapi_BLE_GAP_LE_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GAP_LE_Query_Local_Secure_Connections_OOB_Data">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Randomizer" type="qapi_BLE_Secure_Connections_Randomizer_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Confirmation" type="qapi_BLE_Secure_Connections_Confirmation_t"/>
+   </function>
+   <callback name="qapi_BLE_GAP_LE_Event_Callback_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="GAP_LE_Event_Data" type="qapi_BLE_GAP_LE_Event_Data_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <createFunction ID="0" funcSuccess="__positive__" moduleParam="BluetoothStackID" name="qapi_BLE_GAP_LE_Create_Connection" param="CallbackParameter"/>
+      <createFunction ID="0" funcSuccess="__positive__" moduleParam="BluetoothStackID" name="qapi_BLE_GAP_LE_Perform_Scan" param="CallbackParameter"/>
+      <createFunction ID="0" funcSuccess="__positive__" moduleParam="BluetoothStackID" name="qapi_BLE_GAP_LE_Advertising_Enable" param="CallbackParameter"/>
+      <createFunction ID="0" funcSuccess="__positive__" moduleParam="BluetoothStackID" name="qapi_BLE_GAP_LE_Register_Remote_Authentication" param="CallbackParameter"/>
+      <createFunction ID="0" funcSuccess="__positive__" moduleParam="BluetoothStackID" name="qapi_BLE_GAP_LE_Pair_Remote_Device" param="CallbackParameter"/>
+      <createFunction ID="0" funcSuccess="__positive__" moduleParam="BluetoothStackID" name="qapi_BLE_GAP_LE_Extended_Pair_Remote_Device" param="CallbackParameter"/>
+      <createFunction ID="0" funcSuccess="__positive__" moduleParam="BluetoothStackID" name="qapi_BLE_GAP_LE_Reestablish_Security" param="CallbackParameter"/>
+      <createFunction ID="0" funcSuccess="__positive__" moduleParam="BluetoothStackID" name="qapi_BLE_GAP_LE_Request_Security" param="CallbackParameter"/>
+      <createFunction ID="0" funcSuccess="__positive__" moduleParam="BluetoothStackID" name="qapi_BLE_GAP_LE_Extended_Request_Security" param="CallbackParameter"/>
+      <createFunction ID="0" funcSuccess="__positive__" moduleParam="BluetoothStackID" name="qapi_BLE_GAP_LE_Enable_Extended_Advertising" param="CallbackParameter"/>
+      <createFunction ID="0" funcSuccess="__positive__" moduleParam="BluetoothStackID" name="qapi_BLE_GAP_LE_Enable_Extended_Scan" param="CallbackParameter"/>
+      <createFunction ID="0" funcSuccess="__positive__" moduleParam="BluetoothStackID" name="qapi_BLE_GAP_LE_Extended_Create_Connection" param="CallbackParameter"/>
+   </callback>
+</header>

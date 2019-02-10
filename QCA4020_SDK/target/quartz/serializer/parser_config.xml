@@ -1,0 +1,188 @@
+<?xml version="1.0" ?>
+<config xmldir="genedit_files/xml" cdir="genedit_files/c" fileiddir="genedit_files/fileID">
+   <module name="ble"/>
+      <excludeStructure name="qapi_BLE_Condition_t"/>
+      <excludeStructure name="qapi_BLE_Bluetooth_Name_t"/>
+      <excludeStructure name="qapi_BLE_Extended_Inquiry_Response_Data_Structure_Data_t"/>
+      <!-- <excludeStructure name="qapi_BLE_Advertising_Data_t"/> -->
+      <!-- <excludeStructure name="qapi_BLE_Extended_Advertising_Data_t"/-->
+      <excludeStructure name="qapi_BLE_Periodic_Advertising_Data_t"/>
+      <!-- <excludeStructure name="qapi_BLE_Scan_Response_Data_t"/> -->
+      <!-- <excludeStructure name="qapi_BLE_Extended_Scan_Response_Data_t"/> -->
+      <!-- <excludeStructure name="qapi_BLE_Plain_Text_Data_t"/> -->
+      <!-- <excludeStructure name="qapi_BLE_Encrypted_Data_t"/> -->
+
+      <excludeFunction name="qapi_BLE_BSC_AcquireListLock"/>
+      <excludeFunction name="qapi_BLE_BSC_ReleaseListLock"/>
+      <excludeFunction name="qapi_BLE_BSC_AddGenericListEntry_Actual"/>
+      <excludeFunction name="qapi_BLE_BSC_AddGenericListEntry"/>
+      <excludeFunction name="qapi_BLE_BSC_SearchGenericListEntry"/>
+      <excludeFunction name="qapi_BLE_BSC_GetNextGenericListEntry"/>
+      <excludeFunction name="qapi_BLE_BSC_DeleteGenericListEntry"/>
+      <excludeFunction name="qapi_BLE_BSC_FreeGenericListEntryMemory"/>
+      <excludeFunction name="qapi_BLE_BSC_FreeGenericListEntryList"/>
+
+      <excludeStructure name="qapi_BLE_HCI_Number_Of_Completed_Packets_Event_Data_t"/>
+      <!-- <excludeStructure name="qapi_BLE_HCI_LE_Advertising_Report_Event_Data_t"/> -->
+      <!-- <excludeStructure name="qapi_BLE_HCI_LE_Direct_Advertising_Report_Event_Data_t"/> -->
+      <!-- <excludeStructure name="qapi_BLE_HCI_LE_Extended_Advertising_Report_Event_Data_t"/> -->
+      <!-- <excludeStructure name="qapi_BLE_HCI_Packet_t"/> -->
+      <excludeStructure name="qapi_BLE_HCI_Create_Physical_Link_Command_t"/>
+      <excludeStructure name="qapi_BLE_HCI_Accept_Physical_Link_Request_Command_t"/>
+      <excludeStructure name="qapi_BLE_HCI_Set_Event_Filter_Command_t"/>
+      <excludeStructure name="qapi_BLE_HCI_Write_Stored_Link_Key_Command_t"/>
+      <excludeStructure name="qapi_BLE_HCI_Change_Local_Name_Command_t"/>
+      <excludeStructure name="qapi_BLE_HCI_Host_Number_Of_Completed_Packets_Command_t"/>
+      <excludeStructure name="qapi_BLE_HCI_Write_Current_IAC_LAP_Command_t"/>
+      <excludeStructure name="qapi_BLE_HCI_Set_External_Frame_Configuration_Command_t"/>
+      <excludeStructure name="qapi_BLE_HCI_Set_MWS_Scan_Frequency_Table_Command_t"/>
+      <excludeStructure name="qapi_BLE_HCI_Set_MWS_PATTERN_Configuration_Command_t"/>
+      <excludeStructure name="qapi_BLE_HCI_Set_Connectionless_Slave_Broadcast_Data_Command_t"/>
+      <excludeStructure name="qapi_BLE_HCI_Write_Remote_AMP_ASSOC_Command_t"/>
+      <excludeStructure name="qapi_BLE_HCI_AMP_Test_Command_t"/>
+      <excludeStructure name="qapi_BLE_HCI_LE_Set_Extended_Advertising_Parameters_Command_t"/>
+      <excludeStructure name="qapi_BLE_HCI_LE_Set_Extended_Advertising_Data_Command_t"/>
+      <excludeStructure name="qapi_BLE_HCI_LE_Set_Extended_Scan_Response_Data_Command_t"/>
+      <excludeStructure name="qapi_BLE_HCI_LE_Set_Extended_Advertising_Enable_Command_t"/>
+      <excludeStructure name="qapi_BLE_HCI_LE_Set_Periodic_Advertising_Data_Command_t"/>
+      <excludeStructure name="qapi_BLE_HCI_LE_Set_Extended_Scan_Parameters_Command_t"/>
+      <excludeStructure name="qapi_BLE_HCI_LE_Extended_Create_Connection_Command_t"/>
+      <excludeStructure name="qapi_BLE_HCI_Inquiry_Result_Event_t"/>
+      <excludeStructure name="qapi_BLE_HCI_Remote_Name_Request_Complete_Event_t"/>
+      <excludeStructure name="qapi_BLE_HCI_Number_Of_Completed_Packets_Event_t"/>
+      <excludeStructure name="qapi_BLE_HCI_Return_Link_Keys_Event_t"/>
+      <excludeStructure name="qapi_BLE_HCI_Loopback_Command_Event_t"/>
+      <excludeStructure name="qapi_BLE_HCI_Inquiry_Result_With_RSSI_Event_t"/>
+      <excludeStructure name="qapi_BLE_HCI_Number_Of_Completed_Data_Blocks_Event_t"/>
+      <excludeStructure name="qapi_BLE_HCI_Bluetooth_Logo_Testing_Event_t"/>
+      <excludeStructure name="qapi_BLE_HCI_Vendor_Specific_Debug_Event_t"/>
+      <excludeStructure name="qapi_BLE_HCI_LE_Meta_Event_t"/>
+      <excludeStructure name="qapi_BLE_HCI_LE_Advertising_Report_Event_t"/>
+      <excludeStructure name="qapi_BLE_HCI_LE_Advertising_Report_Entry_t"/>
+      <excludeStructure name="qapi_BLE_HCI_LE_Direct_Advertising_Report_Event_t"/>
+      <excludeStructure name="qapi_BLE_HCI_LE_Extended_Advertising_Report_Entry_t"/>
+      <excludeStructure name="qapi_BLE_HCI_LE_Extended_Advertising_Report_Event_t"/>
+      <excludeStructure name="qapi_BLE_HCI_LE_Periodic_Advertising_Report_Event_t"/>
+      <excludeStructure name="qapi_BLE_HCI_Connectionless_Slave_Broadcast_Receive_Event_t"/>
+      <excludeStructure name="qapi_BLE_HCI_Read_Local_Name_Command_Complete_Event_t"/>
+      <excludeStructure name="qapi_BLE_HCI_Read_Current_IAC_LAP_Command_Complete_Event_t"/>
+      <excludeStructure name="qapi_BLE_HCI_Read_Local_Supported_Codecs_Command_Complete_Event_t"/>
+      <excludeStructure name="qapi_BLE_HCI_Read_Local_AMP_ASSOC_Command_Complete_Event_t"/>
+      <excludeStructure name="qapi_BLE_HCI_Get_MWS_Transport_Layer_Configuration_Command_Complete_Event_t"/>
+      <excludeStructure name="qapi_BLE_HCI_ACL_Data_t"/>
+      <excludeStructure name="qapi_BLE_HCI_SCO_Data_t"/>
+      <excludeStructure name="qapi_BLE_HCI_eSCO_Data_t"/>
+
+      <excludeStructure name="qapi_BLE_ATT_Find_Information_Response_PDU_t"/>
+      <excludeStructure name="qapi_BLE_ATT_Find_By_Type_Value_Request_PDU_t"/>
+      <excludeStructure name="qapi_BLE_ATT_Find_By_Type_Value_Response_PDU_t"/>
+      <excludeStructure name="qapi_BLE_ATT_Read_Response_PDU_t"/>
+      <excludeStructure name="qapi_BLE_ATT_Read_By_Type_Request_PDU_t"/>
+      <excludeStructure name="qapi_BLE_ATT_Read_By_Type_Response_PDU_t"/>
+      <excludeStructure name="qapi_BLE_ATT_Read_Blob_Response_PDU_t"/>
+      <excludeStructure name="qapi_BLE_ATT_Read_Multiple_Response_PDU_t"/>
+      <excludeStructure name="qapi_BLE_ATT_Read_By_Group_Type_Request_PDU_t"/>
+      <excludeStructure name="qapi_BLE_ATT_Read_By_Group_Type_Response_PDU_t"/>
+      <excludeStructure name="qapi_BLE_ATT_Write_Request_PDU_t"/>
+      <excludeStructure name="qapi_BLE_ATT_Write_Command_PDU_t"/>
+      <excludeStructure name="qapi_BLE_ATT_Signed_Write_Command_PDU_t"/>
+      <excludeStructure name="qapi_BLE_ATT_Prepare_Write_Request_PDU_t"/>
+      <excludeStructure name="qapi_BLE_ATT_Prepare_Write_Response_PDU_t"/>
+      <excludeStructure name="qapi_BLE_ATT_Handle_Value_Notification_PDU_t"/>
+      <excludeStructure name="qapi_BLE_ATT_Handle_Value_Indication_PDU_t"/>
+
+      <excludeStructure name="qapi_BLE_GATT_Group_Attribute_Data_t"/>
+      <excludeStructure name="qapi_BLE_GATT_Handle_Value_Information_t"/>
+      <excludeStructure name="qapi_BLE_GATT_Included_Service_Info_t"/>
+      <excludeStructure name="qapi_BLE_GATT_Characteristic_Declaration_Value_Field_t"/>
+      <excludeStructure name="qapi_BLE_GATT_Characteristic_Info_t"/>
+      <!-- <excludeStructure name="qapi_BLE_GATT_Service_Attribute_Entry_t"/> -->
+      <excludeStructure name="qapi_BLE_GATT_Included_Service_Value_t"/>
+
+      <excludeStructure name="qapi_BLE_AIOS_Value_Trigger_t"/>
+      <excludeStructure name="qapi_BLE_AIOS_Time_Trigger_t"/>
+
+      <excludeStructure name="qapi_BLE_ANCS_Notification_Attribute_Request_Packet_t"/>
+      <excludeStructure name="qapi_BLE_ANCS_Notification_Attribute_Response_Packet_t"/>
+      <excludeStructure name="qapi_BLE_ANCS_App_Attribute_Request_Packet_t"/>
+      <excludeStructure name="qapi_BLE_ANCS_App_Attribute_Response_Packet_t"/>
+      <excludeStructure name="qapi_BLE_ANS_New_Alert_Notification_t"/>
+      <excludeStructure name="qapi_BLE_ANS_Unread_Alert_Status_Notification_t"/>
+
+      <excludeStructure name="qapi_BLE_BCS_Body_Composition_Measurement_t"/>
+
+      <excludeStructure name="qapi_BLE_BLS_Blood_Pressure_Measurement_Data_t"/>
+      <excludeStructure name="qapi_BLE_BLS_Blood_Pressure_Measurement_t"/>
+
+      <excludeStructure name="qapi_BLE_BMS_BM_Control_Point_t"/>
+
+      <excludeStructure name="qapi_BLE_CGMS_Measurement_t"/>
+      <excludeStructure name="qapi_BLE_CGMS_Feature_t"/>
+      <excludeStructure name="qapi_BLE_CGMS_Status_t"/>
+      <excludeStructure name="qapi_BLE_CGMS_Session_Start_Time_t"/>
+      <excludeStructure name="qapi_BLE_CGMS_Session_Run_Time_t"/>
+      <excludeStructure name="qapi_BLE_CGMS_Record_Access_Control_Point_t"/>
+      <excludeStructure name="qapi_BLE_CGMS_Specific_Ops_Control_Point_t"/>
+
+      <excludeStructure name="qapi_BLE_CPSMeasurement_t"/>
+      <excludeStructure name="qapi_BLE_CPSVector_t"/>
+      <excludeStructure name="qapi_BLE_CPSControl_Point_t"/>
+
+      <!-- <excludeStructure name="qapi_BLE_CSCS_SCCP_Supported_Sensor_Locations_t"/> -->
+      <excludeStructure name="qapi_BLE_CSCS_CSC_Measurement_t"/>
+      <excludeStructure name="qapi_BLE_CSCS_SC_Control_Point_t"/>
+
+      <!-- <excludeStructure name="qapi_BLE_DIS_System_ID_Value_t"/> -->
+
+      <excludeStructure name="qapi_BLE_ESS_ES_Trigger_Setting_t"/>
+      <excludeStructure name="qapi_BLE_ESS_Descriptor_Value_Changed_t"/>
+
+      <excludeStructure name="qapi_BLE_GLS_Measurement_Header_t"/>
+      <excludeStructure name="qapi_BLE_GLS_Record_Access_Control_Point_t"/>
+
+      <!-- <excludeStructure name="qapi_BLE_HRS_Heart_Rate_Measurement_Data_t"/> -->
+      <excludeStructure name="qapi_BLE_HRS_Heart_Rate_Measurement_t"/>
+
+      <!-- <excludeStructure name="qapi_BLE_LNS_Location_Speed_Data_t"/> -->
+      <!-- <excludeStructure name="qapi_BLE_LNS_Navigation_Data_t"/> -->
+      <excludeStructure name="qapi_BLE_LNS_Location_Speed_t"/>
+      <excludeStructure name="qapi_BLE_LNS_Position_Quality_t"/>
+      <excludeStructure name="qapi_BLE_LNS_LN_Control_Point_t"/>
+      <excludeStructure name="qapi_BLE_LNS_Navigation_t"/>
+
+      <excludeStructure name="qapi_BLE_OTS_Client_Information_t"/>
+      <excludeStructure name="qapi_BLE_OTS_Object_Action_Control_Point_t"/>
+      <excludeStructure name="qapi_BLE_OTS_OACP_Response_Value_t"/>
+      <excludeStructure name="qapi_BLE_OTS_Object_List_Control_Point_t"/>
+      <excludeStructure name="qapi_BLE_OTS_OLCP_Response_Value_t"/>
+      <excludeStructure name="qapi_BLE_OTS_Object_List_Filter_t"/>
+      <excludeStructure name="qapi_BLE_OTS_Object_Record_t"/>
+
+      <excludeStructure name="qapi_BLE_PLXS_Measurement_t"/>
+      <excludeStructure name="qapi_BLE_PLXS_RACP_Response_t"/>
+
+      <!-- <excludeStructure name="qapi_BLE_RSCS_SCCP_Supported_Sensor_Locations_t"/> -->
+      <excludeStructure name="qapi_BLE_RSCS_RSC_Measurement_t"/>
+      <excludeStructure name="qapi_BLE_RSCS_SC_Control_Point_t"/>
+
+      <excludeStructure name="qapi_BLE_TRDS_Transport_Block_t"/>
+      <excludeStructure name="qapi_BLE_TRDS_Control_Point_Request_t"/>
+      <excludeStructure name="qapi_BLE_TRDS_Control_Point_Response_t"/>
+
+      <!-- <excludeStructure name="qapi_BLE_UDS_User_Control_Point_Request_Data_t"/> -->
+      <excludeStructure name="qapi_BLE_UDS_User_Control_Point_Request_t"/>
+      <excludeStructure name="qapi_BLE_UDS_User_Control_Point_Response_t"/>
+
+      <excludeStructure name="qapi_BLE_WSS_Weight_Measurement_t"/>
+   <module name="coex"/>
+   <module name="zb"/>
+   <module name="twn"/>
+   <module name="hmi"/>
+   <module name="HERH"/>
+   <module name="wlan"/>
+      <excludeStructure name="qapi_WLAN_Promiscuous_Mode_Info_t"/>
+      <excludeFunction name="qapi_WLAN_tests"/>
+      <excludeFunction name="qapi_WLAN_FTM_Command_Send"/>
+   <module name="firmware_upgrade_ext"/>
+   <module name="tlmm"/>
+</config>

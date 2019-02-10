@@ -1,0 +1,224 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="./qapi_ble_btapityp.h"/>
+   <include name="./qapi_ble_bttypes.h"/>
+   <include name="./qapi_ble_gatt.h"/>
+   <include name="./qapi_ble_anstypes.h"/>
+   <macro name="QAPI_BLE_ANS_ERROR_INVALID_PARAMETER" value="(-1000)"/>
+   <macro name="QAPI_BLE_ANS_ERROR_INSUFFICIENT_RESOURCES" value="(-1001)"/>
+   <macro name="QAPI_BLE_ANS_ERROR_SERVICE_ALREADY_REGISTERED" value="(-1002)"/>
+   <macro name="QAPI_BLE_ANS_ERROR_INVALID_INSTANCE_ID" value="(-1003)"/>
+   <macro name="QAPI_BLE_ANS_ERROR_MALFORMATTED_DATA" value="(-1004)"/>
+   <macro name="QAPI_BLE_ANS_ERROR_UNKNOWN_ERROR" value="(-1005)"/>
+   <macro name="QAPI_BLE_ANS_SUPPORTED_CATEGORIES_SIMPLE_ALERT" value="0x0001"/>
+   <macro name="QAPI_BLE_ANS_SUPPORTED_CATEGORIES_EMAIL" value="0x0002"/>
+   <macro name="QAPI_BLE_ANS_SUPPORTED_CATEGORIES_NEWS" value="0x0004"/>
+   <macro name="QAPI_BLE_ANS_SUPPORTED_CATEGORIES_CALL" value="0x0008"/>
+   <macro name="QAPI_BLE_ANS_SUPPORTED_CATEGORIES_MISSED_CALL" value="0x0010"/>
+   <macro name="QAPI_BLE_ANS_SUPPORTED_CATEGORIES_SMS_MMS" value="0x0020"/>
+   <macro name="QAPI_BLE_ANS_SUPPORTED_CATEGORIES_VOICE_MAIL" value="0x0040"/>
+   <macro name="QAPI_BLE_ANS_SUPPORTED_CATEGORIES_SCHEDULE" value="0x0080"/>
+   <macro name="QAPI_BLE_ANS_SUPPORTED_CATEGORIES_HIGH_PRIORITY_ALERT" value="0x0100"/>
+   <macro name="QAPI_BLE_ANS_SUPPORTED_CATEGORIES_INSTANT_MESSAGE" value="0x0200"/>
+   <macro name="QAPI_BLE_ANS_CLIENT_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_ANS_Client_Information_t))"/>
+   <macro name="QAPI_BLE_ANS_SERVER_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_ANS_Server_Information_t))"/>
+   <macro name="QAPI_BLE_ANS_SERVER_INFORMATION_ENABLE_CATEGORY" params="(_x, _y)" value="\  (((uint16_t *)(_x))[0]) |= (((_y) != QAPI_BLE_ANS_ALERT_CATEGORY_ID_ALL_CATEGORIES)?((uint16_t)((0x0001) &lt;&lt; ((_y) % (QAPI_BLE_WORD_SIZE*8)))):((uint16_t)0xFFFF))"/>
+   <macro name="QAPI_BLE_ANS_SERVER_INFORMATION_DISABLE_CATEGORY" params="(_x, _y)" value="\  (((uint16_t *)(_x))[0]) &amp;= (((_y) != QAPI_BLE_ANS_ALERT_CATEGORY_ID_ALL_CATEGORIES)?((uint16_t)~((0x0001) &lt;&lt; ((_y) % (QAPI_BLE_WORD_SIZE*8)))):((uint16_t)0x0000))"/>
+   <macro name="QAPI_BLE_ANS_SERVER_INFORMATION_CATEGORY_ENABLED" params="(_x, _y)" value="\  ((((uint16_t *)(_x))[0]) &amp; ((0x0001) &lt;&lt; ((_y) % (QAPI_BLE_WORD_SIZE*8))))"/>
+   <macro name="QAPI_BLE_ANS_NEW_ALERT_DATA_SIZE" value="(sizeof(qapi_BLE_ANS_New_Alert_Data_t))"/>
+   <macro name="QAPI_BLE_ANS_UN_READ_ALERT_DATA_SIZE" value="(sizeof(qapi_BLE_ANS_Un_Read_Alert_Data_t))"/>
+   <macro name="QAPI_BLE_ANS_READ_CLIENT_CONFIGURATION_DATA_SIZE" value="(sizeof(qapi_BLE_ANS_Read_Client_Configuration_Data_t))"/>
+   <macro name="QAPI_BLE_ANS_CLIENT_CONFIGURATION_UPDATE_DATA_SIZE" value="(sizeof(qapi_BLE_ANS_Client_Configuration_Update_Data_t))"/>
+   <macro name="QAPI_BLE_ANS_CONTROL_POINT_COMMAND_DATA_SIZE" value="(sizeof(qapi_BLE_ANS_Control_Point_Command_Data_t))"/>
+   <macro name="QAPI_BLE_ANS_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_ANS_Event_Data_t))"/>
+   <enum name="qapi_BLE_ANS_Control_Point_Command_t">
+      <member name="QAPI_BLE_PC_ENABLE_NEW_ALERT_NOTIFICATIONS_E" value="QAPI_BLE_ANS_COMMAND_ID_ENABLE_NEW_INCOMING_ALERT_NOTIFICATION"/>
+      <member name="QAPI_BLE_PC_ENABLE_UNREAD_CATEGORY_NOTIFICATIONS_E" value="QAPI_BLE_ANS_COMMAND_ID_ENABLE_UNREAD_CATEGORY_STATUS_NOTIFICATION"/>
+      <member name="QAPI_BLE_PC_DISABLE_NEW_ALERT_NOTIFICATIONS_E" value="QAPI_BLE_ANS_COMMAND_ID_DISABLE_NEW_INCOMING_ALERT_NOTIFICATION"/>
+      <member name="QAPI_BLE_PC_DISABLE_UNREAD_CATEGORY_NOTIFICATIONS_E" value="QAPI_BLE_ANS_COMMAND_ID_DISABLE_UNREAD_CATEGORY_STATUS_NOTIFICATION"/>
+      <member name="QAPI_BLE_PC_NOTIFY_NEW_ALERT_IMMEDIATELY_E" value="QAPI_BLE_ANS_COMMAND_ID_NOTIFY_NEW_INCOMING_ALERT_IMMEDIATELY"/>
+      <member name="QAPI_BLE_PC_NOTIFY_UNREAD_CATEGORY_IMMEDIATELY_E" value="QAPI_BLE_ANS_COMMAND_ID_NOTIFY_UNREAD_CATEGORY_STATUS_IMMEDIATELY"/>
+   </enum>
+   <enum name="qapi_BLE_ANS_Category_Identification_t">
+      <member name="QAPI_BLE_CI_SIMPLE_ALERT_E" value="QAPI_BLE_ANS_ALERT_CATEGORY_ID_SIMPLE_ALERT"/>
+      <member name="QAPI_BLE_CI_EMAIL_E" value="QAPI_BLE_ANS_ALERT_CATEGORY_ID_EMAIL"/>
+      <member name="QAPI_BLE_CI_NEWS_E" value="QAPI_BLE_ANS_ALERT_CATEGORY_ID_NEWS"/>
+      <member name="QAPI_BLE_CI_CALL_E" value="QAPI_BLE_ANS_ALERT_CATEGORY_ID_CALL"/>
+      <member name="QAPI_BLE_CI_MISSED_CALL_E" value="QAPI_BLE_ANS_ALERT_CATEGORY_ID_MISSED_CALL"/>
+      <member name="QAPI_BLE_CI_SMS_MMS_E" value="QAPI_BLE_ANS_ALERT_CATEGORY_ID_SMS_MMS"/>
+      <member name="QAPI_BLE_CI_VOICEMAIL_E" value="QAPI_BLE_ANS_ALERT_CATEGORY_ID_VOICE_MAIL"/>
+      <member name="QAPI_BLE_CI_SCHEDULE_E" value="QAPI_BLE_ANS_ALERT_CATEGORY_ID_SCHEDULE"/>
+      <member name="QAPI_BLE_CI_HIGH_PRIORITY_ALERT_E" value="QAPI_BLE_ANS_ALERT_CATEGORY_ID_HIGH_PRIORITY_ALERT"/>
+      <member name="QAPI_BLE_CI_INSTANT_MESSAGE_E" value="QAPI_BLE_ANS_ALERT_CATEGORY_ID_INSTANT_MESSAGE"/>
+      <member name="QAPI_BLE_CI_ALL_CATEGORIES_E" value="QAPI_BLE_ANS_ALERT_CATEGORY_ID_ALL_CATEGORIES"/>
+   </enum>
+   <enum name="qapi_BLE_ANS_Characteristic_Type_t">
+      <member name="QAPI_BLE_CT_NEW_ALERT_E" value="0"/>
+      <member name="QAPI_BLE_CT_UNREAD_ALERT_STATUS_E" value="1"/>
+   </enum>
+   <enum name="qapi_BLE_ANS_Supported_Categories_Type_t">
+      <member name="QAPI_BLE_SC_NEW_ALERT_E" value="0"/>
+      <member name="QAPI_BLE_SC_UNREAD_ALERT_STATUS_E" value="1"/>
+   </enum>
+   <enum name="qapi_BLE_ANS_Event_Type_t">
+      <member name="QAPI_BLE_ET_ANS_SERVER_READ_CLIENT_CONFIGURATION_REQUEST_E" value="0"/>
+      <member name="QAPI_BLE_ET_ANS_SERVER_CLIENT_CONFIGURATION_UPDATE_E" value="1"/>
+      <member name="QAPI_BLE_ET_ANS_SERVER_CONTROL_POINT_COMMAND_INDICATION_E" value="2"/>
+   </enum>
+   <structure name="qapi_BLE_ANS_Client_Information_t">
+      <member attributes="value" name="Supported_New_Alert_Category" type="uint16_t"/>
+      <member attributes="value" name="New_Alert" type="uint16_t"/>
+      <member attributes="value" name="New_Alert_Client_Configuration" type="uint16_t"/>
+      <member attributes="value" name="Supported_Unread_Alert_Category" type="uint16_t"/>
+      <member attributes="value" name="Unread_Alert_Status" type="uint16_t"/>
+      <member attributes="value" name="Unread_Alert_Status_Client_Configuration" type="uint16_t"/>
+      <member attributes="value" name="Control_Point" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_ANS_Server_Information_t">
+      <member attributes="value" name="New_Alert_Client_Configuration" type="boolean_t"/>
+      <member attributes="value" name="Unread_Alert_Status_Client_Configuration" type="boolean_t"/>
+      <member attributes="value" name="Enabled_New_Alert_Categories" type="uint16_t"/>
+      <member attributes="value" name="Enabled_Unread_Alert_Categories" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_ANS_New_Alert_Data_t">
+      <member attributes="value" name="CategoryID" type="qapi_BLE_ANS_Category_Identification_t"/>
+      <member attributes="value" name="NumberOfNewAlerts" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="__strlen__" lengthVerified="yes" name="LastAlertString" type="char"/>
+   </structure>
+   <structure name="qapi_BLE_ANS_Un_Read_Alert_Data_t">
+      <member attributes="value" name="CategoryID" type="qapi_BLE_ANS_Category_Identification_t"/>
+      <member attributes="value" name="NumberOfUnreadAlerts" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_ANS_Read_Client_Configuration_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ClientConfigurationType" type="qapi_BLE_ANS_Characteristic_Type_t"/>
+   </structure>
+   <structure name="qapi_BLE_ANS_Client_Configuration_Update_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ClientConfigurationType" type="qapi_BLE_ANS_Characteristic_Type_t"/>
+      <member attributes="value" name="NotificationsEnabled" type="boolean_t"/>
+   </structure>
+   <structure name="qapi_BLE_ANS_Control_Point_Command_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Command" type="qapi_BLE_ANS_Control_Point_Command_t"/>
+      <member attributes="value" name="Category" type="qapi_BLE_ANS_Category_Identification_t"/>
+   </structure>
+   <structure name="qapi_BLE_ANS_Event_Data_t">
+      <member attributes="value" name="Event_Data_Type" type="qapi_BLE_ANS_Event_Type_t"/>
+      <member attributes="value" name="Event_Data_Size" type="uint16_t"/>
+      <member attributes="union" name="Event_Data">
+         <member attributes="ptr" iotype="in" name="ANS_Read_Client_Configuration_Data" type="qapi_BLE_ANS_Read_Client_Configuration_Data_t"/>
+         <member attributes="ptr" iotype="in" name="ANS_Client_Configuration_Update_Data" type="qapi_BLE_ANS_Client_Configuration_Update_Data_t"/>
+         <member attributes="ptr" iotype="in" name="ANS_Control_Point_Command_Data" type="qapi_BLE_ANS_Control_Point_Command_Data_t"/>
+         <unionMap mapVerified="yes" name="Event_Data_Type" type="qapi_BLE_ANS_Event_Type_t">
+            <mapEntry member="ANS_Read_Client_Configuration_Data" type="qapi_BLE_ANS_Read_Client_Configuration_Data_t" value="QAPI_BLE_ET_ANS_SERVER_READ_CLIENT_CONFIGURATION_REQUEST_E"/>
+            <mapEntry member="ANS_Client_Configuration_Update_Data" type="qapi_BLE_ANS_Client_Configuration_Update_Data_t" value="QAPI_BLE_ET_ANS_SERVER_CLIENT_CONFIGURATION_UPDATE_E"/>
+            <mapEntry member="ANS_Control_Point_Command_Data" type="qapi_BLE_ANS_Control_Point_Command_Data_t" value="QAPI_BLE_ET_ANS_SERVER_CONTROL_POINT_COMMAND_INDICATION_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <function name="qapi_BLE_ANS_Initialize_Service">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_ANS_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_ANS_Initialize_Service_Handle_Range">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_ANS_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="ServiceHandleRange" type="qapi_BLE_GATT_Attribute_Handle_Group_t"/>
+   </function>
+   <function name="qapi_BLE_ANS_Cleanup_Service">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_ANS_Query_Number_Attributes">
+      <return attributes="value" type="unsigned int"/>
+   </function>
+   <function name="qapi_BLE_ANS_Set_Supported_Categories">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="SupportedCategoryType" type="qapi_BLE_ANS_Supported_Categories_Type_t"/>
+      <argument attributes="value" name="SupportedCategoriesMask" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_ANS_Query_Supported_Categories">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="SupportedCategoryType" type="qapi_BLE_ANS_Supported_Categories_Type_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="SupportedCategoriesMask" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_ANS_Read_Client_Configuration_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="NotificationsEnabled" type="boolean_t"/>
+   </function>
+   <function name="qapi_BLE_ANS_New_Alert_Notification">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="NewAlert" type="qapi_BLE_ANS_New_Alert_Data_t"/>
+   </function>
+   <function name="qapi_BLE_ANS_Un_Read_Alert_Status_Notification">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="UnReadAlert" type="qapi_BLE_ANS_Un_Read_Alert_Data_t"/>
+   </function>
+   <function name="qapi_BLE_ANS_Decode_New_Alert_Notification">
+      <return attributes="ptr" type="qapi_BLE_ANS_New_Alert_Data_t"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_ANS_Free_New_Alert_Data">
+      <return attributes="value" type="void"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="NewAlertData" type="qapi_BLE_ANS_New_Alert_Data_t"/>
+   </function>
+   <function name="qapi_BLE_ANS_Decode_Un_Read_Alert_Status_Notification">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="UnReadAlert" type="qapi_BLE_ANS_Un_Read_Alert_Data_t"/>
+   </function>
+   <function name="qapi_BLE_ANS_Decode_Supported_Categories">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="SupportedCategoriesMask" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_ANS_Format_Control_Point_Command">
+      <return attributes="value" type="int"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="CommandBuffer" type="qapi_BLE_ANS_Control_Point_Command_Value_t"/>
+      <argument attributes="value" name="Command" type="qapi_BLE_ANS_Control_Point_Command_t"/>
+      <argument attributes="value" name="CommandCategory" type="qapi_BLE_ANS_Category_Identification_t"/>
+   </function>
+   <callback name="qapi_BLE_ANS_Event_Callback_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ANS_Event_Data" type="qapi_BLE_ANS_Event_Data_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <createFunction ID="qsRetVal" funcSuccess="0" moduleParam="BluetoothStackID" name="qapi_BLE_ANS_Initialize_Service" param="CallbackParameter"/>
+      <createFunction ID="qsRetVal" funcSuccess="0" moduleParam="BluetoothStackID" name="qapi_BLE_ANS_Initialize_Service_Handle_Range" param="CallbackParameter"/>
+      <destroyFunction ID="InstanceID" funcSuccess="0" name="qapi_BLE_ANS_Cleanup_Service"/>
+   </callback>
+</header>

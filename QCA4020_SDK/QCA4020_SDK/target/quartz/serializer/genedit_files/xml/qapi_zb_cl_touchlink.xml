@@ -1,0 +1,84 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="qapi_zb_cl.h"/>
+   <enum name="qapi_ZB_CL_Touchlink_Device_Type_t">
+      <member name="QAPI_ZB_CL_TOUCHLINK_DEVICE_TYPE_COORDINATOR_E" value="0"/>
+      <member name="QAPI_ZB_CL_TOUCHLINK_DEVICE_TYPE_ROUTER_E" value="1"/>
+      <member name="QAPI_ZB_CL_TOUCHLINK_DEVICE_TYPE_RX_ON_WHEN_IDLE_END_DEVICE_E" value="2"/>
+      <member name="QAPI_ZB_CL_TOUCHLINK_DEVICE_TYPE_SLEEPY_END_DEVICE_E" value="3"/>
+   </enum>
+   <enum name="qapi_ZB_CL_Touchlink_Client_Event_Type_t">
+      <member name="QAPI_ZB_CL_TOUCHLINK_CLIENT_EVENT_TYPE_START_RESULT_E" value="0"/>
+   </enum>
+   <enum name="qapi_ZB_CL_Touchlink_Server_Event_Type_t">
+      <member name="QAPI_ZB_CL_TOUCHLINK_SERVER_EVENT_TYPE_START_RESULT_E" value="0"/>
+   </enum>
+   <structure name="qapi_ZB_CL_Touchlink_Client_Event_Data_t">
+      <member attributes="value" name="Event_Type" type="qapi_ZB_CL_Touchlink_Client_Event_Type_t"/>
+      <member attributes="union" name="Data">
+         <member attributes="value" name="StartResult" type="qapi_Status_t"/>
+         <unionMap mapVerified="no" name="Event_Type" type="qapi_ZB_CL_Touchlink_Client_Event_Type_t">
+            <mapEntry member="StartResult" type="qapi_Status_t" value="QAPI_ZB_CL_TOUCHLINK_CLIENT_EVENT_TYPE_START_RESULT_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_ZB_CL_Touchlink_Server_Event_Data_t">
+      <member attributes="value" name="Event_Type" type="qapi_ZB_CL_Touchlink_Server_Event_Type_t"/>
+      <member attributes="union" name="Data">
+         <member attributes="value" name="StartResult" type="qapi_Status_t"/>
+         <unionMap mapVerified="yes" name="Event_Type" type="qapi_ZB_CL_Touchlink_Server_Event_Type_t">
+            <mapEntry member="StartResult" type="qapi_Status_t" value="QAPI_ZB_CL_TOUCHLINK_SERVER_EVENT_TYPE_START_RESULT_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <function name="qapi_ZB_CL_Touchlink_Create_Client">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="value" name="Endpoint" type="uint8_t"/>
+      <argument attributes="value" name="Event_CB" type="qapi_ZB_CL_Touchlink_Client_CB_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Touchlink_Create_Server">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="value" name="Endpoint" type="uint8_t"/>
+      <argument attributes="value" name="IdentifyCluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="value" name="Event_CB" type="qapi_ZB_CL_Touchlink_Server_CB_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Touchlink_Start">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="value" name="DeviceType" type="qapi_ZB_CL_Touchlink_Device_Type_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="PersistLength" lengthVerified="yes" name="PersistData" type="uint8_t"/>
+      <argument attributes="value" name="PersistLength" type="uint32_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Touchlink_Scan_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ClientCluster" type="qapi_ZB_Cluster_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Touchlink_Factory_Reset">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ClientCluster" type="qapi_ZB_Cluster_t"/>
+   </function>
+   <callback name="qapi_ZB_CL_Touchlink_Client_CB_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Event_Data" type="qapi_ZB_CL_Touchlink_Client_Event_Data_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+      <createFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_Touchlink_Create_Client" param="CB_Param"/>
+      <destroyFunction ID="Cluster" funcSuccess="QAPI_OK" name="qapi_ZB_CL_Destroy_Cluster"/>
+   </callback>
+   <callback name="qapi_ZB_CL_Touchlink_Server_CB_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Event_Data" type="qapi_ZB_CL_Touchlink_Server_Event_Data_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+      <createFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_Touchlink_Create_Server" param="CB_Param"/>
+      <destroyFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_Destroy_Cluster"/>
+   </callback>
+</header>

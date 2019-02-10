@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="qapi_zb_cl.h"/>
+   <macro name="QAPI_ZB_CL_DEVICETEMP_ATTR_ID_CURRENT_TEMP" value="(0x0000) "/>
+   <macro name="QAPI_ZB_CL_DEVICETEMP_ATTR_ID_MIN_TEMP_EXPERIENCED" value="(0x0001) "/>
+   <macro name="QAPI_ZB_CL_DEVICETEMP_ATTR_ID_MAX_TEMP_EXPERIENCED" value="(0x0002) "/>
+   <macro name="QAPI_ZB_CL_DEVICETEMP_ATTR_ID_OVER_TEMP_TOTAL_DWELL" value="(0x0003) "/>
+   <macro name="QAPI_ZB_CL_DEVICETEMP_ATTR_ID_DEVICE_TEMP_ALARM_MASK" value="(0x0010) "/>
+   <macro name="QAPI_ZB_CL_DEVICETEMP_ATTR_ID_LOW_TEMP_THRESHOLD" value="(0x0011) "/>
+   <macro name="QAPI_ZB_CL_DEVICETEMP_ATTR_ID_HIGH_TEMP_THRESHOLD" value="(0x0012) "/>
+   <macro name="QAPI_ZB_CL_DEVICETEMP_ATTR_ID_LOW_TEMP_DWELL_TRIP_POINT" value="(0x0013) "/>
+   <macro name="QAPI_ZB_CL_DEVICETEMP_ATTR_ID_HIGH_TEMP_DWELL_TRIP_POINT" value="(0x0014) "/>
+   <enum name="qapi_ZB_CL_DeviceTemp_Server_Event_Type_t">
+      <member name="QAPI_ZB_CL_DEVICETEMP_SERVER_EVENT_TYPE_ATTR_CUSTOM_READ_E" value="0"/>
+      <member name="QAPI_ZB_CL_DEVICETEMP_SERVER_EVENT_TYPE_ATTR_CUSTOM_WRITE_E" value="1"/>
+      <member name="QAPI_ZB_CL_DEVICETEMP_SERVER_EVENT_TYPE_UNPARSED_DATA_E" value="2"/>
+   </enum>
+   <structure name="qapi_ZB_CL_DeviceTemp_Server_Event_Data_t">
+      <member attributes="value" name="Event_Type" type="qapi_ZB_CL_DeviceTemp_Server_Event_Type_t"/>
+      <member attributes="union" name="Data">
+         <member attributes="value" name="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t"/>
+         <member attributes="value" name="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t"/>
+         <member attributes="value" name="Unparsed_Data" type="qapi_ZB_CL_Unparsed_Data_t"/>
+         <unionMap mapVerified="yes" name="Event_Type" type="qapi_ZB_CL_DeviceTemp_Server_Event_Type_t">
+            <mapEntry member="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t" value="QAPI_ZB_CL_DEVICETEMP_SERVER_EVENT_TYPE_ATTR_CUSTOM_READ_E"/>
+            <mapEntry member="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t" value="QAPI_ZB_CL_DEVICETEMP_SERVER_EVENT_TYPE_ATTR_CUSTOM_WRITE_E"/>
+            <mapEntry member="Unparsed_Data" type="qapi_ZB_CL_Unparsed_Data_t" value="QAPI_ZB_CL_DEVICETEMP_SERVER_EVENT_TYPE_UNPARSED_DATA_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <function name="qapi_ZB_CL_DeviceTemp_Create_Server">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Cluster_Info" type="qapi_ZB_CL_Cluster_Info_t"/>
+      <argument attributes="value" name="Event_CB" type="qapi_ZB_CL_DeviceTemp_Server_CB_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+   </function>
+   <function name="qapi_ZB_CL_DeviceTemp_Populate_Attributes">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="AttributeCount" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="AttributeCount" lengthVerified="yes" name="AttributeList" type="qapi_ZB_CL_Attribute_t"/>
+   </function>
+   <callback name="qapi_ZB_CL_DeviceTemp_Server_CB_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Event_Data" type="qapi_ZB_CL_DeviceTemp_Server_Event_Data_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+      <createFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_DeviceTemp_Create_Server" param="CB_Param"/>
+      <destroyFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_Destroy_Cluster"/>
+   </callback>
+</header>

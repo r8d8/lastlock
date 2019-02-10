@@ -1,0 +1,327 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="./qapi_ble_btapityp.h"/>
+   <include name="./qapi_ble_bttypes.h"/>
+   <include name="./qapi_ble_gatt.h"/>
+   <include name="./qapi_ble_plxstypes.h"/>
+   <macro name="QAPI_BLE_PLXS_ERROR_INVALID_PARAMETER" value="(-1000)"/>
+   <macro name="QAPI_BLE_PLXS_ERROR_INVALID_BLUETOOTH_STACK_ID" value="(-1001)"/>
+   <macro name="QAPI_BLE_PLXS_ERROR_INSUFFICIENT_RESOURCES" value="(-1002)"/>
+   <macro name="QAPI_BLE_PLXS_ERROR_SERVICE_ALREADY_REGISTERED" value="(-1003)"/>
+   <macro name="QAPI_BLE_PLXS_ERROR_INVALID_INSTANCE_ID" value="(-1004)"/>
+   <macro name="QAPI_BLE_PLXS_ERROR_MALFORMATTED_DATA" value="(-1005)"/>
+   <macro name="QAPI_BLE_PLXS_ERROR_INSUFFICIENT_BUFFER_SPACE" value="(-1006)"/>
+   <macro name="QAPI_BLE_PLXS_ERROR_MEASUREMENT_NOT_SUPPORTED" value="(-1007)"/>
+   <macro name="QAPI_BLE_PLXS_ERROR_INVALID_CCCD_TYPE" value="(-1008)"/>
+   <macro name="QAPI_BLE_PLXS_ERROR_INVALID_ATTRIBUTE_HANDLE" value="(-1009)"/>
+   <macro name="QAPI_BLE_PLXS_ERROR_RACP_NOT_SUPPORTED" value="(-1010)"/>
+   <macro name="QAPI_BLE_PLXS_ERROR_INVALID_RACP_RESPONSE_OP_CODE" value="(-1011)"/>
+   <macro name="QAPI_BLE_PLXS_INITIALIZE_DATA_SIZE" value="(sizeof(qapi_BLE_PLXS_Initialize_Data_t))"/>
+   <macro name="QAPI_BLE_PLXS_CLIENT_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_PLXS_Client_Information_t))"/>
+   <macro name="QAPI_BLE_PLXS_SERVER_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_PLXS_Server_Information_t))"/>
+   <macro name="QAPI_BLE_PLXS_INT24_DATA_SIZE" value="(sizeof(qapi_BLE_PLXS_INT24_Data_t))"/>
+   <macro name="QAPI_BLE_PLXS_FEATURES_DATA_SIZE" value="(sizeof(qapi_BLE_PLXS_Features_Data_t))"/>
+   <macro name="QAPI_BLE_PLXS_DATE_TIME_DATA_SIZE" value="(sizeof(qapi_BLE_PLXS_Date_Time_Data_t))"/>
+   <macro name="QAPI_BLE_PLXS_DATE_TIME_VALID" params="(_x)" value="((QAPI_BLE_GATT_DATE_TIME_VALID_YEAR(((_x)).Year)) &amp;&amp; (QAPI_BLE_GATT_DATE_TIME_VALID_MONTH(((_x)).Month)) &amp;&amp; (QAPI_BLE_GATT_DATE_TIME_VALID_DAY(((_x)).Day)) &amp;&amp; (QAPI_BLE_GATT_DATE_TIME_VALID_HOURS(((_x)).Hours)) &amp;&amp; (QAPI_BLE_GATT_DATE_TIME_VALID_MINUTES(((_x)).Minutes)) &amp;&amp; (QAPI_BLE_GATT_DATE_TIME_VALID_SECONDS(((_x)).Seconds)))"/>
+   <macro name="QAPI_BLE_PLXS_SPOT_CHECK_MEASUREMENT_DATA_SIZE" value="(sizeof(qapi_BLE_PLXS_Spot_Check_Measurement_Data_t))"/>
+   <macro name="QAPI_BLE_PLXS_CONTINUOUS_MEASUREMENT_DATA_SIZE" value="(sizeof(qapi_BLE_PLXS_Continuous_Measurement_Data_t))"/>
+   <macro name="QAPI_BLE_PLXS_RACP_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_PLXS_RACP_Request_Data_t))"/>
+   <macro name="QAPI_BLE_PLXS_RACP_RESPONSE_DATA_SIZE" value="(sizeof(qapi_BLE_PLXS_RACP_Response_Data_t))"/>
+   <macro name="QAPI_BLE_PLXS_READ_FEATURES_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_PLXS_Read_Features_Request_Data_t))"/>
+   <macro name="QAPI_BLE_PLXS_WRITE_RACP_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_PLXS_Write_RACP_Request_Data_t))"/>
+   <macro name="QAPI_BLE_PLXS_READ_CCCD_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_PLXS_Read_CCCD_Request_Data_t))"/>
+   <macro name="QAPI_BLE_PLXS_WRITE_CCCD_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_PLXS_Write_CCCD_Request_Data_t))"/>
+   <macro name="QAPI_BLE_PLXS_CONFIRMATION_DATA_SIZE" value="(sizeof(qapi_BLE_PLXS_Confirmation_Data_t))"/>
+   <macro name="QAPI_BLE_PLXS_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_PLXS_Event_Data_t))"/>
+   <enum name="qapi_BLE_PLXS_CCCD_Type_t">
+      <member name="QAPI_BLE_PLXS_CT_SPOT_CHECK_MEASUREMENT_E" value="0"/>
+      <member name="QAPI_BLE_PLXS_CT_CONTINUOUS_MEASUREMENT_E" value="1"/>
+      <member name="QAPI_BLE_PLXS_CT_RACP_E" value="2"/>
+   </enum>
+   <enum name="qapi_BLE_PLXS_Measurement_Type_t">
+      <member name="QAPI_BLE_PLXS_MT_SPOT_CHECK_MEASUREMENT_E" value="0"/>
+      <member name="QAPI_BLE_PLXS_MT_CONTINUOUS_MEASUREMENT_E" value="1"/>
+   </enum>
+   <enum name="qapi_BLE_PLXS_RACP_Request_Type_t">
+      <member name="QAPI_BLE_PLXS_RRT_REPORT_STORED_RECORDS_REQUEST_E" value="QAPI_BLE_PLXS_RACP_OPCODE_REPORT_STORED_RECORDS"/>
+      <member name="QAPI_BLE_PLXS_RRT_DELETE_STORED_RECORDS_REQUEST_E" value="QAPI_BLE_PLXS_RACP_OPCODE_DELETE_STORED_RECORDS"/>
+      <member name="QAPI_BLE_PLXS_RRT_ABORT_OPERATION_REQUEST_E" value="QAPI_BLE_PLXS_RACP_OPCODE_ABORT_OPERATION"/>
+      <member name="QAPI_BLE_PLXS_RRT_NUMBER_OF_STORED_RECORDS_REQUEST_E" value="QAPI_BLE_PLXS_RACP_OPCODE_REPORT_NUMBER_OF_STORED_RECORDS"/>
+   </enum>
+   <enum name="qapi_BLE_PLXS_RACP_Operator_Type_t">
+      <member name="QAPI_BLE_PLXS_ROT_NULL_E" value="QAPI_BLE_PLXS_RACP_OPERATOR_NULL"/>
+      <member name="QAPI_BLE_PLXS_ROT_ALL_RECORDS_E" value="QAPI_BLE_PLXS_RACP_OPERATOR_ALL_RECORDS"/>
+      <member name="" value="0"/>
+   </enum>
+   <enum name="qapi_BLE_PLXS_RACP_Response_Type_t">
+      <member name="QAPI_BLE_PLXS_RRT_NUMBER_OF_STORED_RECORDS_RESPONSE_E" value="QAPI_BLE_PLXS_RACP_OPCODE_NUMBER_OF_STORED_RECORDS_RESPONSE"/>
+      <member name="QAPI_BLE_PLXS_RRT_RESPONSE_OPCODE_E" value="QAPI_BLE_PLXS_RACP_OPCODE_RESPONSE_CODE"/>
+   </enum>
+   <enum name="qapi_BLE_PLXS_RACP_Response_Code_Value_t">
+      <member name="QAPI_BLE_PLXS_RRCV_SUCCESS_E" value="QAPI_BLE_PLXS_RACP_RESPONSE_CODE_VALUE_SUCCESS"/>
+      <member name="QAPI_BLE_PLXS_RRCV_OPCODE_NOT_SUPPORTED_E" value="QAPI_BLE_PLXS_RACP_RESPONSE_CODE_VALUE_OPCODE_NOT_SUPPORTED"/>
+      <member name="QAPI_BLE_PLXS_RRCV_INVALID_OPERATOR_E" value="QAPI_BLE_PLXS_RACP_RESPONSE_CODE_VALUE_INVALID_OPERATOR"/>
+      <member name="QAPI_BLE_PLXS_RRCV_OPERATOR_NOT_SUPPORTED_E" value="QAPI_BLE_PLXS_RACP_RESPONSE_CODE_VALUE_OPERATOR_NOT_SUPPORTED"/>
+      <member name="QAPI_BLE_PLXS_RRCV_INVALID_OPERAND_E" value="QAPI_BLE_PLXS_RACP_RESPONSE_CODE_VALUE_INVALID_OPERAND"/>
+      <member name="QAPI_BLE_PLXS_RRCV_NO_RECORDS_FOUND_E" value="QAPI_BLE_PLXS_RACP_RESPONSE_CODE_VALUE_NO_RECORDS_FOUND"/>
+      <member name="QAPI_BLE_PLXS_RRCV_ABORT_UNSUCCESSFUL_E" value="QAPI_BLE_PLXS_RACP_RESPONSE_CODE_VALUE_ABORT_UNSUCCESSFUL"/>
+      <member name="QAPI_BLE_PLXS_RRCV_PROCEDURE_NOT_COMPLETED_E" value="QAPI_BLE_PLXS_RACP_RESPONSE_CODE_VALUE_PROCEDURE_NOT_COMPLETED"/>
+      <member name="QAPI_BLE_PLXS_RRCV_OPERAND_NOT_SUPPORTED_E" value="QAPI_BLE_PLXS_RACP_RESPONSE_CODE_VALUE_OPERAND_NOT_SUPPORTED"/>
+      <member name="" value="0"/>
+   </enum>
+   <enum name="qapi_BLE_PLXS_Event_Type_t">
+      <member name="QAPI_BLE_PLXS_ET_SERVER_READ_FEATURES_REQUEST_E" value="0"/>
+      <member name="QAPI_BLE_PLXS_ET_SERVER_WRITE_RACP_REQUEST_E" value="1"/>
+      <member name="QAPI_BLE_PLXS_ET_SERVER_READ_CCCD_REQUEST_E" value="2"/>
+      <member name="QAPI_BLE_PLXS_ET_SERVER_WRITE_CCCD_REQUEST_E" value="3"/>
+      <member name="QAPI_BLE_PLXS_ET_SERVER_CONFIRMATION_E" value="4"/>
+   </enum>
+   <structure name="qapi_BLE_PLXS_Initialize_Data_t">
+      <member attributes="value" name="Spot_Check_Measurement" type="boolean_t"/>
+      <member attributes="value" name="Continuous_Measurement" type="boolean_t"/>
+      <member attributes="value" name="Measurement_Storage" type="boolean_t"/>
+   </structure>
+   <structure name="qapi_BLE_PLXS_Client_Information_t">
+      <member attributes="value" name="Spot_Check_Measurement" type="uint16_t"/>
+      <member attributes="value" name="Spot_Check_Measurement_CCCD" type="uint16_t"/>
+      <member attributes="value" name="Continuous_Measurement" type="uint16_t"/>
+      <member attributes="value" name="Continuous_Measurement_CCCD" type="uint16_t"/>
+      <member attributes="value" name="PLX_Features" type="uint16_t"/>
+      <member attributes="value" name="Record_Access_Control_Point" type="uint16_t"/>
+      <member attributes="value" name="Record_Access_Control_Point_CCCD" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_PLXS_Server_Information_t">
+      <member attributes="value" name="Spot_Check_Measurement_CCCD" type="uint16_t"/>
+      <member attributes="value" name="Continuous_Measurement_CCCD" type="uint16_t"/>
+      <member attributes="value" name="Record_Access_Control_Point_CCCD" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_PLXS_INT24_Data_t">
+      <member attributes="value" name="Lower" type="uint16_t"/>
+      <member attributes="value" name="Upper" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_PLXS_Features_Data_t">
+      <member attributes="value" name="Support_Features" type="uint16_t"/>
+      <member attributes="value" name="Measurement_Status_Support" type="uint16_t"/>
+      <member attributes="value" name="Device_And_Sensor_Status_Support" type="qapi_BLE_PLXS_INT24_Data_t"/>
+   </structure>
+   <structure name="qapi_BLE_PLXS_Date_Time_Data_t">
+      <member attributes="value" name="Year" type="uint16_t"/>
+      <member attributes="value" name="Month" type="uint8_t"/>
+      <member attributes="value" name="Day" type="uint8_t"/>
+      <member attributes="value" name="Hours" type="uint8_t"/>
+      <member attributes="value" name="Minutes" type="uint8_t"/>
+      <member attributes="value" name="Seconds" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_PLXS_Spot_Check_Measurement_Data_t">
+      <member attributes="value" name="Flags" type="uint8_t"/>
+      <member attributes="value" name="SpO2" type="uint16_t"/>
+      <member attributes="value" name="PR" type="uint16_t"/>
+      <member attributes="value" name="Timestamp" type="qapi_BLE_PLXS_Date_Time_Data_t"/>
+      <member attributes="value" name="Measurement_Status" type="uint16_t"/>
+      <member attributes="value" name="Device_And_Sensor_Status" type="qapi_BLE_PLXS_INT24_Data_t"/>
+      <member attributes="value" name="Pulse_Amplitude_Index" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_PLXS_Continuous_Measurement_Data_t">
+      <member attributes="value" name="Flags" type="uint8_t"/>
+      <member attributes="value" name="SpO2_Normal" type="uint16_t"/>
+      <member attributes="value" name="PR_Normal" type="uint16_t"/>
+      <member attributes="value" name="SpO2_Fast" type="uint16_t"/>
+      <member attributes="value" name="PR_Fast" type="uint16_t"/>
+      <member attributes="value" name="SpO2_Slow" type="uint16_t"/>
+      <member attributes="value" name="PR_Slow" type="uint16_t"/>
+      <member attributes="value" name="Measurement_Status" type="uint16_t"/>
+      <member attributes="value" name="Device_And_Sensor_Status" type="qapi_BLE_PLXS_INT24_Data_t"/>
+      <member attributes="value" name="Pulse_Amplitude_Index" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_PLXS_RACP_Request_Data_t">
+      <member attributes="value" name="Op_Code" type="qapi_BLE_PLXS_RACP_Request_Type_t"/>
+      <member attributes="value" name="Operator" type="qapi_BLE_PLXS_RACP_Operator_Type_t"/>
+   </structure>
+   <structure name="qapi_BLE_PLXS_RACP_Response_Data_t">
+      <member attributes="value" name="Response_Op_Code" type="qapi_BLE_PLXS_RACP_Response_Type_t"/>
+      <member attributes="value" name="Operator" type="qapi_BLE_PLXS_RACP_Operator_Type_t"/>
+      <member attributes="value" name="Request_Op_Code" type="qapi_BLE_PLXS_RACP_Request_Type_t"/>
+      <member attributes="union" name="Operand">
+         <member attributes="value" name="Number_Of_Stored_Records" type="uint16_t"/>
+         <member attributes="value" name="Response_Code" type="qapi_BLE_PLXS_RACP_Response_Code_Value_t"/>
+         <unionMap mapVerified="yes" name="Response_Op_Code" type="qapi_BLE_PLXS_RACP_Response_Type_t">
+            <mapEntry member="Number_Of_Stored_Records" type="uint16_t" value="QAPI_BLE_PLXS_RRT_NUMBER_OF_STORED_RECORDS_RESPONSE_E"/>
+            <mapEntry member="Response_Code" type="qapi_BLE_PLXS_RACP_Response_Code_Value_t" value="QAPI_BLE_PLXS_RRT_RESPONSE_OPCODE_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_BLE_PLXS_Read_Features_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+   </structure>
+   <structure name="qapi_BLE_PLXS_Write_RACP_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="RequestData" type="qapi_BLE_PLXS_RACP_Request_Data_t"/>
+   </structure>
+   <structure name="qapi_BLE_PLXS_Read_CCCD_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Type" type="qapi_BLE_PLXS_CCCD_Type_t"/>
+   </structure>
+   <structure name="qapi_BLE_PLXS_Write_CCCD_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Type" type="qapi_BLE_PLXS_CCCD_Type_t"/>
+      <member attributes="value" name="Configuration" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_PLXS_Confirmation_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Status" type="uint8_t"/>
+      <member attributes="value" name="BytesWritten" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_PLXS_Event_Data_t">
+      <member attributes="value" name="Event_Data_Type" type="qapi_BLE_PLXS_Event_Type_t"/>
+      <member attributes="value" name="Event_Data_Size" type="uint16_t"/>
+      <member attributes="union" name="Event_Data">
+         <member attributes="ptr" iotype="in" name="PLXS_Read_Features_Request_Data" type="qapi_BLE_PLXS_Read_Features_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="PLXS_Write_RACP_Request_Data" type="qapi_BLE_PLXS_Write_RACP_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="PLXS_Read_CCCD_Request_Data" type="qapi_BLE_PLXS_Read_CCCD_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="PLXS_Write_CCCD_Request_Data" type="qapi_BLE_PLXS_Write_CCCD_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="PLXS_Confirmation_Data" type="qapi_BLE_PLXS_Confirmation_Data_t"/>
+         <unionMap mapVerified="yes" name="Event_Data_Type" type="qapi_BLE_PLXS_Event_Type_t">
+            <mapEntry member="PLXS_Read_Features_Request_Data" type="qapi_BLE_PLXS_Read_Features_Request_Data_t" value="QAPI_BLE_PLXS_ET_SERVER_READ_FEATURES_REQUEST_E"/>
+            <mapEntry member="PLXS_Write_RACP_Request_Data" type="qapi_BLE_PLXS_Write_RACP_Request_Data_t" value="QAPI_BLE_PLXS_ET_SERVER_WRITE_RACP_REQUEST_E"/>
+            <mapEntry member="PLXS_Read_CCCD_Request_Data" type="qapi_BLE_PLXS_Read_CCCD_Request_Data_t" value="QAPI_BLE_PLXS_ET_SERVER_READ_CCCD_REQUEST_E"/>
+            <mapEntry member="PLXS_Write_CCCD_Request_Data" type="qapi_BLE_PLXS_Write_CCCD_Request_Data_t" value="QAPI_BLE_PLXS_ET_SERVER_WRITE_CCCD_REQUEST_E"/>
+            <mapEntry member="PLXS_Confirmation_Data" type="qapi_BLE_PLXS_Confirmation_Data_t" value="QAPI_BLE_PLXS_ET_SERVER_CONFIRMATION_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <function name="qapi_BLE_PLXS_Initialize_Service">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Service_Flags" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="InitializeData" type="qapi_BLE_PLXS_Initialize_Data_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_PLXS_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_PLXS_Initialize_Service_Handle_Range">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Service_Flags" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="InitializeData" type="qapi_BLE_PLXS_Initialize_Data_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_PLXS_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="ServiceHandleRange" type="qapi_BLE_GATT_Attribute_Handle_Group_t"/>
+   </function>
+   <function name="qapi_BLE_PLXS_Cleanup_Service">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_PLXS_Query_Number_Attributes">
+      <return attributes="value" type="unsigned int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_PLXS_Read_Features_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Features" type="qapi_BLE_PLXS_Features_Data_t"/>
+   </function>
+   <function name="qapi_BLE_PLXS_Indicate_Spot_Check_Measurement">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="MeasurementData" type="qapi_BLE_PLXS_Spot_Check_Measurement_Data_t"/>
+   </function>
+   <function name="qapi_BLE_PLXS_Notify_Continuous_Measurement">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="MeasurementData" type="qapi_BLE_PLXS_Continuous_Measurement_Data_t"/>
+   </function>
+   <function name="qapi_BLE_PLXS_RACP_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_PLXS_Indicate_RACP_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="ResponseData" type="qapi_BLE_PLXS_RACP_Response_Data_t"/>
+   </function>
+   <function name="qapi_BLE_PLXS_Read_CCCD_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="value" name="Type" type="qapi_BLE_PLXS_CCCD_Type_t"/>
+      <argument attributes="value" name="Configuration" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_PLXS_Write_CCCD_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="value" name="Type" type="qapi_BLE_PLXS_CCCD_Type_t"/>
+   </function>
+   <function name="qapi_BLE_PLXS_Decode_Features">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Features" type="qapi_BLE_PLXS_Features_Data_t"/>
+   </function>
+   <function name="qapi_BLE_PLXS_Decode_Spot_Check_Measurement">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="MeasurementData" type="qapi_BLE_PLXS_Spot_Check_Measurement_Data_t"/>
+   </function>
+   <function name="qapi_BLE_PLXS_Decode_Continuous_Measurement">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="MeasurementData" type="qapi_BLE_PLXS_Continuous_Measurement_Data_t"/>
+   </function>
+   <function name="qapi_BLE_PLXS_Decode_RACP_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ResponseData" type="qapi_BLE_PLXS_RACP_Response_Data_t"/>
+   </function>
+   <callback name="qapi_BLE_PLXS_Event_Callback_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="PLXS_Event_Data" type="qapi_BLE_PLXS_Event_Data_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <createFunction ID="qsRetVal" funcSuccess="0" moduleParam="BluetoothStackID" name="qapi_BLE_PLXS_Initialize_Service" param="CallbackParameter"/>
+      <createFunction ID="qsRetVal" funcSuccess="0" moduleParam="BluetoothStackID" name="qapi_BLE_PLXS_Initialize_Service_Handle_Range" param="CallbackParameter"/>
+      <destroyFunction ID="InstanceID" funcSuccess="0" name="qapi_BLE_PLXS_Cleanup_Service"/>
+   </callback>
+</header>

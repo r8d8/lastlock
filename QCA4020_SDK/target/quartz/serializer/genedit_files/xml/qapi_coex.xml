@@ -1,0 +1,152 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="&lt;stdint.h&gt;"/>
+   <include name="com_dtypes.h"/>
+   <include name="qapi/qapi_status.h"/>
+   <macro name="QAPI_COEX_CONFIG_FLAG_EXT_ENABLE" value="0x00000001"/>
+   <macro name="QAPI_COEX_CONFIG_FLAG_EXT_MASTER" value="0x00000002"/>
+   <macro name="QAPI_COEX_TX_TX_CONCUR_ENABLE" value="0x00000001"/>
+   <macro name="QAPI_COEX_TX_RX_CONCUR_ENABLE" value="0x00000002"/>
+   <macro name="QAPI_COEX_RX_RX_CONCUR_ENABLE" value="0x00000004"/>
+   <macro name="QAPI_COEX_MAXIMUM_PRIORITY_LEVEL_VALUE" value="62"/>
+   <macro name="QAPI_COEX_STATISTICS_DATA_LENGTH_MAXIMUM" value="32"/>
+   <macro name="QAPI_COEX_PACKET_STATUS_TYPE_BLE_SCAN_COMPLETE" value="0x0001"/>
+   <macro name="QAPI_COEX_PACKET_STATUS_TYPE_BLE_SCAN_STOMP" value="0x0002"/>
+   <macro name="QAPI_COEX_PACKET_STATUS_TYPE_BLE_SCAN_CONNECT_COMPLETE" value="0x0003"/>
+   <macro name="QAPI_COEX_PACKET_STATUS_TYPE_BLE_SCAN_CONNECT_STOMP" value="0x0004"/>
+   <macro name="QAPI_COEX_PACKET_STATUS_TYPE_BLE_ADVERTISE_COMPLETE" value="0x0005"/>
+   <macro name="QAPI_COEX_PACKET_STATUS_TYPE_BLE_ADVERTISE_STOMP" value="0x0006"/>
+   <macro name="QAPI_COEX_PACKET_STATUS_TYPE_BLE_DATA_RX_COMPLETE" value="0x0007"/>
+   <macro name="QAPI_COEX_PACKET_STATUS_TYPE_BLE_DATA_RX_STOMP" value="0x0008"/>
+   <macro name="QAPI_COEX_PACKET_STATUS_TYPE_BLE_DATA_TX_COMPLETE" value="0x0009"/>
+   <macro name="QAPI_COEX_PACKET_STATUS_TYPE_BLE_DATA_TX_STOMP" value="0x000A"/>
+   <macro name="QAPI_COEX_PACKET_STATUS_TYPE_BLE_ISOC_RX_COMPLETE" value="0x000B"/>
+   <macro name="QAPI_COEX_PACKET_STATUS_TYPE_BLE_ISOC_RX_STOMP" value="0x000C"/>
+   <macro name="QAPI_COEX_PACKET_STATUS_TYPE_BLE_ISOC_TX_COMPLETE" value="0x000D"/>
+   <macro name="QAPI_COEX_PACKET_STATUS_TYPE_BLE_ISOC_TX_STOMP" value="0x000E"/>
+   <macro name="QAPI_COEX_PACKET_STATUS_TYPE_I15P4_ED_SCAN_COMPLETE" value="0x000F"/>
+   <macro name="QAPI_COEX_PACKET_STATUS_TYPE_I15P4_ED_SCAN_STOMP" value="0x0010"/>
+   <macro name="QAPI_COEX_PACKET_STATUS_TYPE_I15P4_BEACON_SCAN_COMPLETE" value="0x0011"/>
+   <macro name="QAPI_COEX_PACKET_STATUS_TYPE_I15P4_BEACON_SCAN_STOMP" value="0x0012"/>
+   <macro name="QAPI_COEX_PACKET_STATUS_TYPE_I15P4_DATA_RX_COMPLETE" value="0x0013"/>
+   <macro name="QAPI_COEX_PACKET_STATUS_TYPE_I15P4_DATA_RX_STOMP" value="0x0014"/>
+   <macro name="QAPI_COEX_PACKET_STATUS_TYPE_I15P4_DATA_TX_COMPLETE" value="0x0015"/>
+   <macro name="QAPI_COEX_PACKET_STATUS_TYPE_I15P4_DATA_TX_STOMP" value="0x0016"/>
+   <macro name="QAPI_COEX_PACKET_STATUS_TYPE_I15P4_ACK_RX_COMPLETE" value="0x0017"/>
+   <macro name="QAPI_COEX_PACKET_STATUS_TYPE_I15P4_ACK_RX_STOMP" value="0x0018"/>
+   <macro name="QAPI_COEX_PACKET_STATUS_TYPE_I15P4_ACK_TX_COMPLETE" value="0x0019"/>
+   <macro name="QAPI_COEX_PACKET_STATUS_TYPE_I15P4_ACK_TX_STOMP" value="0x001A"/>
+   <macro name="QAPI_COEX_STATISTICS_MASK_BLE_SCAN_COMPLETE" value="0x00000001"/>
+   <macro name="QAPI_COEX_STATISTICS_MASK_BLE_SCAN_STOMP" value="0x00000002"/>
+   <macro name="QAPI_COEX_STATISTICS_MASK_BLE_SCAN_CONNECT_COMPLETE" value="0x00000004"/>
+   <macro name="QAPI_COEX_STATISTICS_MASK_BLE_SCAN_CONNECT_STOMP" value="0x00000008"/>
+   <macro name="QAPI_COEX_STATISTICS_MASK_BLE_ADVERTISE_COMPLETE" value="0x00000010"/>
+   <macro name="QAPI_COEX_STATISTICS_MASK_BLE_ADVERTISE_STOMP" value="0x00000020"/>
+   <macro name="QAPI_COEX_STATISTICS_MASK_BLE_DATA_RX_COMPLETE" value="0x00000040"/>
+   <macro name="QAPI_COEX_STATISTICS_MASK_BLE_DATA_RX_STOMP" value="0x00000080"/>
+   <macro name="QAPI_COEX_STATISTICS_MASK_BLE_DATA_TX_COMPLETE" value="0x00000100"/>
+   <macro name="QAPI_COEX_STATISTICS_MASK_BLE_DATA_TX_STOMP" value="0x00000200"/>
+   <macro name="QAPI_COEX_STATISTICS_MASK_BLE_ISOC_RX_COMPLETE" value="0x00000400"/>
+   <macro name="QAPI_COEX_STATISTICS_MASK_BLE_ISOC_RX_STOMP" value="0x00000800"/>
+   <macro name="QAPI_COEX_STATISTICS_MASK_BLE_ISOC_TX_COMPLETE" value="0x00001000"/>
+   <macro name="QAPI_COEX_STATISTICS_MASK_BLE_ISOC_TX_STOMP" value="0x00002000"/>
+   <macro name="QAPI_COEX_STATISTICS_MASK_I15P4_ED_SCAN_COMPLETE" value="0x00004000"/>
+   <macro name="QAPI_COEX_STATISTICS_MASK_I15P4_ED_SCAN_STOMP" value="0x00008000"/>
+   <macro name="QAPI_COEX_STATISTICS_MASK_I15P4_BEACON_SCAN_COMPLETE" value="0x00010000"/>
+   <macro name="QAPI_COEX_STATISTICS_MASK_I15P4_BEACON_SCAN_STOMP" value="0x00020000"/>
+   <macro name="QAPI_COEX_STATISTICS_MASK_I15P4_DATA_RX_COMPLETE" value="0x00040000"/>
+   <macro name="QAPI_COEX_STATISTICS_MASK_I15P4_DATA_RX_STOMP" value="0x00080000"/>
+   <macro name="QAPI_COEX_STATISTICS_MASK_I15P4_DATA_TX_COMPLETE" value="0x00100000"/>
+   <macro name="QAPI_COEX_STATISTICS_MASK_I15P4_DATA_TX_STOMP" value="0x00200000"/>
+   <macro name="QAPI_COEX_STATISTICS_MASK_I15P4_ACK_RX_COMPLETE" value="0x00400000"/>
+   <macro name="QAPI_COEX_STATISTICS_MASK_I15P4_ACK_RX_STOMP" value="0x00800000"/>
+   <macro name="QAPI_COEX_STATISTICS_MASK_I15P4_ACK_TX_COMPLETE" value="0x01000000"/>
+   <macro name="QAPI_COEX_STATISTICS_MASK_I15P4_ACK_TX_STOMP" value="0x02000000"/>
+   <enum name="qapi_COEX_Wireless_Type_t">
+      <member name="QAPI_COEX_WIRELESS_TYPE_INVALID" value="0"/>
+      <member name="QAPI_COEX_WIRELESS_TYPE_BLE" value="1"/>
+      <member name="QAPI_COEX_WIRELESS_TYPE_I15P4" value="2"/>
+      <member name="QAPI_COEX_WIRELESS_TYPE_EXT" value="3"/>
+      <member name="QAPI_COEX_WIRELESS_TYPE_WLAN" value="4"/>
+   </enum>
+   <enum name="qapi_COEX_Priority_Type_t">
+      <member name="QAPI_COEX_PRIORITY_BLE_ADVERTISE_E" value="0"/>
+      <member name="QAPI_COEX_PRIORITY_BLE_SCAN_E" value="1"/>
+      <member name="QAPI_COEX_PRIORITY_BLE_DATA_REQUEST_E" value="2"/>
+      <member name="QAPI_COEX_PRIORITY_BLE_DATA_ACTIVE_E" value="3"/>
+      <member name="QAPI_COEX_PRIORITY_I15P4_RX_REQUEST_E" value="4"/>
+      <member name="QAPI_COEX_PRIORITY_I15P4_TX_REQUEST_E" value="5"/>
+      <member name="QAPI_COEX_PRIORITY_I15P4_RX_ACTIVE_E" value="6"/>
+      <member name="QAPI_COEX_PRIORITY_I15P4_TX_ACTIVE_E" value="7"/>
+      <member name="QAPI_COEX_PRIORITY_I15P4_ACK_E" value="8"/>
+      <member name="QAPI_COEX_PRIORITY_I15P4_ED_SCAN_E" value="9"/>
+      <member name="QAPI_COEX_PRIORITY_I15P4_HOLD_REQUEST_E" value="10"/>
+      <member name="QAPI_COEX_PRIORITY_EXT_LOW_REQUEST_E" value="11"/>
+      <member name="QAPI_COEX_PRIORITY_EXT_HIGH_REQUEST_E" value="12"/>
+      <member name="QAPI_COEX_PRIORITY_EXT_LOW_ACTIVE_E" value="13"/>
+      <member name="QAPI_COEX_PRIORITY_EXT_HIGH_ACTIVE_E" value="14"/>
+   </enum>
+   <enum name="qapi_COEX_WLAN_Mode_t">
+      <member name="QAPI_COEX_WLAN_MODE_PRIORITY_E" value="0"/>
+      <member name="QAPI_COEX_WLAN_MODE_TX_RX_E" value="1"/>
+   </enum>
+   <structure name="qapi_COEX_Config_Data_t">
+      <member attributes="value" name="config_Flags" type="uint32"/>
+      <member attributes="value" name="priority_1" type="qapi_COEX_Wireless_Type_t"/>
+      <member attributes="value" name="priority_2" type="qapi_COEX_Wireless_Type_t"/>
+      <member attributes="value" name="priority_3" type="qapi_COEX_Wireless_Type_t"/>
+      <member attributes="value" name="priority_4" type="qapi_COEX_Wireless_Type_t"/>
+   </structure>
+   <structure name="qapi_COEX_Priority_Config_t">
+      <member attributes="value" name="priority_Type" type="qapi_COEX_Priority_Type_t"/>
+      <member attributes="value" name="priority_Value" type="uint8"/>
+   </structure>
+   <structure name="qapi_COEX_BLE_Config_Data_t">
+      <member attributes="value" name="flags" type="uint32"/>
+   </structure>
+   <structure name="qapi_COEX_I15P4_Config_Data_t">
+      <member attributes="value" name="flags" type="uint32"/>
+   </structure>
+   <structure name="qapi_COEX_EXT_Config_Data_t">
+      <member attributes="value" name="flags" type="uint32"/>
+   </structure>
+   <structure name="qapi_COEX_WLAN_Config_Data_t">
+      <member attributes="value" name="flags" type="uint32"/>
+      <member attributes="value" name="WLAN_Mode" type="qapi_COEX_WLAN_Mode_t"/>
+   </structure>
+   <structure name="qapi_COEX_Advanced_Config_Data_t">
+      <member attributes="value" name="config_Flags" type="uint32"/>
+      <member attributes="value" name="concurrency_Flags" type="uint32"/>
+      <member attributes="value" name="BLE_Config_Data" type="qapi_COEX_BLE_Config_Data_t"/>
+      <member attributes="value" name="I15P4_Config_Data" type="qapi_COEX_I15P4_Config_Data_t"/>
+      <member attributes="value" name="EXT_Config_Data" type="qapi_COEX_EXT_Config_Data_t"/>
+      <member attributes="value" name="WLAN_Config_Data" type="qapi_COEX_WLAN_Config_Data_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="priority_Config_Length" lengthVerified="no" name="priority_Config_Data" type="qapi_COEX_Priority_Config_t"/>
+      <member attributes="value" name="priority_Config_Length" type="uint8"/>
+   </structure>
+   <structure name="qapi_COEX_Statistics_Data_t">
+      <member attributes="value" name="packet_Status_Type" type="uint16"/>
+      <member attributes="value" name="packet_Status_Count" type="uint32"/>
+   </structure>
+   <function name="qapi_COEX_Configure">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="no" name="config_Data" type="qapi_COEX_Config_Data_t"/>
+   </function>
+   <function name="qapi_COEX_Configure_Advanced">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="no" name="advanced_Config_Data" type="qapi_COEX_Advanced_Config_Data_t"/>
+   </function>
+   <function name="qapi_COEX_Statistics_Enable">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="enable" type="boolean"/>
+      <argument attributes="value" name="statistics_Mask" type="uint32"/>
+      <argument attributes="value" name="flags" type="uint32"/>
+   </function>
+   <function name="qapi_COEX_Statistics_Get">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="statistics_Data_Length" lengthVerified="no" name="statistics_Data" type="qapi_COEX_Statistics_Data_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="no" name="statistics_Data_Length" type="uint8"/>
+      <argument attributes="value" name="statistics_Mask" type="uint32"/>
+      <argument attributes="value" name="reset" type="boolean"/>
+   </function>
+</header>

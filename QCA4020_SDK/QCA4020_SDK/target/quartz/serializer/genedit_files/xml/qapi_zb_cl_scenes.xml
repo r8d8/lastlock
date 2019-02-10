@@ -1,0 +1,250 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="qapi_zb_cl.h"/>
+   <macro name="QAPI_ZB_CL_SCENES_ATTR_ID_SCENE_COUNT" value="(0x0000) "/>
+   <macro name="QAPI_ZB_CL_SCENES_ATTR_ID_CURRENT_SCENE" value="(0x0001) "/>
+   <macro name="QAPI_ZB_CL_SCENES_ATTR_ID_CURRENT_GROUP" value="(0x0002) "/>
+   <macro name="QAPI_ZB_CL_SCENES_ATTR_ID_SCENE_VALID" value="(0x0003) "/>
+   <macro name="QAPI_ZB_CL_SCENES_ATTR_ID_NAME_SUPPORT" value="(0x0004) "/>
+   <macro name="QAPI_ZB_CL_SCENES_ATTR_ID_LAST_CONFIGURED_BY" value="(0x0005) "/>
+   <macro name="QAPI_ZB_CL_SCENES_NAME_SUPPORT_SCENE_NAMES_SUPPORTED_MASK" value="(0x80)"/>
+   <macro name="QAPI_ZB_CL_SCENES_CLIENT_COMMAND_ID_ADD_SCENE" value="(0x00) "/>
+   <macro name="QAPI_ZB_CL_SCENES_CLIENT_COMMAND_ID_VIEW_SCENE" value="(0x01) "/>
+   <macro name="QAPI_ZB_CL_SCENES_CLIENT_COMMAND_ID_REMOVE_SCENE" value="(0x02) "/>
+   <macro name="QAPI_ZB_CL_SCENES_CLIENT_COMMAND_ID_REMOVE_ALL_SCENES" value="(0x03) "/>
+   <macro name="QAPI_ZB_CL_SCENES_CLIENT_COMMAND_ID_STORE_SCENE" value="(0x04) "/>
+   <macro name="QAPI_ZB_CL_SCENES_CLIENT_COMMAND_ID_RECALL_SCENE" value="(0x05) "/>
+   <macro name="QAPI_ZB_CL_SCENES_CLIENT_COMMAND_ID_GET_SCENE_MEMBERSHIP" value="(0x06) "/>
+   <macro name="QAPI_ZB_CL_SCENES_CLIENT_COMMAND_ID_ENHANCED_ADD_SCENE" value="(0x40) "/>
+   <macro name="QAPI_ZB_CL_SCENES_CLIENT_COMMAND_ID_ENHANCED_VIEW_SCENE" value="(0x41) "/>
+   <macro name="QAPI_ZB_CL_SCENES_CLIENT_COMMAND_ID_COPY_SCENE" value="(0x42) "/>
+   <macro name="QAPI_ZB_CL_SCENES_SERVER_COMMAND_ID_ADD_SCENE_RESPONSE" value="(0x00) "/>
+   <macro name="QAPI_ZB_CL_SCENES_SERVER_COMMAND_ID_VIEW_SCENE_RESPONSE" value="(0x01) "/>
+   <macro name="QAPI_ZB_CL_SCENES_SERVER_COMMAND_ID_REMOVE_SCENE_RESPONSE" value="(0x02) "/>
+   <macro name="QAPI_ZB_CL_SCENES_SERVER_COMMAND_ID_REMOVE_ALL_SCENES_RESPONSE" value="(0x03) "/>
+   <macro name="QAPI_ZB_CL_SCENES_SERVER_COMMAND_ID_STORE_SCENE_SCENE_RESPONSE" value="(0x04) "/>
+   <macro name="QAPI_ZB_CL_SCENES_SERVER_COMMAND_ID_GET_SCENE_MEMBERSHIP_RESPONSE" value="(0x06) "/>
+   <macro name="QAPI_ZB_CL_SCENES_SERVER_COMMAND_ID_ENHANCED_ADD_SCENE_RESPONSE" value="(0x40) "/>
+   <macro name="QAPI_ZB_CL_SCENES_SERVER_COMMAND_ID_ENHANCED_VIEW_SCENE_RESPONSE" value="(0x41) "/>
+   <macro name="QAPI_ZB_CL_SCENES_SERVER_COMMAND_ID_COPY_SCENE_RESPONSE" value="(0x42) "/>
+   <enum name="qapi_ZB_CL_Scenes_Client_Event_Type_t">
+      <member name="QAPI_ZB_CL_SCENES_CLIENT_EVENT_TYPE_ATTR_CUSTOM_READ_E" value="0"/>
+      <member name="QAPI_ZB_CL_SCENES_CLIENT_EVENT_TYPE_ATTR_CUSTOM_WRITE_E" value="1"/>
+      <member name="QAPI_ZB_CL_SCENES_CLIENT_EVENT_TYPE_DEFAULT_RESPONSE_E" value="2"/>
+      <member name="QAPI_ZB_CL_SCENES_CLIENT_EVENT_TYPE_COMMAND_COMPLETE_E" value="3"/>
+      <member name="QAPI_ZB_CL_SCENES_CLIENT_EVENT_TYPE_UNPARSED_RESPONSE_E" value="4"/>
+      <member name="QAPI_ZB_CL_SCENES_CLIENT_EVENT_TYPE_ADD_SCENE_RESPONSE_E" value="5"/>
+      <member name="QAPI_ZB_CL_SCENES_CLIENT_EVENT_TYPE_VIEW_SCENE_RESPONSE_E" value="6"/>
+      <member name="QAPI_ZB_CL_SCENES_CLIENT_EVENT_TYPE_REMOVE_SCENE_RESPONSE_E" value="7"/>
+      <member name="QAPI_ZB_CL_SCENES_CLIENT_EVENT_TYPE_REMOVE_ALL_SCENES_RESPONSE_E" value="8"/>
+      <member name="QAPI_ZB_CL_SCENES_CLIENT_EVENT_TYPE_STORE_SCENE_RESPONSE_E" value="9"/>
+      <member name="QAPI_ZB_CL_SCENES_CLIENT_EVENT_TYPE_GET_SCENE_MEMBERSHIP_RESPONSE_E" value="10"/>
+      <member name="QAPI_ZB_CL_SCENES_CLIENT_EVENT_TYPE_COPY_SCENE_RESPONSE_E" value="11"/>
+   </enum>
+   <enum name="qapi_ZB_CL_Scenes_Server_Event_Type_t">
+      <member name="QAPI_ZB_CL_SCENES_SERVER_EVENT_TYPE_ATTR_CUSTOM_READ_E" value="0"/>
+      <member name="QAPI_ZB_CL_SCENES_SERVER_EVENT_TYPE_ATTR_CUSTOM_WRITE_E" value="1"/>
+      <member name="QAPI_ZB_CL_SCENES_SERVER_EVENT_TYPE_UNPARSED_DATA_E" value="2"/>
+   </enum>
+   <structure name="qapi_ZB_CL_Scenes_Extension_Field_Set_t">
+      <member attributes="value" name="ClusterId" type="uint16_t"/>
+      <member attributes="value" name="Length" type="uint8_t"/>
+      <member attributes="ptr,const" iotype="in" lengthParam="Length" lengthVerified="yes" name="Data" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Scenes_Add_Scene_t">
+      <member attributes="value" name="IsEnhanced" type="qbool_t"/>
+      <member attributes="value" name="GroupId" type="uint16_t"/>
+      <member attributes="value" name="SceneId" type="uint8_t"/>
+      <member attributes="value" name="TransitionTime" type="uint16_t"/>
+      <member attributes="ptr,const" iotype="in" lengthParam="__strlen__" lengthVerified="yes" name="SceneName" type="uint8_t"/>
+      <member attributes="value" name="ExtensionFieldCount" type="uint8_t"/>
+      <member attributes="ptr,const" iotype="in" lengthParam="ExtensionFieldCount" lengthVerified="yes" name="ExtensionFieldSets" type="qapi_ZB_CL_Scenes_Extension_Field_Set_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Scenes_Add_Scene_Response_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="IsEnhanced" type="qbool_t"/>
+      <member attributes="value" name="GroupId" type="uint16_t"/>
+      <member attributes="value" name="SceneId" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Scenes_View_Scene_Response_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="IsEnhanced" type="qbool_t"/>
+      <member attributes="value" name="GroupId" type="uint16_t"/>
+      <member attributes="value" name="SceneId" type="uint8_t"/>
+      <member attributes="value" name="TransitionTime" type="uint16_t"/>
+      <member attributes="ptr,const" iotype="in" lengthParam="__strlen__" lengthVerified="yes" name="SceneName" type="uint8_t"/>
+      <member attributes="value" name="ExtensionFieldCount" type="uint8_t"/>
+      <member attributes="ptr,const" iotype="in" lengthParam="ExtensionFieldCount" lengthVerified="yes" name="ExtensionFieldSets" type="qapi_ZB_CL_Scenes_Extension_Field_Set_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Scenes_Remove_Scene_Response_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="GroupId" type="uint16_t"/>
+      <member attributes="value" name="SceneId" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Scenes_Remove_All_Scenes_Response_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="GroupId" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Scenes_Store_Scene_Response_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="GroupId" type="uint16_t"/>
+      <member attributes="value" name="SceneId" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Scenes_Get_Scene_Membership_Response_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="Capacity" type="uint8_t"/>
+      <member attributes="value" name="GroupId" type="uint16_t"/>
+      <member attributes="value" name="SceneCount" type="uint8_t"/>
+      <member attributes="ptr,const" iotype="in" lengthParam="SceneCount" lengthVerified="yes" name="SceneList" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Scenes_Copy_Scene_t">
+      <member attributes="value" name="CopyAllScenes" type="qbool_t"/>
+      <member attributes="value" name="GroupIdFrom" type="uint16_t"/>
+      <member attributes="value" name="SceneIdFrom" type="uint8_t"/>
+      <member attributes="value" name="GroupIdTo" type="uint16_t"/>
+      <member attributes="value" name="SceneIdTo" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Scenes_Copy_Scene_Response_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="GroupIdFrom" type="uint16_t"/>
+      <member attributes="value" name="SceneIdFrom" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Scenes_Client_Event_Data_t">
+      <member attributes="value" name="Event_Type" type="qapi_ZB_CL_Scenes_Client_Event_Type_t"/>
+      <member attributes="union" name="Data">
+         <member attributes="value" name="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t"/>
+         <member attributes="value" name="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t"/>
+         <member attributes="value" name="Default_Response" type="qapi_ZB_CL_Default_Response_t"/>
+         <member attributes="value" name="Command_Complete" type="qapi_ZB_CL_Command_Complete_t"/>
+         <member attributes="value" name="Unparsed_Response" type="qapi_ZB_CL_Unparsed_Response_t"/>
+         <member attributes="value" name="Add_Scene_Response" type="qapi_ZB_CL_Scenes_Add_Scene_Response_t"/>
+         <member attributes="value" name="View_Scene_Response" type="qapi_ZB_CL_Scenes_View_Scene_Response_t"/>
+         <member attributes="value" name="Remove_Scene_Response" type="qapi_ZB_CL_Scenes_Remove_Scene_Response_t"/>
+         <member attributes="value" name="Remove_All_Scenes_Response" type="qapi_ZB_CL_Scenes_Remove_All_Scenes_Response_t"/>
+         <member attributes="value" name="Store_Scene_Response" type="qapi_ZB_CL_Scenes_Store_Scene_Response_t"/>
+         <member attributes="value" name="Get_Scene_Membership_Response" type="qapi_ZB_CL_Scenes_Get_Scene_Membership_Response_t"/>
+         <member attributes="value" name="Copy_Scene_Response" type="qapi_ZB_CL_Scenes_Copy_Scene_Response_t"/>
+         <unionMap mapVerified="yes" name="Event_Type" type="qapi_ZB_CL_Scenes_Client_Event_Type_t">
+            <mapEntry member="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t" value="QAPI_ZB_CL_SCENES_CLIENT_EVENT_TYPE_ATTR_CUSTOM_READ_E"/>
+            <mapEntry member="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t" value="QAPI_ZB_CL_SCENES_CLIENT_EVENT_TYPE_ATTR_CUSTOM_WRITE_E"/>
+            <mapEntry member="Default_Response" type="qapi_ZB_CL_Default_Response_t" value="QAPI_ZB_CL_SCENES_CLIENT_EVENT_TYPE_DEFAULT_RESPONSE_E"/>
+            <mapEntry member="Command_Complete" type="qapi_ZB_CL_Command_Complete_t" value="QAPI_ZB_CL_SCENES_CLIENT_EVENT_TYPE_COMMAND_COMPLETE_E"/>
+            <mapEntry member="Unparsed_Response" type="qapi_ZB_CL_Unparsed_Response_t" value="QAPI_ZB_CL_SCENES_CLIENT_EVENT_TYPE_UNPARSED_RESPONSE_E"/>
+            <mapEntry member="Add_Scene_Response" type="qapi_ZB_CL_Scenes_Add_Scene_Response_t" value="QAPI_ZB_CL_SCENES_CLIENT_EVENT_TYPE_ADD_SCENE_RESPONSE_E"/>
+            <mapEntry member="View_Scene_Response" type="qapi_ZB_CL_Scenes_View_Scene_Response_t" value="QAPI_ZB_CL_SCENES_CLIENT_EVENT_TYPE_VIEW_SCENE_RESPONSE_E"/>
+            <mapEntry member="Remove_Scene_Response" type="qapi_ZB_CL_Scenes_Remove_Scene_Response_t" value="QAPI_ZB_CL_SCENES_CLIENT_EVENT_TYPE_REMOVE_SCENE_RESPONSE_E"/>
+            <mapEntry member="Remove_All_Scenes_Response" type="qapi_ZB_CL_Scenes_Remove_All_Scenes_Response_t" value="QAPI_ZB_CL_SCENES_CLIENT_EVENT_TYPE_REMOVE_ALL_SCENES_RESPONSE_E"/>
+            <mapEntry member="Store_Scene_Response" type="qapi_ZB_CL_Scenes_Store_Scene_Response_t" value="QAPI_ZB_CL_SCENES_CLIENT_EVENT_TYPE_STORE_SCENE_RESPONSE_E"/>
+            <mapEntry member="Get_Scene_Membership_Response" type="qapi_ZB_CL_Scenes_Get_Scene_Membership_Response_t" value="QAPI_ZB_CL_SCENES_CLIENT_EVENT_TYPE_GET_SCENE_MEMBERSHIP_RESPONSE_E"/>
+            <mapEntry member="Copy_Scene_Response" type="qapi_ZB_CL_Scenes_Copy_Scene_Response_t" value="QAPI_ZB_CL_SCENES_CLIENT_EVENT_TYPE_COPY_SCENE_RESPONSE_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_ZB_CL_Scenes_Server_Event_Data_t">
+      <member attributes="value" name="Event_Type" type="qapi_ZB_CL_Scenes_Server_Event_Type_t"/>
+      <member attributes="union" name="Data">
+         <member attributes="value" name="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t"/>
+         <member attributes="value" name="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t"/>
+         <member attributes="value" name="Unparsed_Data" type="qapi_ZB_CL_Unparsed_Data_t"/>
+         <unionMap mapVerified="yes" name="Event_Type" type="qapi_ZB_CL_Scenes_Server_Event_Type_t">
+            <mapEntry member="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t" value="QAPI_ZB_CL_SCENES_SERVER_EVENT_TYPE_ATTR_CUSTOM_READ_E"/>
+            <mapEntry member="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t" value="QAPI_ZB_CL_SCENES_SERVER_EVENT_TYPE_ATTR_CUSTOM_WRITE_E"/>
+            <mapEntry member="Unparsed_Data" type="qapi_ZB_CL_Unparsed_Data_t" value="QAPI_ZB_CL_SCENES_SERVER_EVENT_TYPE_UNPARSED_DATA_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <function name="qapi_ZB_CL_Scenes_Create_Client">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Cluster_Info" type="qapi_ZB_CL_Cluster_Info_t"/>
+      <argument attributes="value" name="Event_CB" type="qapi_ZB_CL_Scenes_Client_Event_CB_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Scenes_Create_Server">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Cluster_Info" type="qapi_ZB_CL_Cluster_Info_t"/>
+      <argument attributes="value" name="MaxScenes" type="uint8_t"/>
+      <argument attributes="value" name="Event_CB" type="qapi_ZB_CL_Scenes_Server_Event_CB_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Scenes_Populate_Attributes">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Server" type="qbool_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="AttributeCount" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="AttributeCount" lengthVerified="yes" name="AttributeList" type="qapi_ZB_CL_Attribute_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Scenes_Send_Add_Scene">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="AddScene" type="qapi_ZB_CL_Scenes_Add_Scene_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Scenes_Send_View_Scene">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="value" name="GroupId" type="uint16_t"/>
+      <argument attributes="value" name="SceneId" type="uint8_t"/>
+      <argument attributes="value" name="IsEnhanced" type="qbool_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Scenes_Send_Remove_Scene">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="value" name="GroupId" type="uint16_t"/>
+      <argument attributes="value" name="SceneId" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Scenes_Send_Remove_All_Scenes">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="value" name="GroupId" type="uint16_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Scenes_Send_Store_Scene">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="value" name="GroupId" type="uint16_t"/>
+      <argument attributes="value" name="SceneId" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Scenes_Send_Recall_Scene">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="value" name="GroupId" type="uint16_t"/>
+      <argument attributes="value" name="SceneId" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Scenes_Send_Get_Scene_Membership">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="value" name="GroupId" type="uint16_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Scenes_Send_Copy_Scene">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="CopyScene" type="qapi_ZB_CL_Scenes_Copy_Scene_t"/>
+   </function>
+   <callback name="qapi_ZB_CL_Scenes_Client_Event_CB_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Event_Data" type="qapi_ZB_CL_Scenes_Client_Event_Data_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+      <createFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_Scenes_Create_Client" param="CB_Param"/>
+      <destroyFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_Destroy_Cluster"/>
+   </callback>
+   <callback name="qapi_ZB_CL_Scenes_Server_Event_CB_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Event_Data" type="qapi_ZB_CL_Scenes_Server_Event_Data_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+      <createFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_Scenes_Create_Server" param="CB_Param"/>
+      <destroyFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_Destroy_Cluster"/>
+   </callback>
+</header>

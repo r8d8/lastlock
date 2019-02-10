@@ -1,0 +1,193 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="./qapi_ble_bttypes.h"/>
+   <include name="./qapi_ble_gatttype.h"/>
+   <macro name="QAPI_BLE_OTS_ERROR_CODE_SUCCESS" value="0x00"/>
+   <macro name="QAPI_BLE_OTS_ERROR_CODE_WRITE_REQUEST_REJECTED" value="0x80"/>
+   <macro name="QAPI_BLE_OTS_ERROR_CODE_OBJECT_NOT_SELECTED" value="0x81"/>
+   <macro name="QAPI_BLE_OTS_ERROR_CODE_CONCURRENCY_LIMIT_EXCEEDED" value="0x82"/>
+   <macro name="QAPI_BLE_OTS_ERROR_CODE_OBJECT_NAME_ALREADY_EXISTS" value="0x83"/>
+   <macro name="QAPI_BLE_OTS_ASSIGN_OTS_SERVICE_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16(*((qapi_BLE_UUID_16_t *)(_x)), 0x18, 0x25)"/>
+   <macro name="QAPI_BLE_OTS_ASSIGN_OTS_SERVICE_SDP_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_SDP_UUID_16((_x), 0x18, 0x25)"/>
+   <macro name="QAPI_BLE_OTS_COMPARE_OTS_SERVICE_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x18, 0x25)"/>
+   <macro name="QAPI_BLE_OTS_SERVICE_BLUETOOTH_UUID_CONSTANT" value="{ 0x25, 0x18 }"/>
+   <macro name="QAPI_BLE_OTS_ASSIGN_OTS_FEATURE_UUID16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0xBD)"/>
+   <macro name="QAPI_BLE_OTS_COMPARE_OTS_FEATURE_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0xBD)"/>
+   <macro name="QAPI_BLE_OTS_FEATURE_CHARACTERISTIC_BLUETOOTH_UUID_CONSTANT" value="{ 0xBD, 0x2A }"/>
+   <macro name="QAPI_BLE_OTS_ASSIGN_OBJECT_NAME_UUID16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0xBE)"/>
+   <macro name="QAPI_BLE_OTS_COMPARE_OBJECT_NAME_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0xBE)"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_NAME_CHARACTERISTIC_BLUETOOTH_UUID_CONSTANT" value="{ 0xBE, 0x2A }"/>
+   <macro name="QAPI_BLE_OTS_ASSIGN_OBJECT_TYPE_UUID16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0xBF)"/>
+   <macro name="QAPI_BLE_OTS_COMPARE_OBJECT_TYPE_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0xBF)"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_TYPE_CHARACTERISTIC_BLUETOOTH_UUID_CONSTANT" value="{ 0xBF, 0x2A }"/>
+   <macro name="QAPI_BLE_OTS_ASSIGN_DIRECTORY_LISTING_OBJECT_TYPE_UUID16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x7F, 0xB1)"/>
+   <macro name="QAPI_BLE_OTS_COMPARE_DIRECTORY_LISTING_OBJECT_TYPE_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x7F, 0xB1)"/>
+   <macro name="QAPI_BLE_OTS_ASSIGN_UNSPECIFIED_OBJECT_TYPE_UUID16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x7F, 0xB0)"/>
+   <macro name="QAPI_BLE_OTS_COMPARE_UNSPECIFIED_OBJECT_TYPE_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x7F, 0xB0)"/>
+   <macro name="QAPI_BLE_OTS_ASSIGN_FIRMWARE_OBJECT_TYPE_UUID16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x7F, 0xB1)"/>
+   <macro name="QAPI_BLE_OTS_COMPARE_FIRMWARE_OBJECT_TYPE_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x7F, 0xB1)"/>
+   <macro name="QAPI_BLE_OTS_ASSIGN_ROUTE_GPX_OBJECT_TYPE_UUID16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x7F, 0xB1)"/>
+   <macro name="QAPI_BLE_OTS_COMPARE_ROUTE_GPX_OBJECT_TYPE_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x7F, 0xB2)"/>
+   <macro name="QAPI_BLE_OTS_ASSIGN_TRACK_GPX_OBJECT_TYPE_UUID16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x7F, 0xB3)"/>
+   <macro name="QAPI_BLE_OTS_COMPARE_TRACK_GPX_OBJECT_TYPE_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x7F, 0xB3)"/>
+   <macro name="QAPI_BLE_OTS_ASSIGN_OBJECT_SIZE_UUID16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0xC0)"/>
+   <macro name="QAPI_BLE_OTS_COMPARE_OBJECT_SIZE_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0xC0)"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_SIZE_CHARACTERISTIC_BLUETOOTH_UUID_CONSTANT" value="{ 0xC0, 0x2A }"/>
+   <macro name="QAPI_BLE_OTS_ASSIGN_OBJECT_FIRST_CREATED_UUID16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0xC1)"/>
+   <macro name="QAPI_BLE_OTS_COMPARE_OBJECT_FIRST_CREATED_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0xC1)"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_FIRST_CREATED_CHARACTERISTIC_BLUETOOTH_UUID_CONSTANT" value="{ 0xC1, 0x2A }"/>
+   <macro name="QAPI_BLE_OTS_ASSIGN_OBJECT_LAST_MODIFIED_UUID16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0xC2)"/>
+   <macro name="QAPI_BLE_OTS_COMPARE_OBJECT_LAST_MODIFIED_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0xC2)"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_LAST_MODIFIED_CHARACTERISTIC_BLUETOOTH_UUID_CONSTANT" value="{ 0xC2, 0x2A }"/>
+   <macro name="QAPI_BLE_OTS_ASSIGN_OBJECT_ID_UUID16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0xC3)"/>
+   <macro name="QAPI_BLE_OTS_COMPARE_OBJECT_ID_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0xC3)"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_ID_CHARACTERISTIC_BLUETOOTH_UUID_CONSTANT" value="{ 0xC3, 0x2A }"/>
+   <macro name="QAPI_BLE_OTS_ASSIGN_OBJECT_PROPERTIES_UUID16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0xC4)"/>
+   <macro name="QAPI_BLE_OTS_COMPARE_OBJECT_PROPERTIES_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0xC4)"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_PROPERTIES_CHARACTERISTIC_BLUETOOTH_UUID_CONSTANT" value="{ 0xC4, 0x2A }"/>
+   <macro name="QAPI_BLE_OTS_ASSIGN_OBJECT_ACTION_CONTROL_POINT_UUID16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0xC5)"/>
+   <macro name="QAPI_BLE_OTS_COMPARE_OBJECT_ACTION_CONTROL_POINT_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0xC5)"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_ACTION_CONTROL_POINT_CHARACTERISTIC_BLUETOOTH_UUID_CONSTANT" value="{ 0xC5, 0x2A }"/>
+   <macro name="QAPI_BLE_OTS_ASSIGN_OBJECT_LIST_CONTROL_POINT_UUID16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0xC6)"/>
+   <macro name="QAPI_BLE_OTS_COMPARE_OBJECT_LIST_CONTROL_POINT_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0xC6)"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_LIST_CONTROL_POINT_CHARACTERISTIC_BLUETOOTH_UUID_CONSTANT" value="{ 0xC6, 0x2A }"/>
+   <macro name="QAPI_BLE_OTS_ASSIGN_OBJECT_LIST_FILTER_UUID16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0xC7)"/>
+   <macro name="QAPI_BLE_OTS_COMPARE_OBJECT_LIST_FILTER_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0xC7)"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_LIST_FILTER_CHARACTERISTIC_BLUETOOTH_UUID_CONSTANT" value="{ 0xC7, 0x2A }"/>
+   <macro name="QAPI_BLE_OTS_ASSIGN_OBJECT_CHANGED_UUID16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0xC8)"/>
+   <macro name="QAPI_BLE_OTS_COMPARE_OBJECT_CHANGED_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0xC8)"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_CHANGED_CHARACTERISTIC_BLUETOOTH_UUID_CONSTANT" value="{ 0xC8, 0x2A }"/>
+   <macro name="QAPI_BLE_OTS_FEATURE_OACP_CREATE_OP_CODE_SUPPORTED" value="0x0001"/>
+   <macro name="QAPI_BLE_OTS_FEATURE_OACP_DELETE_OP_CODE_SUPPORTED" value="0x0002"/>
+   <macro name="QAPI_BLE_OTS_FEATURE_OACP_CALCULATE_CHECKSUM_OP_CODE_SUPPORTED" value="0x0004"/>
+   <macro name="QAPI_BLE_OTS_FEATURE_OACP_EXECUTE_OP_CODE_SUPPORTED" value="0x0008"/>
+   <macro name="QAPI_BLE_OTS_FEATURE_OACP_READ_OP_CODE_SUPPORTED" value="0x0010"/>
+   <macro name="QAPI_BLE_OTS_FEATURE_OACP_WRITE_OP_CODE_SUPPORTED" value="0x0020"/>
+   <macro name="QAPI_BLE_OTS_FEATURE_OACP_APPENDING_SUPPORTED" value="0x0040"/>
+   <macro name="QAPI_BLE_OTS_FEATURE_OACP_TRUNCATION_SUPPORTED" value="0x0080"/>
+   <macro name="QAPI_BLE_OTS_FEATURE_OACP_PATCHING_SUPPORTED" value="0x0100"/>
+   <macro name="QAPI_BLE_OTS_FEATURE_OACP_ABORT_OP_CODE_SUPPORTED" value="0x0200"/>
+   <macro name="QAPI_BLE_OTS_FEATURE_OLCP_GO_TO_OP_CODE_SUPPORTED" value="0x0001"/>
+   <macro name="QAPI_BLE_OTS_FEATURE_OLCP_ORDER_OP_CODE_SUPPORTED" value="0x0002"/>
+   <macro name="QAPI_BLE_OTS_FEATURE_OLCP_REQUEST_NUMBER_OF_OBJECTS_OP_CODE_SUPPORTED" value="0x0004"/>
+   <macro name="QAPI_BLE_OTS_FEATURE_OLCP_CLEAR_MARKING_OP_CODE_SUPPORTED" value="0x0008"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_PROPERTIES_DELETE" value="0x00000001"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_PROPERTIES_EXECUTE" value="0x00000002"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_PROPERTIES_READ" value="0x00000004"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_PROPERTIES_WRITE" value="0x00000008"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_PROPERTIES_APPEND" value="0x00000010"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_PROPERTIES_TRUNCATE" value="0x00000020"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_PROPERTIES_PATCH" value="0x00000040"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_PROPERTIES_MARK" value="0x00000080"/>
+   <macro name="QAPI_BLE_OTS_OACP_OP_CODE_CREATE" value="0x01"/>
+   <macro name="QAPI_BLE_OTS_OACP_OP_CODE_DELETE" value="0x02"/>
+   <macro name="QAPI_BLE_OTS_OACP_OP_CODE_CALCULATE_CHECKSUM" value="0x03"/>
+   <macro name="QAPI_BLE_OTS_OACP_OP_CODE_EXECUTE" value="0x04"/>
+   <macro name="QAPI_BLE_OTS_OACP_OP_CODE_READ" value="0x05"/>
+   <macro name="QAPI_BLE_OTS_OACP_OP_CODE_WRITE" value="0x06"/>
+   <macro name="QAPI_BLE_OTS_OACP_OP_CODE_ABORT" value="0x07"/>
+   <macro name="QAPI_BLE_OTS_OACP_OP_CODE_RESPONSE_CODE" value="0x60"/>
+   <macro name="QAPI_BLE_OTS_OACP_WRITE_MODE_NONE" value="0x00"/>
+   <macro name="QAPI_BLE_OTS_OACP_WRITE_MODE_TRUNCATE" value="0x01"/>
+   <macro name="QAPI_BLE_OTS_OACP_RESULT_CODE_SUCCESS" value="0x01"/>
+   <macro name="QAPI_BLE_OTS_OACP_RESULT_CODE_OPCODE_NOT_SUPPORTED" value="0x02"/>
+   <macro name="QAPI_BLE_OTS_OACP_RESULT_CODE_INVALID_PARAMETER" value="0x03"/>
+   <macro name="QAPI_BLE_OTS_OACP_RESULT_CODE_INSUFFICIENT_RESOURCES" value="0x04"/>
+   <macro name="QAPI_BLE_OTS_OACP_RESULT_CODE_INVALID_OBJECT" value="0x05"/>
+   <macro name="QAPI_BLE_OTS_OACP_RESULT_CODE_CHANNEL_UNAVAILABLE" value="0x06"/>
+   <macro name="QAPI_BLE_OTS_OACP_RESULT_CODE_UNSUPPORTED_TYPE" value="0x07"/>
+   <macro name="QAPI_BLE_OTS_OACP_RESULT_CODE_PROCEDURE_NOT_PERMITTED" value="0x08"/>
+   <macro name="QAPI_BLE_OTS_OACP_RESULT_CODE_OBJECT_LOCKED" value="0x09"/>
+   <macro name="QAPI_BLE_OTS_OACP_RESULT_CODE_OPERATION_FAILED" value="0x0A"/>
+   <macro name="QAPI_BLE_OTS_OLCP_OP_CODE_FIRST" value="0x01"/>
+   <macro name="QAPI_BLE_OTS_OLCP_OP_CODE_LAST" value="0x02"/>
+   <macro name="QAPI_BLE_OTS_OLCP_OP_CODE_PREVIOUS" value="0x03"/>
+   <macro name="QAPI_BLE_OTS_OLCP_OP_CODE_NEXT" value="0x04"/>
+   <macro name="QAPI_BLE_OTS_OLCP_OP_CODE_GO_TO" value="0x05"/>
+   <macro name="QAPI_BLE_OTS_OLCP_OP_CODE_ORDER" value="0x06"/>
+   <macro name="QAPI_BLE_OTS_OLCP_OP_CODE_REQUEST_NUMBER_OF_OBJECTS" value="0x07"/>
+   <macro name="QAPI_BLE_OTS_OLCP_OP_CODE_CLEAR_MARKING" value="0x08"/>
+   <macro name="QAPI_BLE_OTS_OLCP_OP_CODE_RESPONSE_CODE" value="0x70"/>
+   <macro name="QAPI_BLE_OTS_LIST_SORT_ORDER_ASCENDING_OBJECT_NAME" value="0x01"/>
+   <macro name="QAPI_BLE_OTS_LIST_SORT_ORDER_ASCENDING_OBJECT_TYPE" value="0x02"/>
+   <macro name="QAPI_BLE_OTS_LIST_SORT_ORDER_ASCENDING_OBJECT_CURRENT_SIZE" value="0x03"/>
+   <macro name="QAPI_BLE_OTS_LIST_SORT_ORDER_ASCENDING_OBJECT_FIRST_CREATED" value="0x04"/>
+   <macro name="QAPI_BLE_OTS_LIST_SORT_ORDER_ASCENDING_OBJECT_LAST_MODIFIED" value="0x05"/>
+   <macro name="QAPI_BLE_OTS_LIST_SORT_ORDER_DESCENDING_OBJECT_NAME" value="0x11"/>
+   <macro name="QAPI_BLE_OTS_LIST_SORT_ORDER_DESCENDING_OBJECT_TYPE" value="0x12"/>
+   <macro name="QAPI_BLE_OTS_LIST_SORT_ORDER_DESCENDING_OBJECT_CURRENT_SIZE" value="0x13"/>
+   <macro name="QAPI_BLE_OTS_LIST_SORT_ORDER_DESCENDING_OBJECT_FIRST_CREATED" value="0x14"/>
+   <macro name="QAPI_BLE_OTS_LIST_SORT_ORDER_DESCENDING_OBJECT_LAST_MODIFIED" value="0x15"/>
+   <macro name="QAPI_BLE_OTS_OLCP_RESULT_CODE_SUCCESS" value="0x01"/>
+   <macro name="QAPI_BLE_OTS_OLCP_RESULT_CODE_OPCODE_NOT_SUPPORTED" value="0x02"/>
+   <macro name="QAPI_BLE_OTS_OLCP_RESULT_CODE_INVALID_PARAMETER" value="0x03"/>
+   <macro name="QAPI_BLE_OTS_OLCP_RESULT_CODE_OPERATION_FAILED" value="0x04"/>
+   <macro name="QAPI_BLE_OTS_OLCP_RESULT_CODE_OUT_OF_BOUNDS" value="0x05"/>
+   <macro name="QAPI_BLE_OTS_OLCP_RESULT_CODE_TOO_MANY_OBJECTS" value="0x06"/>
+   <macro name="QAPI_BLE_OTS_OLCP_RESULT_CODE_NO_OBJECT" value="0x07"/>
+   <macro name="QAPI_BLE_OTS_OLCP_RESULT_CODE_OBJECT_ID_NOT_FOUND" value="0x08"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_LIST_FILTER_NO_FILTER" value="0x00"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_LIST_FILTER_NAME_STARTS_WITH" value="0x01"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_LIST_FILTER_NAME_ENDS_WITH" value="0x02"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_LIST_FILTER_NAME_CONTAINS" value="0x03"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_LIST_FILTER_NAME_IS_EXACTLY" value="0x04"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_LIST_FILTER_OBJECT_TYPE" value="0x05"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_LIST_FILTER_CREATED_BETWEEN" value="0x06"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_LIST_FILTER_MODIFIED_BETWEEN" value="0x07"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_LIST_FILTER_CURRENT_SIZE_BETWEEN" value="0x08"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_LIST_FILTER_ALLOCATED_SIZE_BETWEEN" value="0x09"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_LIST_FILTER_MARKED_OBJECTS" value="0x0A"/>
+   <macro name="QAPI_BLE_OTS_FEATURE_SIZE" value="(sizeof(qapi_BLE_OTS_Feature_t))"/>
+   <macro name="QAPI_BLE_OTS_MAXIMUM_OBJECT_NAME_LENGTH" value="(120)"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_SIZE_SIZE" value="(sizeof(qapi_BLE_OTS_Object_Size_t))"/>
+   <macro name="QAPI_BLE_OTS_UINT48_SIZE" value="(sizeof(qapi_BLE_OTS_UINT48_t))"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_ACTION_CONTROL_POINT_SIZE" params="(_x)" value="(QAPI_BLE_BTPS_STRUCTURE_OFFSET(qapi_BLE_OTS_Object_Action_Control_Point_t, Variable_Data) + _x)"/>
+   <macro name="QAPI_BLE_OTS_OACP_RESPONSE_CODE_OP_CODE" value="(0x60)"/>
+   <macro name="QAPI_BLE_OTS_OACP_RESPONSE_VALUE_SIZE" params="(_x)" value="(QAPI_BLE_BTPS_STRUCTURE_OFFSET(qapi_BLE_OTS_OACP_Response_Value_t, Variable_Data) + _x)"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_LIST_CONTROL_POINT_SIZE" params="(_x)" value="(QAPI_BLE_BTPS_STRUCTURE_OFFSET(qapi_BLE_OTS_Object_List_Control_Point_t, Variable_Data) + (_x))"/>
+   <macro name="QAPI_BLE_OTS_OLCP_RESPONSE_CODE_OP_CODE" value="(0x70)"/>
+   <macro name="QAPI_BLE_OTS_OLCP_RESPONSE_VALUE_SIZE" params="(_x)" value="(QAPI_BLE_BTPS_STRUCTURE_OFFSET(qapi_BLE_OTS_OLCP_Response_Value_t, Variable_Data) + (_x))"/>
+   <macro name="QAPI_BLE_OTS_DATE_TIME_RANGE_SIZE" value="(sizeof(qapi_BLE_OTS_Date_Time_Range_t))"/>
+   <macro name="QAPI_BLE_OTS_SIZE_RANGE_SIZE" value="(sizeof(qapi_BLE_OTS_Size_Range_t))"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_LIST_FILTER_SIZE" params="(_x)" value="(QAPI_BLE_BTPS_STRUCTURE_OFFSET(qapi_BLE_OTS_Object_List_Filter_t, Variable_Data) + _x)"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_CHANGED_FLAGS_SOURCE_OF_CHANGE_CLIENT" value="0x01"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_CHANGED_FLAGS_OBJECT_CONTENTS_CHANGED" value="0x02"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_CHANGED_FLAGS_OBJECT_METADATA_CHANGED" value="0x04"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_CHANGED_FLAGS_OBJECT_CREATION" value="0x08"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_CHANGED_FLAGS_OBJECT_DELETION" value="0x10"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_CHANGED_SIZE" value="(sizeof(qapi_BLE_OTS_Object_Changed_t))"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_RECORD_FLAGS_TYPE_UUID_SIZE_128" value="0x01"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_RECORD_FLAGS_CURRENT_SIZE_PRESENT" value="0x02"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_RECORD_FLAGS_ALLOCATED_SIZE_PRESENT" value="0x04"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_RECORD_FLAGS_FIRST_CREATED_PRESENT" value="0x08"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_RECORD_FLAGS_LAST_MODIFIED_PRESENT" value="0x10"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_RECORD_FLAGS_PROPERTIES_PRESENT" value="0x20"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_RECORD_SIZE" params="(_x)" value="(QAPI_BLE_BTPS_STRUCTURE_OFFSET(qapi_BLE_OTS_Object_Record_t, Variable_Data) + (_x))"/>
+   <macro name="QAPI_BLE_OTS_OBJECT_RECORD_LENGTH" params="(_x, _y)" value="(QAPI_BLE_OTS_OBJECT_RECORD_SIZE(0) + "/>
+   <macro name="QAPI_BLE_OTS_MAXIMUM_SUPPORTED_OBJECT_LIST_FILTERS" value="(3)"/>
+   <macro name="QAPI_BLE_OTS_PROTOCOL_SERVICE_MULTIPLEXER" value="(0x0025)"/>
+   <structure name="qapi_BLE_OTS_Feature_t">
+      <member attributes="value" name="OACP_Features" type="qapi_BLE_NonAlignedDWord_t"/>
+      <member attributes="value" name="OLCP_Features" type="qapi_BLE_NonAlignedDWord_t"/>
+   </structure>
+   <structure name="qapi_BLE_OTS_Object_Size_t">
+      <member attributes="value" name="Current_Size" type="qapi_BLE_NonAlignedDWord_t"/>
+      <member attributes="value" name="Allocated_Size" type="qapi_BLE_NonAlignedDWord_t"/>
+   </structure>
+   <structure name="qapi_BLE_OTS_UINT48_t">
+      <member attributes="value" name="Lower" type="qapi_BLE_NonAlignedDWord_t"/>
+      <member attributes="value" name="Upper" type="qapi_BLE_NonAlignedWord_t"/>
+   </structure>
+   <structure name="qapi_BLE_OTS_Date_Time_Range_t">
+      <member attributes="value" name="Minimum" type="qapi_BLE_GATT_Date_Time_Characteristic_t"/>
+      <member attributes="value" name="Maximum" type="qapi_BLE_GATT_Date_Time_Characteristic_t"/>
+   </structure>
+   <structure name="qapi_BLE_OTS_Size_Range_t">
+      <member attributes="value" name="Minimum" type="qapi_BLE_NonAlignedDWord_t"/>
+      <member attributes="value" name="Maximum" type="qapi_BLE_NonAlignedDWord_t"/>
+   </structure>
+   <structure name="qapi_BLE_OTS_Object_Changed_t">
+      <member attributes="value" name="Flags" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="Object_ID" type="qapi_BLE_OTS_UINT48_t"/>
+   </structure>
+</header>

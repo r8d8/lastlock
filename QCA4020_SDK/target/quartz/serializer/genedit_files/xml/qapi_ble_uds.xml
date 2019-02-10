@@ -1,0 +1,505 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="./qapi_ble_btapityp.h"/>
+   <include name="./qapi_ble_bttypes.h"/>
+   <include name="./qapi_ble_gatt.h"/>
+   <include name="./qapi_ble_udstypes.h"/>
+   <macro name="QAPI_BLE_UDS_ERROR_INVALID_PARAMETER" value="(-1000)"/>
+   <macro name="QAPI_BLE_UDS_ERROR_INVALID_BLUETOOTH_STACK_ID" value="(-1001)"/>
+   <macro name="QAPI_BLE_UDS_ERROR_INSUFFICIENT_RESOURCES" value="(-1002)"/>
+   <macro name="QAPI_BLE_UDS_ERROR_INSUFFICIENT_BUFFER_SPACE" value="(-1003)"/>
+   <macro name="QAPI_BLE_UDS_ERROR_SERVICE_ALREADY_REGISTERED" value="(-1004)"/>
+   <macro name="QAPI_BLE_UDS_ERROR_INVALID_INSTANCE_ID" value="(-1005)"/>
+   <macro name="QAPI_BLE_UDS_ERROR_MALFORMATTED_DATA" value="(-1006)"/>
+   <macro name="QAPI_BLE_UDS_ERROR_INVALID_UDS_CHARACTERISTIC_FLAGS" value="(-1007)"/>
+   <macro name="QAPI_BLE_UDS_ERROR_INVALID_CHARACTERISTIC_TYPE" value="(-1008)"/>
+   <macro name="QAPI_BLE_UDS_ERROR_INVALID_ATTRIBUTE_HANDLE" value="(-1009)"/>
+   <macro name="QAPI_BLE_UDS_ERROR_INDICATION_OUTSTANDING" value="(-1010)"/>
+   <macro name="QAPI_BLE_UDS_ERROR_NOTIFICATIONS_NOT_SUPPORTED" value="(-1011)"/>
+   <macro name="QAPI_BLE_UDS_ERROR_INVALID_USER_CONTROL_POINT_REQUEST_OP_CODE" value="(-1012)"/>
+   <macro name="QAPI_BLE_UDS_ERROR_INVALID_USER_CONTROL_POINT_USER_INDEX" value="(-1013)"/>
+   <macro name="QAPI_BLE_UDS_ERROR_INVALID_USER_CONTROL_POINT_CONSENT_CODE" value="(-1014)"/>
+   <macro name="QAPI_BLE_UDS_ERROR_INVALID_OFFSET" value="(-1015)"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_FLAGS_FIRST_NAME" value="0x00000001"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_FLAGS_LAST_NAME" value="0x00000002"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_FLAGS_EMAIL_ADDRESS" value="0x00000004"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_FLAGS_AGE" value="0x00000008"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_FLAGS_DATE_OF_BIRTH" value="0x00000010"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_FLAGS_GENDER" value="0x00000020"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_FLAGS_WEIGHT" value="0x00000040"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_FLAGS_HEIGHT" value="0x00000080"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_FLAGS_VO2_MAX" value="0x00000100"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_FLAGS_HEART_RATE_MAX" value="0x00000200"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_FLAGS_RESTING_HEART_RATE" value="0x00000400"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_FLAGS_MAXIMUM_RECOMMENDED_HEART_RATE" value="0x00000800"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_FLAGS_AEROBIC_THRESHOLD" value="0x00001000"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_FLAGS_ANAEROBIC_THRESHOLD" value="0x00002000"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_FLAGS_SPORT_TYPE" value="0x00004000"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_FLAGS_DATE_OF_THRESHOLD" value="0x00008000"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_FLAGS_WAIST_CIRCUMFERENCE" value="0x00010000"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_FLAGS_HIP_CIRCUMFERENCE" value="0x00020000"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_FLAGS_FAT_BURN_HEART_RATE_LOWER_LIMIT" value="0x00040000"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_FLAGS_FAT_BURN_HEART_RATE_UPPER_LIMIT" value="0x00080000"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_FLAGS_AEROBIC_HEART_RATE_LOWER_LIMIT" value="0x00100000"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_FLAGS_AEROBIC_HEART_RATE_UPPER_LIMIT" value="0x00200000"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_FLAGS_ANAEROBIC_HEART_RATE_LOWER_LIMIT" value="0x00400000"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_FLAGS_ANAEROBIC_HEART_RATE_UPPER_LIMIT" value="0x00800000"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_FLAGS_FIVE_ZONE_HEART_RATE_LIMITS" value="0x01000000"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_FLAGS_THREE_ZONE_HEART_RATE_LIMITS" value="0x02000000"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_FLAGS_TWO_ZONE_HEART_RATE_LIMIT" value="0x04000000"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_FLAGS_LANGUAGE" value="0x08000000"/>
+   <macro name="QAPI_BLE_UDS_INITIALIZE_DATA_SIZE" value="(sizeof(qapi_BLE_UDS_Initialize_Data_t))"/>
+   <macro name="QAPI_BLE_UDS_CLIENT_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_UDS_Client_Information_t))"/>
+   <macro name="QAPI_BLE_UDS_SERVER_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_UDS_Server_Information_t))"/>
+   <macro name="QAPI_BLE_UDS_DATE_DATA_SIZE" value="(sizeof(qapi_BLE_UDS_Date_Data_t))"/>
+   <macro name="QAPI_BLE_UDS_DATE_OF_BIRTH_VALID" params="(_x)" value="((QAPI_BLE_GATT_DATE_TIME_VALID_YEAR(((_x)).Year)) &amp;&amp; (QAPI_BLE_GATT_DATE_TIME_VALID_MONTH(((_x)).Month)) &amp;&amp; (QAPI_BLE_GATT_DATE_TIME_VALID_DAY(((_x)).Day)))"/>
+   <macro name="QAPI_BLE_UDS_FIVE_ZONE_HEART_RATE_LIMITS_DATA_SIZE" value="(sizeof(qapi_BLE_UDS_Five_Zone_Heart_Rate_Limits_Data_t))"/>
+   <macro name="QAPI_BLE_UDS_THREE_ZONE_HEART_RATE_LIMITS_DATA_SIZE" value="(sizeof(qapi_BLE_UDS_Three_Zone_Heart_Rate_Limits_Data_t))"/>
+   <macro name="QAPI_BLE_UDS_USER_CONTROL_POINT_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_UDS_User_Control_Point_Request_Data_t))"/>
+   <macro name="QAPI_BLE_UDS_USER_CONTROL_POINT_RESPONSE_DATA_SIZE" value="(sizeof(qapi_BLE_UDS_User_Control_Point_Response_Data_t))"/>
+   <macro name="QAPI_BLE_UDS_READ_CHARACTERISTIC_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_UDS_Read_Characteristic_Request_Data_t))"/>
+   <macro name="QAPI_BLE_UDS_WRITE_CHARACTERISTIC_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_UDS_Write_Characteristic_Request_Data_t))"/>
+   <macro name="QAPI_BLE_UDS_PREPARE_WRITE_CHARACTERISTIC_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_UDS_Prepare_Write_Characteristic_Request_Data_t))"/>
+   <macro name="QAPI_BLE_UDS_READ_CCCD_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_UDS_Read_CCCD_Request_Data_t))"/>
+   <macro name="QAPI_BLE_UDS_WRITE_CCCD_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_UDS_Write_CCCD_Request_Data_t))"/>
+   <macro name="QAPI_BLE_UDS_READ_DATABASE_CHANGE_INCREMENT_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_UDS_Read_Database_Change_Increment_Request_Data_t))"/>
+   <macro name="QAPI_BLE_UDS_WRITE_DATABASE_CHANGE_INCREMENT_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_UDS_Write_Database_Change_Increment_Request_Data_t))"/>
+   <macro name="QAPI_BLE_UDS_READ_USER_INDEX_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_UDS_Read_User_Index_Request_Data_t))"/>
+   <macro name="QAPI_BLE_UDS_WRITE_USER_CONTROL_POINT_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_UDS_Write_User_Control_Point_Request_Data_t))"/>
+   <macro name="QAPI_BLE_UDS_CONFIRMATION_DATA_SIZE" value="(sizeof(qapi_BLE_UDS_Confirmation_Data_t))"/>
+   <macro name="QAPI_BLE_UDS_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_UDS_Event_Data_t))"/>
+   <enum name="qapi_BLE_UDS_Characteristic_Type_t">
+      <member name="QAPI_BLE_UDS_CT_FIRST_NAME_E" value="0"/>
+      <member name="QAPI_BLE_UDS_CT_LAST_NAME_E" value="1"/>
+      <member name="QAPI_BLE_UDS_CT_EMAIL_ADDRESS_E" value="2"/>
+      <member name="QAPI_BLE_UDS_CT_AGE_E" value="3"/>
+      <member name="QAPI_BLE_UDS_CT_DATE_OF_BIRTH_E" value="4"/>
+      <member name="QAPI_BLE_UDS_CT_GENDER_E" value="5"/>
+      <member name="QAPI_BLE_UDS_CT_WEIGHT_E" value="6"/>
+      <member name="QAPI_BLE_UDS_CT_HEIGHT_E" value="7"/>
+      <member name="QAPI_BLE_UDS_CT_VO2_MAX_E" value="8"/>
+      <member name="QAPI_BLE_UDS_CT_HEART_RATE_MAX_E" value="9"/>
+      <member name="QAPI_BLE_UDS_CT_RESTING_HEART_RATE_E" value="10"/>
+      <member name="QAPI_BLE_UDS_CT_MAXIMUM_RECOMMENDED_HEART_RATE_E" value="11"/>
+      <member name="QAPI_BLE_UDS_CT_AEROBIC_THRESHOLD_E" value="12"/>
+      <member name="QAPI_BLE_UDS_CT_ANAEROBIC_THRESHOLD_E" value="13"/>
+      <member name="QAPI_BLE_UDS_CT_SPORT_TYPE_E" value="14"/>
+      <member name="QAPI_BLE_UDS_CT_DATE_OF_THRESHOLD_E" value="15"/>
+      <member name="QAPI_BLE_UDS_CT_WAIST_CIRCUMFERENCE_E" value="16"/>
+      <member name="QAPI_BLE_UDS_CT_HIP_CIRCUMFERENCE_E" value="17"/>
+      <member name="QAPI_BLE_UDS_CT_FAT_BURN_HEART_RATE_LOWER_LIMIT_E" value="18"/>
+      <member name="QAPI_BLE_UDS_CT_FAT_BURN_HEART_RATE_UPPER_LIMIT_E" value="19"/>
+      <member name="QAPI_BLE_UDS_CT_AEROBIC_HEART_RATE_LOWER_LIMIT_E" value="20"/>
+      <member name="QAPI_BLE_UDS_CT_AEROBIC_HEART_RATE_UPPER_LIMIT_E" value="21"/>
+      <member name="QAPI_BLE_UDS_CT_ANAEROBIC_HEART_RATE_LOWER_LIMIT_E" value="22"/>
+      <member name="QAPI_BLE_UDS_CT_ANAEROBIC_HEART_RATE_UPPER_LIMIT_E" value="23"/>
+      <member name="QAPI_BLE_UDS_CT_FIVE_ZONE_HEART_RATE_LIMITS_E" value="24"/>
+      <member name="QAPI_BLE_UDS_CT_THREE_ZONE_HEART_RATE_LIMITS_E" value="25"/>
+      <member name="QAPI_BLE_UDS_CT_TWO_ZONE_HEART_RATE_LIMIT_E" value="26"/>
+      <member name="QAPI_BLE_UDS_CT_LANGUAGE_E" value="27"/>
+   </enum>
+   <enum name="qapi_BLE_UDS_CCCD_Characteristic_Type_t">
+      <member name="QAPI_BLE_UDS_CCT_DATABASE_CHANGE_INCREMENT" value="0"/>
+      <member name="QAPI_BLE_UDS_CCT_USER_CONTROL_POINT" value="1"/>
+   </enum>
+   <enum name="qapi_BLE_UDS_User_Control_Point_Request_Type_t">
+      <member name="QAPI_BLE_UDS_UCPRT_REGISTER_NEW_USER_E" value="QAPI_BLE_UDS_USER_CONTROL_POINT_OP_CODE_REGISTER_NEW_USER"/>
+      <member name="QAPI_BLE_UDS_UCPRT_CONSENT_E" value="QAPI_BLE_UDS_USER_CONTROL_POINT_OP_CODE_CONSENT"/>
+      <member name="QAPI_BLE_UDS_UCPRT_DELETE_USER_DATA_E" value="QAPI_BLE_UDS_USER_CONTROL_POINT_OP_CODE_DELETE_USER_DATA"/>
+   </enum>
+   <enum name="qapi_BLE_UDS_User_Control_Point_Response_Value_t">
+      <member name="QAPI_BLE_UDS_UCPRV_SUCCESS_E" value="QAPI_BLE_UDS_USER_CONTROL_POINT_RESPONSE_VALUE_SUCCESS"/>
+      <member name="QAPI_BLE_UDS_UCPRV_OPCODE_NOT_SUPPORTED_E" value="QAPI_BLE_UDS_USER_CONTROL_POINT_RESPONSE_VALUE_OP_CODE_NOT_SUPPORTED"/>
+      <member name="QAPI_BLE_UDS_UCPRV_INVALID_PARAMETER_E" value="QAPI_BLE_UDS_USER_CONTROL_POINT_RESPONSE_VALUE_INVALID_PARAMETER"/>
+      <member name="QAPI_BLE_UDS_UCPRV_OPERATION_FAILED_E" value="QAPI_BLE_UDS_USER_CONTROL_POINT_RESPONSE_VALUE_OPERATION_FAILED"/>
+      <member name="QAPI_BLE_UDS_UCPRV_USER_NOT_AUTHORIZED_E" value="QAPI_BLE_UDS_USER_CONTROL_POINT_RESPONSE_VALUE_USER_NOT_AUTHORIZED"/>
+   </enum>
+   <enum name="qapi_BLE_UDS_Event_Type_t">
+      <member name="QAPI_BLE_UDS_ET_SERVER_READ_CHARACTERISTIC_REQUEST_E" value="0"/>
+      <member name="QAPI_BLE_UDS_ET_SERVER_WRITE_CHARACTERISTIC_REQUEST_E" value="1"/>
+      <member name="QAPI_BLE_UDS_ET_SERVER_PREPARE_WRITE_CHARACTERISTIC_REQUEST_E" value="2"/>
+      <member name="QAPI_BLE_UDS_ET_SERVER_READ_CCCD_REQUEST_E" value="3"/>
+      <member name="QAPI_BLE_UDS_ET_SERVER_WRITE_CCCD_REQUEST_E" value="4"/>
+      <member name="QAPI_BLE_UDS_ET_SERVER_READ_DATABASE_CHANGE_INCREMENT_REQUEST_E" value="5"/>
+      <member name="QAPI_BLE_UDS_ET_SERVER_WRITE_DATABASE_CHANGE_INCREMENT_REQUEST_E" value="6"/>
+      <member name="QAPI_BLE_UDS_ET_SERVER_READ_USER_INDEX_REQUEST_E" value="7"/>
+      <member name="QAPI_BLE_UDS_ET_SERVER_WRITE_USER_CONTROL_POINT_REQUEST_E" value="8"/>
+      <member name="QAPI_BLE_UDS_ET_SERVER_CONFIRMATION_DATA_E" value="9"/>
+   </enum>
+   <structure name="qapi_BLE_UDS_Initialize_Data_t">
+      <member attributes="value" name="UDS_Characteristic_Flags" type="uint32_t"/>
+      <member attributes="value" name="Server_Update_Supported" type="boolean_t"/>
+   </structure>
+   <structure name="qapi_BLE_UDS_Characteristic_Handles_t">
+      <member attributes="value" name="First_Name" type="uint16_t"/>
+      <member attributes="value" name="Last_Name" type="uint16_t"/>
+      <member attributes="value" name="Email_Address" type="uint16_t"/>
+      <member attributes="value" name="Age" type="uint16_t"/>
+      <member attributes="value" name="Date_Of_Birth" type="uint16_t"/>
+      <member attributes="value" name="Gender" type="uint16_t"/>
+      <member attributes="value" name="Weight" type="uint16_t"/>
+      <member attributes="value" name="Height" type="uint16_t"/>
+      <member attributes="value" name="VO2_Max" type="uint16_t"/>
+      <member attributes="value" name="Heart_Rate_Max" type="uint16_t"/>
+      <member attributes="value" name="Resting_Heart_Rate" type="uint16_t"/>
+      <member attributes="value" name="Maximum_Recommended_Heart_Rate" type="uint16_t"/>
+      <member attributes="value" name="Aerobic_Threshold" type="uint16_t"/>
+      <member attributes="value" name="Anaerobic_Threshold" type="uint16_t"/>
+      <member attributes="value" name="Sport_Type" type="uint16_t"/>
+      <member attributes="value" name="Date_Of_Threshold" type="uint16_t"/>
+      <member attributes="value" name="Waist_Circumference" type="uint16_t"/>
+      <member attributes="value" name="Hip_Circumference" type="uint16_t"/>
+      <member attributes="value" name="Fat_Burn_Heart_Rate_Lower_Limit" type="uint16_t"/>
+      <member attributes="value" name="Fat_Burn_Heart_Rate_Upper_Limit" type="uint16_t"/>
+      <member attributes="value" name="Aerobic_Heart_Rate_Lower_Limit" type="uint16_t"/>
+      <member attributes="value" name="Aerobic_Heart_Rate_Upper_Limit" type="uint16_t"/>
+      <member attributes="value" name="Anaerobic_Heart_Rate_Lower_Limit" type="uint16_t"/>
+      <member attributes="value" name="Anaerobic_Heart_Rate_Upper_Limit" type="uint16_t"/>
+      <member attributes="value" name="Five_Zone_Heart_Rate_Limits" type="uint16_t"/>
+      <member attributes="value" name="Three_Zone_Heart_Rate_Limits" type="uint16_t"/>
+      <member attributes="value" name="Two_Zone_Heart_Rate_Limit" type="uint16_t"/>
+      <member attributes="value" name="Language" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_UDS_Client_Information_t">
+      <member attributes="value" name="Characteristic_Handles" type="qapi_BLE_UDS_Characteristic_Handles_t"/>
+      <member attributes="value" name="Database_Change_Increment" type="uint16_t"/>
+      <member attributes="value" name="Database_Change_Increment_CCCD" type="uint16_t"/>
+      <member attributes="value" name="User_Index" type="uint16_t"/>
+      <member attributes="value" name="User_Control_Point" type="uint16_t"/>
+      <member attributes="value" name="User_Control_Point_CCCD" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_UDS_Server_Information_t">
+      <member attributes="value" name="Database_Change_Increment_Configuration" type="uint16_t"/>
+      <member attributes="value" name="User_Control_Point_Configuration" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_UDS_String_Data_t">
+      <member attributes="value" name="Buffer_Length" type="uint16_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="Buffer_Length" lengthVerified="yes" name="Buffer" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_UDS_Date_Data_t">
+      <member attributes="value" name="Year" type="uint16_t"/>
+      <member attributes="value" name="Month" type="uint8_t"/>
+      <member attributes="value" name="Day" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_UDS_Five_Zone_Heart_Rate_Limits_Data_t">
+      <member attributes="value" name="Light_Limit" type="uint8_t"/>
+      <member attributes="value" name="Light_Moderate_Limit" type="uint8_t"/>
+      <member attributes="value" name="Moderate_Hard_Limit" type="uint8_t"/>
+      <member attributes="value" name="Hard_Maximum_Limit" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_UDS_Three_Zone_Heart_Rate_Limits_Data_t">
+      <member attributes="value" name="Light_Moderate_Limit" type="uint8_t"/>
+      <member attributes="value" name="Moderate_Hard_Limit" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_UDS_User_Control_Point_Request_Data_t">
+      <member attributes="value" name="Op_Code" type="qapi_BLE_UDS_User_Control_Point_Request_Type_t"/>
+      <member attributes="value" name="Parameter.Consent_Code" type="uint16_t"/>
+      <member attributes="value" name="Parameter.User_Index" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_UDS_User_Control_Point_Response_Data_t">
+      <member attributes="value" name="Request_Op_Code" type="qapi_BLE_UDS_User_Control_Point_Request_Type_t"/>
+      <member attributes="value" name="Response_Code_Value" type="qapi_BLE_UDS_User_Control_Point_Response_Value_t"/>
+      <member attributes="union" name="Parameter">
+         <member attributes="value" name="User_Index" type="uint8_t"/>
+         <unionMap mapVerified="yes" name="Request_Op_Code" type="qapi_BLE_UDS_User_Control_Point_Request_Type_t">
+            <mapEntry member="User_Index" type="uint8_t" value="QAPI_BLE_UDS_UCPRT_REGISTER_NEW_USER_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_BLE_UDS_Read_Characteristic_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Type" type="qapi_BLE_UDS_Characteristic_Type_t"/>
+      <member attributes="value" name="Offset" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_UDS_Write_Characteristic_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Type" type="qapi_BLE_UDS_Characteristic_Type_t"/>
+      <member attributes="value" name="UDS_Characteristic" type="qapi_BLE_UDS_Characteristic_t"/>
+   </structure>
+   <structure name="qapi_BLE_UDS_Prepare_Write_Characteristic_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Type" type="qapi_BLE_UDS_Characteristic_Type_t"/>
+   </structure>
+   <structure name="qapi_BLE_UDS_Read_CCCD_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Type" type="qapi_BLE_UDS_CCCD_Characteristic_Type_t"/>
+   </structure>
+   <structure name="qapi_BLE_UDS_Write_CCCD_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Type" type="qapi_BLE_UDS_CCCD_Characteristic_Type_t"/>
+      <member attributes="value" name="ClientConfiguration" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_UDS_Read_Database_Change_Increment_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+   </structure>
+   <structure name="qapi_BLE_UDS_Write_Database_Change_Increment_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="DatabaseChangeIncrement" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_BLE_UDS_Read_User_Index_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+   </structure>
+   <structure name="qapi_BLE_UDS_Write_User_Control_Point_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="UserControlPoint" type="qapi_BLE_UDS_User_Control_Point_Request_Data_t"/>
+   </structure>
+   <structure name="qapi_BLE_UDS_Confirmation_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Status" type="uint8_t"/>
+      <member attributes="value" name="BytesWritten" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_UDS_Event_Data_t">
+      <member attributes="value" name="Event_Data_Type" type="qapi_BLE_UDS_Event_Type_t"/>
+      <member attributes="value" name="Event_Data_Size" type="uint8_t"/>
+      <member attributes="union" name="Event_Data">
+         <member attributes="ptr" iotype="in" name="UDS_Read_Characteristic_Request_Data" type="qapi_BLE_UDS_Read_Characteristic_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="UDS_Write_Characteristic_Request_Data" type="qapi_BLE_UDS_Write_Characteristic_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="UDS_Prepare_Write_Characteristic_Request_Data" type="qapi_BLE_UDS_Prepare_Write_Characteristic_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="UDS_Read_CCCD_Request_Data" type="qapi_BLE_UDS_Read_CCCD_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="UDS_Write_CCCD_Request_Data" type="qapi_BLE_UDS_Write_CCCD_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="UDS_Read_Database_Change_Increment_Request_Data" type="qapi_BLE_UDS_Read_Database_Change_Increment_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="UDS_Write_Database_Change_Increment_Request_Data" type="qapi_BLE_UDS_Write_Database_Change_Increment_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="UDS_Read_User_Index_Request_Data" type="qapi_BLE_UDS_Read_User_Index_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="UDS_Write_User_Control_Point_Request_Data" type="qapi_BLE_UDS_Write_User_Control_Point_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="UDS_Confirmation_Data" type="qapi_BLE_UDS_Confirmation_Data_t"/>
+         <unionMap mapVerified="yes" name="Event_Data_Type" type="qapi_BLE_UDS_Event_Type_t">
+            <mapEntry member="UDS_Read_Characteristic_Request_Data" type="qapi_BLE_UDS_Read_Characteristic_Request_Data_t" value="QAPI_BLE_UDS_ET_SERVER_READ_CHARACTERISTIC_REQUEST_E"/>
+            <mapEntry member="UDS_Write_Characteristic_Request_Data" type="qapi_BLE_UDS_Write_Characteristic_Request_Data_t" value="QAPI_BLE_UDS_ET_SERVER_WRITE_CHARACTERISTIC_REQUEST_E"/>
+            <mapEntry member="UDS_Prepare_Write_Characteristic_Request_Data" type="qapi_BLE_UDS_Prepare_Write_Characteristic_Request_Data_t" value="QAPI_BLE_UDS_ET_SERVER_PREPARE_WRITE_CHARACTERISTIC_REQUEST_E"/>
+            <mapEntry member="UDS_Read_CCCD_Request_Data" type="qapi_BLE_UDS_Read_CCCD_Request_Data_t" value="QAPI_BLE_UDS_ET_SERVER_READ_CCCD_REQUEST_E"/>
+            <mapEntry member="UDS_Write_CCCD_Request_Data" type="qapi_BLE_UDS_Write_CCCD_Request_Data_t" value="QAPI_BLE_UDS_ET_SERVER_WRITE_CCCD_REQUEST_E"/>
+            <mapEntry member="UDS_Read_Database_Change_Increment_Request_Data" type="qapi_BLE_UDS_Read_Database_Change_Increment_Request_Data_t" value="QAPI_BLE_UDS_ET_SERVER_READ_DATABASE_CHANGE_INCREMENT_REQUEST_E"/>
+            <mapEntry member="UDS_Write_Database_Change_Increment_Request_Data" type="qapi_BLE_UDS_Write_Database_Change_Increment_Request_Data_t" value="QAPI_BLE_UDS_ET_SERVER_WRITE_DATABASE_CHANGE_INCREMENT_REQUEST_E"/>
+            <mapEntry member="UDS_Read_User_Index_Request_Data" type="qapi_BLE_UDS_Read_User_Index_Request_Data_t" value="QAPI_BLE_UDS_ET_SERVER_READ_USER_INDEX_REQUEST_E"/>
+            <mapEntry member="UDS_Write_User_Control_Point_Request_Data" type="qapi_BLE_UDS_Write_User_Control_Point_Request_Data_t" value="QAPI_BLE_UDS_ET_SERVER_WRITE_USER_CONTROL_POINT_REQUEST_E"/>
+            <mapEntry member="UDS_Confirmation_Data" type="qapi_BLE_UDS_Confirmation_Data_t" value="QAPI_BLE_UDS_ET_SERVER_CONFIRMATION_DATA_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_BLE_UDS_Characteristic_t">
+      <member attributes="union" name="">
+         <member attributes="value" name="First_Name" type="qapi_BLE_UDS_String_Data_t"/>
+         <member attributes="value" name="Last_Name" type="qapi_BLE_UDS_String_Data_t"/>
+         <member attributes="value" name="Email_Address" type="qapi_BLE_UDS_String_Data_t"/>
+         <member attributes="value" name="Age" type="uint8_t"/>
+         <member attributes="value" name="Date_Of_Birth" type="qapi_BLE_UDS_Date_Data_t"/>
+         <member attributes="value" name="Gender" type="uint8_t"/>
+         <member attributes="value" name="Weight" type="uint16_t"/>
+         <member attributes="value" name="Height" type="uint16_t"/>
+         <member attributes="value" name="VO2_Max" type="uint8_t"/>
+         <member attributes="value" name="Heart_Rate_Max" type="uint8_t"/>
+         <member attributes="value" name="Resting_Heart_Rate" type="uint8_t"/>
+         <member attributes="value" name="Maximum_Recommended_Heart_Rate" type="uint8_t"/>
+         <member attributes="value" name="Aerobic_Threshold" type="uint8_t"/>
+         <member attributes="value" name="Anaerobic_Threshold" type="uint8_t"/>
+         <member attributes="value" name="Sport_Type" type="uint8_t"/>
+         <member attributes="value" name="Date_Of_Threshold" type="qapi_BLE_UDS_Date_Data_t"/>
+         <member attributes="value" name="Waist_Circumference" type="uint16_t"/>
+         <member attributes="value" name="Hip_Circumference" type="uint16_t"/>
+         <member attributes="value" name="Fat_Burn_Heart_Rate_Lower_Limit" type="uint8_t"/>
+         <member attributes="value" name="Fat_Burn_Heart_Rate_Upper_Limit" type="uint8_t"/>
+         <member attributes="value" name="Aerobic_Heart_Rate_Lower_Limit" type="uint8_t"/>
+         <member attributes="value" name="Aerobic_Heart_Rate_Upper_Limit" type="uint8_t"/>
+         <member attributes="value" name="Anaerobic_Heart_Rate_Lower_Limit" type="uint8_t"/>
+         <member attributes="value" name="Anaerobic_Heart_Rate_Upper_Limit" type="uint8_t"/>
+         <member attributes="value" name="Five_Zone_Heart_Rate_Limits" type="qapi_BLE_UDS_Five_Zone_Heart_Rate_Limits_Data_t"/>
+         <member attributes="value" name="Three_Zone_Heart_Rate_Limits" type="qapi_BLE_UDS_Three_Zone_Heart_Rate_Limits_Data_t"/>
+         <member attributes="value" name="Two_Zone_Heart_Rate_Limit" type="uint8_t"/>
+         <member attributes="value" name="Language" type="qapi_BLE_UDS_String_Data_t"/>
+         <unionMap mapVerified="yes">
+            <mapEntry member="First_Name" type="qapi_BLE_UDS_String_Data_t" value=""/>
+         </unionMap>
+      </member>
+   </structure>
+   <function name="qapi_BLE_UDS_Initialize_Service">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Service_Flags" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="InitializeData" type="qapi_BLE_UDS_Initialize_Data_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_UDS_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_UDS_Initialize_Service_Handle_Range">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Service_Flags" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="InitializeData" type="qapi_BLE_UDS_Initialize_Data_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_UDS_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="ServiceHandleRange" type="qapi_BLE_GATT_Attribute_Handle_Group_t"/>
+   </function>
+   <function name="qapi_BLE_UDS_Cleanup_Service">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_UDS_Query_Number_Attributes">
+      <return attributes="value" type="unsigned int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_UDS_Read_Characteristic_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="value" name="Offset" type="uint16_t"/>
+      <argument attributes="value" name="Type" type="qapi_BLE_UDS_Characteristic_Type_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="UDS_Characteristic" type="qapi_BLE_UDS_Characteristic_t"/>
+   </function>
+   <function name="qapi_BLE_UDS_Write_Characteristic_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="value" name="Type" type="qapi_BLE_UDS_Characteristic_Type_t"/>
+   </function>
+   <function name="qapi_BLE_UDS_Prepare_Write_Characteristic_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="value" name="Type" type="qapi_BLE_UDS_Characteristic_Type_t"/>
+   </function>
+   <function name="qapi_BLE_UDS_Read_CCCD_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="value" name="Type" type="qapi_BLE_UDS_CCCD_Characteristic_Type_t"/>
+      <argument attributes="value" name="Configuration" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_UDS_Write_CCCD_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="value" name="Type" type="qapi_BLE_UDS_CCCD_Characteristic_Type_t"/>
+   </function>
+   <function name="qapi_BLE_UDS_Database_Change_Increment_Read_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="value" name="DatabaseChangeIncrement" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_UDS_Database_Change_Increment_Write_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_UDS_Notify_Database_Change_Increment">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="value" name="DatabaseChangeIncrement" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_UDS_User_Index_Read_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="value" name="User_Index" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_UDS_User_Control_Point_Write_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_UDS_Indicate_User_Control_Point_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="ResponseData" type="qapi_BLE_UDS_User_Control_Point_Response_Data_t"/>
+   </function>
+   <function name="qapi_BLE_UDS_Format_UDS_Characteristic_Request">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="Type" type="qapi_BLE_UDS_Characteristic_Type_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="UDS_Characteristic" type="qapi_BLE_UDS_Characteristic_t"/>
+      <argument attributes="value" name="BufferLength" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="BufferLength" lengthVerified="yes" name="Buffer" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_UDS_Decode_UDS_Characteristic_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="value" name="Type" type="qapi_BLE_UDS_Characteristic_Type_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="UDS_Characteristic" type="qapi_BLE_UDS_Characteristic_t"/>
+   </function>
+   <function name="qapi_BLE_UDS_Format_User_Control_Point_Request">
+      <return attributes="value" type="int"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="RequestData" type="qapi_BLE_UDS_User_Control_Point_Request_Data_t"/>
+      <argument attributes="value" name="BufferLength" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="BufferLength" lengthVerified="yes" name="Buffer" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_UDS_Decode_User_Control_Point_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ResponseData" type="qapi_BLE_UDS_User_Control_Point_Response_Data_t"/>
+   </function>
+   <callback name="qapi_BLE_UDS_Event_Callback_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="UDS_Event_Data" type="qapi_BLE_UDS_Event_Data_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <createFunction ID="qsRetVal" funcSuccess="0" moduleParam="BluetoothStackID" name="qapi_BLE_UDS_Initialize_Service" param="CallbackParameter"/>
+      <createFunction ID="qsRetVal" funcSuccess="0" moduleParam="BluetoothStackID" name="qapi_BLE_UDS_Initialize_Service_Handle_Range" param="CallbackParameter"/>
+      <destroyFunction ID="InstanceID" funcSuccess="0" name="qapi_BLE_UDS_Cleanup_Service"/>
+   </callback>
+</header>

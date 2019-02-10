@@ -1,0 +1,302 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="./qapi_ble_btapityp.h"/>
+   <include name="./qapi_ble_bttypes.h"/>
+   <include name="./qapi_ble_gatt.h"/>
+   <include name="./qapi_ble_ipstypes.h"/>
+   <macro name="QAPI_BLE_IPS_ERROR_INVALID_PARAMETER" value="(-1000)"/>
+   <macro name="QAPI_BLE_IPS_ERROR_INVALID_BLUETOOTH_STACK_ID" value="(-1001)"/>
+   <macro name="QAPI_BLE_IPS_ERROR_INSUFFICIENT_RESOURCES" value="(-1002)"/>
+   <macro name="QAPI_BLE_IPS_ERROR_INSUFFICIENT_BUFFER_SPACE" value="(-1003)"/>
+   <macro name="QAPI_BLE_IPS_ERROR_SERVICE_ALREADY_REGISTERED" value="(-1004)"/>
+   <macro name="QAPI_BLE_IPS_ERROR_INVALID_INSTANCE_ID" value="(-1005)"/>
+   <macro name="QAPI_BLE_IPS_ERROR_MALFORMATTED_DATA" value="(-1006)"/>
+   <macro name="QAPI_BLE_IPS_ERROR_FEATURE_NOT_SUPPORTED" value="(-1007)"/>
+   <macro name="QAPI_BLE_IPS_ERROR_INVALID_CONFIGURATION" value="(-1008)"/>
+   <macro name="QAPI_BLE_IPS_ERROR_INVALID_STRING_LENGTH" value="(-1009)"/>
+   <macro name="QAPI_BLE_IPS_ERROR_READ_TX_POWER_FAILED" value="(-1010)"/>
+   <macro name="QAPI_BLE_IPS_ERROR_LOCATION_NAME_NOT_CONFIGURED" value="(-1011)"/>
+   <macro name="QAPI_BLE_IPS_ERROR_NO_PENDING_AUTHORIZATION_REQUEST" value="(-1012)"/>
+   <macro name="QAPI_BLE_IPS_CHARACTERISTIC_FLAGS_LOCAL_COORDINATES" value="(0x01)"/>
+   <macro name="QAPI_BLE_IPS_CHARACTERISTIC_FLAGS_FLOOR_NUMBER" value="(0x02)"/>
+   <macro name="QAPI_BLE_IPS_CHARACTERISTIC_FLAGS_ALTITUDE" value="(0x04)"/>
+   <macro name="QAPI_BLE_IPS_CHARACTERISTIC_FLAGS_UNCERTAINTY" value="(0x08)"/>
+   <macro name="QAPI_BLE_IPS_CHARACTERISTIC_FLAGS_LOCATION_NAME" value="(0x10)"/>
+   <macro name="QAPI_BLE_IPS_CHARACTERISTIC_PROPERTY_FLAGS_WRITE" value="(0x01)"/>
+   <macro name="QAPI_BLE_IPS_CHARACTERISTIC_PROPERTY_FLAGS_WRITE_WITHOUT_RESPONSE" value="(0x02)"/>
+   <macro name="QAPI_BLE_IPS_CHARACTERISTIC_PROPERTY_FLAGS_RELIABLE_WRITE" value="(0x04)"/>
+   <macro name="QAPI_BLE_IPS_INITIALIZE_DATA_SIZE" value="(sizeof(qapi_BLE_IPS_Initialize_Data_t))"/>
+   <macro name="QAPI_BLE_IPS_CHARACTERISTIC_INDOOR_POSITIONING_CONFIG" value="(0x0001)"/>
+   <macro name="QAPI_BLE_IPS_CHARACTERISTIC_LATITUDE" value="(0x0002)"/>
+   <macro name="QAPI_BLE_IPS_CHARACTERISTIC_LONGITUDE" value="(0x0004)"/>
+   <macro name="QAPI_BLE_IPS_CHARACTERISTIC_LOCAL_NORTH_COORDINATE" value="(0x0008)"/>
+   <macro name="QAPI_BLE_IPS_CHARACTERISTIC_LOCAL_EAST_COORDINATE" value="(0x0010)"/>
+   <macro name="QAPI_BLE_IPS_CHARACTERISTIC_FLOOR_NUMBER" value="(0x0020)"/>
+   <macro name="QAPI_BLE_IPS_CHARACTERISTIC_ALTITUDE" value="(0x0040)"/>
+   <macro name="QAPI_BLE_IPS_CHARACTERISTIC_UNCERTAINTY" value="(0x0080)"/>
+   <macro name="QAPI_BLE_IPS_CHARACTERISTIC_LOCATION_NAME" value="(0x0100)"/>
+   <macro name="QAPI_BLE_IPS_SERVER_CHARACTERISTIC_READ_DATA_SIZE" value="(sizeof(qapi_BLE_IPS_Server_Characteristic_Read_Data_t))"/>
+   <macro name="QAPI_BLE_IPS_SERVER_CHARACTERISTIC_UPDATED_DATA_SIZE" value="(sizeof(qapi_BLE_IPS_Server_Characteristic_Updated_Data_t))"/>
+   <macro name="QAPI_BLE_IPS_SERVER_AUTHORIZATION_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_IPS_Server_Authorization_Request_Data_t))"/>
+   <macro name="QAPI_BLE_IPS_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_IPS_Event_Data_t))"/>
+   <macro name="QAPI_BLE_IPS_CLIENT_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_IPS_Client_Information_t))"/>
+   <macro name="QAPI_BLE_IPS_BROADCAST_DATA_SIZE" value="(sizeof(qapi_BLE_IPS_Broadcast_Data_t))"/>
+   <enum name="qapi_BLE_IPS_Characteristic_Type_t">
+      <member name="QAPI_BLE_IPS_CT_IP_CONFIGURATION_E" value="0"/>
+      <member name="QAPI_BLE_IPS_CT_LATITUDE_E" value="1"/>
+      <member name="QAPI_BLE_IPS_CT_LONGITUDE_E" value="2"/>
+      <member name="QAPI_BLE_IPS_CT_LOCAL_NORTH_COORDINATE_E" value="3"/>
+      <member name="QAPI_BLE_IPS_CT_LOCAL_EAST_COORDINATE_E" value="4"/>
+      <member name="QAPI_BLE_IPS_CT_FLOOR_NUMBER_E" value="5"/>
+      <member name="QAPI_BLE_IPS_CT_ALTITUDE_E" value="6"/>
+      <member name="QAPI_BLE_IPS_CT_UNCERTAINTY_E" value="7"/>
+      <member name="QAPI_BLE_IPS_CT_LOCATION_NAME_E" value="8"/>
+      <member name="QAPI_BLE_IPS_CT_EXTENDED_PROPERTIES_E" value="9"/>
+   </enum>
+   <enum name="qapi_BLE_IPS_Event_Type_t">
+      <member name="QAPI_BLE_IPS_ET_SERVER_CHARACTERISTIC_READ_E" value="0"/>
+      <member name="QAPI_BLE_IPS_ET_SERVER_CHARACTERISTIC_UPDATED_E" value="1"/>
+      <member name="QAPI_BLE_IPS_ET_SERVER_AUTHORIZATION_REQUEST_E" value="2"/>
+   </enum>
+   <structure name="qapi_BLE_IPS_Initialize_Data_t">
+      <member attributes="value" name="IPS_Characteristic_Flags" type="uint32_t"/>
+      <member attributes="value" name="IPS_Characteristic_Property_Flags" type="uint32_t"/>
+      <member attributes="value" name="Enable_Authorized_Device_Write" type="boolean_t"/>
+   </structure>
+   <structure name="qapi_BLE_IPS_Server_Characteristic_Read_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Type" type="qapi_BLE_IPS_Characteristic_Type_t"/>
+   </structure>
+   <structure name="qapi_BLE_IPS_Server_Characteristic_Updated_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Characteristic" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_IPS_Server_Authorization_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Type" type="qapi_BLE_IPS_Characteristic_Type_t"/>
+   </structure>
+   <structure name="qapi_BLE_IPS_Event_Data_t">
+      <member attributes="value" name="Event_Data_Type" type="qapi_BLE_IPS_Event_Type_t"/>
+      <member attributes="value" name="Event_Data_Size" type="uint16_t"/>
+      <member attributes="union" name="Event_Data">
+         <member attributes="ptr" iotype="in" name="IPS_Server_Characteristic_Read_Data" type="qapi_BLE_IPS_Server_Characteristic_Read_Data_t"/>
+         <member attributes="ptr" iotype="in" name="IPS_Server_Characteristic_Updated_Data" type="qapi_BLE_IPS_Server_Characteristic_Updated_Data_t"/>
+         <member attributes="ptr" iotype="in" name="IPS_Server_Authorization_Request_Data" type="qapi_BLE_IPS_Server_Authorization_Request_Data_t"/>
+         <unionMap mapVerified="yes" name="Event_Data_Type" type="qapi_BLE_IPS_Event_Type_t">
+            <mapEntry member="IPS_Server_Characteristic_Read_Data" type="qapi_BLE_IPS_Server_Characteristic_Read_Data_t" value="QAPI_BLE_IPS_ET_SERVER_CHARACTERISTIC_READ_E"/>
+            <mapEntry member="IPS_Server_Characteristic_Updated_Data" type="qapi_BLE_IPS_Server_Characteristic_Updated_Data_t" value="QAPI_BLE_IPS_ET_SERVER_CHARACTERISTIC_UPDATED_E"/>
+            <mapEntry member="IPS_Server_Authorization_Request_Data" type="qapi_BLE_IPS_Server_Authorization_Request_Data_t" value="QAPI_BLE_IPS_ET_SERVER_AUTHORIZATION_REQUEST_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_BLE_IPS_Client_Information_t">
+      <member attributes="value" name="Indoor_Positioning_Configuration" type="uint16_t"/>
+      <member attributes="value" name="Indoor_Positioning_Configuration_Extended_Properties" type="uint16_t"/>
+      <member attributes="value" name="Latitude" type="uint16_t"/>
+      <member attributes="value" name="Latitude_Extended_Properties" type="uint16_t"/>
+      <member attributes="value" name="Longitude" type="uint16_t"/>
+      <member attributes="value" name="Longitude_Extended_Properties" type="uint16_t"/>
+      <member attributes="value" name="Local_North_Coordinate" type="uint16_t"/>
+      <member attributes="value" name="Local_North_Coordinate_Extended_Properties" type="uint16_t"/>
+      <member attributes="value" name="Local_East_Coordinate" type="uint16_t"/>
+      <member attributes="value" name="Local_East_Coordinate_Extended_Properties" type="uint16_t"/>
+      <member attributes="value" name="Floor_Number" type="uint16_t"/>
+      <member attributes="value" name="Floor_Number_Extended_Properties" type="uint16_t"/>
+      <member attributes="value" name="Altitude" type="uint16_t"/>
+      <member attributes="value" name="Altitude_Extended_Properties" type="uint16_t"/>
+      <member attributes="value" name="Uncertainty" type="uint16_t"/>
+      <member attributes="value" name="Uncertainty_Extended_Properties" type="uint16_t"/>
+      <member attributes="value" name="Location_Name" type="uint16_t"/>
+      <member attributes="value" name="Location_Name_Extended_Properties" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_IPS_Broadcast_Data_t">
+      <member attributes="value" name="Flags" type="uint8_t"/>
+      <member attributes="value" name="Latitude" type="int32_t"/>
+      <member attributes="value" name="Longitude" type="int32_t"/>
+      <member attributes="value" name="LocalNorthCoordinate" type="int16_t"/>
+      <member attributes="value" name="LocalEastCoordinate" type="int16_t"/>
+      <member attributes="value" name="TxPower" type="uint8_t"/>
+      <member attributes="value" name="FloorNumber" type="uint8_t"/>
+      <member attributes="value" name="Altitude" type="int16_t"/>
+      <member attributes="value" name="Uncertainty" type="uint8_t"/>
+   </structure>
+   <function name="qapi_BLE_IPS_Initialize_Service">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Service_Flags" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="InitializeData" type="qapi_BLE_IPS_Initialize_Data_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_IPS_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_IPS_Initialize_Service_Handle_Range">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Service_Flags" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="InitializeData" type="qapi_BLE_IPS_Initialize_Data_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_IPS_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="ServiceHandleRange" type="qapi_BLE_GATT_Attribute_Handle_Group_t"/>
+   </function>
+   <function name="qapi_BLE_IPS_Cleanup_Service">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_IPS_Query_Number_Attributes">
+      <return attributes="value" type="unsigned int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_IPS_Set_Indoor_Positioning_Configuration">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="Configuration" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_IPS_Query_Indoor_Positioning_Configuration">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Configuration" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_IPS_Set_Latitude">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="Latitude" type="int32_t"/>
+   </function>
+   <function name="qapi_BLE_IPS_Query_Latitude">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Latitude" type="int32_t"/>
+   </function>
+   <function name="qapi_BLE_IPS_Set_Longitude">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="Longitude" type="int32_t"/>
+   </function>
+   <function name="qapi_BLE_IPS_Query_Longitude">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Longitude" type="int32_t"/>
+   </function>
+   <function name="qapi_BLE_IPS_Set_Local_North_Coordinate">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="LocalCoordinate" type="int16_t"/>
+   </function>
+   <function name="qapi_BLE_IPS_Query_Local_North_Coordinate">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="LocalCoordinate" type="int16_t"/>
+   </function>
+   <function name="qapi_BLE_IPS_Set_Local_East_Coordinate">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="LocalCoordinate" type="int16_t"/>
+   </function>
+   <function name="qapi_BLE_IPS_Query_Local_East_Coordinate">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="LocalCoordinate" type="int16_t"/>
+   </function>
+   <function name="qapi_BLE_IPS_Set_Floor_Number">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="FloorNumber" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_IPS_Query_Floor_Number">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="FloorNumber" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_IPS_Set_Altitude">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="Altitude" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_IPS_Query_Altitude">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Altitude" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_IPS_Set_Uncertainty">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="Uncertainty" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_IPS_Query_Uncertainty">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Uncertainty" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_IPS_Set_Location_Name">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="__strlen__" lengthVerified="yes" name="LocationName" type="char"/>
+   </function>
+   <function name="qapi_BLE_IPS_Query_Location_Name">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="LocationNameLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="LocationNameLength" lengthVerified="yes" name="LocationName" type="char"/>
+   </function>
+   <function name="qapi_BLE_IPS_Authorization_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="NotAuthorized" type="boolean_t"/>
+   </function>
+   <function name="qapi_BLE_IPS_Format_Broadcasting_Data">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="BufferLength" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="BufferLength" lengthVerified="yes" name="Buffer" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_IPS_Decode_Broadcasting_Data">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BufferLength" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="BufferLength" lengthVerified="yes" name="Buffer" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="BroadcastData" type="qapi_BLE_IPS_Broadcast_Data_t"/>
+   </function>
+   <callback name="qapi_BLE_IPS_Event_Callback_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="IPS_Event_Data" type="qapi_BLE_IPS_Event_Data_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <createFunction ID="qsRetVal" funcSuccess="0" moduleParam="BluetoothStackID" name="qapi_BLE_IPS_Initialize_Service" param="CallbackParameter"/>
+      <createFunction ID="qsRetVal" funcSuccess="0" moduleParam="BluetoothStackID" name="qapi_BLE_IPS_Initialize_Service_Handle_Range" param="CallbackParameter"/>
+      <destroyFunction ID="InstanceID" funcSuccess="0" name="qapi_BLE_IPS_Cleanup_Service"/>
+   </callback>
+</header>

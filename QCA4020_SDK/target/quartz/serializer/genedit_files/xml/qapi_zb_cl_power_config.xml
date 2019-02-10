@@ -1,0 +1,131 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="qapi_zb_cl.h"/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_MAINS_VOLTAGE" value="(0x0000) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_MAINS_FREQUENCY" value="(0x0001) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_MAINS_ALARM_MASK" value="(0x0010) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_MAINS_VOLTAGE_MIN_THRESHOLD" value="(0x0011) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_MAINS_VOLTAGE_MAX_THRESHOLD" value="(0x0012) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_MAINS_VOLTAGE_DWELL_TRIP_POINT" value="(0x0013) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY_VOLTAGE" value="(0x0020) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY_PERCENTAGE_REMAINING" value="(0x0021) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY_MANUFACTURER" value="(0x0030) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY_SIZE" value="(0x0031) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY_AMP_HOUR_RATING" value="(0x0032) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY_QUANTITY" value="(0x0033) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY_RATED_VOLTAGE" value="(0x0034) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY_ALARM_MASK" value="(0x0035) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY_VOLTAGE_MIN_THRESHOLD" value="(0x0036) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY_VOLTAGE_THRESHOLD1" value="(0x0037) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY_VOLTAGE_THRESHOLD2" value="(0x0038) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY_VOLTAGE_THRESHOLD3" value="(0x0039) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY_PERCENTAGE_MIN_THRESHOLD" value="(0x003A) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY_PERCENTAGE_THRESHOLD1" value="(0x003B) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY_PERCENTAGE_THRESHOLD2" value="(0x003C) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY_PERCENTAGE_THRESHOLD3" value="(0x003D) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY_ALARM_STATE" value="(0x003E) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY2_VOLTAGE" value="(0x0040) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY2_PERCENTAGE_REMAINING" value="(0x0041) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY2_MANUFACTURER" value="(0x0050) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY2_SIZE" value="(0x0051) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY2_AMP_HOUR_RATING" value="(0x0052) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY2_QUANTITY" value="(0x0053) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY2_RATED_VOLTAGE" value="(0x0054) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY2_ALARM_MASK" value="(0x0055) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY2_VOLTAGE_MIN_THRESHOLD" value="(0x0056) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY2_VOLTAGE_THRESHOLD1" value="(0x0057) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY2_VOLTAGE_THRESHOLD2" value="(0x0058) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY2_VOLTAGE_THRESHOLD3" value="(0x0059) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY2_PERCENTAGE_MIN_THRESHOLD" value="(0x005A) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY2_PERCENTAGE_THRESHOLD1" value="(0x005B) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY2_PERCENTAGE_THRESHOLD2" value="(0x005C) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY2_PERCENTAGE_THRESHOLD3" value="(0x005D) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY2_ALARM_STATE" value="(0x005E) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY3_VOLTAGE" value="(0x0060) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY3_PERCENTAGE_REMAINING" value="(0x0071) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY3_MANUFACTURER" value="(0x0070) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY3_SIZE" value="(0x0071) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY3_AMP_HOUR_RATING" value="(0x0072) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY3_QUANTITY" value="(0x0073) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY3_RATED_VOLTAGE" value="(0x0074) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY3_ALARM_MASK" value="(0x0075) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY3_VOLTAGE_MIN_THRESHOLD" value="(0x0076) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY3_VOLTAGE_THRESHOLD1" value="(0x0077) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY3_VOLTAGE_THRESHOLD2" value="(0x0078) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY3_VOLTAGE_THRESHOLD3" value="(0x0079) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY3_PERCENTAGE_MIN_THRESHOLD" value="(0x007A) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY3_PERCENTAGE_THRESHOLD1" value="(0x007B) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY3_PERCENTAGE_THRESHOLD2" value="(0x007C) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY3_PERCENTAGE_THRESHOLD3" value="(0x007D) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ATTR_ID_BATTERY3_ALARM_STATE" value="(0x007E) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_MAINS_ALARM_MASK_VOLTAGE_TOO_LOW" value="(0x01) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_MAINS_ALARM_MASK_VOLTAGE_TOO_HIGH" value="(0x02) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_MAINS_ALARM_MASK_POWER_LOST" value="(0x04) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_BATTERY_TYPE_NO_BATTERY" value="(0x00) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_BATTERY_TYPE_BUILT_IN" value="(0x01) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_BATTERY_TYPE_OTHER" value="(0x02) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_BATTERY_TYPE_AA" value="(0x03) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_BATTERY_TYPE_AAA" value="(0x04) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_BATTERY_TYPE_C" value="(0x05) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_BATTERY_TYPE_D" value="(0x06) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_BATTERY_TYPE_CR2" value="(0x07) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_BATTERY_TYPE_CR123A" value="(0x08) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_BATTERY_TYPE_UNKNOWN" value="(0xFF) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_BATTERY_ALARM_MASK_MIN_THRESHOLD" value="(0x01) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_BATTERY_ALARM_MASK_THRESHOLD1" value="(0x02) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_BATTERY_ALARM_MASK_THRESHOLD2" value="(0x04) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_BATTERY_ALARM_MASK_THRESHOLD3" value="(0x08) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ALARM_CODE_MAINS_VOLTAGE_TOO_LOW" value="(0x00) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ALARM_CODE_MAINS_VOLTAGE_TOO_HIGH" value="(0x01) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ALARM_CODE_BATTERY_MIN_THRESHOLD" value="(0x10) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ALARM_CODE_BATTERY_THRESHOLD1" value="(0x11) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ALARM_CODE_BATTERY_THRESHOLD2" value="(0x12) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ALARM_CODE_BATTERY_THRESHOLD3" value="(0x13) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ALARM_CODE_BATTERY2_MIN_THRESHOLD" value="(0x20) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ALARM_CODE_BATTERY2_THRESHOLD1" value="(0x21) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ALARM_CODE_BATTERY2_THRESHOLD2" value="(0x22) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ALARM_CODE_BATTERY2_THRESHOLD3" value="(0x23) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ALARM_CODE_BATTERY3_MIN_THRESHOLD" value="(0x30) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ALARM_CODE_BATTERY3_THRESHOLD1" value="(0x31) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ALARM_CODE_BATTERY3_THRESHOLD2" value="(0x32) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ALARM_CODE_BATTERY3_THRESHOLD3" value="(0x33) "/>
+   <macro name="QAPI_ZB_CL_POWERCONFIG_ALARM_CODE_MAINS_UNAVAILABLE" value="(0x3A) "/>
+   <enum name="qapi_ZB_CL_PowerConfig_Server_Event_Type_t">
+      <member name="QAPI_ZB_CL_POWERCONFIG_SERVER_EVENT_TYPE_ATTR_CUSTOM_READ_E" value="0"/>
+      <member name="QAPI_ZB_CL_POWERCONFIG_SERVER_EVENT_TYPE_ATTR_CUSTOM_WRITE_E" value="1"/>
+      <member name="QAPI_ZB_CL_POWERCONFIG_SERVER_EVENT_TYPE_UNPARSED_DATA_E" value="2"/>
+      <member name="QAPI_ZB_CL_POWERCONFIG_SERVER_EVENT_TYPE_ALARM_RESET_E" value="3"/>
+   </enum>
+   <structure name="qapi_ZB_CL_PowerConfig_Server_Event_Data_t">
+      <member attributes="value" name="Event_Type" type="qapi_ZB_CL_PowerConfig_Server_Event_Type_t"/>
+      <member attributes="union" name="Data">
+         <member attributes="value" name="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t"/>
+         <member attributes="value" name="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t"/>
+         <member attributes="value" name="Unparsed_Data" type="qapi_ZB_CL_Unparsed_Data_t"/>
+         <member attributes="value" name="Reset_Alarm_Data" type="qapi_ZB_CL_Custom_Cluster_Reset_Alarm_t"/>
+         <unionMap mapVerified="yes" name="Event_Type" type="qapi_ZB_CL_PowerConfig_Server_Event_Type_t">
+            <mapEntry member="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t" value="QAPI_ZB_CL_POWERCONFIG_SERVER_EVENT_TYPE_ATTR_CUSTOM_READ_E"/>
+            <mapEntry member="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t" value="QAPI_ZB_CL_POWERCONFIG_SERVER_EVENT_TYPE_ATTR_CUSTOM_WRITE_E"/>
+            <mapEntry member="Unparsed_Data" type="qapi_ZB_CL_Unparsed_Data_t" value="QAPI_ZB_CL_POWERCONFIG_SERVER_EVENT_TYPE_UNPARSED_DATA_E"/>
+            <mapEntry member="Reset_Alarm_Data" type="qapi_ZB_CL_Custom_Cluster_Reset_Alarm_t" value="QAPI_ZB_CL_POWERCONFIG_SERVER_EVENT_TYPE_ALARM_RESET_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <function name="qapi_ZB_CL_PowerConfig_Create_Server">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Cluster_Info" type="qapi_ZB_CL_Cluster_Info_t"/>
+      <argument attributes="value" name="Event_CB" type="qapi_ZB_CL_PowerConfig_Server_CB_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+   </function>
+   <callback name="qapi_ZB_CL_PowerConfig_Server_CB_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Event_Data" type="qapi_ZB_CL_PowerConfig_Server_Event_Data_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+      <createFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_PowerConfig_Create_Server" param="CB_Param"/>
+      <destroyFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_Destroy_Cluster"/>
+   </callback>
+</header>

@@ -1,0 +1,122 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="./qapi_ble_btapityp.h"/>
+   <include name="./qapi_ble_bttypes.h"/>
+   <include name="./qapi_ble_gatt.h"/>
+   <include name="./qapi_ble_rtustypes.h"/>
+   <macro name="QAPI_BLE_RTUS_ERROR_INVALID_PARAMETER" value="(-1000)"/>
+   <macro name="QAPI_BLE_RTUS_ERROR_INVALID_BLUETOOTH_STACK_ID" value="(-1001)"/>
+   <macro name="QAPI_BLE_RTUS_ERROR_INSUFFICIENT_RESOURCES" value="(-1002)"/>
+   <macro name="QAPI_BLE_RTUS_ERROR_SERVICE_ALREADY_REGISTERED" value="(-1003)"/>
+   <macro name="QAPI_BLE_RTUS_ERROR_INVALID_INSTANCE_ID" value="(-1004)"/>
+   <macro name="QAPI_BLE_RTUS_ERROR_MALFORMATTED_DATA" value="(-1005)"/>
+   <macro name="QAPI_BLE_RTUS_ERROR_UNKNOWN_ERROR" value="(-1006)"/>
+   <macro name="QAPI_BLE_RTUS_TIME_UPDATE_CONTROL_COMMAND_DATA_SIZE" value="(sizeof(qapi_BLE_RTUS_Time_Update_Control_Command_Data_t))"/>
+   <macro name="QAPI_BLE_RTUS_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_RTUS_Event_Data_t))"/>
+   <macro name="QAPI_BLE_RTUS_CLIENT_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_RTUS_Client_Information_t))"/>
+   <macro name="QAPI_BLE_RTUS_SERVER_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_RTUS_Server_Information_t))"/>
+   <macro name="QAPI_BLE_RTUS_TIME_UPDATE_STATE_DATA_SIZE" value="(sizeof(qapi_BLE_RTUS_Time_Update_State_Data_t))"/>
+   <enum name="qapi_BLE_RTUS_Time_Update_Control_Command_t">
+      <member name="QAPI_BLE_CP_GET_REFERENCE_UPDATE_E" value="QAPI_BLE_RTUS_TIME_UPDATE_CONTROL_POINT_GET_REFERENCE_UPDATE"/>
+      <member name="QAPI_BLE_CP_CANCEL_REFERENCE_UPDATE_E" value="QAPI_BLE_RTUS_TIME_UPDATE_CONTROL_POINT_CANCEL_REFERENCE_UPDATE"/>
+   </enum>
+   <enum name="qapi_BLE_RTUS_Event_Type_t">
+      <member name="QAPI_BLE_ET_RTUS_SERVER_TIME_UPDATE_CONTROL_POINT_COMMAND_E" value="0"/>
+   </enum>
+   <enum name="qapi_BLE_RTUS_Time_Update_State_Current_State_t">
+      <member name="QAPI_BLE_CS_IDLE_E" value="QAPI_BLE_RTUS_CURRENT_STATE_IDLE"/>
+      <member name="QAPI_BLE_CS_UPDATE_PENDING_E" value="QAPI_BLE_RTUS_CURRENT_STATE_UPDATE_PENDING"/>
+   </enum>
+   <enum name="qapi_BLE_RTUS_Time_Update_State_Result_t">
+      <member name="QAPI_BLE_RE_SUCCESSFUL_E" value="QAPI_BLE_RTUS_RESULT_SUCCESSFUL"/>
+      <member name="QAPI_BLE_RE_CANCELED_E" value="QAPI_BLE_RTUS_RESULT_CANCELED"/>
+      <member name="QAPI_BLE_RE_NO_CONNECTION_TO_REFERENCE_E" value="QAPI_BLE_RTUS_RESULT_NO_CONNECTION_TO_REFERENCE"/>
+      <member name="QAPI_BLE_RE_REFERENCE_RESPONDED_WITH_ERROR_E" value="QAPI_BLE_RTUS_RESULT_REFERENCE_RESPONDED_WITH_AN_ERROR"/>
+      <member name="QAPI_BLE_RE_TIMEOUT_E" value="QAPI_BLE_RTUS_RESULT_TIMEOUT"/>
+      <member name="QAPI_BLE_RE_UPDATE_NOT_ATTEMPTED_AFTER_RESET_E" value="QAPI_BLE_RTUS_RESULT_UPDATE_NOT_ATTEMPTED_AFTER_RESET"/>
+   </enum>
+   <structure name="qapi_BLE_RTUS_Time_Update_Control_Command_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Command" type="qapi_BLE_RTUS_Time_Update_Control_Command_t"/>
+   </structure>
+   <structure name="qapi_BLE_RTUS_Event_Data_t">
+      <member attributes="value" name="Event_Data_Type" type="qapi_BLE_RTUS_Event_Type_t"/>
+      <member attributes="value" name="Event_Data_Size" type="uint16_t"/>
+      <member attributes="union" name="Event_Data">
+         <member attributes="ptr" iotype="in" name="RTUS_Time_Update_Control_Command_Data" type="qapi_BLE_RTUS_Time_Update_Control_Command_Data_t"/>
+         <unionMap mapVerified="yes" name="Event_Data_Type" type="qapi_BLE_RTUS_Event_Type_t">
+            <mapEntry member="RTUS_Time_Update_Control_Command_Data" type="qapi_BLE_RTUS_Time_Update_Control_Command_Data_t" value="QAPI_BLE_ET_RTUS_SERVER_TIME_UPDATE_CONTROL_POINT_COMMAND_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_BLE_RTUS_Client_Information_t">
+      <member attributes="value" name="Control_Point" type="uint16_t"/>
+      <member attributes="value" name="Time_Update_State" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_RTUS_Server_Information_t">
+      <member attributes="value" name="Control_Point" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_RTUS_Time_Update_State_Data_t">
+      <member attributes="value" name="CurrentState" type="qapi_BLE_RTUS_Time_Update_State_Current_State_t"/>
+      <member attributes="value" name="Result" type="qapi_BLE_RTUS_Time_Update_State_Result_t"/>
+   </structure>
+   <function name="qapi_BLE_RTUS_Initialize_Service">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_RTUS_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_RTUS_Initialize_Service_Handle_Range">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_RTUS_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="ServiceHandleRange" type="qapi_BLE_GATT_Attribute_Handle_Group_t"/>
+   </function>
+   <function name="qapi_BLE_RTUS_Cleanup_Service">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_RTUS_Query_Number_Attributes">
+      <return attributes="value" type="unsigned int"/>
+   </function>
+   <function name="qapi_BLE_RTUS_Set_Time_Update_State">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="TimeUpdateState" type="qapi_BLE_RTUS_Time_Update_State_Data_t"/>
+   </function>
+   <function name="qapi_BLE_RTUS_Query_Time_Update_State">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="TimeUpdateState" type="qapi_BLE_RTUS_Time_Update_State_Data_t"/>
+   </function>
+   <function name="qapi_BLE_RTUS_Decode_Time_Update_State">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="TimeUpdateState" type="qapi_BLE_RTUS_Time_Update_State_Data_t"/>
+   </function>
+   <function name="qapi_BLE_RTUS_Format_Control_Point_Command">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="Command" type="qapi_BLE_RTUS_Time_Update_Control_Command_t"/>
+      <argument attributes="value" name="BufferLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="BufferLength" lengthVerified="yes" name="Buffer" type="uint8_t"/>
+   </function>
+   <callback name="qapi_BLE_RTUS_Event_Callback_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="RTUS_Event_Data" type="qapi_BLE_RTUS_Event_Data_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <createFunction ID="qsRetVal" funcSuccess="0" moduleParam="BluetoothStackID" name="qapi_BLE_RTUS_Initialize_Service" param="CallbackParameter"/>
+      <createFunction ID="qsRetVal" funcSuccess="0" moduleParam="BluetoothStackID" name="qapi_BLE_RTUS_Initialize_Service_Handle_Range" param="CallbackParameter"/>
+      <destroyFunction ID="InstanceID" funcSuccess="0" name="qapi_BLE_RTUS_Cleanup_Service"/>
+   </callback>
+</header>

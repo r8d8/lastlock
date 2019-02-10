@@ -1,0 +1,554 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="./qapi_ble_btapityp.h"/>
+   <include name="./qapi_ble_bttypes.h"/>
+   <include name="./qapi_ble_gatt.h"/>
+   <include name="./qapi_ble_aiostypes.h"/>
+   <macro name="QAPI_BLE_AIOS_ERROR_INVALID_PARAMETER" value="(-1000)"/>
+   <macro name="QAPI_BLE_AIOS_ERROR_INVALID_BLUETOOTH_STACK_ID" value="(-1001)"/>
+   <macro name="QAPI_BLE_AIOS_ERROR_INSUFFICIENT_RESOURCES" value="(-1002)"/>
+   <macro name="QAPI_BLE_AIOS_ERROR_SERVICE_ALREADY_REGISTERED" value="(-1003)"/>
+   <macro name="QAPI_BLE_AIOS_ERROR_INVALID_INSTANCE_ID" value="(-1004)"/>
+   <macro name="QAPI_BLE_AIOS_ERROR_MALFORMATTED_DATA" value="(-1005)"/>
+   <macro name="QAPI_BLE_AIOS_ERROR_INSUFFICIENT_BUFFER_SPACE" value="(-1006)"/>
+   <macro name="QAPI_BLE_AIOS_ERROR_INVALID_NUMBER_OF_ENTRIES" value="(-1007)"/>
+   <macro name="QAPI_BLE_AIOS_ERROR_INVALID_NUMBER_OF_INSTANCES" value="(-1008)"/>
+   <macro name="QAPI_BLE_AIOS_ERROR_CHARACTERISTIC_TYPE_ALREADY_REGISTERED" value="(-1009)"/>
+   <macro name="QAPI_BLE_AIOS_ERROR_INVALID_CHARACTERISTIC_PROPERTY_FLAG" value="(-1010)"/>
+   <macro name="QAPI_BLE_AIOS_ERROR_INVALID_DESCRIPTOR_FLAG" value="(-1011)"/>
+   <macro name="QAPI_BLE_AIOS_ERROR_INVALID_AGGREGATE_PROPERTY_FLAG" value="(-1012)"/>
+   <macro name="QAPI_BLE_AIOS_ERROR_INVALID_CHARACTERISTIC_TYPE" value="(-1013)"/>
+   <macro name="QAPI_BLE_AIOS_ERROR_INVALID_IO_TYPE" value="(-1014)"/>
+   <macro name="QAPI_BLE_AIOS_ERROR_INVALID_CHARACTERISTIC_INSTANCE_ID" value="(-1015)"/>
+   <macro name="QAPI_BLE_AIOS_ERROR_ATTRIBUTE_HANDLE_INFORMATION_NOT_FOUND" value="(-1016)"/>
+   <macro name="QAPI_BLE_AIOS_ERROR_INVALID_CONDITION_CODE_VALUE" value="(-1017)"/>
+   <macro name="QAPI_BLE_AIOS_ERROR_CHARACTERISTIC_MTU_SIZE_EXCEEDED" value="(-1018)"/>
+   <macro name="QAPI_BLE_AIOS_ERROR_AGGREGATE_NOT_SUPPORTED" value="(-1019)"/>
+   <macro name="QAPI_BLE_AIOS_ERROR_AGGREGATE_CCCD_NOT_SUPPORTED" value="(-1020)"/>
+   <macro name="QAPI_BLE_AIOS_INPUT_CHARACTERISTIC_PROPERTY_FLAGS_INDICATE" value="(QAPI_BLE_GATT_CHARACTERISTIC_PROPERTIES_INDICATE)"/>
+   <macro name="QAPI_BLE_AIOS_INPUT_CHARACTERISTIC_PROPERTY_FLAGS_NOTIFY" value="(QAPI_BLE_GATT_CHARACTERISTIC_PROPERTIES_NOTIFY)"/>
+   <macro name="QAPI_BLE_AIOS_OUTPUT_CHARACTERISTIC_PROPERTY_FLAGS_WRITE" value="(QAPI_BLE_GATT_CHARACTERISTIC_PROPERTIES_WRITE)"/>
+   <macro name="QAPI_BLE_AIOS_OUTPUT_CHARACTERISTIC_PROPERTY_FLAGS_WRITE_WITHOUT_RESPONSE" value="(QAPI_BLE_GATT_CHARACTERISTIC_PROPERTIES_WRITE_WITHOUT_RESPONSE)"/>
+   <macro name="QAPI_BLE_AIOS_OUTPUT_CHARACTERISTIC_PROPERTY_FLAGS_READ" value="(QAPI_BLE_GATT_CHARACTERISTIC_PROPERTIES_READ)"/>
+   <macro name="QAPI_BLE_AIOS_OUTPUT_CHARACTERISTIC_PROPERTY_FLAGS_INDICATE" value="(QAPI_BLE_GATT_CHARACTERISTIC_PROPERTIES_INDICATE)"/>
+   <macro name="QAPI_BLE_AIOS_OUTPUT_CHARACTERISTIC_PROPERTY_FLAGS_NOTIFY" value="(QAPI_BLE_GATT_CHARACTERISTIC_PROPERTIES_NOTIFY)"/>
+   <macro name="QAPI_BLE_AIOS_AGGREGATE_PROPERTY_FLAGS_INDICATE" value="(QAPI_BLE_GATT_CHARACTERISTIC_PROPERTIES_INDICATE)"/>
+   <macro name="QAPI_BLE_AIOS_AGGREGATE_PROPERTY_FLAGS_NOTIFY" value="(QAPI_BLE_GATT_CHARACTERISTIC_PROPERTIES_NOTIFY)"/>
+   <macro name="QAPI_BLE_AIOS_DESCRIPTOR_FLAGS_PRESENTATION_FORMAT" value="(0x01)"/>
+   <macro name="QAPI_BLE_AIOS_DESCRIPTOR_FLAGS_USER_DESCRIPTION" value="(0x02)"/>
+   <macro name="QAPI_BLE_AIOS_DESCRIPTOR_FLAGS_VALUE_TRIGGER_SETTING" value="(0x04)"/>
+   <macro name="QAPI_BLE_AIOS_DESCRIPTOR_FLAGS_TIME_TRIGGER_SETTING" value="(0x08)"/>
+   <macro name="QAPI_BLE_AIOS_DESCRIPTOR_FLAGS_VALID_RANGE" value="(0x10)"/>
+   <macro name="QAPI_BLE_AIOS_DESCRIPTOR_PROPERTY_FLAGS_USER_DESCRIPTION_WRITABLE" value="(0x01)"/>
+   <macro name="QAPI_BLE_AIOS_CHARACTERISTIC_INSTANCE_ENTRY_SIZE" value="(sizeof(qapi_BLE_AIOS_Characteristic_Instance_Entry_t))"/>
+   <macro name="QAPI_BLE_AIOS_CHARACTERISTIC_ENTRY_SIZE" value="(sizeof(qapi_BLE_AIOS_Characteristic_Entry_t))"/>
+   <macro name="QAPI_BLE_AIOS_INITIALIZE_DATA_SIZE" value="(sizeof(qapi_BLE_AIOS_Initialize_Data_t))"/>
+   <macro name="QAPI_BLE_AIOS_DIGITAL_CHARACTERISTIC_DATA_SIZE" value="(sizeof(qapi_BLE_AIOS_Digital_Characteristic_Data_t))"/>
+   <macro name="QAPI_BLE_AIOS_AGGREGATE_CHARACTERISTIC_DATA_SIZE" value="(sizeof(qapi_BLE_AIOS_Aggregate_Characteristic_Data_t))"/>
+   <macro name="QAPI_BLE_AIOS_PRESENTATION_FORMAT_DATA_SIZE" value="(sizeof(qapi_BLE_AIOS_Presentation_Format_Data_t))"/>
+   <macro name="QAPI_BLE_AIOS_VALID_RANGE_DATA_SIZE" value="(sizeof(qapi_BLE_AIOS_Valid_Range_Data_t))"/>
+   <macro name="QAPI_BLE_AIOS_VALUE_TRIGGER_DATA_SIZE" value="(sizeof(qapi_BLE_AIOS_Value_Trigger_Data_t))"/>
+   <macro name="QAPI_BLE_AIOS_TIME_INTERVAL_DATA_SIZE" value="(sizeof(qapi_BLE_AIOS_Value_Trigger_Data_t))"/>
+   <macro name="QAPI_BLE_AIOS_TIME_TRIGGER_DATA_SIZE" value="(sizeof(qapi_BLE_AIOS_Value_Trigger_Data_t))"/>
+   <macro name="QAPI_BLE_AIOS_CHARACTERISTIC_INFO_DATA_SIZE" value="(sizeof(qapi_BLE_AIOS_Characteristic_Info_t))"/>
+   <macro name="QAPI_BLE_AIOS_READ_CHARACTERISTIC_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_AIOS_Read_Characteristic_Request_Data_t))"/>
+   <macro name="QAPI_BLE_AIOS_WRITE_CHARACTERISTIC_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_AIOS_Write_Characteristic_Request_Data_t))"/>
+   <macro name="QAPI_BLE_AIOS_READ_CCCD_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_AIOS_Read_CCCD_Request_Data_t))"/>
+   <macro name="QAPI_BLE_AIOS_WRITE_CCCD_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_AIOS_Write_CCCD_Request_Data_t))"/>
+   <macro name="QAPI_BLE_AIOS_READ_PRESENTATION_FORMAT_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_AIOS_Read_Presentation_Format_Request_Data_t))"/>
+   <macro name="QAPI_BLE_AIOS_READ_USER_DESCRIPTION_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_AIOS_Read_User_Description_Request_Data_t))"/>
+   <macro name="QAPI_BLE_AIOS_WRITE_USER_DESCRIPTION_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_AIOS_Write_User_Description_Request_Data_t))"/>
+   <macro name="QAPI_BLE_AIOS_READ_VALUE_TRIGGER_SETTING_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_AIOS_Read_Value_Trigger_Setting_Request_Data_t))"/>
+   <macro name="QAPI_BLE_AIOS_WRITE_VALUE_TRIGGER_SETTING_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_AIOS_Write_Value_Trigger_Setting_Request_Data_t))"/>
+   <macro name="QAPI_BLE_AIOS_READ_TIME_TRIGGER_SETTING_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_AIOS_Read_Time_Trigger_Setting_Request_Data_t))"/>
+   <macro name="QAPI_BLE_AIOS_WRITE_TIME_TRIGGER_SETTING_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_AIOS_Write_Time_Trigger_Setting_Request_Data_t))"/>
+   <macro name="QAPI_BLE_AIOS_READ_NUMBER_OF_DIGITALS_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_AIOS_Read_Number_Of_Digitals_Request_Data_t))"/>
+   <macro name="QAPI_BLE_AIOS_READ_VALID_RANGE_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_AIOS_Read_Valid_Range_Request_Data_t))"/>
+   <macro name="QAPI_BLE_AIOS_CONFIRMATION_DATA_SIZE" value="(sizeof(qapi_BLE_AIOS_Confirmation_Data_t))"/>
+   <macro name="QAPI_BLE_AIOS_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_AIOS_Event_Data_t))"/>
+   <enum name="qapi_BLE_AIOS_Characteristic_Type_t">
+      <member name="QAPI_BLE_ACT_DIGITAL_E" value="0"/>
+      <member name="QAPI_BLE_ACT_ANALOG_E" value="1"/>
+      <member name="QAPI_BLE_ACT_AGGREGATE_E" value="2"/>
+   </enum>
+   <enum name="qapi_BLE_AIOS_IO_Type_t">
+      <member name="QAPI_BLE_IO_INPUT_E" value="0"/>
+      <member name="QAPI_BLE_IO_OUTOUT_E" value="1"/>
+      <member name="QAPI_BLE_IO_INPUT_OUTPUT_E" value="2"/>
+   </enum>
+   <enum name="qapi_BLE_AIOS_Value_Trigger_Type_t">
+      <member name="QAPI_BLE_VTT_STATE_CHANGED_E" value="QAPI_BLE_AIOS_VALUE_TRIGGER_SETTING_CONDITION_STATE_CHANGED"/>
+      <member name="QAPI_BLE_VTT_CROSSED_BOUNDARY_ANALOG_VALUE_E" value="QAPI_BLE_AIOS_VALUE_TRIGGER_SETTING_CONDITION_CROSSED_BOUNDARY_ANALOG_VALUE"/>
+      <member name="QAPI_BLE_VTT_ON_BOUDNARY_ANALOG_VALUE_E" value="QAPI_BLE_AIOS_VALUE_TRIGGER_SETTING_CONDITION_ON_BOUNDARY_ANALOG_VALUE"/>
+      <member name="QAPI_BLE_VTT_STATE_CHANGED_ANALOG_VALUE_E" value="QAPI_BLE_AIOS_VALUE_TRIGGER_SETTING_CONDITION_STATE_CHANGED_ANALOG_VALUE"/>
+      <member name="QAPI_BLE_VTT_DIGITAL_STATE_CHANGED_BIT_MASK_E" value="QAPI_BLE_AIOS_VALUE_TRIGGER_SETTING_CONDITION_DIGITAL_STATE_CHANGED_BIT_MASK"/>
+      <member name="QAPI_BLE_VTT_CROSSED_BOUNDARY_ANALOG_INTERVAL_E" value="QAPI_BLE_AIOS_VALUE_TRIGGER_SETTING_CONDITION_CROSSED_BOUNDARY_ANALOG_INTERVAL"/>
+      <member name="QAPI_BLE_VTT_ON_BOUNDARY_ANALOG_INTERVAL_E" value="QAPI_BLE_AIOS_VALUE_TRIGGER_SETTING_CONDITION_ON_BOUNDARY_ANALOG_INTERVAL"/>
+      <member name="QAPI_BLE_VTT_NO_VALUE_TRIGGER_E" value="QAPI_BLE_AIOS_VALUE_TRIGGER_SETTING_CONDITION_NO_VALUE_TRIGGER"/>
+   </enum>
+   <enum name="qapi_BLE_AIOS_Time_Trigger_Type_t">
+      <member name="QAPI_BLE_TTT_NO_TIME_BASED_TRIGGER_E" value="QAPI_BLE_AIOS_TIME_TRIGGER_SETTING_CONDITION_NO_TIME_BASED_TRIGGERING_USED"/>
+      <member name="QAPI_BLE_TTT_TIME_INTERVAL_IGNORE_VALUE_TRIGGER_E" value="QAPI_BLE_AIOS_TIME_TRIGGER_SETTING_CONDITION_TIME_INTERVAL_IGNORE_VALUE_TRIGGER"/>
+      <member name="QAPI_BLE_TTT_TIME_INTERVAL_CHECK_VALUE_TRIGGER_E" value="QAPI_BLE_AIOS_TIME_TRIGGER_SETTING_CONDITION_TIME_INTERVAL_CHECK_VALUE_TRIGGER"/>
+      <member name="QAPI_BLE_TTT_COUNT_CHANGED_MORE_OFTEN_THAN_E" value="QAPI_BLE_AIOS_TIME_TRIGGER_SETTING_CONDITION_COUNT_CHANGED_MORE_OFTEN_THAN"/>
+   </enum>
+   <enum name="qapi_BLE_AIOS_Event_Type_t">
+      <member name="QAPI_BLE_ET_AIOS_SERVER_READ_CHARACTERISTIC_REQUEST_E" value="0"/>
+      <member name="QAPI_BLE_ET_AIOS_SERVER_WRITE_CHARACTERISTIC_REQUEST_E" value="1"/>
+      <member name="QAPI_BLE_ET_AIOS_SERVER_READ_CCCD_REQUEST_E" value="2"/>
+      <member name="QAPI_BLE_ET_AIOS_SERVER_WRITE_CCCD_REQUEST_E" value="3"/>
+      <member name="QAPI_BLE_ET_AIOS_SERVER_READ_PRESENTATION_FORMAT_REQUEST_E" value="4"/>
+      <member name="QAPI_BLE_ET_AIOS_SERVER_READ_USER_DESCRIPTION_REQUEST_E" value="5"/>
+      <member name="QAPI_BLE_ET_AIOS_SERVER_WRITE_USER_DESCRIPTION_REQUEST_E" value="6"/>
+      <member name="QAPI_BLE_ET_AIOS_SERVER_READ_VALUE_TRIGGER_SETTING_REQUEST_E" value="7"/>
+      <member name="QAPI_BLE_ET_AIOS_SERVER_WRITE_VALUE_TRIGGER_SETTING_REQUEST_E" value="8"/>
+      <member name="QAPI_BLE_ET_AIOS_SERVER_READ_TIME_TRIGGER_SETTING_REQUEST_E" value="9"/>
+      <member name="QAPI_BLE_ET_AIOS_SERVER_WRITE_TIME_TRIGGER_SETTING_REQUEST_E" value="10"/>
+      <member name="QAPI_BLE_ET_AIOS_SERVER_READ_NUMBER_OF_DIGITALS_REQUEST_E" value="11"/>
+      <member name="QAPI_BLE_ET_AIOS_SERVER_READ_VALID_RANGE_REQUEST_E" value="12"/>
+      <member name="QAPI_BLE_ET_AIOS_SERVER_CONFIRMATION_E" value="13"/>
+   </enum>
+   <structure name="qapi_BLE_AIOS_Characteristic_Instance_Entry_t">
+      <member attributes="value" name="IO_Type" type="qapi_BLE_AIOS_IO_Type_t"/>
+      <member attributes="value" name="Characteristic_Property_Flags" type="uint8_t"/>
+      <member attributes="value" name="Descriptor_Flags" type="uint8_t"/>
+      <member attributes="value" name="Descriptor_Property_Flags" type="uint8_t"/>
+      <member attributes="value" name="Use_Custom_Trigger" type="boolean_t"/>
+   </structure>
+   <structure name="qapi_BLE_AIOS_Characteristic_Entry_t">
+      <member attributes="value" name="Type" type="qapi_BLE_AIOS_Characteristic_Type_t"/>
+      <member attributes="value" name="Number_Of_Instances" type="uint16_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="Number_Of_Instances" lengthVerified="yes" name="Instances" type="qapi_BLE_AIOS_Characteristic_Instance_Entry_t"/>
+   </structure>
+   <structure name="qapi_BLE_AIOS_Initialize_Data_t">
+      <member attributes="value" name="Number_Of_Entries" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="Number_Of_Entries" lengthVerified="yes" name="Entries" type="qapi_BLE_AIOS_Characteristic_Entry_t"/>
+      <member attributes="value" name="Aggregate_Supported" type="boolean_t"/>
+      <member attributes="value" name="Aggregate_Property_Flags" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_AIOS_Digital_Characteristic_Data_t">
+      <member attributes="value" name="Length" type="uint16_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="Length" lengthVerified="yes" name="Buffer" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_AIOS_Aggregate_Characteristic_Data_t">
+      <member attributes="value" name="Length" type="uint16_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="Length" lengthVerified="yes" name="Buffer" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_AIOS_Presentation_Format_Data_t">
+      <member attributes="value" name="Format" type="uint8_t"/>
+      <member attributes="value" name="Exponent" type="uint8_t"/>
+      <member attributes="value" name="Unit" type="uint16_t"/>
+      <member attributes="value" name="NameSpace" type="uint8_t"/>
+      <member attributes="value" name="Description" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_AIOS_Valid_Range_Data_t">
+      <member attributes="value" name="LowerBound" type="uint16_t"/>
+      <member attributes="value" name="UpperBound" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_AIOS_Value_Trigger_Data_t">
+      <member attributes="value" name="Condition" type="qapi_BLE_AIOS_Value_Trigger_Type_t"/>
+      <member attributes="union" name="ComparisonValue">
+         <member attributes="value" name="BitMask" type="qapi_BLE_AIOS_Digital_Characteristic_Data_t"/>
+         <member attributes="value" name="AnalogValue" type="uint16_t"/>
+         <member attributes="value" name="AnalogInterval" type="qapi_BLE_AIOS_Valid_Range_Data_t"/>
+         <unionMap mapVerified="yes" name="Condition" type="qapi_BLE_AIOS_Value_Trigger_Type_t">
+            <mapEntry member="BitMask" type="qapi_BLE_AIOS_Digital_Characteristic_Data_t" value="QAPI_BLE_VTT_DIGITAL_STATE_CHANGED_BIT_MASK_E"/>
+            <mapEntry member="AnalogValue" type="uint16_t" value="QAPI_BLE_VTT_CROSSED_BOUNDARY_ANALOG_VALUE_E"/>
+            <mapEntry member="AnalogValue" type="uint16_t" value="QAPI_BLE_VTT_ON_BOUDNARY_ANALOG_VALUE_E"/>
+            <mapEntry member="AnalogValue" type="uint16_t" value="QAPI_BLE_VTT_STATE_CHANGED_ANALOG_VALUE_E"/>
+            <mapEntry member="AnalogInterval" type="qapi_BLE_AIOS_Valid_Range_Data_t" value="QAPI_BLE_VTT_CROSSED_BOUNDARY_ANALOG_INTERVAL_E"/>
+            <mapEntry member="AnalogInterval" type="qapi_BLE_AIOS_Valid_Range_Data_t" value="QAPI_BLE_VTT_ON_BOUNDARY_ANALOG_INTERVAL_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_BLE_AIOS_Time_Interval_t">
+      <member attributes="value" name="Upper" type="uint8_t"/>
+      <member attributes="value" name="Lower" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_AIOS_Time_Trigger_Data_t">
+      <member attributes="value" name="Condition" type="qapi_BLE_AIOS_Time_Trigger_Type_t"/>
+      <member attributes="union" name="ComparisonValue">
+         <member attributes="value" name="TimeInterval" type="qapi_BLE_AIOS_Time_Interval_t"/>
+         <member attributes="value" name="Count" type="uint16_t"/>
+         <unionMap mapVerified="yes" name="Condition" type="qapi_BLE_AIOS_Time_Trigger_Type_t">
+            <mapEntry member="TimeInterval" type="qapi_BLE_AIOS_Time_Interval_t" value="QAPI_BLE_TTT_TIME_INTERVAL_IGNORE_VALUE_TRIGGER_E"/>
+            <mapEntry member="TimeInterval" type="qapi_BLE_AIOS_Time_Interval_t" value="QAPI_BLE_TTT_TIME_INTERVAL_CHECK_VALUE_TRIGGER_E"/>
+            <mapEntry member="Count" type="uint16_t" value="QAPI_BLE_TTT_COUNT_CHANGED_MORE_OFTEN_THAN_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_BLE_AIOS_Characteristic_Info_t">
+      <member attributes="value" name="Type" type="qapi_BLE_AIOS_Characteristic_Type_t"/>
+      <member attributes="value" name="IOType" type="qapi_BLE_AIOS_IO_Type_t"/>
+      <member attributes="value" name="ID" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_BLE_AIOS_Read_Characteristic_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="CharacteristicInfo" type="qapi_BLE_AIOS_Characteristic_Info_t"/>
+   </structure>
+   <structure name="qapi_BLE_AIOS_Write_Characteristic_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="CharacteristicInfo" type="qapi_BLE_AIOS_Characteristic_Info_t"/>
+      <member attributes="value" name="Data" type="qapi_BLE_AIOS_Characteristic_Data_t"/>
+   </structure>
+   <structure name="qapi_BLE_AIOS_Read_CCCD_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="CharacteristicInfo" type="qapi_BLE_AIOS_Characteristic_Info_t"/>
+   </structure>
+   <structure name="qapi_BLE_AIOS_Write_CCCD_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="CharacteristicInfo" type="qapi_BLE_AIOS_Characteristic_Info_t"/>
+      <member attributes="value" name="ClientConfiguration" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_AIOS_Read_Presentation_Format_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="CharacteristicInfo" type="qapi_BLE_AIOS_Characteristic_Info_t"/>
+   </structure>
+   <structure name="qapi_BLE_AIOS_Read_User_Description_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="CharacteristicInfo" type="qapi_BLE_AIOS_Characteristic_Info_t"/>
+      <member attributes="value" name="Offset" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_AIOS_Write_User_Description_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="CharacteristicInfo" type="qapi_BLE_AIOS_Characteristic_Info_t"/>
+      <member attributes="value" name="UserDescriptionLength" type="uint16_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="UserDescriptionLength" lengthVerified="yes" name="UserDescription" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_AIOS_Read_Value_Trigger_Setting_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="CharacteristicInfo" type="qapi_BLE_AIOS_Characteristic_Info_t"/>
+   </structure>
+   <structure name="qapi_BLE_AIOS_Write_Value_Trigger_Setting_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="CharacteristicInfo" type="qapi_BLE_AIOS_Characteristic_Info_t"/>
+      <member attributes="value" name="ValueTriggerSetting" type="qapi_BLE_AIOS_Value_Trigger_Data_t"/>
+   </structure>
+   <structure name="qapi_BLE_AIOS_Read_Time_Trigger_Setting_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="CharacteristicInfo" type="qapi_BLE_AIOS_Characteristic_Info_t"/>
+   </structure>
+   <structure name="qapi_BLE_AIOS_Write_Time_Trigger_Setting_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="CharacteristicInfo" type="qapi_BLE_AIOS_Characteristic_Info_t"/>
+      <member attributes="value" name="TimeTriggerSetting" type="qapi_BLE_AIOS_Time_Trigger_Data_t"/>
+   </structure>
+   <structure name="qapi_BLE_AIOS_Read_Number_Of_Digitals_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="CharacteristicInfo" type="qapi_BLE_AIOS_Characteristic_Info_t"/>
+   </structure>
+   <structure name="qapi_BLE_AIOS_Read_Valid_Range_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="CharacteristicInfo" type="qapi_BLE_AIOS_Characteristic_Info_t"/>
+   </structure>
+   <structure name="qapi_BLE_AIOS_Confirmation_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Status" type="uint8_t"/>
+      <member attributes="value" name="BytesWritten" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_AIOS_Event_Data_t">
+      <member attributes="value" name="Event_Data_Type" type="qapi_BLE_AIOS_Event_Type_t"/>
+      <member attributes="value" name="Event_Data_Size" type="uint16_t"/>
+      <member attributes="union" name="Event_Data">
+         <member attributes="ptr" iotype="in" name="AIOS_Read_Characteristic_Request_Data" type="qapi_BLE_AIOS_Read_Characteristic_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="AIOS_Write_Characteristic_Request_Data" type="qapi_BLE_AIOS_Write_Characteristic_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="AIOS_Read_CCCD_Request_Data" type="qapi_BLE_AIOS_Read_CCCD_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="AIOS_Write_CCCD_Request_Data" type="qapi_BLE_AIOS_Write_CCCD_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="AIOS_Read_Presentation_Format_Request_Data" type="qapi_BLE_AIOS_Read_Presentation_Format_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="AIOS_Read_User_Description_Request_Data" type="qapi_BLE_AIOS_Read_User_Description_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="AIOS_Write_User_Description_Request_Data" type="qapi_BLE_AIOS_Write_User_Description_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="AIOS_Read_Value_Trigger_Setting_Request_Data" type="qapi_BLE_AIOS_Read_Value_Trigger_Setting_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="AIOS_Write_Value_Trigger_Setting_Request_Data" type="qapi_BLE_AIOS_Write_Value_Trigger_Setting_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="AIOS_Read_Time_Trigger_Setting_Request_Data" type="qapi_BLE_AIOS_Read_Time_Trigger_Setting_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="AIOS_Write_Time_Trigger_Setting_Request_Data" type="qapi_BLE_AIOS_Write_Time_Trigger_Setting_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="AIOS_Read_Number_Of_Digitals_Request_Data" type="qapi_BLE_AIOS_Read_Number_Of_Digitals_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="AIOS_Read_Valid_Range_Request_Data" type="qapi_BLE_AIOS_Read_Valid_Range_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="AIOS_Confirmation_Data" type="qapi_BLE_AIOS_Confirmation_Data_t"/>
+         <unionMap mapVerified="yes" name="Event_Data_Type" type="qapi_BLE_AIOS_Event_Type_t">
+            <mapEntry member="AIOS_Read_Characteristic_Request_Data" type="qapi_BLE_AIOS_Read_Characteristic_Request_Data_t" value="QAPI_BLE_ET_AIOS_SERVER_READ_CHARACTERISTIC_REQUEST_E"/>
+            <mapEntry member="AIOS_Write_Characteristic_Request_Data" type="qapi_BLE_AIOS_Write_Characteristic_Request_Data_t" value="QAPI_BLE_ET_AIOS_SERVER_WRITE_CHARACTERISTIC_REQUEST_E"/>
+            <mapEntry member="AIOS_Read_CCCD_Request_Data" type="qapi_BLE_AIOS_Read_CCCD_Request_Data_t" value="QAPI_BLE_ET_AIOS_SERVER_READ_CCCD_REQUEST_E"/>
+            <mapEntry member="AIOS_Write_CCCD_Request_Data" type="qapi_BLE_AIOS_Write_CCCD_Request_Data_t" value="QAPI_BLE_ET_AIOS_SERVER_WRITE_CCCD_REQUEST_E"/>
+            <mapEntry member="AIOS_Read_Presentation_Format_Request_Data" type="qapi_BLE_AIOS_Read_Presentation_Format_Request_Data_t" value="QAPI_BLE_ET_AIOS_SERVER_READ_PRESENTATION_FORMAT_REQUEST_E"/>
+            <mapEntry member="AIOS_Read_User_Description_Request_Data" type="qapi_BLE_AIOS_Read_User_Description_Request_Data_t" value="QAPI_BLE_ET_AIOS_SERVER_READ_USER_DESCRIPTION_REQUEST_E"/>
+            <mapEntry member="AIOS_Write_User_Description_Request_Data" type="qapi_BLE_AIOS_Write_User_Description_Request_Data_t" value="QAPI_BLE_ET_AIOS_SERVER_WRITE_USER_DESCRIPTION_REQUEST_E"/>
+            <mapEntry member="AIOS_Read_Value_Trigger_Setting_Request_Data" type="qapi_BLE_AIOS_Read_Value_Trigger_Setting_Request_Data_t" value="QAPI_BLE_ET_AIOS_SERVER_READ_VALUE_TRIGGER_SETTING_REQUEST_E"/>
+            <mapEntry member="AIOS_Write_Value_Trigger_Setting_Request_Data" type="qapi_BLE_AIOS_Write_Value_Trigger_Setting_Request_Data_t" value="QAPI_BLE_ET_AIOS_SERVER_WRITE_VALUE_TRIGGER_SETTING_REQUEST_E"/>
+            <mapEntry member="AIOS_Read_Time_Trigger_Setting_Request_Data" type="qapi_BLE_AIOS_Read_Time_Trigger_Setting_Request_Data_t" value="QAPI_BLE_ET_AIOS_SERVER_READ_TIME_TRIGGER_SETTING_REQUEST_E"/>
+            <mapEntry member="AIOS_Write_Time_Trigger_Setting_Request_Data" type="qapi_BLE_AIOS_Write_Time_Trigger_Setting_Request_Data_t" value="QAPI_BLE_ET_AIOS_SERVER_WRITE_TIME_TRIGGER_SETTING_REQUEST_E"/>
+            <mapEntry member="AIOS_Read_Number_Of_Digitals_Request_Data" type="qapi_BLE_AIOS_Read_Number_Of_Digitals_Request_Data_t" value="QAPI_BLE_ET_AIOS_SERVER_READ_NUMBER_OF_DIGITALS_REQUEST_E"/>
+            <mapEntry member="AIOS_Read_Valid_Range_Request_Data" type="qapi_BLE_AIOS_Read_Valid_Range_Request_Data_t" value="QAPI_BLE_ET_AIOS_SERVER_READ_VALID_RANGE_REQUEST_E"/>
+            <mapEntry member="AIOS_Confirmation_Data" type="qapi_BLE_AIOS_Confirmation_Data_t" value="QAPI_BLE_ET_AIOS_SERVER_CONFIRMATION_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_BLE_AIOS_Characteristic_Data_t">
+      <member attributes="union" name="">
+         <member attributes="value" name="Digital" type="qapi_BLE_AIOS_Digital_Characteristic_Data_t"/>
+         <member attributes="value" name="Analog" type="uint16_t"/>
+         <member attributes="value" name="Aggregate" type="qapi_BLE_AIOS_Aggregate_Characteristic_Data_t"/>
+         <unionMap mapVerified="yes">
+            <mapEntry member="AIOS_Read_Characteristic_Request_Data" type="qapi_BLE_AIOS_Read_Characteristic_Request_Data_t" value=""/>
+         </unionMap>
+      </member>
+   </structure>
+   <function name="qapi_BLE_AIOS_Initialize_Service">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Service_Flags" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="InitializeData" type="qapi_BLE_AIOS_Initialize_Data_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_AIOS_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_AIOS_Initialize_Service_Handle_Range">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Service_Flags" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="InitializeData" type="qapi_BLE_AIOS_Initialize_Data_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_AIOS_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="ServiceHandleRange" type="qapi_BLE_GATT_Attribute_Handle_Group_t"/>
+   </function>
+   <function name="qapi_BLE_AIOS_Cleanup_Service">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_AIOS_Query_Number_Attributes">
+      <return attributes="value" type="unsigned int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_AIOS_Read_CCCD_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="CharacteristicInfo" type="qapi_BLE_AIOS_Characteristic_Info_t"/>
+      <argument attributes="value" name="ClientConfiguration" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_AIOS_Write_CCCD_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="CharacteristicInfo" type="qapi_BLE_AIOS_Characteristic_Info_t"/>
+   </function>
+   <function name="qapi_BLE_AIOS_Read_Presentation_Format_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="CharacteristicInfo" type="qapi_BLE_AIOS_Characteristic_Info_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="PresentationFormatData" type="qapi_BLE_AIOS_Presentation_Format_Data_t"/>
+   </function>
+   <function name="qapi_BLE_AIOS_Read_User_Description_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="CharacteristicInfo" type="qapi_BLE_AIOS_Characteristic_Info_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="__strlen__" lengthVerified="yes" name="UserDescription" type="char"/>
+   </function>
+   <function name="qapi_BLE_AIOS_Write_User_Description_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="CharacteristicInfo" type="qapi_BLE_AIOS_Characteristic_Info_t"/>
+   </function>
+   <function name="qapi_BLE_AIOS_Read_Value_Trigger_Setting_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="CharacteristicInfo" type="qapi_BLE_AIOS_Characteristic_Info_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="ValueTriggerData" type="qapi_BLE_AIOS_Value_Trigger_Data_t"/>
+   </function>
+   <function name="qapi_BLE_AIOS_Write_Value_Trigger_Setting_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="CharacteristicInfo" type="qapi_BLE_AIOS_Characteristic_Info_t"/>
+   </function>
+   <function name="qapi_BLE_AIOS_Read_Time_Trigger_Setting_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="CharacteristicInfo" type="qapi_BLE_AIOS_Characteristic_Info_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="TimeTriggerData" type="qapi_BLE_AIOS_Time_Trigger_Data_t"/>
+   </function>
+   <function name="qapi_BLE_AIOS_Write_Time_Trigger_Setting_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="CharacteristicInfo" type="qapi_BLE_AIOS_Characteristic_Info_t"/>
+   </function>
+   <function name="qapi_BLE_AIOS_Read_Number_Of_Digitals_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="CharacteristicInfo" type="qapi_BLE_AIOS_Characteristic_Info_t"/>
+      <argument attributes="value" name="NumberOfDigitals" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_AIOS_Read_Valid_Range_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="CharacteristicInfo" type="qapi_BLE_AIOS_Characteristic_Info_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="ValidRangeData" type="qapi_BLE_AIOS_Valid_Range_Data_t"/>
+   </function>
+   <function name="qapi_BLE_AIOS_Read_Characteristic_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="CharacteristicInfo" type="qapi_BLE_AIOS_Characteristic_Info_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="CharacteristicData" type="qapi_BLE_AIOS_Characteristic_Data_t"/>
+   </function>
+   <function name="qapi_BLE_AIOS_Write_Characteristic_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="CharacteristicInfo" type="qapi_BLE_AIOS_Characteristic_Info_t"/>
+   </function>
+   <function name="qapi_BLE_AIOS_Notify_Characteristic">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="CharacteristicInfo" type="qapi_BLE_AIOS_Characteristic_Info_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="CharacteristicData" type="qapi_BLE_AIOS_Characteristic_Data_t"/>
+   </function>
+   <function name="qapi_BLE_AIOS_Indicate_Characteristic">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="CharacteristicInfo" type="qapi_BLE_AIOS_Characteristic_Info_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="CharacteristicData" type="qapi_BLE_AIOS_Characteristic_Data_t"/>
+   </function>
+   <function name="qapi_BLE_AIOS_Decode_Presentation_Format">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="PresentationFormatData" type="qapi_BLE_AIOS_Presentation_Format_Data_t"/>
+   </function>
+   <function name="qapi_BLE_AIOS_Format_Value_Trigger_Setting">
+      <return attributes="value" type="int"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="ValueTriggerData" type="qapi_BLE_AIOS_Value_Trigger_Data_t"/>
+      <argument attributes="value" name="BufferLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="BufferLength" lengthVerified="yes" name="Buffer" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_AIOS_Decode_Value_Trigger_Setting">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ValueTriggerData" type="qapi_BLE_AIOS_Value_Trigger_Data_t"/>
+   </function>
+   <function name="qapi_BLE_AIOS_Format_Time_Trigger_Setting">
+      <return attributes="value" type="int"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name=" TimeTriggerData" type="qapi_BLE_AIOS_Time_Trigger_Data_t"/>
+      <argument attributes="value" name="BufferLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="BufferLength" lengthVerified="yes" name="Buffer" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_AIOS_Decode_Time_Trigger_Setting">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="TimeTriggerData" type="qapi_BLE_AIOS_Time_Trigger_Data_t"/>
+   </function>
+   <function name="qapi_BLE_AIOS_Decode_Valid_Range">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ValidRangeData" type="qapi_BLE_AIOS_Valid_Range_Data_t"/>
+   </function>
+   <callback name="qapi_BLE_AIOS_Event_Callback_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="AIOS_Event_Data" type="qapi_BLE_AIOS_Event_Data_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <createFunction ID="qsRetVal" funcSuccess="0" moduleParam="BluetoothStackID" name="qapi_BLE_AIOS_Initialize_Service" param="CallbackParameter"/>
+      <createFunction ID="qsRetVal" funcSuccess="0" moduleParam="BluetoothStackID" name="qapi_BLE_AIOS_Initialize_Service_Handle_Range" param="CallbackParameter"/>
+      <destroyFunction ID="InstanceID" funcSuccess="0" name="qapi_BLE_AIOS_Cleanup_Service"/>
+   </callback>
+</header>

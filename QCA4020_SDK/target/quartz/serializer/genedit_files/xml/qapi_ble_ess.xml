@@ -1,0 +1,619 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="./qapi_ble_btapityp.h"/>
+   <include name="./qapi_ble_bttypes.h"/>
+   <include name="./qapi_ble_gatt.h"/>
+   <include name="./qapi_ble_esstypes.h"/>
+   <macro name="QAPI_BLE_ESS_ERROR_INVALID_PARAMETER" value="(-1000)"/>
+   <macro name="QAPI_BLE_ESS_ERROR_INVALID_BLUETOOTH_STACK_ID" value="(-1001)"/>
+   <macro name="QAPI_BLE_ESS_ERROR_INSUFFICIENT_RESOURCES" value="(-1002)"/>
+   <macro name="QAPI_BLE_ESS_ERROR_SERVICE_ALREADY_REGISTERED" value="(-1003)"/>
+   <macro name="QAPI_BLE_ESS_ERROR_INVALID_INSTANCE_ID" value="(-1004)"/>
+   <macro name="QAPI_BLE_ESS_ERROR_MALFORMATTED_DATA" value="(-1005)"/>
+   <macro name="QAPI_BLE_ESS_ERROR_INSUFFICIENT_BUFFER_SPACE" value="(-1006)"/>
+   <macro name="QAPI_BLE_ESS_ERROR_UNKNOWN_ERROR" value="(-1007)"/>
+   <macro name="QAPI_BLE_ESS_ERROR_INVALID_NUMBER_OF_CHARACTERISTIC_TYPE_ENTRIES" value="(-1008)"/>
+   <macro name="QAPI_BLE_ESS_ERROR_DUPLICATE_CHARACTERISTIC_TYPE" value="(-1009)"/>
+   <macro name="QAPI_BLE_ESS_ERROR_INVALID_NUMBER_OF_TRIGGER_SETTING_INSTANCES" value="(-1010)"/>
+   <macro name="QAPI_BLE_ESS_ERROR_MISSING_NOTIFY_CHARACTERISTIC_PROPERTY_FLAG" value="(-1011)"/>
+   <macro name="QAPI_BLE_ESS_ERROR_MISSING_ES_MEASUREMENT_DESCRIPTOR_FLAG" value="(-1012)"/>
+   <macro name="QAPI_BLE_ESS_ERROR_MISSING_ES_TRIGGER_SETTING_DESCRIPTOR_FLAG" value="(-1013)"/>
+   <macro name="QAPI_BLE_ESS_ERROR_DESCRIPTOR_VALUE_CHANGED_NOT_REGISTERED" value="(-1014)"/>
+   <macro name="QAPI_BLE_ESS_ERROR_NUMBER_OF_INSTANCES_CHECK_FAILURE" value="(-1015)"/>
+   <macro name="QAPI_BLE_ESS_ERROR_ATTRIBUTE_HANDLE_INFORMATION_NOT_FOUND" value="(-1016)"/>
+   <macro name="QAPI_BLE_ESS_ERROR_INVALID_ES_TRIGGER_SETTING_INSTANCE" value="(-1017)"/>
+   <macro name="QAPI_BLE_ESS_ERROR_INVALID_ES_TRIGGER_SETTING_CONDITION" value="(-1018)"/>
+   <macro name="QAPI_BLE_ESS_ERROR_INVALID_ES_TRIGGER_SETTING_TYPE_AND_CONDITION" value="(-1019)"/>
+   <macro name="QAPI_BLE_ESS_ERROR_INVALID_ES_TRIGGER_SETTING_UNIT" value="(-1020)"/>
+   <macro name="QAPI_BLE_ESS_ERROR_INVALID_CHARACTERISTIC_TYPE" value="(-1021)"/>
+   <macro name="QAPI_BLE_ESS_ERROR_INVALID_UUID_TYPE" value="(-1022)"/>
+   <macro name="QAPI_BLE_ESS_ERROR_MISSING_EXTENDED_PROPERTIES" value="(-1023)"/>
+   <macro name="QAPI_BLE_ESS_INT_24_DATA_SIZE" value="(sizeof(qapi_BLE_ESS_Int_24_Data_t))"/>
+   <macro name="QAPI_BLE_ESS_MAGNETIC_FLUX_DENSITY_2D_DATA_SIZE" value="(sizeof(qapi_BLE_ESS_Magnetic_Flux_Density_2D_Data_t))"/>
+   <macro name="QAPI_BLE_ESS_MAGNETIC_FLUX_DENSITY_3D_DATA_SIZE" value="(sizeof(qapi_BLE_ESS_Magnetic_Flux_Density_3D_Data_t))"/>
+   <macro name="QAPI_BLE_ESS_CHARACTERISTIC_PROPERTY_FLAGS_NOTIFY" value="(0x01)"/>
+   <macro name="QAPI_BLE_ESS_DESCRIPTOR_FLAGS_ES_MEASUREMENT" value="(0x01)"/>
+   <macro name="QAPI_BLE_ESS_DESCRIPTOR_FLAGS_ES_TRIGGER_SETTING" value="(0x02)"/>
+   <macro name="QAPI_BLE_ESS_DESCRIPTOR_FLAGS_USER_DESCRIPTION" value="(0x04)"/>
+   <macro name="QAPI_BLE_ESS_DESCRIPTOR_FLAGS_VALID_RANGE" value="(0x08)"/>
+   <macro name="QAPI_BLE_ESS_DESCRIPTOR_PROPERTY_FLAGS_WRITE_ES_TRIGGER_SETTING" value="(0x01)"/>
+   <macro name="QAPI_BLE_ESS_DESCRIPTOR_PROPERTY_FLAGS_WRITE_USER_DESCRIPTION" value="(0x02)"/>
+   <macro name="QAPI_BLE_ESS_CHARACTERISTIC_INSTANCE_ENTRY_SIZE" value="(sizeof(qapi_BLE_ESS_Characteristic_Instance_Entry_t))"/>
+   <macro name="QAPI_BLE_ESS_CHARACTERISTIC_ENTRY_SIZE" value="(sizeof(qapi_BLE_ESS_Characteristic_Entry_t))"/>
+   <macro name="QAPI_BLE_ESS_INITIALIZE_DATA_SIZE" value="(sizeof(qapi_BLE_ESS_Initialize_Data_t))"/>
+   <macro name="QAPI_BLE_ESS_ES_MEASUREMENT_DATA_SIZE" value="(sizeof(qapi_BLE_ESS_ES_Measurement_Data_t))"/>
+   <macro name="QAPI_BLE_ESS_ES_TRIGGER_SETTING_DATA_SIZE" value="(sizeof(qapi_BLE_ESS_ES_Trigger_Setting_Data_t))"/>
+   <macro name="QAPI_BLE_ESS_VALID_RANGE_DATA_SIZE" value="(sizeof(qapi_BLE_ESS_Valid_Range_Data_t))"/>
+   <macro name="QAPI_BLE_ESS_DESCRIPTOR_VALUE_CHANGED_DATA_SIZE" value="(sizeof(qapi_BLE_ESS_Descriptor_Value_Changed_Data_t))"/>
+   <macro name="QAPI_BLE_ESS_CHARACTERISTIC_INFO_SIZE" value="(sizeof(qapi_BLE_ESS_Characteristic_Info_t))"/>
+   <macro name="QAPI_BLE_ESS_READ_CHARACTERISTIC_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_ESS_Read_Characteristic_Request_Data_t))"/>
+   <macro name="QAPI_BLE_ESS_READ_CCCD_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_ESS_Read_CCCD_Request_Data_t))"/>
+   <macro name="QAPI_BLE_ESS_WRITE_CCCD_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_ESS_Write_CCCD_Request_Data_t))"/>
+   <macro name="QAPI_BLE_ESS_READ_ES_MEASUREMENT_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_ESS_Read_ES_Measurement_Request_Data_t))"/>
+   <macro name="QAPI_BLE_ESS_READ_ES_TRIGGER_SETTING_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_ESS_Read_ES_Trigger_Setting_Request_Data_t))"/>
+   <macro name="QAPI_BLE_ESS_WRITE_ES_TRIGGER_SETTING_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_ESS_Write_ES_Trigger_Setting_Request_Data_t))"/>
+   <macro name="QAPI_BLE_ESS_READ_ES_CONFIGURATION_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_ESS_Read_ES_Configuration_Request_Data_t))"/>
+   <macro name="QAPI_BLE_ESS_WRITE_ES_CONFIGURATION_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_ESS_Write_ES_Configuration_Request_Data_t))"/>
+   <macro name="QAPI_BLE_ESS_READ_USER_DESCRIPTION_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_ESS_Read_User_Description_Request_Data_t))"/>
+   <macro name="QAPI_BLE_ESS_WRITE_USER_DESCRIPTION_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_ESS_Write_User_Description_Request_Data_t))"/>
+   <macro name="QAPI_BLE_ESS_READ_VALID_RANGE_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_ESS_Read_Valid_Range_Request_Data_t))"/>
+   <macro name="QAPI_BLE_ESS_READ_DESCRIPTOR_VALUE_CHANGED_CCCD_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_ESS_Read_Descriptor_Value_Changed_CCCD_Request_Data_t))"/>
+   <macro name="QAPI_BLE_ESS_WRITE_DESCRIPTOR_VALUE_CHANGED_CCCD_REQUEST_DATA_SIZE" value="(sizeof(qapi_BLE_ESS_Write_Descriptor_Value_Changed_CCCD_Request_Data_t))"/>
+   <macro name="QAPI_BLE_ESS_CONFIRMATION_DATA_SIZE" value="(sizeof(qapi_BLE_ESS_Confirmation_Data_t))"/>
+   <macro name="QAPI_BLE_ESS_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_ESS_Event_Data_t))"/>
+   <enum name="qapi_BLE_ESS_Characteristic_Type_t">
+      <member name="QAPI_BLE_ESS_ECT_APPARENT_WIND_DIRECTION_E" value="0"/>
+      <member name="QAPI_BLE_ESS_ECT_APPARENT_WIND_SPEED_E" value="1"/>
+      <member name="QAPI_BLE_ESS_ECT_DEW_POINT_E" value="2"/>
+      <member name="QAPI_BLE_ESS_ECT_ELEVATION_E" value="3"/>
+      <member name="QAPI_BLE_ESS_ECT_GUST_FACTOR_E" value="4"/>
+      <member name="QAPI_BLE_ESS_ECT_HEAT_INDEX_E" value="5"/>
+      <member name="QAPI_BLE_ESS_ECT_HUMIDITY_E" value="6"/>
+      <member name="QAPI_BLE_ESS_ECT_IRRADIANCE_E" value="7"/>
+      <member name="QAPI_BLE_ESS_ECT_POLLEN_CONCENTRATION_E" value="8"/>
+      <member name="QAPI_BLE_ESS_ECT_RAIN_FALL_E" value="9"/>
+      <member name="QAPI_BLE_ESS_ECT_PRESSURE_E" value="10"/>
+      <member name="QAPI_BLE_ESS_ECT_TEMPERATURE_E" value="11"/>
+      <member name="QAPI_BLE_ESS_ECT_TRUE_WIND_DIRECTION_E" value="12"/>
+      <member name="QAPI_BLE_ESS_ECT_TRUE_WIND_SPEED_E" value="13"/>
+      <member name="QAPI_BLE_ESS_ECT_UV_INDEX_E" value="14"/>
+      <member name="QAPI_BLE_ESS_ECT_WIND_CHILL_E" value="15"/>
+      <member name="QAPI_BLE_ESS_ECT_BAROMETRIC_PRESSURE_TREND_E" value="16"/>
+      <member name="QAPI_BLE_ESS_ECT_MAGNETIC_DECLINATION_E" value="17"/>
+      <member name="QAPI_BLE_ESS_ECT_MAGNETIC_FLUX_DENSITY_2D_E" value="18"/>
+      <member name="QAPI_BLE_ESS_ECT_MAGNETIC_FLUX_DENSITY_3D_E" value="19"/>
+   </enum>
+   <enum name="qapi_BLE_ESS_Barometric_Pressure_Trend_t">
+      <member name="QAPI_BLE_ESS_BPT_UNKNOWN_E" value="0"/>
+      <member name="QAPI_BLE_ESS_BPT_CONTINUOUSLY_FALLING_E" value="1"/>
+      <member name="QAPI_BLE_ESS_BPT_CONTINUOUSLY_RISING_E" value="2"/>
+      <member name="QAPI_BLE_ESS_BPT_FALLING_THEN_STEADY_E" value="3"/>
+      <member name="QAPI_BLE_ESS_BPT_RISING_THEN_STEADY_E" value="4"/>
+      <member name="QAPI_BLE_ESS_BPT_FALLING_BEFORE_LESSER_RISE_E" value="5"/>
+      <member name="QAPI_BLE_ESS_BPT_FALLING_BEFORE_GREATER_RISE_E" value="6"/>
+      <member name="QAPI_BLE_ESS_BPT_RISING_BEFORE_GREATER_FALL_E" value="7"/>
+      <member name="QAPI_BLE_ESS_BPT_RISING_BEFORE_LESSER_FALL_E" value="8"/>
+      <member name="QAPI_BLE_ESS_BPT_STEADY_E" value="9"/>
+   </enum>
+   <enum name="qapi_BLE_ESS_ES_Trigger_Setting_Instance_t">
+      <member name="QAPI_BLE_ESS_TSI_TRIGGER_SETTING_0_E" value="0"/>
+      <member name="QAPI_BLE_ESS_TSI_TRIGGER_SETTING_1_E" value="1"/>
+      <member name="QAPI_BLE_ESS_TSI_TRIGGER_SETTING_2_E" value="2"/>
+   </enum>
+   <enum name="qapi_BLE_ESS_ES_Trigger_Setting_Condition_t">
+      <member name="QAPI_BLE_ESS_TSC_TRIGGER_INACTIVE_E" value="QAPI_BLE_ESS_ES_TRIGGER_SETTING_CONDITION_TRIGGER_INACTIVE"/>
+      <member name="QAPI_BLE_ESS_TSC_FIXED_TIME_INTERVAL_E" value="QAPI_BLE_ESS_ES_TRIGGER_SETTING_CONDITION_FIXED_TIME_INTERVAL"/>
+      <member name="QAPI_BLE_ESS_TSC_NO_LESS_THAN_SPECIFIED_TIME_E" value="QAPI_BLE_ESS_ES_TRIGGER_SETTING_CONDITION_NO_LESS_THAN_SPECIFIED_TIME"/>
+      <member name="QAPI_BLE_ESS_TSC_VALUE_CHANGED_E" value="QAPI_BLE_ESS_ES_TRIGGER_SETTING_CONDITION_VALUE_CHANGED"/>
+      <member name="QAPI_BLE_ESS_TSC_LESS_THAN_SPECIFIED_VALUE_E" value="QAPI_BLE_ESS_ES_TRIGGER_SETTING_CONDITION_LESS_THAN_SPECIFIED_VALUE"/>
+      <member name="QAPI_BLE_ESS_TSC_LESS_THAN_OR_EQUAL_SPECIFIED_VALUE_E" value="QAPI_BLE_ESS_ES_TRIGGER_SETTING_CONDITION_LESS_THAN_OR_EQUAL_SPECIFIED_VALUE"/>
+      <member name="QAPI_BLE_ESS_TSC_GREATER_THAN_SPECIFIED_VALUE_E" value="QAPI_BLE_ESS_ES_TRIGGER_SETTING_CONDITION_GREATER_THAN_SPECIFIED_VALUE"/>
+      <member name="QAPI_BLE_ESS_TSC_GREATER_THAN_OR_EQUAL_SPECIFIED_VALUE_E" value="QAPI_BLE_ESS_ES_TRIGGER_SETTING_CONDITION_GREATER_THAN_OR_EQUAL_SPECIFIED_VALUE"/>
+      <member name="QAPI_BLE_ESS_TSC_EQUALS_SPECIFIED_VALUE_E" value="QAPI_BLE_ESS_ES_TRIGGER_SETTING_CONDITION_EQUAL_TO_SPECIFIED_VALUE"/>
+      <member name="QAPI_BLE_ESS_TSC_NOT_EQUAL_SPECIFIED_VALUE_E" value="QAPI_BLE_ESS_ES_TRIGGER_SETTING_CONDITION_NOT_EQUAL_TO_SPECIFIED_VALUE"/>
+   </enum>
+   <enum name="qapi_BLE_ESS_Event_Type_t">
+      <member name="QAPI_BLE_ESS_ET_SERVER_READ_CHARACTERISTIC_REQUEST_E" value="0"/>
+      <member name="QAPI_BLE_ESS_ET_SERVER_READ_EXTENDED_PROPERTIES_REQUEST_E" value="1"/>
+      <member name="QAPI_BLE_ESS_ET_SERVER_READ_CCCD_REQUEST_E" value="2"/>
+      <member name="QAPI_BLE_ESS_ET_SERVER_WRITE_CCCD_REQUEST_E" value="3"/>
+      <member name="QAPI_BLE_ESS_ET_SERVER_READ_ES_MEASUREMENT_REQUEST_E" value="4"/>
+      <member name="QAPI_BLE_ESS_ET_SERVER_READ_ES_TRIGGER_SETTING_REQUEST_E" value="5"/>
+      <member name="QAPI_BLE_ESS_ET_SERVER_WRITE_ES_TRIGGER_SETTING_REQUEST_E" value="6"/>
+      <member name="QAPI_BLE_ESS_ET_SERVER_READ_ES_CONFIGURATION_REQUEST_E" value="7"/>
+      <member name="QAPI_BLE_ESS_ET_SERVER_WRITE_ES_CONFIGURATION_REQUEST_E" value="8"/>
+      <member name="QAPI_BLE_ESS_ET_SERVER_READ_USER_DESCRIPTION_REQUEST_E" value="9"/>
+      <member name="QAPI_BLE_ESS_ET_SERVER_WRITE_USER_DESCRIPTION_REQUEST_E" value="10"/>
+      <member name="QAPI_BLE_ESS_ET_SERVER_READ_VALID_RANGE_REQUEST_E" value="11"/>
+      <member name="QAPI_BLE_ESS_ET_SERVER_READ_DESCRIPTOR_VALUE_CHANGED_CCCD_REQUEST_E" value="12"/>
+      <member name="QAPI_BLE_ESS_ET_SERVER_WRITE_DESCRIPTOR_VALUE_CHANGED_CCCD_REQUEST_E" value="13"/>
+      <member name="QAPI_BLE_ESS_ET_SERVER_CONFIRMATION_E" value="14"/>
+   </enum>
+   <structure name="qapi_BLE_ESS_Int_24_Data_t">
+      <member attributes="value" name="Lower" type="uint16_t"/>
+      <member attributes="value" name="Upper" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_ESS_Magnetic_Flux_Density_2D_Data_t">
+      <member attributes="value" name="X_Axis" type="int16_t"/>
+      <member attributes="value" name="Y_Axis" type="int16_t"/>
+   </structure>
+   <structure name="qapi_BLE_ESS_Magnetic_Flux_Density_3D_Data_t">
+      <member attributes="value" name="X_Axis" type="int16_t"/>
+      <member attributes="value" name="Y_Axis" type="int16_t"/>
+      <member attributes="value" name="Z_Axis" type="int16_t"/>
+   </structure>
+   <structure name="qapi_BLE_ESS_Characteristic_Instance_Entry_t">
+      <member attributes="value" name="Characteristic_Property_Flags" type="uint8_t"/>
+      <member attributes="value" name="Descriptor_Flags" type="uint8_t"/>
+      <member attributes="value" name="Descriptor_Property_Flags" type="uint8_t"/>
+      <member attributes="value" name="Trigger_Setting_Instances" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_ESS_Characteristic_Entry_t">
+      <member attributes="value" name="Type" type="qapi_BLE_ESS_Characteristic_Type_t"/>
+      <member attributes="value" name="Number_Of_Instances" type="uint16_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="Number_Of_Instances" lengthVerified="yes" name="Instances" type="qapi_BLE_ESS_Characteristic_Instance_Entry_t"/>
+   </structure>
+   <structure name="qapi_BLE_ESS_Initialize_Data_t">
+      <member attributes="value" name="Number_Of_Entries" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="Number_Of_Entries" lengthVerified="yes" name="Entries" type="qapi_BLE_ESS_Characteristic_Entry_t"/>
+      <member attributes="value" name="Descriptor_Value_Changed" type="boolean_t"/>
+   </structure>
+   <structure name="qapi_BLE_ESS_ES_Measurement_Data_t">
+      <member attributes="value" name="Flags" type="uint16_t"/>
+      <member attributes="value" name="Sampling_Function" type="uint8_t"/>
+      <member attributes="value" name="Measurement_Period" type="qapi_BLE_ESS_Int_24_Data_t"/>
+      <member attributes="value" name="Update_Interval" type="qapi_BLE_ESS_Int_24_Data_t"/>
+      <member attributes="value" name="Application" type="uint8_t"/>
+      <member attributes="value" name="Measurement_Uncertainty" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_ESS_ES_Trigger_Setting_Data_t">
+      <member attributes="value" name="Condition" type="qapi_BLE_ESS_ES_Trigger_Setting_Condition_t"/>
+      <member attributes="union" name="Operand">
+         <member attributes="value" name="Seconds" type="qapi_BLE_ESS_Int_24_Data_t"/>
+         <member attributes="value" name="Apparent_Wind_Direction" type="uint16_t"/>
+         <member attributes="value" name="Apparent_Wind_Speed" type="uint16_t"/>
+         <member attributes="value" name="Dew_Point" type="int8_t"/>
+         <member attributes="value" name="Elevation" type="qapi_BLE_ESS_Int_24_Data_t"/>
+         <member attributes="value" name="Gust_Factor" type="uint8_t"/>
+         <member attributes="value" name="Heat_Index" type="int8_t"/>
+         <member attributes="value" name="Humidity" type="uint16_t"/>
+         <member attributes="value" name="Irradiance" type="uint16_t"/>
+         <member attributes="value" name="Pollen_Concentration" type="qapi_BLE_ESS_Int_24_Data_t"/>
+         <member attributes="value" name="Rainfall" type="uint16_t"/>
+         <member attributes="value" name="Pressure" type="uint32_t"/>
+         <member attributes="value" name="Temperature" type="int16_t"/>
+         <member attributes="value" name="True_Wind_Direction" type="uint16_t"/>
+         <member attributes="value" name="True_Wind_Speed" type="uint16_t"/>
+         <member attributes="value" name="UV_Index" type="uint8_t"/>
+         <member attributes="value" name="Wind_Chill" type="int8_t"/>
+         <member attributes="value" name="Magnetic_Declination" type="uint16_t"/>
+         <unionMap mapVerified="yes" name="Condition" type="qapi_BLE_ESS_ES_Trigger_Setting_Condition_t">
+            <mapEntry member="Seconds" type="qapi_BLE_ESS_Int_24_Data_t" value="QAPI_BLE_ESS_TSC_TRIGGER_INACTIVE_E"/>
+            <mapEntry member="Seconds" type="qapi_BLE_ESS_Int_24_Data_t" value="QAPI_BLE_ESS_TSC_VALUE_CHANGED_E"/>
+            <mapEntry member="Apparent_Wind_Direction" type="uint16_t" value="QAPI_BLE_ESS_ECT_APPARENT_WIND_DIRECTION_E"/>
+            <mapEntry member="Apparent_Wind_Speed" type="uint16_t" value="QAPI_BLE_ESS_ECT_APPARENT_WIND_SPEED_E"/>
+            <mapEntry member="Dew_Point" type="int8_t" value="QAPI_BLE_ESS_ECT_DEW_POINT_E"/>
+            <mapEntry member="Elevation" type="qapi_BLE_ESS_Int_24_Data_t" value="QAPI_BLE_ESS_ECT_ELEVATION_E"/>
+            <mapEntry member="Gust_Factor" type="uint8_t" value="QAPI_BLE_ESS_ECT_GUST_FACTOR_E"/>
+            <mapEntry member="Heat_Index" type="int8_t" value="QAPI_BLE_ESS_ECT_HEAT_INDEX_E"/>
+            <mapEntry member="Humidity" type="uint16_t" value="QAPI_BLE_ESS_ECT_HUMIDITY_E"/>
+            <mapEntry member="Irradiance" type="uint16_t" value="QAPI_BLE_ESS_ECT_IRRADIANCE_E"/>
+            <mapEntry member="Pollen_Concentration" type="qapi_BLE_ESS_Int_24_Data_t" value="QAPI_BLE_ESS_ECT_POLLEN_CONCENTRATION_E"/>
+            <mapEntry member="Rainfall" type="uint16_t" value="QAPI_BLE_ESS_ECT_RAIN_FALL_E"/>
+            <mapEntry member="Pressure" type="uint32_t" value="QAPI_BLE_ESS_ECT_PRESSURE_E"/>
+            <mapEntry member="Temperature" type="int16_t" value="QAPI_BLE_ESS_ECT_TEMPERATURE_E"/>
+            <mapEntry member="True_Wind_Direction" type="uint16_t" value="QAPI_BLE_ESS_ECT_TRUE_WIND_DIRECTION_E"/>
+            <mapEntry member="True_Wind_Speed" type="uint16_t" value="QAPI_BLE_ESS_ECT_TRUE_WIND_SPEED_E"/>
+            <mapEntry member="UV_Index" type="uint8_t" value="QAPI_BLE_ESS_ECT_UV_INDEX_E"/>
+            <mapEntry member="Wind_Chill" type="int8_t" value="QAPI_BLE_ESS_ECT_WIND_CHILL_E"/>
+            <mapEntry member="Magnetic_Declination" type="uint16_t" value="QAPI_BLE_ESS_ECT_MAGNETIC_DECLINATION_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_BLE_ESS_Valid_Range_Data_t">
+      <member attributes="value" name="Lower" type="qapi_BLE_ESS_Characteristic_Data_t"/>
+      <member attributes="value" name="Upper" type="qapi_BLE_ESS_Characteristic_Data_t"/>
+   </structure>
+   <structure name="qapi_BLE_ESS_Descriptor_Value_Changed_Data_t">
+      <member attributes="value" name="Flags" type="uint16_t"/>
+      <member attributes="value" name="UUID" type="qapi_BLE_GATT_UUID_t"/>
+   </structure>
+   <structure name="qapi_BLE_ESS_Characteristic_Info_t">
+      <member attributes="value" name="Type" type="qapi_BLE_ESS_Characteristic_Type_t"/>
+      <member attributes="value" name="ID" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_BLE_ESS_Read_Characteristic_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="CharacteristicInfo" type="qapi_BLE_ESS_Characteristic_Info_t"/>
+   </structure>
+   <structure name="qapi_BLE_ESS_Read_CCCD_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="CharacteristicInfo" type="qapi_BLE_ESS_Characteristic_Info_t"/>
+   </structure>
+   <structure name="qapi_BLE_ESS_Write_CCCD_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="CharacteristicInfo" type="qapi_BLE_ESS_Characteristic_Info_t"/>
+      <member attributes="value" name="ClientConfiguration" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_ESS_Read_ES_Measurement_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="CharacteristicInfo" type="qapi_BLE_ESS_Characteristic_Info_t"/>
+   </structure>
+   <structure name="qapi_BLE_ESS_Read_ES_Trigger_Setting_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="CharacteristicInfo" type="qapi_BLE_ESS_Characteristic_Info_t"/>
+      <member attributes="value" name="Instance" type="qapi_BLE_ESS_ES_Trigger_Setting_Instance_t"/>
+   </structure>
+   <structure name="qapi_BLE_ESS_Write_ES_Trigger_Setting_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="CharacteristicInfo" type="qapi_BLE_ESS_Characteristic_Info_t"/>
+      <member attributes="value" name="Instance" type="qapi_BLE_ESS_ES_Trigger_Setting_Instance_t"/>
+      <member attributes="value" name="TriggerSetting" type="qapi_BLE_ESS_ES_Trigger_Setting_Data_t"/>
+   </structure>
+   <structure name="qapi_BLE_ESS_Read_ES_Configuration_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="CharacteristicInfo" type="qapi_BLE_ESS_Characteristic_Info_t"/>
+   </structure>
+   <structure name="qapi_BLE_ESS_Write_ES_Configuration_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="CharacteristicInfo" type="qapi_BLE_ESS_Characteristic_Info_t"/>
+      <member attributes="value" name="Configuration" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_ESS_Read_User_Description_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="CharacteristicInfo" type="qapi_BLE_ESS_Characteristic_Info_t"/>
+      <member attributes="value" name="UserDescriptionOffset" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_ESS_Write_User_Description_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="CharacteristicInfo" type="qapi_BLE_ESS_Characteristic_Info_t"/>
+      <member attributes="value" name="UserDescriptionLength" type="uint16_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="UserDescriptionLength" lengthVerified="yes" name="UserDescription" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_ESS_Read_Valid_Range_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="CharacteristicInfo" type="qapi_BLE_ESS_Characteristic_Info_t"/>
+   </structure>
+   <structure name="qapi_BLE_ESS_Read_Descriptor_Value_Changed_CCCD_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+   </structure>
+   <structure name="qapi_BLE_ESS_Write_Descriptor_Value_Changed_CCCD_Request_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ClientConfiguration" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_ESS_Confirmation_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Status" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_ESS_Event_Data_t">
+      <member attributes="value" name="Event_Data_Type" type="qapi_BLE_ESS_Event_Type_t"/>
+      <member attributes="value" name="Event_Data_Size" type="uint8_t"/>
+      <member attributes="union" name="Event_Data">
+         <member attributes="ptr" iotype="in" name="ESS_Read_Characteristic_Request_Data" type="qapi_BLE_ESS_Read_Characteristic_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="ESS_Read_CCCD_Request_Data" type="qapi_BLE_ESS_Read_CCCD_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="ESS_Write_CCCD_Request_Data" type="qapi_BLE_ESS_Write_CCCD_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="ESS_Read_ES_Measurement_Request_Data" type="qapi_BLE_ESS_Read_ES_Measurement_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="ESS_Read_ES_Trigger_Setting_Request_Data" type="qapi_BLE_ESS_Read_ES_Trigger_Setting_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="ESS_Write_ES_Trigger_Setting_Request_Data" type="qapi_BLE_ESS_Write_ES_Trigger_Setting_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="ESS_Read_ES_Configuration_Request_Data" type="qapi_BLE_ESS_Read_ES_Configuration_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="ESS_Write_ES_Configuration_Request_Data" type="qapi_BLE_ESS_Write_ES_Configuration_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="ESS_Read_User_Description_Request_Data" type="qapi_BLE_ESS_Read_User_Description_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="ESS_Write_User_Description_Request_Data" type="qapi_BLE_ESS_Write_User_Description_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="ESS_Read_Valid_Range_Request_Data" type="qapi_BLE_ESS_Read_Valid_Range_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="ESS_Read_Descriptor_Changed_Value_CCCD_Request_Data" type="qapi_BLE_ESS_Read_Descriptor_Value_Changed_CCCD_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="ESS_Write_Descriptor_Changed_Value_CCCD_Request_Data" type="qapi_BLE_ESS_Write_Descriptor_Value_Changed_CCCD_Request_Data_t"/>
+         <member attributes="ptr" iotype="in" name="ESS_Confirmation_Data" type="qapi_BLE_ESS_Confirmation_Data_t"/>
+         <unionMap mapVerified="yes" name="Event_Data_Type" type="qapi_BLE_ESS_Event_Type_t">
+            <mapEntry member="ESS_Read_Characteristic_Request_Data" type="qapi_BLE_ESS_Read_Characteristic_Request_Data_t" value="QAPI_BLE_ESS_ET_SERVER_READ_CHARACTERISTIC_REQUEST_E"/>
+            <mapEntry member="ESS_Read_CCCD_Request_Data" type="qapi_BLE_ESS_Read_CCCD_Request_Data_t" value="QAPI_BLE_ESS_ET_SERVER_READ_CCCD_REQUEST_E"/>
+            <mapEntry member="ESS_Write_CCCD_Request_Data" type="qapi_BLE_ESS_Write_CCCD_Request_Data_t" value="QAPI_BLE_ESS_ET_SERVER_WRITE_CCCD_REQUEST_E"/>
+            <mapEntry member="ESS_Read_ES_Measurement_Request_Data" type="qapi_BLE_ESS_Read_ES_Measurement_Request_Data_t" value="QAPI_BLE_ESS_ET_SERVER_READ_ES_MEASUREMENT_REQUEST_E"/>
+            <mapEntry member="ESS_Read_ES_Trigger_Setting_Request_Data" type="qapi_BLE_ESS_Read_ES_Trigger_Setting_Request_Data_t" value="QAPI_BLE_ESS_ET_SERVER_READ_ES_TRIGGER_SETTING_REQUEST_E"/>
+            <mapEntry member="ESS_Write_ES_Trigger_Setting_Request_Data" type="qapi_BLE_ESS_Write_ES_Trigger_Setting_Request_Data_t" value="QAPI_BLE_ESS_ET_SERVER_WRITE_ES_TRIGGER_SETTING_REQUEST_E"/>
+            <mapEntry member="ESS_Read_ES_Configuration_Request_Data" type="qapi_BLE_ESS_Read_ES_Configuration_Request_Data_t" value="QAPI_BLE_ESS_ET_SERVER_READ_ES_CONFIGURATION_REQUEST_E"/>
+            <mapEntry member="ESS_Write_ES_Configuration_Request_Data" type="qapi_BLE_ESS_Write_ES_Configuration_Request_Data_t" value="QAPI_BLE_ESS_ET_SERVER_WRITE_ES_CONFIGURATION_REQUEST_E"/>
+            <mapEntry member="ESS_Read_User_Description_Request_Data" type="qapi_BLE_ESS_Read_User_Description_Request_Data_t" value="QAPI_BLE_ESS_ET_SERVER_READ_USER_DESCRIPTION_REQUEST_E"/>
+            <mapEntry member="ESS_Write_User_Description_Request_Data" type="qapi_BLE_ESS_Write_User_Description_Request_Data_t" value="QAPI_BLE_ESS_ET_SERVER_WRITE_USER_DESCRIPTION_REQUEST_E"/>
+            <mapEntry member="ESS_Read_Valid_Range_Request_Data" type="qapi_BLE_ESS_Read_Valid_Range_Request_Data_t" value="QAPI_BLE_ESS_ET_SERVER_READ_VALID_RANGE_REQUEST_E"/>
+            <mapEntry member="ESS_Read_Descriptor_Changed_Value_CCCD_Request_Data" type="qapi_BLE_ESS_Read_Descriptor_Value_Changed_CCCD_Request_Data_t" value="QAPI_BLE_ESS_ET_SERVER_READ_DESCRIPTOR_VALUE_CHANGED_CCCD_REQUEST_E"/>
+            <mapEntry member="ESS_Write_Descriptor_Changed_Value_CCCD_Request_Data" type="qapi_BLE_ESS_Write_Descriptor_Value_Changed_CCCD_Request_Data_t" value="QAPI_BLE_ESS_ET_SERVER_WRITE_DESCRIPTOR_VALUE_CHANGED_CCCD_REQUEST_E"/>
+            <mapEntry member="ESS_Confirmation_Data" type="qapi_BLE_ESS_Confirmation_Data_t" value="QAPI_BLE_ESS_ET_SERVER_CONFIRMATION_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_BLE_ESS_Characteristic_Data_t">
+      <member attributes="union" name="">
+         <member attributes="value" name="Apparent_Wind_Direction" type="uint16_t"/>
+         <member attributes="value" name="Apparent_Wind_Speed" type="uint16_t"/>
+         <member attributes="value" name="Dew_Point" type="int8_t"/>
+         <member attributes="value" name="Elevation" type="qapi_BLE_ESS_Int_24_Data_t"/>
+         <member attributes="value" name="Gust_Factor" type="uint8_t"/>
+         <member attributes="value" name="Heat_Index" type="int8_t"/>
+         <member attributes="value" name="Humidity" type="uint16_t"/>
+         <member attributes="value" name="Irradiance" type="uint16_t"/>
+         <member attributes="value" name="Pollen_Concentration" type="qapi_BLE_ESS_Int_24_Data_t"/>
+         <member attributes="value" name="Rainfall" type="uint16_t"/>
+         <member attributes="value" name="Pressure" type="uint32_t"/>
+         <member attributes="value" name="Temperature" type="int16_t"/>
+         <member attributes="value" name="True_Wind_Direction" type="uint16_t"/>
+         <member attributes="value" name="True_Wind_Speed" type="uint16_t"/>
+         <member attributes="value" name="UV_Index" type="uint8_t"/>
+         <member attributes="value" name="Wind_Chill" type="int8_t"/>
+         <member attributes="value" name="Barometric_Pressure_Trend" type="qapi_BLE_ESS_Barometric_Pressure_Trend_t"/>
+         <member attributes="value" name="Magnetic_Declination" type="uint16_t"/>
+         <member attributes="value" name="Magnetic_Flux_Density_2D" type="qapi_BLE_ESS_Magnetic_Flux_Density_2D_Data_t"/>
+         <member attributes="value" name="Magnetic_Flux_Density_3D" type="qapi_BLE_ESS_Magnetic_Flux_Density_3D_Data_t"/>
+         <unionMap mapVerified="yes">
+            <mapEntry member="Apparent_Wind_Direction" type="uint16_t" value=""/>
+         </unionMap>
+      </member>
+   </structure>
+   <function name="qapi_BLE_ESS_Initialize_Service">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="ServiceFlags" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="InitializeData" type="qapi_BLE_ESS_Initialize_Data_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_ESS_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_ESS_Initialize_Service_Handle_Range">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="ServiceFlags" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="InitializeData" type="qapi_BLE_ESS_Initialize_Data_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_ESS_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="ServiceHandleRange" type="qapi_BLE_GATT_Attribute_Handle_Group_t"/>
+   </function>
+   <function name="qapi_BLE_ESS_Cleanup_Service">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_ESS_Query_Number_Attributes">
+      <return attributes="value" type="unsigned int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_ESS_Read_Characteristic_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="CharacteristicInfo" type="qapi_BLE_ESS_Characteristic_Info_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="CharacteristicData" type="qapi_BLE_ESS_Characteristic_Data_t"/>
+   </function>
+   <function name="qapi_BLE_ESS_Read_CCCD_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="CharacteristicInfo" type="qapi_BLE_ESS_Characteristic_Info_t"/>
+      <argument attributes="value" name="Configuration" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_ESS_Write_CCCD_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="CharacteristicInfo" type="qapi_BLE_ESS_Characteristic_Info_t"/>
+   </function>
+   <function name="qapi_BLE_ESS_Query_Extended_Properties">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="CharacteristicInfo" type="qapi_BLE_ESS_Characteristic_Info_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ExtendedProperties" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_ESS_Read_ES_Measurement_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="CharacteristicInfo" type="qapi_BLE_ESS_Characteristic_Info_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="MeasurementData" type="qapi_BLE_ESS_ES_Measurement_Data_t"/>
+   </function>
+   <function name="qapi_BLE_ESS_Read_ES_Trigger_Setting_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="CharacteristicInfo" type="qapi_BLE_ESS_Characteristic_Info_t"/>
+      <argument attributes="value" name="Instance" type="qapi_BLE_ESS_ES_Trigger_Setting_Instance_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="TriggerSetting" type="qapi_BLE_ESS_ES_Trigger_Setting_Data_t"/>
+   </function>
+   <function name="qapi_BLE_ESS_Write_ES_Trigger_Setting_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="CharacteristicInfo" type="qapi_BLE_ESS_Characteristic_Info_t"/>
+      <argument attributes="value" name="Instance" type="qapi_BLE_ESS_ES_Trigger_Setting_Instance_t"/>
+   </function>
+   <function name="qapi_BLE_ESS_Read_ES_Configuration_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="CharacteristicInfo" type="qapi_BLE_ESS_Characteristic_Info_t"/>
+      <argument attributes="value" name="Configuration" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_ESS_Write_ES_Configuration_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="CharacteristicInfo" type="qapi_BLE_ESS_Characteristic_Info_t"/>
+   </function>
+   <function name="qapi_BLE_ESS_Read_User_Description_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="CharacteristicInfo" type="qapi_BLE_ESS_Characteristic_Info_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="__strlen__" lengthVerified="yes" name="UserDescription" type="char"/>
+   </function>
+   <function name="qapi_BLE_ESS_Write_User_Description_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="CharacteristicInfo" type="qapi_BLE_ESS_Characteristic_Info_t"/>
+   </function>
+   <function name="qapi_BLE_ESS_Read_Valid_Range_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="CharacteristicInfo" type="qapi_BLE_ESS_Characteristic_Info_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="ValidRange" type="qapi_BLE_ESS_Valid_Range_Data_t"/>
+   </function>
+   <function name="qapi_BLE_ESS_Read_Descriptor_Value_Changed_CCCD_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+      <argument attributes="value" name="Configuration" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_ESS_Write_Descriptor_Value_Changed_CCCD_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_ESS_Notify_Characteristic">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="CharacteristicInfo" type="qapi_BLE_ESS_Characteristic_Info_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="CharacteristicData" type="qapi_BLE_ESS_Characteristic_Data_t"/>
+   </function>
+   <function name="qapi_BLE_ESS_Indicate_Descriptor_Value_Changed">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="DescriptorValueChanged" type="qapi_BLE_ESS_Descriptor_Value_Changed_Data_t"/>
+   </function>
+   <function name="qapi_BLE_ESS_Decode_Characteristic">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="value" name="Type" type="qapi_BLE_ESS_Characteristic_Type_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="CharacteristicData" type="qapi_BLE_ESS_Characteristic_Data_t"/>
+   </function>
+   <function name="qapi_BLE_ESS_Decode_ES_Measurement">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="MeasurementData" type="qapi_BLE_ESS_ES_Measurement_Data_t"/>
+   </function>
+   <function name="qapi_BLE_ESS_Format_ES_Trigger_Setting_Request">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="Type" type="qapi_BLE_ESS_Characteristic_Type_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="TriggerSetting" type="qapi_BLE_ESS_ES_Trigger_Setting_Data_t"/>
+      <argument attributes="value" name="BufferLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="BufferLength" lengthVerified="yes" name="Buffer" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_ESS_Decode_ES_Trigger_Setting">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="value" name="Type" type="qapi_BLE_ESS_Characteristic_Type_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="TriggerSetting" type="qapi_BLE_ESS_ES_Trigger_Setting_Data_t"/>
+   </function>
+   <function name="qapi_BLE_ESS_Decode_Valid_Range">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="value" name="Type" type="qapi_BLE_ESS_Characteristic_Type_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ValidRange" type="qapi_BLE_ESS_Valid_Range_Data_t"/>
+   </function>
+   <function name="qapi_BLE_ESS_Decode_Descriptor_Value_Changed">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="DescriptorValueChanged" type="qapi_BLE_ESS_Descriptor_Value_Changed_Data_t"/>
+   </function>
+   <callback name="qapi_BLE_ESS_Event_Callback_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ESS_Event_Data" type="qapi_BLE_ESS_Event_Data_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <createFunction ID="qsRetVal" funcSuccess="0" moduleParam="BluetoothStackID" name="qapi_BLE_ESS_Initialize_Service" param="CallbackParameter"/>
+      <createFunction ID="qsRetVal" funcSuccess="0" moduleParam="BluetoothStackID" name="qapi_BLE_ESS_Initialize_Service_Handle_Range" param="CallbackParameter"/>
+      <destroyFunction ID="InstanceID" funcSuccess="0" name="qapi_BLE_ESS_Cleanup_Service"/>
+   </callback>
+</header>

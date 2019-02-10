@@ -1,0 +1,132 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="./qapi_ble_bttypes.h"/>
+   <include name="./qapi_ble_gatttype.h"/>
+   <macro name="QAPI_BLE_CTS_ERROR_CODE_SUCCESS" value="0x00"/>
+   <macro name="QAPI_BLE_CTS_ERROR_CODE_DATA_FIELD_IGNORED" value="0x80"/>
+   <macro name="QAPI_BLE_CTS_ASSIGN_CTS_SERVICE_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16(*((qapi_BLE_UUID_16_t *)(_x)), 0x18, 0x05)"/>
+   <macro name="QAPI_BLE_CTS_ASSIGN_CTS_SERVICE_SDP_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_SDP_UUID_16((_x), 0x18, 0x05)"/>
+   <macro name="QAPI_BLE_CTS_COMPARE_CTS_SERVICE_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x18, 0x05)"/>
+   <macro name="QAPI_BLE_CTS_SERVICE_BLUETOOTH_UUID_CONSTANT" value="{ 0x05, 0x18 }"/>
+   <macro name="QAPI_BLE_CTS_ASSIGN_CURRENT_TIME_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x2B)"/>
+   <macro name="QAPI_BLE_CTS_COMPARE_CTS_CURRENT_TIME_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x2B)"/>
+   <macro name="QAPI_BLE_CTS_CURRENT_TIME_CHARACTERISTIC_BLUETOOTH_UUID_CONSTANT" value="{ 0x2B, 0x2A }"/>
+   <macro name="QAPI_BLE_CTS_ASSIGN_LOCAL_TIME_INFORMATION_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x0F)"/>
+   <macro name="QAPI_BLE_CTS_COMPARE_CTS_LOCAL_TIME_INFORMATION_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x0F)"/>
+   <macro name="QAPI_BLE_CTS_LOCAL_TIME_INFORMATION_CHARACTERISTIC_BLUETOOTH_UUID_CONSTANT" value="{ 0x0F, 0x2A }"/>
+   <macro name="QAPI_BLE_CTS_ASSIGN_REFERENCE_TIME_INFORMATION_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x14)"/>
+   <macro name="QAPI_BLE_CTS_COMPARE_CTS_REFERENCE_TIME_INFORMATION_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x14)"/>
+   <macro name="QAPI_BLE_CTS_REFERENCE_TIME_INFORMATION_CHARACTERISTIC_BLUETOOTH_UUID_CONSTANT" value="{ 0x14, 0x2A }"/>
+   <macro name="QAPI_BLE_CTS_CURRENT_TIME_ADJUST_REASON_MANUAL_TIME_UPDATE" value="0x01"/>
+   <macro name="QAPI_BLE_CTS_CURRENT_TIME_ADJUST_REASON_EXTERNAL_REFERENCE_TIME_UPDATE" value="0x02"/>
+   <macro name="QAPI_BLE_CTS_CURRENT_TIME_ADJUST_REASON_CHANGE_OF_TIMEZONE" value="0x04"/>
+   <macro name="QAPI_BLE_CTS_CURRENT_TIME_ADJUST_REASON_CHANGE_OF_DST" value="0x08"/>
+   <macro name="QAPI_BLE_CTS_DAY_OF_WEEK_UNKNOWN" value="0x00"/>
+   <macro name="QAPI_BLE_CTS_DAY_OF_WEEK_MONDAY" value="0x01"/>
+   <macro name="QAPI_BLE_CTS_DAY_OF_WEEK_TUESDAY" value="0x02"/>
+   <macro name="QAPI_BLE_CTS_DAY_OF_WEEK_WEDNESDAY" value="0x03"/>
+   <macro name="QAPI_BLE_CTS_DAY_OF_WEEK_THURSDAY" value="0x04"/>
+   <macro name="QAPI_BLE_CTS_DAY_OF_WEEK_FRIDAY" value="0x05"/>
+   <macro name="QAPI_BLE_CTS_DAY_OF_WEEK_SATURDAY" value="0x06"/>
+   <macro name="QAPI_BLE_CTS_DAY_OF_WEEK_SUNDAY" value="0x07"/>
+   <macro name="QAPI_BLE_CTS_MONTH_OF_YEAR_UNKNOWN" value="0x00"/>
+   <macro name="QAPI_BLE_CTS_MONTH_OF_YEAR_JANUARY" value="0x01"/>
+   <macro name="QAPI_BLE_CTS_MONTH_OF_YEAR_FEBRUARY" value="0x02"/>
+   <macro name="QAPI_BLE_CTS_MONTH_OF_YEAR_MARCH" value="0x03"/>
+   <macro name="QAPI_BLE_CTS_MONTH_OF_YEAR_APRIL" value="0x04"/>
+   <macro name="QAPI_BLE_CTS_MONTH_OF_YEAR_MAY" value="0x05"/>
+   <macro name="QAPI_BLE_CTS_MONTH_OF_YEAR_JUNE" value="0x06"/>
+   <macro name="QAPI_BLE_CTS_MONTH_OF_YEAR_JULY" value="0x07"/>
+   <macro name="QAPI_BLE_CTS_MONTH_OF_YEAR_AUGUST" value="0x08"/>
+   <macro name="QAPI_BLE_CTS_MONTH_OF_YEAR_SEPTEMBER" value="0x09"/>
+   <macro name="QAPI_BLE_CTS_MONTH_OF_YEAR_OCTOBER" value="0x0A"/>
+   <macro name="QAPI_BLE_CTS_MONTH_OF_YEAR_NOVEMBER" value="0x0B"/>
+   <macro name="QAPI_BLE_CTS_MONTH_OF_YEAR_DECEMBER" value="0x0C"/>
+   <macro name="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_UNKNOWN" value="-128"/>
+   <macro name="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_MINUS_12_00" value="-48"/>
+   <macro name="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_MINUS_11_00" value="-44"/>
+   <macro name="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_MINUS_10_00" value="-40"/>
+   <macro name="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_MINUS_9_30" value="-38"/>
+   <macro name="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_MINUS_9_00" value="-36"/>
+   <macro name="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_MINUS_8_00" value="-32"/>
+   <macro name="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_MINUS_7_00" value="-28"/>
+   <macro name="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_MINUS_6_00" value="-24"/>
+   <macro name="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_MINUS_5_00" value="-20"/>
+   <macro name="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_MINUS_4_30" value="-18"/>
+   <macro name="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_MINUS_4_00" value="-16"/>
+   <macro name="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_MINUS_3_30" value="-14"/>
+   <macro name="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_MINUS_3_00" value="-12"/>
+   <macro name="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_MINUS_2_00" value="-8"/>
+   <macro name="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_MINUS_1_00" value="-4"/>
+   <macro name="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_0_00" value="0"/>
+   <macro name="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_1_00" value="+4"/>
+   <macro name="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_2_00" value="+8"/>
+   <macro name="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_3_00" value="+12"/>
+   <macro name="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_3_30" value="+14"/>
+   <macro name="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_4_00" value="+16"/>
+   <macro name="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_4_30" value="+18"/>
+   <macro name="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_5_00" value="+20"/>
+   <macro name="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_5_30" value="+22"/>
+   <macro name="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_5_45" value="+23"/>
+   <macro name="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_6_00" value="+24"/>
+   <macro name="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_6_30" value="+26"/>
+   <macro name="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_7_00" value="+28"/>
+   <macro name="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_8_00" value="+32"/>
+   <macro name="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_8_45" value="+35"/>
+   <macro name="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_9_00" value="+36"/>
+   <macro name="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_9_30" value="+38"/>
+   <macro name="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_10_00" value="+40"/>
+   <macro name="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_10_30" value="+42"/>
+   <macro name="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_11_00" value="+44"/>
+   <macro name="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_11_30" value="+46"/>
+   <macro name="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_12_00" value="+48"/>
+   <macro name="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_12_45" value="+51"/>
+   <macro name="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_13_00" value="+52"/>
+   <macro name="QAPI_BLE_CTS_TIME_ZONE_UTC_OFFSET_PLUS_14_00" value="+56"/>
+   <macro name="QAPI_BLE_CTS_DST_OFFSET_UNKNOWN" value="255"/>
+   <macro name="QAPI_BLE_CTS_DST_OFFSET_STANDARD_TIME" value="0"/>
+   <macro name="QAPI_BLE_CTS_DST_OFFSET_HALF_AN_HOUR_DAYLIGHT_TIME" value="2"/>
+   <macro name="QAPI_BLE_CTS_DST_OFFSET_DAYLIGHT_TIME" value="4"/>
+   <macro name="QAPI_BLE_CTS_DST_OFFSET_DOUBLE_DAYLIGHT_TIME" value="8"/>
+   <macro name="QAPI_BLE_CTS_TIME_SOURCE_UNKNOWN" value="0x00"/>
+   <macro name="QAPI_BLE_CTS_TIME_SOURCE_NETWORK_TIME_PROTOCOL" value="0x01"/>
+   <macro name="QAPI_BLE_CTS_TIME_SOURCE_GPS" value="0x02"/>
+   <macro name="QAPI_BLE_CTS_TIME_SOURCE_RADIO_TIME_SIGNAL" value="0x03"/>
+   <macro name="QAPI_BLE_CTS_TIME_SOURCE_MANUAL" value="0x04"/>
+   <macro name="QAPI_BLE_CTS_TIME_SOURCE_ATOMIC_CLOCK" value="0x05"/>
+   <macro name="QAPI_BLE_CTS_TIME_SOURCE_CELLULAR_NETWORK" value="0x06"/>
+   <macro name="QAPI_BLE_CTS_ACCURACY_MINIMUM_VALUE" value="0"/>
+   <macro name="QAPI_BLE_CTS_ACCURACY_MAXIMUM_VALUE" value="253"/>
+   <macro name="QAPI_BLE_CTS_ACCURACY_OUT_OF_RANGE" value="254"/>
+   <macro name="QAPI_BLE_CTS_ACCURACY_UNKOWN" value="255"/>
+   <macro name="QAPI_BLE_CTS_DAY_DATE_TIME_SIZE" value="(sizeof(qapi_BLE_CTS_Day_Date_Time_t))"/>
+   <macro name="QAPI_BLE_CTS_EXACT_TIME_SIZE" value="(sizeof(qapi_BLE_CTS_Exact_Time_t))"/>
+   <macro name="QAPI_BLE_CTS_CURRENT_TIME_SIZE" value="(sizeof(qapi_BLE_CTS_Current_Time_t))"/>
+   <macro name="QAPI_BLE_CTS_LOCAL_TIME_INFORMATION_SIZE" value="(sizeof(qapi_BLE_CTS_Local_Time_Information_t))"/>
+   <macro name="QAPI_BLE_CTS_REFERENCE_TIME_INFORMATION_SIZE" value="(sizeof(qapi_BLE_CTS_Reference_Time_Information_t))"/>
+   <macro name="QAPI_BLE_CTS_SERVICE_FLAGS_LE" value="(QAPI_BLE_GATT_SERVICE_FLAGS_LE_SERVICE)"/>
+   <macro name="QAPI_BLE_CTS_SERVICE_FLAGS_BR_EDR" value="(QAPI_BLE_GATT_SERVICE_FLAGS_BR_EDR_SERVICE)"/>
+   <macro name="QAPI_BLE_CTS_SERVICE_FLAGS_DUAL_MODE" value="(QAPI_BLE_GATT_SERVICE_FLAGS_LE_SERVICE | QAPI_BLE_GATT_SERVICE_FLAGS_BR_EDR_SERVICE)"/>
+   <structure name="qapi_BLE_CTS_Day_Date_Time_t">
+      <member attributes="value" name="Date_Time" type="qapi_BLE_GATT_Date_Time_Characteristic_t"/>
+      <member attributes="value" name="Day_Of_Week" type="qapi_BLE_NonAlignedByte_t"/>
+   </structure>
+   <structure name="qapi_BLE_CTS_Exact_Time_t">
+      <member attributes="value" name="Day_Date_Time" type="qapi_BLE_CTS_Day_Date_Time_t"/>
+      <member attributes="value" name="Fractions256" type="qapi_BLE_NonAlignedByte_t"/>
+   </structure>
+   <structure name="qapi_BLE_CTS_Current_Time_t">
+      <member attributes="value" name="Exact_Time" type="qapi_BLE_CTS_Exact_Time_t"/>
+      <member attributes="value" name="Adjust_Reason_Mask" type="qapi_BLE_NonAlignedByte_t"/>
+   </structure>
+   <structure name="qapi_BLE_CTS_Local_Time_Information_t">
+      <member attributes="value" name="Time_Zone" type="qapi_BLE_NonAlignedSByte_t"/>
+      <member attributes="value" name="Daylight_Saving_Time" type="qapi_BLE_NonAlignedByte_t"/>
+   </structure>
+   <structure name="qapi_BLE_CTS_Reference_Time_Information_t">
+      <member attributes="value" name="Source" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="Accuracy" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="Days_Since_Update" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="Hours_Since_Update" type="qapi_BLE_NonAlignedByte_t"/>
+   </structure>
+</header>

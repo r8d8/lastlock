@@ -1,0 +1,707 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="qapi/qapi_types.h"/>
+   <include name="qapi/qapi_status.h"/>
+   <include name="qapi_zb.h"/>
+   <include name="qapi_zb_aps.h"/>
+   <macro name="QAPI_ZB_ERR_ZCL_FAILURE" value="(QAPI_ZB_ERR(1)) "/>
+   <macro name="QAPI_ZB_ERR_ZCL_NOT_AUTHORIZED" value="(QAPI_ZB_ERR(126)) "/>
+   <macro name="QAPI_ZB_ERR_ZCL_RESERVED_FIELD_NOT_ZERO" value="(QAPI_ZB_ERR(127)) "/>
+   <macro name="QAPI_ZB_ERR_ZCL_MALFORMED_COMMAND" value="(QAPI_ZB_ERR(128)) "/>
+   <macro name="QAPI_ZB_ERR_ZCL_UNSUP_CLUSTER_COMMAND" value="(QAPI_ZB_ERR(129)) "/>
+   <macro name="QAPI_ZB_ERR_ZCL_UNSUP_GENERAL_COMMAND" value="(QAPI_ZB_ERR(130)) "/>
+   <macro name="QAPI_ZB_ERR_ZCL_UNSUP_MANUF_CLUSTER_COMMAND" value="(QAPI_ZB_ERR(131)) "/>
+   <macro name="QAPI_ZB_ERR_ZCL_UNSUP_MANUF_GENERAL_COMMAND" value="(QAPI_ZB_ERR(132)) "/>
+   <macro name="QAPI_ZB_ERR_ZCL_INVALID_FIELD" value="(QAPI_ZB_ERR(133)) "/>
+   <macro name="QAPI_ZB_ERR_ZCL_UNSUPPORTED_ATTRIBUTE" value="(QAPI_ZB_ERR(134)) "/>
+   <macro name="QAPI_ZB_ERR_ZCL_INVALID_VALUE" value="(QAPI_ZB_ERR(135)) "/>
+   <macro name="QAPI_ZB_ERR_ZCL_READ_ONLY" value="(QAPI_ZB_ERR(136)) "/>
+   <macro name="QAPI_ZB_ERR_ZCL_INSUFFICIENT_SPACE" value="(QAPI_ZB_ERR(137)) "/>
+   <macro name="QAPI_ZB_ERR_ZCL_DUPLICATE_EXISTS" value="(QAPI_ZB_ERR(138)) "/>
+   <macro name="QAPI_ZB_ERR_ZCL_NOT_FOUND" value="(QAPI_ZB_ERR(139)) "/>
+   <macro name="QAPI_ZB_ERR_ZCL_UNREPORTABLE_ATTRIBUTE" value="(QAPI_ZB_ERR(140)) "/>
+   <macro name="QAPI_ZB_ERR_ZCL_INVALID_DATA_TYPE" value="(QAPI_ZB_ERR(141)) "/>
+   <macro name="QAPI_ZB_ERR_ZCL_INVALID_SELECTOR" value="(QAPI_ZB_ERR(142)) "/>
+   <macro name="QAPI_ZB_ERR_ZCL_WRITE_ONLY" value="(QAPI_ZB_ERR(143)) "/>
+   <macro name="QAPI_ZB_ERR_ZCL_INCONSISTENT_STARTUP_STATE" value="(QAPI_ZB_ERR(144)) "/>
+   <macro name="QAPI_ZB_ERR_ZCL_DEFINED_OUT_OF_BAND" value="(QAPI_ZB_ERR(145)) "/>
+   <macro name="QAPI_ZB_ERR_ZCL_INCONSISTENT" value="(QAPI_ZB_ERR(146)) "/>
+   <macro name="QAPI_ZB_ERR_ZCL_ACTION_DENIED" value="(QAPI_ZB_ERR(147)) "/>
+   <macro name="QAPI_ZB_ERR_ZCL_TIMEOUT" value="(QAPI_ZB_ERR(148)) "/>
+   <macro name="QAPI_ZB_ERR_ZCL_ABORT" value="(QAPI_ZB_ERR(149)) "/>
+   <macro name="QAPI_ZB_ERR_ZCL_INVALID_IMAGE" value="(QAPI_ZB_ERR(150)) "/>
+   <macro name="QAPI_ZB_ERR_ZCL_WAIT_FOR_DATA" value="(QAPI_ZB_ERR(151)) "/>
+   <macro name="QAPI_ZB_ERR_ZCL_NO_IMAGE_AVAILABLE" value="(QAPI_ZB_ERR(152)) "/>
+   <macro name="QAPI_ZB_ERR_ZCL_REQUIRE_MORE_IMAGE" value="(QAPI_ZB_ERR(153)) "/>
+   <macro name="QAPI_ZB_ERR_ZCL_NOTIFICATION_PENDING" value="(QAPI_ZB_ERR(154)) "/>
+   <macro name="QAPI_ZB_ERR_ZCL_HARDWARE_FAILURE" value="(QAPI_ZB_ERR(192)) "/>
+   <macro name="QAPI_ZB_ERR_ZCL_SOFTWARE_FAILURE" value="(QAPI_ZB_ERR(193)) "/>
+   <macro name="QAPI_ZB_ERR_ZCL_CALIBRATION_ERROR" value="(QAPI_ZB_ERR(194)) "/>
+   <macro name="QAPI_ZB_ERR_ZCL_UNSUPPORTED_CLUSTER" value="(QAPI_ZB_ERR(195)) "/>
+   <macro name="QAPI_ZB_ERR_ZCL_NO_DEFAULT_RESPONSE" value="(QAPI_ZB_ERR(255)) "/>
+   <macro name="QAPI_ZB_CL_CLUSTER_ID_BASIC" value="(0x0000) "/>
+   <macro name="QAPI_ZB_CL_CLUSTER_ID_POWER_CONFIG" value="(0x0001) "/>
+   <macro name="QAPI_ZB_CL_CLUSTER_ID_TEMPERATURE_CONFIG" value="(0x0002) "/>
+   <macro name="QAPI_ZB_CL_CLUSTER_ID_IDENTIFY" value="(0x0003) "/>
+   <macro name="QAPI_ZB_CL_CLUSTER_ID_GROUPS" value="(0x0004) "/>
+   <macro name="QAPI_ZB_CL_CLUSTER_ID_SCENES" value="(0x0005) "/>
+   <macro name="QAPI_ZB_CL_CLUSTER_ID_ONOFF" value="(0x0006) "/>
+   <macro name="QAPI_ZB_CL_CLUSTER_ID_ONOFF_CONFIG" value="(0x0007) "/>
+   <macro name="QAPI_ZB_CL_CLUSTER_ID_LEVEL_CONTROL" value="(0x0008) "/>
+   <macro name="QAPI_ZB_CL_CLUSTER_ID_ALARMS" value="(0x0009) "/>
+   <macro name="QAPI_ZB_CL_CLUSTER_ID_TIME" value="(0x000a) "/>
+   <macro name="QAPI_ZB_CL_CLUSTER_ID_RSSI_LOCATION" value="(0x000b) "/>
+   <macro name="QAPI_ZB_CL_CLUSTER_ID_ANALOG_INPUT_BASIC" value="(0x000c) "/>
+   <macro name="QAPI_ZB_CL_CLUSTER_ID_ANALOG_OUTPUT_BASIC" value="(0x000d) "/>
+   <macro name="QAPI_ZB_CL_CLUSTER_ID_ANALOG_VALUE_BASIC" value="(0x000e) "/>
+   <macro name="QAPI_ZB_CL_CLUSTER_ID_BINARY_INPUT_BASIC" value="(0x000f) "/>
+   <macro name="QAPI_ZB_CL_CLUSTER_ID_BINARY_OUTPUT_BASIC" value="(0x0010) "/>
+   <macro name="QAPI_ZB_CL_CLUSTER_ID_BINARY_VALUE_BASIC" value="(0x0011) "/>
+   <macro name="QAPI_ZB_CL_CLUSTER_ID_MULTISTATE_INPUT_BASIC" value="(0x0012) "/>
+   <macro name="QAPI_ZB_CL_CLUSTER_ID_MULTISTATE_OUTPUT_BASIC" value="(0x0013) "/>
+   <macro name="QAPI_ZB_CL_CLUSTER_ID_MULTISTATE_VALUE_BASIC" value="(0x0014) "/>
+   <macro name="QAPI_ZB_CL_CLUSTER_ID_COMMISSIONING" value="(0x0015) "/>
+   <macro name="QAPI_ZB_CL_CLUSTER_ID_OTA_UPGRADE" value="(0x0019) "/>
+   <macro name="QAPI_ZB_CL_CLUSTER_ID_KEEP_ALIVE" value="(0x0025) "/>
+   <macro name="QAPI_ZB_CL_CLUSTER_ID_DOORLOCK" value="(0x0101) "/>
+   <macro name="QAPI_ZB_CL_CLUSTER_ID_WINDOW_COVERING" value="(0x0102) "/>
+   <macro name="QAPI_ZB_CL_CLUSTER_ID_THERMOSTAT" value="(0x0201) "/>
+   <macro name="QAPI_ZB_CL_CLUSTER_ID_FAN_CONTROL" value="(0x0202) "/>
+   <macro name="QAPI_ZB_CL_CLUSTER_ID_COLOR_CONTROL" value="(0x0300) "/>
+   <macro name="QAPI_ZB_CL_CLUSTER_ID_BALLAST" value="(0x0301) "/>
+   <macro name="QAPI_ZB_CL_CLUSTER_ID_ILLUMINANCE" value="(0x0400) "/>
+   <macro name="QAPI_ZB_CL_CLUSTER_ID_TEMP_MEASURE" value="(0x0402) "/>
+   <macro name="QAPI_ZB_CL_CLUSTER_ID_RELATIVE_HUMID" value="(0x0405) "/>
+   <macro name="QAPI_ZB_CL_CLUSTER_ID_OCCUPANCY_SENSING" value="(0x0406) "/>
+   <macro name="QAPI_ZB_CL_CLUSTER_ID_IAS_ZONE" value="(0x0500) "/>
+   <macro name="QAPI_ZB_CL_CLUSTER_ID_IAS_ACE" value="(0x0501) "/>
+   <macro name="QAPI_ZB_CL_CLUSTER_ID_IAS_WD" value="(0x0502) "/>
+   <macro name="QAPI_ZB_CL_CLUSTER_ID_TOUCHLINK_COMMISSIONING" value="(0x1000) "/>
+   <macro name="QAPI_ZB_CL_ATTRIBUTE_ID_CLUSTER_REVISION" value="(0xFFFD) "/>
+   <macro name="QAPI_ZB_CL_PROFILE_ID_ZIGBEE_DEVICE_OBJECT" value="(0x0000) "/>
+   <macro name="QAPI_ZB_CL_PROFILE_ID_HOME_AUTOMATION" value="(0x0104) "/>
+   <macro name="QAPI_ZB_CL_PROFILE_ID_SMART_ENERGY" value="(0x0109) "/>
+   <macro name="QAPI_ZB_CL_PROFILE_ID_RETAIL_SERVICES" value="(0x010A) "/>
+   <macro name="QAPI_ZB_CL_PROFILE_ID_GATEWAY" value="(0x7F02) "/>
+   <macro name="QAPI_ZB_CL_PROFILE_ID_GREEN_POWER" value="(0xA1E0) "/>
+   <macro name="QAPI_ZB_CL_PROFILE_ID_ZIGBEE_LIGHT_LINK" value="(0xC05E) "/>
+   <macro name="QAPI_ZB_CL_PROFILE_ID_WILDCARD" value="(0xFFFF) "/>
+   <macro name="QAPI_ZB_CL_DATA_INVALID_VALUE_BOOLEAN" value="(0xFF) "/>
+   <macro name="QAPI_ZB_CL_DATA_INVALID_VALUE_UNSIGNED_8BIT_INTEGER" value="(0xFF) "/>
+   <macro name="QAPI_ZB_CL_DATA_INVALID_VALUE_UNSIGNED_16BIT_INTEGER" value="(0xFFFF) "/>
+   <macro name="QAPI_ZB_CL_DATA_INVALID_VALUE_UNSIGNED_24BIT_INTEGER" value="(0xFFFFFF) "/>
+   <macro name="QAPI_ZB_CL_DATA_INVALID_VALUE_UNSIGNED_32BIT_INTEGER" value="(0xFFFFFFFF) "/>
+   <macro name="QAPI_ZB_CL_DATA_INVALID_VALUE_UNSIGNED_40BIT_INTEGER" value="(0xFFFFFFFFFFULL) "/>
+   <macro name="QAPI_ZB_CL_DATA_INVALID_VALUE_UNSIGNED_48BIT_INTEGER" value="(0xFFFFFFFFFFFFULL) "/>
+   <macro name="QAPI_ZB_CL_DATA_INVALID_VALUE_UNSIGNED_56BIT_INTEGER" value="(0xFFFFFFFFFFFFFFULL) "/>
+   <macro name="QAPI_ZB_CL_DATA_INVALID_VALUE_UNSIGNED_64BIT_INTEGER" value="(0xFFFFFFFFFFFFFFFFULL) "/>
+   <macro name="QAPI_ZB_CL_DATA_INVALID_VALUE_SIGNED_8BIT_INTEGER" value="(0x80) "/>
+   <macro name="QAPI_ZB_CL_DATA_INVALID_VALUE_SIGNED_16BIT_INTEGER" value="(0x8000) "/>
+   <macro name="QAPI_ZB_CL_DATA_INVALID_VALUE_SIGNED_24BIT_INTEGER" value="(0x800000) "/>
+   <macro name="QAPI_ZB_CL_DATA_INVALID_VALUE_SIGNED_32BIT_INTEGER" value="(0x80000000) "/>
+   <macro name="QAPI_ZB_CL_DATA_INVALID_VALUE_SIGNED_40BIT_INTEGER" value="(0x8000000000ULL) "/>
+   <macro name="QAPI_ZB_CL_DATA_INVALID_VALUE_SIGNED_48BIT_INTEGER" value="(0x800000000000ULL) "/>
+   <macro name="QAPI_ZB_CL_DATA_INVALID_VALUE_SIGNED_56BIT_INTEGER" value="(0x80000000000000ULL) "/>
+   <macro name="QAPI_ZB_CL_DATA_INVALID_VALUE_SIGNED_64BIT_INTEGER" value="(0x8000000000000000ULL) "/>
+   <macro name="QAPI_ZB_CL_DATA_INVALID_VALUE_8BIT_ENUMERATION" value="(0xFF) "/>
+   <macro name="QAPI_ZB_CL_DATA_INVALID_VALUE_16BIT_ENUMERATION" value="(0xFFFF) "/>
+   <macro name="QAPI_ZB_CL_DATA_INVALID_VALUE_SEMI_PRECISION_FLOATING_POINT" value="(0xFFFF) "/>
+   <macro name="QAPI_ZB_CL_DATA_INVALID_VALUE_SINGLE_PRECISION_FLOATING_POINT" value="(0xFFFFFFFF) "/>
+   <macro name="QAPI_ZB_CL_DATA_INVALID_VALUE_DOUBLE_PRECISION_FLOATING_POINT" value="(0xFFFFFFFFFFFFFFFFULL) "/>
+   <macro name="QAPI_ZB_CL_DATA_INVALID_VALUE_OCTET_STRING" value="(0xFF) "/>
+   <macro name="QAPI_ZB_CL_DATA_INVALID_VALUE_CHARACTER_STRING" value="(0xFF) "/>
+   <macro name="QAPI_ZB_CL_DATA_INVALID_VALUE_LONG_OCTET_STRING" value="(0xFFFF) "/>
+   <macro name="QAPI_ZB_CL_DATA_INVALID_VALUE_LONG_CHARACTER_STRING" value="(0xFFFF) "/>
+   <macro name="QAPI_ZB_CL_DATA_INVALID_VALUE_ARRAY" value="(0xFFFF) "/>
+   <macro name="QAPI_ZB_CL_DATA_INVALID_VALUE_STRUCTURE" value="(0xFFFF) "/>
+   <macro name="QAPI_ZB_CL_DATA_INVALID_VALUE_SET" value="(0xFFFF) "/>
+   <macro name="QAPI_ZB_CL_DATA_INVALID_VALUE_BAG" value="(0xFFFF) "/>
+   <macro name="QAPI_ZB_CL_DATA_INVALID_VALUE_TIME_OF_DAY" value="(0xFFFFFFFF) "/>
+   <macro name="QAPI_ZB_CL_DATA_INVALID_VALUE_DATE" value="(0xFFFFFFFF) "/>
+   <macro name="QAPI_ZB_CL_DATA_INVALID_VALUE_UTC_TIME" value="(0xFFFFFFFF) "/>
+   <macro name="QAPI_ZB_CL_DATA_INVALID_VALUE_CLUSTER_ID" value="(0xFFFF) "/>
+   <macro name="QAPI_ZB_CL_DATA_INVALID_VALUE_ATTRIBUTE_ID" value="(0xFFFF) "/>
+   <macro name="QAPI_ZB_CL_DATA_INVALID_VALUE_BACNET_OID" value="(0xFFFFFFFF) "/>
+   <macro name="QAPI_ZB_CL_DATA_INVALID_VALUE_IEEE_ADDRESS" value="(0xFFFFFFFFFFFFFFFFULL) "/>
+   <macro name="QAPI_ZB_CL_DATA_CHECK_INVALID_SEMI_PRECISION_FLOATING_POINT" params="(_value_)" value="((((_value_) &amp; 0x7C00) == 0x7C00) &amp;&amp; (((_value_) &amp; 0x03FF) != 0))"/>
+   <macro name="QAPI_ZB_CL_DATA_CHECK_INVALID_SINGLE_PRECISION_FLOATING_POINT" params="(_value_)" value="((((_value_) &amp; 0x7F800000) == 0x7F80000) &amp;&amp; (((_value_) &amp; 0x007FFFFF) != 0))"/>
+   <macro name="QAPI_ZB_CL_DATA_CHECK_INVALID_DOUBLE_PRECISION_FLOATING_POINT" params="(_value_)" value="((((_value_) &amp; 0x7FF0000000000000ULL) == 0x7FF0000000000000ULL) &amp;&amp; (((_value_) &amp; 0x000FFFFFFFFFFFFFULL) != 0))"/>
+   <macro name="QAPI_ZB_CL_ATTRIBUTE_FLAG_WRITABLE" value="(0x0001) "/>
+   <macro name="QAPI_ZB_CL_ATTRIBUTE_FLAG_REPORTABLE" value="(0x0002) "/>
+   <macro name="QAPI_ZB_CL_ATTRIBUTE_FLAG_PERSISTABLE" value="(0x0004) "/>
+   <macro name="QAPI_ZB_CL_ATTRIBUTE_FLAG_CUSTOM_READ_WRITE" value="(0x8000) "/>
+   <macro name="QAPI_ZB_CL_HEADER_FLAG_FRAME_TYPE_CLUSTER_SPECIFIC" value="(0x01) "/>
+   <macro name="QAPI_ZB_CL_HEADER_FLAG_MANUFACTURER_SPECIFIC" value="(0x04) "/>
+   <macro name="QAPI_ZB_CL_HEADER_FLAG_DIRECTION_SERVER_TO_CLIENT" value="(0x08) "/>
+   <macro name="QAPI_ZB_CL_HEADER_FLAG_DISABLE_DEFAULT_RESPONSE" value="(0x10) "/>
+   <enum name="qapi_ZB_CL_Data_Type_t">
+      <member name="QAPI_ZB_CL_DATA_TYPE_NO_DATA_E" value="0x00"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_8BIT_DATA_E" value="0x08"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_16BIT_DATA_E" value="0x09"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_24BIT_DATA_E" value="0x0A"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_32BIT_DATA_E" value="0x0B"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_40BIT_DATA_E" value="0x0C"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_48BIT_DATA_E" value="0x0D"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_56BIT_DATA_E" value="0x0E"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_64BIT_DATA_E" value="0x0F"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_BOOLEAN_E" value="0x10"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_8BIT_BITMAP_E" value="0x18"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_16BIT_BITMAP_E" value="0x19"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_24BIT_BITMAP_E" value="0x1A"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_32BIT_BITMAP_E" value="0x1B"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_40BIT_BITMAP_E" value="0x1C"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_48BIT_BITMAP_E" value="0x1D"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_56BIT_BITMAP_E" value="0x1E"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_64BIT_BITMAP_E" value="0x1F"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_UNSIGNED_8BIT_INTEGER_E" value="0x20"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_UNSIGNED_16BIT_INTEGER_E" value="0x21"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_UNSIGNED_24BIT_INTEGER_E" value="0x22"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_UNSIGNED_32BIT_INTEGER_E" value="0x23"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_UNSIGNED_40BIT_INTEGER_E" value="0x24"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_UNSIGNED_48BIT_INTEGER_E" value="0x25"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_UNSIGNED_56BIT_INTEGER_E" value="0x26"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_UNSIGNED_64BIT_INTEGER_E" value="0x27"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_SIGNED_8BIT_INTEGER_E" value="0x28"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_SIGNED_16BIT_INTEGER_E" value="0x29"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_SIGNED_24BIT_INTEGER_E" value="0x2A"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_SIGNED_32BIT_INTEGER_E" value="0x2B"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_SIGNED_40BIT_INTEGER_E" value="0x2C"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_SIGNED_48BIT_INTEGER_E" value="0x2D"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_SIGNED_56BIT_INTEGER_E" value="0x2E"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_SIGNED_64BIT_INTEGER_E" value="0x2F"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_8BIT_ENUMERATION_E" value="0x30"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_16BIT_ENUMERATION_E" value="0x31"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_SEMI_PRECISION_FLOATING_POINT_E" value="0x38"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_SINGLE_PRECISION_FLOATING_POINT_E" value="0x39"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_DOUBLE_PRECISION_FLOATING_POINT_E" value="0x3A"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_OCTET_STRING_E" value="0x41"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_CHARACTER_STRING_E" value="0x42"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_LONG_OCTET_STRING_E" value="0x43"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_LONG_CHARACTER_STRING_E" value="0x44"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_ARRAY_E" value="0x48"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_STRUCTURE_E" value="0x4C"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_SET_E" value="0x50"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_BAG_E" value="0x51"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_TIME_OF_DAY_E" value="0xE0"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_DATE_E" value="0xE1"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_UTC_TIME_E" value="0xE2"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_CLUSTER_ID_E" value="0xE8"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_ATTRIBUTE_ID_E" value="0xE9"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_BACNET_OID_E" value="0xEA"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_IEEE_ADDRESS_E" value="0xF0"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_128BIT_SECURITY_KEY_E" value="0xF1"/>
+      <member name="QAPI_ZB_CL_DATA_TYPE_UNKNOWN_E" value="0xFF"/>
+   </enum>
+   <enum name="qapi_ZB_CL_Device_ID_t">
+      <member name="QAPI_ZB_CL_DEVICE_ID_ONOFF_LIGHT" value="0x0100"/>
+      <member name="QAPI_ZB_CL_DEVICE_ID_DIMMABLE_LIGHT" value="0x0101"/>
+      <member name="QAPI_ZB_CL_DEVICE_ID_COLOR_DIMMABLE_LIGHT" value="0x0102"/>
+      <member name="QAPI_ZB_CL_DEVICE_ID_ONOFF_LIGHT_SWITCH" value="0x0103"/>
+      <member name="QAPI_ZB_CL_DEVICE_ID_DIMMER_SWITCH" value="0x0104"/>
+      <member name="QAPI_ZB_CL_DEVICE_ID_COLOR_DIMMER_SWITCH" value="0x0105"/>
+      <member name="QAPI_ZB_CL_DEVICE_ID_LIGHT_SENSOR" value="0x0106"/>
+      <member name="QAPI_ZB_CL_DEVICE_ID_OCCUPANCY_SENSOR" value="0x0107"/>
+      <member name="QAPI_ZB_CL_DEVICE_ID_ONOFF_BALLAST" value="0x0108"/>
+      <member name="QAPI_ZB_CL_DEVICE_ID_DIMMABLE_BALLAST" value="0x0109"/>
+      <member name="QAPI_ZB_CL_DEVICE_ID_ONOFF_PLUGIN_UNIT" value="0x010A"/>
+      <member name="QAPI_ZB_CL_DEVICE_ID_DIMMABLE_PLUGIN_UNIT" value="0x010B"/>
+      <member name="QAPI_ZB_CL_DEVICE_ID_COLOR_TEMPERATURE_LIGHT" value="0x010C"/>
+      <member name="QAPI_ZB_CL_DEVICE_ID_EXTENDED_COLOR_LIGHT" value="0x010D"/>
+      <member name="QAPI_ZB_CL_DEVICE_ID_LIGHT_LEVEL_SENSOR" value="0x010E"/>
+      <member name="QAPI_ZB_CL_DEVICE_ID_COLOR_CONTROLLER" value="0x0800"/>
+      <member name="QAPI_ZB_CL_DEVICE_ID_COLOR_SCENE_CONTROLLER" value="0x0810"/>
+      <member name="QAPI_ZB_CL_DEVICE_ID_NONCOLOR_CONTROLLER" value="0x0820"/>
+      <member name="QAPI_ZB_CL_DEVICE_ID_NONCOLOR_SCENE_CONTROLLER" value="0x0830"/>
+      <member name="QAPI_ZB_CL_DEVICE_ID_CONTROL_BRIDGE" value="0x0840"/>
+      <member name="QAPI_ZB_CL_DEVICE_ID_ONOFF_SENSOR" value="0x0850"/>
+   </enum>
+   <enum name="qapi_ZB_CL_Frame_Direction_t">
+      <member name="QAPI_ZB_CL_FRAME_DIRECTION_TO_SERVER_E" value="0"/>
+      <member name="QAPI_ZB_CL_FRAME_DIRECTION_TO_CLIENT_E" value="1"/>
+   </enum>
+   <enum name="qapi_ZB_CL_Write_Mode_t">
+      <member name="QAPI_ZB_CL_WRITE_MODE_NORMAL_E" value="0"/>
+      <member name="QAPI_ZB_CL_WRITE_MODE_TEST_E" value="1"/>
+      <member name="QAPI_ZB_CL_WRITE_MODE_FORCE_E" value="2"/>
+      <member name="QAPI_ZB_CL_WRITE_MODE_RESET_E" value="3"/>
+   </enum>
+   <enum name="qapi_ZB_CL_Attr_Report_Direction_t">
+      <member name="QAPI_ZB_CL_ATTR_REPORT_DIRECTION_TO_REPORTER_E" value="0"/>
+      <member name="QAPI_ZB_CL_ATTR_REPORT_DIRECTION_TO_RECEIVER_E" value="1"/>
+   </enum>
+   <enum name="qapi_ZB_CL_Event_Type_t">
+      <member name="QAPI_ZB_CL_EVENT_TYPE_UNPARSED_RESPONSE_E" value="0"/>
+      <member name="QAPI_ZB_CL_EVENT_TYPE_READ_ATTR_RESPONSE_E" value="1"/>
+      <member name="QAPI_ZB_CL_EVENT_TYPE_WRITE_ATTR_RESPONSE_E" value="2"/>
+      <member name="QAPI_ZB_CL_EVENT_TYPE_CONFIG_REPORT_RESPONSE_E" value="3"/>
+      <member name="QAPI_ZB_CL_EVENT_TYPE_READ_REPORT_CONFIG_RESPONSE_E" value="4"/>
+      <member name="QAPI_ZB_CL_EVENT_TYPE_ATTR_REPORT_E" value="5"/>
+      <member name="QAPI_ZB_CL_EVENT_TYPE_DEFAULT_RESPONSE_E" value="6"/>
+      <member name="QAPI_ZB_CL_EVENT_TYPE_DISCOVER_ATTR_RESPONSE_E" value="7"/>
+      <member name="QAPI_ZB_CL_EVENT_TYPE_READ_ATTR_STRUCTURED_RESPONSE_E" value="8"/>
+      <member name="QAPI_ZB_CL_EVENT_TYPE_WRITE_ATTR_STRUCTURED_RESPONSE_E" value="9"/>
+      <member name="" value="10"/>
+   </enum>
+   <enum name="qapi_ZB_CL_Custom_Cluster_Event_Type_t">
+      <member name="QAPI_ZB_CL_CUSTOM_CLUSTER_EVENT_TYPE_DEFAULT_RESPONSE_E" value="0"/>
+      <member name="QAPI_ZB_CL_CUSTOM_CLUSTER_EVENT_TYPE_UNPARSED_RESPONSE_E" value="1"/>
+      <member name="QAPI_ZB_CL_CUSTOM_CLUSTER_EVENT_TYPE_UNPARSED_DATA_E" value="2"/>
+      <member name="QAPI_ZB_CL_CUSTOM_CLUSTER_EVENT_TYPE_COMMAND_COMPLETE_E" value="3"/>
+      <member name="QAPI_ZB_CL_CUSTOM_CLUSTER_EVENT_TYPE_ATTR_CUSTOM_READ_E" value="4"/>
+      <member name="QAPI_ZB_CL_CUSTOM_CLUSTER_EVENT_TYPE_ATTR_CUSTOM_WRITE_E" value="5"/>
+      <member name="QAPI_ZB_CL_CUSTOM_CLUSTER_EVENT_TYPE_ALARM_RESET_E" value="6"/>
+      <member name="QAPI_ZB_CL_CUSTOM_CLUSTER_EVENT_TYPE_GET_SCENE_DATA_E" value="7"/>
+      <member name="QAPI_ZB_CL_CUSTOM_CLUSTER_EVENT_TYPE_SET_SCENE_DATA_E" value="8"/>
+      <member name="QAPI_ZB_CL_CUSTOM_CLUSTER_EVENT_TYPE_CLEANUP_E" value="9"/>
+   </enum>
+   <enum name="qapi_ZB_CL_Security_Level_t">
+      <member name="QAPI_ZB_CL_SECURITY_LEVEL_UNSECURED_E" value="0"/>
+      <member name="QAPI_ZB_CL_SECURITY_LEVEL_SECURED_NWK_KEY_E" value="1"/>
+      <member name="QAPI_ZB_CL_SECURITY_LEVEL_SECURED_LINK_KEY_E" value="2"/>
+   </enum>
+   <structure name="qapi_ZB_CL_Attr_Custom_Read_t">
+      <member attributes="value" name="AttrId" type="uint16_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="DataLength" type="uint16_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="DataLength" lengthVerified="yes" name="Data" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Result" type="qapi_Status_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Attr_Custom_Write_t">
+      <member attributes="value" name="Mode" type="qapi_ZB_CL_Write_Mode_t"/>
+      <member attributes="value" name="AttrId" type="uint16_t"/>
+      <member attributes="value" name="DataLength" type="uint16_t"/>
+      <member attributes="ptr,const" iotype="in" lengthParam="DataLength" lengthVerified="yes" name="Data" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Result" type="qapi_Status_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Attribute_t">
+      <member attributes="value" name="AttributeId" type="uint16_t"/>
+      <member attributes="value" name="Flags" type="uint16_t"/>
+      <member attributes="value" name="DataType" type="qapi_ZB_CL_Data_Type_t"/>
+      <member attributes="value" name="DataLength" type="uint32_t"/>
+      <member attributes="value" name="DefaultReportMin" type="uint16_t"/>
+      <member attributes="value" name="DefaultReportMax" type="uint16_t"/>
+      <member attributes="value" name="ValueMin" type="int64_t"/>
+      <member attributes="value" name="ValueMax" type="int64_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Cluster_Info_t">
+      <member attributes="value" name="Endpoint" type="uint8_t"/>
+      <member attributes="value" name="AttributeCount" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="AttributeCount" lengthVerified="yes" name="AttributeList" type="qapi_ZB_CL_Attribute_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Header_t">
+      <member attributes="value" name="CommandId" type="uint8_t"/>
+      <member attributes="value" name="Flags" type="uint8_t"/>
+      <member attributes="value" name="ManufacturerCode" type="uint16_t"/>
+      <member attributes="value" name="SequenceNumber" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_General_Send_Info_t">
+      <member attributes="value" name="DstAddrMode" type="qapi_ZB_Addr_Mode_t"/>
+      <member attributes="union" name="DstAddress" type="qapi_ZB_Addr_t">
+         <member attributes="value" name="ShortAddress" type="uint16_t"/>
+         <member attributes="value" name="ExtendedAddress" type="uint64_t"/>
+         <unionMap mapVerified="yes" name="DstAddrMode" type="qapi_ZB_Addr_Mode_t">
+            <mapEntry member="ShortAddress" type="uint16_t" value="QAPI_ZB_ADDRESS_MODE_GROUP_ADDRESS_E"/>
+            <mapEntry member="ShortAddress" type="uint16_t" value="QAPI_ZB_ADDRESS_MODE_SHORT_ADDRESS_E"/>
+            <mapEntry member="ExtendedAddress" type="uint64_t" value="QAPI_ZB_ADDRESS_MODE_EXTENDED_ADDRESS_E"/>
+         </unionMap>
+      </member>
+      <member attributes="value" name="DstEndpoint" type="uint8_t"/>
+      <member attributes="value" name="SeqNum" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_General_Receive_Info_t">
+      <member attributes="value" name="SrcNwkAddress" type="uint16_t"/>
+      <member attributes="value" name="SrcExtendedAddress" type="uint64_t"/>
+      <member attributes="value" name="SrcEndpoint" type="uint8_t"/>
+      <member attributes="value" name="ProfileId" type="uint16_t"/>
+      <member attributes="value" name="LinkQuality" type="uint8_t"/>
+      <member attributes="value" name="ZCLHeader" type="qapi_ZB_CL_Header_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Read_Attr_Status_Record_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="AttrId" type="uint16_t"/>
+      <member attributes="value" name="DataType" type="qapi_ZB_CL_Data_Type_t"/>
+      <member attributes="value" name="AttrLength" type="uint16_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="AttrLength" lengthVerified="yes" name="AttrValue" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Read_Attr_Response_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="RecordCount" type="uint16_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="RecordCount" lengthVerified="yes" name="RecordList" type="qapi_ZB_CL_Read_Attr_Status_Record_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Write_Attr_Record_t">
+      <member attributes="value" name="AttrId" type="uint16_t"/>
+      <member attributes="value" name="DataType" type="qapi_ZB_CL_Data_Type_t"/>
+      <member attributes="value" name="AttrLength" type="uint16_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="AttrLength" lengthVerified="yes" name="AttrValue" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Write_Attr_Status_Record_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="AttrId" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Write_Attr_Response_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="RecordCount" type="uint16_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="RecordCount" lengthVerified="yes" name="RecordList" type="qapi_ZB_CL_Write_Attr_Status_Record_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Attr_Reporting_Config_Record_t">
+      <member attributes="value" name="Direction" type="qapi_ZB_CL_Attr_Report_Direction_t"/>
+      <member attributes="value" name="AttrId" type="uint16_t"/>
+      <member attributes="value" name="TimeoutPeriod" type="uint16_t"/>
+      <member attributes="value" name="DataType" type="qapi_ZB_CL_Data_Type_t"/>
+      <member attributes="value" name="MinReportingInterval" type="uint16_t"/>
+      <member attributes="value" name="MaxReportingInterval" type="uint16_t"/>
+      <member attributes="value" name="ReportableChange" type="uint64_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Attr_Status_Record_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="Direction" type="qapi_ZB_CL_Attr_Report_Direction_t"/>
+      <member attributes="value" name="AttrId" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Config_Report_Response_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="RecordCount" type="uint16_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="RecordCount" lengthVerified="yes" name="RecordList" type="qapi_ZB_CL_Attr_Status_Record_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Attr_Record_t">
+      <member attributes="value" name="Direction" type="qapi_ZB_CL_Attr_Report_Direction_t"/>
+      <member attributes="value" name="AttrId" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Reporting_Config_Status_Record_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="Direction" type="qapi_ZB_CL_Attr_Report_Direction_t"/>
+      <member attributes="value" name="AttrId" type="uint16_t"/>
+      <member attributes="value" name="DataType" type="qapi_ZB_CL_Data_Type_t"/>
+      <member attributes="value" name="MinReportingInterval" type="uint16_t"/>
+      <member attributes="value" name="MaxReportingInterval" type="uint16_t"/>
+      <member attributes="value" name="ReportableChangeLength" type="uint16_t"/>
+      <member attributes="value" name="ReportableChange" type="uint64_t"/>
+      <member attributes="value" name="TimeoutPeriod" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Read_Report_Config_Response_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="RecordCount" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="RecordCount" lengthVerified="yes" name="RecordList" type="qapi_ZB_CL_Reporting_Config_Status_Record_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Attr_Report_t">
+      <member attributes="value" name="AttrId" type="uint16_t"/>
+      <member attributes="value" name="DataType" type="qapi_ZB_CL_Data_Type_t"/>
+      <member attributes="value" name="AttrLength" type="uint8_t"/>
+      <member attributes="ptr,const" iotype="in" lengthParam="AttrLength" lengthVerified="yes" name="AttrData" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Default_Response_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="CommandId" type="uint8_t"/>
+      <member attributes="value" name="CommandStatus" type="qapi_Status_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Command_Complete_t">
+      <member attributes="value" name="CommandStatus" type="qapi_Status_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Discover_Attr_Report_t">
+      <member attributes="value" name="AttrId" type="uint16_t"/>
+      <member attributes="value" name="DataType" type="qapi_ZB_CL_Data_Type_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Discover_Attr_Response_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="DiscoverComplete" type="qbool_t"/>
+      <member attributes="value" name="ReportCount" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="ReportCount" lengthVerified="yes" name="ReportList" type="qapi_ZB_CL_Discover_Attr_Report_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Read_Attr_Structured_t">
+      <member attributes="value" name="AttrId" type="uint16_t"/>
+      <member attributes="value" name="Indicator" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="Indicator" lengthVerified="yes" name="IndexList" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Write_Attr_Structured_Record_t">
+      <member attributes="value" name="AttrId" type="uint16_t"/>
+      <member attributes="value" name="Indicator" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="Indicator" lengthVerified="yes" name="IndexList" type="uint16_t"/>
+      <member attributes="value" name="AttrDataType" type="qapi_ZB_CL_Data_Type_t"/>
+      <member attributes="value" name="AttrValueLength" type="uint16_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="AttrValueLength" lengthVerified="yes" name="AttrValue" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Write_Attr_Structured_Status_Record_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="AttrId" type="uint16_t"/>
+      <member attributes="value" name="Indicator" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="Indicator" lengthVerified="yes" name="IndexList" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Write_Attr_Structured_Response_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="RecordCount" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="RecordCount" lengthVerified="yes" name="RecordList" type="qapi_ZB_CL_Write_Attr_Structured_Status_Record_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Unparsed_Data_t">
+      <member attributes="value" name="Header" type="qapi_ZB_CL_Header_t"/>
+      <member attributes="value" name="APSDEData" type="qapi_ZB_APSDE_Data_Indication_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Result" type="qapi_Status_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Unparsed_Response_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="SrcAddr" type="qapi_ZB_APS_Address_t"/>
+      <member attributes="value" name="Header" type="qapi_ZB_CL_Header_t"/>
+      <member attributes="value" name="Profile_ID" type="uint16_t"/>
+      <member attributes="value" name="Link_Quality" type="uint8_t"/>
+      <member attributes="ptr,const" iotype="in" lengthParam="PayloadLength" lengthVerified="yes" name="Payload" type="void"/>
+      <member attributes="value" name="PayloadLength" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Event_Data_t">
+      <member attributes="value" name="Event_Type" type="qapi_ZB_CL_Event_Type_t"/>
+      <member attributes="value" name="Receive_Info" type="qapi_ZB_CL_General_Receive_Info_t"/>
+      <member attributes="union" name="Data">
+         <member attributes="value" name="Read_Attr_Response" type="qapi_ZB_CL_Read_Attr_Response_t"/>
+         <member attributes="value" name="Write_Attr_Response" type="qapi_ZB_CL_Write_Attr_Response_t"/>
+         <member attributes="value" name="Config_Report_Response" type="qapi_ZB_CL_Config_Report_Response_t"/>
+         <member attributes="value" name="Read_Report_Config_Response" type="qapi_ZB_CL_Read_Report_Config_Response_t"/>
+         <member attributes="value" name="Attr_Report" type="qapi_ZB_CL_Attr_Report_t"/>
+         <member attributes="value" name="Default_Response" type="qapi_ZB_CL_Default_Response_t"/>
+         <member attributes="value" name="Discover_Attr_Response" type="qapi_ZB_CL_Discover_Attr_Response_t"/>
+         <member attributes="value" name="Write_Attr_Structured_Response" type="qapi_ZB_CL_Write_Attr_Structured_Response_t"/>
+         <member attributes="value" name="Unparsed_Response" type="qapi_ZB_CL_Unparsed_Response_t"/>
+         <unionMap mapVerified="yes" name="Event_Type" type="qapi_ZB_CL_Event_Type_t">
+            <mapEntry member="Read_Attr_Response" type="qapi_ZB_CL_Read_Attr_Response_t" value="QAPI_ZB_CL_EVENT_TYPE_READ_ATTR_RESPONSE_E"/>
+            <mapEntry member="Write_Attr_Response" type="qapi_ZB_CL_Write_Attr_Response_t" value="QAPI_ZB_CL_EVENT_TYPE_WRITE_ATTR_RESPONSE_E"/>
+            <mapEntry member="Config_Report_Response" type="qapi_ZB_CL_Config_Report_Response_t" value="QAPI_ZB_CL_EVENT_TYPE_CONFIG_REPORT_RESPONSE_E"/>
+            <mapEntry member="Read_Report_Config_Response" type="qapi_ZB_CL_Read_Report_Config_Response_t" value="QAPI_ZB_CL_EVENT_TYPE_READ_REPORT_CONFIG_RESPONSE_E"/>
+            <mapEntry member="Attr_Report" type="qapi_ZB_CL_Attr_Report_t" value="QAPI_ZB_CL_EVENT_TYPE_ATTR_REPORT_E"/>
+            <mapEntry member="Default_Response" type="qapi_ZB_CL_Default_Response_t" value="QAPI_ZB_CL_EVENT_TYPE_DEFAULT_RESPONSE_E"/>
+            <mapEntry member="Discover_Attr_Response" type="qapi_ZB_CL_Discover_Attr_Response_t" value="QAPI_ZB_CL_EVENT_TYPE_DISCOVER_ATTR_RESPONSE_E"/>
+            <mapEntry member="Write_Attr_Structured_Response" type="qapi_ZB_CL_Write_Attr_Structured_Response_t" value="QAPI_ZB_CL_EVENT_TYPE_WRITE_ATTR_STRUCTURED_RESPONSE_E"/>
+            <mapEntry member="Unparsed_Response" type="qapi_ZB_CL_Unparsed_Response_t" value="QAPI_ZB_CL_EVENT_TYPE_UNPARSED_RESPONSE_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_ZB_CL_Custom_Cluster_Command_t">
+      <member attributes="value" name="ZCLHeader" type="qapi_ZB_CL_Header_t"/>
+      <member attributes="value" name="APSDEData" type="qapi_ZB_APSDE_Data_Indication_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Custom_Cluster_Get_Scene_Data_t">
+      <member attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="DataLength" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="DataLength" lengthVerified="yes" name="Data" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Result" type="qapi_Status_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Custom_Cluster_Set_Scene_Data_t">
+      <member attributes="value" name="TransitionTime" type="uint16_t"/>
+      <member attributes="value" name="DataLength" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="DataLength" lengthVerified="yes" name="Data" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Result" type="qapi_Status_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Custom_Cluster_Reset_Alarm_t">
+      <member attributes="value" name="AlarmCode" type="uint8_t"/>
+      <member attributes="value" name="ClusterId" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Custom_Cluster_Attr_Set_Default_t">
+      <member attributes="value" name="AttrId" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Custom_Cluster_Attr_Write_Notifiction_t">
+      <member attributes="value" name="AttrId" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Custom_Cluster_Event_Data_t">
+      <member attributes="value" name="Event_Type" type="qapi_ZB_CL_Custom_Cluster_Event_Type_t"/>
+      <member attributes="union" name="Data">
+         <member attributes="value" name="Default_Response" type="qapi_ZB_CL_Default_Response_t"/>
+         <member attributes="value" name="Unparsed_Response" type="qapi_ZB_CL_Unparsed_Response_t"/>
+         <member attributes="value" name="Unparsed_Data" type="qapi_ZB_CL_Unparsed_Data_t"/>
+         <member attributes="value" name="Command_Complete" type="qapi_ZB_CL_Command_Complete_t"/>
+         <member attributes="value" name="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t"/>
+         <member attributes="value" name="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t"/>
+         <member attributes="value" name="Get_Scene_Data" type="qapi_ZB_CL_Custom_Cluster_Get_Scene_Data_t"/>
+         <member attributes="value" name="Set_Scene_Data" type="qapi_ZB_CL_Custom_Cluster_Set_Scene_Data_t"/>
+         <member attributes="value" name="Reset_Alarm_Data" type="qapi_ZB_CL_Custom_Cluster_Reset_Alarm_t"/>
+         <unionMap mapVerified="yes" name="Event_Type" type="qapi_ZB_CL_Custom_Cluster_Event_Type_t">
+            <mapEntry member="Default_Response" type="qapi_ZB_CL_Default_Response_t" value="QAPI_ZB_CL_CUSTOM_CLUSTER_EVENT_TYPE_DEFAULT_RESPONSE_E"/>
+            <mapEntry member="Unparsed_Response" type="qapi_ZB_CL_Unparsed_Response_t" value="QAPI_ZB_CL_CUSTOM_CLUSTER_EVENT_TYPE_UNPARSED_RESPONSE_E"/>
+            <mapEntry member="Unparsed_Data" type="qapi_ZB_CL_Unparsed_Data_t" value="QAPI_ZB_CL_CUSTOM_CLUSTER_EVENT_TYPE_UNPARSED_DATA_E"/>
+            <mapEntry member="Command_Complete" type="qapi_ZB_CL_Command_Complete_t" value="QAPI_ZB_CL_CUSTOM_CLUSTER_EVENT_TYPE_COMMAND_COMPLETE_E"/>
+            <mapEntry member="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t" value="QAPI_ZB_CL_CUSTOM_CLUSTER_EVENT_TYPE_ATTR_CUSTOM_READ_E"/>
+            <mapEntry member="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t" value="QAPI_ZB_CL_CUSTOM_CLUSTER_EVENT_TYPE_ATTR_CUSTOM_WRITE_E"/>
+            <mapEntry member="Get_Scene_Data" type="qapi_ZB_CL_Custom_Cluster_Get_Scene_Data_t" value="QAPI_ZB_CL_CUSTOM_CLUSTER_EVENT_TYPE_GET_SCENE_DATA_E"/>
+            <mapEntry member="Set_Scene_Data" type="qapi_ZB_CL_Custom_Cluster_Set_Scene_Data_t" value="QAPI_ZB_CL_CUSTOM_CLUSTER_EVENT_TYPE_SET_SCENE_DATA_E"/>
+            <mapEntry member="Reset_Alarm_Data" type="qapi_ZB_CL_Custom_Cluster_Reset_Alarm_t" value="QAPI_ZB_CL_CUSTOM_CLUSTER_EVENT_TYPE_ALARM_RESET_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <function name="qapi_ZB_CL_Register_Callback">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="CL_Event_CB" type="qapi_ZB_CL_Event_CB_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Unregister_Callback">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="CL_Event_CB" type="qapi_ZB_CL_Event_CB_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Create_Cluster">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="value" name="ClusterId" type="uint16_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Cluster_Info" type="qapi_ZB_CL_Cluster_Info_t"/>
+      <argument attributes="value" name="Direction" type="qapi_ZB_CL_Frame_Direction_t"/>
+      <argument attributes="value" name="Event_CB" type="qapi_ZB_CL_Custom_Cluster_Event_CB_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Destroy_Cluster">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Get_Cluster_Info">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Endpoint" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ProfileId" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ClusterId" type="uint16_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Set_Profile_ID">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="value" name="ProfileID" type="uint16_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Set_Min_Security">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="value" name="MinSecurity" type="qapi_ZB_CL_Security_Level_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Set_Tx_Options">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="value" name="TxOptions" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Get_Tx_Options">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="TxOptions" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Set_Discover_Route">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="value" name="DiscoverRoute" type="qbool_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Get_Discover_Route">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="DiscoverRoute" type="qbool_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Set_Radius">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="value" name="Radius" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Get_Radius">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Radius" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Send_Command">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="value" name="ResponseExpected" type="qbool_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="ZCL_Header" type="qapi_ZB_CL_Header_t"/>
+      <argument attributes="value" name="PayloadLength" type="uint16_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="PayloadLength" lengthVerified="yes" name="Payload" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Read_Local_Attribute">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="value" name="AttrId" type="uint16_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="Length" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="Length" lengthVerified="yes" name="Data" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Write_Local_Attribute">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="value" name="AttrId" type="uint16_t"/>
+      <argument attributes="value" name="Length" type="uint16_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="Length" lengthVerified="yes" name="Data" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Read_Attributes">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="value" name="AttrCount" type="uint8_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="AttrCount" lengthVerified="yes" name="AttrIdList" type="uint16_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Write_Attributes">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="value" name="AttrCount" type="uint8_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="AttrCount" lengthVerified="yes" name="AttrRecordList" type="qapi_ZB_CL_Write_Attr_Record_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Configure_Reporting">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="value" name="ReportCount" type="uint8_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="ReportCount" lengthVerified="yes" name="ReportRecordList" type="qapi_ZB_CL_Attr_Reporting_Config_Record_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Read_Reporting_Config">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="value" name="ReportCount" type="uint8_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="ReportCount" lengthVerified="yes" name="ReportConfigList" type="qapi_ZB_CL_Attr_Record_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Discover_Attributes">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="value,const" name="StartAttrId" type="uint16_t"/>
+      <argument attributes="value,const" name="AttrIdCount" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Read_Attributes_Structured">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="value,const" name="AttrCount" type="uint8_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="AttrCount" lengthVerified="yes" name="AttrStructuredList" type="qapi_ZB_CL_Read_Attr_Structured_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Write_Attributes_Structured">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="value,const" name="AttrCount" type="uint8_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="AttrCount" lengthVerified="yes" name="AttrStructuredList" type="qapi_ZB_CL_Write_Attr_Structured_Record_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Report_Attributes">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="value,const" name="ReportCount" type="uint8_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="ReportCount" lengthVerified="yes" name="ReportList" type="qapi_ZB_CL_Attr_Report_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Default_Response">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="APSDEData" type="qapi_ZB_APSDE_Data_Indication_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="ZCLHeader" type="qapi_ZB_CL_Header_t"/>
+      <argument attributes="value" name="Status" type="qapi_Status_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Generic_Response">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="APSDEData" type="qapi_ZB_APSDE_Data_Indication_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="ZCLHeader" type="qapi_ZB_CL_Header_t"/>
+      <argument attributes="value" name="CommandId" type="uint8_t"/>
+      <argument attributes="value" name="PayloadLength" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="PayloadLength" lengthVerified="yes" name="PayLoad" type="uint8_t"/>
+   </function>
+   <callback name="qapi_ZB_CL_Event_CB_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="out" lengthParam="1" lengthVerified="yes" name="Event_Data" type="qapi_ZB_CL_Event_Data_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+      <createFunction ID="CL_Event_CB" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_Register_Callback" param="CB_Param"/>
+      <destroyFunction ID="CL_Event_CB" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_Unregister_Callback"/>
+   </callback>
+   <callback name="qapi_ZB_CL_Custom_Cluster_Event_CB_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Event_Data" type="qapi_ZB_CL_Custom_Cluster_Event_Data_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+      <createFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_Create_Cluster" param="CB_Param"/>
+      <destroyFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_Destroy_Cluster"/>
+   </callback>
+</header>

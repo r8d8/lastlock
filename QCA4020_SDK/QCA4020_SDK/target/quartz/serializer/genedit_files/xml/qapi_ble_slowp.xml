@@ -1,0 +1,138 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="./qapi_ble_btapityp.h"/>
+   <include name="./qapi_ble_bttypes.h"/>
+   <include name="./qapi_ble_gatt.h"/>
+   <include name="./qapi_ble_ipsp.h"/>
+   <macro name="QAPI_BLE_SLOWP_ERROR_INVALID_PARAMETER" value="(-2000)"/>
+   <macro name="QAPI_BLE_SLOWP_ERROR_INVALID_BLUETOOTH_STACK_ID" value="(-2001)"/>
+   <macro name="QAPI_BLE_SLOWP_ERROR_INSUFFICIENT_RESOURCES" value="(-2002)"/>
+   <macro name="QAPI_BLE_SLOWP_ERROR_NODE_ALREADY_INITIALIZED" value="(-2003)"/>
+   <macro name="QAPI_BLE_SLOWP_ERROR_NODE_NOT_INITIALIZED" value="(-2004)"/>
+   <macro name="QAPI_BLE_SLOWP_ERROR_MALFORMATTED_DATA" value="(-2006)"/>
+   <macro name="QAPI_BLE_SLOWP_ERROR_UNKNOWN_ERROR" value="(-2007)"/>
+   <macro name="QAPI_BLE_SLOWP_ERROR_NO_CONNECTION_INFORMATION" value="(-2008)"/>
+   <macro name="QAPI_BLE_SLOWP_ERROR_INVALID_STATE" value="(-2009)"/>
+   <macro name="QAPI_BLE_SLOWP_ERROR_INVALID_PACKET" value="(-2010)"/>
+   <macro name="QAPI_BLE_SLOWP_ERROR_NOT_INITIALIZED" value="(-2011)"/>
+   <macro name="QAPI_BLE_SLOWP_OPEN_STATUS_SUCCESS" value="0x00"/>
+   <macro name="QAPI_BLE_SLOWP_OPEN_STATUS_CONNECTION_TIMEOUT" value="0x01"/>
+   <macro name="QAPI_BLE_SLOWP_OPEN_STATUS_CONNECTION_REFUSED" value="0x02"/>
+   <macro name="QAPI_BLE_SLOWP_OPEN_STATUS_UNKNOWN_ERROR" value="0x03"/>
+   <macro name="QAPI_BLE_SLOWP_OPEN_INDICATION_INFO_DATA_SIZE" value="(sizeof(qapi_BLE_SLoWP_Open_Indication_Info_Data_t))"/>
+   <macro name="QAPI_BLE_SLOWP_OPEN_CONFIRMATION_DATA_SIZE" value="(sizeof(qapi_BLE_SLoWP_Open_Confirmation_Data_t))"/>
+   <macro name="QAPI_BLE_SLOWP_CLOSE_INDICATION_DATA_SIZE" value="(sizeof(qapi_BLE_SLoWP_Close_Indication_Data_t))"/>
+   <macro name="QAPI_BLE_SLOWP_CLOSE_CONFIRMATION_DATA_SIZE" value="(sizeof(qapi_BLE_SLoWP_Close_Confirmation_Data_t))"/>
+   <macro name="QAPI_BLE_SLOWP_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_SLoWP_Event_Data_t))"/>
+   <enum name="qapi_BLE_SLoWP_Event_Type_t">
+      <member name="QAPI_BLE_ET_SLOWP_OPEN_INDICATION_E" value="0"/>
+      <member name="QAPI_BLE_ET_SLOWP_OPEN_REQUEST_INDICATION_E" value="1"/>
+      <member name="QAPI_BLE_ET_SLOWP_OPEN_CONFIRMATION_E" value="2"/>
+      <member name="QAPI_BLE_ET_SLOWP_CLOSE_INDICATION_E" value="3"/>
+      <member name="QAPI_BLE_ET_SLOWP_CLOSE_CONFIRMATION_E" value="4"/>
+   </enum>
+   <structure name="qapi_BLE_SLoWP_Open_Indication_Info_Data_t">
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="MaxSDUSize" type="uint16_t"/>
+      <member attributes="value" name="MaxPDUSize" type="uint16_t"/>
+      <member attributes="value" name="InitialCredits" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_SLoWP_Open_Confirmation_Data_t">
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ConnectionStatus" type="uint32_t"/>
+      <member attributes="value" name="MaxSDUSize" type="uint16_t"/>
+      <member attributes="value" name="MaxPDUSize" type="uint16_t"/>
+      <member attributes="value" name="InitialCredits" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_SLoWP_Close_Indication_Data_t">
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Reason" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_BLE_SLoWP_Close_Confirmation_Data_t">
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+   </structure>
+   <structure name="qapi_BLE_SLoWP_Event_Data_t">
+      <member attributes="value" name="Event_Data_Type" type="qapi_BLE_SLoWP_Event_Type_t"/>
+      <member attributes="value" name="Event_Data_Size" type="uint8_t"/>
+      <member attributes="union" name="Event_Data">
+         <member attributes="ptr" iotype="in" name="SLoWP_Open_Indication_Info_Data" type="qapi_BLE_SLoWP_Open_Indication_Info_Data_t"/>
+         <member attributes="ptr" iotype="in" name="SLoWP_Open_Confirmation_Data" type="qapi_BLE_SLoWP_Open_Confirmation_Data_t"/>
+         <member attributes="ptr" iotype="in" name="SLoWP_Close_Indication_Data" type="qapi_BLE_SLoWP_Close_Indication_Data_t"/>
+         <member attributes="ptr" iotype="in" name="SLoWP_Close_Confirmation_Data" type="qapi_BLE_SLoWP_Close_Confirmation_Data_t"/>
+         <unionMap mapVerified="yes" name="Event_Data_Type" type="qapi_BLE_SLoWP_Event_Type_t">
+            <mapEntry member="SLoWP_Open_Indication_Info_Data" type="qapi_BLE_SLoWP_Open_Indication_Info_Data_t" value="QAPI_BLE_ET_SLOWP_OPEN_INDICATION_E"/>
+            <mapEntry member="SLoWP_Open_Indication_Info_Data" type="qapi_BLE_SLoWP_Open_Indication_Info_Data_t" value="QAPI_BLE_ET_SLOWP_OPEN_REQUEST_INDICATION_E"/>
+            <mapEntry member="SLoWP_Open_Confirmation_Data" type="qapi_BLE_SLoWP_Open_Confirmation_Data_t" value="QAPI_BLE_ET_SLOWP_OPEN_CONFIRMATION_E"/>
+            <mapEntry member="SLoWP_Close_Indication_Data" type="qapi_BLE_SLoWP_Close_Indication_Data_t" value="QAPI_BLE_ET_SLOWP_CLOSE_INDICATION_E"/>
+            <mapEntry member="SLoWP_Close_Confirmation_Data" type="qapi_BLE_SLoWP_Close_Confirmation_Data_t" value="QAPI_BLE_ET_SLOWP_CLOSE_CONFIRMATION_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <function name="qapi_BLE_SLoWP_Initialize">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_SLoWP_Cleanup">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_SLoWP_Initialize_Node">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="ChannelParameters" type="qapi_BLE_L2CA_LE_Channel_Parameters_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="QueueingParameters" type="qapi_BLE_L2CA_Queueing_Parameters_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_SLoWP_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="ServiceHandleRange" type="qapi_BLE_GATT_Attribute_Handle_Group_t"/>
+   </function>
+   <function name="qapi_BLE_SLoWP_Cleanup_Node">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_SLoWP_Open_Connection_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="value" name="AcceptConnection" type="boolean_t"/>
+   </function>
+   <function name="qapi_BLE_SLoWP_Get_Node_Connection_Mode">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ConnectionMode" type="qapi_BLE_IPSP_Node_Connection_Mode_t"/>
+   </function>
+   <function name="qapi_BLE_SLoWP_Set_Node_Connection_Mode">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionMode" type="qapi_BLE_IPSP_Node_Connection_Mode_t"/>
+   </function>
+   <function name="qapi_BLE_SLoWP_Connect_Remote_Node">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="ChannelParameters" type="qapi_BLE_L2CA_LE_Channel_Parameters_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="QueueingParameters" type="qapi_BLE_L2CA_Queueing_Parameters_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_SLoWP_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_SLoWP_Close_Connection">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+   </function>
+   <function name="qapi_BLE_SLoWP_Set_Queueing_Parameters">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="QueueingParameters" type="qapi_BLE_L2CA_Queueing_Parameters_t"/>
+   </function>
+   <callback name="qapi_BLE_SLoWP_Event_Callback_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="SLoWP_Event_Data" type="qapi_BLE_SLoWP_Event_Data_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <createFunction ID="0" funcSuccess="0" moduleParam="BluetoothStackID" name="qapi_BLE_SLoWP_Initialize_Node" param="CallbackParameter"/>
+      <destroyFunction ID="0" funcSuccess="0" name="qapi_BLE_SLoWP_Cleanup_Node"/>
+      <createFunction ID="1" funcSuccess="0" moduleParam="BluetoothStackID" name="qapi_BLE_SLoWP_Connect_Remote_Node" param="CallbackParameter"/>
+      <destroyFunction ID="1" funcSuccess="0" name="qapi_BLE_SLoWP_Close_Connection"/>
+   </callback>
+</header>

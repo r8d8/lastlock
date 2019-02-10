@@ -1,0 +1,138 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="qapi_zb_cl.h"/>
+   <macro name="QAPI_ZB_CL_ALARM_ATTR_ID_ALARM_COUNT" value="(0x0000) "/>
+   <macro name="QAPI_ZB_CL_ALARM_CLIENT_COMMAND_ID_RESET_ALARM" value="(0x00) "/>
+   <macro name="QAPI_ZB_CL_ALARM_CLIENT_COMMAND_ID_RESET_ALL_ALARMS" value="(0x01) "/>
+   <macro name="QAPI_ZB_CL_ALARM_CLIENT_COMMAND_ID_GET_ALARM" value="(0x02) "/>
+   <macro name="QAPI_ZB_CL_ALARM_CLIENT_COMMAND_ID_RESET_ALARM_LOG" value="(0x03) "/>
+   <macro name="QAPI_ZB_CL_ALARM_SERVER_COMMAND_ID_ALARM" value="(0x00) "/>
+   <macro name="QAPI_ZB_CL_ALARM_SERVER_COMMAND_ID_GET_ALARM_RESPONSE" value="(0x01) "/>
+   <enum name="qapi_ZB_CL_Alarm_Client_Event_Type_t">
+      <member name="QAPI_ZB_CL_ALARM_CLIENT_EVENT_TYPE_ATTR_CUSTOM_READ_E" value="0"/>
+      <member name="QAPI_ZB_CL_ALARM_CLIENT_EVENT_TYPE_ATTR_CUSTOM_WRITE_E" value="1"/>
+      <member name="QAPI_ZB_CL_ALARM_CLIENT_EVENT_TYPE_DEFAULT_RESPONSE_E" value="2"/>
+      <member name="QAPI_ZB_CL_ALARM_CLIENT_EVENT_TYPE_UNPARSED_RESPONSE_E" value="3"/>
+      <member name="QAPI_ZB_CL_ALARM_CLIENT_EVENT_TYPE_COMMAND_COMPLETE_E" value="4"/>
+      <member name="QAPI_ZB_CL_ALARM_CLIENT_EVENT_TYPE_ALARM_E" value="5"/>
+      <member name="QAPI_ZB_CL_ALARM_CLIENT_EVENT_TYPE_GET_ALARM_RESPONSE_E" value="6"/>
+   </enum>
+   <enum name="qapi_ZB_CL_Alarm_Server_Event_Type_t">
+      <member name="QAPI_ZB_CL_ALARM_SERVER_EVENT_TYPE_ATTR_CUSTOM_READ_E" value="0"/>
+      <member name="QAPI_ZB_CL_ALARM_SERVER_EVENT_TYPE_ATTR_CUSTOM_WRITE_E" value="1"/>
+      <member name="QAPI_ZB_CL_ALARM_SERVER_EVENT_TYPE_UNPARSED_DATA_E" value="2"/>
+   </enum>
+   <structure name="qapi_ZB_CL_Alarm_Alarm_Command_t">
+      <member attributes="value" name="AlarmCode" type="uint8_t"/>
+      <member attributes="value" name="ClusterId" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Alarm_Get_Alarm_Response_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="AlarmCode" type="uint8_t"/>
+      <member attributes="value" name="ClusterId" type="uint16_t"/>
+      <member attributes="value" name="TimeStamp" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_Alarm_Client_Event_Data_t">
+      <member attributes="value" name="Event_Type" type="qapi_ZB_CL_Alarm_Client_Event_Type_t"/>
+      <member attributes="union" name="Data">
+         <member attributes="value" name="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t"/>
+         <member attributes="value" name="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t"/>
+         <member attributes="value" name="Command_Complete" type="qapi_ZB_CL_Command_Complete_t"/>
+         <member attributes="value" name="Default_Response" type="qapi_ZB_CL_Default_Response_t"/>
+         <member attributes="value" name="Unparsed_Response" type="qapi_ZB_CL_Unparsed_Response_t"/>
+         <member attributes="value" name="Alarm_Command" type="qapi_ZB_CL_Alarm_Alarm_Command_t"/>
+         <member attributes="value" name="Get_Alarm_Response" type="qapi_ZB_CL_Alarm_Get_Alarm_Response_t"/>
+         <unionMap mapVerified="yes" name="Event_Type" type="qapi_ZB_CL_Alarm_Client_Event_Type_t">
+            <mapEntry member="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t" value="QAPI_ZB_CL_ALARM_CLIENT_EVENT_TYPE_ATTR_CUSTOM_READ_E"/>
+            <mapEntry member="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t" value="QAPI_ZB_CL_ALARM_CLIENT_EVENT_TYPE_ATTR_CUSTOM_WRITE_E"/>
+            <mapEntry member="Command_Complete" type="qapi_ZB_CL_Command_Complete_t" value="QAPI_ZB_CL_ALARM_CLIENT_EVENT_TYPE_COMMAND_COMPLETE_E"/>
+            <mapEntry member="Default_Response" type="qapi_ZB_CL_Default_Response_t" value="QAPI_ZB_CL_ALARM_CLIENT_EVENT_TYPE_DEFAULT_RESPONSE_E"/>
+            <mapEntry member="Unparsed_Response" type="qapi_ZB_CL_Unparsed_Response_t" value="QAPI_ZB_CL_ALARM_CLIENT_EVENT_TYPE_UNPARSED_RESPONSE_E"/>
+            <mapEntry member="Alarm_Command" type="qapi_ZB_CL_Alarm_Alarm_Command_t" value="QAPI_ZB_CL_ALARM_CLIENT_EVENT_TYPE_ALARM_E"/>
+            <mapEntry member="Get_Alarm_Response" type="qapi_ZB_CL_Alarm_Get_Alarm_Response_t" value="QAPI_ZB_CL_ALARM_CLIENT_EVENT_TYPE_GET_ALARM_RESPONSE_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_ZB_CL_Alarm_Server_Event_Data_t">
+      <member attributes="value" name="Event_Type" type="qapi_ZB_CL_Alarm_Server_Event_Type_t"/>
+      <member attributes="union" name="Data">
+         <member attributes="value" name="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t"/>
+         <member attributes="value" name="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t"/>
+         <member attributes="value" name="Unparsed_Data" type="qapi_ZB_CL_Unparsed_Data_t"/>
+         <unionMap mapVerified="yes" name="Event_Type" type="qapi_ZB_CL_Alarm_Server_Event_Type_t">
+            <mapEntry member="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t" value="QAPI_ZB_CL_ALARM_SERVER_EVENT_TYPE_ATTR_CUSTOM_READ_E"/>
+            <mapEntry member="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t" value="QAPI_ZB_CL_ALARM_SERVER_EVENT_TYPE_ATTR_CUSTOM_WRITE_E"/>
+            <mapEntry member="Unparsed_Data" type="qapi_ZB_CL_Unparsed_Data_t" value="QAPI_ZB_CL_ALARM_SERVER_EVENT_TYPE_UNPARSED_DATA_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <function name="qapi_ZB_CL_Alarm_Create_Client">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Cluster_Info" type="qapi_ZB_CL_Cluster_Info_t"/>
+      <argument attributes="value" name="Event_CB" type="qapi_ZB_CL_Alarm_Client_CB_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Alarm_Create_Server">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Cluster_Info" type="qapi_ZB_CL_Cluster_Info_t"/>
+      <argument attributes="value" name="AlarmLogSize" type="uint8_t"/>
+      <argument attributes="value" name="Event_CB" type="qapi_ZB_CL_Alarm_Server_CB_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Alarm_Populate_Attributes">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Server" type="qbool_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="AttributeCount" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="AttributeCount" lengthVerified="yes" name="AttributeList" type="qapi_ZB_CL_Attribute_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Alarm_Send_Reset_Alarm">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="value" name="SourceClusterId" type="uint16_t"/>
+      <argument attributes="value" name="AlarmCode" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Alarm_Send_Reset_All_Alarms">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Alarm_Send_Get_Alarm">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Alarm_Send_Reset_Alarm_Log">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+   </function>
+   <function name="qapi_ZB_CL_Alarm_Send_Alarm">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="value" name="SourceCluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="value" name="AlarmCode" type="uint8_t"/>
+   </function>
+   <callback name="qapi_ZB_CL_Alarm_Client_CB_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Event_Data" type="qapi_ZB_CL_Alarm_Client_Event_Data_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+      <createFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_Alarm_Create_Client" param="CB_Param"/>
+      <destroyFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_Destroy_Cluster"/>
+   </callback>
+   <callback name="qapi_ZB_CL_Alarm_Server_CB_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Event_Data" type="qapi_ZB_CL_Alarm_Server_Event_Data_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+      <createFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_Alarm_Create_Server" param="CB_Param"/>
+      <destroyFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_Destroy_Cluster"/>
+   </callback>
+</header>

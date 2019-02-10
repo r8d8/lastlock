@@ -1,0 +1,418 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="qapi/qapi_types.h"/>
+   <include name="qapi/qapi_status.h"/>
+   <include name="qapi_zb.h"/>
+   <macro name="QAPI_ZB_APS_ZDO_ENDPOINT" value="(0x00) "/>
+   <macro name="QAPI_ZB_APS_MIN_ENDPOINT" value="(0x01) "/>
+   <macro name="QAPI_ZB_APS_MAX_ENDPOINT" value="(0xF0) "/>
+   <macro name="QAPI_ZB_APS_BCAST_ENDPOINT" value="(0xFF) "/>
+   <macro name="QAPI_ZB_APSDE_DATA_REQUEST_TX_OPTION_SECURE_TRANSMISSION" value="(0x01) "/>
+   <macro name="QAPI_ZB_APSDE_DATA_REQUEST_TX_OPTION_USE_NWK_KEY" value="(0x02) "/>
+   <macro name="QAPI_ZB_APSDE_DATA_REQUEST_TX_OPTION_ACKNOWLEDGED_TRANSMISSION" value="(0x04) "/>
+   <macro name="QAPI_ZB_APSDE_DATA_REQUEST_TX_OPTION_FRAGMENTATION_PERMITTED" value="(0x08) "/>
+   <macro name="QAPI_ZB_APSDE_DATA_REQUEST_TX_OPTION_INCLUDE_EXTENDED_NONCE" value="(0x10) "/>
+   <macro name="QAPI_ZB_APS_NLDE_DATA_REQUEST_FLAG_USE_ALIAS" value="(0x00000001) "/>
+   <macro name="QAPI_ZB_APS_NLDE_DATA_REQUEST_FLAG_DISCOVER_ROUTE" value="(0x00000002) "/>
+   <macro name="QAPI_ZB_APS_NLDE_DATA_REQUEST_FLAG_SECURITY_ENABLE" value="(0x00000004) "/>
+   <enum name="qapi_ZB_AIB_Attribute_ID_t">
+      <member name="QAPI_ZB_AIB_ATTRIBUTE_ID_DEVICE_KEY_PAIR_SET_E" value="0xAA"/>
+      <member name="QAPI_ZB_AIB_ATTRIBUTE_ID_TRUST_CENTER_ADDRESS_E" value="0xAB"/>
+      <member name="QAPI_ZB_AIB_ATTRIBUTE_ID_SECURITY_TIME_OUT_PERIOD_E" value="0xAC"/>
+      <member name="QAPI_ZB_AIB_ATTRIBUTE_ID_TRUST_CENTER_POLICIES_E" value="0xAD"/>
+      <member name="QAPI_ZB_AIB_ATTRIBUTE_ID_FRAGMENTATION_THRESHOLD_E" value="0xAE"/>
+      <member name="QAPI_ZB_AIB_ATTRIBUTE_ID_BINDING_TABLE_E" value="0xC1"/>
+      <member name="QAPI_ZB_AIB_ATTRIBUTE_ID_DESIGNATED_COORDINATOR_E" value="0xC2"/>
+      <member name="QAPI_ZB_AIB_ATTRIBUTE_ID_CHANNEL_MASK_E" value="0xC3"/>
+      <member name="QAPI_ZB_AIB_ATTRIBUTE_ID_USE_EXTENDED_PAN_ID_E" value="0xC4"/>
+      <member name="QAPI_ZB_AIB_ATTRIBUTE_ID_GROUP_TABLE_E" value="0xC5"/>
+      <member name="QAPI_ZB_AIB_ATTRIBUTE_ID_NONMEMBER_RADIUS_E" value="0xC6"/>
+      <member name="QAPI_ZB_AIB_ATTRIBUTE_ID_USE_INSECURE_JOIN_E" value="0xC8"/>
+      <member name="QAPI_ZB_AIB_ATTRIBUTE_ID_INTERFRAME_DELAY_E" value="0xC9"/>
+      <member name="QAPI_ZB_AIB_ATTRIBUTE_ID_LAST_CHANNEL_ENERGY_E" value="0xCA"/>
+      <member name="QAPI_ZB_AIB_ATTRIBUTE_ID_LAST_CHANNEL_FAILURE_RATE_E" value="0xCB"/>
+      <member name="QAPI_ZB_AIB_ATTRIBUTE_ID_CHANNEL_TIMER_E" value="0xCC"/>
+      <member name="QAPI_ZB_AIB_ATTRIBUTE_ID_MAX_WINDOW_SIZE_E" value="0xCD"/>
+      <member name="QAPI_ZB_AIB_ATTRIBUTE_ID_PARENT_ANNOUNCE_TIMER_E" value="0xCE"/>
+   </enum>
+   <enum name="qapi_ZB_APS_Key_Attribute_t">
+      <member name="QAPI_ZB_APS_KEY_ATTRIBUTE_SHARED_KEY" value="0"/>
+      <member name="QAPI_ZB_APS_KEY_ATTRIBUTE_UNVERIFIED_KEY" value="1"/>
+      <member name="QAPI_ZB_APS_KEY_ATTRIBUTE_VERIFIED_KEY" value="2"/>
+   </enum>
+   <enum name="qapi_ZB_APS_Link_Key_Type_t">
+      <member name="QAPI_ZB_APS_LINK_KEY_TYPE_UNIQUE" value="0"/>
+      <member name="QAPI_ZB_APS_LINK_KEY_TYPE_GLOBAL" value="1"/>
+   </enum>
+   <enum name="qapi_ZB_APS_Device_Status_t">
+      <member name="QAPI_ZB_APS_DEVICE_STATUS_SECURED_REJOIN_E" value="0"/>
+      <member name="QAPI_ZB_APS_DEVICE_STATUS_UNSECURED_JOIN_E" value="1"/>
+      <member name="QAPI_ZB_APS_DEVICE_STATUS_DEVICE_LEFT" value="2"/>
+      <member name="QAPI_ZB_APS_DEVICE_STATUS_TRUST_CENTER_REJOIN" value="3"/>
+   </enum>
+   <enum name="qapi_ZB_APS_Event_Type_t">
+      <member name="QAPI_ZB_APS_EVENT_TYPE_APSDE_DATA_INDICATION_E" value="0"/>
+      <member name="QAPI_ZB_APS_EVENT_TYPE_APSDE_DATA_CONFIRM_E" value="1"/>
+      <member name="" value="2"/>
+   </enum>
+   <structure name="qapi_ZB_APS_Bind_Data_t">
+      <member attributes="value" name="SrcAddress" type="uint64_t"/>
+      <member attributes="value" name="SrcEndpoint" type="uint8_t"/>
+      <member attributes="value" name="ClusterId" type="uint16_t"/>
+      <member attributes="value" name="DstAddrMode" type="qapi_ZB_Addr_Mode_t"/>
+      <member attributes="union" name="DstAddress" type="qapi_ZB_Addr_t">
+         <member attributes="value" name="ShortAddress" type="uint16_t"/>
+         <member attributes="value" name="ExtendedAddress" type="uint64_t"/>
+         <unionMap mapVerified="no" name="DstAddrMode" type="qapi_ZB_Addr_Mode_t">
+            <mapEntry member="ShortAddress" type="uint16_t" value="QAPI_ZB_ADDRESS_MODE_GROUP_ADDRESS_E"/>
+            <mapEntry member="ShortAddress" type="uint16_t" value="QAPI_ZB_ADDRESS_MODE_SHORT_ADDRESS_E"/>
+            <mapEntry member="ExtendedAddress" type="uint64_t" value="QAPI_ZB_ADDRESS_MODE_EXTENDED_ADDRESS_E"/>
+         </unionMap>
+      </member>
+      <member attributes="value" name="DstEndpoint" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_APS_Group_Data_t">
+      <member attributes="value" name="GroupAddress" type="uint16_t"/>
+      <member attributes="value" name="Endpoint" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_APS_Key_Pair_t">
+      <member attributes="value" name="PartnerAddr" type="uint64_t"/>
+      <member attributes="value" name="KeyAttribute" type="qapi_ZB_APS_Key_Attribute_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="QAPI_ZB_KEY_SIZE" name="LinkKey" type="uint8_t"/>
+      <member attributes="value" name="OutgoingFrameCounter" type="uint32_t"/>
+      <member attributes="value" name="IncomingFrameCounter" type="uint32_t"/>
+      <member attributes="value" name="KeyType" type="qapi_ZB_Key_Type_t"/>
+      <member attributes="value" name="apsLinkKeyType" type="qapi_ZB_APS_Link_Key_Type_t"/>
+   </structure>
+   <structure name="qapi_ZB_APS_Get_Key_Confirm_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="QAPI_ZB_KEY_SIZE" name="Key" type="uint8_t"/>
+      <member attributes="value" name="OutgoingFrameCounter" type="uint32_t"/>
+      <member attributes="value" name="IncomingFrameCounter" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_ZB_APSDE_Data_Request_t">
+      <member attributes="value" name="DstAddrMode" type="qapi_ZB_Addr_Mode_t"/>
+      <member attributes="union" name="DstAddress" type="qapi_ZB_Addr_t">
+         <member attributes="value" name="ShortAddress" type="uint16_t"/>
+         <member attributes="value" name="ExtendedAddress" type="uint64_t"/>
+         <unionMap mapVerified="no" name="DstAddrMode" type="qapi_ZB_Addr_Mode_t">
+            <mapEntry member="ShortAddress" type="uint16_t" value="QAPI_ZB_ADDRESS_MODE_GROUP_ADDRESS_E"/>
+            <mapEntry member="ShortAddress" type="uint16_t" value="QAPI_ZB_ADDRESS_MODE_SHORT_ADDRESS_E"/>
+            <mapEntry member="ExtendedAddress" type="uint64_t" value="QAPI_ZB_ADDRESS_MODE_EXTENDED_ADDRESS_E"/>
+         </unionMap>
+      </member>
+      <member attributes="value" name="DstEndpoint" type="uint8_t"/>
+      <member attributes="value" name="ProfileId" type="uint16_t"/>
+      <member attributes="value" name="ClusterId" type="uint16_t"/>
+      <member attributes="value" name="SrcEndpoint" type="uint8_t"/>
+      <member attributes="value" name="ASDUHandle" type="uint32_t"/>
+      <member attributes="value" name="ASDULength" type="uint16_t"/>
+      <member attributes="ptr,const" iotype="in" lengthParam="ASDULength" lengthVerified="yes" name="ASDU" type="uint8_t"/>
+      <member attributes="value" name="TxOptions" type="uint8_t"/>
+      <member attributes="value" name="DiscoverRoute" type="qbool_t"/>
+      <member attributes="value" name="UseAlias" type="qbool_t"/>
+      <member attributes="value" name="AliasSrcAddr" type="uint16_t"/>
+      <member attributes="value" name="AliasSeqNumb" type="uint8_t"/>
+      <member attributes="value" name="Radius" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_APSDE_Data_Confirm_t">
+      <member attributes="value" name="ASDUHandle" type="uint32_t"/>
+      <member attributes="value" name="DstAddrMode" type="qapi_ZB_Addr_Mode_t"/>
+      <member attributes="union" name="DstAddress" type="qapi_ZB_Addr_t">
+         <member attributes="value" name="ShortAddress" type="uint16_t"/>
+         <member attributes="value" name="ExtendedAddress" type="uint64_t"/>
+         <unionMap mapVerified="no" name="DstAddrMode" type="qapi_ZB_Addr_Mode_t">
+            <mapEntry member="ShortAddress" type="uint16_t" value="QAPI_ZB_ADDRESS_MODE_GROUP_ADDRESS_E"/>
+            <mapEntry member="ShortAddress" type="uint16_t" value="QAPI_ZB_ADDRESS_MODE_SHORT_ADDRESS_E"/>
+            <mapEntry member="ExtendedAddress" type="uint64_t" value="QAPI_ZB_ADDRESS_MODE_EXTENDED_ADDRESS_E"/>
+         </unionMap>
+      </member>
+      <member attributes="value" name="DstEndpoint" type="uint8_t"/>
+      <member attributes="value" name="SrcEndpoint" type="uint8_t"/>
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+   </structure>
+   <structure name="qapi_ZB_APS_Address_t">
+      <member attributes="value" name="PANId" type="uint16_t"/>
+      <member attributes="value" name="AddrMode" type="qapi_ZB_Addr_Mode_t"/>
+      <member attributes="value" name="ShortAddr" type="uint16_t"/>
+      <member attributes="value" name="ExtendedAddr" type="uint64_t"/>
+      <member attributes="value" name="Endpoint" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_APSDE_Data_Indication_t">
+      <member attributes="value" name="DstAddr" type="qapi_ZB_APS_Address_t"/>
+      <member attributes="value" name="SrcAddr" type="qapi_ZB_APS_Address_t"/>
+      <member attributes="value" name="ProfileId" type="uint16_t"/>
+      <member attributes="value" name="ClusterId" type="uint16_t"/>
+      <member attributes="value" name="ASDULength" type="uint16_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="ASDULength" lengthVerified="yes" name="ASDU" type="uint8_t"/>
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="SecurityStatus" type="qapi_Status_t"/>
+      <member attributes="value" name="LinkQuality" type="uint8_t"/>
+      <member attributes="value" name="RxTime" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_ZB_APS_Network_Key_Data_t">
+      <member attributes="value" name="KeySeqNumber" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="QAPI_ZB_KEY_SIZE" name="NetworkKey" type="uint8_t"/>
+      <member attributes="value" name="UseParent" type="qbool_t"/>
+      <member attributes="value" name="ParentAddress" type="uint64_t"/>
+   </structure>
+   <structure name="qapi_ZB_APS_Application_Link_Key_Data_t">
+      <member attributes="value" name="PartnerAddress" type="uint64_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="QAPI_ZB_KEY_SIZE" name="Key" type="uint8_t"/>
+      <member attributes="value" name="Initiator" type="qbool_t"/>
+   </structure>
+   <structure name="qapi_ZB_APSME_Transport_Key_t">
+      <member attributes="value" name="DstAddrMode" type="qapi_ZB_Addr_Mode_t"/>
+      <member attributes="union" name="DstAddress" type="qapi_ZB_Addr_t">
+         <member attributes="value" name="ShortAddress" type="uint16_t"/>
+         <member attributes="value" name="ExtendedAddress" type="uint64_t"/>
+         <unionMap mapVerified="no" name="DstAddrMode" type="qapi_ZB_Addr_Mode_t">
+            <mapEntry member="ShortAddress" type="uint16_t" value="QAPI_ZB_ADDRESS_MODE_GROUP_ADDRESS_E"/>
+            <mapEntry member="ShortAddress" type="uint16_t" value="QAPI_ZB_ADDRESS_MODE_SHORT_ADDRESS_E"/>
+            <mapEntry member="ExtendedAddress" type="uint64_t" value="QAPI_ZB_ADDRESS_MODE_EXTENDED_ADDRESS_E"/>
+         </unionMap>
+      </member>
+      <member attributes="value" name="StandardKeyType" type="qapi_ZB_Key_Type_t"/>
+      <member attributes="union" name="TransportKeyData">
+         <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="QAPI_ZB_KEY_SIZE" name="TrustCenterLinkKeyData" type="uint8_t"/>
+         <member attributes="value" name="NetworkKeyData" type="qapi_ZB_APS_Network_Key_Data_t"/>
+         <member attributes="value" name="ApplicationLinkKeyData" type="qapi_ZB_APS_Application_Link_Key_Data_t"/>
+         <unionMap mapVerified="no" name="StandardKeyType" type="qapi_ZB_Key_Type_t">
+            <mapEntry member="TrustCenterLinkKeyData" type="uint8_t" value="QAPI_ZB_KEY_TYPE_TC_LINK_E"/>
+            <mapEntry member="NetworkKeyData" type="qapi_ZB_APS_Network_Key_Data_t" value="QAPI_ZB_KEY_TYPE_STANDARD_NWK_E"/>
+            <mapEntry member="ApplicationLinkKeyData" type="qapi_ZB_APS_Application_Link_Key_Data_t" value="QAPI_ZB_KEY_TYPE_APP_LINK_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_ZB_APSME_Update_Device_t">
+      <member attributes="value" name="RemoteAddress" type="uint64_t"/>
+      <member attributes="value" name="DeviceAddress" type="uint64_t"/>
+      <member attributes="value" name="Status" type="qapi_ZB_APS_Device_Status_t"/>
+      <member attributes="value" name="DeviceShortAddress" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_ZB_APSME_Remove_Device_t">
+      <member attributes="value" name="RemoteAddress" type="uint64_t"/>
+      <member attributes="value" name="TargetAddress" type="uint64_t"/>
+   </structure>
+   <structure name="qapi_ZB_APSME_Request_Key_t">
+      <member attributes="value" name="RemoteAddress" type="uint64_t"/>
+      <member attributes="value" name="RequestKeyType" type="qapi_ZB_Key_Type_t"/>
+      <member attributes="value" name="PartnerAddress" type="uint64_t"/>
+   </structure>
+   <structure name="qapi_ZB_APSME_Switch_Key_t">
+      <member attributes="value" name="DstAddrMode" type="qapi_ZB_Addr_Mode_t"/>
+      <member attributes="union" name="DstAddress" type="qapi_ZB_Addr_t">
+         <member attributes="value" name="ShortAddress" type="uint16_t"/>
+         <member attributes="value" name="ExtendedAddress" type="uint64_t"/>
+         <unionMap mapVerified="no" name="DstAddrMode" type="qapi_ZB_Addr_Mode_t">
+            <mapEntry member="ShortAddress" type="uint16_t" value="QAPI_ZB_ADDRESS_MODE_GROUP_ADDRESS_E"/>
+            <mapEntry member="ShortAddress" type="uint16_t" value="QAPI_ZB_ADDRESS_MODE_SHORT_ADDRESS_E"/>
+            <mapEntry member="ExtendedAddress" type="uint64_t" value="QAPI_ZB_ADDRESS_MODE_EXTENDED_ADDRESS_E"/>
+         </unionMap>
+      </member>
+      <member attributes="value" name="KeySeqNumber" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_APSME_Verify_Key_t">
+      <member attributes="value" name="RemoteAddress" type="uint64_t"/>
+      <member attributes="value" name="RequestKeyType" type="qapi_ZB_Key_Type_t"/>
+   </structure>
+   <structure name="qapi_ZB_APSME_Confirm_Key_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="RemoteAddress" type="uint64_t"/>
+      <member attributes="value" name="RequestKeyType" type="qapi_ZB_Key_Type_t"/>
+   </structure>
+   <structure name="qapi_ZB_APS_Add_Endpoint_t">
+      <member attributes="value" name="Endpoint" type="uint8_t"/>
+      <member attributes="value" name="Version" type="uint8_t"/>
+      <member attributes="value" name="ProfileId" type="uint16_t"/>
+      <member attributes="value" name="DeviceId" type="uint16_t"/>
+      <member attributes="value" name="InputClusterCount" type="uint8_t"/>
+      <member attributes="ptr,const" iotype="in" lengthParam="InputClusterCount" lengthVerified="yes" name="InputClusterList" type="uint16_t"/>
+      <member attributes="value" name="OutputClusterCount" type="uint8_t"/>
+      <member attributes="ptr,const" iotype="in" lengthParam="OutputClusterCount" lengthVerified="yes" name="OutputClusterList" type="uint16_t"/>
+      <member attributes="value" name="BDBCommissioningMode" type="uint8_t"/>
+      <member attributes="value" name="BDBCommissioningGroupId" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_ZB_APS_Event_Data_t">
+      <member attributes="value" name="Event_Type" type="qapi_ZB_APS_Event_Type_t"/>
+      <member attributes="union" name="Data">
+         <member attributes="value" name="APSDE_Data_Indication" type="qapi_ZB_APSDE_Data_Indication_t"/>
+         <member attributes="value" name="APSDE_Data_Confirm" type="qapi_ZB_APSDE_Data_Confirm_t"/>
+         <unionMap mapVerified="yes" name="Event_Type" type="qapi_ZB_APS_Event_Type_t">
+            <mapEntry member="APSDE_Data_Indication" type="qapi_ZB_APSDE_Data_Indication_t" value="QAPI_ZB_APS_EVENT_TYPE_APSDE_DATA_INDICATION_E"/>
+            <mapEntry member="APSDE_Data_Confirm" type="qapi_ZB_APSDE_Data_Confirm_t" value="QAPI_ZB_APS_EVENT_TYPE_APSDE_DATA_CONFIRM_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <function name="qapi_ZB_APS_Register_Callback">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="APS_Event_CB" type="qapi_ZB_APS_Event_CB_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+   </function>
+   <function name="qapi_ZB_APS_Unregister_Callback">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="APS_Event_CB" type="qapi_ZB_APS_Event_CB_t"/>
+   </function>
+   <function name="qapi_ZB_APSDE_Data_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="RequestData" type="qapi_ZB_APSDE_Data_Request_t"/>
+   </function>
+   <function name="qapi_ZB_APSME_Bind_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="RequestData" type="qapi_ZB_APS_Bind_Data_t"/>
+   </function>
+   <function name="qapi_ZB_APSME_Unbind_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="RequestData" type="qapi_ZB_APS_Bind_Data_t"/>
+   </function>
+   <function name="qapi_ZB_APSME_Get_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="AIBAttribute" type="qapi_ZB_AIB_Attribute_ID_t"/>
+      <argument attributes="value" name="AIBAttributeIndex" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="AIBAttributeLength" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="AIBAttributeLength" lengthVerified="yes" name="AIBAttributeValue" type="void"/>
+   </function>
+   <function name="qapi_ZB_APSME_Set_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="AIBAttribute" type="qapi_ZB_AIB_Attribute_ID_t"/>
+      <argument attributes="value" name="AIBAttributeIndex" type="uint8_t"/>
+      <argument attributes="value" name="AIBAttributeLength" type="uint16_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="AIBAttributeLength" lengthVerified="yes" name="AIBAttributeValue" type="void"/>
+   </function>
+   <function name="qapi_ZB_APSME_Add_Group_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="RequestData" type="qapi_ZB_APS_Group_Data_t"/>
+   </function>
+   <function name="qapi_ZB_APSME_Remove_Group_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="RequestData" type="qapi_ZB_APS_Group_Data_t"/>
+   </function>
+   <function name="qapi_ZB_APSME_Remove_All_Groups_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="Endpoint" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_APSME_Transport_Key_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="RequestData" type="qapi_ZB_APSME_Transport_Key_t"/>
+   </function>
+   <function name="qapi_ZB_APSME_Update_Device_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="RequestData" type="qapi_ZB_APSME_Update_Device_t"/>
+   </function>
+   <function name="qapi_ZB_APSME_Remove_Device_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="RequestData" type="qapi_ZB_APSME_Remove_Device_t"/>
+   </function>
+   <function name="qapi_ZB_APSME_Request_Key_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="RequestData" type="qapi_ZB_APSME_Request_Key_t"/>
+   </function>
+   <function name="qapi_ZB_APSME_Switch_Key_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="RequestData" type="qapi_ZB_APSME_Switch_Key_t"/>
+   </function>
+   <function name="qapi_ZB_APSME_Verify_Key_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="RequestData" type="qapi_ZB_APSME_Verify_Key_t"/>
+   </function>
+   <function name="qapi_ZB_APSME_Confirm_Key_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="RequestData" type="qapi_ZB_APSME_Confirm_Key_t"/>
+   </function>
+   <function name="qapi_ZB_APS_Add_Endpoint">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="RequestData" type="qapi_ZB_APS_Add_Endpoint_t"/>
+   </function>
+   <function name="qapi_ZB_APS_Remove_Endpoint">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="Endpoint" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_APS_Create_Test_Endpoint">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="doubleptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="TestEndpoint" type="void"/>
+      <argument attributes="value" name="ProfileID" type="uint16_t"/>
+   </function>
+   <function name="qapi_ZB_APS_Destroy_Test_Endpoint">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="TestEndpoint" type="void"/>
+   </function>
+   <function name="qapi_ZB_APS_Test_Endpoint_Data_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="TestEndpoint" type="void"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="RequestData" type="qapi_ZB_APSDE_Data_Request_t"/>
+      <argument attributes="value,const" name="RspClusterID" type="uint16_t"/>
+   </function>
+   <function name="qapi_ZB_APS_Add_Device_Key_Pair_Set">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="RequestData" type="qapi_ZB_APS_Key_Pair_t"/>
+   </function>
+   <function name="qapi_ZB_APS_Get_Device_Key_Pair_Set">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="PartnerAddr" type="uint64_t"/>
+      <argument attributes="value" name="KeyType" type="qapi_ZB_Key_Type_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="ConfirmData" type="qapi_ZB_APS_Get_Key_Confirm_t"/>
+   </function>
+   <function name="qapi_ZB_APS_Remove_Device_Key_Pair_Set">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="PartnerAddr" type="uint64_t"/>
+      <argument attributes="value" name="KeyType" type="qapi_ZB_Key_Type_t"/>
+   </function>
+   <function name="qapi_ZB_APS_ADD_Fragmented_Data_Drop">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="BlockNumber" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_APS_Clear_Fragmented_Data_Drop">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+   </function>
+   <function name="qapi_ZB_APS_Hash_Install_Code">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="InstallCode" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="LinkKey" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_APS_Add_Link_Key">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="ExtAddr" type="uint64_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="LinkKey" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_APS_Set_Update_Device_Key_Id">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="SecurityMethod" type="qapi_zb_Key_ID_t"/>
+   </function>
+   <callback name="qapi_ZB_APS_Event_CB_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr,const" iotype="out" lengthParam="1" lengthVerified="yes" name="APS_Event_Data" type="qapi_ZB_APS_Event_Data_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+      <createFunction ID="APS_Event_CB" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_APS_Register_Callback" param="CB_Param"/>
+      <destroyFunction ID="APS_Event_CB" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_APS_Unregister_Callback"/>
+   </callback>
+</header>

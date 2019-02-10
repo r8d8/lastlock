@@ -1,0 +1,143 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="qapi_zb_cl.h"/>
+   <macro name="QAPI_ZB_CL_LEVELCONTROL_ATTR_ID_CURRENT_LEVEL" value="(0x0000) "/>
+   <macro name="QAPI_ZB_CL_LEVELCONTROL_ATTR_ID_REMAINING_TIME" value="(0x0001) "/>
+   <macro name="QAPI_ZB_CL_LEVELCONTROL_ATTR_ID_ON_OFF_TRANSITION_TIME" value="(0x0010) "/>
+   <macro name="QAPI_ZB_CL_LEVELCONTROL_ATTR_ID_ON_LEVEL" value="(0x0011) "/>
+   <macro name="QAPI_ZB_CL_LEVELCONTROL_ATTR_ID_ON_TRANSITION_TIME" value="(0x0012) "/>
+   <macro name="QAPI_ZB_CL_LEVELCONTROL_ATTR_ID_OFF_TRANSITION_TIME" value="(0x0013) "/>
+   <macro name="QAPI_ZB_CL_LEVELCONTROL_ATTR_ID_DEFAULT_MOVE_RATE" value="(0x0014) "/>
+   <macro name="QAPI_ZB_CL_LEVELCONTROL_INVALID_LEVEL" value="(0xFF) "/>
+   <macro name="QAPI_ZB_CL_LEVELCONTROL_INVALID_TRANSITION_TIME" value="(0xFFFF) "/>
+   <macro name="QAPI_ZB_CL_LEVELCONTROL_CLIENT_COMMAND_ID_MOVE_TO_LEVEL" value="(0x00) "/>
+   <macro name="QAPI_ZB_CL_LEVELCONTROL_CLIENT_COMMAND_ID_MOVE" value="(0x01) "/>
+   <macro name="QAPI_ZB_CL_LEVELCONTROL_CLIENT_COMMAND_ID_STEP" value="(0x02) "/>
+   <macro name="QAPI_ZB_CL_LEVELCONTROL_CLIENT_COMMAND_ID_STOP" value="(0x03) "/>
+   <macro name="QAPI_ZB_CL_LEVELCONTROL_CLIENT_COMMAND_ID_MOVE_TO_LEVEL_WITH_ONOFF" value="(0x04) "/>
+   <macro name="QAPI_ZB_CL_LEVELCONTROL_CLIENT_COMMAND_ID_MOVE_WITH_ONOFF" value="(0x05) "/>
+   <macro name="QAPI_ZB_CL_LEVELCONTROL_CLIENT_COMMAND_ID_STEP_WITH_ONOFF" value="(0x06) "/>
+   <enum name="qapi_ZB_CL_LevelControl_Client_Event_Type_t">
+      <member name="QAPI_ZB_CL_LEVELCONTROL_CLIENT_EVENT_TYPE_ATTR_CUSTOM_READ_E" value="0"/>
+      <member name="QAPI_ZB_CL_LEVELCONTROL_CLIENT_EVENT_TYPE_ATTR_CUSTOM_WRITE_E" value="1"/>
+      <member name="QAPI_ZB_CL_LEVELCONTROL_CLIENT_EVENT_TYPE_DEFAULT_RESPONSE_E" value="2"/>
+      <member name="QAPI_ZB_CL_LEVELCONTROL_CLIENT_EVENT_TYPE_COMMAND_COMPLETE_E" value="3"/>
+      <member name="QAPI_ZB_CL_LEVELCONTROL_CLIENT_EVENT_TYPE_UNPARSED_RESPONSE_E" value="4"/>
+   </enum>
+   <enum name="qapi_ZB_CL_LevelControl_Server_Event_Type_t">
+      <member name="QAPI_ZB_CL_LEVELCONTROL_SERVER_EVENT_TYPE_ATTR_CUSTOM_READ_E" value="0"/>
+      <member name="QAPI_ZB_CL_LEVELCONTROL_SERVER_EVENT_TYPE_ATTR_CUSTOM_WRITE_E" value="1"/>
+      <member name="QAPI_ZB_CL_LEVELCONTROL_SERVER_EVENT_TYPE_UNPARSED_DATA_E" value="2"/>
+      <member name="QAPI_ZB_CL_LEVELCONTROL_SERVER_EVENT_TYPE_TRANSITION_E" value="3"/>
+      <member name="QAPI_ZB_CL_LEVELCONTROL_SERVER_EVENT_TYPE_STOP_E" value="4"/>
+      <member name="" value="5"/>
+   </enum>
+   <structure name="qapi_ZB_CL_LevelControl_Client_Event_Data_t">
+      <member attributes="value" name="Event_Type" type="qapi_ZB_CL_LevelControl_Client_Event_Type_t"/>
+      <member attributes="union" name="Data">
+         <member attributes="value" name="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t"/>
+         <member attributes="value" name="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t"/>
+         <member attributes="value" name="Default_Response" type="qapi_ZB_CL_Default_Response_t"/>
+         <member attributes="value" name="Command_Complete" type="qapi_ZB_CL_Command_Complete_t"/>
+         <member attributes="value" name="Unparsed_Response" type="qapi_ZB_CL_Unparsed_Response_t"/>
+         <unionMap mapVerified="yes" name="Event_Type" type="qapi_ZB_CL_LevelControl_Client_Event_Type_t">
+            <mapEntry member="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t" value="QAPI_ZB_CL_LEVELCONTROL_CLIENT_EVENT_TYPE_ATTR_CUSTOM_READ_E"/>
+            <mapEntry member="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t" value="QAPI_ZB_CL_LEVELCONTROL_CLIENT_EVENT_TYPE_ATTR_CUSTOM_WRITE_E"/>
+            <mapEntry member="Default_Response" type="qapi_ZB_CL_Default_Response_t" value="QAPI_ZB_CL_LEVELCONTROL_CLIENT_EVENT_TYPE_DEFAULT_RESPONSE_E"/>
+            <mapEntry member="Command_Complete" type="qapi_ZB_CL_Command_Complete_t" value="QAPI_ZB_CL_LEVELCONTROL_CLIENT_EVENT_TYPE_COMMAND_COMPLETE_E"/>
+            <mapEntry member="Unparsed_Response" type="qapi_ZB_CL_Unparsed_Response_t" value="QAPI_ZB_CL_LEVELCONTROL_CLIENT_EVENT_TYPE_UNPARSED_RESPONSE_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_ZB_CL_LevelControl_Server_Transition_t">
+      <member attributes="value" name="Level" type="uint8_t"/>
+      <member attributes="value" name="TransitionTime" type="uint16_t"/>
+      <member attributes="value" name="WithOnOff" type="qbool_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_LevelControl_Server_Event_Data_t">
+      <member attributes="value" name="Event_Type" type="qapi_ZB_CL_LevelControl_Server_Event_Type_t"/>
+      <member attributes="union" name="Data">
+         <member attributes="value" name="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t"/>
+         <member attributes="value" name="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t"/>
+         <member attributes="value" name="Unparsed_Data" type="qapi_ZB_CL_Unparsed_Data_t"/>
+         <member attributes="value" name="Transition" type="qapi_ZB_CL_LevelControl_Server_Transition_t"/>
+         <unionMap mapVerified="yes" name="Event_Type" type="qapi_ZB_CL_LevelControl_Server_Event_Type_t">
+            <mapEntry member="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t" value="QAPI_ZB_CL_LEVELCONTROL_SERVER_EVENT_TYPE_ATTR_CUSTOM_READ_E"/>
+            <mapEntry member="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t" value="QAPI_ZB_CL_LEVELCONTROL_SERVER_EVENT_TYPE_ATTR_CUSTOM_WRITE_E"/>
+            <mapEntry member="Unparsed_Data" type="qapi_ZB_CL_Unparsed_Data_t" value="QAPI_ZB_CL_LEVELCONTROL_SERVER_EVENT_TYPE_UNPARSED_DATA_E"/>
+            <mapEntry member="Transition" type="qapi_ZB_CL_LevelControl_Server_Transition_t" value="QAPI_ZB_CL_LEVELCONTROL_SERVER_EVENT_TYPE_TRANSITION_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <function name="qapi_ZB_CL_LevelControl_Create_Client">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Cluster_Info" type="qapi_ZB_CL_Cluster_Info_t"/>
+      <argument attributes="value" name="Event_CB" type="qapi_ZB_CL_LevelControl_Client_CB_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+   </function>
+   <function name="qapi_ZB_CL_LevelControl_Create_Server">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Cluster_Info" type="qapi_ZB_CL_Cluster_Info_t"/>
+      <argument attributes="value" name="OnOffCluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="value" name="Event_CB" type="qapi_ZB_CL_LevelControl_Server_CB_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+   </function>
+   <function name="qapi_ZB_CL_LevelControl_Populate_Attributes">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Server" type="qbool_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="AttributeCount" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="AttributeCount" lengthVerified="yes" name="AttributeList" type="qapi_ZB_CL_Attribute_t"/>
+   </function>
+   <function name="qapi_ZB_CL_LevelControl_Send_Move_To_Level">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="value" name="Level" type="uint8_t"/>
+      <argument attributes="value" name="TransitionTime" type="uint16_t"/>
+      <argument attributes="value" name="WithOnOff" type="qbool_t"/>
+   </function>
+   <function name="qapi_ZB_CL_LevelControl_Send_Move">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="value" name="MoveDown" type="qbool_t"/>
+      <argument attributes="value" name="Rate" type="uint8_t"/>
+      <argument attributes="value" name="WithOnOff" type="qbool_t"/>
+   </function>
+   <function name="qapi_ZB_CL_LevelControl_Send_Step">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="value" name="StepDown" type="qbool_t"/>
+      <argument attributes="value" name="StepSize" type="uint8_t"/>
+      <argument attributes="value" name="TransitionTime" type="uint16_t"/>
+      <argument attributes="value" name="WithOnOff" type="qbool_t"/>
+   </function>
+   <function name="qapi_ZB_CL_LevelControl_Send_Stop">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+   </function>
+   <callback name="qapi_ZB_CL_LevelControl_Client_CB_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Event_Data" type="qapi_ZB_CL_LevelControl_Client_Event_Data_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+      <createFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_LevelControl_Create_Client" param="CB_Param"/>
+      <destroyFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_Destroy_Cluster"/>
+   </callback>
+   <callback name="qapi_ZB_CL_LevelControl_Server_CB_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Event_Data" type="qapi_ZB_CL_LevelControl_Server_Event_Data_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+      <createFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_LevelControl_Create_Server" param="CB_Param"/>
+      <destroyFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_Destroy_Cluster"/>
+   </callback>
+</header>

@@ -1,0 +1,44 @@
+<!-- ========================================================================================-->
+<!-- Exhost Scheme Configuration  -->
+<!-- ======================================================================================= -->
+
+<!--
+#define EXHOST_SYS_SCHEME_HEART_BEAT_ENABLE             0x100001
+#define EXHOST_SYS_SCHEME_HEART_BEAT_INTERVAL           0x100002
+
+#define EXHOST_UART_SCHEME_PROP_ENABLE                  0x110001
+#define EXHOST_UART_SCHEME_PROP_DEVICE_ID               0x110002
+#define EXHOST_UART_SCHEME_PROP_UART_PORT               0x110003
+#define EXHOST_UART_SCHEME_PROP_BAUD_RATE               0x110004
+#define EXHOST_UART_SCHEME_PROP_FLOW_CONTROL_ENABLE     0x110005
+#define EXHOST_UART_SCHEME_PROP_NUM_OF_SERVICE_QUEUES   0x110006
+#define EXHOST_UART_SCHEME_PROP_SERVICE_QUEUES          0x110007
+
+#define EXHOST_SPI_SCHEME_PROP_ENABLE                   0x210001
+#define EXHOST_SPI_SCHEME_PROP_DEVICE_ID                0x210002
+#define EXHOST_SPI_SCHEME_PROP_BLOCK_SIZE               0x210003
+#define EXHOST_SPI_SCHEME_PROP_NUM_OF_SERVICE_QUEUES    0x210004
+#define EXHOST_SPI_SCHEME_PROP_SERVICE_QUEUES           0x210005
+
+-->
+
+#include "exhost_dev_dal_id.h"
+
+<driver name="exhost_scheme">
+   <device id=DALDEVICEID_EXHOST>
+      <props id=EXHOST_SYS_SCHEME_HEART_BEAT_ENABLE id_name="EXHOST_SYS_SCHEME_HEART_BEAT_ENABLE" oem_configurable="true" helptext="0: Heart Beat Disable; 1:Heart Beat Enable" type=DALPROP_ATTR_TYPE_UINT32> 1 </props>
+      <props id=EXHOST_SYS_SCHEME_HEART_BEAT_INTERVAL id_name="EXHOST_SYS_SCHEME_HEART_BEAT_INTERVAL" oem_configurable="true" helptext="Heart Beat Interval in ms" type=DALPROP_ATTR_TYPE_UINT32> 1000 </props>
+      <props id=EXHOST_UART_SCHEME_PROP_ENABLE id_name="EXHOST_UART_SCHEME_PROP_ENABLE" oem_configurable="true" helptext="0: Uart Disable; 1:Uart Enable" type=DALPROP_ATTR_TYPE_UINT32> 0 </props>
+      <props id=EXHOST_UART_SCHEME_PROP_DEVICE_ID id_name="EXHOST_UART_SCHEME_PROP_DEVICE_ID" oem_configurable="true" helptext="Device ID Setting" type=DALPROP_ATTR_TYPE_UINT32> 0 </props>
+      <props id=EXHOST_UART_SCHEME_PROP_UART_PORT id_name="EXHOST_UART_SCHEME_PROP_UART_PORT" oem_configurable="true" helptext="0: High Speed Uart Port; 1: Debug Uart Port" type=DALPROP_ATTR_TYPE_UINT32> 0 </props>
+      <props id=EXHOST_UART_SCHEME_PROP_BAUD_RATE id_name="EXHOST_UART_SCHEME_PROP_BAUD_RATE" oem_configurable="true" helptext="Uart Baud Rate" type=DALPROP_ATTR_TYPE_UINT32> 2000000 </props>
+      <props id=EXHOST_UART_SCHEME_PROP_FLOW_CONTROL_ENABLE id_name="EXHOST_UART_SCHEME_PROP_FLOW_CONTROL_ENABLE" oem_configurable="true" helptext="0: Uart Flow Control Disable; 1:Uart Flow Control Enable" type=DALPROP_ATTR_TYPE_UINT32> 1 </props>
+      <props id=EXHOST_UART_SCHEME_PROP_NUM_OF_SERVICE_QUEUES id_name="EXHOST_UART_SCHEME_PROP_NUM_OF_SERVICE_QUEUES" oem_configurable="true" helptext="number of service queues for UART interface" type=DALPROP_ATTR_TYPE_UINT32> 6 </props>
+      <props id=EXHOST_UART_SCHEME_PROP_SERVICE_QUEUES id_name="EXHOST_UART_SCHEME_PROP_SERVICE_QUEUES" oem_configurable="true" helptext="service queue id list for UART interface" type=DALPROP_ATTR_TYPE_BYTE_SEQ> 0, 1, 2, 3, 4, 5, end </props>
+      <props id=EXHOST_SPI_SCHEME_PROP_ENABLE id_name="EXHOST_SPI_SCHEME_PROP_ENABLE" oem_configurable="true" helptext="0: SPI Disable; 1:SPI Enable" type=DALPROP_ATTR_TYPE_UINT32> 1 </props>
+      <props id=EXHOST_SPI_SCHEME_PROP_DEVICE_ID id_name="EXHOST_SPI_SCHEME_PROP_DEVICE_ID" oem_configurable="true" helptext="Device ID Setting" type=DALPROP_ATTR_TYPE_UINT32> 0 </props>
+      <props id=EXHOST_SPI_SCHEME_PROP_BLOCK_SIZE id_name="EXHOST_SPI_SCHEME_PROP_BLOCK_SIZE" oem_configurable="true" helptext="SPI Block Size" type=DALPROP_ATTR_TYPE_UINT32> 1024 </props>
+      <props id=EXHOST_SPI_SCHEME_PROP_NUM_OF_SERVICE_QUEUES id_name="EXHOST_SPI_SCHEME_PROP_NUM_OF_SERVICE_QUEUES" oem_configurable="true" helptext="number of service queues for SPI interface" type=DALPROP_ATTR_TYPE_UINT32> 6 </props>
+      <props id=EXHOST_SPI_SCHEME_PROP_SERVICE_QUEUES id_name="EXHOST_SPI_SCHEME_PROP_SERVICE_QUEUES" oem_configurable="true" helptext="service queue id list for SPI interface" type=DALPROP_ATTR_TYPE_BYTE_SEQ> 0, 1, 2, 3, 4, 5, end </props>
+   </device> 
+</driver>

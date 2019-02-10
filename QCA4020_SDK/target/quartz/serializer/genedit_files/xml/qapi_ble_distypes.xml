@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="./qapi_ble_bttypes.h"/>
+   <macro name="QAPI_BLE_DIS_ASSIGN_DIS_SERVICE_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16(*((qapi_BLE_UUID_16_t *)(_x)), 0x18, 0x0A)"/>
+   <macro name="QAPI_BLE_DIS_COMPARE_DIS_SERVICE_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x18, 0x0A)"/>
+   <macro name="QAPI_BLE_DIS_SERVICE_BLUETOOTH_UUID_CONSTANT" value="{ 0x0A, 0x18 }"/>
+   <macro name="QAPI_BLE_DIS_ASSIGN_MANUFACTURER_NAME_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x29)"/>
+   <macro name="QAPI_BLE_DIS_COMPARE_DIS_MANUFACTURER_NAME_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x29)"/>
+   <macro name="QAPI_BLE_DIS_MANUFACTURER_NAME_CHARACTERISTIC_BLUETOOTH_UUID_CONSTANT" value="{ 0x29, 0x2A }"/>
+   <macro name="QAPI_BLE_DIS_ASSIGN_MODEL_NUMBER_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x24)"/>
+   <macro name="QAPI_BLE_DIS_COMPARE_DIS_MODEL_NUMBER_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x24)"/>
+   <macro name="QAPI_BLE_DIS_MODEL_NUMBER_CHARACTERISTIC_BLUETOOTH_UUID_CONSTANT" value="{ 0x24, 0x2A }"/>
+   <macro name="QAPI_BLE_DIS_ASSIGN_SERIAL_NUMBER_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x25)"/>
+   <macro name="QAPI_BLE_DIS_COMPARE_DIS_SERIAL_NUMBER_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x25)"/>
+   <macro name="QAPI_BLE_DIS_SERIAL_NUMBER_CHARACTERISTIC_BLUETOOTH_UUID_CONSTANT" value="{ 0x25, 0x2A }"/>
+   <macro name="QAPI_BLE_DIS_ASSIGN_HARDWARE_REVISION_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x27)"/>
+   <macro name="QAPI_BLE_DIS_COMPARE_DIS_HARDWARE_REVISION_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x27)"/>
+   <macro name="QAPI_BLE_DIS_HARDWARE_REVISION_CHARACTERISTIC_BLUETOOTH_UUID_CONSTANT" value="{ 0x27, 0x2A }"/>
+   <macro name="QAPI_BLE_DIS_ASSIGN_FIRMWARE_REVISION_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x26)"/>
+   <macro name="QAPI_BLE_DIS_COMPARE_DIS_FIRMWARE_REVISION_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x26)"/>
+   <macro name="QAPI_BLE_DIS_FIRMWARE_REVISION_CHARACTERISTIC_BLUETOOTH_UUID_CONSTANT" value="{ 0x26, 0x2A }"/>
+   <macro name="QAPI_BLE_DIS_ASSIGN_SOFTWARE_REVISION_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x28)"/>
+   <macro name="QAPI_BLE_DIS_COMPARE_DIS_SOFTWARE_REVISION_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x28)"/>
+   <macro name="QAPI_BLE_DIS_SOFTWARE_REVISION_CHARACTERISTIC_BLUETOOTH_UUID_CONSTANT" value="{ 0x28, 0x2A }"/>
+   <macro name="QAPI_BLE_DIS_ASSIGN_SYSTEM_ID_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x23)"/>
+   <macro name="QAPI_BLE_DIS_COMPARE_DIS_SYSTEM_ID_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x23)"/>
+   <macro name="QAPI_BLE_DIS_SYSTEM_ID_CHARACTERISTIC_BLUETOOTH_UUID_CONSTANT" value="{ 0x23, 0x2A }"/>
+   <macro name="QAPI_BLE_DIS_ASSIGN_IEEE_CERTIFICATION_DATA_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x2A)"/>
+   <macro name="QAPI_BLE_DIS_COMPARE_DIS_IEEE_CERTIFICATION_DATA_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x2A)"/>
+   <macro name="QAPI_BLE_DIS_IEEE_CERTIFICATION_DATA_CHARACTERISTIC_BLUETOOTH_UUID_CONSTANT" value="{ 0x2A, 0x2A }"/>
+   <macro name="QAPI_BLE_DIS_ASSIGN_PNP_ID_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x50)"/>
+   <macro name="QAPI_BLE_DIS_COMPARE_DIS_PNP_ID_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x50)"/>
+   <macro name="QAPI_BLE_DIS_PNP_ID_CHARACTERISTIC_BLUETOOTH_UUID_CONSTANT" value="{ 0x50, 0x2A }"/>
+   <macro name="QAPI_BLE_DIS_SYSTEM_ID_VALUE_DATA_SIZE" value="(sizeof(qapi_BLE_DIS_System_ID_Value_t))"/>
+   <macro name="QAPI_BLE_DIS_PNP_ID_VALUE_DATA_SIZE" value="(sizeof(qapi_BLE_DIS_PNP_ID_Value_t))"/>
+   <macro name="QAPI_BLE_DIS_PNP_ID_VENDOR_SOURCE_BLUETOOTH_SIG" value="0x01"/>
+   <macro name="QAPI_BLE_DIS_PNP_ID_VENDOR_SOURCE_USB_IMPLEMENTORS_FORUM" value="0x02"/>
+   <structure name="qapi_BLE_DIS_System_ID_Value_t">
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="5" name="Manufacturer_Identifier" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="3" name="Organizationally_Unique_Identifier" type="qapi_BLE_NonAlignedByte_t"/>
+   </structure>
+   <structure name="qapi_BLE_DIS_PNP_ID_Value_t">
+      <member attributes="value" name="VendorID_Source" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="VendorID" type="qapi_BLE_NonAlignedWord_t"/>
+      <member attributes="value" name="ProductID" type="qapi_BLE_NonAlignedWord_t"/>
+      <member attributes="value" name="ProductVersion" type="qapi_BLE_NonAlignedWord_t"/>
+   </structure>
+</header>

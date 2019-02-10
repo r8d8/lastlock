@@ -1,0 +1,159 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="qapi_zb_cl.h"/>
+   <include name="qapi_zb_cl_ias_zone.h"/>
+   <macro name="QAPI_ZB_CL_IASWD_ATTR_ID_MAX_DURATION" value="(0x0000) "/>
+   <macro name="QAPI_ZB_CL_IASWD_CLIENT_COMMAND_ID_START_WARNING" value="(0x00) "/>
+   <macro name="QAPI_ZB_CL_IASWD_CLIENT_COMMAND_ID_SQUAWK" value="(0x01) "/>
+   <enum name="qapi_ZB_CL_IASWD_Client_Event_Type_t">
+      <member name="QAPI_ZB_CL_IASWD_CLIENT_EVENT_TYPE_ATTR_CUSTOM_READ_E" value="0"/>
+      <member name="QAPI_ZB_CL_IASWD_CLIENT_EVENT_TYPE_ATTR_CUSTOM_WRITE_E" value="1"/>
+      <member name="QAPI_ZB_CL_IASWD_CLIENT_EVENT_TYPE_DEFAULT_RESPONSE_E" value="2"/>
+      <member name="QAPI_ZB_CL_IASWD_CLIENT_EVENT_TYPE_COMMAND_COMPLETE_E" value="3"/>
+      <member name="QAPI_ZB_CL_IASWD_CLIENT_EVENT_TYPE_UNPARSED_RESPONSE_E" value="4"/>
+      <member name="" value="3"/>
+   </enum>
+   <enum name="qapi_ZB_CL_IASWD_Server_Event_Type_t">
+      <member name="QAPI_ZB_CL_IASWD_SERVER_EVENT_TYPE_ATTR_CUSTOM_READ_E" value="0"/>
+      <member name="QAPI_ZB_CL_IASWD_SERVER_EVENT_TYPE_ATTR_CUSTOM_WRITE_E" value="1"/>
+      <member name="QAPI_ZB_CL_IASWD_SERVER_EVENT_TYPE_UNPARSED_DATA_E" value="2"/>
+      <member name="QAPI_ZB_CL_IASWD_SERVER_EVENT_TYPE_START_WARNING_E" value="3"/>
+      <member name="QAPI_ZB_CL_IASWD_SERVER_EVENT_TYPE_SQUAWK_E" value="4"/>
+   </enum>
+   <enum name="qapi_ZB_CL_IASWD_Warning_Mode_t">
+      <member name="QAPI_ZB_CL_IASWD_WARNING_MODE_STOP_E" value="0x00"/>
+      <member name="QAPI_ZB_CL_IASWD_WARNING_MODE_BURGLAR_E" value="0x01"/>
+      <member name="QAPI_ZB_CL_IASWD_WARNING_MODE_FIRE_E" value="0x02"/>
+      <member name="QAPI_ZB_CL_IASWD_WARNING_MODE_EMERGENCY_E" value="0x03"/>
+      <member name="QAPI_ZB_CL_IASWD_WARNING_MODE_POLICE_PANIC_E" value="0x04"/>
+      <member name="QAPI_ZB_CL_IASWD_WARNING_MODE_FIRE_PANIC_E" value="0x05"/>
+      <member name="QAPI_ZB_CL_IASWD_WARNING_MODE_EMERGENCY_PANIC_E" value="0x06"/>
+   </enum>
+   <enum name="qapi_ZB_CL_IASWD_Strobe_Mode_t">
+      <member name="QAPI_ZB_CL_IASWD_STROBE_MODE_NO_STORBE_E" value="0x00"/>
+      <member name="QAPI_ZB_CL_IASWD_STROBE_MODE_USE_STORBE_IN_PARALLEL_E" value="0x01"/>
+      <member name="" value="0"/>
+   </enum>
+   <enum name="qapi_ZB_CL_IASWD_Level_t">
+      <member name="QAPI_ZB_CL_IASWD_SIREN_LEVEL_LOW_E" value="0x00"/>
+      <member name="QAPI_ZB_CL_IASWD_SIREN_LEVEL_MEDIUM_E" value="0x01"/>
+      <member name="QAPI_ZB_CL_IASWD_SIREN_LEVEL_HIGH_E" value="0x02"/>
+      <member name="QAPI_ZB_CL_IASWD_SIREN_LEVEL_VERY_HIGH_E" value="0x03"/>
+   </enum>
+   <enum name="qapi_ZB_CL_IASWD_Squawk_Mode_t">
+      <member name="QAPI_ZB_CL_IASWD_NOTIFICATION_SOUND_SYSTEM_ARMED_E" value="0x00"/>
+      <member name="QAPI_ZB_CL_IASWD_NOTIFICATION_SOUND_SYSTEM_DISARMED_E" value="0x01"/>
+   </enum>
+   <structure name="qapi_ZB_CL_IASWD_Start_Warning_t">
+      <member attributes="value" name="WarningMode" type="qapi_ZB_CL_IASWD_Warning_Mode_t"/>
+      <member attributes="value" name="StrobeMode" type="qapi_ZB_CL_IASWD_Strobe_Mode_t"/>
+      <member attributes="value" name="SirenLevel" type="qapi_ZB_CL_IASWD_Level_t"/>
+      <member attributes="value" name="WarningDuration" type="uint16_t"/>
+      <member attributes="value" name="StrobeDutyCycle" type="uint8_t"/>
+      <member attributes="value" name="StrobeLevel" type="qapi_ZB_CL_IASWD_Level_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_IASWD_Start_Warning_Event_t">
+      <member attributes="value" name="WarningMode" type="qapi_ZB_CL_IASWD_Warning_Mode_t"/>
+      <member attributes="value" name="StrobeMode" type="qapi_ZB_CL_IASWD_Strobe_Mode_t"/>
+      <member attributes="value" name="SirenLevel" type="qapi_ZB_CL_IASWD_Level_t"/>
+      <member attributes="value" name="WarningDuration" type="uint16_t"/>
+      <member attributes="value" name="StrobeDutyCycle" type="uint8_t"/>
+      <member attributes="value" name="StrobeLevel" type="qapi_ZB_CL_IASWD_Level_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_IASWD_Squawk_t">
+      <member attributes="value" name="SquawkMode" type="qapi_ZB_CL_IASWD_Squawk_Mode_t"/>
+      <member attributes="value" name="SquawkStrobeMode" type="qapi_ZB_CL_IASWD_Strobe_Mode_t"/>
+      <member attributes="value" name="SquawkLevel" type="qapi_ZB_CL_IASWD_Level_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_IASWD_Squawk_Event_t">
+      <member attributes="value" name="SquawkMode" type="qapi_ZB_CL_IASWD_Squawk_Mode_t"/>
+      <member attributes="value" name="SquawkStrobeMode" type="qapi_ZB_CL_IASWD_Strobe_Mode_t"/>
+      <member attributes="value" name="SquawkLevel" type="qapi_ZB_CL_IASWD_Level_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_IASWD_Client_Event_Data_t">
+      <member attributes="value" name="Event_Type" type="qapi_ZB_CL_IASWD_Client_Event_Type_t"/>
+      <member attributes="union" name="Data">
+         <member attributes="value" name="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t"/>
+         <member attributes="value" name="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t"/>
+         <member attributes="value" name="Default_Response" type="qapi_ZB_CL_Default_Response_t"/>
+         <member attributes="value" name="Command_Complete" type="qapi_ZB_CL_Command_Complete_t"/>
+         <member attributes="value" name="Unparsed_Response" type="qapi_ZB_CL_Unparsed_Response_t"/>
+         <unionMap mapVerified="yes" name="Event_Type" type="qapi_ZB_CL_IASWD_Client_Event_Type_t">
+            <mapEntry member="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t" value="QAPI_ZB_CL_IASWD_CLIENT_EVENT_TYPE_ATTR_CUSTOM_READ_E"/>
+            <mapEntry member="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t" value="QAPI_ZB_CL_IASWD_CLIENT_EVENT_TYPE_ATTR_CUSTOM_WRITE_E"/>
+            <mapEntry member="Default_Response" type="qapi_ZB_CL_Default_Response_t" value="QAPI_ZB_CL_IASWD_CLIENT_EVENT_TYPE_DEFAULT_RESPONSE_E"/>
+            <mapEntry member="Command_Complete" type="qapi_ZB_CL_Command_Complete_t" value="QAPI_ZB_CL_IASWD_CLIENT_EVENT_TYPE_COMMAND_COMPLETE_E"/>
+            <mapEntry member="Unparsed_Response" type="qapi_ZB_CL_Unparsed_Response_t" value="QAPI_ZB_CL_IASWD_CLIENT_EVENT_TYPE_UNPARSED_RESPONSE_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_ZB_CL_IASWD_Server_Event_Data_t">
+      <member attributes="value" name="Event_Type" type="qapi_ZB_CL_IASWD_Server_Event_Type_t"/>
+      <member attributes="union" name="Data">
+         <member attributes="value" name="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t"/>
+         <member attributes="value" name="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t"/>
+         <member attributes="value" name="Unparsed_Data" type="qapi_ZB_CL_Unparsed_Data_t"/>
+         <member attributes="value" name="Start_Warning" type="qapi_ZB_CL_IASWD_Start_Warning_Event_t"/>
+         <member attributes="value" name="Squawk" type="qapi_ZB_CL_IASWD_Squawk_Event_t"/>
+         <unionMap mapVerified="yes" name="Event_Type" type="qapi_ZB_CL_IASWD_Server_Event_Type_t">
+            <mapEntry member="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t" value="QAPI_ZB_CL_IASWD_SERVER_EVENT_TYPE_ATTR_CUSTOM_READ_E"/>
+            <mapEntry member="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t" value="QAPI_ZB_CL_IASWD_SERVER_EVENT_TYPE_ATTR_CUSTOM_WRITE_E"/>
+            <mapEntry member="Unparsed_Data" type="qapi_ZB_CL_Unparsed_Data_t" value="QAPI_ZB_CL_IASWD_SERVER_EVENT_TYPE_UNPARSED_DATA_E"/>
+            <mapEntry member="Start_Warning" type="qapi_ZB_CL_IASWD_Start_Warning_Event_t" value="QAPI_ZB_CL_IASWD_SERVER_EVENT_TYPE_START_WARNING_E"/>
+            <mapEntry member="Squawk" type="qapi_ZB_CL_IASWD_Squawk_Event_t" value="QAPI_ZB_CL_IASWD_SERVER_EVENT_TYPE_SQUAWK_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <function name="qapi_ZB_CL_IASWD_Create_Client">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Cluster_Info" type="qapi_ZB_CL_Cluster_Info_t"/>
+      <argument attributes="value" name="Event_CB" type="qapi_ZB_CL_IASWD_Client_CB_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+   </function>
+   <function name="qapi_ZB_CL_IASWD_Create_Server">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Cluster_Info" type="qapi_ZB_CL_Cluster_Info_t"/>
+      <argument attributes="value" name="Event_CB" type="qapi_ZB_CL_IASWD_Server_CB_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+   </function>
+   <function name="qapi_ZB_CL_IASWD_Populate_Attributes">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Server" type="qbool_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="AttributeCount" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="AttributeCount" lengthVerified="yes" name="AttributeList" type="qapi_ZB_CL_Attribute_t"/>
+   </function>
+   <function name="qapi_ZB_CL_IASWD_Client_Send_Start_Warning">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="Request" type="qapi_ZB_CL_IASWD_Start_Warning_t"/>
+   </function>
+   <function name="qapi_ZB_CL_IASWD_Client_Send_Squawk">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="Request" type="qapi_ZB_CL_IASWD_Squawk_t"/>
+   </function>
+   <callback name="qapi_ZB_CL_IASWD_Client_CB_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Event_Data" type="qapi_ZB_CL_IASWD_Client_Event_Data_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+      <createFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_IASWD_Create_Client" param="CB_Param"/>
+      <destroyFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_Destroy_Cluster"/>
+   </callback>
+   <callback name="qapi_ZB_CL_IASWD_Server_CB_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Event_Data" type="qapi_ZB_CL_IASWD_Server_Event_Data_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+      <createFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_IASWD_Create_Server" param="CB_Param"/>
+      <destroyFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_Destroy_Cluster"/>
+   </callback>
+</header>

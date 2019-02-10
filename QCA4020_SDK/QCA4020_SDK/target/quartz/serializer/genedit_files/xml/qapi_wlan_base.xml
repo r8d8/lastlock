@@ -1,0 +1,954 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="&lt;stdint.h&gt;"/>
+   <include name="qapi_status.h"/>
+   <include name="qapi_wlan_errors.h"/>
+   <macro name="__QAPI_WLAN_DEVICE0_NAME" value="&quot;wlan0&quot;"/>
+   <macro name="__QAPI_WLAN_DEVICE1_NAME" value="&quot;wlan1&quot;"/>
+   <macro name="__QAPI_WLAN_MAC_LEN" value="6"/>
+   <macro name="__QAPI_WLAN_MAX_SSID_LEN" value="32"/>
+   <macro name="__QAPI_WLAN_MAX_SSID_LENGTH" value="(32+1)"/>
+   <macro name="__QAPI_WLAN_PASSPHRASE_LEN" value="64"/>
+   <macro name="__QAPI_WLAN_PNO_MAX_NETWORK_PROFILES" value="5"/>
+   <macro name="__QAPI_WLAN_IPV6_ADDR_LEN" value="16 "/>
+   <macro name="__QAPI_WLAN_IPV4_ADDR_LEN" value="4"/>
+   <macro name="__QAPI_WLAN_WPS_PIN_LEN" value="9"/>
+   <macro name="__QAPI_WLAN_WPS_MAX_KEY_LEN" value="64"/>
+   <macro name="__QAPI_WLAN_PROMISC_MAX_FILTER_IDX" value="3"/>
+   <macro name="__QAPI_WLAN_MAX_NUM_CUR_REGDOAMIN_CHANLIST_CHNNELS" value="64"/>
+   <macro name="__QAPI_WLAN_PROM_FILTER_SOURCE" value="0x01"/>
+   <macro name="__QAPI_WLAN_PROM_FILTER_DEST" value="0x02"/>
+   <macro name="__QAPI_WLAN_PROM_FILTER_FRAME_TYPE" value="0x04"/>
+   <macro name="__QAPI_WLAN_PROM_FILTER_FRAME_SUB_TYPE" value="0x08"/>
+   <macro name="__QAPI_WLAN_PKTLOG_NUM_BUFF" value="4"/>
+   <macro name="__QAPI_WLAN_MAX_PKTLOG_NUM_BUFF" value="10"/>
+   <macro name="__QAPI_WLAN_DBGLOG_MAX_MODULE_ID" value="64"/>
+   <macro name="__QAPI_WLAN_DBGLOG_LOGLEVEL_INFO_LEN" value="8"/>
+   <macro name="__QAPI_WLAN_DBGLOG_DEFAULT_MODULE_MASK" value="0xFFFFFFFFFFFFFFFFLL"/>
+   <macro name="__QAPI_WLAN_DBGLOG_GLOBAL_MODULE_ID" value="0xFF"/>
+   <macro name="__QAPI_WLAN_DBGLOG_DEFAULT_MODULE_LOG_LEVEL" value="0x88888888"/>
+   <macro name="__QAPI_WLAN_DBGLOG_LOCAL_DBG_PORT" value="0"/>
+   <macro name="__QAPI_WLAN_DBGLOG_REMOTE_DBG_PORT" value="1"/>
+   <macro name="__QAPI_WLAN_DBGLOG_CFG_LOG_LEVEL_FLAG_MASK" value="0x01"/>
+   <macro name="__QAPI_WLAN_DBGLOG_CFG_DEBUG_PORT_FLAG_MASK" value="0x02"/>
+   <macro name="__QAPI_WLAN_DBGLOG_CFG_REPORT_FLAG_MASK" value="0x04"/>
+   <macro name="__QAPI_WLAN_DBGLOG_CFG_REPORT_SIZE_FLAG_MASK" value="0x08"/>
+   <macro name="__QAPI_WLAN_DBGLOG_CFG_TIMER_RESOLUTION_FLAG_MASK" value="0x10"/>
+   <macro name="__QAPI_WLAN_DBGLOG_NIBBLE_CNT_IN_WORD_MEMORY" value="8"/>
+   <macro name="__QAPI_WLAN_DBGLOG_BIT_CNT_IN_WORD_MEMORY" value="32"/>
+   <macro name="__QAPI_WLAN_CHAN_FREQ_1" value="(2412)"/>
+   <macro name="__QAPI_WLAN_CHAN_FREQ_2" value="(2417)"/>
+   <macro name="__QAPI_WLAN_CHAN_FREQ_3" value="(2422)"/>
+   <macro name="__QAPI_WLAN_CHAN_FREQ_4" value="(2427)"/>
+   <macro name="__QAPI_WLAN_CHAN_FREQ_5" value="(2432)"/>
+   <macro name="__QAPI_WLAN_CHAN_FREQ_6" value="(2437)"/>
+   <macro name="__QAPI_WLAN_CHAN_FREQ_7" value="(2442)"/>
+   <macro name="__QAPI_WLAN_CHAN_FREQ_8" value="(2447)"/>
+   <macro name="__QAPI_WLAN_CHAN_FREQ_9" value="(2452)"/>
+   <macro name="__QAPI_WLAN_CHAN_FREQ_10" value="(2457)"/>
+   <macro name="__QAPI_WLAN_CHAN_FREQ_11" value="(2462)"/>
+   <macro name="__QAPI_WLAN_CHAN_FREQ_12" value="(2467)"/>
+   <macro name="__QAPI_WLAN_CHAN_FREQ_13" value="(2472)"/>
+   <macro name="__QAPI_WLAN_CHAN_FREQ_14" value="(2484)"/>
+   <macro name="__QAPI_WLAN_CHAN_FREQ_36" value="(5180)"/>
+   <macro name="__QAPI_WLAN_CHAN_FREQ_40" value="(5200)"/>
+   <macro name="__QAPI_WLAN_CHAN_FREQ_44" value="(5220)"/>
+   <macro name="__QAPI_WLAN_CHAN_FREQ_48" value="(5240)"/>
+   <macro name="__QAPI_WLAN_CHAN_FREQ_52" value="(5260)"/>
+   <macro name="__QAPI_WLAN_CHAN_FREQ_56" value="(5280)"/>
+   <macro name="__QAPI_WLAN_CHAN_FREQ_60" value="(5300)"/>
+   <macro name="__QAPI_WLAN_CHAN_FREQ_64" value="(5320)"/>
+   <macro name="__QAPI_WLAN_CHAN_FREQ_100" value="(5500)"/>
+   <macro name="__QAPI_WLAN_CHAN_FREQ_104" value="(5520)"/>
+   <macro name="__QAPI_WLAN_CHAN_FREQ_108" value="(5540)"/>
+   <macro name="__QAPI_WLAN_CHAN_FREQ_112" value="(5560)"/>
+   <macro name="__QAPI_WLAN_CHAN_FREQ_116" value="(5580)"/>
+   <macro name="__QAPI_WLAN_CHAN_FREQ_132" value="(5660)"/>
+   <macro name="__QAPI_WLAN_CHAN_FREQ_136" value="(5680)"/>
+   <macro name="__QAPI_WLAN_CHAN_FREQ_140" value="(5700)"/>
+   <macro name="__QAPI_WLAN_CHAN_FREQ_149" value="(5745)"/>
+   <macro name="__QAPI_WLAN_CHAN_FREQ_153" value="(5765)"/>
+   <macro name="__QAPI_WLAN_CHAN_FREQ_157" value="(5785)"/>
+   <macro name="__QAPI_WLAN_CHAN_FREQ_161" value="(5805)"/>
+   <macro name="__QAPI_WLAN_CHAN_FREQ_165" value="(5825)"/>
+   <macro name="__QAPI_WLAN_SECURITY_AUTH_PSK" value="0x01"/>
+   <macro name="__QAPI_WLAN_SECURITY_AUTH_1X" value="0x02"/>
+   <macro name="__QAPI_WLAN_AR4XXX_PARAM_MODE_NORMAL" value="(0x00000002)"/>
+   <macro name="__QAPI_WLAN_AR4XXX_PARAM_MODE_BMI" value="(0x00000003)"/>
+   <macro name="__QAPI_WLAN_AR4XXX_PARAM_MODE_MASK" value="(0x0000000f)"/>
+   <macro name="__QAPI_WLAN_AR4XXX_PARAM_QUAD_SPI_FLASH" value="(0x80000000)"/>
+   <macro name="__QAPI_WLAN_AR4XXX_PARAM_RAWMODE_BOOT" value="(0x00000010 | __QAPI_WLAN_AR4XXX_PARAM_MODE_NORMAL)"/>
+   <macro name="__QAPI_WLAN_AR4XXX_PARAM_MACPROG_MODE" value="(0x00000020 | __QAPI_WLAN_AR4XXX_PARAM_MODE_NORMAL)"/>
+   <macro name="__QAPI_WLAN_AR4XXX_PARAM_RAW_QUAD" value="(__QAPI_WLAN_AR4XXX_PARAM_RAWMODE_BOOT | __QAPI_WLAN_AR4XXX_PARAM_QUAD_SPI_FLASH)"/>
+   <macro name="__QAPI_WLAN_AR4XXX_PARAM_REG_DOMAIN_DEFAULT" value="(0x00000000) "/>
+   <macro name="__QAPI_WLAN_CIPHER_TYPE_TKIP" value="0x04"/>
+   <macro name="__QAPI_WLAN_CIPHER_TYPE_CCMP" value="0x08"/>
+   <macro name="__QAPI_WLAN_CIPHER_TYPE_WEP" value="0x02"/>
+   <macro name="__QAPI_WLAN_MAX_WEP_KEY_SZ" value="16"/>
+   <macro name="__QAPI_MAX_SCAN_RESULT_ENTRY" value="12"/>
+   <macro name="__QAPI_WLAN_SHORTSCANRATIO_DEFAULT" value="3"/>
+   <macro name="__QAPI_WLAN_MAX_NS_OFFLOAD_TUPLES" value="2"/>
+   <macro name="__QAPI_WLAN_MAX_ARP_OFFLOAD_TUPLES" value="2"/>
+   <macro name="__QAPI_WLAN_NSOFF_MAX_TARGET_IPS" value="2"/>
+   <macro name="__QAPI_WLAN_START_SCAN_PARAMS_CHANNEL_LIST_MAX" value="12"/>
+   <macro name="__QAPI_WLAN_MAX_NUM_FILTERED_EVENTS" value="64"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_SYSTEM" value="0"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS" value="1"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_SECURITY" value="2"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_P2P" value="3"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_SYSTEM_ENABLE_SUSPEND_RESUME" value="0"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_SYSTEM_DBGLOG_ENABLE" value="1"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_SYSTEM_DBGLOG_CONFIG" value="2"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_SYSTEM_DBGLOG_MODULE_CONFIG" value="3"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_SYSTEM_PKTLOG_ENABLE" value="4"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_SYSTEM_PKTLOG_START" value="5"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_SYSTEM_FIRMWARE_VERSION" value="7"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_SYSTEM_DRIVER_NETBUF_POOL_SIZE" value="8"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_SYSTEM_LAST_ERROR" value="9"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_SYSTEM_DRIVER_REG_QUERY" value="10"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_SYSTEM_DRIVER_FORCE_ASSERT" value="11"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_SYSTEM_DRIVER_SLEEP_INFO" value="12"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_OPERATION_MODE" value="1"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_CHANNEL" value="2"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_SCAN_PARAMS" value="3"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_TX_POWER_IN_DBM" value="4"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_SSID" value="5"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_BSSID" value="6"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_PHY_MODE" value="7"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_ENABLE_PROBE_REQ_FWD_TO_HOST" value="8"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_ALLOW_TX_RX_AGGR_SET_TID" value="9"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_ENABLE_ROAMING" value="10"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_ENABLE_PROMISCUOUS_MODE" value="11"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_CHIP_LINK_STATE" value="12"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_POWER_MODE_POLICY" value="13"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_POWER_MODE_PARAMS" value="14"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_DISCONNECT_REASON" value="15"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_COUNTRY_CODE" value="16"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_ENABLE_WAKE_ON_WIRELESS" value="17"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_ADD_PATTERN" value="18"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_ENABLE_GREEN_TX" value="19"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_ENABLE_LOW_POWER_LISTEN" value="20"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_RATE" value="21"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_REG_DOMAIN" value="22"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_MAC_ADDRESS" value="23"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_TX_STATUS" value="24"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_STATS" value="25"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_PREFERRED_NETWORK_OFFLOAD_ENABLE" value="26"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_PREFERRED_NETWORK_PROFILE" value="27"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_APP_IE" value="28"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_ENABLE_COEX" value="29"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_COEX_STATS" value="30"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_STA_KEEP_ALIVE_IN_SEC" value="31"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_STA_LISTEN_INTERVAL_IN_TU" value="32"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_RSSI" value="33"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_RSSI_THRESHOLD" value="34"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_TCP_KEEPALIVE_OFFLOAD_ENABLE" value="35"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_TCP_KEEPALIVE_OFFLOAD_SESSION_CFG" value="36"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_STA_UAPSD" value="37"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_STA_MAX_SP_LEN" value="38"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_AP_BEACON_INTERVAL_IN_TU" value="40"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_AP_ENABLE_HIDDEN_MODE" value="41"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_AP_CONNECT_CONTROL_FLAG" value="42"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_AP_INACTIVITY_TIME_IN_MINS" value="43"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_AP_WPS_FLAG" value="44"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_AP_DTIM_INTERVAL" value="45"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_AP_PS_BUF" value="46"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_WOW_GPIO_CONFIG" value="47"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_ARP_OFFLOAD_PARAMS" value="48"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_NS_OFFLOAD_PARAMS" value="49"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_ENABLE_PKT_FILTER" value="50"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_DELETE_PATTERN" value="51"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_AP_ENABLE_UAPSD" value="52"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_AGGRX_CONFIG" value="53"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_WNM_CONFIG" value="54"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_WNM_STA_SLEEP_PERIOD" value="55"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_WNM_AP_BSS_MAX_IDLE_PERIOD" value="56"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_WNM_AP_SLEEP_RESPONSE" value="57"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_AP_CHANNEL_SWITCH" value="58"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_EVENT_FILTER" value="59"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_11N_HT" value="60"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_STA_BMISS_CONFIG" value="61"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_CHANGE_DEFAULT_FILTER_ACTION" value="62"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_AP_COUNTRY_CODE" value="63"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_CONFIG_SCO_COEX" value="64"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_CONFIG_A2DP_COEX" value="65"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_CONFIG_ACL_COEX" value="66"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_CONFIG_INQPAGE_COEX" value="67"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_CONFIG_HID_COEX" value="68"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_OVERRIDE_WGHTS_COEX" value="69"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_WIRELESS_GET_CURR_REGDOMAIN_CHANNEL_LIST" value="70"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_SECURITY_AUTH_MODE" value="0"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_SECURITY_ENCRYPTION_TYPE" value="1"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_SECURITY_PMK" value="2"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_SECURITY_PASSPHRASE" value="3"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_SECURITY_WEP_KEY_INDEX" value="4"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_SECURITY_WEP_KEY_PAIR" value="5"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_SECURITY_WPS_CREDENTIALS" value="6"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_P2P_CONFIG_PARAMS" value="0"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_P2P_OPPS_PARAMS" value="1"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_P2P_NOA_PARAMS" value="2"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_P2P_NODE_LIST" value="3"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_P2P_NETWORK_LIST" value="4"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_P2P_LISTEN_CHANNEL" value="6"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_P2P_SSID_POSTFIX" value="8"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_P2P_INTRA_BSS" value="9"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_P2P_GO_INTENT" value="11"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_P2P_DEV_NAME" value="12"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_P2P_OP_MODE" value="13"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_P2P_CCK_RATES" value="14"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_P2P_GO_PARAMS" value="5"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_P2P_CROSS_CONNECT" value="7"/>
+   <macro name="__QAPI_WLAN_PARAM_GROUP_P2P_CONCURRENT_MODE" value="10"/>
+   <macro name="__QAPI_WLAN_VERSION_SUBSTRING_LEN" value="20"/>
+   <macro name="__QAPI_WLAN_PATTERN_MAX_SIZE" value="128"/>
+   <macro name="__QAPI_WLAN_PATTERN_MASK" value="(__QAPI_WLAN_PATTERN_MAX_SIZE/8)"/>
+   <macro name="__QAPI_WLAN_PATTERN_REJECT_FLAG" value="0x1"/>
+   <macro name="__QAPI_WLAN_PATTERN_ACCEPT_FLAG" value="0x2"/>
+   <macro name="__QAPI_WLAN_PATTERN_DEFER_FLAG" value="0x4"/>
+   <macro name="__QAPI_WLAN_PATTERN_WOW_FLAG" value="0x80"/>
+   <macro name="__QAPI_WLAN_DEFAULT_FILTER_INDEX" value="0"/>
+   <macro name="__QAPI_WLAN_MAX_FILTER_INDEX" value="8"/>
+   <macro name="__QAPI_WLAN_DELETE_ALL_FILTER_INDEX" value="0xFF"/>
+   <macro name="__QAPI_WLAN_DEFAULT_FILTER_PRIORITY" value="0"/>
+   <macro name="__QAPI_WLAN_TX_STATUS_IDLE" value="0x01"/>
+   <macro name="__QAPI_WLAN_TX_STATUS_HOST_PENDING" value="0x02"/>
+   <macro name="__QAPI_WLAN_TX_STATUS_WIFI_PENDING" value="0x03"/>
+   <macro name="__QAPI_WLAN_AGGRX_BUFFER_SIZE_MAX" value="16"/>
+   <macro name="__QAPI_WLAN_AGGRX_CFG_INVAL" value="0xFF"/>
+   <macro name="__QAPI_WLAN_PARAM_WLAN_TEST_MCC" value="0"/>
+   <macro name="__QAPI_WLAN_DEFAULT_SCAN_CTRL_FLAGS" value="( QAPI_WLAN_CONNECT_SCAN_CTRL_FLAGS_E| QAPI_WLAN_SCAN_CONNECTED_CTRL_FLAGS_E| QAPI_WLAN_ACTIVE_SCAN_CTRL_FLAGS_E| QAPI_WLAN_ROAM_SCAN_CTRL_FLAGS_E| QAPI_WLAN_ENABLE_AUTO_CTRL_FLAGS_E )"/>
+   <enum name="qapi_WLAN_Enable_e"/>
+   <enum name="qapi_WLAN_Scan_Ctrl_Flag_bits_e"/>
+   <enum name="qapi_WLAN_Store_Scan_Results_e"/>
+   <enum name="qapi_WLAN_Scan_Status_e"/>
+   <enum name="qapi_WLAN_Callback_ID_e"/>
+   <enum name="qapi_WLAN_Filterable_Event_e"/>
+   <enum name="qapi_WLAN_Wait_For_Status_e"/>
+   <enum name="qapi_WLAN_Dev_Mode_e"/>
+   <enum name="qapi_WLAN_Phy_Mode_e"/>
+   <enum name="qapi_WLAN_11n_HT_Config_e"/>
+   <enum name="qapi_WLAN_Power_Mode_e"/>
+   <enum name="qapi_WLAN_Power_Module_e"/>
+   <enum name="qapi_WLAN_Bit_Rate_t"/>
+   <enum name="qapi_WLAN_DTIM_Policy_e"/>
+   <enum name="qapi_WLAN_TX_Wakeup_Policy_e"/>
+   <enum name="qapi_WLAN_Power_Save_Policy_e"/>
+   <enum name="qapi_WLAN_IP_Protocol_Type_e"/>
+   <enum name="qapi_WLAN_Wow_Gpio_Active_Edge_e"/>
+   <enum name="qapi_WLAN_Wow_Gpio_Trigger_Policy_e"/>
+   <enum name="qapi_WLAN_Pkt_Filter_Type_e"/>
+   <enum name="qapi_WLAN_Auth_Mode_e"/>
+   <enum name="qapi_WLAN_Crypt_Type_e"/>
+   <enum name="qapi_WLAN_Raw_Mode_Header_Type_e"/>
+   <enum name="qapi_WLAN_WPS_Connect_Action_e"/>
+   <enum name="qapi_WLAN_WPS_Mode_e"/>
+   <enum name="qapi_WLAN_WPS_Status_Code_e"/>
+   <enum name="qapi_WLAN_WPS_Error_Code_e"/>
+   <enum name="qapi_WLAN_Mac_Result_e"/>
+   <enum name="qapi_WLAN_Dbglog_Port_e"/>
+   <enum name="qapi_WLAN_Driver_RegQuery_Params_e"/>
+   <enum name="QAPI_WLAN_Coex_Enable_Disable_e"/>
+   <enum name="QAPI_WLAN_Coex_Mode_e"/>
+   <enum name="QAPI_WLAN_Coex_Num_Priority_Levels_e"/>
+   <enum name="QAPI_WLAN_Coex_Priority_Level_Threshold_e"/>
+   <enum name="QAPI_WLAN_Coex_Wlan_Priority_e"/>
+   <enum name="qapi_Bt_Profile_e"/>
+   <enum name="qapi_Bt_Fe_Ant_t"/>
+   <enum name="qapi_WLAN_Coex_Config_t"/>
+   <enum name="qapi_WLAN_Mode_e"/>
+   <enum name="qapi_WLAN_Mgmt_Frame_Type_e"/>
+   <enum name="qapi_WLAN_Disconnect_Reason_t"/>
+   <enum name="qapi_WLAN_FTM_CMD_e"/>
+   <structure name="qapi_WLAN_Start_Scan_Params_t">
+      <member attributes="value" name="force_Fg_Scan" type="int32_t"/>
+      <member attributes="value" name="home_Dwell_Time_In_Ms" type="uint32_t"/>
+      <member attributes="value" name="force_Scan_Interval_In_Ms" type="uint32_t"/>
+      <member attributes="value" name="scan_Type" type="uint8_t"/>
+      <member attributes="value" name="num_Channels" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="1" name="channel_List" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_WLAN_BSS_Scan_Info_t">
+      <member attributes="value" name="channel" type="uint8_t"/>
+      <member attributes="value" name="ssid_Length" type="uint8_t"/>
+      <member attributes="value" name="rssi" type="uint8_t"/>
+      <member attributes="value" name="security_Enabled" type="uint8_t"/>
+      <member attributes="value" name="beacon_Period" type="uint16_t"/>
+      <member attributes="value" name="preamble" type="uint8_t"/>
+      <member attributes="value" name="bss_type" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAC_LEN" name="bssid" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAX_SSID_LEN" name="ssid" type="uint8_t"/>
+      <member attributes="value" name="rsn_Cipher" type="uint8_t"/>
+      <member attributes="value" name="rsn_Auth" type="uint8_t"/>
+      <member attributes="value" name="wpa_Cipher" type="uint8_t"/>
+      <member attributes="value" name="wpa_Auth" type="uint8_t"/>
+      <member attributes="value" name="caps" type="uint16_t"/>
+      <member attributes="value" name="wep_Support" type="uint8_t"/>
+      <member attributes="value" name="reserved" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Scan_Status_t">
+      <member attributes="value" name="scan_Mode" type="uint16_t"/>
+      <member attributes="value" name="scan_Status" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_WLAN_BSS_Scan_Info_ExtV1_t">
+      <member attributes="value" name="info" type="qapi_WLAN_BSS_Scan_Info_t"/>
+      <member attributes="value" name="is_beacon" type="int32_t"/>
+      <member attributes="ptr,const" iotype="in" lengthParam="beacon_IEs_Len" lengthVerified="no" name="beacon_IEs" type="uint8_t"/>
+      <member attributes="value" name="beacon_IEs_Len" type="uint16_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="6" name="reserved" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Connect_Cb_Info_t">
+      <member attributes="value" name="value" type="int32_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAC_LEN" name="mac_Addr" type="uint8_t"/>
+      <member attributes="value" name="bss_Connection_Status" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Connect_Cb_Info_ExtV1_t">
+      <member attributes="value" name="info" type="qapi_WLAN_Connect_Cb_Info_t"/>
+      <member attributes="ptr,const" iotype="in" lengthParam="req_IEs_Len" lengthVerified="no" name="req_IEs" type="uint8_t"/>
+      <member attributes="ptr,const" iotype="in" lengthParam="resp_IEs_Len" lengthVerified="no" name="resp_IEs" type="uint8_t"/>
+      <member attributes="ptr,const" iotype="in" lengthParam="beacon_IEs_Len" lengthVerified="no" name="beacon_IEs" type="uint8_t"/>
+      <member attributes="value" name="req_IEs_Len" type="uint8_t"/>
+      <member attributes="value" name="resp_IEs_Len" type="uint8_t"/>
+      <member attributes="value" name="beacon_IEs_Len" type="uint8_t"/>
+      <member attributes="value" name="channel" type="uint8_t"/>
+      <member attributes="value" name="listen_Interval" type="uint16_t"/>
+      <member attributes="value" name="beacon_Interval" type="uint16_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="8" name="reserved" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Ready_Cb_Info_t">
+      <member attributes="value" name="numDevices" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Connect_Coex_Cb_Info_t">
+      <member attributes="value" name="frequency_MHz" type="uint16_t"/>
+      <member attributes="value" name="chan_40Mhz" type="uint8_t"/>
+      <member attributes="value" name="value" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Scan_Complete_Cb_Info_t">
+      <member attributes="value" name="num_Bss_Info" type="uint32_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="1" name="bss_Info" type="qapi_WLAN_BSS_Scan_Info_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Fwd_Probe_Request_Cb_Info_t">
+      <member attributes="value" name="frequency" type="int32_t"/>
+      <member attributes="value" name="buffer_Length" type="int32_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="buffer_Length" lengthVerified="no" name="probe_Req_Buffer" type="void"/>
+   </structure>
+   <structure name="qapi_WLAN_Device_Stats_t">
+      <member attributes="value" name="unicast_Tx_Pkts" type="uint32_t"/>
+      <member attributes="value" name="unicast_Rx_Pkts" type="uint32_t"/>
+      <member attributes="value" name="multicast_Tx_Pkts" type="uint32_t"/>
+      <member attributes="value" name="multicast_Rx_Pkts" type="uint32_t"/>
+      <member attributes="value" name="broadcast_Tx_Pkts" type="uint32_t"/>
+      <member attributes="value" name="broadcast_Rx_Pkts" type="uint32_t"/>
+      <member attributes="value" name="unicast_Non_Null_Tx_Pkts" type="uint32_t"/>
+      <member attributes="value" name="unicast_Non_Null_Rx_Pkts" type="uint32_t"/>
+      <member attributes="value" name="unicast_Filtered_Accepted_Tx_Pkts" type="uint32_t"/>
+      <member attributes="value" name="unicast_Filtered_Accepted_Rx_Pkts" type="uint32_t"/>
+      <member attributes="value" name="multicast_Filtered_Accepted_Tx_Pkts" type="uint32_t"/>
+      <member attributes="value" name="multicast_Filtered_Accepted_Rx_Pkts" type="uint32_t"/>
+      <member attributes="value" name="broadcast_Filtered_Accepted_Tx_Pkts" type="uint32_t"/>
+      <member attributes="value" name="broadcast_Filtered_Accepted_Rx_Pkts" type="uint32_t"/>
+      <member attributes="value" name="unicast_Filtered_Rejected_Tx_Pkts" type="uint32_t"/>
+      <member attributes="value" name="unicast_Filtered_Rejected_Rx_Pkts" type="uint32_t"/>
+      <member attributes="value" name="multicast_Filtered_Rejected_Tx_Pkts" type="uint32_t"/>
+      <member attributes="value" name="multicast_Filtered_Rejected_Rx_Pkts" type="uint32_t"/>
+      <member attributes="value" name="broadcast_Filtered_Rejected_Tx_Pkts" type="uint32_t"/>
+      <member attributes="value" name="broadcast_Filtered_Rejected_Rx_Pkts" type="uint32_t"/>
+      <member attributes="value" name="null_Tx_Pkts" type="uint32_t"/>
+      <member attributes="value" name="null_Rx_Pkts" type="uint32_t"/>
+      <member attributes="value" name="qos_Null_Tx_Pkts" type="uint32_t"/>
+      <member attributes="value" name="qos_Null_Rx_Pkts" type="uint32_t"/>
+      <member attributes="value" name="ps_Poll_Tx_Pkts" type="uint32_t"/>
+      <member attributes="value" name="ps_Poll_Rx_Pkts" type="uint32_t"/>
+      <member attributes="value" name="tx_Retry_Cnt" type="uint32_t"/>
+      <member attributes="value" name="beacon_Miss_Cnt" type="uint32_t"/>
+      <member attributes="value" name="beacons_Received_Cnt" type="uint32_t"/>
+      <member attributes="value" name="beacon_Resync_Success_Cnt" type="uint32_t"/>
+      <member attributes="value" name="beacon_Resync_Failure_Cnt" type="uint32_t"/>
+      <member attributes="value" name="curr_Early_Wakeup_Adj_In_Ms" type="uint32_t"/>
+      <member attributes="value" name="avg_Early_Wakeup_Adj_In_Ms" type="uint32_t"/>
+      <member attributes="value" name="early_Termination_Cnt" type="uint32_t"/>
+      <member attributes="value" name="uapsd_Trigger_Rx_Cnt" type="uint32_t"/>
+      <member attributes="value" name="uapsd_Trigger_Tx_Cnt" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Common_Stats_t">
+      <member attributes="value" name="total_Active_Time_In_Ms" type="uint32_t"/>
+      <member attributes="value" name="total_Powersave_Time_In_Ms" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Device_Stats_Ext_t">
+      <member attributes="value" name="rx_amsdu_pkts" type="uint32_t"/>
+      <member attributes="value" name="reserved" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Device_Stats_Ext2_t">
+      <member attributes="value" name="wmi_event_missed_last" type="uint16_t"/>
+      <member attributes="value" name="reserved" type="uint16_t"/>
+      <member attributes="value" name="wmi_event_missed_bitmap" type="uint32_t"/>
+      <member attributes="value" name="wmi_event_missed_cnt" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Statistics_t">
+      <member attributes="value" name="dev_Stats" type="qapi_WLAN_Device_Stats_t"/>
+      <member attributes="value" name="common_Stats" type="qapi_WLAN_Common_Stats_t"/>
+      <member attributes="value" name="dev_Stats_Ext" type="qapi_WLAN_Device_Stats_Ext_t"/>
+      <member attributes="value" name="dev_Stats_Ext2" type="qapi_WLAN_Device_Stats_Ext2_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Get_Statistics_t">
+      <member attributes="value" name="reset_Counters_Flag" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="reset_Counters_Flag" lengthVerified="no" name="wlan_Stats_Data" type="qapi_WLAN_Statistics_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Get_Channel_List_t">
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAX_NUM_CUR_REGDOAMIN_CHANLIST_CHNNELS" name="channel_List" type="uint16_t"/>
+      <member attributes="value" name="number_Of_Channels" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Preferred_Network_Offload_Info_t">
+      <member attributes="value" name="profile_Matched" type="uint8_t"/>
+      <member attributes="value" name="matched_Index" type="uint8_t"/>
+      <member attributes="value" name="rssi" type="int32_t"/>
+      <member attributes="value" name="num_Fast_Scans_Remaining" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Event_Filter_t">
+      <member attributes="value" name="action" type="qapi_WLAN_Enable_e"/>
+      <member attributes="value" name="num_Events" type="uint32_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAX_NUM_FILTERED_EVENTS" name="event" type="qapi_WLAN_Filterable_Event_e"/>
+   </structure>
+   <structure name="qapi_WLAN_Firmware_Version_t">
+      <member attributes="value" name="host_ver" type="uint32_t"/>
+      <member attributes="value" name="target_ver" type="uint32_t"/>
+      <member attributes="value" name="wlan_ver" type="uint32_t"/>
+      <member attributes="value" name="abi_ver" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Firmware_Version_String_t">
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_VERSION_SUBSTRING_LEN" name="host_Version" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_VERSION_SUBSTRING_LEN" name="target_Version" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_VERSION_SUBSTRING_LEN" name="wlan_Version" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_VERSION_SUBSTRING_LEN" name="abi_Version" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Scan_Params_t">
+      <member attributes="value" name="fg_Start_Period" type="uint16_t"/>
+      <member attributes="value" name="fg_End_Period" type="uint16_t"/>
+      <member attributes="value" name="bg_Period" type="uint16_t"/>
+      <member attributes="value" name="max_Act_Chan_Dwell_Time_In_Ms" type="uint16_t"/>
+      <member attributes="value" name="passive_Chan_Dwell_Time_In_Ms" type="uint16_t"/>
+      <member attributes="value" name="short_Scan_Ratio" type="uint8_t"/>
+      <member attributes="value" name="scan_Ctrl_Flags" type="uint8_t"/>
+      <member attributes="value" name="min_Act_Chan_Dwell_Time_In_Ms" type="uint16_t"/>
+      <member attributes="value" name="max_Act_Scan_Per_Ssid" type="uint16_t"/>
+      <member attributes="value" name="max_Dfs_Chan_Act_Time_In_Ms" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Power_Mode_Params_t">
+      <member attributes="value" name="power_Mode" type="qapi_WLAN_Power_Mode_e"/>
+      <member attributes="value" name="power_Module" type="qapi_WLAN_Power_Module_e"/>
+   </structure>
+   <structure name="qapi_WLAN_Power_Policy_Params_t">
+      <member attributes="value" name="idle_Period_In_Ms" type="uint16_t"/>
+      <member attributes="value" name="ps_Poll_Num" type="uint16_t"/>
+      <member attributes="value" name="dtim_Policy" type="qapi_WLAN_DTIM_Policy_e"/>
+      <member attributes="value" name="tx_Wakeup_Policy" type="qapi_WLAN_TX_Wakeup_Policy_e"/>
+      <member attributes="value" name="num_Tx_To_Wakeup" type="uint16_t"/>
+      <member attributes="value" name="ps_Fail_Event_Policy" type="qapi_WLAN_Power_Save_Policy_e"/>
+   </structure>
+   <structure name="qapi_WLAN_Rssi_Threshold_Params_t">
+      <member attributes="value" name="poll_Time" type="uint32_t"/>
+      <member attributes="value" name="threshold_Above1_Val" type="int16_t"/>
+      <member attributes="value" name="threshold_Above2_Val" type="int16_t"/>
+      <member attributes="value" name="threshold_Above3_Val" type="int16_t"/>
+      <member attributes="value" name="threshold_Above4_Val" type="int16_t"/>
+      <member attributes="value" name="threshold_Above5_Val" type="int16_t"/>
+      <member attributes="value" name="threshold_Above6_Val" type="int16_t"/>
+      <member attributes="value" name="threshold_Below1_Val" type="int16_t"/>
+      <member attributes="value" name="threshold_Below2_Val" type="int16_t"/>
+      <member attributes="value" name="threshold_Below3_Val" type="int16_t"/>
+      <member attributes="value" name="threshold_Below4_Val" type="int16_t"/>
+      <member attributes="value" name="threshold_Below5_Val" type="int16_t"/>
+      <member attributes="value" name="threshold_Below6_Val" type="int16_t"/>
+      <member attributes="value" name="weight" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Channel_Switch_t">
+      <member attributes="value" name="channel" type="uint32_t"/>
+      <member attributes="value" name="tbtt_Count" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_TCP_Offload_Enable_t">
+      <member attributes="value" name="enable" type="uint8_t"/>
+      <member attributes="value" name="keepalive_Interval" type="uint16_t"/>
+      <member attributes="value" name="keepalive_Ack_Recv_Threshold" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_WLAN_TCP_Offload_Config_Params_t">
+      <member attributes="value" name="sock_Id" type="int32_t"/>
+      <member attributes="value" name="src_Port" type="int16_t"/>
+      <member attributes="value" name="dst_Port" type="int16_t"/>
+      <member attributes="value" name="src_IP" type="uint32_t"/>
+      <member attributes="value" name="dst_IP" type="uint32_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAC_LEN" name="dest_MAC" type="uint8_t"/>
+      <member attributes="value" name="sequence_Num" type="int32_t"/>
+      <member attributes="value" name="ack_Sequence_Num" type="int32_t"/>
+      <member attributes="value" name="ip_Protocol_Type" type="qapi_WLAN_IP_Protocol_Type_e"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_IPV6_ADDR_LEN" name="src_IP_v6addr" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_IPV6_ADDR_LEN" name="dst_IP_v6addr" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_TCP_Keepalive_Event_Info_t">
+      <member attributes="value" name="sock_Id" type="int32_t"/>
+      <member attributes="value" name="sequence_Num" type="uint32_t"/>
+      <member attributes="value" name="ack_Sequence_Num" type="uint32_t"/>
+      <member attributes="value" name="src_Port" type="uint16_t"/>
+      <member attributes="value" name="dst_Port" type="uint16_t"/>
+      <member attributes="value" name="status" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_TCP_Keepalive_Event_t">
+      <member attributes="value" name="session_cnt" type="uint32_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="1" name="event_info" type="qapi_WLAN_TCP_Keepalive_Event_Info_t"/>
+   </structure>
+   <structure name="qapi_WLAN_A_Netbuf_Pool_Config_t">
+      <member attributes="value" name="pool_Size" type="uint32_t"/>
+      <member attributes="value" name="rx_Threshold" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Wow_Gpio_Config_t">
+      <member attributes="value" name="gpio" type="uint32_t"/>
+      <member attributes="value" name="is_Active_Low" type="qapi_WLAN_Wow_Gpio_Active_Edge_e"/>
+      <member attributes="value" name="trigger_Mechanism" type="qapi_WLAN_Wow_Gpio_Trigger_Policy_e"/>
+   </structure>
+   <structure name="qapi_WLAN_Add_Pattern_t">
+      <member attributes="value" name="pattern_Index" type="uint32_t"/>
+      <member attributes="value" name="pattern_Action_Flag" type="uint32_t"/>
+      <member attributes="value" name="offset" type="uint32_t"/>
+      <member attributes="value" name="pattern_Size" type="uint32_t"/>
+      <member attributes="value" name="header_Type" type="uint16_t"/>
+      <member attributes="value" name="pattern_Priority" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_PATTERN_MASK" name="pattern_Mask" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_PATTERN_MAX_SIZE" name="pattern" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Delete_Pattern_t">
+      <member attributes="value" name="pattern_Index" type="uint8_t"/>
+      <member attributes="value" name="header_Type" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Change_Default_Filter_Action_t">
+      <member attributes="value" name="pattern_Action_Flag" type="uint8_t"/>
+      <member attributes="value" name="header_Type" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Security_Wep_Key_Pair_Params_t">
+      <member attributes="value" name="key_Index" type="uint32_t"/>
+      <member attributes="value" name="key_Length" type="uint32_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="key_Length" lengthVerified="no" name="key" type="int8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Preferred_Network_Offload_Config_t">
+      <member attributes="value" name="max_Num_Preferred_Network_Profiles" type="uint16_t"/>
+      <member attributes="value" name="fast_Scan_Interval_In_Ms" type="uint32_t"/>
+      <member attributes="value" name="fast_Scan_Duration_In_Ms" type="uint32_t"/>
+      <member attributes="value" name="slow_Scan_Interval_In_Ms" type="uint32_t"/>
+      <member attributes="value" name="start_Network_List_Offload" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Preferred_Network_Profile_t">
+      <member attributes="value" name="index" type="uint8_t"/>
+      <member attributes="value" name="ssid_Len" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAX_SSID_LEN" name="ssid" type="uint8_t"/>
+      <member attributes="value" name="auth_Mode" type="qapi_WLAN_Auth_Mode_e"/>
+      <member attributes="value" name="encryption_Type" type="qapi_WLAN_Crypt_Type_e"/>
+   </structure>
+   <structure name="qapi_WLAN_Raw_Send_Params_t">
+      <member attributes="value" name="rate_Index" type="uint8_t"/>
+      <member attributes="value" name="num_Tries" type="uint8_t"/>
+      <member attributes="value" name="payload_Size" type="uint32_t"/>
+      <member attributes="value" name="channel" type="uint32_t"/>
+      <member attributes="value" name="header_Type" type="qapi_WLAN_Raw_Mode_Header_Type_e"/>
+      <member attributes="value" name="seq" type="uint16_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAC_LEN" name="addr1" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAC_LEN" name="addr2" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAC_LEN" name="addr3" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAC_LEN" name="addr4" type="uint8_t"/>
+      <member attributes="value" name="data_Length" type="uint32_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="data_Length" lengthVerified="no" name="data" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_WPS_Credentials_t">
+      <member attributes="value" name="ap_Channel" type="uint16_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAX_SSID_LEN" name="ssid" type="uint8_t"/>
+      <member attributes="value" name="ssid_Length" type="uint8_t"/>
+      <member attributes="value" name="auth_Mode" type="qapi_WLAN_Auth_Mode_e"/>
+      <member attributes="value" name="encryption_Type" type="qapi_WLAN_Crypt_Type_e"/>
+      <member attributes="value" name="key_Index" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_WPS_MAX_KEY_LEN+1" name="key" type="uint8_t"/>
+      <member attributes="value" name="key_Length" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAC_LEN" name="mac_Addr" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_WPS_Cb_Info_t">
+      <member attributes="value" name="status" type="uint8_t"/>
+      <member attributes="value" name="error" type="uint8_t"/>
+      <member attributes="value" name="credential" type="qapi_WLAN_WPS_Credentials_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAC_LEN" name="peer_dev_addr" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Aggregation_Params_t">
+      <member attributes="value" name="tx_TID_Mask" type="uint16_t"/>
+      <member attributes="value" name="rx_TID_Mask" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Scan_List_t">
+      <member attributes="value" iotype="in,out" name="num_Scan_Entries" type="uint32_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="num_Scan_Entries" lengthVerified="yes" name="scan_List" type="qapi_WLAN_BSS_Scan_Info_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Tx_Status_t">
+      <member attributes="value" name="status" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Program_Mac_Addr_Param_t">
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="6" name="addr" type="uint8_t"/>
+      <member attributes="value" name="result" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Dbglog_Enable_t">
+      <member attributes="value" name="enable" type="qapi_WLAN_Enable_e"/>
+   </structure>
+   <structure name="qapi_WLAN_Dbglog_Module_Config_t">
+      <member attributes="value" name="module_Id_Mask" type="uint64_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_DBGLOG_LOGLEVEL_INFO_LEN" name="log_Level" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Dbglog_Config_t">
+      <member attributes="value" name="debug_Port" type="qapi_WLAN_Dbglog_Port_e"/>
+      <member attributes="value" name="reporting_Enable" type="qapi_WLAN_Enable_e"/>
+      <member attributes="value" name="report_Trigger_Size_In_Bytes" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Pktlog_Enable_t">
+      <member attributes="value" name="enable" type="qapi_WLAN_Enable_e"/>
+      <member attributes="value" name="num_Of_Buffers" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Pktlog_Start_Params_t">
+      <member attributes="value" name="event_List" type="uint8_t"/>
+      <member attributes="value" name="log_Options" type="uint8_t"/>
+      <member attributes="value" name="trigger_Threshold" type="uint32_t"/>
+      <member attributes="value" name="trigger_Interval" type="uint32_t"/>
+      <member attributes="value" name="trigger_Tail_Count" type="uint32_t"/>
+      <member attributes="value" name="buffer_Size" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Driver_RegQuery_Params_t">
+      <member attributes="value" name="address" type="uint32_t"/>
+      <member attributes="value" name="value" type="uint32_t"/>
+      <member attributes="value" name="mask" type="uint32_t"/>
+      <member attributes="value" name="size" type="uint32_t"/>
+      <member attributes="value" name="operation" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Coex_Config_Data_t">
+      <member attributes="value" name="enable_Disable_Coex" type="QAPI_WLAN_Coex_Enable_Disable_e"/>
+      <member attributes="value" name="coex_Mode" type="QAPI_WLAN_Coex_Mode_e"/>
+      <member attributes="value" name="coex_Profile_Specific_Param1" type="uint32_t"/>
+      <member attributes="value" name="coex_Profile" type="uint32_t"/>
+      <member attributes="value" name="coex_Profile_Specific_Param2" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Coex_Sco_Config_t">
+      <member attributes="value" name="scoSlots" type="uint32_t"/>
+      <member attributes="value" name="scoIdleSlots" type="uint32_t"/>
+      <member attributes="value" name="scoFlags" type="uint32_t"/>
+      <member attributes="value" name="linkId" type="uint32_t"/>
+      <member attributes="value" name="scoCyclesForceTrigger" type="uint32_t"/>
+      <member attributes="value" name="scoDataResponseTimeout" type="uint32_t"/>
+      <member attributes="value" name="scoStompDutyCyleVal" type="uint32_t"/>
+      <member attributes="value" name="scoStompDutyCyleMaxVal" type="uint32_t"/>
+      <member attributes="value" name="scoPsPollLatencyFraction" type="uint32_t"/>
+      <member attributes="value" name="scoStompCntIn100ms" type="uint32_t"/>
+      <member attributes="value" name="scoContStompMax" type="uint32_t"/>
+      <member attributes="value" name="scoMinlowRateMbps" type="uint32_t"/>
+      <member attributes="value" name="scoLowRateCnt" type="uint32_t"/>
+      <member attributes="value" name="scoHighPktRatio" type="uint32_t"/>
+      <member attributes="value" name="scoMaxAggrSize" type="uint32_t"/>
+      <member attributes="value" name="NullBackoff" type="uint32_t"/>
+      <member attributes="value" name="scanInterval" type="uint32_t"/>
+      <member attributes="value" name="maxScanStompCnt" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Coex_A2dp_Config_t">
+      <member attributes="value" name="a2dpFlags" type="uint32_t"/>
+      <member attributes="value" name="linkId" type="uint32_t"/>
+      <member attributes="value" name="a2dpWlanMaxDur" type="uint32_t"/>
+      <member attributes="value" name="a2dpMinBurstCnt" type="uint32_t"/>
+      <member attributes="value" name="a2dpDataRespTimeout" type="uint32_t"/>
+      <member attributes="value" name="a2dpMinlowRateMbps" type="uint32_t"/>
+      <member attributes="value" name="a2dpLowRateCnt" type="uint32_t"/>
+      <member attributes="value" name="a2dpHighPktRatio" type="uint32_t"/>
+      <member attributes="value" name="a2dpMaxAggrSize" type="uint32_t"/>
+      <member attributes="value" name="a2dpPktStompCnt" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Coex_Acl_Config_t">
+      <member attributes="value" name="aclWlanMediumDur" type="uint32_t"/>
+      <member attributes="value" name="aclBtMediumDur" type="uint32_t"/>
+      <member attributes="value" name="aclDetectTimeout" type="uint32_t"/>
+      <member attributes="value" name="aclPktCntLowerLimit" type="uint32_t"/>
+      <member attributes="value" name="aclIterForEnDis" type="uint32_t"/>
+      <member attributes="value" name="aclPktCntUpperLimit" type="uint32_t"/>
+      <member attributes="value" name="aclCoexFlags" type="uint32_t"/>
+      <member attributes="value" name="linkId" type="uint32_t"/>
+      <member attributes="value" name="aclDataRespTimeout" type="uint32_t"/>
+      <member attributes="value" name="aclCoexMinlowRateMbps" type="uint32_t"/>
+      <member attributes="value" name="aclCoexLowRateCnt" type="uint32_t"/>
+      <member attributes="value" name="aclCoexHighPktRatio" type="uint32_t"/>
+      <member attributes="value" name="aclCoexMaxAggrSize" type="uint32_t"/>
+      <member attributes="value" name="aclPktStompCnt" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Coex_InqPage_Config_t">
+      <member attributes="value" name="btInquiryDataFetchFrequency" type="uint32_t"/>
+      <member attributes="value" name="protectBmissDurPostBtInquiry" type="uint32_t"/>
+      <member attributes="value" name="maxpageStomp" type="uint32_t"/>
+      <member attributes="value" name="btInquiryPageFlag" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Coex_Hid_Config_t">
+      <member attributes="value" name="hidFlags" type="uint32_t"/>
+      <member attributes="value" name="hiddevices" type="uint32_t"/>
+      <member attributes="value" name="maxStompSlot" type="uint32_t"/>
+      <member attributes="value" name="aclPktCntLowerLimit" type="uint32_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="2" name="reserved" type="uint32_t"/>
+      <member attributes="value" name="hidWlanMaxDur" type="uint32_t"/>
+      <member attributes="value" name="hidMinBurstCnt" type="uint32_t"/>
+      <member attributes="value" name="hidDataRespTimeout" type="uint32_t"/>
+      <member attributes="value" name="hidMinlowRateMbps" type="uint32_t"/>
+      <member attributes="value" name="hidLowRateCnt" type="uint32_t"/>
+      <member attributes="value" name="hidHighPktRatio" type="uint32_t"/>
+      <member attributes="value" name="hidMaxAggrSize" type="uint32_t"/>
+      <member attributes="value" name="hidPktStompCnt" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_Coex_General_Stats_t">
+      <member attributes="value" name="highRatePktCnt" type="uint32_t"/>
+      <member attributes="value" name="firstBmissCnt" type="uint32_t"/>
+      <member attributes="value" name="BmissCnt" type="uint32_t"/>
+      <member attributes="value" name="psPollFailureCnt" type="uint32_t"/>
+      <member attributes="value" name="nullFrameFailureCnt" type="uint32_t"/>
+      <member attributes="value" name="stompCnt" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_Coex_Sco_Stats_t">
+      <member attributes="value" name="scoStompCntAvg" type="uint32_t"/>
+      <member attributes="value" name="scoStompIn100ms" type="uint32_t"/>
+      <member attributes="value" name="scoMaxContStomp" type="uint32_t"/>
+      <member attributes="value" name="scoAvgNoRetries" type="uint32_t"/>
+      <member attributes="value" name="scoMaxNoRetriesIn100ms" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_Coex_A2dp_Stats_t">
+      <member attributes="value" name="a2dpBurstCnt" type="uint32_t"/>
+      <member attributes="value" name="a2dpMaxBurstCnt" type="uint32_t"/>
+      <member attributes="value" name="a2dpAvgIdletimeIn100ms" type="uint32_t"/>
+      <member attributes="value" name="a2dpAvgStompCnt" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_Coex_Aclcoex_Stats_t">
+      <member attributes="value" name="aclPktCntInBtTime" type="uint32_t"/>
+      <member attributes="value" name="aclStompCntInWlanTime" type="uint32_t"/>
+      <member attributes="value" name="aclPktCntIn100ms" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Coex_Stats_t">
+      <member attributes="value" name="resetStats" type="uint32_t"/>
+      <member attributes="value" name="coex_Stats_Data.profileType" type="qapi_Bt_Profile_e"/>
+      <member attributes="value" name="coex_Stats_Data.generalStats" type="qapi_Coex_General_Stats_t"/>
+      <member attributes="union" name="coex_Stats_Data.statsU">
+         <member attributes="value" name="scoStats" type="qapi_Coex_Sco_Stats_t"/>
+         <member attributes="value" name="a2dpStats" type="qapi_Coex_A2dp_Stats_t"/>
+         <member attributes="value" name="aclCoexStats" type="qapi_Coex_Aclcoex_Stats_t"/>
+         <unionMap mapVerified="yes" name="coex_Stats_Data.profileType" type="qapi_Bt_Profile_e">
+               <mapEntry member="scoStats" type="qapi_Coex_Sco_Stats_t" value="QAPI_BT_PROFILE_SCO"/>
+               <mapEntry member="a2dpStats" type="qapi_Coex_A2dp_Stats_t" value="QAPI_BT_PROFILE_A2DP"/>
+               <mapEntry member="aclCoexStats" type="qapi_Coex_Aclcoex_Stats_t" value="QAPI_BT_PROFILE_ESCO"/>
+         </unionMap>
+     </member>
+   </structure>
+   <structure name="qapi_WLAN_Coex_Override_Wghts_t">
+      <member attributes="value" name="enable" type="uint32_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="8" name="btWghtVal" type="uint32_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="4" name="wlWghtVal" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Coex_Current_Config">
+      <member attributes="value" name="whgts_override" type="qapi_WLAN_Coex_Override_Wghts_t"/>
+      <member attributes="value" name="onchip_narrowband_config" type="qapi_WLAN_Coex_Config_Data_t"/>
+      <member attributes="value" name="profileType" type="qapi_Bt_Profile_e"/>
+      <member attributes="union" name="configU">
+         <member attributes="value" name="sco_config" type="qapi_WLAN_Coex_Sco_Config_t"/>
+         <member attributes="value" name="a2dp_config" type="qapi_WLAN_Coex_A2dp_Config_t"/>
+         <member attributes="value" name="acl_config" type="qapi_WLAN_Coex_Acl_Config_t"/>
+         <member attributes="value" name="inqpage_config" type="qapi_WLAN_Coex_InqPage_Config_t"/>
+         <member attributes="value" name="hid_config" type="qapi_WLAN_Coex_Hid_Config_t"/>
+         <unionMap mapVerified="yes" name="profileType" type="qapi_Bt_Profile_e">
+            <mapEntry member="sco_config" type="qapi_WLAN_Coex_Sco_Config_t" value="QAPI_BT_PROFILE_SCO"/>
+            <mapEntry member="a2dp_config" type="qapi_WLAN_Coex_A2dp_Config_t" value="QAPI_BT_PROFILE_A2DP"/>
+            <mapEntry member="acl_config" type="qapi_WLAN_Coex_Acl_Config_t" value="QAPI_BT_PROFILE_ESCO"/>
+            <mapEntry member="inqpage_config" type="qapi_WLAN_Coex_InqPage_Config_t" value="QAPI_BT_PROFILE_SCAN"/>
+            <mapEntry member="hid_config" type="qapi_WLAN_Coex_Hid_Config_t" value="QAPI_BT_PROFILE_HID"/>
+         </unionMap>
+      </member>
+      <member attributes="value" name="epta_narrowband_config" type="qapi_WLAN_Coex_Config_Data_t"/>
+   </structure>
+   <structure name="qapi_WPS_Scan_List_Entry_t">
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAX_SSID_LEN" name="ssid" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAC_LEN" name="macaddress" type="uint8_t"/>
+      <member attributes="value" name="channel" type="uint16_t"/>
+      <member attributes="value" name="ssid_Len" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_WPS_Start_t">
+      <member attributes="value" name="ssid_info" type="qapi_WPS_Scan_List_Entry_t"/>
+      <member attributes="value" name="wps_Mode" type="uint8_t"/>
+      <member attributes="value" name="timeout_Seconds" type="uint8_t"/>
+      <member attributes="value" name="connect_Flag" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_WPS_PIN_LEN" name="pin" type="uint8_t"/>
+      <member attributes="value" name="pin_Length" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Cipher_t">
+      <member attributes="value" name="ucipher" type="uint32_t"/>
+      <member attributes="value" name="mcipher" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Netparams_t">
+      <member attributes="value" name="ap_Channel" type="uint16_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAX_SSID_LENGTH" name="ssid" type="int8_t"/>
+      <member attributes="value" name="ssid_Len" type="int16_t"/>
+      <member attributes="value" name="cipher" type="qapi_WLAN_Cipher_t"/>
+      <member attributes="value" name="key_Index" type="uint8_t"/>
+      <member attributes="union" name="u">
+         <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_PASSPHRASE_LEN+1" name="wepkey" type="uint8_t"/>
+         <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_PASSPHRASE_LEN+1" name="passphrase" type="uint8_t"/>
+         <unionMap mapVerified="yes" name="sec_Type" type="uint8_t">
+            <mapEntry member="passphrase" type="uint8_t" value="QAPI_WLAN_AUTH_WPA2_PSK_E"/>
+            <mapEntry member="passphrase" type="uint8_t" value="QAPI_WLAN_AUTH_WPA_PSK_E"/>
+            <mapEntry member="wepkey" type="uint8_t" value="QAPI_WLAN_AUTH_WEP_E"/>
+         </unionMap>
+      </member>
+      <member attributes="value" name="sec_Type" type="uint8_t"/>
+      <member attributes="value" name="error" type="uint8_t"/>
+      <member attributes="value" name="dont_Block" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_IPv6_Addr_t">
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_IPV6_ADDR_LEN" name="ip_Address" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_ARP_Offload_Config_t">
+      <member attributes="value" name="enable" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_IPV4_ADDR_LEN" name="target_IP" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAC_LEN" name="target_Mac" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_NS_Offload_Config_t">
+      <member attributes="value" name="enable" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_NSOFF_MAX_TARGET_IPS" name="target_IP" type="qapi_WLAN_IPv6_Addr_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="__QAPI_WLAN_MAC_LEN" name="target_Mac" type="uint8_t"/>
+      <member attributes="value" name="solicitation_IP" type="qapi_WLAN_IPv6_Addr_t"/>
+   </structure>
+   <structure name="qapi_WLAN_App_Ie_Params_t">
+      <member attributes="value" name="mgmt_Frame_Type" type="uint8_t"/>
+      <member attributes="value" name="ie_Len" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="ie_Len" lengthVerified="no" name="ie_Info" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Rx_Aggrx_Params_t">
+      <member attributes="value" name="aggrx_Buffer_Size" type="uint8_t"/>
+      <member attributes="value" name="aggrx_Reorder_Buffer_Timeout_In_Ms" type="uint8_t"/>
+      <member attributes="value" name="aggrx_Session_Timeout_Val_In_Ms" type="uint8_t"/>
+      <member attributes="value" name="aggrx_Reorder_Cfg" type="uint8_t"/>
+      <member attributes="value" name="aggrx_Session_Timeout_Cfg" type="uint8_t"/>
+      <member attributes="value" name="reserved0" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_WLAN_BSS_Max_Idle_Period_t">
+      <member attributes="value" name="period" type="uint16_t"/>
+      <member attributes="value" name="protected_Keep_Alive" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_WLAN_WNM_Sleep_Period_t">
+      <member attributes="value" name="action_Type" type="uint16_t"/>
+      <member attributes="value" name="duration" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_WLAN_WNM_Cb_Info_t">
+      <member attributes="value" name="cmd_Type" type="uint16_t"/>
+      <member attributes="value" name="response" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Sta_Config_Bmiss_Config_t">
+      <member attributes="value" name="bmiss_Time_In_Ms" type="uint16_t"/>
+      <member attributes="value" name="num_Beacons" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Callback_Context_t">
+      <member attributes="ptr" iotype="in" lengthParam="1" lengthVerified="no" name="application_Context" type="void"/>
+      <member attributes="value" name="callback_Function" type="qapi_WLAN_Callback_t"/>
+   </structure>
+   <structure name="qapi_WLAN_Coex_Callback_Context_t">
+      <member attributes="ptr" iotype="in" lengthParam="1" lengthVerified="no" name="application_Context" type="void"/>
+      <member attributes="value" name="callback_Function" type="qapi_WLAN_Coex_Callback_t"/>
+   </structure>
+   <function name="qapi_WLAN_Coex_Control">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="no" name="data" type="qapi_WLAN_Coex_Config_Data_t"/>
+   </function>
+   <function name="qapi_Get_WLAN_Coex_Stats">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="no" name="WLAN_CoexStats" type="qapi_WLAN_Coex_Stats_t"/>
+   </function>
+   <function name="qapi_WLAN_Enable">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="enable" type="qapi_WLAN_Enable_e"/>
+   </function>
+   <function name="qapi_WLAN_Add_Device">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="device_ID" type="uint8_t"/>
+   </function>
+   <function name="qapi_WLAN_Remove_Device">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="device_ID" type="uint8_t"/>
+   </function>
+   <function name="qapi_WLAN_Start_Scan">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="device_ID" type="uint8_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="no" name="scan_Params" type="qapi_WLAN_Start_Scan_Params_t"/>
+      <argument attributes="value" name="store_Scan_Results" type="qapi_WLAN_Store_Scan_Results_e"/>
+   </function>
+   <function name="qapi_WLAN_Get_Scan_Results">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="device_ID" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="num_Results" lengthVerified="no" name="scan_Info" type="qapi_WLAN_BSS_Scan_Info_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="no" name="num_Results" type="int16_t"/>
+   </function>
+   <function name="qapi_WLAN_Commit">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="device_ID" type="uint8_t"/>
+   </function>
+   <function name="qapi_WLAN_Set_Callback">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="device_ID" type="uint8_t"/>
+      <argument attributes="value" name="callback" type="qapi_WLAN_Callback_t"/>
+      <argument attributes="ptr,const" iotype="in" fixedLength="true" lengthParam="4" lengthVerified="yes" name="application_Context" type="void"/>
+   </function>
+   <function name="qapi_WLAN_Disconnect">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="device_ID" type="uint8_t"/>
+   </function>
+   <function name="qapi_WLAN_Set_Param">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="device_ID" type="uint8_t"/>
+      <argument attributes="value" name="group_ID" type="uint16_t"/>
+      <argument attributes="value" name="param_ID" type="uint16_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="length" lengthVerified="no" name="data" type="void"/>
+      <argument attributes="value" name="length" type="uint32_t"/>
+      <argument attributes="value" name="wait_For_Status" type="qapi_WLAN_Wait_For_Status_e"/>
+   </function>
+   <function name="qapi_WLAN_Get_Param">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="device_ID" type="uint8_t"/>
+      <argument attributes="value" name="group_ID" type="uint16_t"/>
+      <argument attributes="value" name="param_ID" type="uint16_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="length" lengthVerified="yes" lengthFirst="yes" name="data" type="void"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="length" type="uint32_t"/>
+   </function>
+   <function name="qapi_WLAN_Suspend_Start">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="suspend_Time_In_Ms" type="uint32_t"/>
+   </function>
+   <function name="qapi_WLAN_Raw_Send">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="device_ID" type="uint8_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="no" name="raw_Params" type="qapi_WLAN_Raw_Send_Params_t"/>
+   </function>
+   <function name="qapi_WLAN_WPS_Start">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="device_ID" type="uint8_t"/>
+      <argument attributes="value" name="connect_Action" type="qapi_WLAN_WPS_Connect_Action_e"/>
+      <argument attributes="value" name="mode" type="qapi_WLAN_WPS_Mode_e"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="__strlen__" lengthVerified="no" name="pin" type="char"/>
+   </function>
+   <function name="qapi_WLAN_WPS_Await_Completion">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="device_ID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="no" name="net_Params" type="qapi_WLAN_Netparams_t"/>
+   </function>
+   <function name="qapi_WLAN_WPS_Connect">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="device_ID" type="uint8_t"/>
+   </function>
+   <callback name="qapi_WLAN_Callback_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="device_ID" type="uint8_t"/>
+      <argument attributes="value" name="cb_ID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" fixedLength="true" lengthParam="4" lengthVerified="yes" name="application_Context" type="void"/>
+      <argument attributes="ptr" iotype="out" lengthParam="payload_Length" lengthVerified="yes" name="payload" type="void"/>
+      <argument attributes="value" name="payload_Length" type="uint32_t"/>
+   </callback>
+   <callback name="qapi_WLAN_Coex_Callback_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="device_ID" type="uint8_t"/>
+      <argument attributes="value" name="cb_ID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="no" name="application_Context" type="void"/>
+      <argument attributes="ptr" iotype="out" lengthParam="payload_Length" lengthVerified="no" name="payload" type="void"/>
+      <argument attributes="value" name="payload_Length" type="uint32_t"/>
+   </callback>
+</header>

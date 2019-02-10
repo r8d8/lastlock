@@ -1,0 +1,198 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="qapi_zb_cl.h"/>
+   <macro name="QAPI_ZB_CL_IASZONE_ATTR_ID_ZONE_STATE" value="(0x0000) "/>
+   <macro name="QAPI_ZB_CL_IASZONE_ATTR_ID_ZONE_TYPE" value="(0x0001) "/>
+   <macro name="QAPI_ZB_CL_IASZONE_ATTR_ID_ZONE_STATUS" value="(0x0002) "/>
+   <macro name="QAPI_ZB_CL_IASZONE_ATTR_ID_IAS_CIE_ADDRESS" value="(0x0010) "/>
+   <macro name="QAPI_ZB_CL_IASZONE_ATTR_ID_ZONE_ID" value="(0x0011) "/>
+   <macro name="QAPI_ZB_CL_IASZONE_ATTR_ID_SUPPORTED_ZONE_SENSITIVITY_LEVELS" value="(0x0012) "/>
+   <macro name="QAPI_ZB_CL_IASZONE_ATTR_ID_CURRENT_ZONE_SENSITIVITY_LEVEL" value="(0x0013) "/>
+   <macro name="QAPI_ZB_CL_IASZONE_ZONE_STATUS_ALARM1" value="(0x0001) "/>
+   <macro name="QAPI_ZB_CL_IASZONE_ZONE_STATUS_ALARM2" value="(0x0002) "/>
+   <macro name="QAPI_ZB_CL_IASZONE_ZONE_STATUS_TAMPER" value="(0x0004) "/>
+   <macro name="QAPI_ZB_CL_IASZONE_ZONE_STATUS_BATTERY" value="(0x0008) "/>
+   <macro name="QAPI_ZB_CL_IASZONE_ZONE_STATUS_SUPERVISION_REPORTS" value="(0x0010) "/>
+   <macro name="QAPI_ZB_CL_IASZONE_ZONE_STATUS_RESTORE_REPORTS" value="(0x0020) "/>
+   <macro name="QAPI_ZB_CL_IASZONE_ZONE_STATUS_TROUBLE" value="(0x0040) "/>
+   <macro name="QAPI_ZB_CL_IASZONE_ZONE_STATUS_AC_MAINS" value="(0x0080) "/>
+   <macro name="QAPI_ZB_CL_IASZONE_ZONE_STATUS_TEST" value="(0x0100) "/>
+   <macro name="QAPI_ZB_CL_IASZONE_ZONE_STATUS_BATTERY_DEFECT" value="(0x0200) "/>
+   <macro name="QAPI_ZB_CL_IASZONE_CLIENT_COMMAND_ID_ZONE_ENROLL_RESPONSE" value="(0x00) "/>
+   <macro name="QAPI_ZB_CL_IASZONE_CLIENT_COMMAND_ID_INITIATE_NORMAL_OPERATION_MODE" value="(0x01) "/>
+   <macro name="QAPI_ZB_CL_IASZONE_CLIENT_COMMAND_ID_INITIATE_TEST_MODE" value="(0x02) "/>
+   <macro name="QAPI_ZB_CL_IASZONE_SERVER_COMMAND_ID_ZONE_STATUS_CHANGE_NOTIFICATION" value="(0x00) "/>
+   <macro name="QAPI_ZB_CL_IASZONE_SERVER_COMMAND_ID_ZONE_ENROLL_REQUEST" value="(0x01) "/>
+   <enum name="qapi_ZB_CL_IASZone_Client_Event_Type_t">
+      <member name="QAPI_ZB_CL_IASZONE_CLIENT_EVENT_TYPE_ATTR_CUSTOM_READ_E" value="0"/>
+      <member name="QAPI_ZB_CL_IASZONE_CLIENT_EVENT_TYPE_ATTR_CUSTOM_WRITE_E" value="1"/>
+      <member name="QAPI_ZB_CL_IASZONE_CLIENT_EVENT_TYPE_DEFAULT_RESPONSE_E" value="2"/>
+      <member name="QAPI_ZB_CL_IASZONE_CLIENT_EVENT_TYPE_COMMAND_COMPLETE_E" value="3"/>
+      <member name="QAPI_ZB_CL_IASZONE_CLIENT_EVENT_TYPE_UNPARSED_RESPONSE_E" value="4"/>
+      <member name="QAPI_ZB_CL_IASZONE_CLIENT_EVENT_TYPE_ZONE_STATUS_CHANGE_NOTIFICATION_E" value="5"/>
+      <member name="QAPI_ZB_CL_IASZONE_CLIENT_EVENT_TYPE_ZONE_ENROLL_REQUEST" value="6"/>
+   </enum>
+   <enum name="qapi_ZB_CL_IASZone_Server_Event_Type_t">
+      <member name="QAPI_ZB_CL_IASZONE_SERVER_EVENT_TYPE_ATTR_CUSTOM_READ_E" value="0"/>
+      <member name="QAPI_ZB_CL_IASZONE_SERVER_EVENT_TYPE_ATTR_CUSTOM_WRITE_E" value="1"/>
+      <member name="QAPI_ZB_CL_IASZONE_SERVER_EVENT_TYPE_UNPARSED_DATA_E" value="2"/>
+      <member name="QAPI_ZB_CL_IASZONE_SERVER_EVENT_TYPE_ZONE_ENROLL_RESPONSE_E" value="3"/>
+      <member name="QAPI_ZB_CL_IASZONE_SERVER_EVENT_TYPE_INITIATE_NORMAL_OPERATION_MODE_E" value="4"/>
+      <member name="QAPI_ZB_CL_IASZONE_SERVER_EVENT_TYPE_INITIATE_TEST_MODE_E" value="5"/>
+   </enum>
+   <enum name="qapi_ZB_CL_IASZone_Zone_State_t">
+      <member name="QAPI_ZB_CL_IASZONE_ZONE_STATE_NOT_ENROLLED_E" value="0x00"/>
+      <member name="QAPI_ZB_CL_IASZONE_ZONE_STATE_ENROLLED" value="0x01"/>
+   </enum>
+   <enum name="qapi_ZB_CL_IASZone_Zone_Type_t">
+      <member name="QAPI_ZB_CL_IASZONE_ZONE_TYPE_STANDARD_CIE_E" value="0x0000"/>
+      <member name="QAPI_ZB_CL_IASZONE_ZONE_TYPE_MOTION_SENSOR_E" value="0x000D"/>
+      <member name="QAPI_ZB_CL_IASZONE_ZONE_TYPE_CONTACT_SWITCH_E" value="0x0015"/>
+      <member name="QAPI_ZB_CL_IASZONE_ZONE_TYPE_FIRE_SENSOR_E" value="0x0028"/>
+      <member name="QAPI_ZB_CL_IASZONE_ZONE_TYPE_WATER_SENSOR_E" value="0x002A"/>
+      <member name="QAPI_ZB_CL_IASZONE_ZONE_TYPE_CARBON_MONOXIDE_SENSOR_E" value="0x002B"/>
+      <member name="QAPI_ZB_CL_IASZONE_ZONE_TYPE_PERSONAL_EMERGENCY_DEVICE_E" value="0x002C"/>
+      <member name="QAPI_ZB_CL_IASZONE_ZONE_TYPE_VIBRATION_MOVEMENT_SENSOR_E" value="0x002D"/>
+      <member name="QAPI_ZB_CL_IASZONE_ZONE_TYPE_REMOTE_CONTROL_E" value="0x010F"/>
+      <member name="QAPI_ZB_CL_IASZONE_ZONE_TYPE_KEY_FOB_E" value="0x0115"/>
+      <member name="QAPI_ZB_CL_IASZONE_ZONE_TYPE_KEY_PAD_E" value="0x021D"/>
+      <member name="QAPI_ZB_CL_IASZONE_ZONE_TYPE_STANDARD_WARNING_DEVICE_E" value="0x0225"/>
+      <member name="QAPI_ZB_CL_IASZONE_ZONE_TYPE_GLASS_BREAK_SENSOR_E" value="0x0226"/>
+      <member name="QAPI_ZB_CL_IASZONE_ZONE_TYPE_SECURITY_REPEATER" value="0x2229"/>
+      <member name="QAPI_ZB_CL_IASZONE_ZONE_TYPE_INVALID_ZONE_TYPE_E" value="0xFFFF"/>
+   </enum>
+   <enum name="qapi_ZB_CL_IASZone_Zone_Enroll_Response_Code_t">
+      <member name="QAPI_ZB_CL_IASZONE_ZONE_ENROLL_RESPONSE_CODE_SUCCESS_E" value="0x00"/>
+      <member name="QAPI_ZB_CL_IASZONE_ZONE_ENROLL_RESPONSE_CODE_NOT_SUPPORTED_E" value="0x01"/>
+      <member name="QAPI_ZB_CL_IASZONE_ZONE_ENROLL_RESPONSE_CODE_NO_ENROLL_PERMIT_E" value="0x02"/>
+      <member name="QAPI_ZB_CL_IASZONE_ZONE_ENROLL_RESPONSE_CODE_TOO_MANY_ZONES_E" value="0x03"/>
+   </enum>
+   <structure name="qapi_ZB_CL_IASZone_Zone_Enroll_Response_t">
+      <member attributes="value" name="ResponseCode" type="qapi_ZB_CL_IASZone_Zone_Enroll_Response_Code_t"/>
+      <member attributes="value" name="ZoneID" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_IASZone_Initiate_Test_Mode_t">
+      <member attributes="value" name="TestModeDuration" type="uint8_t"/>
+      <member attributes="value" name="CurrentZoneSensitivityLevel" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_IASZone_Zone_Status_Change_Notification_t">
+      <member attributes="value" name="ZoneStatus" type="uint16_t"/>
+      <member attributes="value" name="ExtendedStatus" type="uint8_t"/>
+      <member attributes="value" name="ZoneID" type="uint8_t"/>
+      <member attributes="value" name="Delay" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_IASZone_Zone_Enroll_Request_t">
+      <member attributes="value" name="APSDEData" type="qapi_ZB_APSDE_Data_Indication_t"/>
+      <member attributes="value" name="ZCLHeader" type="qapi_ZB_CL_Header_t"/>
+      <member attributes="value" name="SourceAddress" type="uint64_t"/>
+      <member attributes="value" name="ZoneType" type="qapi_ZB_CL_IASZone_Zone_Type_t"/>
+      <member attributes="value" name="ManufacturerCode" type="uint16_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="StatusResult" type="qapi_Status_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="ResponseCode" type="qapi_ZB_CL_IASZone_Zone_Enroll_Response_Code_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="ZoneID" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_IASZone_Client_Event_Data_t">
+      <member attributes="value" name="Event_Type" type="qapi_ZB_CL_IASZone_Client_Event_Type_t"/>
+      <member attributes="union" name="Data">
+         <member attributes="value" name="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t"/>
+         <member attributes="value" name="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t"/>
+         <member attributes="value" name="Default_Response" type="qapi_ZB_CL_Default_Response_t"/>
+         <member attributes="value" name="Command_Complete" type="qapi_ZB_CL_Command_Complete_t"/>
+         <member attributes="value" name="Unparsed_Response" type="qapi_ZB_CL_Unparsed_Response_t"/>
+         <member attributes="value" name="Change_Notification" type="qapi_ZB_CL_IASZone_Zone_Status_Change_Notification_t"/>
+         <member attributes="value" name="Enroll_Request" type="qapi_ZB_CL_IASZone_Zone_Enroll_Request_t"/>
+         <unionMap mapVerified="yes" name="Event_Type" type="qapi_ZB_CL_IASZone_Client_Event_Type_t">
+            <mapEntry member="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t" value="QAPI_ZB_CL_IASZONE_CLIENT_EVENT_TYPE_ATTR_CUSTOM_READ_E"/>
+            <mapEntry member="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t" value="QAPI_ZB_CL_IASZONE_CLIENT_EVENT_TYPE_ATTR_CUSTOM_WRITE_E"/>
+            <mapEntry member="Default_Response" type="qapi_ZB_CL_Default_Response_t" value="QAPI_ZB_CL_IASZONE_CLIENT_EVENT_TYPE_DEFAULT_RESPONSE_E"/>
+            <mapEntry member="Command_Complete" type="qapi_ZB_CL_Command_Complete_t" value="QAPI_ZB_CL_IASZONE_CLIENT_EVENT_TYPE_COMMAND_COMPLETE_E"/>
+            <mapEntry member="Unparsed_Response" type="qapi_ZB_CL_Unparsed_Response_t" value="QAPI_ZB_CL_IASZONE_CLIENT_EVENT_TYPE_UNPARSED_RESPONSE_E"/>
+            <mapEntry member="Change_Notification" type="qapi_ZB_CL_IASZone_Zone_Status_Change_Notification_t" value="QAPI_ZB_CL_IASZONE_CLIENT_EVENT_TYPE_ZONE_STATUS_CHANGE_NOTIFICATION_E"/>
+            <mapEntry member="Enroll_Request" type="qapi_ZB_CL_IASZone_Zone_Enroll_Request_t" value="QAPI_ZB_CL_IASZONE_CLIENT_EVENT_TYPE_ZONE_ENROLL_REQUEST"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_ZB_CL_IASZone_Server_Event_Data_t">
+      <member attributes="value" name="Event_Type" type="qapi_ZB_CL_IASZone_Server_Event_Type_t"/>
+      <member attributes="union" name="Data">
+         <member attributes="value" name="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t"/>
+         <member attributes="value" name="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t"/>
+         <member attributes="value" name="Unparsed_Data" type="qapi_ZB_CL_Unparsed_Data_t"/>
+         <member attributes="value" name="Enroll_Response" type="qapi_ZB_CL_IASZone_Zone_Enroll_Response_t"/>
+         <member attributes="value" name="Intiate_Test_Mode" type="qapi_ZB_CL_IASZone_Initiate_Test_Mode_t"/>
+         <unionMap mapVerified="yes" name="Event_Type" type="qapi_ZB_CL_IASZone_Server_Event_Type_t">
+            <mapEntry member="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t" value="QAPI_ZB_CL_IASZONE_SERVER_EVENT_TYPE_ATTR_CUSTOM_READ_E"/>
+            <mapEntry member="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t" value="QAPI_ZB_CL_IASZONE_SERVER_EVENT_TYPE_ATTR_CUSTOM_WRITE_E"/>
+            <mapEntry member="Unparsed_Data" type="qapi_ZB_CL_Unparsed_Data_t" value="QAPI_ZB_CL_IASZONE_SERVER_EVENT_TYPE_UNPARSED_DATA_E"/>
+            <mapEntry member="Enroll_Response" type="qapi_ZB_CL_IASZone_Zone_Enroll_Response_t" value="QAPI_ZB_CL_IASZONE_SERVER_EVENT_TYPE_ZONE_ENROLL_RESPONSE_E"/>
+            <mapEntry member="Intiate_Test_Mode" type="qapi_ZB_CL_IASZone_Initiate_Test_Mode_t" value="QAPI_ZB_CL_IASZONE_SERVER_EVENT_TYPE_INITIATE_TEST_MODE_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <function name="qapi_ZB_CL_IASZone_Create_Client">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Cluster_Info" type="qapi_ZB_CL_Cluster_Info_t"/>
+      <argument attributes="value" name="Event_CB" type="qapi_ZB_CL_IASZone_Client_CB_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+   </function>
+   <function name="qapi_ZB_CL_IASZone_Create_Server">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="value" name="Zone_Type" type="qapi_ZB_CL_IASZone_Zone_Type_t"/>
+      <argument attributes="value" name="Manufacturer" type="uint16_t"/>
+      <argument attributes="value" name="TripToPair" type="qbool_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Cluster_Info" type="qapi_ZB_CL_Cluster_Info_t"/>
+      <argument attributes="value" name="Event_CB" type="qapi_ZB_CL_IASZone_Server_CB_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+   </function>
+   <function name="qapi_ZB_CL_IASZone_Populate_Attributes">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Server" type="qbool_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="AttributeCount" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="AttributeCount" lengthVerified="yes" name="AttributeList" type="qapi_ZB_CL_Attribute_t"/>
+   </function>
+   <function name="qapi_ZB_CL_IASZone_Client_Send_Zone_Enroll_Reponse">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="value" name="ZoneID" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_CL_IASZone_Client_Send_Initiate_Normal_Operation_Mode">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+   </function>
+   <function name="qapi_ZB_CL_IASZone_Client_Send_Initiate_Test_Mode">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="value" name="Duration" type="uint8_t"/>
+      <argument attributes="value" name="Sensitivity" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_CL_IASZone_Server_Send_Zone_Enroll_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+   </function>
+   <callback name="qapi_ZB_CL_IASZone_Client_CB_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Event_Data" type="qapi_ZB_CL_IASZone_Client_Event_Data_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+      <createFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="" name="qapi_ZB_CL_IASZone_Create_Client" param="CB_Param"/>
+      <destroyFunction ID="Cluster" funcSuccess="QAPI_OK" name="qapi_ZB_CL_Destroy_Cluster"/>
+   </callback>
+   <callback name="qapi_ZB_CL_IASZone_Server_CB_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Event_Data" type="qapi_ZB_CL_IASZone_Server_Event_Data_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+      <createFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_IASZone_Create_Server" param="CB_Param"/>
+      <destroyFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_Destroy_Cluster"/>
+   </callback>
+</header>

@@ -1,0 +1,109 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="./qapi_ble_bttypes.h"/>
+   <macro name="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT" params="(_x, _a, _b)" value="\ ( \  ((_x).UUID_Byte1 == (_a)) &amp;&amp; ((_x).UUID_Byte0 == (_b)) \ )"/>
+   <macro name="QAPI_BLE_COMPARE_BLUETOOTH_UUID_128_TO_CONSTANT" params="(_x, _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p)" value="\ ( \  ((_x).UUID_Byte0 == (_p)) &amp;&amp; ((_x).UUID_Byte1 == (_o)) &amp;&amp; ((_x).UUID_Byte2 == (_n)) &amp;&amp; \  ((_x).UUID_Byte3 == (_m)) &amp;&amp; ((_x).UUID_Byte4 == (_l)) &amp;&amp; ((_x).UUID_Byte5 == (_k)) &amp;&amp; \  ((_x).UUID_Byte6 == (_j)) &amp;&amp; ((_x).UUID_Byte7 == (_i)) &amp;&amp; ((_x).UUID_Byte8 == (_h)) &amp;&amp; \  ((_x).UUID_Byte9 == (_g)) &amp;&amp; ((_x).UUID_Byte10 == (_f)) &amp;&amp; ((_x).UUID_Byte11 == (_e)) &amp;&amp; \  ((_x).UUID_Byte12 == (_d)) &amp;&amp; ((_x).UUID_Byte13 == (_c)) &amp;&amp; ((_x).UUID_Byte14 == (_b)) &amp;&amp; \  ((_x).UUID_Byte15 == (_a)) \ )"/>
+   <macro name="QAPI_BLE_GATT_ASSIGN_BASE_UUID" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_128((_x), 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x10, 0x00, 0x80, 0x00, 0x00, 0x80, 0x5F, 0x9B, 0x34, 0xFB)"/>
+   <macro name="QAPI_BLE_COMPARE_BLUETOOTH_UUID_128_TO_UUID_16_CONSTANT" params="(_x, _a, _b)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_128_TO_CONSTANT((_x), 0x00, 0x00, _a, _b, 0x00, 0x00, 0x10, 0x00, 0x80, 0x00, 0x00, 0x80, 0x5F, 0x9B, 0x34, 0xFB)"/>
+   <macro name="QAPI_BLE_COMPARE_BLUETOOTH_UUID_128_TO_BLUETOOTH_UUID_16" params="(_x, _y)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_128_TO_CONSTANT((_x), 0x00, 0x00, (_y).UUID_Byte1, (_y).UUID_Byte0, 0x00, 0x00, 0x10, 0x00, 0x80, 0x00, 0x00, 0x80, 0x5F, 0x9B, 0x34, 0xFB)"/>
+   <macro name="QAPI_BLE_COMPARE_BLUETOOTH_UUID_128_TO_UUID_32_CONSTANT" params="(_x, _a, _b, _c, _d)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_128_TO_CONSTANT((_x), _a, _b, _c, _d, 0x00, 0x00, 0x10, 0x00, 0x80, 0x00, 0x00, 0x80, 0x5F, 0x9B, 0x34, 0xFB)"/>
+   <macro name="QAPI_BLE_COMPARE_BLUETOOTH_UUID_128_TO_BLUETOOTH_UUID_32" params="(_x, _y)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_128_TO_CONSTANT((_x), (_y).UUID_Byte3, (_y).UUID_Byte2, (_y).UUID_Byte1, (_y).UUID_Byte0, 0x00, 0x00, 0x10, 0x00, 0x80, 0x00, 0x00, 0x80, 0x5F, 0x9B, 0x34, 0xFB)"/>
+   <macro name="QAPI_BLE_COMPARE_BLUETOOTH_UUID_TO_BLUETOOTH_BASE_UUID" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_128_TO_CONSTANT((_x), (_x).UUID_Byte15, (_x).UUID_Byte14, (_x).UUID_Byte13, (_x).UUID_Byte12, 0x00, 0x00, 0x10, 0x00, 0x80, 0x00, 0x00, 0x80, 0x5F, 0x9B, 0x34, 0xFB)"/>
+   <macro name="QAPI_BLE_GATT_ASSIGN_PRIMARY_SERVICE_ATTRIBUTE_TYPE" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x28, 0x00)"/>
+   <macro name="QAPI_BLE_GATT_COMPARE_PRIMARY_SERVICE_ATTRIBUTE_TYPE_TO_BLUETOOTH_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x28, 0x00)"/>
+   <macro name="QAPI_BLE_GATT_COMPARE_PRIMARY_SERVICE_ATTRIBUTE_TYPE_TO_BLUETOOTH_UUID_128" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_128_TO_UUID_16_CONSTANT((_x), 0x28, 0x00)"/>
+   <macro name="QAPI_BLE_GATT_ASSIGN_SECONDARY_SERVICE_ATTRIBUTE_TYPE" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x28, 0x01)"/>
+   <macro name="QAPI_BLE_GATT_COMPARE_SECONDARY_SERVICE_ATTRIBUTE_TYPE_TO_BLUETOOTH_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x28, 0x01)"/>
+   <macro name="QAPI_BLE_GATT_COMPARE_SECONDARY_SERVICE_ATTRIBUTE_TYPE_TO_BLUETOOTH_UUID_128" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_128_TO_UUID_16_CONSTANT((_x), 0x28, 0x01)"/>
+   <macro name="QAPI_BLE_GATT_ASSIGN_INCLUDE_ATTRIBUTE_TYPE" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x28, 0x02)"/>
+   <macro name="QAPI_BLE_GATT_COMPARE_INCLUDE_ATTRIBUTE_TYPE_TO_BLUETOOTH_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x28, 0x02)"/>
+   <macro name="QAPI_BLE_GATT_COMPARE_INCLUDE_ATTRIBUTE_TYPE_TO_BLUETOOTH_UUID_128" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_128_TO_UUID_16_CONSTANT((_x), 0x28, 0x02)"/>
+   <macro name="QAPI_BLE_GATT_ASSIGN_CHARACTERISTIC_ATTRIBUTE_TYPE" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x28, 0x03)"/>
+   <macro name="QAPI_BLE_GATT_COMPARE_CHARACTERISTIC_ATTRIBUTE_TYPE_TO_BLUETOOTH_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x28, 0x03)"/>
+   <macro name="QAPI_BLE_GATT_COMPARE_CHARACTERISTIC_ATTRIBUTE_TYPE_TO_BLUETOOTH_UUID_128" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_128_TO_UUID_16_CONSTANT((_x), 0x28, 0x03)"/>
+   <macro name="QAPI_BLE_GATT_ASSIGN_CHARACTERISTIC_EXTENDED_PROPERTIES_ATTRIBUTE_TYPE" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x29, 0x00)"/>
+   <macro name="QAPI_BLE_GATT_COMPARE_CHARACTERISTIC_EXTENDED_PROPERTIES_ATTRIBUTE_TYPE_TO_BLUETOOTH_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x29, 0x00)"/>
+   <macro name="QAPI_BLE_GATT_ASSIGN_CHARACTERISTIC_USER_DESCRIPTION_ATTRIBUTE_TYPE" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x29, 0x01)"/>
+   <macro name="QAPI_BLE_GATT_COMPARE_CHARACTERISTIC_USER_DESCRIPTION_ATTRIBUTE_TYPE_TO_BLUETOOTH_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x29, 0x01)"/>
+   <macro name="QAPI_BLE_GATT_ASSIGN_CLIENT_CHARACTERISTIC_CONFIGURATION_ATTRIBUTE_TYPE" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x29, 0x02)"/>
+   <macro name="QAPI_BLE_GATT_COMPARE_CLIENT_CHARACTERISTIC_CONFIGURATION_ATTRIBUTE_TYPE_TO_BLUETOOTH_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x29, 0x02)"/>
+   <macro name="QAPI_BLE_GATT_CLIENT_CHARACTERISTIC_CONFIGURATION_BLUETOOTH_UUID_CONSTANT" value="{ 0x02, 0x29 }"/>
+   <macro name="QAPI_BLE_GATT_CLIENT_CHARACTERISTIC_CONFIGURATION_LENGTH" value="(QAPI_BLE_NON_ALIGNED_WORD_SIZE)"/>
+   <macro name="QAPI_BLE_GATT_ASSIGN_SERVER_CHARACTERISTIC_CONFIGURATION_ATTRIBUTE_TYPE" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x29, 0x03)"/>
+   <macro name="QAPI_BLE_GATT_COMPARE_SERVER_CHARACTERISTIC_CONFIGURATION_ATTRIBUTE_TYPE_TO_BLUETOOTH_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x29, 0x03)"/>
+   <macro name="QAPI_BLE_GATT_SERVER_CHARACTERISTIC_CONFIGURATION_BLUETOOTH_UUID_CONSTANT" value="{ 0x03, 0x29 }"/>
+   <macro name="QAPI_BLE_GATT_SERVER_CHARACTERISTIC_CONFIGURATION_LENGTH" value="(QAPI_BLE_NON_ALIGNED_WORD_SIZE)"/>
+   <macro name="QAPI_BLE_GATT_ASSIGN_CHARACTERISTIC_PRESENTATION_FORMAT_ATTRIBUTE_TYPE" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x29, 0x04)"/>
+   <macro name="QAPI_BLE_GATT_COMPARE_CHARACTERISTIC_PRESENTATION_FORMAT_ATTRIBUTE_TYPE_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x29, 0x04)"/>
+   <macro name="QAPI_BLE_GATT_CHARACTERISTIC_PRESENTATION_FORMAT_BLUETOOTH_UUID_CONSTANT" value="{ 0x04, 0x29 }"/>
+   <macro name="QAPI_BLE_GATT_ASSIGN_CHARACTERISTIC_AGGREGATE_FORMAT_ATTRIBUTE_TYPE" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x29, 0x05)"/>
+   <macro name="QAPI_BLE_GATT_COMPARE_CHARACTERISTIC_AGGREGATE_FORMAT_ATTRIBUTE_TYPE_TO_BLUETOOTH_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x29, 0x05)"/>
+   <macro name="QAPI_BLE_GATT_ASSIGN_GATT_SERVICE_UUID" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x18, 0x01)"/>
+   <macro name="QAPI_BLE_GATT_COMPARE_GATT_SERVICE_UUID_TO_BLUETOOTH_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x18, 0x01)"/>
+   <macro name="QAPI_BLE_GATT_SERVICE_BLUETOOTH_UUID_CONSTANT" value="{ 0x01, 0x18 }"/>
+   <macro name="QAPI_BLE_SDP_ASSIGN_GATT_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_SDP_UUID_16((_x), 0x18, 0x01)"/>
+   <macro name="QAPI_BLE_SDP_ASSIGN_GATT_UUID_32" params="(_x)" value="QAPI_BLE_ASSIGN_SDP_UUID_32((_x), 0x00, 0x00, 0x18, 0x01)"/>
+   <macro name="QAPI_BLE_SDP_ASSIGN_GATT_UUID_128" params="(_x)" value="QAPI_BLE_ASSIGN_SDP_UUID_128((_x), 0x00, 0x00, 0x18, 0x01, 0x00, 0x00, 0x10, 0x00, 0x80, 0x00, 0x00, 0x80, 0x5F, 0x9B, 0x34, 0xFB)"/>
+   <macro name="QAPI_BLE_SDP_ASSIGN_ATT_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_SDP_UUID_16((_x), 0x00, 0x07)"/>
+   <macro name="QAPI_BLE_SDP_ASSIGN_ATT_UUID_32" params="(_x)" value="QAPI_BLE_ASSIGN_SDP_UUID_32((_x), 0x00, 0x00, 0x00, 0x07)"/>
+   <macro name="QAPI_BLE_SDP_ASSIGN_ATT_UUID_128" params="(_x)" value="QAPI_BLE_ASSIGN_SDP_UUID_128((_x), 0x00, 0x00, 0x00, 0x07, 0x00, 0x00, 0x10, 0x00, 0x80, 0x00, 0x00, 0x80, 0x5F, 0x9B, 0x34, 0xFB)"/>
+   <macro name="QAPI_BLE_GATT_ASSIGN_SERVICE_CHANGED_ATTRIBUTE_TYPE" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x05)"/>
+   <macro name="QAPI_BLE_GATT_COMPARE_SERVICE_CHANGED_ATTRIBUTE_TYPE_TO_BLUETOOTH_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x05)"/>
+   <macro name="QAPI_BLE_GATT_SERVICE_CHANGED_BLUETOOTH_UUID_CONSTANT" value="{ 0x05, 0x2A }"/>
+   <macro name="QAPI_BLE_GATT_CHARACTERISTIC_PROPERTIES_BROADCAST" value="0x01"/>
+   <macro name="QAPI_BLE_GATT_CHARACTERISTIC_PROPERTIES_READ" value="0x02"/>
+   <macro name="QAPI_BLE_GATT_CHARACTERISTIC_PROPERTIES_WRITE_WITHOUT_RESPONSE" value="0x04"/>
+   <macro name="QAPI_BLE_GATT_CHARACTERISTIC_PROPERTIES_WRITE" value="0x08"/>
+   <macro name="QAPI_BLE_GATT_CHARACTERISTIC_PROPERTIES_NOTIFY" value="0x10"/>
+   <macro name="QAPI_BLE_GATT_CHARACTERISTIC_PROPERTIES_INDICATE" value="0x20"/>
+   <macro name="QAPI_BLE_GATT_CHARACTERISTIC_PROPERTIES_AUTHENTICATED_SIGNED_WRITES" value="0x40"/>
+   <macro name="QAPI_BLE_GATT_CHARACTERISTIC_PROPERTIES_EXTENDED_PROPERTIES" value="0x80"/>
+   <macro name="QAPI_BLE_GATT_CHARACTERISTIC_EXTENDED_PROPERTIES_RELIABLE_WRITE" value="0x0001"/>
+   <macro name="QAPI_BLE_GATT_CHARACTERISTIC_EXTENDED_PROPERTIES_WRITABLE_AUXILARIES" value="0x0002"/>
+   <macro name="QAPI_BLE_GATT_CLIENT_CONFIGURATION_CHARACTERISTIC_NOTIFY_ENABLE" value="0x0001"/>
+   <macro name="QAPI_BLE_GATT_CLIENT_CONFIGURATION_CHARACTERISTIC_INDICATE_ENABLE" value="0x0002"/>
+   <macro name="QAPI_BLE_GATT_SERVER_CONFIGURATION_CHARACTERISTIC_BROADCAST_ENABLE" value="0x0001"/>
+   <macro name="QAPI_BLE_GATT_GROUP_ATTRIBUTE_DATA_SIZE" params="(_x)" value="(QAPI_BLE_BTPS_STRUCTURE_OFFSET(qapi_BLE_GATT_Group_Attribute_Data_t, ServiceUUID) + ((_x) * sizeof(uint8_t)))"/>
+   <macro name="QAPI_BLE_GATT_HANDLE_VALUE_INFORMATION_DATA_SIZE" params="(_x)" value="(QAPI_BLE_BTPS_STRUCTURE_OFFSET(qapi_BLE_GATT_Handle_Value_Information_t, AttributeData) + ((_x) * sizeof(uint8_t)))"/>
+   <macro name="QAPI_BLE_GATT_PRIMARY_SERVICE_BY_UUID_ENTRY_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Primary_Service_By_UUID_Entry_t))"/>
+   <macro name="QAPI_BLE_GATT_INCLUDED_SERVICE_INFO_DATA_SIZE" params="(_x)" value="(QAPI_BLE_BTPS_STRUCTURE_OFFSET(qapi_BLE_GATT_Included_Service_Info_t, ServiceUUID) + ((_x) * sizeof(uint8_t)))"/>
+   <macro name="QAPI_BLE_GATT_INCLUDED_SERVICE_VALUE_DATA_SIZE" params="(_x)" value="(QAPI_BLE_BTPS_STRUCTURE_OFFSET(qapi_BLE_GATT_Included_Service_Value_t, ServiceUUID) + ((_x) * sizeof(uint8_t)))"/>
+   <macro name="QAPI_BLE_GATT_CHARACTERISTIC_DECLARATION_VALUE_FIELD_DATA_SIZE" params="(_x)" value="(QAPI_BLE_BTPS_STRUCTURE_OFFSET(qapi_BLE_GATT_Characteristic_Declaration_Value_Field_t, UUID) + ((_x) * sizeof(uint8_t)))"/>
+   <macro name="GATT_QAPI_BLE_CHARACTERISTIC_INFO_DATA_SIZE" params="(_x)" value="(QAPI_BLE_BTPS_STRUCTURE_OFFSET(qapi_BLE_GATT_Characteristic_Info_t, UUID) + ((_x) * sizeof(uint8_t)))"/>
+   <macro name="QAPI_BLE_GATT_SERVICE_CHANGED_CHARACTERISTIC_VALUE_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Service_Changed_Characteristic_Value_t))"/>
+   <macro name="QAPI_BLE_GATT_DATE_TIME_CHARACTERISTIC_DATA_SIZE" value="(sizeof(qapi_BLE_GATT_Date_Time_Characteristic_t))"/>
+   <macro name="QAPI_BLE_GATT_DATE_TIME_ASSIGN_YEAR" params="(_x, _y)" value="ASSIGN_HOST_WORD_TO_LITTLE_ENDIAN_UNALIGNED_WORD(&amp;(((qapi_BLE_GATT_Date_Time_Characteristic_t *)(_x))-&gt;Year), (_y))"/>
+   <macro name="QAPI_BLE_GATT_DATE_TIME_READ_YEAR" params="(_x)" value="READ_UNALIGNED_WORD_LITTLE_ENDIAN(&amp;(((qapi_BLE_GATT_Date_Time_Characteristic_t *)(_x))-&gt;Year))"/>
+   <macro name="QAPI_BLE_GATT_DATE_TIME_VALID_YEAR" params="(_x)" value="((!(_x)) || (((_x) &gt;= 1582) &amp;&amp; ((_x) &lt;= 9999)))"/>
+   <macro name="QAPI_BLE_GATT_DATE_TIME_ASSIGN_MONTH" params="(_x, _y)" value="ASSIGN_HOST_BYTE_TO_LITTLE_ENDIAN_UNALIGNED_BYTE(&amp;(((qapi_BLE_GATT_Date_Time_Characteristic_t *)(_x))-&gt;Month), (_y))"/>
+   <macro name="QAPI_BLE_GATT_DATE_TIME_READ_MONTH" params="(_x)" value="READ_UNALIGNED_BYTE_LITTLE_ENDIAN(&amp;(((qapi_BLE_GATT_Date_Time_Characteristic_t *)(_x))-&gt;Month))"/>
+   <macro name="QAPI_BLE_GATT_DATE_TIME_VALID_MONTH" params="(_x)" value="((!(_x)) || (((_x) &gt;= 1) &amp;&amp; ((_x) &lt;= 12)))"/>
+   <macro name="QAPI_BLE_GATT_DATE_TIME_ASSIGN_DAY" params="(_x, _y)" value="ASSIGN_HOST_BYTE_TO_LITTLE_ENDIAN_UNALIGNED_BYTE(&amp;(((qapi_BLE_GATT_Date_Time_Characteristic_t *)(_x))-&gt;Day), (_y))"/>
+   <macro name="QAPI_BLE_GATT_DATE_TIME_READ_DAY" params="(_x)" value="READ_UNALIGNED_BYTE_LITTLE_ENDIAN(&amp;(((qapi_BLE_GATT_Date_Time_Characteristic_t *)(_x))-&gt;Day))"/>
+   <macro name="QAPI_BLE_GATT_DATE_TIME_VALID_DAY" params="(_x)" value="((!(_x)) || (((_x) &gt;= 1) &amp;&amp; ((_x) &lt;= 31)))"/>
+   <macro name="QAPI_BLE_GATT_DATE_TIME_ASSIGN_HOURS" params="(_x, _y)" value="ASSIGN_HOST_BYTE_TO_LITTLE_ENDIAN_UNALIGNED_BYTE(&amp;(((qapi_BLE_GATT_Date_Time_Characteristic_t *)(_x))-&gt;Hours), (_y))"/>
+   <macro name="QAPI_BLE_GATT_DATE_TIME_READ_HOURS" params="(_x)" value="READ_UNALIGNED_BYTE_LITTLE_ENDIAN(&amp;(((qapi_BLE_GATT_Date_Time_Characteristic_t *)(_x))-&gt;Hours))"/>
+   <macro name="QAPI_BLE_GATT_DATE_TIME_VALID_HOURS" params="(_x)" value="(((_x) &gt;= 0) &amp;&amp; ((_x) &lt;= 23))"/>
+   <macro name="QAPI_BLE_GATT_DATE_TIME_ASSIGN_MINUTES" params="(_x, _y)" value="ASSIGN_HOST_BYTE_TO_LITTLE_ENDIAN_UNALIGNED_BYTE(&amp;(((qapi_BLE_GATT_Date_Time_Characteristic_t *)(_x))-&gt;Minutes), (_y))"/>
+   <macro name="QAPI_BLE_GATT_DATE_TIME_READ_MINUTES" params="(_x)" value="READ_UNALIGNED_BYTE_LITTLE_ENDIAN(&amp;(((qapi_BLE_GATT_Date_Time_Characteristic_t *)(_x))-&gt;Minutes))"/>
+   <macro name="QAPI_BLE_GATT_DATE_TIME_VALID_MINUTES" params="(_x)" value="(((_x) &gt;= 0) &amp;&amp; ((_x) &lt;= 59))"/>
+   <macro name="QAPI_BLE_GATT_DATE_TIME_ASSIGN_SECONDS" params="(_x, _y)" value="ASSIGN_HOST_BYTE_TO_LITTLE_ENDIAN_UNALIGNED_BYTE(&amp;(((qapi_BLE_GATT_Date_Time_Characteristic_t *)(_x))-&gt;Seconds), (_y))"/>
+   <macro name="QAPI_BLE_GATT_DATE_TIME_READ_SECONDS" params="(_x)" value="READ_UNALIGNED_BYTE_LITTLE_ENDIAN(&amp;(((qapi_BLE_GATT_Date_Time_Characteristic_t *)(_x))-&gt;Seconds))"/>
+   <macro name="QAPI_BLE_GATT_DATE_TIME_VALID_SECONDS" params="(_x)" value="(((_x) &gt;= 0) &amp;&amp; ((_x) &lt;= 59))"/>
+   <structure name="qapi_BLE_GATT_Primary_Service_By_UUID_Entry_t">
+      <member attributes="value" name="StartingHandle" type="qapi_BLE_NonAlignedWord_t"/>
+      <member attributes="value" name="EndingHandle" type="qapi_BLE_NonAlignedWord_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Service_Changed_Characteristic_Value_t">
+      <member attributes="value" name="Start_Handle" type="qapi_BLE_NonAlignedWord_t"/>
+      <member attributes="value" name="End_Handle" type="qapi_BLE_NonAlignedWord_t"/>
+   </structure>
+   <structure name="qapi_BLE_GATT_Date_Time_Characteristic_t">
+      <member attributes="value" name="Year" type="qapi_BLE_NonAlignedWord_t"/>
+      <member attributes="value" name="Month" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="Day" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="Hours" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="Minutes" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="Seconds" type="qapi_BLE_NonAlignedByte_t"/>
+   </structure>
+</header>

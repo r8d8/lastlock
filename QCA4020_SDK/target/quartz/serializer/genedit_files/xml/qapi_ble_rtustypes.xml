@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="./qapi_ble_bttypes.h"/>
+   <macro name="QAPI_BLE_RTUS_ASSIGN_RTUS_SERVICE_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16(*((qapi_BLE_UUID_16_t *)(_x)), 0x18, 0x06)"/>
+   <macro name="QAPI_BLE_RTUS_COMPARE_RTUS_SERVICE_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x18, 0x06)"/>
+   <macro name="QAPI_BLE_RTUS_SERVICE_BLUETOOTH_UUID_CONSTANT" value="{ 0x06, 0x18 }"/>
+   <macro name="QAPI_BLE_RTUS_ASSIGN_TIME_UPDATE_STATE_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x17)"/>
+   <macro name="QAPI_BLE_RTUS_COMPARE_RTUS_TIME_UPDATE_STATE_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x17)"/>
+   <macro name="QAPI_BLE_RTUS_TIME_UPDATE_STATE_CHARACTERISTIC_BLUETOOTH_UUID_CONSTANT" value="{ 0x17, 0x2A }"/>
+   <macro name="QAPI_BLE_RTUS_ASSIGN_TIME_UPDATE_CONTROL_POINT_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x16)"/>
+   <macro name="QAPI_BLE_RTUS_COMPARE_RTUS_TIME_UPDATE_CONTROL_POINT_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x16)"/>
+   <macro name="QAPI_BLE_RTUS_TIME_UPDATE_CONTROL_POINT_CHARACTERISTIC_BLUETOOTH_UUID_CONSTANT" value="{ 0x16, 0x2A }"/>
+   <macro name="QAPI_BLE_RTUS_TIME_UPDATE_CONTROL_POINT_GET_REFERENCE_UPDATE" value="0x01"/>
+   <macro name="QAPI_BLE_RTUS_TIME_UPDATE_CONTROL_POINT_CANCEL_REFERENCE_UPDATE" value="0x02"/>
+   <macro name="QAPI_BLE_RTUS_CURRENT_STATE_IDLE" value="0x00"/>
+   <macro name="QAPI_BLE_RTUS_CURRENT_STATE_UPDATE_PENDING" value="0X01"/>
+   <macro name="QAPI_BLE_RTUS_RESULT_SUCCESSFUL" value="0x00"/>
+   <macro name="QAPI_BLE_RTUS_RESULT_CANCELED" value="0x01"/>
+   <macro name="QAPI_BLE_RTUS_RESULT_NO_CONNECTION_TO_REFERENCE" value="0x02"/>
+   <macro name="QAPI_BLE_RTUS_RESULT_REFERENCE_RESPONDED_WITH_AN_ERROR" value="0x03"/>
+   <macro name="QAPI_BLE_RTUS_RESULT_TIMEOUT" value="0x04"/>
+   <macro name="QAPI_BLE_RTUS_RESULT_UPDATE_NOT_ATTEMPTED_AFTER_RESET" value="0x05"/>
+   <macro name="QAPI_BLE_RTUS_TIME_UPDATE_CONTROL_POINT_VALID_COMMAND" params="(_x)" value="((((Byte_t)(_x)) &gt;= QAPI_BLE_RTUS_TIME_UPDATE_CONTROL_POINT_GET_REFERENCE_UPDATE) &amp;&amp; "/>
+   <macro name="QAPI_BLE_RTUS_TIME_UPDATE_STATE_VALID" params="(_x,_y)" value="(((((Byte_t)(_x)) &gt;= QAPI_BLE_RTUS_CURRENT_STATE_IDLE) &amp;&amp; (((Byte_t)(_x)) &lt;= QAPI_BLE_RTUS_CURRENT_STATE_UPDATE_PENDING)) &amp;&amp; "/>
+   <macro name="QAPI_BLE_RTUS_TIME_UPDATE_CONTROL_POINT_VALUE_LENGTH" value="(QAPI_BLE_BYTE_SIZE)"/>
+   <macro name="QAPI_BLE_RTUS_SERVICE_FLAGS" value="(QAPI_BLE_GATT_SERVICE_FLAGS_LE_SERVICE)"/>
+   <macro name="QAPI_BLE_RTUS_TIME_UPDATE_STATE_SIZE" value="(sizeof(qapi_BLE_RTUS_Time_Update_State_t))"/>
+   <structure name="qapi_BLE_RTUS_Time_Update_State_t">
+      <member attributes="value" name="CurrentState" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="Result" type="qapi_BLE_NonAlignedByte_t"/>
+   </structure>
+</header>

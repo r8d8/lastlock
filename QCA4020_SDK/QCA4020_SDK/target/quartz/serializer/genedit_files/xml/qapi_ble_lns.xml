@@ -1,0 +1,333 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="./qapi_ble_btapityp.h"/>
+   <include name="./qapi_ble_bttypes.h"/>
+   <include name="./qapi_ble_gatt.h"/>
+   <include name="./qapi_ble_lnstypes.h"/>
+   <macro name="QAPI_BLE_LNS_ERROR_INVALID_PARAMETER" value="(-1000)"/>
+   <macro name="QAPI_BLE_LNS_ERROR_INVALID_BLUETOOTH_STACK_ID" value="(-1001)"/>
+   <macro name="QAPI_BLE_LNS_ERROR_INSUFFICIENT_RESOURCES" value="(-1002)"/>
+   <macro name="QAPI_BLE_LNS_ERROR_INSUFFICIENT_BUFFER_SPACE" value="(-1003)"/>
+   <macro name="QAPI_BLE_LNS_ERROR_SERVICE_ALREADY_REGISTERED" value="(-1004)"/>
+   <macro name="QAPI_BLE_LNS_ERROR_INVALID_INSTANCE_ID" value="(-1005)"/>
+   <macro name="QAPI_BLE_LNS_ERROR_MALFORMATTED_DATA" value="(-1006)"/>
+   <macro name="QAPI_BLE_LNS_ERROR_INDICATION_OUTSTANDING" value="(-1007)"/>
+   <macro name="QAPI_BLE_LNS_CLIENT_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_LNS_Client_Information_t))"/>
+   <macro name="QAPI_BLE_LNS_SERVER_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_LNS_Server_Information_t))"/>
+   <macro name="QAPI_BLE_LNS_DATE_TIME_DATA_SIZE" value="(sizeof(qapi_BLE_LNS_Date_Time_Data_t))"/>
+   <macro name="QAPI_BLE_LNS_LOCATION_SPEED_DATA_SIZE" value="(sizeof(qapi_BLE_LNS_Location_Speed_Data_t))"/>
+   <macro name="QAPI_BLE_LNS_DATE_TIME_VALID" params="(_x)" value="((QAPI_BLE_GATT_DATE_TIME_VALID_YEAR(((_x)).Year)) &amp;&amp; (QAPI_BLE_GATT_DATE_TIME_VALID_MONTH(((_x)).Month)) &amp;&amp; (QAPI_BLE_GATT_DATE_TIME_VALID_DAY(((_x)).Day)) &amp;&amp; (QAPI_BLE_GATT_DATE_TIME_VALID_HOURS(((_x)).Hours)) &amp;&amp; (QAPI_BLE_GATT_DATE_TIME_VALID_MINUTES(((_x)).Minutes)) &amp;&amp; (QAPI_BLE_GATT_DATE_TIME_VALID_SECONDS(((_x)).Seconds)))"/>
+   <macro name="QAPI_BLE_LNS_POSITION_QUALITY_DATA_SIZE" value="(sizeof(qapi_BLE_LNS_Position_Quality_Data_t))"/>
+   <macro name="QAPI_BLE_LNS_LN_CONTROL_POINT_FORMAT_DATA_SIZE" value="(sizeof(qapi_BLE_LNS_LN_Control_Point_Format_Data_t))"/>
+   <macro name="QAPI_BLE_LNS_LN_CONTROL_POINT_RESPONSE_DATA_SIZE" value="(sizeof(qapi_BLE_LNS_LN_Control_Point_Response_Data_t))"/>
+   <macro name="QAPI_BLE_LNS_NAVIGATION_DATA_SIZE" value="(sizeof(qapi_BLE_LNS_Navigation_Data_t))"/>
+   <macro name="QAPI_BLE_LNS_READ_CLIENT_CONFIGURATION_DATA_SIZE" value="(sizeof(qapi_BLE_LNS_Read_Client_Configuration_Data_t))"/>
+   <macro name="QAPI_BLE_LNS_CLIENT_CONFIGURATION_UPDATE_DATA_SIZE" value="(sizeof(qapi_BLE_LNS_Client_Configuration_Update_Data_t))"/>
+   <macro name="QAPI_BLE_LNS_LN_CONTROL_POINT_COMMAND_DATA_SIZE" value="(sizeof(qapi_BLE_LNS_LN_Control_Point_Command_Data_t))"/>
+   <macro name="QAPI_BLE_LNS_CONFIRMATION_DATA_SIZE" value="(sizeof(qapi_BLE_LNS_Confirmation_Data_t))"/>
+   <macro name="QAPI_BLE_LNS_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_LNS_Event_Data_t))"/>
+   <enum name="qapi_BLE_LNS_LNCP_Command_Type_t">
+      <member name="QAPI_BLE_LNC_SET_CUMULATIVE_VALUE_E" value="QAPI_BLE_LNS_LN_CONTROL_POINT_OPCODE_SET_CUMULATIVE_VALUE"/>
+      <member name="QAPI_BLE_LNC_MASK_LOCATION_SPEED_CHARACTERISTICS_CONTENT_E" value="QAPI_BLE_LNS_LN_CONTROL_POINT_MASK_LOCATION_SPEED_CHARACTERISTIC_CONTENT"/>
+      <member name="QAPI_BLE_LNC_NAVIGATION_CONTROL_E" value="QAPI_BLE_LNS_LN_CONTROL_POINT_NAVIGATION_CONTROL"/>
+      <member name="QAPI_BLE_LNC_REQUEST_NUMBER_OF_ROUTES_E" value="QAPI_BLE_LNS_LN_CONTROL_POINT_REQUEST_NUMBER_OF_ROUTES"/>
+      <member name="QAPI_BLE_LNC_REQUEST_NAME_OF_ROUTE_E" value="QAPI_BLE_LNS_LN_CONTROL_POINT_REQUEST_NAME_OF_ROUTE"/>
+      <member name="QAPI_BLE_LNC_SELECT_ROUTE_E" value="QAPI_BLE_LNS_LN_CONTROL_POINT_SELECT_ROUTE"/>
+      <member name="QAPI_BLE_LNC_SET_FIX_RATE_E" value="QAPI_BLE_LNS_LN_CONTROL_POINT_SET_FIX_RATE"/>
+      <member name="QAPI_BLE_LNC_SET_ELEVATION_E" value="QAPI_BLE_LNS_LN_CONTROL_POINT_SET_ELEVATION"/>
+   </enum>
+   <enum name="qapi_BLE_LNS_LNCP_Response_Value_t">
+      <member name="QAPI_BLE_LNC_SUCCESS_E" value="QAPI_BLE_LNS_LN_CONTROL_POINT_RESPONSE_CODE_SUCCESS"/>
+      <member name="QAPI_BLE_LNC_OPCODE_NOT_SUPPORTED_E" value="QAPI_BLE_LNS_LN_CONTROL_POINT_RESPONSE_OPCODE_NOT_SUPPORTED"/>
+      <member name="QAPI_BLE_LNC_INVALID_PARAMETER_E" value="QAPI_BLE_LNS_LN_CONTROL_POINT_RESPONSE_INVALID_PARAMETER"/>
+      <member name="QAPI_BLE_LNC_OPERATION_FAILED_E" value="QAPI_BLE_LNS_LN_CONTROL_POINT_RESPONSE_OPERATION_FAILED"/>
+   </enum>
+   <enum name="qapi_BLE_LNS_Characteristic_Type_t">
+      <member name="QAPI_BLE_CT_LNS_LOCATION_AND_SPEED_E" value="0"/>
+      <member name="QAPI_BLE_CT_LN_CONTROL_POINT_E" value="1"/>
+      <member name="QAPI_BLE_CT_NAVIGATION_E" value="2"/>
+   </enum>
+   <enum name="qapi_BLE_LNS_Event_Type_t">
+      <member name="QAPI_BLE_ET_LNS_READ_CLIENT_CONFIGURATION_REQUEST_E" value="0"/>
+      <member name="QAPI_BLE_ET_LNS_CLIENT_CONFIGURATION_UPDATE_E" value="1"/>
+      <member name="QAPI_BLE_ET_LNS_LN_CONTROL_POINT_COMMAND_E" value="2"/>
+      <member name="QAPI_BLE_ET_LNS_CONFIRMATION_DATA_E" value="3"/>
+   </enum>
+   <structure name="qapi_BLE_LNS_Client_Information_t">
+      <member attributes="value" name="LN_Feature" type="uint16_t"/>
+      <member attributes="value" name="Location_And_Speed" type="uint16_t"/>
+      <member attributes="value" name="Location_And_Speed_Client_Configuration" type="uint16_t"/>
+      <member attributes="value" name="Position_Quality" type="uint16_t"/>
+      <member attributes="value" name="LN_Control_Point" type="uint16_t"/>
+      <member attributes="value" name="LN_Control_Point_Client_Configuration" type="uint16_t"/>
+      <member attributes="value" name="Navigation" type="uint16_t"/>
+      <member attributes="value" name="Navigation_Client_Configuration" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_LNS_Server_Information_t">
+      <member attributes="value" name="Location_And_Speed_Client_Configuration" type="uint16_t"/>
+      <member attributes="value" name="LN_Control_Point_Client_Configuration" type="uint16_t"/>
+      <member attributes="value" name="Navigation_Client_Configuration" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_LNS_Date_Time_Data_t">
+      <member attributes="value" name="Year" type="uint16_t"/>
+      <member attributes="value" name="Month" type="uint8_t"/>
+      <member attributes="value" name="Day" type="uint8_t"/>
+      <member attributes="value" name="Hours" type="uint8_t"/>
+      <member attributes="value" name="Minutes" type="uint8_t"/>
+      <member attributes="value" name="Seconds" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_LNS_Location_Speed_Data_t">
+      <member attributes="value" name="Flags" type="uint16_t"/>
+      <member attributes="value" name="InstantaneousSpeed" type="uint16_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="3" name="TotalDistance" type="uint8_t"/>
+      <member attributes="value" name="LocationLatitude" type="int32_t"/>
+      <member attributes="value" name="LocationLongitude" type="int32_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="3" name="Elevation" type="int8_t"/>
+      <member attributes="value" name="Heading" type="uint16_t"/>
+      <member attributes="value" name="RollingTime" type="uint8_t"/>
+      <member attributes="value" name="UTCTime" type="qapi_BLE_LNS_Date_Time_Data_t"/>
+   </structure>
+   <structure name="qapi_BLE_LNS_Position_Quality_Data_t">
+      <member attributes="value" name="Flags" type="uint16_t"/>
+      <member attributes="value" name="NumberofBeaconsinSolution" type="uint8_t"/>
+      <member attributes="value" name="NumberofBeaconsinView" type="uint8_t"/>
+      <member attributes="value" name="TimetoFirstfix" type="uint16_t"/>
+      <member attributes="value" name="EstimatedHorizontalPositionError" type="uint32_t"/>
+      <member attributes="value" name="EstimatedVerticalPositionError" type="uint32_t"/>
+      <member attributes="value" name="HorizontalDilutionofPrecision" type="uint8_t"/>
+      <member attributes="value" name="VerticalDilutionofPrecision" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_LNS_LN_Control_Point_Format_Data_t">
+      <member attributes="value" name="CommandType" type="qapi_BLE_LNS_LNCP_Command_Type_t"/>
+      <member attributes="union" name="CommandParameters">
+         <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="3" name="CumulativeValue" type="uint8_t"/>
+         <member attributes="value" name="LocationSpeedContentMaskFlags" type="int16_t"/>
+         <member attributes="value" name="NavigationControlCodesFlags" type="uint8_t"/>
+         <member attributes="value" name="NameOfRoute" type="uint16_t"/>
+         <member attributes="value" name="SelectRoute" type="uint16_t"/>
+         <member attributes="value" name="DesiredFixRateSeconds" type="uint8_t"/>
+         <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="3" name="ElevationValue" type="int8_t"/>
+         <unionMap mapVerified="yes" name="CommandType" type="qapi_BLE_LNS_LNCP_Command_Type_t">
+            <mapEntry member="CumulativeValue" fixedLength="true" iotype="in" lengthParam="3" type="uint8_t" value="QAPI_BLE_LNC_SET_CUMULATIVE_VALUE_E"/>
+            <mapEntry member="LocationSpeedContentMaskFlags" type="int16_t" value="QAPI_BLE_LNC_MASK_LOCATION_SPEED_CHARACTERISTICS_CONTENT_E"/>
+            <mapEntry member="NavigationControlCodesFlags" type="uint8_t" value="QAPI_BLE_LNC_NAVIGATION_CONTROL_E"/>
+            <mapEntry member="NameOfRoute" type="uint16_t" value="QAPI_BLE_LNC_REQUEST_NAME_OF_ROUTE_E"/>
+            <mapEntry member="SelectRoute" type="uint16_t" value="QAPI_BLE_LNC_SELECT_ROUTE_E"/>
+            <mapEntry member="DesiredFixRateSeconds" type="uint8_t" value="QAPI_BLE_LNC_SET_FIX_RATE_E"/>
+            <mapEntry member="ElevationValue" fixedLength="true" iotype="in" lengthParam="3" type="int8_t" value="QAPI_BLE_LNC_SET_ELEVATION_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_BLE_LNS_LN_Control_Point_Response_Data_t">
+      <member attributes="value" name="ResponseCodeOpCode" type="uint8_t"/>
+      <member attributes="value" name="RequestOpCode" type="qapi_BLE_LNS_LNCP_Command_Type_t"/>
+      <member attributes="value" name="ResponseCode" type="qapi_BLE_LNS_LNCP_Response_Value_t"/>
+      <member attributes="union" name="ResponseParameter">
+         <member attributes="value" name="NumberOfRoutes" type="uint16_t"/>
+         <member attributes="ptr" iotype="in" name="NameOfRoute" type="char"/>
+         <unionMap mapVerified="yes" name="RequestOpCode" type="qapi_BLE_LNS_LNCP_Command_Type_t">
+            <mapEntry member="NumberOfRoutes" type="uint16_t" value="QAPI_BLE_LNC_REQUEST_NUMBER_OF_ROUTES_E"/>
+            <mapEntry member="NameOfRoute" type="char" value="QAPI_BLE_LNC_REQUEST_NAME_OF_ROUTE_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_BLE_LNS_Navigation_Data_t">
+      <member attributes="value" name="Flags" type="uint16_t"/>
+      <member attributes="value" name="Bearing" type="uint16_t"/>
+      <member attributes="value" name="Heading" type="uint16_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="3" name="RemainingDistance" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="3" name="RemainingVerticalDistance" type="int8_t"/>
+      <member attributes="value" name="EstimatedTimeofArrival" type="qapi_BLE_LNS_Date_Time_Data_t"/>
+   </structure>
+   <structure name="qapi_BLE_LNS_Read_Client_Configuration_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ClientConfigurationType" type="qapi_BLE_LNS_Characteristic_Type_t"/>
+   </structure>
+   <structure name="qapi_BLE_LNS_Client_Configuration_Update_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ClientConfigurationType" type="qapi_BLE_LNS_Characteristic_Type_t"/>
+      <member attributes="value" name="ClientConfiguration" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_LNS_LN_Control_Point_Command_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="FormatData" type="qapi_BLE_LNS_LN_Control_Point_Format_Data_t"/>
+   </structure>
+   <structure name="qapi_BLE_LNS_Confirmation_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Status" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_LNS_Event_Data_t">
+      <member attributes="value" name="Event_Data_Type" type="qapi_BLE_LNS_Event_Type_t"/>
+      <member attributes="value" name="Event_Data_Size" type="uint16_t"/>
+      <member attributes="union" name="Event_Data">
+         <member attributes="ptr" iotype="in" name="LNS_Read_Client_Configuration_Data" type="qapi_BLE_LNS_Read_Client_Configuration_Data_t"/>
+         <member attributes="ptr" iotype="in" name="LNS_Client_Configuration_Update_Data" type="qapi_BLE_LNS_Client_Configuration_Update_Data_t"/>
+         <member attributes="ptr" iotype="in" name="LNS_LN_Control_Point_Command_Data" type="qapi_BLE_LNS_LN_Control_Point_Command_Data_t"/>
+         <member attributes="ptr" iotype="in" name="LNS_Confirmation_Data" type="qapi_BLE_LNS_Confirmation_Data_t"/>
+         <unionMap mapVerified="yes" name="Event_Data_Type" type="qapi_BLE_LNS_Event_Type_t">
+            <mapEntry member="LNS_Read_Client_Configuration_Data" type="qapi_BLE_LNS_Read_Client_Configuration_Data_t" value="QAPI_BLE_ET_LNS_READ_CLIENT_CONFIGURATION_REQUEST_E"/>
+            <mapEntry member="LNS_Client_Configuration_Update_Data" type="qapi_BLE_LNS_Client_Configuration_Update_Data_t" value="QAPI_BLE_ET_LNS_CLIENT_CONFIGURATION_UPDATE_E"/>
+            <mapEntry member="LNS_LN_Control_Point_Command_Data" type="qapi_BLE_LNS_LN_Control_Point_Command_Data_t" value="QAPI_BLE_ET_LNS_LN_CONTROL_POINT_COMMAND_E"/>
+            <mapEntry member="LNS_Confirmation_Data" type="qapi_BLE_LNS_Confirmation_Data_t" value="QAPI_BLE_ET_LNS_CONFIRMATION_DATA_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <function name="qapi_BLE_LNS_Initialize_Service">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_LNS_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_LNS_Initialize_Service_Handle_Range">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_LNS_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="ServiceHandleRange" type="qapi_BLE_GATT_Attribute_Handle_Group_t"/>
+   </function>
+   <function name="qapi_BLE_LNS_Cleanup_Service">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_LNS_Query_Number_Attributes">
+      <return attributes="value" type="unsigned int"/>
+   </function>
+   <function name="qapi_BLE_LNS_Read_Client_Configuration_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ClientConfiguration" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_LNS_Set_LN_Feature">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="SupportedFeatures" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_LNS_Query_LN_Feature">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="SupportedFeatures" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_LNS_Notify_Location_And_Speed">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="LocationAndSpeedData" type="qapi_BLE_LNS_Location_Speed_Data_t"/>
+   </function>
+   <function name="qapi_BLE_LNS_Set_Position_Quality">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Position_Quality" type="qapi_BLE_LNS_Position_Quality_Data_t"/>
+   </function>
+   <function name="qapi_BLE_LNS_Query_Position_Quality">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Position_Quality" type="qapi_BLE_LNS_Position_Quality_Data_t"/>
+   </function>
+   <function name="qapi_BLE_LNS_Notify_Navigation">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Navigation" type="qapi_BLE_LNS_Navigation_Data_t"/>
+   </function>
+   <function name="qapi_BLE_LNS_LN_Control_Point_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_LNS_Indicate_LN_Control_Point_Result">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="value" name="RequestOpCode" type="qapi_BLE_LNS_LNCP_Command_Type_t"/>
+      <argument attributes="value" name="ResponseCode" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_LNS_Indicate_Number_Of_Routes">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="value" name="RequestOpCode" type="qapi_BLE_LNS_LNCP_Command_Type_t"/>
+      <argument attributes="value" name="ResponseCode" type="uint8_t"/>
+      <argument attributes="value" name="NumberOfRoutes" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_LNS_Indicate_Name_Of_Route">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="value" name="RequestOpCode" type="qapi_BLE_LNS_LNCP_Command_Type_t"/>
+      <argument attributes="value" name="ResponseCode" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="__strlen__" lengthVerified="yes" name="NameOfRoute" type="char"/>
+   </function>
+   <function name="qapi_BLE_LNS_Format_LN_Control_Point_Command">
+      <return attributes="value" type="int"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="FormatData" type="qapi_BLE_LNS_LN_Control_Point_Format_Data_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="BufferLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="BufferLength" lengthVerified="yes" name="Buffer" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_LNS_Decode_LN_Control_Point_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="LNCPResponseData" type="qapi_BLE_LNS_LN_Control_Point_Response_Data_t"/>
+   </function>
+   <function name="qapi_BLE_LNS_Free_LN_Control_Point_Response">
+      <return attributes="value" type="void"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="LNCPResponseData" type="qapi_BLE_LNS_LN_Control_Point_Response_Data_t"/>
+   </function>
+   <function name="qapi_BLE_LNS_Decode_Location_And_Speed">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="LocationAndSpeedData" type="qapi_BLE_LNS_Location_Speed_Data_t"/>
+   </function>
+   <function name="qapi_BLE_LNS_Decode_Navigation">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="NavigationData" type="qapi_BLE_LNS_Navigation_Data_t"/>
+   </function>
+   <function name="qapi_BLE_LNS_Decode_Position_Quality">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="PositionQualityData" type="qapi_BLE_LNS_Position_Quality_Data_t"/>
+   </function>
+   <callback name="qapi_BLE_LNS_Event_Callback_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="LNS_Event_Data" type="qapi_BLE_LNS_Event_Data_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <createFunction ID="qsRetVal" funcSuccess="0" moduleParam="BluetoothStackID" name="qapi_BLE_LNS_Initialize_Service" param="CallbackParameter"/>
+      <createFunction ID="qsRetVal" funcSuccess="0" moduleParam="BluetoothStackID" name="qapi_BLE_LNS_Initialize_Service_Handle_Range" param="CallbackParameter"/>
+      <destroyFunction ID="InstanceID" funcSuccess="0" name="qapi_BLE_LNS_Cleanup_Service"/>
+   </callback>
+</header>

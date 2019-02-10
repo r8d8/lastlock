@@ -1,0 +1,313 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="qapi/qapi_types.h"/>
+   <include name="qapi/qapi_status.h"/>
+   <macro name="QAPI_ZB_CHANNEL_MASK_ALL" value="(0x07fff800)"/>
+   <macro name="QAPI_ZB_KEY_SIZE" value="(16)"/>
+   <macro name="QAPI_MAC_CAPABILITY_ALTERNATE_COORD" value="(0x01) "/>
+   <macro name="QAPI_MAC_CAPABILITY_FULL_FUNCTION" value="(0x02) "/>
+   <macro name="QAPI_MAC_CAPABILITY_MAINS_POWER" value="(0x04) "/>
+   <macro name="QAPI_MAC_CAPABILITY_RX_ON_IDLE" value="(0x08) "/>
+   <macro name="QAPI_MAC_CAPABILITY_SECURITY" value="(0x40) "/>
+   <macro name="QAPI_MAC_CAPABILITY_ALLOCATE_ADDR" value="(0x80) "/>
+   <macro name="QAPI_ZB_SERVER_MASK_PRIMARY_TRUST_CENTER" value="(0x01) "/>
+   <macro name="QAPI_ZB_SERVER_MASK_BACKUP_TRUST_CENTER" value="(0x02) "/>
+   <macro name="QAPI_ZB_SERVER_MASK_PRIMARY_BINDING_TABLE_CACHE" value="(0x04) "/>
+   <macro name="QAPI_ZB_SERVER_MASK_BACKUP_BINDING_TABLE_CACHE" value="(0x08) "/>
+   <macro name="QAPI_ZB_SERVER_MASK_PRIMARY_DISCOVERY_CACHE" value="(0x10) "/>
+   <macro name="QAPI_ZB_SERVER_MASK_BACKUP_DISCOVERY_CACHE" value="(0x20) "/>
+   <macro name="QAPI_ZB_SERVER_MASK_NETWORK_MANAGER" value="(0x40) "/>
+   <macro name="QAPI_ZB_ERR" params="(__status__)" value="(__QAPI_ERROR(QAPI_MOD_ZIGBEE, __status__))"/>
+   <macro name="QAPI_ZB_ERR_MAC_ASSOCIATE_PAN_AT_CAPACITY" value="(QAPI_ZB_ERR(1)) "/>
+   <macro name="QAPI_ZB_ERR_MAC_ASSOCIATE_PAN_ACCESS_DENIED" value="(QAPI_ZB_ERR(2)) "/>
+   <macro name="QAPI_ZB_ERR_ALLOC_FAIL" value="(QAPI_ZB_ERR(112)) "/>
+   <macro name="QAPI_ZB_ERR_TIMEOUT" value="(QAPI_ZB_ERR(113)) "/>
+   <macro name="QAPI_ZB_ERR_APS_ASDU_TOO_LONG" value="(QAPI_ZB_ERR(160)) "/>
+   <macro name="QAPI_ZB_ERR_APS_DEFRAG_DEFERRED" value="(QAPI_ZB_ERR(161)) "/>
+   <macro name="QAPI_ZB_ERR_APS_DEFRAG_UNSUPPORTED" value="(QAPI_ZB_ERR(162)) "/>
+   <macro name="QAPI_ZB_ERR_APS_ILLEGAL_REQUEST" value="(QAPI_ZB_ERR(163)) "/>
+   <macro name="QAPI_ZB_ERR_APS_INVALID_BINDING" value="(QAPI_ZB_ERR(164)) "/>
+   <macro name="QAPI_ZB_ERR_APS_INVALID_GROUP" value="(QAPI_ZB_ERR(165)) "/>
+   <macro name="QAPI_ZB_ERR_APS_INVALID_PARAMETER" value="(QAPI_ZB_ERR(166)) "/>
+   <macro name="QAPI_ZB_ERR_APS_NO_ACK" value="(QAPI_ZB_ERR(167)) "/>
+   <macro name="QAPI_ZB_ERR_APS_NO_BOUND_DEVICE" value="(QAPI_ZB_ERR(168)) "/>
+   <macro name="QAPI_ZB_ERR_APS_NO_SHORT_ADDRESS" value="(QAPI_ZB_ERR(169)) "/>
+   <macro name="QAPI_ZB_ERR_APS_NOT_SUPPORTED" value="(QAPI_ZB_ERR(170)) "/>
+   <macro name="QAPI_ZB_ERR_APS_SECURED_LINK_KEY" value="(QAPI_ZB_ERR(171)) "/>
+   <macro name="QAPI_ZB_ERR_APS_SECURED_NWK_KEY" value="(QAPI_ZB_ERR(172)) "/>
+   <macro name="QAPI_ZB_ERR_APS_SECURITY_FAIL" value="(QAPI_ZB_ERR(173)) "/>
+   <macro name="QAPI_ZB_ERR_APS_TABLE_FULL" value="(QAPI_ZB_ERR(174)) "/>
+   <macro name="QAPI_ZB_ERR_APS_UNSECURED" value="(QAPI_ZB_ERR(175)) "/>
+   <macro name="QAPI_ZB_ERR_APS_UNSUPPORTED_ATTRIBUTE" value="(QAPI_ZB_ERR(176)) "/>
+   <macro name="QAPI_ZB_ERR_APS_INVALID_INDEX" value="(QAPI_ZB_ERR(189)) "/>
+   <macro name="QAPI_ZB_ERR_NWK_INVALID_PARAMETER" value="(QAPI_ZB_ERR(193)) "/>
+   <macro name="QAPI_ZB_ERR_NWK_INVALID_REQUEST" value="(QAPI_ZB_ERR(194)) "/>
+   <macro name="QAPI_ZB_ERR_NWK_NOT_PERMITTED" value="(QAPI_ZB_ERR(195)) "/>
+   <macro name="QAPI_ZB_ERR_NWK_STARTUP_FAILURE" value="(QAPI_ZB_ERR(196)) "/>
+   <macro name="QAPI_ZB_ERR_NWK_ALREADY_PRESENT" value="(QAPI_ZB_ERR(197)) "/>
+   <macro name="QAPI_ZB_ERR_NWK_SYNC_FAILURE" value="(QAPI_ZB_ERR(198)) "/>
+   <macro name="QAPI_ZB_ERR_NWK_TABLE_FULL" value="(QAPI_ZB_ERR(199)) "/>
+   <macro name="QAPI_ZB_ERR_NWK_UNKNOWN_DEVICE" value="(QAPI_ZB_ERR(200)) "/>
+   <macro name="QAPI_ZB_ERR_NWK_UNSUPPORTED_ATTRIBUTE" value="(QAPI_ZB_ERR(201)) "/>
+   <macro name="QAPI_ZB_ERR_NWK_NO_NETWORKS" value="(QAPI_ZB_ERR(202)) "/>
+   <macro name="QAPI_ZB_ERR_NWK_LEAVE_UNCONFIRMED" value="(QAPI_ZB_ERR(203)) "/>
+   <macro name="QAPI_ZB_ERR_NWK_MAX_FRM_CNTR" value="(QAPI_ZB_ERR(204)) "/>
+   <macro name="QAPI_ZB_ERR_NWK_NO_KEY" value="(QAPI_ZB_ERR(205)) "/>
+   <macro name="QAPI_ZB_ERR_NWK_BAD_CCM_OUTPUT" value="(QAPI_ZB_ERR(206)) "/>
+   <macro name="QAPI_ZB_ERR_NWK_NO_ROUTING_CAPACITY" value="(QAPI_ZB_ERR(207)) "/>
+   <macro name="QAPI_ZB_ERR_NWK_ROUTE_DISCOVERY_FAILED" value="(QAPI_ZB_ERR(208)) "/>
+   <macro name="QAPI_ZB_ERR_NWK_ROUTE_ERROR" value="(QAPI_ZB_ERR(209)) "/>
+   <macro name="QAPI_ZB_ERR_NWK_BT_TABLE_FULL" value="(QAPI_ZB_ERR(210)) "/>
+   <macro name="QAPI_ZB_ERR_NWK_FRAME_NOT_BUFFERED" value="(QAPI_ZB_ERR(211)) "/>
+   <macro name="QAPI_ZB_ERR_NWK_INVALID_INDEX" value="(QAPI_ZB_ERR(212)) "/>
+   <macro name="QAPI_ZB_ERR_NWK_INTERNAL_ERR" value="(QAPI_ZB_ERR(214)) "/>
+   <macro name="QAPI_ZB_ERR_MAC_COUNTER_ERROR" value="(QAPI_ZB_ERR(219)) "/>
+   <macro name="QAPI_ZB_ERR_MAC_IMPROPER_KEY_TYPE" value="(QAPI_ZB_ERR(220)) "/>
+   <macro name="QAPI_ZB_ERR_MAC_IMPROPER_SECURITY_LEVEL" value="(QAPI_ZB_ERR(221)) "/>
+   <macro name="QAPI_ZB_ERR_MAC_UNSUPPORTED_LEGACY" value="(QAPI_ZB_ERR(222)) "/>
+   <macro name="QAPI_ZB_ERR_MAC_UNSUPPORTED_SECURITY" value="(QAPI_ZB_ERR(223)) "/>
+   <macro name="QAPI_ZB_ERR_MAC_CHANNEL_ACCESS_FAILURE" value="(QAPI_ZB_ERR(225)) "/>
+   <macro name="QAPI_ZB_ERR_MAC_DENIED" value="(QAPI_ZB_ERR(226)) "/>
+   <macro name="QAPI_ZB_ERR_MAC_SECURITY_ERROR" value="(QAPI_ZB_ERR(228)) "/>
+   <macro name="QAPI_ZB_ERR_MAC_FRAME_TOO_LONG" value="(QAPI_ZB_ERR(229)) "/>
+   <macro name="QAPI_ZB_ERR_MAC_INVALID_HANDLE" value="(QAPI_ZB_ERR(231)) "/>
+   <macro name="QAPI_ZB_ERR_MAC_INVALID_PARAMETER" value="(QAPI_ZB_ERR(232)) "/>
+   <macro name="QAPI_ZB_ERR_MAC_NO_ACK" value="(QAPI_ZB_ERR(233)) "/>
+   <macro name="QAPI_ZB_ERR_MAC_NO_BEACON" value="(QAPI_ZB_ERR(234)) "/>
+   <macro name="QAPI_ZB_ERR_MAC_NO_DATA" value="(QAPI_ZB_ERR(235)) "/>
+   <macro name="QAPI_ZB_ERR_MAC_NO_SHORT_ADDRESS" value="(QAPI_ZB_ERR(236)) "/>
+   <macro name="QAPI_ZB_ERR_MAC_TRANSACTION_EXPIRED" value="(QAPI_ZB_ERR(240)) "/>
+   <macro name="QAPI_ZB_ERR_MAC_TRANSACTION_OVERFLOW" value="(QAPI_ZB_ERR(241)) "/>
+   <macro name="QAPI_ZB_ERR_MAC_TX_ACTIVE" value="(QAPI_ZB_ERR(242)) "/>
+   <macro name="QAPI_ZB_ERR_MAC_UNAVAILABLE_KEY" value="(QAPI_ZB_ERR(243)) "/>
+   <macro name="QAPI_ZB_ERR_MAC_UNSUPPORTED_ATTRIBUTE" value="(QAPI_ZB_ERR(244)) "/>
+   <macro name="QAPI_ZB_ERR_MAC_INVALID_ADDRESS" value="(QAPI_ZB_ERR(245)) "/>
+   <macro name="QAPI_ZB_ERR_MAC_INVALID_INDEX" value="(QAPI_ZB_ERR(249)) "/>
+   <macro name="QAPI_ZB_ERR_MAC_LIMIT_REACHED" value="(QAPI_ZB_ERR(250)) "/>
+   <macro name="QAPI_ZB_ERR_MAC_READ_ONLY" value="(QAPI_ZB_ERR(251)) "/>
+   <macro name="QAPI_ZB_ERR_MAC_SCAN_IN_PROGRESS" value="(QAPI_ZB_ERR(252)) "/>
+   <macro name="QAPI_ZB_ERR_MAC_DRIVER_ERROR" value="(QAPI_ZB_ERR(254)) "/>
+   <macro name="QAPI_ZB_ERR_MAC_DEVICE_ERROR" value="(QAPI_ZB_ERR(255)) "/>
+   <macro name="QAPI_ZB_INVALID_EXTENDED_ADDRESS" value="(0xFFFFFFFFFFFFFFFFULL)"/>
+   <macro name="QAPI_ZB_2G4HZ_OCTET_DURATION_TO_MS" params="(__od__)" value="(((((uint32_t)(__od__) * 8) / 125) + 1) / 2)"/>
+   <macro name="QAPI_ZB_MS_TO_2G4HZ_OCTET_DURATION" params="(__ms__)" value="(((((uint32_t)(__ms__) * 125) / 2) + 1) / 2)"/>
+   <enum name="qapi_ZB_Key_Type_t">
+      <member name="QAPI_ZB_KEY_TYPE_STANDARD_NWK_E" value="1"/>
+      <member name="QAPI_ZB_KEY_TYPE_APP_LINK_E" value="3"/>
+      <member name="QAPI_ZB_KEY_TYPE_TC_LINK_E" value="4"/>
+   </enum>
+   <enum name="qapi_zb_Key_ID_t">
+      <member name="QAPI_ZB_KEY_ID_LINK_E" value="0x00"/>
+      <member name="QAPI_ZB_KEY_ID_NETWORK_E" value="0x01"/>
+      <member name="QAPI_ZB_KEY_ID_TRANSPORT_E" value="0x02"/>
+      <member name="QAPI_ZB_KEY_ID_KEYLOAD_E" value="0x03"/>
+      <member name="QAPI_ZB_KEY_ID_BOTH_E" value="0xFE"/>
+      <member name="QAPI_ZB_KEY_ID_DEFAULT_E" value="0xFF"/>
+   </enum>
+   <enum name="qapi_ZB_Scan_Type_t">
+      <member name="QAPI_SCAN_TYPE_ENERGY_E" value="0"/>
+      <member name="QAPI_SCAN_TYPE_ACTIVE_E" value="1"/>
+      <member name="QAPI_SCAN_TYPE_ORPHAN_E" value="3"/>
+   </enum>
+   <enum name="qapi_ZB_Stack_Profile_t">
+      <member name="QAPI_ZB_STACK_PROFILE_NETWORK_SPECIFIC" value="0"/>
+      <member name="QAPI_ZB_STACK_PROFILE_HOME_E" value="1"/>
+      <member name="QAPI_ZB_STACK_PROFILE_PRO_E" value="2"/>
+   </enum>
+   <enum name="qapi_ZB_Security_Level_t">
+      <member name="QAPI_ZB_SECURITY_LEVEL_NONE_E" value="0"/>
+      <member name="QAPI_ZB_SECURITY_LEVEL_MIC32_E" value="1"/>
+      <member name="QAPI_ZB_SECURITY_LEVEL_MIC64_E" value="2"/>
+      <member name="QAPI_ZB_SECURITY_LEVEL_MIC128_E" value="3"/>
+      <member name="QAPI_ZB_SECURITY_LEVEL_ENC_E" value="4"/>
+      <member name="QAPI_ZB_SECURITY_LEVEL_ENC_MIC32_E" value="5"/>
+      <member name="QAPI_ZB_SECURITY_LEVEL_ENC_MIC64_E" value="6"/>
+      <member name="QAPI_ZB_SECURITY_LEVEL_ENC_MIC128_E" value="7"/>
+   </enum>
+   <enum name="qapi_ZB_Addr_Mode_t">
+      <member name="QAPI_ZB_ADDRESS_MODE_NONE_E" value="0"/>
+      <member name="QAPI_ZB_ADDRESS_MODE_GROUP_ADDRESS_E" value="1"/>
+      <member name="QAPI_ZB_ADDRESS_MODE_SHORT_ADDRESS_E" value="2"/>
+      <member name="QAPI_ZB_ADDRESS_MODE_EXTENDED_ADDRESS_E" value="3"/>
+   </enum>
+   <enum name="qapi_ZB_Event_Type_t">
+      <member name="QAPI_ZB_EVENT_TYPE_FORM_CONFIRM_E" value="0"/>
+      <member name="QAPI_ZB_EVENT_TYPE_JOIN_CONFIRM_E" value="1"/>
+      <member name="QAPI_ZB_EVENT_TYPE_RECONNECT_CONFIRM_E" value="2"/>
+      <member name="QAPI_ZB_EVENT_TYPE_LEAVE_CONFIRM_E" value="3"/>
+      <member name="QAPI_ZB_EVENT_TYPE_LEAVE_IND_E" value="4"/>
+      <member name="QAPI_ZB_EVENT_TYPE_FACTORY_RESET_E" value="5"/>
+   </enum>
+   <structure name="qapi_ZB_Security_t">
+      <member attributes="value" name="Security_Level" type="qapi_ZB_Security_Level_t"/>
+      <member attributes="value" name="Use_Insecure_Rejoin" type="qbool_t"/>
+      <member attributes="value" name="Trust_Center_Address" type="uint64_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="QAPI_ZB_KEY_SIZE" name="Preconfigured_Link_Key" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="QAPI_ZB_KEY_SIZE" name="Distributed_Global_Key" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="QAPI_ZB_KEY_SIZE" name="Network_Key" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_NetworkConfig_t">
+      <member attributes="value" name="ExtendedPanId" type="uint64_t"/>
+      <member attributes="value" name="StackProfile" type="qapi_ZB_Stack_Profile_t"/>
+      <member attributes="value" name="ScanAttempts" type="uint8_t"/>
+      <member attributes="value" name="Page" type="uint8_t"/>
+      <member attributes="value" name="ChannelMask" type="uint32_t"/>
+      <member attributes="value" name="Capability" type="uint8_t"/>
+      <member attributes="value" name="Security" type="qapi_ZB_Security_t"/>
+   </structure>
+   <structure name="qapi_ZB_Preconfigure_t">
+      <member attributes="value" name="NetworkConfig" type="qapi_ZB_NetworkConfig_t"/>
+      <member attributes="value" name="NwkAddress" type="uint16_t"/>
+      <member attributes="value" name="PanId" type="uint16_t"/>
+      <member attributes="value" name="NetworkManagerAddress" type="uint16_t"/>
+      <member attributes="value" name="NetworkKeySeqNum" type="uint8_t"/>
+      <member attributes="value" name="EndDeviceTimeout" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_Join_t">
+      <member attributes="value" name="NetworkConfig" type="qapi_ZB_NetworkConfig_t"/>
+      <member attributes="value" name="IsRejoin" type="qbool_t"/>
+      <member attributes="value" name="EndDeviceTimeout" type="uint8_t"/>
+      <member attributes="value" name="NwkAddress" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_ZB_Form_Confirm_Event_Data_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="ActiveChannel" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_Join_Confirm_Event_Data_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="NwkAddress" type="uint16_t"/>
+      <member attributes="value" name="ExtendedPanId" type="uint64_t"/>
+      <member attributes="value" name="ActiveChannel" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_Reconnect_Confirm_Event_Data_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="NwkAddress" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_ZB_Leave_Confirm_Event_Data_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+   </structure>
+   <structure name="qapi_ZB_Leave_Ind_Event_Data_t">
+      <member attributes="value" name="ExtendedAddress" type="uint64_t"/>
+      <member attributes="value" name="NwkAddress" type="uint16_t"/>
+      <member attributes="value" name="Rejoin" type="qbool_t"/>
+   </structure>
+   <structure name="qapi_ZB_Event_t">
+      <member attributes="value" name="Event_Type" type="qapi_ZB_Event_Type_t"/>
+      <member attributes="union" name="Event_Data">
+         <member attributes="value" name="Form_Confirm" type="qapi_ZB_Form_Confirm_Event_Data_t"/>
+         <member attributes="value" name="Join_Confirm" type="qapi_ZB_Join_Confirm_Event_Data_t"/>
+         <member attributes="value" name="Reconnect_Confirm" type="qapi_ZB_Reconnect_Confirm_Event_Data_t"/>
+         <member attributes="value" name="Leave_Confirm" type="qapi_ZB_Leave_Confirm_Event_Data_t"/>
+         <member attributes="value" name="Leave_Ind" type="qapi_ZB_Leave_Ind_Event_Data_t"/>
+         <unionMap mapVerified="yes" name="Event_Type" type="qapi_ZB_Event_Type_t">
+            <mapEntry member="Form_Confirm" type="qapi_ZB_Form_Confirm_Event_Data_t" value="QAPI_ZB_EVENT_TYPE_FORM_CONFIRM_E"/>
+            <mapEntry member="Join_Confirm" type="qapi_ZB_Join_Confirm_Event_Data_t" value="QAPI_ZB_EVENT_TYPE_JOIN_CONFIRM_E"/>
+            <mapEntry member="Reconnect_Confirm" type="qapi_ZB_Reconnect_Confirm_Event_Data_t" value="QAPI_ZB_EVENT_TYPE_RECONNECT_CONFIRM_E"/>
+            <mapEntry member="Leave_Confirm" type="qapi_ZB_Leave_Confirm_Event_Data_t" value="QAPI_ZB_EVENT_TYPE_LEAVE_CONFIRM_E"/>
+            <mapEntry member="Leave_Ind" type="qapi_ZB_Leave_Ind_Event_Data_t" value="QAPI_ZB_EVENT_TYPE_LEAVE_IND_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <union name="qapi_ZB_Addr_t">
+      <member attributes="value" name="ShortAddress" type="uint16_t"/>
+      <member attributes="value" name="ExtendedAddress" type="uint64_t"/>
+   </union>
+   <function name="qapi_ZB_Initialize">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="ZB_Event_CB" type="qapi_ZB_Event_CB_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+   </function>
+   <function name="qapi_ZB_Shutdown">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+   </function>
+   <function name="qapi_ZB_Preconfigure">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="Config" type="qapi_ZB_Preconfigure_t"/>
+   </function>
+   <function name="qapi_ZB_Form">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="Config" type="qapi_ZB_NetworkConfig_t"/>
+   </function>
+   <function name="qapi_ZB_Join">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="Config" type="qapi_ZB_Join_t"/>
+   </function>
+   <function name="qapi_ZB_Reconnect">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="UseTCRejoin" type="qbool_t"/>
+   </function>
+   <function name="qapi_ZB_Permit_Join">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="Duration" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_Leave">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+   </function>
+   <function name="qapi_ZB_Set_Extended_Address">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="Extended_Address" type="uint64_t"/>
+   </function>
+   <function name="qapi_ZB_Get_Extended_Address">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Extended_Address" type="uint64_t"/>
+   </function>
+   <function name="qapi_ZB_Get_Current_Channel">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Page" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Channel" type="uint32_t"/>
+   </function>
+   <function name="qapi_ZB_Get_Persistent_Data">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="Length" lengthVerified="yes" name="Buffer" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="Length" type="uint32_t"/>
+   </function>
+   <function name="qapi_ZB_Restore_Persistent_Data">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="Length" lengthVerified="yes" name="Buffer" type="uint8_t"/>
+      <argument attributes="value" name="Length" type="uint32_t"/>
+   </function>
+   <function name="qapi_ZB_Register_Persist_Notify_CB">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="ZB_Persist_Notify_CB" type="qapi_ZB_Persist_Notify_CB_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+   </function>
+   <function name="qapi_ZB_Set_Transmit_Power">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="TxPower" type="int8_t"/>
+   </function>
+   <function name="qapi_ZB_Get_Transmit_Power">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="TxPower" type="int8_t"/>
+   </function>
+   <callback name="qapi_ZB_Event_CB_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr,const" iotype="out" lengthParam="1" lengthVerified="yes" name="ZB_Event" type="qapi_ZB_Event_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+      <createFunction ID="ZB_Event_CB" funcSuccess="QAPI_OK" moduleParam="" name="qapi_ZB_Initialize" param="CB_Param"/>
+      <destroyFunction ID="" funcSuccess="" moduleParam="ZB_Handle" name="qapi_ZB_Shutdown"/>
+   </callback>
+   <callback name="qapi_ZB_Persist_Notify_CB_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+      <createFunction ID="ZB_Persist_Notify_CB" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_Register_Persist_Notify_CB" param="CB_Param"/>
+      <destroyFunction ID="" funcSuccess="" moduleParam="ZB_Handle" name="qapi_ZB_Shutdown"/>
+   </callback>
+</header>

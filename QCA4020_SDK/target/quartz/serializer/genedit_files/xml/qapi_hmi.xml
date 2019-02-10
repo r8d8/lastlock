@@ -1,0 +1,703 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="qapi/qapi_types.h"/>
+   <include name="qapi/qapi_status.h"/>
+   <macro name="QAPI_HMI_STATUS_CODE_SUCCESS" value="(0x00) "/>
+   <macro name="QAPI_HMI_STATUS_CODE_ASSOCIATE_PAN_AT_CAPACITY" value="(0x01) "/>
+   <macro name="QAPI_HMI_STATUS_CODE_ASSOCIATE_PAN_ACCESS_DENIED" value="(0x02) "/>
+   <macro name="QAPI_HMI_STATUS_CODE_COUNTER_ERROR" value="(0xDB) "/>
+   <macro name="QAPI_HMI_STATUS_CODE_IMPROPER_KEY_TYPE" value="(0xDC) "/>
+   <macro name="QAPI_HMI_STATUS_CODE_IMPROPER_SECURITY_LEVEL" value="(0xDD) "/>
+   <macro name="QAPI_HMI_STATUS_CODE_UNSUPPORTED_LEGACY" value="(0xDE) "/>
+   <macro name="QAPI_HMI_STATUS_CODE_UNSUPPORTED_SECURITY" value="(0xDF) "/>
+   <macro name="QAPI_HMI_STATUS_CODE_CHANNEL_ACCESS_FAILURE" value="(0xE1) "/>
+   <macro name="QAPI_HMI_STATUS_CODE_DENIED" value="(0xE2) "/>
+   <macro name="QAPI_HMI_STATUS_CODE_SECURITY_ERROR" value="(0xE4) "/>
+   <macro name="QAPI_HMI_STATUS_CODE_FRAME_TOO_LONG" value="(0xE5) "/>
+   <macro name="QAPI_HMI_STATUS_CODE_INVALID_HANDLE" value="(0xE7) "/>
+   <macro name="QAPI_HMI_STATUS_CODE_INVALID_PARAMETER" value="(0xE8) "/>
+   <macro name="QAPI_HMI_STATUS_CODE_NO_ACK" value="(0xE9) "/>
+   <macro name="QAPI_HMI_STATUS_CODE_NO_BEACON" value="(0xEA) "/>
+   <macro name="QAPI_HMI_STATUS_CODE_NO_DATA" value="(0xEB) "/>
+   <macro name="QAPI_HMI_STATUS_CODE_NO_SHORT_ADDRESS" value="(0xEC) "/>
+   <macro name="QAPI_HMI_STATUS_CODE_TRANSACTION_EXPIRED" value="(0xF0) "/>
+   <macro name="QAPI_HMI_STATUS_CODE_TRANSACTION_OVERFLOW" value="(0xF1) "/>
+   <macro name="QAPI_HMI_STATUS_CODE_TX_ACTIVE" value="(0xF2) "/>
+   <macro name="QAPI_HMI_STATUS_CODE_UNAVAILABLE_KEY" value="(0xF3) "/>
+   <macro name="QAPI_HMI_STATUS_CODE_UNSUPPORTED_ATTRIBUTE" value="(0xF4) "/>
+   <macro name="QAPI_HMI_STATUS_CODE_INVALID_ADDRESS" value="(0xF5) "/>
+   <macro name="QAPI_HMI_STATUS_CODE_INVALID_INDEX" value="(0xF9) "/>
+   <macro name="QAPI_HMI_STATUS_CODE_LIMIT_REACHED" value="(0xFA) "/>
+   <macro name="QAPI_HMI_STATUS_CODE_READ_ONLY" value="(0xFB) "/>
+   <macro name="QAPI_HMI_STATUS_CODE_SCAN_IN_PROGRESS" value="(0xFC) "/>
+   <macro name="QAPI_HMI_STATUS_CODE_DRIVER_ERROR" value="(0xFE) "/>
+   <macro name="QAPI_HMI_STATUS_CODE_DEVICE_ERROR" value="(0xFF) "/>
+   <macro name="QAPI_HMI_ADDRESS_MODE_NONE" value="(0x00) "/>
+   <macro name="QAPI_HMI_ADDRESS_MODE_SHORT_ADDRESS" value="(0x02) "/>
+   <macro name="QAPI_HMI_ADDRESS_MODE_EXTENDED_ADDRESS" value="(0x03) "/>
+   <macro name="QAPI_HMI_SCAN_TYPE_ENERGY_DETECTION" value="(0x00) "/>
+   <macro name="QAPI_HMI_SCAN_TYPE_ACTIVE" value="(0x01) "/>
+   <macro name="QAPI_HMI_SCAN_TYPE_PASSIVE" value="(0x02) "/>
+   <macro name="QAPI_HMI_SCAN_TYPE_ORPHAN" value="(0x03) "/>
+   <macro name="QAPI_HMI_PIB_PHY_CURRENT_CHANNEL" value="(0x00) "/>
+   <macro name="QAPI_HMI_PIB_PHY_CHANNELS_SUPPORTED" value="(0x01) "/>
+   <macro name="QAPI_HMI_PIB_PHY_TRANSMIT_POWER" value="(0x02) "/>
+   <macro name="QAPI_HMI_PIB_PHY_CCA_MODE" value="(0x03) "/>
+   <macro name="QAPI_HMI_PIB_PHY_CURRENT_PAGE" value="(0x04) "/>
+   <macro name="QAPI_HMI_PIB_PHY_MAX_FRAME_DURATION" value="(0x05) "/>
+   <macro name="QAPI_HMI_PIB_PHY_SHR_DURATION" value="(0x06) "/>
+   <macro name="QAPI_HMI_PIB_PHY_SYMBOLS_PER_OCTET" value="(0x07) "/>
+   <macro name="QAPI_HMI_PIB_A_MAX_PHY_PACKET_SIZE" value="(0x08) "/>
+   <macro name="QAPI_HMI_PIB_PHY_LQI_IN_DBM" value="(0x20) "/>
+   <macro name="QAPI_HMI_PIB_MAC_ACK_WAIT_DURATION" value="(0x40) "/>
+   <macro name="QAPI_HMI_PIB_MAC_ASSOCIATION_PERMIT" value="(0x41) "/>
+   <macro name="QAPI_HMI_PIB_MAC_AUTO_REQUEST" value="(0x42) "/>
+   <macro name="QAPI_HMI_PIB_MAC_BEACON_PAYLOAD" value="(0x45) "/>
+   <macro name="QAPI_HMI_PIB_MAC_BEACON_PAYLAOD_LENGTH" value="(0x46) "/>
+   <macro name="QAPI_HMI_PIB_MAC_BEACON_ORDER" value="(0x47) "/>
+   <macro name="QAPI_HMI_PIB_MAC_BEACON_TX_TIME" value="(0x48) "/>
+   <macro name="QAPI_HMI_PIB_MAC_BSN" value="(0x49) "/>
+   <macro name="QAPI_HMI_PIB_MAC_COORD_EXTENDED_ADDRESS" value="(0x4A) "/>
+   <macro name="QAPI_HMI_PIB_MAC_COORD_SHORT_ADDRESS" value="(0x4B) "/>
+   <macro name="QAPI_HMI_PIB_MAC_DSN" value="(0x4C) "/>
+   <macro name="QAPI_HMI_PIB_MAC_MAX_CSMA_BACKOFFS" value="(0x4E) "/>
+   <macro name="QAPI_HMI_PIB_MAC_MIN_BE" value="(0x4F) "/>
+   <macro name="QAPI_HMI_PIB_MAC_PAN_ID" value="(0x50) "/>
+   <macro name="QAPI_HMI_PIB_MAC_PROMISCUOUS_MODE" value="(0x51) "/>
+   <macro name="QAPI_HMI_PIB_MAC_RX_ON_WHEN_IDLE" value="(0x52) "/>
+   <macro name="QAPI_HMI_PIB_MAC_SHORT_ADDRESS" value="(0x53) "/>
+   <macro name="QAPI_HMI_PIB_MAC_SUPERFRAME_ORDER" value="(0x54) "/>
+   <macro name="QAPI_HMI_PIB_MAC_TRANSACTION_PERSISTENCE_TIME" value="(0x55) "/>
+   <macro name="QAPI_HMI_PIB_MAC_MAX_BE" value="(0x57) "/>
+   <macro name="QAPI_HMI_PIB_MAC_MAX_FRAME_TOTAL_WAIT_TIME" value="(0x58) "/>
+   <macro name="QAPI_HMI_PIB_MAC_MAX_FRAME_RETRIES" value="(0x59) "/>
+   <macro name="QAPI_HMI_PIB_MAC_RESPONSE_WAIT_TIME" value="(0x5A) "/>
+   <macro name="QAPI_HMI_PIB_MAC_SYNC_SYMBOL_OFFSET" value="(0x5B) "/>
+   <macro name="QAPI_HMI_PIB_MAC_TIMESTAMP_SUPPORTED" value="(0x5C) "/>
+   <macro name="QAPI_HMI_PIB_MAC_SECURITY_ENABLED" value="(0x5D) "/>
+   <macro name="QAPI_HMI_PIB_MAC_MIN_LIFS_PERIOD" value="(0x5E) "/>
+   <macro name="QAPI_HMI_PIB_MAC_MIN_SIFS_PERIOD" value="(0x5F) "/>
+   <macro name="QAPI_HMI_PIB_MAC_ENABLE_KEY_ROTATION" value="(0x61) "/>
+   <macro name="QAPI_HMI_PIB_MAC_KEY_ROTATION_SEQUENCE" value="(0x62) "/>
+   <macro name="QAPI_HMI_PIB_MAC_EXTENDED_ADDRESS" value="(0x63) "/>
+   <macro name="QAPI_HMI_PIB_MAC_USE_THREAD_SECURITY" value="(0x64) "/>
+   <macro name="QAPI_HMI_PIB_MAC_ENABLE_BEACONS" value="(0x65) "/>
+   <macro name="QAPI_HMI_PIB_MAC_KEY_TABLE" value="(0x71) "/>
+   <macro name="QAPI_HMI_PIB_MAC_KEY_TABLE_ENTRIES" value="(0x72) "/>
+   <macro name="QAPI_HMI_PIB_MAC_DEVICE_TABLE" value="(0x73) "/>
+   <macro name="QAPI_HMI_PIB_MAC_DEVICE_TABLE_ENTRIES" value="(0x74) "/>
+   <macro name="QAPI_HMI_PIB_MAC_SECURITY_LEVEL_TABLE" value="(0x75) "/>
+   <macro name="QAPI_HMI_PIB_MAC_SECURITY_LEVEL_TABLE_ENTRIES" value="(0x76) "/>
+   <macro name="QAPI_HMI_PIB_MAC_FRAME_COUNTER" value="(0x77) "/>
+   <macro name="QAPI_HMI_PIB_MAC_DEFAULT_KEY_SOURCE" value="(0x7C) "/>
+   <macro name="QAPI_HMI_PIB_PAN_COORD_EXTENDED_ADDRESS" value="(0x7D) "/>
+   <macro name="QAPI_HMI_PIB_PAN_COORD_SHORT_ADDRESS" value="(0x7E) "/>
+   <macro name="QAPI_HMI_PIB_ATTRIBUTE_MAX_LENGTH" value="(52) "/>
+   <macro name="QAPI_HMI_KEY_ROTATION_SEQUENCE_LENGTH" value="(4) "/>
+   <macro name="QAPI_HMI_SECURITY_LEVEL_NONE" value="(0x00) "/>
+   <macro name="QAPI_HMI_SECURITY_LEVEL_MIC32" value="(0x01) "/>
+   <macro name="QAPI_HMI_SECURITY_LEVEL_MIC64" value="(0x02) "/>
+   <macro name="QAPI_HMI_SECURITY_LEVEL_MIC128" value="(0x03) "/>
+   <macro name="QAPI_HMI_SECURITY_LEVEL_ENC" value="(0x04) "/>
+   <macro name="QAPI_HMI_SECURITY_LEVEL_ENC_MIC32" value="(0x05) "/>
+   <macro name="QAPI_HMI_SECURITY_LEVEL_ENC_MIC64" value="(0x06) "/>
+   <macro name="QAPI_HMI_SECURITY_LEVEL_ENC_MIC128" value="(0x07) "/>
+   <macro name="QAPI_HMI_KEY_ID_MODE_IMPLICIT" value="(0x00) "/>
+   <macro name="QAPI_HMI_KEY_ID_MODE_DEFAULT" value="(0x01) "/>
+   <macro name="QAPI_HMI_KEY_ID_MODE_4BYTE_SOURCE" value="(0x02) "/>
+   <macro name="QAPI_HMI_KEY_ID_MODE_8BYTE_SOURCE" value="(0x03) "/>
+   <macro name="QAPI_HMI_KEY_USAGE_MASK_BEACON_FRAME" value="(0x0001) "/>
+   <macro name="QAPI_HMI_KEY_USAGE_MASK_DATA_FRAME" value="(0x0002) "/>
+   <macro name="QAPI_HMI_KEY_USAGE_MASK_ACKNOWLEDGEMENT_FRAME" value="(0x0004) "/>
+   <macro name="QAPI_HMI_KEY_USAGE_MASK_MAC_COMMAND_ASSOCIATE_REQUEST" value="(0x0010) "/>
+   <macro name="QAPI_HMI_KEY_USAGE_MASK_MAC_COMMAND_ASSOCIATE_RESPONSE" value="(0x0020) "/>
+   <macro name="QAPI_HMI_KEY_USAGE_MASK_MAC_COMMAND_DISASSOCIATE_NOTIFICATION" value="(0x0040) "/>
+   <macro name="QAPI_HMI_KEY_USAGE_MASK_MAC_COMMAND_DATA_REQUEST" value="(0x0080) "/>
+   <macro name="QAPI_HMI_KEY_USAGE_MASK_MAC_COMMAND_PANID_CONFLICT" value="(0x0100) "/>
+   <macro name="QAPI_HMI_KEY_USAGE_MASK_MAC_COMMAND_ORPHAN_NOTIFICATION" value="(0x0200) "/>
+   <macro name="QAPI_HMI_KEY_USAGE_MASK_MAC_COMMAND_BEACON_REQUEST" value="(0x0400) "/>
+   <macro name="QAPI_HMI_KEY_USAGE_MASK_MAC_COMMAND_COORD_REALIGNMENT" value="(0x0800) "/>
+   <macro name="QAPI_HMI_KEY_USAGE_MASK_MAC_COMMAND_GTS_REQUEST" value="(0x1000) "/>
+   <macro name="QAPI_HMI_KEY_USAGE_MASK_ALL" value="(0xFFFF) "/>
+   <macro name="QAPI_HMI_KEY_SIZE" value="(128 / 8) "/>
+   <macro name="QAPI_HMI_DISASSOCIATE_REASON_FROM_COORDINATOR" value="(0x01) "/>
+   <macro name="QAPI_HMI_DISASSOCIATE_REASON_FROM_DEVICE" value="(0x02) "/>
+   <macro name="QAPI_HMI_VS_DUT_TEST_MODE_CONT_CARRIER_ONLY" value="(0x00) "/>
+   <macro name="QAPI_HMI_VS_DUT_TEST_MODE_CONT_MODULATED_DATA" value="(0x01) "/>
+   <macro name="QAPI_HMI_VS_DUT_TEST_MODE_BURST_MODULATED_DATA" value="(0x02) "/>
+   <macro name="QAPI_HMI_VS_DUT_TEST_PACKET_TYPE_PRBS9" value="(0x00) "/>
+   <macro name="QAPI_HMI_VS_DUT_TEST_PACKET_TYPE_PRBS16" value="(0x01) "/>
+   <macro name="QAPI_HMI_VS_DUT_TEST_PACKET_TYPE_ALL_1" value="(0x02) "/>
+   <macro name="QAPI_HMI_VS_DUT_TEST_PACKET_TYPE_ALL_0" value="(0x03) "/>
+   <macro name="QAPI_HMI_VS_DUT_TEST_PACKET_TYPE_ALT_0101" value="(0x04) "/>
+   <macro name="QAPI_HMI_VS_DUT_TEST_PACKET_TYPE_ALT_1010" value="(0x05) "/>
+   <macro name="QAPI_HMI_VS_DUT_TX_TEST_FLAGS_PHR_ABSENT" value="(0x00000001) "/>
+   <macro name="QAPI_HMI_VS_DUT_TX_TEST_FLAGS_INCLUDE_CRC" value="(0x00000002) "/>
+   <macro name="QAPI_HMI_VS_DUT_TX_TEST_FLAGS_ENABLE_POWER_BACKOFF" value="(0x00000004) "/>
+   <macro name="QAPI_HMI_VS_DUT_TX_TEST_FLAGS_POWER_IS_DBM" value="(0x00000008) "/>
+   <macro name="QAPI_HMI_VS_DUT_RX_TEST_FLAGS_PHR_ABSENT" value="(0x00000001) "/>
+   <macro name="QAPI_HMI_VS_DUT_RX_TEST_FLAGS_INCLUDE_CRC" value="(0x00000002) "/>
+   <macro name="QAPI_HMI_VS_DUT_RX_TEST_FLAGS_ENABLE_AUTO_ACK_TX" value="(0x00000004) "/>
+   <macro name="QAPI_HMI_VS_AUTO_POLL_FLAGS_IMMEDIATE_REPOLL" value="(0x00000001) "/>
+   <macro name="QAPI_HMI_VS_AUTO_POLL_FLAGS_DELAY" params="(x)" value="(((x) &amp; 0xFFFFFF) &lt;&lt; 8)"/>
+   <macro name="QAPI_HMI_VS_DUT_TX_RAW_FLAGS_PHR_ABSENT" value="(0x00000001) "/>
+   <macro name="QAPI_HMI_DEVICE_DESCRIPTOR_FLAG_EXEMPT" value="(0x0001)"/>
+   <enum name="qapi_HMI_Reset_Level_t">
+      <member name="QAPI_HMI_RESET_LEVEL_BASIC_E" value="0"/>
+      <member name="QAPI_HMI_RESET_LEVEL_DEFAULT_PIBS_E" value="1"/>
+      <member name="QAPI_HMI_RESET_LEVEL_FULL_E" value="2"/>
+   </enum>
+   <enum name="qapi_HMI_Event_Type_t">
+      <member name="QAPI_HMI_EVENT_TYPE_MCPS_DATA_CONFIRM_E" value="0"/>
+      <member name="QAPI_HMI_EVENT_TYPE_MCPS_DATA_INDICATION_E" value="1"/>
+      <member name="QAPI_HMI_EVENT_TYPE_MLME_ASSOCIATE_CONFIRM_E" value="2"/>
+      <member name="QAPI_HMI_EVENT_TYPE_MLME_ASSOCIATE_INDICATION_E" value="3"/>
+      <member name="QAPI_HMI_EVENT_TYPE_MLME_DISASSOCIATE_CONFIRM_E" value="4"/>
+      <member name="QAPI_HMI_EVENT_TYPE_MLME_DISASSOCIATE_INDICATION_E" value="5"/>
+      <member name="QAPI_HMI_EVENT_TYPE_MLME_BEACON_NOTIFY_INDICATION_E" value="6"/>
+      <member name="QAPI_HMI_EVENT_TYPE_MLME_ORPHAN_INDICATION_E" value="7"/>
+      <member name="QAPI_HMI_EVENT_TYPE_MLME_SCAN_CONFIRM_E" value="8"/>
+      <member name="QAPI_HMI_EVENT_TYPE_MLME_COMM_STATUS_INDICATION_E" value="9"/>
+      <member name="QAPI_HMI_EVENT_TYPE_MLME_SYNC_LOSS_INDICATION_E" value="10"/>
+      <member name="QAPI_HMI_EVENT_TYPE_MLME_POLL_CONFIRM_E" value="11"/>
+      <member name="QAPI_HMI_EVENT_TYPE_MLME_POLL_INDICATION_E" value="12"/>
+      <member name="QAPI_HMI_EVENT_TYPE_VS_DUT_RX_RSSI_INDICATION_E" value="13"/>
+   </enum>
+   <structure name="qapi_HMI_Security_t">
+      <member attributes="value" name="KeySource" type="uint64_t"/>
+      <member attributes="value" name="SecurityLevel" type="uint8_t"/>
+      <member attributes="value" name="KeyIdMode" type="uint8_t"/>
+      <member attributes="value" name="KeyIndex" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_HMI_PAN_Descriptor_t">
+      <member attributes="value" name="CoordAddrMode" type="uint8_t"/>
+      <member attributes="value" name="CoordPANId" type="uint16_t"/>
+      <member attributes="union" name="CoordAddress" type="qapi_HMI_Link_Layer_Address_t">
+         <member attributes="value" name="ShortAddress" type="uint16_t"/>
+         <member attributes="value" name="ExtendedAddress" type="uint64_t"/>
+         <unionMap mapVerified="yes" name="CoordAddrMode" type="uint8_t">
+            <mapEntry member="ShortAddress" type="uint16_t" value="QAPI_HMI_ADDRESS_MODE_SHORT_ADDRESS"/>
+            <mapEntry member="ExtendedAddress" type="uint64_t" value="QAPI_HMI_ADDRESS_MODE_EXTENDED_ADDRESS"/>
+         </unionMap>
+      </member>
+      <member attributes="value" name="LogicalChannel" type="uint8_t"/>
+      <member attributes="value" name="ChannelPage" type="uint8_t"/>
+      <member attributes="value" name="SuperframeSpec.BeaconOrder" type="uint8_t"/>
+      <member attributes="value" name="SuperframeSpec.SuperframeOrder" type="uint8_t"/>
+      <member attributes="value" name="SuperframeSpec.FinalCAPSlot" type="uint8_t"/>
+      <member attributes="value" name="SuperframeSpec.BatteryLifeExtension" type="qbool_t"/>
+      <member attributes="value" name="SuperframeSpec.PANCoordinator" type="qbool_t"/>
+      <member attributes="value" name="SuperframeSpec.AssociationPermit" type="qbool_t"/>
+      <member attributes="value" name="GTSPermit" type="qbool_t"/>
+      <member attributes="value" name="LinkQuality" type="uint8_t"/>
+      <member attributes="value" name="RSSI" type="int8_t"/>
+      <member attributes="value" name="Timestamp" type="uint32_t"/>
+      <member attributes="value" name="SecurityFailure" type="uint8_t"/>
+      <member attributes="value" name="Security" type="qapi_HMI_Security_t"/>
+   </structure>
+   <structure name="qapi_HMI_KeyDescriptor_t">
+      <member attributes="value" name="Source" type="uint64_t"/>
+      <member attributes="value" name="IdMode" type="uint8_t"/>
+      <member attributes="value" name="Index" type="uint8_t"/>
+      <member attributes="value" name="FrameUsage" type="uint16_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="QAPI_HMI_KEY_SIZE" name="Key" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_HMI_DeviceDescriptor_t">
+      <member attributes="value" name="ExtAddress" type="uint64_t"/>
+      <member attributes="value" name="ShortAddress" type="uint16_t"/>
+      <member attributes="value" name="PanId" type="uint16_t"/>
+      <member attributes="value" name="FrameCounter" type="uint32_t"/>
+      <member attributes="value" name="Flags" type="uint16_t"/>
+      <member attributes="value" name="KeyTableIndex" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_HMI_SecurityLevelDescriptor_t">
+      <member attributes="value" name="FrameUsage" type="uint16_t"/>
+      <member attributes="value" name="OverrideMask" type="uint16_t"/>
+      <member attributes="value" name="SecurityMinimum" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_HMI_MCPS_Data_Indication_t">
+      <member attributes="value" name="SrcAddrMode" type="uint8_t"/>
+      <member attributes="value" name="SrcPANId" type="uint16_t"/>
+      <member attributes="union" name="SrcAddr" type="qapi_HMI_Link_Layer_Address_t">
+         <member attributes="value" name="ShortAddress" type="uint16_t"/>
+         <member attributes="value" name="ExtendedAddress" type="uint64_t"/>
+         <unionMap mapVerified="yes" name="SrcAddrMode" type="uint8_t">
+            <mapEntry member="ShortAddress" type="uint16_t" value="QAPI_HMI_ADDRESS_MODE_SHORT_ADDRESS"/>
+            <mapEntry member="ExtendedAddress" type="uint64_t" value="QAPI_HMI_ADDRESS_MODE_EXTENDED_ADDRESS"/>
+         </unionMap>
+      </member>
+      <member attributes="value" name="DstAddrMode" type="uint8_t"/>
+      <member attributes="value" name="DstPANId" type="uint16_t"/>
+      <member attributes="union" name="DstAddr" type="qapi_HMI_Link_Layer_Address_t">
+         <member attributes="value" name="ShortAddress" type="uint16_t"/>
+         <member attributes="value" name="ExtendedAddress" type="uint64_t"/>
+         <unionMap mapVerified="yes" name="DstAddrMode" type="uint8_t">
+            <mapEntry member="ShortAddress" type="uint16_t" value="QAPI_HMI_ADDRESS_MODE_SHORT_ADDRESS"/>
+            <mapEntry member="ExtendedAddress" type="uint64_t" value="QAPI_HMI_ADDRESS_MODE_EXTENDED_ADDRESS"/>
+         </unionMap>
+      </member>
+      <member attributes="value" name="MSDULength" type="uint8_t"/>
+      <member attributes="ptr,const" iotype="in" lengthParam="MSDULength" lengthVerified="yes" name="MSDU" type="uint8_t"/>
+      <member attributes="value" name="MPDULinkQuality" type="uint8_t"/>
+      <member attributes="value" name="RSSI" type="int8_t"/>
+      <member attributes="value" name="DSN" type="uint8_t"/>
+      <member attributes="value" name="Timestamp" type="uint32_t"/>
+      <member attributes="value" name="FrameCounter" type="uint32_t"/>
+      <member attributes="value" name="Security" type="qapi_HMI_Security_t"/>
+   </structure>
+   <structure name="qapi_HMI_MCPS_Data_Confirm_t">
+      <member attributes="value" name="MSDUHandle" type="uint8_t"/>
+      <member attributes="value" name="Status" type="uint8_t"/>
+      <member attributes="value" name="Timestamp" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_HMI_MLME_Associate_Indication_t">
+      <member attributes="value" name="DeviceAddress" type="uint64_t"/>
+      <member attributes="value" name="CapabilityInformation" type="uint8_t"/>
+      <member attributes="value" name="Security" type="qapi_HMI_Security_t"/>
+   </structure>
+   <structure name="qapi_HMI_MLME_Associate_Confirm_t">
+      <member attributes="value" name="AssocShortAddress" type="uint16_t"/>
+      <member attributes="value" name="Status" type="uint8_t"/>
+      <member attributes="value" name="Security" type="qapi_HMI_Security_t"/>
+   </structure>
+   <structure name="qapi_HMI_MLME_Disassociate_Indication_t">
+      <member attributes="value" name="DeviceAddress" type="uint64_t"/>
+      <member attributes="value" name="DisassociateReason" type="uint8_t"/>
+      <member attributes="value" name="Security" type="qapi_HMI_Security_t"/>
+   </structure>
+   <structure name="qapi_HMI_MLME_Disassociate_Confirm_t">
+      <member attributes="value" name="Status" type="uint8_t"/>
+      <member attributes="value" name="DeviceAddrMode" type="uint8_t"/>
+      <member attributes="value" name="DevicePANId" type="uint16_t"/>
+      <member attributes="union" name="DeviceAddress" type="qapi_HMI_Link_Layer_Address_t">
+         <member attributes="value" name="ShortAddress" type="uint16_t"/>
+         <member attributes="value" name="ExtendedAddress" type="uint64_t"/>
+         <unionMap mapVerified="yes" name="DeviceAddrMode" type="uint8_t">
+            <mapEntry member="ShortAddress" type="uint16_t" value="QAPI_HMI_ADDRESS_MODE_SHORT_ADDRESS"/>
+            <mapEntry member="ExtendedAddress" type="uint64_t" value="QAPI_HMI_ADDRESS_MODE_EXTENDED_ADDRESS"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_HMI_MLME_Beacon_Notify_Indication_t">
+      <member attributes="value" name="BSN" type="uint8_t"/>
+      <member attributes="value" name="PANDescriptor" type="qapi_HMI_PAN_Descriptor_t"/>
+      <member attributes="value" name="NumShortAddr" type="uint8_t"/>
+      <member attributes="value" name="NumExtendAddr" type="uint8_t"/>
+      <member attributes="ptr,const" iotype="in" lengthParam="NumExtendAddr" lengthVerified="yes" name="AddrList" type="qapi_HMI_Link_Layer_Address_t"/>
+      <member attributes="value" name="SDULength" type="uint8_t"/>
+      <member attributes="ptr,const" iotype="in" lengthParam="SDULength" lengthVerified="yes" name="SDU" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_HMI_MLME_Orphan_Indication_t">
+      <member attributes="value" name="OrphanAddress" type="uint64_t"/>
+      <member attributes="value" name="Security" type="qapi_HMI_Security_t"/>
+   </structure>
+   <structure name="qapi_HMI_MLME_Scan_Confirm_t">
+      <member attributes="value" name="Status" type="uint8_t"/>
+      <member attributes="value" name="ScanType" type="uint8_t"/>
+      <member attributes="value" name="ChannelPage" type="uint8_t"/>
+      <member attributes="value" name="UnscannedChannels" type="uint32_t"/>
+      <member attributes="value" name="ResultListSize" type="uint8_t"/>
+      <member attributes="union" name="Result">
+         <member attributes="ptr,const" iotype="in" lengthParam="ResultListSize" lengthVerified="yes" name="EnergyDetectList" type="uint8_t"/>
+         <member attributes="ptr,const" iotype="in" lengthParam="ResultListSize" lengthVerified="yes" name="PANDescriptorList" type="qapi_HMI_PAN_Descriptor_t"/>
+         <unionMap mapVerified="yes" name="ScanType" type="uint8_t">
+            <mapEntry member="EnergyDetectList" type="uint8_t" value="QAPI_HMI_SCAN_TYPE_ENERGY_DETECTION"/>
+            <mapEntry member="PANDescriptorList" type="qapi_HMI_PAN_Descriptor_t" value="QAPI_HMI_SCAN_TYPE_ACTIVE"/>
+            <mapEntry member="PANDescriptorList" type="qapi_HMI_PAN_Descriptor_t" value="QAPI_HMI_SCAN_TYPE_PASSIVE"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_HMI_MLME_Comm_Status_Indication_t">
+      <member attributes="value" name="PANId" type="uint16_t"/>
+      <member attributes="value" name="SrcAddrMode" type="uint8_t"/>
+      <member attributes="union" name="SrcAddr" type="qapi_HMI_Link_Layer_Address_t">
+         <member attributes="value" name="ShortAddress" type="uint16_t"/>
+         <member attributes="value" name="ExtendedAddress" type="uint64_t"/>
+         <unionMap mapVerified="yes" name="SrcAddrMode" type="uint8_t">
+            <mapEntry member="ShortAddress" type="uint16_t" value="QAPI_HMI_ADDRESS_MODE_SHORT_ADDRESS"/>
+            <mapEntry member="ExtendedAddress" type="uint64_t" value="QAPI_HMI_ADDRESS_MODE_EXTENDED_ADDRESS"/>
+         </unionMap>
+      </member>
+      <member attributes="value" name="DstAddrMode" type="uint8_t"/>
+      <member attributes="union" name="DstAddr" type="qapi_HMI_Link_Layer_Address_t">
+         <member attributes="value" name="ShortAddress" type="uint16_t"/>
+         <member attributes="value" name="ExtendedAddress" type="uint64_t"/>
+         <unionMap mapVerified="yes" name="DstAddrMode" type="uint8_t">
+            <mapEntry member="ShortAddress" type="uint16_t" value="QAPI_HMI_ADDRESS_MODE_SHORT_ADDRESS"/>
+            <mapEntry member="ExtendedAddress" type="uint64_t" value="QAPI_HMI_ADDRESS_MODE_EXTENDED_ADDRESS"/>
+         </unionMap>
+      </member>
+      <member attributes="value" name="Status" type="uint8_t"/>
+      <member attributes="value" name="Security" type="qapi_HMI_Security_t"/>
+   </structure>
+   <structure name="qapi_HMI_MLME_Sync_Loss_Indication_t">
+      <member attributes="value" name="LossReason" type="uint8_t"/>
+      <member attributes="value" name="PANId" type="uint16_t"/>
+      <member attributes="value" name="LogicalChannel" type="uint8_t"/>
+      <member attributes="value" name="ChannelPage" type="uint8_t"/>
+      <member attributes="value" name="Security" type="qapi_HMI_Security_t"/>
+   </structure>
+   <structure name="qapi_HMI_MLME_Poll_Confirm_t">
+      <member attributes="value" name="Status" type="uint8_t"/>
+      <member attributes="value" name="PollRequestHandle" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_HMI_MLME_Poll_Indication_t">
+      <member attributes="value" name="SrcAddrMode" type="uint8_t"/>
+      <member attributes="union" name="SrcAddr" type="qapi_HMI_Link_Layer_Address_t">
+         <member attributes="value" name="ShortAddress" type="uint16_t"/>
+         <member attributes="value" name="ExtendedAddress" type="uint64_t"/>
+         <unionMap mapVerified="yes" name="SrcAddrMode" type="uint8_t">
+            <mapEntry member="ShortAddress" type="uint16_t" value="QAPI_HMI_ADDRESS_MODE_SHORT_ADDRESS"/>
+            <mapEntry member="ExtendedAddress" type="uint64_t" value="QAPI_HMI_ADDRESS_MODE_EXTENDED_ADDRESS"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_HMI_VS_DUT_RX_RSSI_Indication_t">
+      <member attributes="value" name="RSSI" type="int8_t"/>
+   </structure>
+   <structure name="qapi_HMI_Event_t">
+      <member attributes="value" name="Event_Type" type="qapi_HMI_Event_Type_t"/>
+      <member attributes="union" name="Event_Data">
+         <member attributes="value" name="MCPS_Data_Confirm" type="qapi_HMI_MCPS_Data_Confirm_t"/>
+         <member attributes="value" name="MCPS_Data_Indication" type="qapi_HMI_MCPS_Data_Indication_t"/>
+         <member attributes="value" name="MLME_Associate_indication" type="qapi_HMI_MLME_Associate_Indication_t"/>
+         <member attributes="value" name="MLME_Associate_Confirm" type="qapi_HMI_MLME_Associate_Confirm_t"/>
+         <member attributes="value" name="MLME_Disassociate_Indication" type="qapi_HMI_MLME_Disassociate_Indication_t"/>
+         <member attributes="value" name="MLME_Disassociate_Confirm" type="qapi_HMI_MLME_Disassociate_Confirm_t"/>
+         <member attributes="value" name="MLME_Beacon_Notify_Indication" type="qapi_HMI_MLME_Beacon_Notify_Indication_t"/>
+         <member attributes="value" name="MLME_Orphan_Indication" type="qapi_HMI_MLME_Orphan_Indication_t"/>
+         <member attributes="value" name="MLME_Scan_Confirm" type="qapi_HMI_MLME_Scan_Confirm_t"/>
+         <member attributes="value" name="MLME_Comm_Status_Indication" type="qapi_HMI_MLME_Comm_Status_Indication_t"/>
+         <member attributes="value" name="MLME_Sync_Loss_Indication" type="qapi_HMI_MLME_Sync_Loss_Indication_t"/>
+         <member attributes="value" name="MLME_Poll_Confirm" type="qapi_HMI_MLME_Poll_Confirm_t"/>
+         <member attributes="value" name="MLME_Poll_Indication" type="qapi_HMI_MLME_Poll_Indication_t"/>
+         <member attributes="value" name="VS_DUT_RX_RSSI_Indication" type="qapi_HMI_VS_DUT_RX_RSSI_Indication_t"/>
+         <unionMap mapVerified="yes" name="Event_Type" type="qapi_HMI_Event_Type_t">
+            <mapEntry member="MCPS_Data_Confirm" type="qapi_HMI_MCPS_Data_Confirm_t" value="QAPI_HMI_EVENT_TYPE_MCPS_DATA_CONFIRM_E"/>
+            <mapEntry member="MCPS_Data_Indication" type="qapi_HMI_MCPS_Data_Indication_t" value="QAPI_HMI_EVENT_TYPE_MCPS_DATA_INDICATION_E"/>
+            <mapEntry member="MLME_Associate_indication" type="qapi_HMI_MLME_Associate_Indication_t" value="QAPI_HMI_EVENT_TYPE_MLME_ASSOCIATE_INDICATION_E"/>
+            <mapEntry member="MLME_Associate_Confirm" type="qapi_HMI_MLME_Associate_Confirm_t" value="QAPI_HMI_EVENT_TYPE_MLME_ASSOCIATE_CONFIRM_E"/>
+            <mapEntry member="MLME_Disassociate_Indication" type="qapi_HMI_MLME_Disassociate_Indication_t" value="QAPI_HMI_EVENT_TYPE_MLME_DISASSOCIATE_INDICATION_E"/>
+            <mapEntry member="MLME_Disassociate_Confirm" type="qapi_HMI_MLME_Disassociate_Confirm_t" value="QAPI_HMI_EVENT_TYPE_MLME_DISASSOCIATE_CONFIRM_E"/>
+            <mapEntry member="MLME_Beacon_Notify_Indication" type="qapi_HMI_MLME_Beacon_Notify_Indication_t" value="QAPI_HMI_EVENT_TYPE_MLME_BEACON_NOTIFY_INDICATION_E"/>
+            <mapEntry member="MLME_Orphan_Indication" type="qapi_HMI_MLME_Orphan_Indication_t" value="QAPI_HMI_EVENT_TYPE_MLME_ORPHAN_INDICATION_E"/>
+            <mapEntry member="MLME_Scan_Confirm" type="qapi_HMI_MLME_Scan_Confirm_t" value="QAPI_HMI_EVENT_TYPE_MLME_SCAN_CONFIRM_E"/>
+            <mapEntry member="MLME_Comm_Status_Indication" type="qapi_HMI_MLME_Comm_Status_Indication_t" value="QAPI_HMI_EVENT_TYPE_MLME_COMM_STATUS_INDICATION_E"/>
+            <mapEntry member="MLME_Sync_Loss_Indication" type="qapi_HMI_MLME_Sync_Loss_Indication_t" value="QAPI_HMI_EVENT_TYPE_MLME_SYNC_LOSS_INDICATION_E"/>
+            <mapEntry member="MLME_Poll_Confirm" type="qapi_HMI_MLME_Poll_Confirm_t" value="QAPI_HMI_EVENT_TYPE_MLME_POLL_CONFIRM_E"/>
+            <mapEntry member="MLME_Poll_Indication" type="qapi_HMI_MLME_Poll_Indication_t" value="QAPI_HMI_EVENT_TYPE_MLME_POLL_INDICATION_E"/>
+            <mapEntry member="VS_DUT_RX_RSSI_Indication" type="qapi_HMI_VS_DUT_RX_RSSI_Indication_t" value="QAPI_HMI_EVENT_TYPE_VS_DUT_RX_RSSI_INDICATION_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_HMI_MCPS_Data_Request_t">
+      <member attributes="value" name="SrcAddrMode" type="uint8_t"/>
+      <member attributes="value" name="DstAddrMode" type="uint8_t"/>
+      <member attributes="value" name="DstPANId" type="uint16_t"/>
+      <member attributes="union" name="DstAddr" type="qapi_HMI_Link_Layer_Address_t">
+         <member attributes="value" name="ShortAddress" type="uint16_t"/>
+         <member attributes="value" name="ExtendedAddress" type="uint64_t"/>
+         <unionMap mapVerified="yes" name="DstAddrMode" type="uint8_t">
+            <mapEntry member="ShortAddress" type="uint16_t" value="QAPI_HMI_ADDRESS_MODE_SHORT_ADDRESS"/>
+            <mapEntry member="ExtendedAddress" type="uint64_t" value="QAPI_HMI_ADDRESS_MODE_EXTENDED_ADDRESS"/>
+         </unionMap>
+      </member>
+      <member attributes="value" name="MSDULength" type="uint8_t"/>
+      <member attributes="ptr,const" iotype="in" lengthParam="MSDULength" lengthVerified="yes" name="MSDU" type="uint8_t"/>
+      <member attributes="value" name="MSDUHandle" type="uint8_t"/>
+      <member attributes="value" name="TxOptions" type="uint8_t"/>
+      <member attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="Security" type="qapi_HMI_Security_t"/>
+   </structure>
+   <structure name="qapi_HMI_MLME_Associate_Request_t">
+      <member attributes="value" name="LogicalChannel" type="uint8_t"/>
+      <member attributes="value" name="ChannelPage" type="uint8_t"/>
+      <member attributes="value" name="CoordAddrMode" type="uint8_t"/>
+      <member attributes="value" name="CoordPANId" type="uint16_t"/>
+      <member attributes="union" name="CoordAddress" type="qapi_HMI_Link_Layer_Address_t">
+         <member attributes="value" name="ShortAddress" type="uint16_t"/>
+         <member attributes="value" name="ExtendedAddress" type="uint64_t"/>
+         <unionMap mapVerified="yes" name="CoordAddrMode" type="uint8_t">
+            <mapEntry member="ShortAddress" type="uint16_t" value="QAPI_HMI_ADDRESS_MODE_SHORT_ADDRESS"/>
+            <mapEntry member="ExtendedAddress" type="uint64_t" value="QAPI_HMI_ADDRESS_MODE_EXTENDED_ADDRESS"/>
+         </unionMap>
+      </member>
+      <member attributes="value" name="CapabilityInformation" type="uint8_t"/>
+      <member attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="Security" type="qapi_HMI_Security_t"/>
+   </structure>
+   <structure name="qapi_HMI_MLME_Associate_Response_t">
+      <member attributes="value" name="DeviceAddress" type="uint64_t"/>
+      <member attributes="value" name="AssocShortAddress" type="uint16_t"/>
+      <member attributes="value" name="Status" type="uint8_t"/>
+      <member attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="Security" type="qapi_HMI_Security_t"/>
+   </structure>
+   <structure name="qapi_HMI_MLME_Disassociate_Request_t">
+      <member attributes="value" name="DeviceAddrMode" type="uint8_t"/>
+      <member attributes="value" name="DevicePANId" type="uint16_t"/>
+      <member attributes="union" name="DeviceAddress" type="qapi_HMI_Link_Layer_Address_t">
+         <member attributes="value" name="ShortAddress" type="uint16_t"/>
+         <member attributes="value" name="ExtendedAddress" type="uint64_t"/>
+         <unionMap mapVerified="yes" name="DeviceAddrMode" type="uint8_t">
+            <mapEntry member="ShortAddress" type="uint16_t" value="QAPI_HMI_ADDRESS_MODE_SHORT_ADDRESS"/>
+            <mapEntry member="ExtendedAddress" type="uint64_t" value="QAPI_HMI_ADDRESS_MODE_EXTENDED_ADDRESS"/>
+         </unionMap>
+      </member>
+      <member attributes="value" name="DisassociateReason" type="uint8_t"/>
+      <member attributes="value" name="TxIndirect" type="qbool_t"/>
+      <member attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="Security" type="qapi_HMI_Security_t"/>
+   </structure>
+   <structure name="qapi_HMI_MLME_Orphan_Response_t">
+      <member attributes="value" name="OrphanAddress" type="uint64_t"/>
+      <member attributes="value" name="ShortAddress" type="uint16_t"/>
+      <member attributes="value" name="AssociatedMember" type="uint8_t"/>
+      <member attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="Security" type="qapi_HMI_Security_t"/>
+   </structure>
+   <structure name="qapi_HMI_MLME_Scan_Request_t">
+      <member attributes="value" name="ScanType" type="uint8_t"/>
+      <member attributes="value" name="ScanChannels" type="uint32_t"/>
+      <member attributes="value" name="ScanDuration" type="uint32_t"/>
+      <member attributes="value" name="ChannelPage" type="uint8_t"/>
+      <member attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="Security" type="qapi_HMI_Security_t"/>
+   </structure>
+   <structure name="qapi_HMI_MLME_Start_Request_t">
+      <member attributes="value" name="PANId" type="uint16_t"/>
+      <member attributes="value" name="LogicalChannel" type="uint8_t"/>
+      <member attributes="value" name="ChannelPage" type="uint8_t"/>
+      <member attributes="value" name="StartTime" type="uint32_t"/>
+      <member attributes="value" name="BeaconOrder" type="uint8_t"/>
+      <member attributes="value" name="SuperframeOrder" type="uint8_t"/>
+      <member attributes="value" name="PANCoordinator" type="qbool_t"/>
+      <member attributes="value" name="BatteryLifeExtension" type="qbool_t"/>
+      <member attributes="value" name="CoordRealignment" type="qbool_t"/>
+      <member attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="CoordRealignSecurity" type="qapi_HMI_Security_t"/>
+      <member attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="BeaconSecurity" type="qapi_HMI_Security_t"/>
+   </structure>
+   <structure name="qapi_HMI_MLME_Poll_Request_t">
+      <member attributes="value" name="CoordAddrMode" type="uint8_t"/>
+      <member attributes="value" name="CoordPANId" type="uint16_t"/>
+      <member attributes="union" name="CoordAddress" type="qapi_HMI_Link_Layer_Address_t">
+         <member attributes="value" name="ShortAddress" type="uint16_t"/>
+         <member attributes="value" name="ExtendedAddress" type="uint64_t"/>
+         <unionMap mapVerified="yes" name="CoordAddrMode" type="uint8_t">
+            <mapEntry member="ShortAddress" type="uint16_t" value="QAPI_HMI_ADDRESS_MODE_SHORT_ADDRESS"/>
+            <mapEntry member="ExtendedAddress" type="uint64_t" value="QAPI_HMI_ADDRESS_MODE_EXTENDED_ADDRESS"/>
+         </unionMap>
+      </member>
+      <member attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="Security" type="qapi_HMI_Security_t"/>
+      <member attributes="value" name="PollRequestHandle" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_HMI_VS_Auto_Poll_Request_t">
+      <member attributes="value" name="CoordAddrMode" type="uint8_t"/>
+      <member attributes="value" name="CoordPANId" type="uint16_t"/>
+      <member attributes="union" name="CoordAddress" type="qapi_HMI_Link_Layer_Address_t">
+         <member attributes="value" name="ShortAddress" type="uint16_t"/>
+         <member attributes="value" name="ExtendedAddress" type="uint64_t"/>
+         <unionMap mapVerified="yes" name="CoordAddrMode" type="uint8_t">
+            <mapEntry member="ShortAddress" type="uint16_t" value="QAPI_HMI_ADDRESS_MODE_SHORT_ADDRESS"/>
+            <mapEntry member="ExtendedAddress" type="uint64_t" value="QAPI_HMI_ADDRESS_MODE_EXTENDED_ADDRESS"/>
+         </unionMap>
+      </member>
+      <member attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="Security" type="qapi_HMI_Security_t"/>
+      <member attributes="value" name="Period" type="uint32_t"/>
+      <member attributes="value" name="Flags" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_HMI_VS_DUT_Tx_Test_Request_t">
+      <member attributes="value" name="Flags" type="uint32_t"/>
+      <member attributes="value" name="Mode" type="uint8_t"/>
+      <member attributes="value" name="Page" type="uint8_t"/>
+      <member attributes="value" name="Channel" type="uint8_t"/>
+      <member attributes="value" name="Power" type="int8_t"/>
+      <member attributes="value" name="Payload_Length" type="uint16_t"/>
+      <member attributes="value" name="Packet_Type" type="uint8_t"/>
+      <member attributes="value" name="Gap" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_HMI_VS_DUT_Rx_Test_Request_t">
+      <member attributes="value" name="Flags" type="uint32_t"/>
+      <member attributes="value" name="Mode" type="uint8_t"/>
+      <member attributes="value" name="Page" type="uint8_t"/>
+      <member attributes="value" name="Channel" type="uint8_t"/>
+      <member attributes="value" name="Payload_Length" type="uint16_t"/>
+      <member attributes="value" name="Packet_Type" type="uint8_t"/>
+      <member attributes="value" name="Gap" type="uint16_t"/>
+      <member attributes="value" name="RSSI_Period" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_HMI_VS_DUT_RX_Stat_Confirm_t">
+      <member attributes="value" name="Status" type="uint8_t"/>
+      <member attributes="value" name="Packet_Count" type="uint32_t"/>
+      <member attributes="value" name="Packet_Error_Count" type="uint32_t"/>
+      <member attributes="value" name="Bits_Error_Count" type="uint32_t"/>
+      <member attributes="value" name="RSSI" type="int8_t"/>
+   </structure>
+   <union name="qapi_HMI_Link_Layer_Address_t">
+      <member attributes="value" name="ShortAddress" type="uint16_t"/>
+      <member attributes="value" name="ExtendedAddress" type="uint64_t"/>
+   </union>
+   <function name="qapi_HMI_Initialize">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Interface_ID" type="uint32_t"/>
+      <argument attributes="value" name="HMI_Event_CB" type="qapi_HMI_Event_CB_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+      <argument attributes="value" name="LatchNVM" type="qbool_t"/>
+   </function>
+   <function name="qapi_HMI_Shutdown">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="Interface_ID" type="uint32_t"/>
+   </function>
+   <function name="qapi_HMI_Get_Max_MSDU_Length">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Interface_ID" type="uint32_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="RequestData" type="qapi_HMI_MCPS_Data_Request_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="MaxMSDULength" type="uint8_t"/>
+   </function>
+   <function name="qapi_HMI_MCPS_Data_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Interface_ID" type="uint32_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="RequestData" type="qapi_HMI_MCPS_Data_Request_t"/>
+   </function>
+   <function name="qapi_HMI_MCPS_Purge_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Interface_ID" type="uint32_t"/>
+      <argument attributes="value" name="MSDUHandle" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Status" type="uint8_t"/>
+   </function>
+   <function name="qapi_HMI_MLME_Associate_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Interface_ID" type="uint32_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="RequestData" type="qapi_HMI_MLME_Associate_Request_t"/>
+   </function>
+   <function name="qapi_HMI_MLME_Associate_Response">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Interface_ID" type="uint32_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="ResponseData" type="qapi_HMI_MLME_Associate_Response_t"/>
+   </function>
+   <function name="qapi_HMI_MLME_Disassociate_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Interface_ID" type="uint32_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="RequestData" type="qapi_HMI_MLME_Disassociate_Request_t"/>
+   </function>
+   <function name="qapi_HMI_MLME_Get_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Interface_ID" type="uint32_t"/>
+      <argument attributes="value" name="PIBAttribute" type="uint8_t"/>
+      <argument attributes="value" name="PIBAttributeIndex" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="PIBAttributeLength" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="PIBAttributeLength" lengthVerified="yes" name="PIBAttributeValue" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Status" type="uint8_t"/>
+   </function>
+   <function name="qapi_HMI_MLME_Orphan_Response">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Interface_ID" type="uint32_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="ResponseData" type="qapi_HMI_MLME_Orphan_Response_t"/>
+   </function>
+   <function name="qapi_HMI_MLME_Reset_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Interface_ID" type="uint32_t"/>
+      <argument attributes="value" name="ResetLevel" type="qapi_HMI_Reset_Level_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Status" type="uint8_t"/>
+   </function>
+   <function name="qapi_HMI_MLME_Rx_Enable_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Interface_ID" type="uint32_t"/>
+      <argument attributes="value" name="DeferPermit" type="qbool_t"/>
+      <argument attributes="value" name="RxOnTime" type="uint32_t"/>
+      <argument attributes="value" name="RxOnDuration" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Status" type="uint8_t"/>
+   </function>
+   <function name="qapi_HMI_MLME_Scan_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Interface_ID" type="uint32_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="RequestData" type="qapi_HMI_MLME_Scan_Request_t"/>
+   </function>
+   <function name="qapi_HMI_15p4_Scan_Duration_To_Milliseconds">
+      <return attributes="value" type="uint32_t"/>
+      <argument attributes="value" name="ScanDuration" type="uint8_t"/>
+   </function>
+   <function name="qapi_HMI_MLME_Set_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Interface_ID" type="uint32_t"/>
+      <argument attributes="value" name="PIBAttribute" type="uint8_t"/>
+      <argument attributes="value" name="PIBAttributeIndex" type="uint8_t"/>
+      <argument attributes="value" name="PIBAttributeLength" type="uint8_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="PIBAttributeLength" lengthVerified="yes" name="PIBAttributeValue" type="void"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Status" type="uint8_t"/>
+   </function>
+   <function name="qapi_HMI_MLME_Start_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Interface_ID" type="uint32_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="RequestData" type="qapi_HMI_MLME_Start_Request_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Status" type="uint8_t"/>
+   </function>
+   <function name="qapi_HMI_MLME_Poll_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Interface_ID" type="uint32_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="RequestData" type="qapi_HMI_MLME_Poll_Request_t"/>
+   </function>
+   <function name="qapi_HMI_VS_Auto_Poll_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Interface_ID" type="uint32_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="RequestData" type="qapi_HMI_VS_Auto_Poll_Request_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Status" type="uint8_t"/>
+   </function>
+   <function name="qapi_HMI_VS_DUT_Enable_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Interface_ID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Status" type="uint8_t"/>
+   </function>
+   <function name="qapi_HMI_VS_DUT_Tx_Test_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Interface_ID" type="uint32_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="RequestData" type="qapi_HMI_VS_DUT_Tx_Test_Request_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Status" type="uint8_t"/>
+   </function>
+   <function name="qapi_HMI_VS_DUT_Rx_Test_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Interface_ID" type="uint32_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="RequestData" type="qapi_HMI_VS_DUT_Rx_Test_Request_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Status" type="uint8_t"/>
+   </function>
+   <function name="qapi_HMI_VS_DUT_Rx_Stat_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Interface_ID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ConfirmData" type="qapi_HMI_VS_DUT_RX_Stat_Confirm_t"/>
+   </function>
+   <function name="qapi_HMI_VS_DUT_Cca_Scan_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Interface_ID" type="uint32_t"/>
+      <argument attributes="value" name="Channel" type="uint8_t"/>
+      <argument attributes="value" name="Page" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Status" type="uint8_t"/>
+   </function>
+   <function name="qapi_HMI_VS_DUT_Test_End_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Interface_ID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Status" type="uint8_t"/>
+   </function>
+   <function name="qapi_HMI_VS_Enable_BBIF">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Interface_ID" type="uint32_t"/>
+      <argument attributes="value" name="Enable" type="qbool_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Status" type="uint8_t"/>
+   </function>
+   <function name="qapi_HMI_VS_NVM_Get_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Interface_ID" type="uint32_t"/>
+      <argument attributes="value" name="NVMTag" type="uint16_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="NVMLength" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="NVMLength" lengthVerified="yes" name="NVMValue" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Status" type="uint8_t"/>
+   </function>
+   <function name="qapi_HMI_VS_NVM_Set_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Interface_ID" type="uint32_t"/>
+      <argument attributes="value" name="NVMTag" type="uint16_t"/>
+      <argument attributes="value" name="NVMLength" type="uint16_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="NVMLength" lengthVerified="yes" name="NVMValue" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Status" type="uint8_t"/>
+   </function>
+   <callback name="qapi_HMI_Event_CB_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="ptr,const" iotype="out" lengthParam="1" lengthVerified="yes" name="HMI_Event" type="qapi_HMI_Event_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+      <createFunction ID="Interface_ID" funcSuccess="QAPI_OK" moduleParam="" name="qapi_HMI_Initialize" param="CB_Param"/>
+      <destroyFunction ID="Interface_ID" funcSuccess="QAPI_OK" moduleParam="" name="qapi_HMI_Shutdown"/>
+   </callback>
+</header>

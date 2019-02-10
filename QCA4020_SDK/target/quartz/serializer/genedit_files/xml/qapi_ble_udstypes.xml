@@ -1,0 +1,135 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="./qapi_ble_bttypes.h"/>
+   <macro name="QAPI_BLE_UDS_ERROR_CODE_SUCCESS" value="0x00"/>
+   <macro name="QAPI_BLE_UDS_ERROR_CODE_USER_DATA_ACCESS_NOT_PERMITTED" value="0x80"/>
+   <macro name="QAPI_BLE_UDS_ASSIGN_UDS_SERVICE_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16(*((qapi_BLE_UUID_16_t *)(_x)), 0x18, 0x1C)"/>
+   <macro name="QAPI_BLE_UDS_COMPARE_UDS_SERVICE_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x18, 0x1C)"/>
+   <macro name="QAPI_BLE_UDS_ASSIGN_UDS_SERVICE_SDP_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_SDP_UUID_16((_x), 0x18, 0x1C)"/>
+   <macro name="QAPI_BLE_UDS_SERVICE_BLUETOOTH_UUID_CONSTANT" value="{ 0x1C, 0x18 }"/>
+   <macro name="QAPI_BLE_UDS_ASSIGN_FIRST_NAME_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x8A)"/>
+   <macro name="QAPI_BLE_UDS_COMPARE_FIRST_NAME_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x8A)"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_FIRST_NAME_UUID_CONSTANT" value="{ 0x8A, 0x2A }"/>
+   <macro name="QAPI_BLE_UDS_ASSIGN_LAST_NAME_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x90)"/>
+   <macro name="QAPI_BLE_UDS_COMPARE_LAST_NAME_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x90)"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_LAST_NAME_UUID_CONSTANT" value="{ 0x90, 0x2A }"/>
+   <macro name="QAPI_BLE_UDS_ASSIGN_EMAIL_ADDRESS_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x87)"/>
+   <macro name="QAPI_BLE_UDS_COMPARE_EMAIL_ADDRESS_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x87)"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_EMAIL_ADDRESS_UUID_CONSTANT" value="{ 0x87, 0x2A }"/>
+   <macro name="QAPI_BLE_UDS_ASSIGN_AGE_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x80)"/>
+   <macro name="QAPI_BLE_UDS_COMPARE_AGE_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x80)"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_AGE_UUID_CONSTANT" value="{ 0x80, 0x2A }"/>
+   <macro name="QAPI_BLE_UDS_ASSIGN_DATE_OF_BIRTH_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x85)"/>
+   <macro name="QAPI_BLE_UDS_COMPARE_DATE_OF_BIRTH_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x85)"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_DATE_OF_BIRTH_UUID_CONSTANT" value="{ 0x85, 0x2A }"/>
+   <macro name="QAPI_BLE_UDS_ASSIGN_GENDER_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x8C)"/>
+   <macro name="QAPI_BLE_UDS_COMPARE_GENDER_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x8C)"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_GENDER_UUID_CONSTANT" value="{ 0x8C, 0x2A }"/>
+   <macro name="QAPI_BLE_UDS_ASSIGN_WEIGHT_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x98)"/>
+   <macro name="QAPI_BLE_UDS_COMPARE_WEIGHT_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x98)"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_WEIGHT_UUID_CONSTANT" value="{ 0x98, 0x2A }"/>
+   <macro name="QAPI_BLE_UDS_ASSIGN_HEIGHT_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x8E)"/>
+   <macro name="QAPI_BLE_UDS_COMPARE_HEIGHT_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x8E)"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_HEIGHT_UUID_CONSTANT" value="{ 0x8E, 0x2A }"/>
+   <macro name="QAPI_BLE_UDS_ASSIGN_VO2_MAX_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x96)"/>
+   <macro name="QAPI_BLE_UDS_COMPARE_VO2_MAX_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x96)"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_VO2_MAX_UUID_CONSTANT" value="{ 0x96, 0x2A }"/>
+   <macro name="QAPI_BLE_UDS_ASSIGN_HEART_RATE_MAX_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x8D)"/>
+   <macro name="QAPI_BLE_UDS_COMPARE_HEART_RATE_MAX_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x8D)"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_HEART_RATE_MAX_UUID_CONSTANT" value="{ 0x8D, 0x2A }"/>
+   <macro name="QAPI_BLE_UDS_ASSIGN_RESTING_HEART_RATE_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x92)"/>
+   <macro name="QAPI_BLE_UDS_COMPARE_RESTING_HEART_RATE_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x92)"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_RESTING_HEART_RATE_UUID_CONSTANT" value="{ 0x92, 0x2A }"/>
+   <macro name="QAPI_BLE_UDS_ASSIGN_MAXIMUM_RECOMMENDED_HEART_RATE_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x91)"/>
+   <macro name="QAPI_BLE_UDS_COMPARE_MAXIMUM_RECOMMENDED_HEART_RATE_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x91)"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_MAXIMUM_RECOMMENDED_HEART_RATE_UUID_CONSTANT" value="{ 0x91, 0x2A }"/>
+   <macro name="QAPI_BLE_UDS_ASSIGN_AEROBIC_THRESHOLD_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x7F)"/>
+   <macro name="QAPI_BLE_UDS_COMPARE_AEROBIC_THRESHOLD_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x7F)"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_AEROBIC_THRESHOLD_UUID_CONSTANT" value="{ 0x7F, 0x2A }"/>
+   <macro name="QAPI_BLE_UDS_ASSIGN_ANAEROBIC_THRESHOLD_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x83)"/>
+   <macro name="QAPI_BLE_UDS_COMPARE_ANAEROBIC_THRESHOLD_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x83)"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_ANAEROBIC_THRESHOLD_UUID_CONSTANT" value="{ 0x83, 0x2A }"/>
+   <macro name="QAPI_BLE_UDS_ASSIGN_SPORT_TYPE_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x93)"/>
+   <macro name="QAPI_BLE_UDS_COMPARE_SPORT_TYPE_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x93)"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_SPORT_TYPE_UUID_CONSTANT" value="{ 0x93, 0x2A }"/>
+   <macro name="QAPI_BLE_UDS_ASSIGN_DATE_OF_THRESHOLD_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x86)"/>
+   <macro name="QAPI_BLE_UDS_COMPARE_DATE_OF_THRESHOLD_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x86)"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_DATE_OF_THRESHOLD_UUID_CONSTANT" value="{ 0x86, 0x2A }"/>
+   <macro name="QAPI_BLE_UDS_ASSIGN_WAIST_CIRCUMFERENCE_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x97)"/>
+   <macro name="QAPI_BLE_UDS_COMPARE_WAIST_CIRCUMFERENCE_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x97)"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_WAIST_CIRCUMFERENCE_UUID_CONSTANT" value="{ 0x97, 0x2A }"/>
+   <macro name="QAPI_BLE_UDS_ASSIGN_HIP_CIRCUMFERENCE_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x8F)"/>
+   <macro name="QAPI_BLE_UDS_COMPARE_HIP_CIRCUMFERENCE_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x8F)"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_HIP_CIRCUMFERENCE_UUID_CONSTANT" value="{ 0x8F, 0x2A }"/>
+   <macro name="QAPI_BLE_UDS_ASSIGN_FAT_BURN_HEART_RATE_LOWER_LIMIT_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x88)"/>
+   <macro name="QAPI_BLE_UDS_COMPARE_FAT_BURN_HEART_RATE_LOWER_LIMIT_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x88)"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_FAT_BURN_HEART_RATE_LOWER_LIMIT_UUID_CONSTANT" value="{ 0x88, 0x2A }"/>
+   <macro name="QAPI_BLE_UDS_ASSIGN_FAT_BURN_HEART_RATE_UPPER_LIMIT_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x89"/>
+   <macro name="QAPI_BLE_UDS_COMPARE_FAT_BURN_HEART_RATE_UPPER_LIMIT_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x89)"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_FAT_BURN_HEART_RATE_UPPER_LIMIT_UUID_CONSTANT" value="{ 0x89, 0x2A }"/>
+   <macro name="QAPI_BLE_UDS_ASSIGN_AEROBIC_HEART_RATE_LOWER_LIMIT_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x7E)"/>
+   <macro name="QAPI_BLE_UDS_COMPARE_AEROBIC_HEART_RATE_LOWER_LIMIT_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x7E)"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_AEROBIC_HEART_RATE_LOWER_LIMIT_UUID_CONSTANT" value="{ 0x7E, 0x2A }"/>
+   <macro name="QAPI_BLE_UDS_ASSIGN_AEROBIC_HEART_RATE_UPPER_LIMIT_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x84)"/>
+   <macro name="QAPI_BLE_UDS_COMPARE_AEROBIC_HEART_RATE_UPPER_LIMIT_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x84)"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_AEROBIC_HEART_RATE_UPPER_LIMIT_UUID_CONSTANT" value="{ 0x84, 0x2A }"/>
+   <macro name="QAPI_BLE_UDS_ASSIGN_ANAEROBIC_HEART_RATE_LOWER_LIMIT_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x81)"/>
+   <macro name="QAPI_BLE_UDS_COMPARE_ANAEROBIC_HEART_RATE_LOWER_LIMIT_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x81)"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_ANAEROBIC_HEART_RATE_LOWER_LIMIT_UUID_CONSTANT" value="{ 0x81, 0x2A }"/>
+   <macro name="QAPI_BLE_UDS_ASSIGN_ANAEROBIC_HEART_RATE_UPPER_LIMIT_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x82)"/>
+   <macro name="QAPI_BLE_UDS_COMPARE_ANAEROBIC_HEART_RATE_UPPER_LIMIT_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x82)"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_ANAEROBIC_HEART_RATE_UPPER_LIMIT_UUID_CONSTANT" value="{ 0x82, 0x2A }"/>
+   <macro name="QAPI_BLE_UDS_ASSIGN_FIVE_ZONE_HEART_RATE_LIMITS_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x8B)"/>
+   <macro name="QAPI_BLE_UDS_COMPARE_FIVE_ZONE_HEART_RATE_LIMITS_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x8B)"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_FIVE_ZONE_HEART_RATE_LIMITS_UUID_CONSTANT" value="{ 0x8B, 0x2A }"/>
+   <macro name="QAPI_BLE_UDS_ASSIGN_THREE_ZONE_HEART_RATE_LIMITS_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x94)"/>
+   <macro name="QAPI_BLE_UDS_COMPARE_THREE_ZONE_HEART_RATE_LIMITS_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x94)"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_THREE_ZONE_HEART_RATE_LIMITS_UUID_CONSTANT" value="{ 0x94, 0x2A }"/>
+   <macro name="QAPI_BLE_UDS_ASSIGN_TWO_ZONE_HEART_RATE_LIMIT_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x95)"/>
+   <macro name="QAPI_BLE_UDS_COMPARE_TWO_ZONE_HEART_RATE_LIMIT_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x95)"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_TWO_ZONE_HEART_RATE_LIMIT_UUID_CONSTANT" value="{ 0x95, 0x2A }"/>
+   <macro name="QAPI_BLE_UDS_ASSIGN_LANGUAGE_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0xA2)"/>
+   <macro name="QAPI_BLE_UDS_COMPARE_LANGUAGE_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0xA2)"/>
+   <macro name="QAPI_BLE_UDS_CHARACTERISTIC_LANGUAGE_UUID_CONSTANT" value="{ 0xA2, 0x2A }"/>
+   <macro name="QAPI_BLE_UDS_ASSIGN_DATABASE_CHANGE_INCREMENT_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x99)"/>
+   <macro name="QAPI_BLE_UDS_COMPARE_DATABASE_CHANGE_INCREMENT_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x99)"/>
+   <macro name="QAPI_BLE_UDS_DATABASE_CHANGE_INCREMENT_CHARACTERISTIC_UUID_CONSTANT" value="{ 0x99, 0x2A }"/>
+   <macro name="QAPI_BLE_UDS_ASSIGN_USER_INDEX_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x9A)"/>
+   <macro name="QAPI_BLE_UDS_COMPARE_USER_INDEX_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x9A)"/>
+   <macro name="QAPI_BLE_UDS_USER_INDEX_CHARACTERISTIC_UUID_CONSTANT" value="{ 0x9A, 0x2A }"/>
+   <macro name="QAPI_BLE_UDS_ASSIGN_USER_CONTROL_POINT_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0x9F)"/>
+   <macro name="QAPI_BLE_UDS_COMPARE_USER_CONTROL_POINT_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0x9F)"/>
+   <macro name="QAPI_BLE_UDS_USER_CONTROL_POINT_CHARACTERISTIC_UUID_CONSTANT" value="{ 0x9F, 0x2A }"/>
+   <macro name="QAPI_BLE_UDS_USER_CONTROL_POINT_OP_CODE_REGISTER_NEW_USER" value="0x01"/>
+   <macro name="QAPI_BLE_UDS_USER_CONTROL_POINT_OP_CODE_CONSENT" value="0x02"/>
+   <macro name="QAPI_BLE_UDS_USER_CONTROL_POINT_OP_CODE_DELETE_USER_DATA" value="0x03"/>
+   <macro name="QAPI_BLE_UDS_USER_CONTROL_POINT_OP_CODE_RESPONSE_CODE" value="0x20"/>
+   <macro name="QAPI_BLE_UDS_USER_CONTROL_POINT_RESPONSE_VALUE_SUCCESS" value="0x01"/>
+   <macro name="QAPI_BLE_UDS_USER_CONTROL_POINT_RESPONSE_VALUE_OP_CODE_NOT_SUPPORTED" value="0x02"/>
+   <macro name="QAPI_BLE_UDS_USER_CONTROL_POINT_RESPONSE_VALUE_INVALID_PARAMETER" value="0x03"/>
+   <macro name="QAPI_BLE_UDS_USER_CONTROL_POINT_RESPONSE_VALUE_OPERATION_FAILED" value="0x04"/>
+   <macro name="QAPI_BLE_UDS_USER_CONTROL_POINT_RESPONSE_VALUE_USER_NOT_AUTHORIZED" value="0x05"/>
+   <macro name="QAPI_BLE_UDS_DATE_SIZE" value="(sizeof(qapi_BLE_UDS_Date_t))"/>
+   <macro name="QAPI_BLE_UDS_FIVE_ZONE_HEART_RATE_LIMITS_SIZE" value="(sizeof(qapi_BLE_UDS_Five_Zone_Heart_Rate_Limits_t))"/>
+   <macro name="QAPI_BLE_UDS_THREE_ZONE_HEART_RATE_LIMITS_SIZE" value="(sizeof(qapi_BLE_UDS_Three_Zone_Heart_Rate_Limits_t))"/>
+   <macro name="QAPI_BLE_UDS_USER_CONTROL_POINT_REQUEST_SIZE" params="(_x)" value="(QAPI_BLE_BTPS_STRUCTURE_OFFSET(qapi_BLE_UDS_User_Control_Point_Request_t, Variable_Data) + (_x))"/>
+   <macro name="QAPI_BLE_UDS_USER_CONTROL_POINT_REQUEST_MINIMUM_LENGTH" params="(_x)" value="(QAPI_BLE_UDS_USER_CONTROL_POINT_REQUEST_SIZE(0) + "/>
+   <macro name="QAPI_BLE_UDS_USER_CONTROL_POINT_RESPONSE_SIZE" params="(_x)" value="(QAPI_BLE_BTPS_STRUCTURE_OFFSET(qapi_BLE_UDS_User_Control_Point_Response_t, Variable_Data) + (_x))"/>
+   <macro name="QAPI_BLE_UDS_CONSENT_CODE_VALID" params="(_x)" value="((((_x) &gt;= 0) &amp;&amp; ((_x) &lt;= 9999)))"/>
+   <macro name="QAPI_BLE_UDS_USER_INDEX_UNKNOWN_USER" value="0xFF"/>
+   <structure name="qapi_BLE_UDS_Date_t">
+      <member attributes="value" name="Year" type="qapi_BLE_NonAlignedWord_t"/>
+      <member attributes="value" name="Month" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="Day" type="qapi_BLE_NonAlignedByte_t"/>
+   </structure>
+   <structure name="qapi_BLE_UDS_Five_Zone_Heart_Rate_Limits_t">
+      <member attributes="value" name="Light_VeryLight_Limit" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="Light_Moderate_Limit" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="Moderate_Hard_Limit" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="Hard_Maximum_Limit" type="qapi_BLE_NonAlignedByte_t"/>
+   </structure>
+   <structure name="qapi_BLE_UDS_Three_Zone_Heart_Rate_Limits_t">
+      <member attributes="value" name="Light_Moderate_Limit" type="qapi_BLE_NonAlignedByte_t"/>
+      <member attributes="value" name="Moderate_Hard_Limit" type="qapi_BLE_NonAlignedByte_t"/>
+   </structure>
+</header>

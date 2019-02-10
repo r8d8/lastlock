@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="./qapi_ble_bttypes.h"/>
+   <macro name="QAPI_BLE_TRDS_ERROR_CODE_SUCCESS" value="0x00"/>
+   <macro name="QAPI_BLE_TRDS_ASSIGN_TRDS_SERVICE_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16(*((qapi_BLE_UUID_16_t *)(_x)), 0x18, 0x24)"/>
+   <macro name="QAPI_BLE_TRDS_COMPARE_TRDS_SERVICE_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x18, 0x24)"/>
+   <macro name="QAPI_BLE_TRDS_SERVICE_BLUETOOTH_UUID_CONSTANT" value="{ 0x24, 0x18 }"/>
+   <macro name="QAPI_BLE_TRDS_ASSIGN_TRDS_SERVICE_SDP_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_SDP_UUID_16((_x), 0x18, 0x24)"/>
+   <macro name="QAPI_BLE_TRDS_ASSIGN_CONTROL_POINT_CHARACTERISTIC_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16((_x), 0x2A, 0xBC)"/>
+   <macro name="QAPI_BLE_TRDS_COMPARE_CONTROL_POINT_CHARACTERISTIC_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x2A, 0xBC)"/>
+   <macro name="QAPI_BLE_TRDS_CONTROL_POINT_CHARACTERISTIC_BLUETOOTH_UUID_CONSTANT" value="{ 0xBC, 0x2A }"/>
+   <macro name="QAPI_BLE_TRDS_TRANSPORT_DISCOVERY_DATA_AD_TYPE_CODE" value="0x26"/>
+   <macro name="QAPI_BLE_TRDS_ORGANIZATION_ID_BT_SIG" value="0x01"/>
+   <macro name="QAPI_BLE_TRDS_TRANSPORT_BLOCK_SIZE" params="(_x)" value="(QAPI_BLE_BTPS_STRUCTURE_OFFSET(qapi_BLE_TRDS_Transport_Block_t, Transport_Data) + (_x))"/>
+   <macro name="QAPI_BLE_TRDS_CONTROL_POINT_OP_CODE_ACTIVATE_TRANSPORT" value="0x01"/>
+   <macro name="QAPI_BLE_TRDS_CONTROL_POINT_REQUEST_SIZE" params="(_x)" value="(QAPI_BLE_BTPS_STRUCTURE_OFFSET(qapi_BLE_TRDS_Control_Point_Request_t, Variable_Data) + (_x))"/>
+   <macro name="QAPI_BLE_TRDS_CONTROL_POINT_RESULT_CODE_SUCCESS" value="0x00"/>
+   <macro name="QAPI_BLE_TRDS_CONTROL_POINT_RESULT_CODE_OP_CODE_NOT_SUPPORTED" value="0x01"/>
+   <macro name="QAPI_BLE_TRDS_CONTROL_POINT_RESULT_CODE_INVALID_PARAMETER" value="0x02"/>
+   <macro name="QAPI_BLE_TRDS_CONTROL_POINT_RESULT_CODE_UNSUPPORTED_ORGANIZATION_ID" value="0x03"/>
+   <macro name="QAPI_BLE_TRDS_CONTROL_POINT_RESULT_CODE_OPERATION_FAILED" value="0x04"/>
+   <macro name="QAPI_BLE_TRDS_CONTROL_POINT_RESPONSE_SIZE" params="(_x)" value="(QAPI_BLE_BTPS_STRUCTURE_OFFSET(qapi_BLE_TRDS_Control_Point_Response_t, Variable_Data) + (_x))"/>
+</header>

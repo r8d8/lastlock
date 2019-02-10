@@ -1,0 +1,213 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="qapi_zb_cl.h"/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_ATTR_ID_LOCK_STATE" value="(0x0000) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_ATTR_ID_LOCK_TYPE" value="(0x0001) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_ATTR_ID_ACTUATOR_ENABLED" value="(0x0002) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_ATTR_ID_DOOR_STATE" value="(0x0003) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_ATTR_ID_DOOR_OPEN_EVENTS" value="(0x0004) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_ATTR_ID_DOOR_CLOSED_EVENTS" value="(0x0005) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_ATTR_ID_OPEN_PERIOD" value="(0x0006) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_ATTR_ID_LOG_RECORDS_SUPPORTED" value="(0x0010) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_ATTR_ID_TOTAL_USERS_SUPPORTED" value="(0x0011) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_ATTR_ID_PIN_USERS_SUPPORTED" value="(0x0012) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_ATTR_ID_RFID_USERS_SUPPORTED" value="(0x0013) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_ATTR_ID_WEEKDAY_SCHEDULES_PER_USER" value="(0x0014) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_ATTR_ID_YEARDAY_SCHEDULES_PER_USER" value="(0x0015) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_ATTR_ID_HOLIDAT_SCHEDULES_PER_USER" value="(0x0016) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_ATTR_ID_MAX_PIN_CODE_LENGTH" value="(0x0017) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_ATTR_ID_MIN_PIN_CODE_LENGTH" value="(0x0018) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_ATTR_ID_MAX_RFID_CODE_LENGTH" value="(0x0019) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_ATTR_ID_MIN_RFID_CODE_LENGTH" value="(0x001A) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_ATTR_ID_ENABLE_LOGGING" value="(0x0020) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_ATTR_ID_LANGUAGE" value="(0x0021) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_ATTR_ID_LED_SETTINGS" value="(0x0022) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_ATTR_ID_AUTO_RELOCK_TIME" value="(0x0023) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_ATTR_ID_SOUND_VOLUME" value="(0x0024) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_ATTR_ID_OPERATING_MODE" value="(0x0025) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_ATTR_ID_SUPPORTED_OPERATING_MODES" value="(0x0026) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_ATTR_ID_DEFAULT_CFG_REGISTER" value="(0x0027) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_ATTR_ID_ENABLE_LOCAL_PROGRAMMING" value="(0x0028) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_ATTR_ID_ENABLE_ONE_TOUCH_LOCKING" value="(0x0029) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_ATTR_ID_ENABLE_INSIDE_STATUS_LED" value="(0x002A) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_ATTR_ID_ENABLE_PRIVACY_MODE_BUTTON" value="(0x002B) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_ATTR_ID_WRONG_CODE_ENTRY_LIMIT" value="(0x0030) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_ATTR_ID_USER_CODE_TEMP_DISABLE_TIME" value="(0x0031) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_ATTR_ID_SEND_PIN_OVER_THE_AIR" value="(0x0032) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_ATTR_ID_REQIURE_PIN_FOR_RF_OPERATION" value="(0x0033) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_ATTR_ID_ZIGBEE_SECURITY_LEVEL" value="(0x0034) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_ATTR_ID_ALARM_MASK" value="(0x0040) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_ATTR_ID_KEYPAD_OPERATION_EVENT_MASK" value="(0x0041) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_ATTR_ID_RF_OPERATION_EVENT_MASK" value="(0x0042) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_ATTR_ID_MANUAL_OPERATION_EVENT_MASK" value="(0x0043) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_ATTR_ID_RFID_OPERATION_EVENT_MASK" value="(0x0044) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_ATTR_ID_KEYPAD_PROGRAMMING_EVENT_MASK" value="(0x0045) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_ATTR_ID_RF_PROGRAMMING_EVENT_MASK" value="(0x0046) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_ATTR_ID_RFID_PROGRAMMING_EVENT_MASK" value="(0x0047) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_CLIENT_COMMAND_ID_LOCK_DOOR" value="(0x00) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_CLIENT_COMMAND_ID_UNLOCK_DOOR" value="(0x01) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_CLIENT_COMMAND_ID_TOGGLE" value="(0x02) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_CLIENT_COMMAND_ID_UNLOCK_WITH_TIMEOUT" value="(0x03) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_CLIENT_COMMAND_ID_GET_LOG_RECORD" value="(0x04) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_CLIENT_COMMAND_ID_SET_PIN_CODE" value="(0x05) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_CLIENT_COMMAND_ID_GET_PIN_CODE" value="(0x06) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_CLIENT_COMMAND_ID_CLEAR_PIN_CODE" value="(0x07) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_CLIENT_COMMAND_ID_CLEAR_ALL_PIN_CODE" value="(0x08) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_CLIENT_COMMAND_ID_SET_USER_STATUS" value="(0x09) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_CLIENT_COMMAND_ID_GET_USER_STATUS" value="(0x0A) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_CLIENT_COMMAND_ID_SET_WEEK_DAY_SCHEDULE" value="(0x0B) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_CLIENT_COMMAND_ID_GET_WEEK_DAY_SCHEDULE" value="(0x0C) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_CLIENT_COMMAND_ID_CLEAR_WEEK_DAY_SCHEDULE" value="(0x0D) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_CLIENT_COMMAND_ID_SET_YEAR_DAY_SCHEDULE" value="(0x0E) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_CLIENT_COMMAND_ID_GET_YEAR_DAY_SCHEDULE" value="(0x0F) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_CLIENT_COMMAND_ID_CLEAR_YEAR_DAY_SCHEDULE" value="(0x10) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_CLIENT_COMMAND_ID_SET_HOLIDAY_SCHEDULE" value="(0x11) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_CLIENT_COMMAND_ID_GET_HOLIDAY_SCHEDULE" value="(0x12) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_CLIENT_COMMAND_ID_CLEAR_HOLIDAY_SCHEDULE" value="(0x13) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_CLIENT_COMMAND_ID_SET_USER_TYPE" value="(0x14) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_CLIENT_COMMAND_ID_GET_USER_TYPE" value="(0x15) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_CLIENT_COMMAND_ID_SET_RFID_CODE" value="(0x16) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_CLIENT_COMMAND_ID_GET_RFID_CODE" value="(0x17) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_CLIENT_COMMAND_ID_CLEAR_RFID_CODE" value="(0x18) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_CLIENT_COMMAND_ID_CLEAR_ALL_RFID_CODE" value="(0x19) "/>
+   <macro name="QAPI_ZB_CL_DOORLOCK_PIN_CODE_MAX_LENGTH" value="(0x20) "/>
+   <enum name="qapi_ZB_CL_DoorLock_Client_Event_Type_t">
+      <member name="QAPI_ZB_CL_DOORLOCK_CLIENT_EVENT_TYPE_ATTR_CUSTOM_READ_E" value="0"/>
+      <member name="QAPI_ZB_CL_DOORLOCK_CLIENT_EVENT_TYPE_ATTR_CUSTOM_WRITE_E" value="1"/>
+      <member name="QAPI_ZB_CL_DOORLOCK_CLIENT_EVENT_TYPE_DEFAULT_RESPONSE_E" value="2"/>
+      <member name="QAPI_ZB_CL_DOORLOCK_CLIENT_EVENT_TYPE_UNPARSED_RESPONSE_E" value="3"/>
+      <member name="QAPI_ZB_CL_DOORLOCK_CLIENT_EVENT_TYPE_COMMAND_COMPLETE_E" value="4"/>
+      <member name="QAPI_ZB_CL_DOORLOCK_CLIENT_EVENT_TYPE_LOCK_RESPONSE_E" value="5"/>
+      <member name="QAPI_ZB_CL_DOORLOCK_CLIENT_EVENT_TYPE_UNLOCK_RESPONSE_E" value="6"/>
+      <member name="QAPI_ZB_CL_DOORLOCK_CLIENT_EVENT_TYPE_TOGGLE_RESPONSE_E" value="7"/>
+   </enum>
+   <enum name="qapi_ZB_CL_DoorLock_Server_Event_Type_t">
+      <member name="QAPI_ZB_CL_DOORLOCK_SERVER_EVENT_TYPE_ATTR_CUSTOM_READ_E" value="0"/>
+      <member name="QAPI_ZB_CL_DOORLOCK_SERVER_EVENT_TYPE_ATTR_CUSTOM_WRITE_E" value="1"/>
+      <member name="QAPI_ZB_CL_DOORLOCK_SERVER_EVENT_TYPE_UNPARSED_DATA_E" value="2"/>
+      <member name="QAPI_ZB_CL_DOORLOCK_SERVER_EVENT_TYPE_LOCK_STATE_CHANGE_E" value="3"/>
+   </enum>
+   <structure name="qapi_ZB_CL_DoorLock_Client_Lock_Response_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_DoorLock_Client_Unlock_Response_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_DoorLock_Client_Toggle_Response_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_DoorLock_Client_Event_Data_t">
+      <member attributes="value" name="Event_Type" type="qapi_ZB_CL_DoorLock_Client_Event_Type_t"/>
+      <member attributes="union" name="Data">
+         <member attributes="value" name="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t"/>
+         <member attributes="value" name="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t"/>
+         <member attributes="value" name="Default_Response" type="qapi_ZB_CL_Default_Response_t"/>
+         <member attributes="value" name="Command_Complete" type="qapi_ZB_CL_Command_Complete_t"/>
+         <member attributes="value" name="Unparsed_Response" type="qapi_ZB_CL_Unparsed_Response_t"/>
+         <member attributes="value" name="Lock_Response" type="qapi_ZB_CL_DoorLock_Client_Lock_Response_t"/>
+         <member attributes="value" name="Unlock_Response" type="qapi_ZB_CL_DoorLock_Client_Unlock_Response_t"/>
+         <member attributes="value" name="Toggle_Response" type="qapi_ZB_CL_DoorLock_Client_Toggle_Response_t"/>
+         <unionMap mapVerified="yes" name="Event_Type" type="qapi_ZB_CL_DoorLock_Client_Event_Type_t">
+            <mapEntry member="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t" value="QAPI_ZB_CL_DOORLOCK_CLIENT_EVENT_TYPE_ATTR_CUSTOM_READ_E"/>
+            <mapEntry member="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t" value="QAPI_ZB_CL_DOORLOCK_CLIENT_EVENT_TYPE_ATTR_CUSTOM_WRITE_E"/>
+            <mapEntry member="Default_Response" type="qapi_ZB_CL_Default_Response_t" value="QAPI_ZB_CL_DOORLOCK_CLIENT_EVENT_TYPE_DEFAULT_RESPONSE_E"/>
+            <mapEntry member="Command_Complete" type="qapi_ZB_CL_Command_Complete_t" value="QAPI_ZB_CL_DOORLOCK_CLIENT_EVENT_TYPE_COMMAND_COMPLETE_E"/>
+            <mapEntry member="Unparsed_Response" type="qapi_ZB_CL_Unparsed_Response_t" value="QAPI_ZB_CL_DOORLOCK_CLIENT_EVENT_TYPE_UNPARSED_RESPONSE_E"/>
+            <mapEntry member="Lock_Response" type="qapi_ZB_CL_DoorLock_Client_Lock_Response_t" value="QAPI_ZB_CL_DOORLOCK_CLIENT_EVENT_TYPE_LOCK_RESPONSE_E"/>
+            <mapEntry member="Unlock_Response" type="qapi_ZB_CL_DoorLock_Client_Unlock_Response_t" value="QAPI_ZB_CL_DOORLOCK_CLIENT_EVENT_TYPE_UNLOCK_RESPONSE_E"/>
+            <mapEntry member="Toggle_Response" type="qapi_ZB_CL_DoorLock_Client_Toggle_Response_t" value="QAPI_ZB_CL_DOORLOCK_CLIENT_EVENT_TYPE_TOGGLE_RESPONSE_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_ZB_CL_DoorLock_PIN_t">
+      <member attributes="value" name="PINLength" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="PINLength" lengthVerified="yes" name="PINCode" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_DoorLock_Server_Lock_State_Changed_t">
+      <member attributes="value" name="Locked" type="qbool_t"/>
+      <member attributes="value" name="PIN" type="qapi_ZB_CL_DoorLock_PIN_t"/>
+   </structure>
+   <structure name="qapi_ZB_CL_DoorLock_Server_Event_Data_t">
+      <member attributes="value" name="Event_Type" type="qapi_ZB_CL_DoorLock_Server_Event_Type_t"/>
+      <member attributes="union" name="Data">
+         <member attributes="value" name="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t"/>
+         <member attributes="value" name="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t"/>
+         <member attributes="value" name="Unparsed_Data" type="qapi_ZB_CL_Unparsed_Data_t"/>
+         <member attributes="value" name="State_Changed" type="qapi_ZB_CL_DoorLock_Server_Lock_State_Changed_t"/>
+         <unionMap mapVerified="yes" name="Event_Type" type="qapi_ZB_CL_DoorLock_Server_Event_Type_t">
+            <mapEntry member="Attr_Custom_Read" type="qapi_ZB_CL_Attr_Custom_Read_t" value="QAPI_ZB_CL_DOORLOCK_SERVER_EVENT_TYPE_ATTR_CUSTOM_READ_E"/>
+            <mapEntry member="Attr_Custom_Write" type="qapi_ZB_CL_Attr_Custom_Write_t" value="QAPI_ZB_CL_DOORLOCK_SERVER_EVENT_TYPE_ATTR_CUSTOM_WRITE_E"/>
+            <mapEntry member="Unparsed_Data" type="qapi_ZB_CL_Unparsed_Data_t" value="QAPI_ZB_CL_DOORLOCK_SERVER_EVENT_TYPE_UNPARSED_DATA_E"/>
+            <mapEntry member="State_Changed" type="qapi_ZB_CL_DoorLock_Server_Lock_State_Changed_t" value="QAPI_ZB_CL_DOORLOCK_SERVER_EVENT_TYPE_LOCK_STATE_CHANGE_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <function name="qapi_ZB_CL_DoorLock_Create_Client">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Cluster_Info" type="qapi_ZB_CL_Cluster_Info_t"/>
+      <argument attributes="value" name="Event_CB" type="qapi_ZB_CL_DoorLock_Client_CB_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+   </function>
+   <function name="qapi_ZB_CL_DoorLock_Create_Server">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Cluster_Info" type="qapi_ZB_CL_Cluster_Info_t"/>
+      <argument attributes="value" name="Event_CB" type="qapi_ZB_CL_DoorLock_Server_CB_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+   </function>
+   <function name="qapi_ZB_CL_DoorLock_Populate_Attributes">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Server" type="qbool_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="AttributeCount" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="AttributeCount" lengthVerified="yes" name="AttributeList" type="qapi_ZB_CL_Attribute_t"/>
+   </function>
+   <function name="qapi_ZB_CL_DoorLock_Server_Set_PIN_Code">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="PIN" type="qapi_ZB_CL_DoorLock_PIN_t"/>
+   </function>
+   <function name="qapi_ZB_CL_DoorLock_Server_Get_PIN_Code">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="PIN" type="qapi_ZB_CL_DoorLock_PIN_t"/>
+   </function>
+   <function name="qapi_ZB_CL_DoorLock_Send_Lock">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="PIN" type="qapi_ZB_CL_DoorLock_PIN_t"/>
+   </function>
+   <function name="qapi_ZB_CL_DoorLock_Send_Unlock">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="PIN" type="qapi_ZB_CL_DoorLock_PIN_t"/>
+   </function>
+   <function name="qapi_ZB_CL_DoorLock_Send_Toggle">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="SendInfo" type="qapi_ZB_CL_General_Send_Info_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="PIN" type="qapi_ZB_CL_DoorLock_PIN_t"/>
+   </function>
+   <callback name="qapi_ZB_CL_DoorLock_Client_CB_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Event_Data" type="qapi_ZB_CL_DoorLock_Client_Event_Data_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+      <createFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_DoorLock_Create_Client" param="CB_Param"/>
+      <destroyFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_Destroy_Cluster"/>
+   </callback>
+   <callback name="qapi_ZB_CL_DoorLock_Server_CB_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="Cluster" type="qapi_ZB_Cluster_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Event_Data" type="qapi_ZB_CL_DoorLock_Server_Event_Data_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+      <createFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_DoorLock_Create_Server" param="CB_Param"/>
+      <destroyFunction ID="Cluster" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_CL_Destroy_Cluster"/>
+   </callback>
+</header>

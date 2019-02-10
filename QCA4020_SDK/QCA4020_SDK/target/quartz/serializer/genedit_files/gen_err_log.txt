@@ -1,0 +1,156 @@
+Incomplete union map for Result in qapi_HMI_MLME_Scan_Confirm_t
+Unhandled return type,  qapi_BLE_ANS_New_Alert_Data_t qapi_BLE_ANS_Decode_New_Alert_Notification
+Unhandled return type,  char qapi_BLE_BSC_Query_Host_Version
+Incomplete union map for Condition in qapi_BLE_Condition_t
+Incomplete union map for FilterParameters in qapi_BLE_CGMS_RACP_Format_Data_t
+Unhandled return type,  qapi_BLE_CPS_Vector_Data_t qapi_BLE_CPS_Decode_CP_Vector
+Incomplete union map for Operand in qapi_BLE_ESS_ES_Trigger_Setting_Data_t
+Incomplete union map for Authentication_Data in qapi_BLE_GAP_LE_Authentication_Response_Information_t
+Incomplete union map for Security_Information in qapi_BLE_GAP_LE_Security_Information_t
+Unhandled return type,  int32_t qapi_BLE_TPS_Query_Number_Attributes
+
+
+ZigBee structure and event data contain the output pointer:
+1. qapi_ZB_CL_Custom_Cluster_Event_Data_t
+   --qapi_ZB_CL_Attr_Custom_Read_t
+   --qapi_ZB_CL_Attr_Custom_Write_t
+   --qapi_ZB_CL_Custom_Cluster_Get_Scene_Data_t
+   --qapi_ZB_CL_Custom_Cluster_Set_Scene_Data_t
+
+2. qapi_ZB_CL_Alarm_Client_Event_Data_t
+   --qapi_ZB_CL_Attr_Custom_Read_t
+   --qapi_ZB_CL_Attr_Custom_Write_t
+
+3. qapi_ZB_CL_Alarm_Server_Event_Data_t
+   --qapi_ZB_CL_Attr_Custom_Read_t
+   --qapi_ZB_CL_Attr_Custom_Write_t
+
+4. qapi_ZB_CL_IASZone_Server_Event_Data_t
+   --qapi_ZB_CL_Attr_Custom_Read_t
+   --qapi_ZB_CL_Attr_Custom_Write_t
+   --qapi_ZB_CL_IASZone_Initiate_Test_Mode_t
+   --qapi_ZB_CL_IASZone_Initiate_Normal_Mode_t
+
+5. qapi_ZB_CL_IASZone_Client_Event_Data_t
+   --qapi_ZB_CL_IASZone_Zone_Enroll_Request_t
+
+6. qapi_ZB_CL_Identify_Client_Event_Data_t
+   --qapi_ZB_CL_Attr_Custom_Read_t
+   --qapi_ZB_CL_Attr_Custom_Write_t
+
+7. qapi_ZB_CL_Identify_Server_Event_Data_t
+   --qapi_ZB_CL_Attr_Custom_Read_t
+   --qapi_ZB_CL_Attr_Custom_Write_t
+
+8. qapi_ZB_CL_FanControl_Server_Event_Data_t
+   --qapi_ZB_CL_Attr_Custom_Read_t
+   --qapi_ZB_CL_Attr_Custom_Write_t
+
+9. qapi_ZB_CL_IASACE_Server_Event_Data_t
+   --qapi_ZB_CL_Attr_Custom_Read_t
+   --qapi_ZB_CL_Attr_Custom_Write_t
+   --qapi_ZB_CL_IASACE_Arm_t
+   --qapi_ZB_CL_IASACE_Bypass_t
+
+10. qapi_ZB_CL_LevelControl_Client_Event_Data_t
+   --qapi_ZB_CL_Attr_Custom_Read_t
+   --qapi_ZB_CL_Attr_Custom_Write_t
+
+11. qapi_ZB_CL_LevelControl_Server_Event_Data_t
+   --qapi_ZB_CL_Attr_Custom_Read_t
+   --qapi_ZB_CL_Attr_Custom_Write_t
+
+12. qapi_ZB_CL_TempMeasure_Server_Event_Data_t
+   --qapi_ZB_CL_Attr_Custom_Read_t
+   --qapi_ZB_CL_Attr_Custom_Write_t
+
+13. qapi_ZB_CL_PowerConfig_Server_Event_Data_t
+   --qapi_ZB_CL_Attr_Custom_Read_t
+   --qapi_ZB_CL_Attr_Custom_Write_t
+
+15. qapi_ZB_CL_WinCover_Server_Event_Data_t
+   --qapi_ZB_CL_Attr_Custom_Read_t
+   --qapi_ZB_CL_Attr_Custom_Write_t
+
+16. qapi_ZB_CL_Thermostat_Server_Event_Data_t
+   --qapi_ZB_CL_Attr_Custom_Read_t
+   --qapi_ZB_CL_Attr_Custom_Write_t
+
+17. qapi_ZB_CL_OTA_Client_Event_Data_t
+   --qapi_ZB_CL_Attr_Custom_Read_t
+   --qapi_ZB_CL_Attr_Custom_Write_t
+   --qapi_ZB_CL_OTA_Client_Raw_Write_t
+   --qapi_ZB_CL_OTA_Client_Write_t
+   --qapi_ZB_CL_OTA_Client_Upgrade_t
+
+18. qapi_ZB_CL_OTA_Server_Event_Data_t
+   --qapi_ZB_CL_Attr_Custom_Read_t
+   --qapi_ZB_CL_Attr_Custom_Write_t
+   --qapi_ZB_CL_OTA_Server_Image_Eval_t
+   --qapi_ZB_CL_OTA_Server_Image_Read_t
+   --qapi_ZB_CL_OTA_Server_Image_Upgrade_End_Time_t
+   --qapi_ZB_CL_OTA_Server_Image_Upgrade_End_Error_t
+
+19. qapi_ZB_CL_Scenes_Client_Event_Data_t
+   --qapi_ZB_CL_Attr_Custom_Read_t
+   --qapi_ZB_CL_Attr_Custom_Write_t
+
+20. qapi_ZB_CL_Scenes_Server_Event_Data_t
+   --qapi_ZB_CL_Attr_Custom_Read_t
+   --qapi_ZB_CL_Attr_Custom_Write_t
+
+21. qapi_ZB_CL_OnOff_Client_Event_Data_t
+   --qapi_ZB_CL_Attr_Custom_Read_t
+   --qapi_ZB_CL_Attr_Custom_Write_t
+
+22. qapi_ZB_CL_OnOff_Server_Event_Data_t
+   --qapi_ZB_CL_Attr_Custom_Read_t
+   --qapi_ZB_CL_Attr_Custom_Write_t
+
+23. qapi_ZB_CL_Occupancy_Server_Event_Data_t
+   --qapi_ZB_CL_Attr_Custom_Read_t
+   --qapi_ZB_CL_Attr_Custom_Write_t
+
+24. qapi_ZB_CL_IASWD_Server_Event_Data_t
+   --qapi_ZB_CL_IASWD_Start_Warning_Event_t
+   --qapi_ZB_CL_IASWD_Squawk_Event_t
+
+25. qapi_ZB_CL_Groups_Client_Event_Data_t
+   --qapi_ZB_CL_Attr_Custom_Read_t
+   --qapi_ZB_CL_Attr_Custom_Write_t
+
+26. qapi_ZB_CL_DeviceTemp_Server_Event_Data_t
+   --qapi_ZB_CL_Attr_Custom_Read_t
+   --qapi_ZB_CL_Attr_Custom_Write_t
+
+27. qapi_ZB_CL_DoorLock_Server_Event_Data_t
+   --qapi_ZB_CL_Attr_Custom_Read_t
+   --qapi_ZB_CL_Attr_Custom_Write_t
+
+28. qapi_ZB_CL_ColorControl_Client_Event_Data_t
+   --qapi_ZB_CL_Attr_Custom_Read_t
+   --qapi_ZB_CL_Attr_Custom_Write_t
+
+29. qapi_ZB_CL_ColorControl_Server_Event_Data_t
+   --qapi_ZB_CL_Attr_Custom_Read_t
+   --qapi_ZB_CL_Attr_Custom_Write_t
+
+30. qapi_ZB_CL_Ballast_Server_Event_Data_t
+   --qapi_ZB_CL_Attr_Custom_Read_t
+   --qapi_ZB_CL_Attr_Custom_Write_t
+
+31. qapi_ZB_CL_Illuminance_Server_Event_Data_t
+   --qapi_ZB_CL_Attr_Custom_Read_t
+   --qapi_ZB_CL_Attr_Custom_Write_t
+
+32. qapi_ZB_CL_RelHumid_Server_Event_Data_t
+   --qapi_ZB_CL_Attr_Custom_Read_t
+   --qapi_ZB_CL_Attr_Custom_Write_t
+
+
+qapi HMI xml notes:
+1. qapi_HMI_MLME_Scan_Confirm_t:
+  --union Result both passive and ctive scan types will map to qapi_HMI_PAN_Descriptor_t
+
+
+

@@ -1,0 +1,64 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="&lt;stdint.h&gt;"/>
+   <include name="com_dtypes.h"/>
+   <include name="qapi/qapi_status.h"/>
+   <macro name="__QAPI_TLMM__" value="typedef enum"/>
+   <macro name="QAPI_GPIO_2MA_E" value="QAPI_GPIO_2P7MA_E"/>
+   <macro name="QAPI_GPIO_4MA_E" value="QAPI_GPIO_4P0MA_E"/>
+   <macro name="QAPI_GPIO_6MA_E" value="QAPI_GPIO_4P0MA_E"/>
+   <macro name="QAPI_GPIO_8MA_E" value="QAPI_GPIO_4P0MA_E"/>
+   <macro name="QAPI_GPIO_10MA_E" value="QAPI_GPIO_4P0MA_E"/>
+   <macro name="QAPI_GPIO_12MA_E" value="QAPI_GPIO_4P0MA_E"/>
+   <macro name="QAPI_GPIO_14MA_E" value="QAPI_GPIO_4P0MA_E"/>
+   <macro name="QAPI_GPIO_16MA_E" value="QAPI_GPIO_4P0MA_E"/>
+   <enum name="qapi_GPIO_Direction_t"/>
+   <enum name="qapi_GPIO_Pull_t"/>
+   <enum name="qapi_GPIO_Drive_t"/>
+   <enum name="qapi_GPIO_Value_t"/>
+   <structure name="qapi_TLMM_Config_t">
+      <member attributes="value" name="pin" type="uint32_t"/>
+      <member attributes="value" name="func" type="uint32_t"/>
+      <member attributes="value" name="dir" type="qapi_GPIO_Direction_t"/>
+      <member attributes="value" name="pull" type="qapi_GPIO_Pull_t"/>
+      <member attributes="value" name="drive" type="qapi_GPIO_Drive_t"/>
+   </structure>
+   <function name="qapi_TLMM_Get_Gpio_ID">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="qapi_TLMM_Config" type="qapi_TLMM_Config_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="qapi_GPIO_ID" type="qapi_GPIO_ID_t"/>
+   </function>
+   <function name="qapi_TLMM_Release_Gpio_ID">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="qapi_TLMM_Config" type="qapi_TLMM_Config_t"/>
+      <argument attributes="value" name="qapi_GPIO_ID" type="qapi_GPIO_ID_t"/>
+   </function>
+   <function name="qapi_TLMM_Config_Gpio">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="qapi_GPIO_ID" type="qapi_GPIO_ID_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="qapi_TLMM_Config" type="qapi_TLMM_Config_t"/>
+   </function>
+   <function name="qapi_TLMM_Drive_Gpio">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="qapi_GPIO_ID" type="qapi_GPIO_ID_t"/>
+      <argument attributes="value" name="pin" type="uint32_t"/>
+      <argument attributes="value" name="value" type="qapi_GPIO_Value_t"/>
+   </function>
+   <function name="qapi_TLMM_Read_Gpio">
+      <return attributes="value" type="qapi_GPIO_Value_t"/>
+      <argument attributes="value" name="qapi_GPIO_ID" type="qapi_GPIO_ID_t"/>
+      <argument attributes="value" name="pin" type="uint32_t"/>
+   </function>
+   <function name="qapi_TLMM_Get_Gpio_Outval">
+      <return attributes="value" type="qapi_GPIO_Value_t"/>
+      <argument attributes="value" name="pin" type="uint32_t"/>
+   </function>
+   <function name="qapi_TLMM_Get_Gpio_Config">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="qapi_TLMM_Config" type="qapi_TLMM_Config_t"/>
+   </function>
+   <function name="qapi_TLMM_Get_Total_Gpios">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="total_GPIOs" type="uint32_t"/>
+   </function>
+</header>

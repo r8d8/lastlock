@@ -1,0 +1,168 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="./qapi_ble_btapityp.h"/>
+   <include name="./qapi_ble_bttypes.h"/>
+   <include name="./qapi_ble_l2cap.h"/>
+   <include name="./qapi_ble_gatt.h"/>
+   <include name="./qapi_ble_ipsptypes.h"/>
+   <macro name="QAPI_BLE_IPSP_ERROR_INVALID_PARAMETER" value="(-1000)"/>
+   <macro name="QAPI_BLE_IPSP_ERROR_INVALID_BLUETOOTH_STACK_ID" value="(-1001)"/>
+   <macro name="QAPI_BLE_IPSP_ERROR_INSUFFICIENT_RESOURCES" value="(-1002)"/>
+   <macro name="QAPI_BLE_IPSP_ERROR_NODE_ALREADY_INITIALIZED" value="(-1003)"/>
+   <macro name="QAPI_BLE_IPSP_ERROR_NODE_NOT_INITIALIZED" value="(-1004)"/>
+   <macro name="QAPI_BLE_IPSP_ERROR_NODE_IPSS_NOT_REGISTERED" value="(-1005)"/>
+   <macro name="QAPI_BLE_IPSP_ERROR_MALFORMATTED_DATA" value="(-1006)"/>
+   <macro name="QAPI_BLE_IPSP_ERROR_UNKNOWN_ERROR" value="(-1007)"/>
+   <macro name="QAPI_BLE_IPSP_ERROR_NO_CONNECTION_INFORMATION" value="(-1008)"/>
+   <macro name="QAPI_BLE_IPSP_ERROR_CONNECTION_NOT_READY" value="(-1009)"/>
+   <macro name="QAPI_BLE_IPSP_ERROR_CONNECTION_NOT_PENDING" value="(-1010)"/>
+   <macro name="QAPI_BLE_IPSP_OPEN_STATUS_SUCCESS" value="0x00"/>
+   <macro name="QAPI_BLE_IPSP_OPEN_STATUS_CONNECTION_TIMEOUT" value="0x01"/>
+   <macro name="QAPI_BLE_IPSP_OPEN_STATUS_CONNECTION_REFUSED" value="0x02"/>
+   <macro name="QAPI_BLE_IPSP_OPEN_STATUS_UNKNOWN_ERROR" value="0x03"/>
+   <macro name="QAPI_BLE_IPSP_OPEN_INDICATION_DATA_SIZE" value="(sizeof(qapi_BLE_IPSP_Open_Indication_Data_t))"/>
+   <macro name="QAPI_BLE_IPSP_OPEN_REQUEST_INDICATION_DATA_SIZE" value="(sizeof(qapi_BLE_IPSP_Open_Request_Indication_Data_t))"/>
+   <macro name="QAPI_BLE_IPSP_OPEN_CONFIRMATION_DATA_SIZE" value="(sizeof(qapi_BLE_IPSP_Open_Confirmation_Data_t))"/>
+   <macro name="QAPI_BLE_IPSP_CLOSE_INDICATION_DATA_SIZE" value="(sizeof(qapi_BLE_IPSP_Close_Indication_Data_t))"/>
+   <macro name="QAPI_BLE_IPSP_CLOSE_CONFIRMATION_DATA_SIZE" value="(sizeof(qapi_BLE_IPSP_Close_Confirmation_Data_t))"/>
+   <macro name="QAPI_BLE_IPSP_DATA_INDICATION_DATA_SIZE" value="(sizeof(qapi_BLE_IPSP_Data_Indication_Data_t))"/>
+   <macro name="QAPI_BLE_IPSP_BUFFER_EMPTY_INDICATION_DATA_SIZE" value="(sizeof(qapi_BLE_IPSP_Buffer_Empty_Indication_Data_t))"/>
+   <macro name="QAPI_BLE_IPSP_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_IPSP_Event_Data_t))"/>
+   <enum name="qapi_BLE_IPSP_Node_Connection_Mode_t">
+      <member name="QAPI_BLE_CM_AUTOMATIC_ACCEPT_E" value="0"/>
+      <member name="QAPI_BLE_CM_AUTOMATIC_REJECT_E" value="1"/>
+      <member name="QAPI_BLE_CM_MANUAL_ACCEPT_E" value="2"/>
+   </enum>
+   <enum name="qapi_BLE_IPSP_Event_Type_t">
+      <member name="QAPI_BLE_ET_IPSP_OPEN_INDICATION_E" value="0"/>
+      <member name="QAPI_BLE_ET_IPSP_OPEN_REQUEST_INDICATION_E" value="1"/>
+      <member name="QAPI_BLE_ET_IPSP_OPEN_CONFIRMATION_E" value="2"/>
+      <member name="QAPI_BLE_ET_IPSP_CLOSE_INDICATION_E" value="3"/>
+      <member name="QAPI_BLE_ET_IPSP_CLOSE_CONFIRMATION_E" value="4"/>
+      <member name="QAPI_BLE_ET_IPSP_DATA_INDICATION_E" value="5"/>
+      <member name="QAPI_BLE_ET_IPSP_BUFFER_EMPTY_INDICATION_E" value="6"/>
+   </enum>
+   <structure name="qapi_BLE_IPSP_Open_Indication_Data_t">
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="MaxSDUSize" type="uint16_t"/>
+      <member attributes="value" name="MaxPDUSize" type="uint16_t"/>
+      <member attributes="value" name="InitialCredits" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_IPSP_Open_Request_Indication_Data_t">
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="MaxSDUSize" type="uint16_t"/>
+      <member attributes="value" name="MaxPDUSize" type="uint16_t"/>
+      <member attributes="value" name="InitialCredits" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_IPSP_Open_Confirmation_Data_t">
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ConnectionStatus" type="uint32_t"/>
+      <member attributes="value" name="MaxSDUSize" type="uint16_t"/>
+      <member attributes="value" name="MaxPDUSize" type="uint16_t"/>
+      <member attributes="value" name="InitialCredits" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_IPSP_Close_Indication_Data_t">
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Reason" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_BLE_IPSP_Close_Confirmation_Data_t">
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Result" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_BLE_IPSP_Data_Indication_Data_t">
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="CreditsConsumed" type="uint16_t"/>
+      <member attributes="value" name="DataLength" type="uint16_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="DataLength" lengthVerified="yes" name="Data" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_IPSP_Buffer_Empty_Indication_Data_t">
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+   </structure>
+   <structure name="qapi_BLE_IPSP_Event_Data_t">
+      <member attributes="value" name="Event_Data_Type" type="qapi_BLE_IPSP_Event_Type_t"/>
+      <member attributes="value" name="Event_Data_Size" type="uint8_t"/>
+      <member attributes="union" name="Event_Data">
+         <member attributes="ptr" iotype="in" name="IPSP_Open_Indication_Data" type="qapi_BLE_IPSP_Open_Indication_Data_t"/>
+         <member attributes="ptr" iotype="in" name="IPSP_Open_Request_Indication_Data" type="qapi_BLE_IPSP_Open_Request_Indication_Data_t"/>
+         <member attributes="ptr" iotype="in" name="IPSP_Open_Confirmation_Data" type="qapi_BLE_IPSP_Open_Confirmation_Data_t"/>
+         <member attributes="ptr" iotype="in" name="IPSP_Close_Indication_Data" type="qapi_BLE_IPSP_Close_Indication_Data_t"/>
+         <member attributes="ptr" iotype="in" name="IPSP_Close_Confirmation_Data" type="qapi_BLE_IPSP_Close_Confirmation_Data_t"/>
+         <member attributes="ptr" iotype="in" name="IPSP_Data_Indication_Data" type="qapi_BLE_IPSP_Data_Indication_Data_t"/>
+         <member attributes="ptr" iotype="in" name="IPSP_Buffer_Empty_Indication_Data" type="qapi_BLE_IPSP_Buffer_Empty_Indication_Data_t"/>
+         <unionMap mapVerified="yes" name="Event_Data_Type" type="qapi_BLE_IPSP_Event_Type_t">
+            <mapEntry member="IPSP_Open_Indication_Data" type="qapi_BLE_IPSP_Open_Indication_Data_t" value="QAPI_BLE_ET_IPSP_OPEN_INDICATION_E"/>
+            <mapEntry member="IPSP_Open_Request_Indication_Data" type="qapi_BLE_IPSP_Open_Request_Indication_Data_t" value="QAPI_BLE_ET_IPSP_OPEN_REQUEST_INDICATION_E"/>
+            <mapEntry member="IPSP_Open_Confirmation_Data" type="qapi_BLE_IPSP_Open_Confirmation_Data_t" value="QAPI_BLE_ET_IPSP_OPEN_CONFIRMATION_E"/>
+            <mapEntry member="IPSP_Close_Indication_Data" type="qapi_BLE_IPSP_Close_Indication_Data_t" value="QAPI_BLE_ET_IPSP_CLOSE_INDICATION_E"/>
+            <mapEntry member="IPSP_Close_Confirmation_Data" type="qapi_BLE_IPSP_Close_Confirmation_Data_t" value="QAPI_BLE_ET_IPSP_CLOSE_CONFIRMATION_E"/>
+            <mapEntry member="IPSP_Data_Indication_Data" type="qapi_BLE_IPSP_Data_Indication_Data_t" value="QAPI_BLE_ET_IPSP_DATA_INDICATION_E"/>
+            <mapEntry member="IPSP_Buffer_Empty_Indication_Data" type="qapi_BLE_IPSP_Buffer_Empty_Indication_Data_t" value="QAPI_BLE_ET_IPSP_BUFFER_EMPTY_INDICATION_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <function name="qapi_BLE_IPSP_Initialize_Node_Role">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="ChannelParameters" type="qapi_BLE_L2CA_LE_Channel_Parameters_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_IPSP_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="ServiceHandleRange" type="qapi_BLE_GATT_Attribute_Handle_Group_t"/>
+   </function>
+   <function name="qapi_BLE_IPSP_Cleanup_Node_Role">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_IPSP_Open_Connection_Request_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="value" name="AcceptConnection" type="boolean_t"/>
+   </function>
+   <function name="qapi_BLE_IPSP_Get_Node_Connection_Mode">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ConnectionMode" type="qapi_BLE_IPSP_Node_Connection_Mode_t"/>
+   </function>
+   <function name="qapi_BLE_IPSP_Set_Node_Connection_Mode">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionMode" type="qapi_BLE_IPSP_Node_Connection_Mode_t"/>
+   </function>
+   <function name="qapi_BLE_IPSP_Connect_Remote_Node">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="BD_ADDR" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="ChannelParameters" type="qapi_BLE_L2CA_LE_Channel_Parameters_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_IPSP_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_IPSP_Close_Connection">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+   </function>
+   <function name="qapi_BLE_IPSP_Send_Packet">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="QueueingParameters" type="qapi_BLE_L2CA_Queueing_Parameters_t"/>
+      <argument attributes="value" name="Data_Length" type="uint16_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="Data_Length" lengthVerified="yes" name="Data" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_IPSP_Grant_Credits">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <argument attributes="value" name="Credits" type="uint16_t"/>
+   </function>
+   <callback name="qapi_BLE_IPSP_Event_Callback_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="IPSP_Event_Data" type="qapi_BLE_IPSP_Event_Data_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <createFunction ID="BluetoothStackID" funcSuccess="__positive__" moduleParam="BluetoothStackID" name="qapi_BLE_IPSP_Initialize_Node_Role" param="CallbackParameter"/>
+      <createFunction ID="BluetoothStackID" funcSuccess="__positive__" moduleParam="BluetoothStackID" name="qapi_BLE_IPSP_Connect_Remote_Node" param="CallbackParameter"/>
+      <destroyFunction ID="BluetoothStackID" funcSuccess="0" name="qapi_BLE_IPSP_Cleanup_Node_Role"/>
+      <destroyFunction ID="BluetoothStackID" funcSuccess="0" name="qapi_BLE_IPSP_Close_Connection"/>
+   </callback>
+</header>

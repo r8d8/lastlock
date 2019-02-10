@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="qapi_HERH.h"/>
+   <function name="qapi_HEHR_Host_Data">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="HERH_Handle" type="HERH_Handle_t"/>
+      <argument attributes="value" name="DataLength" type="uint32_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="DataLength" lengthVerified="yes" name="Data" type="uint8_t"/>
+   </function>
+</header>

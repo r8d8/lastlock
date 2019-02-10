@@ -1,0 +1,396 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="qapi/qapi_types.h"/>
+   <include name="qapi/qapi_status.h"/>
+   <macro name="QAPI_TWN_BORDER_ROUTER_FLAG_SLAAC_PREFERRED" value="(1 &lt;&lt; 3) "/>
+   <macro name="QAPI_TWN_BORDER_ROUTER_FLAG_SLAAC_VALID" value="(1 &lt;&lt; 4) "/>
+   <macro name="QAPI_TWN_BORDER_ROUTER_FLAG_SUPPORTS_DHCP" value="(1 &lt;&lt; 5) "/>
+   <macro name="QAPI_TWN_BORDER_ROUTER_FLAG_SUPPORTS_CONFIGURATION" value="(1 &lt;&lt; 6) "/>
+   <macro name="QAPI_TWN_BORDER_ROUTER_FLAG_DEFAULT_ROUTE" value="(1 &lt;&lt; 7) "/>
+   <macro name="QAPI_TWN_BORDER_ROUTER_FLAG_ON_MESH" value="(1 &lt;&lt; 8) "/>
+   <macro name="QAPI_OPEN_THREAD_NETWORK_NAME_SIZE" value="(16) "/>
+   <macro name="QAPI_OPEN_THREAD_MASTER_KEY_SIZE" value="(16) "/>
+   <macro name="QAPI_TWN_MESH_LOCAL_PREFIX_SIZE" value="(8) "/>
+   <macro name="QAPI_TWN_STEERING_DATA_MAX_LENGTH" value="(16) "/>
+   <macro name="QAPI_TWN_AF_INET" value="(2) "/>
+   <macro name="QAPI_TWN_AF_INET6" value="(3) "/>
+   <macro name="QAPI_TWN_AF_INET_DUAL46" value="(4) "/>
+   <macro name="QAPI_TWN_PSKC_SIZE" value="(16) "/>
+   <macro name="QAPI_TWN_INVALID_HANDLE" value="(0) "/>
+   <macro name="QAPI_TWN_SEC_POLICY_FLAGS_ALLOW_OUT_OF_BAND_MASTER_KEY" value="(1 &lt;&lt; 0) "/>
+   <macro name="QAPI_TWN_SEC_POLICY_FLAGS_ALLOW_NATIVE_COMMISSIONING" value="(1 &lt;&lt; 1) "/>
+   <macro name="QAPI_TWN_SEC_POLICY_FLAGS_ALLOW_THREAD_1X_ROUTERS" value="(1 &lt;&lt; 2) "/>
+   <macro name="QAPI_TWN_SEC_POLICY_FLAGS_ALLOW_EXTERNAL_COMMISSIONER_AUTH" value="(1 &lt;&lt; 3) "/>
+   <macro name="QAPI_TWN_SEC_POLICY_FLAGS_ALLOW_THREAD_1X_BEACONS" value="(1 &lt;&lt; 4) "/>
+   <enum name="qapi_TWN_Routing_Preference_t">
+      <member name="QAPI_TWN_ROUTING_PREFERENCE_LOW_E" value="0"/>
+      <member name="QAPI_TWN_ROUTING_PREFERENCE_MEDIUM_E" value="1"/>
+      <member name="QAPI_TWN_ROUTING_PREFERENCE_HIGH_E" value="2"/>
+   </enum>
+   <enum name="qapi_TWN_Event_Type_t">
+      <member name="QAPI_TWN_EVENT_TYPE_NETWORK_STATE_E" value="0"/>
+      <member name="QAPI_TWN_EVENT_TYPE_JOINER_RESULT_E" value="1"/>
+      <member name="QAPI_TWN_EVENT_TYPE_LOG_MESSAGE_E" value="2"/>
+      <member name="QAPI_TWN_EVENT_TYPE_REGISTER_MDNS_RECORD_E" value="3"/>
+      <member name="QAPI_TWN_EVENT_TYPE_UPDATE_MDNS_RECORD_E" value="4"/>
+      <member name="QAPI_TWN_EVENT_TYPE_DELETE_MDNS_RECORD_E" value="5"/>
+      <member name="" value="2"/>
+   </enum>
+   <enum name="qapi_TWN_Network_State_t">
+      <member name="QAPI_TWN_NETWORK_STATE_DISABLED_E" value="0"/>
+      <member name="QAPI_TWN_NETWORK_STATE_DETACHED_E" value="1"/>
+      <member name="QAPI_TWN_NETWORK_STATE_CHILD_E" value="2"/>
+      <member name="QAPI_TWN_NETWORK_STATE_ROUTER_E" value="3"/>
+      <member name="QAPI_TWN_NETWORK_STATE_LEADER_E" value="4"/>
+      <member name="" value="5"/>
+   </enum>
+   <enum name="qapi_TWN_Joiner_Result_t">
+      <member name="QAPI_TWN_JOINER_RESULT_SUCCESS_E" value="0"/>
+      <member name="QAPI_TWN_JOINER_RESULT_NO_NETWORKS_E" value="1"/>
+      <member name="QAPI_TWN_JOINER_RESULT_SECURITY_E" value="2"/>
+      <member name="QAPI_TWN_JOINER_RESULT_TIMEOUT_E" value="3"/>
+      <member name="QAPI_TWN_JOINER_RESULT_ERROR_E" value="4"/>
+      <member name="" value="5"/>
+   </enum>
+   <structure name="qapi_TWN_IPv6_Prefix_t">
+      <member attributes="value" name="Address" type="qapi_TWN_IPv6_Address_t"/>
+      <member attributes="value" name="Length" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_TWN_Device_Configuration_t">
+      <member attributes="value" name="Extended_Address" type="uint64_t"/>
+      <member attributes="value" name="Child_Timeout" type="uint32_t"/>
+      <member attributes="value" name="Rx_On_While_Idle" type="qbool_t"/>
+      <member attributes="value" name="Use_Secure_Data_Requests" type="qbool_t"/>
+      <member attributes="value" name="Is_FFD" type="qbool_t"/>
+      <member attributes="value" name="Require_Network_Data" type="qbool_t"/>
+   </structure>
+   <structure name="qapi_TWN_Network_Configuration_t">
+      <member attributes="value" name="Channel" type="uint8_t"/>
+      <member attributes="value" name="PAN_ID" type="uint16_t"/>
+      <member attributes="value" name="Extended_PAN_ID" type="uint64_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="QAPI_OPEN_THREAD_NETWORK_NAME_SIZE" name="NetworkName" type="char"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="QAPI_OPEN_THREAD_MASTER_KEY_SIZE" name="MasterKey" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_TWN_Border_Router_t">
+      <member attributes="value" name="Prefix" type="qapi_TWN_IPv6_Prefix_t"/>
+      <member attributes="value" name="Preference" type="qapi_TWN_Routing_Preference_t"/>
+      <member attributes="value" name="Is_Stable" type="qbool_t"/>
+      <member attributes="value" name="Flags" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_TWN_External_Route_t">
+      <member attributes="value" name="Prefix" type="qapi_TWN_IPv6_Prefix_t"/>
+      <member attributes="value" name="Preference" type="qapi_TWN_Routing_Preference_t"/>
+      <member attributes="value" name="Is_Stable" type="qbool_t"/>
+   </structure>
+   <structure name="qapi_TWN_Joiner_Info_t">
+      <member attributes="ptr,const" iotype="in" lengthParam="__strlen__" lengthVerified="yes" name="PSKd" type="char"/>
+      <member attributes="ptr,const" iotype="in" lengthParam="__strlen__" lengthVerified="yes" name="Provisioning_URL" type="char"/>
+      <member attributes="ptr,const" iotype="in" lengthParam="__strlen__" lengthVerified="yes" name="Vendor_Name" type="char"/>
+      <member attributes="ptr,const" iotype="in" lengthParam="__strlen__" lengthVerified="yes" name="Vendor_Model" type="char"/>
+      <member attributes="ptr,const" iotype="in" lengthParam="__strlen__" lengthVerified="yes" name="Vendor_Sw_Version" type="char"/>
+      <member attributes="ptr,const" iotype="in" lengthParam="__strlen__" lengthVerified="yes" name="Vendor_Data" type="char"/>
+   </structure>
+   <structure name="qapi_TWN_Log_Info_t">
+      <member attributes="ptr" iotype="in" lengthParam="__strlen__" lengthVerified="yes" name="LogMessage" type="char"/>
+   </structure>
+   <structure name="qapi_TWN_MDNS_Info_t">
+      <member attributes="ptr" iotype="in" lengthParam="__strlen__" lengthVerified="yes" name="NetworkNameTxt" type="char"/>
+      <member attributes="ptr" iotype="in" lengthParam="__strlen__" lengthVerified="yes" name="ExtPanIDTxt" type="char"/>
+   </structure>
+   <structure name="qapi_TWN_Event_t">
+      <member attributes="value" name="Event_Type" type="qapi_TWN_Event_Type_t"/>
+      <member attributes="union" name="Event_Data">
+         <member attributes="value" name="Network_State" type="qapi_TWN_Network_State_t"/>
+         <member attributes="value" name="Joiner_Result" type="qapi_TWN_Joiner_Result_t"/>
+         <member attributes="value" name="Log_Info" type="qapi_TWN_Log_Info_t"/>
+         <member attributes="value" name="MDNS_Info" type="qapi_TWN_MDNS_Info_t"/>
+         <unionMap mapVerified="yes" name="Event_Type" type="qapi_TWN_Event_Type_t">
+            <mapEntry member="Network_State" type="qapi_TWN_Network_State_t" value="QAPI_TWN_EVENT_TYPE_NETWORK_STATE_E"/>
+            <mapEntry member="Joiner_Result" type="qapi_TWN_Joiner_Result_t" value="QAPI_TWN_EVENT_TYPE_JOINER_RESULT_E"/>
+	    <mapEntry member="Log_Info" type="qapi_TWN_Log_Info_t" value="QAPI_TWN_EVENT_TYPE_LOG_MESSAGE_E"/>
+            <mapEntry member="MDNS_Info" type="qapi_TWN_MDNS_Info_t" value="QAPI_TWN_EVENT_TYPE_REGISTER_MDNS_RECORD_E"/>
+	    <mapEntry member="MDNS_Info" type="qapi_TWN_MDNS_Info_t" value="QAPI_TWN_EVENT_TYPE_UPDATE_MDNS_RECORD_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_TWN_Steering_Data_t">
+      <member attributes="value" name="Length" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="QAPI_TWN_STEERING_DATA_MAX_LENGTH" name="Data" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_TWN_Commissioning_Dataset_t">
+      <member attributes="value" name="Locator" type="uint16_t"/>
+      <member attributes="value" name="SessionId" type="uint16_t"/>
+      <member attributes="value" name="SteeringData" type="qapi_TWN_Steering_Data_t"/>
+      <member attributes="value" name="JoinerUdpPort" type="uint16_t"/>
+      <member attributes="value" name="IsLocatorSet" type="qbool_t"/>
+      <member attributes="value" name="IsSessionIdSet" type="qbool_t"/>
+      <member attributes="value" name="IsSteeringDataSet" type="qbool_t"/>
+      <member attributes="value" name="IsJoinerUdpPortSet" type="qbool_t"/>
+   </structure>
+   <structure name="qapi_TWN_Sec_Policy_t">
+      <member attributes="value" name="RotationTime" type="uint16_t"/>
+      <member attributes="value" name="Flags" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_TWN_Operational_Dataset_t">
+      <member attributes="value" name="ActiveTimestamp" type="uint64_t"/>
+      <member attributes="value" name="PendingTimestamp" type="uint64_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="QAPI_OPEN_THREAD_MASTER_KEY_SIZE" name="MasterKey" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="QAPI_OPEN_THREAD_NETWORK_NAME_SIZE" name="NetworkName" type="char"/>
+      <member attributes="value" name="ExtendedPanId" type="uint64_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="QAPI_TWN_MESH_LOCAL_PREFIX_SIZE" name="MeshLocalPrefix" type="uint8_t"/>
+      <member attributes="value" name="Delay" type="uint32_t"/>
+      <member attributes="value" name="PanId" type="uint16_t"/>
+      <member attributes="value" name="Channel" type="uint16_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="QAPI_TWN_PSKC_SIZE" name="PSKc" type="uint8_t"/>
+      <member attributes="value" name="SecurityPolicy" type="qapi_TWN_Sec_Policy_t"/>
+      <member attributes="value" name="ChannelMask" type="uint32_t"/>
+      <member attributes="value" name="IsActiveTimestampSet" type="qbool_t"/>
+      <member attributes="value" name="IsPendingTimestampSet" type="qbool_t"/>
+      <member attributes="value" name="IsMasterKeySet" type="qbool_t"/>
+      <member attributes="value" name="IsNetworkNameSet" type="qbool_t"/>
+      <member attributes="value" name="IsExtendedPanIdSet" type="qbool_t"/>
+      <member attributes="value" name="IsMeshLocalPrefixSet" type="qbool_t"/>
+      <member attributes="value" name="IsDelaySet" type="qbool_t"/>
+      <member attributes="value" name="IsPanIdSet" type="qbool_t"/>
+      <member attributes="value" name="IsChannelSet" type="qbool_t"/>
+      <member attributes="value" name="IsPSKcSet" type="qbool_t"/>
+      <member attributes="value" name="IsSecurityPolicySet" type="qbool_t"/>
+      <member attributes="value" name="IsChannelMaskSet" type="qbool_t"/>
+   </structure>
+   <union name="qapi_TWN_IPv6_Address_t">
+      <member attributes="ptr,bracketArray" fixedLength="true" lengthParam="16" name="Byte" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" lengthParam="8" name="Word" type="uint16_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" lengthParam="4" name="Dword" type="uint32_t"/>
+   </union>
+   <function name="qapi_TWN_Initialize">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+      <argument attributes="value" name="TWN_Event_CB" type="qapi_TWN_Event_CB_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+   </function>
+   <function name="qapi_TWN_Shutdown">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+   </function>
+   <function name="qapi_TWN_Start">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+   </function>
+   <function name="qapi_TWN_Stop">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+   </function>
+   <function name="qapi_TWN_Get_Device_Configuration">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Configuration" type="qapi_TWN_Device_Configuration_t"/>
+   </function>
+   <function name="qapi_TWN_Set_Device_Configuration">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="Configuration" type="qapi_TWN_Device_Configuration_t"/>
+   </function>
+   <function name="qapi_TWN_Get_Network_Configuration">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Configuration" type="qapi_TWN_Network_Configuration_t"/>
+   </function>
+   <function name="qapi_TWN_Set_Network_Configuration">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="Configuration" type="qapi_TWN_Network_Configuration_t"/>
+   </function>
+   <function name="qapi_TWN_Add_Border_Router">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="Border_Router" type="qapi_TWN_Border_Router_t"/>
+   </function>
+   <function name="qapi_TWN_Remove_Border_Router">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="Prefix" type="qapi_TWN_IPv6_Prefix_t"/>
+   </function>
+   <function name="qapi_TWN_Add_External_Route">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="External_Route" type="qapi_TWN_External_Route_t"/>
+   </function>
+   <function name="qapi_TWN_Remove_External_Route">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="Prefix" type="qapi_TWN_IPv6_Prefix_t"/>
+   </function>
+   <function name="qapi_TWN_Register_Server_Data">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+   </function>
+   <function name="qapi_TWN_Set_IP_Stack_Integration">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+      <argument attributes="value" name="Enabled" type="qbool_t"/>
+   </function>
+   <function name="qapi_TWN_Commissioner_Start">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+   </function>
+   <function name="qapi_TWN_Commissioner_Stop">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+   </function>
+   <function name="qapi_TWN_Commissioner_Add_Joiner">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+      <argument attributes="value" name="Extended_Address" type="uint64_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="__strlen__" lengthVerified="yes" name="PSKd" type="char"/>
+      <argument attributes="value" name="Timeout" type="uint32_t"/>
+   </function>
+   <function name="qapi_TWN_Commissioner_Remove_Joiner">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+      <argument attributes="value" name="Extended_Address" type="uint64_t"/>
+   </function>
+   <function name="qapi_TWN_Commissioner_Set_Provisioning_URL">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="__strlen__" lengthVerified="yes" name="Provisioning_URL" type="char"/>
+   </function>
+   <function name="qapi_TWN_Commissioner_Generate_PSKc">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="__strlen__" lengthVerified="yes" name="Passphrase" type="char"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="__strlen__" lengthVerified="yes" name="Network_Name" type="char"/>
+      <argument attributes="value" name="Extended_PAN_ID" type="uint64_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="PSKc" type="uint8_t"/>
+   </function>
+   <function name="qapi_TWN_Joiner_Start">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="Joiner_Info" type="qapi_TWN_Joiner_Info_t"/>
+   </function>
+   <function name="qapi_TWN_Joiner_Stop">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+   </function>
+   <function name="qapi_TWN_Set_PSKc">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="16" lengthVerified="yes" name="PSKc" type="uint8_t"/>
+   </function>
+   <function name="qapi_TWN_IPv6_Add_Unicast_Address">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Prefix" type="qapi_TWN_IPv6_Prefix_t"/>
+      <argument attributes="value" name="Preferred" type="qbool_t"/>
+   </function>
+   <function name="qapi_TWN_IPv6_Remove_Unicast_Address">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Address" type="qapi_TWN_IPv6_Address_t"/>
+   </function>
+   <function name="qapi_TWN_IPv6_Subscribe_Multicast_Address">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Address" type="qapi_TWN_IPv6_Address_t"/>
+   </function>
+   <function name="qapi_TWN_IPv6_Unsubscribe_Multicast_Address">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Address" type="qapi_TWN_IPv6_Address_t"/>
+   </function>
+   <function name="qapi_TWN_Set_Ping_Response_Enabled">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+      <argument attributes="value" name="Enabled" type="qbool_t"/>
+   </function>
+   <function name="qapi_TWN_Become_Router">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+   </function>
+   <function name="qapi_TWN_Become_Leader">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+   </function>
+   <function name="qapi_TWN_Start_Border_Agent">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+      <argument attributes="value" name="AddressFamily" type="int"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="__strlen__" lengthVerified="yes" name="DisplayName" type="char"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="__strlen__" lengthVerified="yes" name="Hostname" type="char"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="__strlen__" lengthVerified="yes" name="Interface" type="char"/>
+   </function>
+   <function name="qapi_TWN_Stop_Border_Agent">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+   </function>
+   <function name="qapi_TWN_Clear_Persistent_Data">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+   </function>
+   <function name="qapi_TWN_Set_Max_Poll_Period">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+      <argument attributes="value" name="Period" type="uint32_t"/>
+   </function>
+   <function name="qapi_TWN_Commissioner_Send_Mgmt_Get">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="Length" lengthVerified="yes" name="TlvBuffer" type="uint8_t"/>
+      <argument attributes="value" name="Length" type="uint8_t"/>
+   </function>
+   <function name="qapi_TWN_Commissioner_Send_Mgmt_Set">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="Dataset" type="qapi_TWN_Commissioning_Dataset_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="Length" lengthVerified="yes" name="TlvBuffer" type="uint8_t"/>
+      <argument attributes="value" name="Length" type="uint8_t"/>
+   </function>
+   <function name="qapi_TWN_Commissioner_Send_PanId_Query">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+      <argument attributes="value" name="PanId" type="uint16_t"/>
+      <argument attributes="value" name="ChannelMask" type="uint32_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="Address" type="qapi_TWN_IPv6_Address_t"/>
+   </function>
+   <function name="qapi_TWN_Commissioner_Get_Session_Id">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="SessionId" type="uint16_t"/>
+   </function>
+   <function name="qapi_TWN_Commissioner_Send_Mgmt_Active_Get">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="Address" type="qapi_TWN_IPv6_Address_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="Length" lengthVerified="yes" name="TlvBuffer" type="uint8_t"/>
+      <argument attributes="value" name="Length" type="uint8_t"/>
+   </function>
+   <function name="qapi_TWN_Commissioner_Send_Mgmt_Active_Set">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="Dataset" type="qapi_TWN_Operational_Dataset_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="Length" lengthVerified="yes" name="TlvBuffer" type="uint8_t"/>
+      <argument attributes="value" name="Length" type="uint8_t"/>
+   </function>
+   <function name="qapi_TWN_Get_Unicast_Addresses">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="AddressListSize" lengthVerified="yes" name="AddressList" type="qapi_TWN_IPv6_Prefix_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="AddressListSize" type="uint32_t"/>
+   </function>
+   <function name="qapi_TWN_Set_Key_Sequence">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+      <argument attributes="value" name="Sequence" type="uint32_t"/>
+   </function>
+   <function name="qapi_TWN_Set_DTLS_Handshake_Timeout">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+      <argument attributes="value" name="Timeout" type="uint8_t"/>
+   </function>
+   <callback name="qapi_TWN_Event_CB_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+      <argument attributes="ptr,const" iotype="out" lengthParam="1" lengthVerified="yes" name="TWN_Event" type="qapi_TWN_Event_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+      <createFunction ID="0" funcSuccess="__positive__" moduleParam="" name="qapi_TWN_Initialize" param="CB_Param"/>
+   </callback>
+</header>

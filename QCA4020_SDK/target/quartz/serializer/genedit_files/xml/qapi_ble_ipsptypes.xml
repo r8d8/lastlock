@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="./qapi_ble_bttypes.h"/>
+   <macro name="QAPI_BLE_IPSS_ASSIGN_IPSS_SERVICE_UUID_16" params="(_x)" value="QAPI_BLE_ASSIGN_BLUETOOTH_UUID_16(*((qapi_BLE_UUID_16_t *)(_x)), 0x18, 0x20)"/>
+   <macro name="QAPI_BLE_IPSS_COMPARE_IPSS_SERVICE_UUID_TO_UUID_16" params="(_x)" value="QAPI_BLE_COMPARE_BLUETOOTH_UUID_16_TO_CONSTANT((_x), 0x18, 0x20)"/>
+   <macro name="QAPI_BLE_IPSS_SERVICE_BLUETOOTH_UUID_CONSTANT" value="{ 0x20, 0x18 }"/>
+   <macro name="QAPI_BLE_IPSP_LE_PSM" value="(0x0023)"/>
+   <macro name="QAPI_BLE_IPSS_SERVICE_FLAGS" value="(QAPI_BLE_GATT_SERVICE_FLAGS_LE_SERVICE)"/>
+</header>

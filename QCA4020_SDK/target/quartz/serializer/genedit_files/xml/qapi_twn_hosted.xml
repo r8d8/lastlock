@@ -1,0 +1,61 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="qapi/qapi_types.h"/>
+   <include name="qapi/qapi_status.h"/>
+   <include name="qapi_twn.h"/>
+   <macro name="QAPI_TWN_HOSTED_EVENT_DATA_SIZE" value="(sizeof(qapi_TWN_Hosted_Event_Data_t))"/>
+   <enum name="qapi_TWN_Hosted_Event_Type_t">
+      <member name="QAPI_TWN_HOSTED_UDP_TRANSMIT_E" value="0"/>
+   </enum>
+   <structure name="qapi_TWN_Hosted_Socket_Info_t">
+      <member attributes="value" name="Family" type="uint16_t"/>
+      <member attributes="value" name="Port" type="uint16_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="16" name="Address" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_TWN_Hosted_UDP_Transmit_Data_t">
+      <member attributes="value" name="SocketInfo" type="qapi_TWN_Hosted_Socket_Info_t"/>
+      <member attributes="value" name="Length" type="uint16_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="Length" lengthVerified="yes" name="Buffer" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_TWN_Hosted_Event_Data_t">
+      <member attributes="value" name="Type" type="qapi_TWN_Hosted_Event_Type_t"/>
+      <member attributes="union" name="Data">
+         <member attributes="ptr" iotype="in" name="qapi_TWN_Hosted_UDP_Transmit_Data" type="qapi_TWN_Hosted_UDP_Transmit_Data_t"/>
+         <unionMap mapVerified="yes" name="Type" type="qapi_TWN_Hosted_Event_Type_t">
+            <mapEntry member="qapi_TWN_Hosted_UDP_Transmit_Data" type="qapi_TWN_Hosted_UDP_Transmit_Data_t" value="QAPI_TWN_HOSTED_UDP_TRANSMIT_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <function name="qapi_TWN_Hosted_Start_Border_Agent">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+      <argument attributes="value" name="AddressFamily" type="int"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="__strlen__" lengthVerified="yes" name="DisplayName" type="char"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="__strlen__" lengthVerified="yes" name="HostName" type="char"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="__strlen__" lengthVerified="yes" name="Interface" type="char"/>
+   </function>
+   <function name="qapi_TWN_Hosted_Stop_Border_Agent">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+   </function>
+   <function name="qapi_TWN_Hosted_Receive_UDP_Data">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="SocketInfo" type="qapi_TWN_Hosted_Socket_Info_t"/>
+      <argument attributes="value" name="Length" type="uint16_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="Length" lengthVerified="yes" name="Buffer" type="uint8_t"/>
+   </function>
+   <function name="qapi_TWN_Hosted_Enable_Logging">
+      <return attributes="value" type="qapi_Status_t"/>
+   </function>
+   <function name="qapi_TWN_Hosted_Disable_Logging">
+      <return attributes="value" type="qapi_Status_t"/>
+   </function>
+   <callback name="qapi_TWN_Hosted_Event_Callback_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="TWN_Handle" type="qapi_TWN_Handle_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Event_Data" type="qapi_TWN_Hosted_Event_Data_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <createFunction ID="__return__" funcSuccess="__positive__" moduleParam="" name="qapi_TWN_Hosted_Register_Event_Callback" param=""/>
+   </callback>
+</header>

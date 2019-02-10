@@ -1,0 +1,108 @@
+/*
+ * Copyright (c) 2018 Qualcomm Technologies, Inc.
+ * Copyright (c) 2004-2006 Atheros Communications Inc.
+ * All Rights Reserved.
+*/
+// Copyright (c) 2018 Qualcomm Technologies, Inc.
+// All rights reserved.
+// Redistribution and use in source and binary forms, with or without modification, are permitted (subject to the limitations in the disclaimer below) 
+// provided that the following conditions are met:
+// Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+// Redistributions in binary form must reproduce the above copyright notice, 
+// this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+// Neither the name of Qualcomm Technologies, Inc. nor the names of its contributors may be used to endorse or promote products derived 
+// from this software without specific prior written permission.
+// NO EXPRESS OR IMPLIED LICENSES TO ANY PARTY'S PATENT RIGHTS ARE GRANTED BY THIS LICENSE. 
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, 
+// BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+// IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, 
+// OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
+// LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+// WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, 
+// EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/types.h>
+#include <fcntl.h>
+#include <sys/stat.h>
+#include <mqueue.h>
+#include <pthread.h>
+#include <syslog.h>
+#include "iotd_context.h"
+#include "mml.h"
+#include "bufpool.h"
+#include <termios.h> /* POSIX Terminal Control Definitions */
+#include <unistd.h>  /* UNIX Standard Definitions      */
+#include <errno.h>
+
+#include "htc_internal.h"
+
+#define MAX_MESSAGES 10
+#define MAX_MSG_SIZE 2048
+#define MSG_BUFFER_SIZE (MAX_MSG_SIZE + 10)
+
+void event_sent_Handler(HTC_TARGET * target,
+                  HTC_ENDPOINT_ID ep, HTC_EVENT_ID eventId, HTC_EVENT_INFO * eventInfo, void *context);
+void event_received_Handler(HTC_TARGET * target,
+                  HTC_ENDPOINT_ID ep, HTC_EVENT_ID eventId, HTC_EVENT_INFO * eventInfo, void *context);
+extern HTC_TARGET *htcTargetInstance(int i);
+
+HTC_ENDPOINT_ID endPointId = 0;
+
+void* spi_TXthread(void* arg);
+void* spi_RXthread(void* arg);
+
+int32_t init_spi_iface_htc(void* pCxt, HTC_IFACE_CXT_T* pIfaceCxt, cfg_ini* cfg, uint8_t Id)
+{
+    HTC_CXT_T* pHTCCxt = &(GET_HTC_CXT(pCxt));
+    uint32_t cxt_Index = 0, num_Devices = 0, ret_Val = 0;
+	SPI_CXT_T  *spiCxt;
+	HTC_TARGET *appTarget;
+	HTC_STATUS  status;
+	
+    if(Id > (IOTD_MAX_DEVICES - 1))
+    {
+        return IOTD_ERROR;
+    }
+
+    /*************************************************/
+
+	spiCxt = &pIfaceCxt->hif_cxt.spi_cxt;
+    sem_init(&(spiCxt->rx_sem),0, 2);     // 2 buffers for receive
+				
+	status = HTCInit();
+	
+	appTarget = htcTargetInstance(0);
+
+	status = HTCEventReg(appTarget,  endPointId,
+                         HTC_EVENT_BUFFER_SENT, event_sent_Handler, pIfaceCxt);
+			
+	status = HTCEventReg(appTarget,  endPointId,
+                         HTC_EVENT_BUFFER_RECEIVED, event_received_Handler, pIfaceCxt);
+
+	fprintf(stderr, "HTC API Test=%p\n", appTarget);
+	status = HTCStart(appTarget);
+	
+	pIfaceCxt->hif_cxt.spi_cxt.pTarget = appTarget;
+
+
+    {
+        sem_init(&(pIfaceCxt->tx_sem),0,1);
+
+        if(pthread_create(&(pIfaceCxt->tx_thread),NULL, spi_TXthread,pIfaceCxt) != 0)
+        {
+            iotd_log(0,"tx thread creation failed %s",strerror(errno));
+            exit(1);
+        }
+
+        if(pthread_create(&(pIfaceCxt->rx_thread),NULL, spi_RXthread,pIfaceCxt) != 0)
+        {
+            iotd_log(0,"rx thread creation failed %s",strerror(errno));
+            exit(1);
+        }
+
+        htc_iface_queue_init(pIfaceCxt);
+    }
+}

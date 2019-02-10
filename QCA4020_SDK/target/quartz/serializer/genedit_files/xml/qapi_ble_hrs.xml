@@ -1,0 +1,165 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="./qapi_ble_btapityp.h"/>
+   <include name="./qapi_ble_bttypes.h"/>
+   <include name="./qapi_ble_gatt.h"/>
+   <include name="./qapi_ble_hrstypes.h"/>
+   <macro name="QAPI_BLE_HRS_ERROR_INVALID_PARAMETER" value="(-1000)"/>
+   <macro name="QAPI_BLE_HRS_ERROR_INVALID_BLUETOOTH_STACK_ID" value="(-1001)"/>
+   <macro name="QAPI_BLE_HRS_ERROR_INSUFFICIENT_RESOURCES" value="(-1002)"/>
+   <macro name="QAPI_BLE_HRS_ERROR_SERVICE_ALREADY_REGISTERED" value="(-1003)"/>
+   <macro name="QAPI_BLE_HRS_ERROR_INVALID_INSTANCE_ID" value="(-1004)"/>
+   <macro name="QAPI_BLE_HRS_ERROR_MALFORMATTED_DATA" value="(-1005)"/>
+   <macro name="QAPI_BLE_HRS_ERROR_INDICATION_OUTSTANDING" value="(-1006)"/>
+   <macro name="QAPI_BLE_HRS_ERROR_UNKNOWN_ERROR" value="(-1007)"/>
+   <macro name="QAPI_BLE_HRS_HEART_RATE_CONTROL_POINT_RESET_ENERGY_EXPENDED_SUPPORTED" value="0x01"/>
+   <macro name="QAPI_BLE_HRS_HEART_RATE_MEASUREMENT_DATA_SIZE" params="(_x)" value="(QAPI_BLE_BTPS_STRUCTURE_OFFSET(qapi_BLE_HRS_Heart_Rate_Measurement_Data_t, RR_Intervals) + ((_x) * sizeof(uint16_t)))"/>
+   <macro name="QAPI_BLE_HRS_CLIENT_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_HRS_Client_Information_t))"/>
+   <macro name="QAPI_BLE_HRS_SERVER_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_HRS_Server_Information_t))"/>
+   <macro name="QAPI_BLE_HRS_READ_CLIENT_CONFIGURATION_DATA_SIZE" value="(sizeof(qapi_BLE_HRS_Read_Client_Configuration_Data_t))"/>
+   <macro name="QAPI_BLE_HRS_CLIENT_CONFIGURATION_UPDATE_DATA_SIZE" value="(sizeof(qapi_BLE_HRS_Client_Configuration_Update_Data_t))"/>
+   <macro name="QAPI_BLE_HRS_HEART_RATE_CONTROL_COMMAND_DATA_SIZE" value="(sizeof(qapi_BLE_HRS_Heart_Rate_Control_Command_Data_t))"/>
+   <macro name="QAPI_BLE_HRS_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_HRS_Event_Data_t))"/>
+   <enum name="qapi_BLE_HRS_Characteristic_Type_t">
+      <member name="QAPI_BLE_CT_HEART_RATE_MEASUREMENT_E" value="0"/>
+   </enum>
+   <enum name="qapi_BLE_HRS_Heart_Rate_Control_Command_t">
+      <member name="QAPI_BLE_CC_RESET_ENERGY_EXPENDED_E" value="QAPI_BLE_HRS_HEART_RATE_CONTROL_POINT_RESET_ENERGY_EXPENDED"/>
+   </enum>
+   <enum name="qapi_BLE_HRS_Event_Type_t">
+      <member name="QAPI_BLE_ET_HRS_SERVER_READ_CLIENT_CONFIGURATION_REQUEST_E" value="0"/>
+      <member name="QAPI_BLE_ET_HRS_SERVER_CLIENT_CONFIGURATION_UPDATE_E" value="1"/>
+      <member name="QAPI_BLE_ET_HRS_SERVER_HEART_RATE_CONTROL_POINT_COMMAND_E" value="2"/>
+   </enum>
+   <structure name="qapi_BLE_HRS_Heart_Rate_Measurement_Data_t">
+      <member attributes="value" name="Flags" type="uint8_t"/>
+      <member attributes="value" name="Heart_Rate" type="uint16_t"/>
+      <member attributes="value" name="Energy_Expended" type="uint16_t"/>
+      <member attributes="value" name="Number_Of_RR_Intervals" type="uint16_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="1" name="RR_Intervals" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_HRS_Client_Information_t">
+      <member attributes="value" name="Heart_Rate_Measurement" type="uint16_t"/>
+      <member attributes="value" name="Heart_Rate_Measurement_Client_Configuration" type="uint16_t"/>
+      <member attributes="value" name="Body_Sensor_Location" type="uint16_t"/>
+      <member attributes="value" name="Heart_Rate_Control_Point" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_HRS_Server_Information_t">
+      <member attributes="value" name="Heart_Rate_Measurement_Client_Configuration" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_HRS_Read_Client_Configuration_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ClientConfigurationType" type="qapi_BLE_HRS_Characteristic_Type_t"/>
+   </structure>
+   <structure name="qapi_BLE_HRS_Client_Configuration_Update_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ClientConfigurationType" type="qapi_BLE_HRS_Characteristic_Type_t"/>
+      <member attributes="value" name="ClientConfiguration" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_HRS_Heart_Rate_Control_Command_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="Command" type="qapi_BLE_HRS_Heart_Rate_Control_Command_t"/>
+   </structure>
+   <structure name="qapi_BLE_HRS_Event_Data_t">
+      <member attributes="value" name="Event_Data_Type" type="qapi_BLE_HRS_Event_Type_t"/>
+      <member attributes="value" name="Event_Data_Size" type="uint16_t"/>
+      <member attributes="union" name="Event_Data">
+         <member attributes="ptr" iotype="in" name="HRS_Read_Client_Configuration_Data" type="qapi_BLE_HRS_Read_Client_Configuration_Data_t"/>
+         <member attributes="ptr" iotype="in" name="HRS_Client_Configuration_Update_Data" type="qapi_BLE_HRS_Client_Configuration_Update_Data_t"/>
+         <member attributes="ptr" iotype="in" name="HRS_Heart_Rate_Control_Command_Data" type="qapi_BLE_HRS_Heart_Rate_Control_Command_Data_t"/>
+         <unionMap mapVerified="yes" name="Event_Data_Type" type="qapi_BLE_HRS_Event_Type_t">
+            <mapEntry member="HRS_Read_Client_Configuration_Data" type="qapi_BLE_HRS_Read_Client_Configuration_Data_t" value="QAPI_BLE_ET_HRS_SERVER_READ_CLIENT_CONFIGURATION_REQUEST_E"/>
+            <mapEntry member="HRS_Client_Configuration_Update_Data" type="qapi_BLE_HRS_Client_Configuration_Update_Data_t" value="QAPI_BLE_ET_HRS_SERVER_CLIENT_CONFIGURATION_UPDATE_E"/>
+            <mapEntry member="HRS_Heart_Rate_Control_Command_Data" type="qapi_BLE_HRS_Heart_Rate_Control_Command_Data_t" value="QAPI_BLE_ET_HRS_SERVER_HEART_RATE_CONTROL_POINT_COMMAND_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <function name="qapi_BLE_HRS_Initialize_Service">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Supported_Commands" type="uint32_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_HRS_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_HRS_Initialize_Service_Handle_Range">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Supported_Commands" type="uint32_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_HRS_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="ServiceHandleRange" type="qapi_BLE_GATT_Attribute_Handle_Group_t"/>
+   </function>
+   <function name="qapi_BLE_HRS_Cleanup_Service">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_HRS_Query_Number_Attributes">
+      <return attributes="value" type="unsigned int"/>
+   </function>
+   <function name="qapi_BLE_HRS_Set_Body_Sensor_Location">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="Body_Sensor_Location" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HRS_Query_Body_Sensor_Location">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="Body_Sensor_Location" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HRS_Read_Client_Configuration_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="Client_Configuration" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_HRS_Notify_Heart_Rate_Measurement">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="Heart_Rate_Measurement" type="qapi_BLE_HRS_Heart_Rate_Measurement_Data_t"/>
+   </function>
+   <function name="qapi_BLE_HRS_Decode_Heart_Rate_Measurement">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="HeartRateMeasurement" type="qapi_BLE_HRS_Heart_Rate_Measurement_Data_t"/>
+   </function>
+   <function name="qapi_BLE_HRS_Decode_Body_Sensor_Location">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="BodySensorLocation" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_HRS_Format_Heart_Rate_Control_Command">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="Command" type="qapi_BLE_HRS_Heart_Rate_Control_Command_t"/>
+      <argument attributes="value" name="BufferLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="BufferLength" lengthVerified="yes" name="Buffer" type="uint8_t"/>
+   </function>
+   <callback name="qapi_BLE_HRS_Event_Callback_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="HRS_Event_Data" type="qapi_BLE_HRS_Event_Data_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <createFunction ID="qsRetVal" funcSuccess="0" moduleParam="BluetoothStackID" name="qapi_BLE_HRS_Initialize_Service" param="CallbackParameter"/>
+      <createFunction ID="qsRetVal" funcSuccess="0" moduleParam="BluetoothStackID" name="qapi_BLE_HRS_Initialize_Service_Handle_Range" param="CallbackParameter"/>
+      <destroyFunction ID="InstanceID" funcSuccess="0" name="qapi_BLE_HRS_Cleanup_Service"/>
+   </callback>
+</header>

@@ -1,0 +1,357 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="qapi/qapi_types.h"/>
+   <include name="qapi/qapi_status.h"/>
+   <include name="qapi_zb.h"/>
+   <macro name="QAPI_ZB_NWK_ADDRESS_COORDINATOR" value="(0x0000) "/>
+   <macro name="QAPI_ZB_NWK_ADDRESS_BCAST_MIN" value="(0xFFF8) "/>
+   <macro name="QAPI_ZB_NWK_ADDRESS_BCAST_LOW_POWER_ROUTERS" value="(0xFFFB) "/>
+   <macro name="QAPI_ZB_NWK_ADDRESS_BCAST_ROUTERS" value="(0xFFFC) "/>
+   <macro name="QAPI_ZB_NWK_ADDRESS_BCAST_RX_ON_WHEN_IDLE" value="(0xFFFD) "/>
+   <macro name="QAPI_ZB_NWK_ADDRESS_USE_EXTENDED" value="(0xFFFE) "/>
+   <macro name="QAPI_ZB_NWK_ADDRESS_BCAST_ALL" value="(0xFFFF) "/>
+   <macro name="QAPI_ZB_NLDE_DATA_REQUEST_FLAG_DISCOVER_ROUTE" value="(0x01) "/>
+   <macro name="QAPI_ZB_NLDE_DATA_REQUEST_FLAG_SECURITY_ENABLE" value="(0x02) "/>
+   <macro name="QAPI_ZB_NWK_NETWORK_DESCRIPTOR_FLAG_PERMIT_JOIN" value="(0x01) "/>
+   <macro name="QAPI_ZB_NWK_NETWORK_DESCRIPTOR_FLAG_ROUTER_CAPACITY" value="(0x02) "/>
+   <macro name="QAPI_ZB_NWK_NETWORK_DESCRIPTOR_FLAG_END_DEVICE_CAPACITY" value="(0x04) "/>
+   <enum name="qapi_ZB_NIB_Attribute_ID_t">
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_PAN_ID_E" value="0x0080"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_SEQUENCE_NUMBER_E" value="0x0081"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_PASSIVE_ACK_TIMEOUT_E" value="0x0082"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_MAX_BROADCAST_RETRIES_E" value="0x0083"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_MAX_CHILDREN_E" value="0x0084"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_MAX_DEPTH_E" value="0x0085"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_MAX_ROUTERS_E" value="0x0086"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_NEIGHBOR_TABLE_E" value="0x0087"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_NETWORK_BROADCAST_DELIVERY_TIME_E" value="0x0088"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_REPORT_CONST_COST_E" value="0x0089"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_ROUTE_DISCOVERY_RETRIES_PERMITTED_E" value="0x008A"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_ROUTE_TABLE_E" value="0x008B"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_TIME_STAMP_E" value="0x008C"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_TX_TOTAL_E" value="0x008D"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_SYM_LINK_E" value="0x008E"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_CAPABILITY_INFORMATION_E" value="0x008F"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_ADDR_ALLOC_E" value="0x0090"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_USE_TREE_ROUTING_E" value="0x0091"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_MANAGER_ADDR_E" value="0x0092"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_MAX_SOURCE_ROUTE_E" value="0x0093"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_UPDATE_ID_E" value="0x0094"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_TRANSACTION_PERSISTENCE_TIME_E" value="0x0095"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_NETWORK_ADDRESS_E" value="0x0096"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_STACK_PROFILE_E" value="0x0097"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_BROADCAST_TRANSACTION_TABLE_E" value="0x0098"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_EXTENDED_PAN_ID_E" value="0x009A"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_USE_MULTICAST_E" value="0x009B"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_ROUTE_RECORD_TABLE_E" value="0x009C"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_IS_CONCENTRATOR_E" value="0x009D"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_CONCENTRATOR_RADIUS_E" value="0x009E"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_CONCENTRATOR_DISCOVERY_TIME_E" value="0x009F"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_SECURITY_LEVEL_E" value="0x00A0"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_SECURITY_MATERIAL_SET_E" value="0x00A1"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_ACTIVE_KEY_SEQ_NUMBER_E" value="0x00A2"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_ALL_FRESH_E" value="0x00A3"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_LINK_STATUS_PERIOD_E" value="0x00A6"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_ROUTER_AGE_LIMIT_E" value="0x00A7"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_UNIQUE_ADDR_E" value="0x00A8"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_ADDRESS_MAP_E" value="0x00A9"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_DEPTH" value="0x0400"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_FRAME_COUNTER_SET" value="0x0401"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_LEAVE_REQUEST_ALLOWED_E" value="0x0408"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_PARENT_INFORMATION_E" value="0x0409"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_END_DEVICE_TIMEOUT_DEFAULT_E" value="0x040A"/>
+      <member name="QAPI_ZB_NIB_ATTRIBUTE_ID_NWK_LEAVE_REQUEST_WITHOUT_REJOIN_ALLOWED_E" value="0x040B"/>
+   </enum>
+   <enum name="qapi_ZB_NLME_NWK_Status_t">
+      <member name="QAPI_ZB_NLME_NWK_STATUS_NO_ROUTE_AVAILABLE" value="0x00"/>
+      <member name="QAPI_ZB_NLME_NWK_STATUS_TREE_LINK_FAILURE" value="0x01"/>
+      <member name="QAPI_ZB_NLME_NWK_STATUS_NON_TREE_LINK_FAILURE" value="0x02"/>
+      <member name="QAPI_ZB_NLME_NWK_STATUS_LOW_BATTERY_LEVEL" value="0x03"/>
+      <member name="QAPI_ZB_NLME_NWK_STATUS_NO_ROUTING_CAPACITY" value="0x04"/>
+      <member name="QAPI_ZB_NLME_NWK_STATUS_NO_INDIRECT_CAPACITY" value="0x05"/>
+      <member name="QAPI_ZB_NLME_NWK_STATUS_INDIRECT_TRANSACTION_EXPIRY" value="0x06"/>
+      <member name="QAPI_ZB_NLME_NWK_STATUS_TARGET_DEVICE_UNAVAILABLE" value="0x07"/>
+      <member name="QAPI_ZB_NLME_NWK_STATUS_TARGET_ADDRESS_UNALLOCATED" value="0x08"/>
+      <member name="QAPI_ZB_NLME_NWK_STATUS_PARENT_LINK_FAILURE" value="0x09"/>
+      <member name="QAPI_ZB_NLME_NWK_STATUS_VALIDATE_ROUTE" value="0x0A"/>
+      <member name="QAPI_ZB_NLME_NWK_STATUS_SOURCE_ROUTE_FALIURE" value="0x0B"/>
+      <member name="QAPI_ZB_NLME_NWK_STATUS_MANY_TO_ONE_ROUTE_FAILURE" value="0x0C"/>
+      <member name="QAPI_ZB_NLME_NWK_STATUS_ADDRESS_CONFLICT" value="0x0D"/>
+      <member name="QAPI_ZB_NLME_NWK_STATUS_VERIFY_ADDRESS" value="0x0E"/>
+      <member name="QAPI_ZB_NLME_NWK_STATUS_PAN_IDENTIFIER_UPDATE" value="0x0F"/>
+      <member name="QAPI_ZB_NLME_NWK_STATUS_NWK_ADDRESS_UPDATE" value="0x10"/>
+      <member name="QAPI_ZB_NLME_NWK_STATUS_BAD_FRAME_COUNTER" value="0x11"/>
+      <member name="QAPI_ZB_NLME_NWK_STATUS_BAD_KEY_SEQUENCE_NUMBER" value="0x12"/>
+   </enum>
+   <enum name="qapi_ZB_RejoinNetwork_t">
+      <member name="QAPI_ZB_NWK_REJOIN_NETWORK_ASSOCIATION_E" value="0"/>
+      <member name="QAPI_ZB_NWK_REJOIN_NETWORK_DIRECT_OR_ORPHAN_E" value="1"/>
+      <member name="QAPI_ZB_NWK_REJOIN_NETWORK_NWK_REJOINING_E" value="2"/>
+   </enum>
+   <enum name="qapi_ZB_NWK_Event_Type_t">
+      <member name="QAPI_ZB_NWK_EVENT_TYPE_NLDE_DATA_CONFIRM_E" value="0"/>
+      <member name="QAPI_ZB_NWK_EVENT_TYPE_NLME_NETWORK_DISCOVERY_CONFIRM_E" value="1"/>
+      <member name="QAPI_ZB_NWK_EVENT_TYPE_NLME_NETWORK_FORMATION_CONFIRM_E" value="2"/>
+      <member name="QAPI_ZB_NWK_EVENT_TYPE_NLME_ED_SCAN_CONFIRM_E" value="3"/>
+      <member name="QAPI_ZB_NWK_EVENT_TYPE_NLME_JOIN_CONFIRM_E" value="4"/>
+      <member name="QAPI_ZB_NWK_EVENT_TYPE_NLME_LEAVE_CONFIRM_E" value="5"/>
+      <member name="QAPI_ZB_NWK_EVENT_TYPE_NLME_NWK_ROUTE_DISCOVERY_CONFIRM_E" value="6"/>
+   </enum>
+   <enum name="qapi_ZB_NWK_Key_Type_t">
+      <member name="QAPI_ZB_NWK_KEY_TYPE_STANDARD_E" value="0x01"/>
+   </enum>
+   <structure name="qapi_ZB_NWK_Security_Material_Set_t">
+      <member attributes="value" name="KeySeqNumber" type="uint8_t"/>
+      <member attributes="ptr,bracketArray" fixedLength="true" iotype="in" lengthParam="QAPI_ZB_KEY_SIZE" name="SecurityKey" type="uint8_t"/>
+      <member attributes="value" name="KeyType" type="qapi_ZB_NWK_Key_Type_t"/>
+   </structure>
+   <structure name="qapi_ZB_NLDE_Data_Request_t">
+      <member attributes="value" name="DstAddrMode" type="qapi_ZB_Addr_Mode_t"/>
+      <member attributes="value" name="DstAddr" type="uint16_t"/>
+      <member attributes="value" name="NSDULength" type="uint16_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="NSDULength" lengthVerified="yes" name="NSDU" type="uint8_t"/>
+      <member attributes="value" name="NSDUHandle" type="uint8_t"/>
+      <member attributes="value" name="Radius" type="uint8_t"/>
+      <member attributes="value" name="NonMemberRadius" type="uint8_t"/>
+      <member attributes="value" name="Flags" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_NLDE_Data_Confirm_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="NSDUHandle" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_NWK_Network_Descriptor_t">
+      <member attributes="value" name="ExtendedPANId" type="uint64_t"/>
+      <member attributes="value" name="LogicalChannel" type="uint8_t"/>
+      <member attributes="value" name="StackProfile" type="uint8_t"/>
+      <member attributes="value" name="ZigBeeVersion" type="uint8_t"/>
+      <member attributes="value" name="BeaconOrder" type="uint8_t"/>
+      <member attributes="value" name="SuperframeOrder" type="uint8_t"/>
+      <member attributes="value" name="Flags" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_NLME_Network_Discovery_Confirm_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="NetworkCount" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="NetworkCount" lengthVerified="yes" name="NetworkDescriptor" type="qapi_ZB_NWK_Network_Descriptor_t"/>
+   </structure>
+   <structure name="qapi_ZB_NLME_Network_Formation_Request_t">
+      <member attributes="value" name="ScanChannels" type="uint32_t"/>
+      <member attributes="value" name="ScanDuration" type="uint8_t"/>
+      <member attributes="value" name="BeaconOrder" type="uint8_t"/>
+      <member attributes="value" name="SuperframeOrder" type="uint8_t"/>
+      <member attributes="value" name="BatteryLifeExtension" type="qbool_t"/>
+   </structure>
+   <structure name="qapi_ZB_NLME_Network_Formation_Confirm_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+   </structure>
+   <structure name="qapi_ZB_NLME_Start_Router_Request_t">
+      <member attributes="value" name="BeaconOrder" type="uint8_t"/>
+      <member attributes="value" name="SuperframeOrder" type="uint8_t"/>
+      <member attributes="value" name="BatteryLifeExtension" type="qbool_t"/>
+   </structure>
+   <structure name="qapi_ZB_NLME_ED_Scan_Confirm_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="UnscannedChannels" type="uint32_t"/>
+      <member attributes="value" name="ResultListSize" type="uint8_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="ResultListSize" lengthVerified="yes" name="EnergyDetectList" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_NLME_Join_Request_t">
+      <member attributes="value" name="ExtendedPANId" type="uint64_t"/>
+      <member attributes="value" name="RejoinNetwork" type="qapi_ZB_RejoinNetwork_t"/>
+      <member attributes="value" name="ScanChannels" type="uint32_t"/>
+      <member attributes="value" name="ScanDuration" type="uint8_t"/>
+      <member attributes="value" name="CapabilityInfo" type="uint8_t"/>
+      <member attributes="value" name="SecurityEnable" type="qbool_t"/>
+   </structure>
+   <structure name="qapi_ZB_NLME_Join_Confirm_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="NetworkAddr" type="uint16_t"/>
+      <member attributes="value" name="ExtendedPANId" type="uint64_t"/>
+      <member attributes="value" name="ActiveChannel" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_NLME_Direct_Join_Request_t">
+      <member attributes="value" name="DeviceAddr" type="uint64_t"/>
+      <member attributes="value" name="CapabilityInfo" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_ZB_NLME_Direct_Join_Confirm_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="DeviceAddr" type="uint64_t"/>
+   </structure>
+   <structure name="qapi_ZB_NLME_Leave_Request_t">
+      <member attributes="value" name="DeviceAddr" type="uint64_t"/>
+      <member attributes="value" name="RemoveChildren" type="qbool_t"/>
+      <member attributes="value" name="Rejoin" type="qbool_t"/>
+   </structure>
+   <structure name="qapi_ZB_NLME_Leave_Confirm_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+      <member attributes="value" name="DeviceAddr" type="uint64_t"/>
+   </structure>
+   <structure name="qapi_ZB_NLME_Route_Discovery_Request_t">
+      <member attributes="value" name="AddrMode" type="qapi_ZB_Addr_Mode_t"/>
+      <member attributes="value" name="DstAddr" type="uint16_t"/>
+      <member attributes="value" name="Radius" type="uint8_t"/>
+      <member attributes="value" name="NoRouteCache" type="qbool_t"/>
+   </structure>
+   <structure name="qapi_ZB_NLME_Route_Discovery_Confirm_t">
+      <member attributes="value" name="Status" type="qapi_Status_t"/>
+   </structure>
+   <structure name="qapi_ZB_NWK_Event_t">
+      <member attributes="value" name="Event_Type" type="qapi_ZB_NWK_Event_Type_t"/>
+      <member attributes="union" name="Data">
+         <member attributes="value" name="NLDE_Data_Confirm" type="qapi_ZB_NLDE_Data_Confirm_t"/>
+         <member attributes="value" name="NLME_Network_Discovery_Confirm" type="qapi_ZB_NLME_Network_Discovery_Confirm_t"/>
+         <member attributes="value" name="NLME_Network_Formation_Confirm" type="qapi_ZB_NLME_Network_Formation_Confirm_t"/>
+         <member attributes="value" name="NLME_ED_Scan_Confirm" type="qapi_ZB_NLME_ED_Scan_Confirm_t"/>
+         <member attributes="value" name="NLME_Join_Confirm" type="qapi_ZB_NLME_Join_Confirm_t"/>
+         <member attributes="value" name="NLME_Leave_Confirm" type="qapi_ZB_NLME_Leave_Confirm_t"/>
+         <member attributes="value" name="NLME_Route_Discovery_Confirm" type="qapi_ZB_NLME_Route_Discovery_Confirm_t"/>
+         <unionMap mapVerified="yes" name="Event_Type" type="qapi_ZB_NWK_Event_Type_t">
+            <mapEntry member="NLDE_Data_Confirm" type="qapi_ZB_NLDE_Data_Confirm_t" value="QAPI_ZB_NWK_EVENT_TYPE_NLDE_DATA_CONFIRM_E"/>
+            <mapEntry member="NLME_Network_Discovery_Confirm" type="qapi_ZB_NLME_Network_Discovery_Confirm_t" value="QAPI_ZB_NWK_EVENT_TYPE_NLME_NETWORK_DISCOVERY_CONFIRM_E"/>
+            <mapEntry member="NLME_Network_Formation_Confirm" type="qapi_ZB_NLME_Network_Formation_Confirm_t" value="QAPI_ZB_NWK_EVENT_TYPE_NLME_NETWORK_FORMATION_CONFIRM_E"/>
+            <mapEntry member="NLME_ED_Scan_Confirm" type="qapi_ZB_NLME_ED_Scan_Confirm_t" value="QAPI_ZB_NWK_EVENT_TYPE_NLME_ED_SCAN_CONFIRM_E"/>
+            <mapEntry member="NLME_Join_Confirm" type="qapi_ZB_NLME_Join_Confirm_t" value="QAPI_ZB_NWK_EVENT_TYPE_NLME_JOIN_CONFIRM_E"/>
+            <mapEntry member="NLME_Leave_Confirm" type="qapi_ZB_NLME_Leave_Confirm_t" value="QAPI_ZB_NWK_EVENT_TYPE_NLME_LEAVE_CONFIRM_E"/>
+            <mapEntry member="NLME_Route_Discovery_Confirm" type="qapi_ZB_NLME_Route_Discovery_Confirm_t" value="QAPI_ZB_NWK_EVENT_TYPE_NLME_NWK_ROUTE_DISCOVERY_CONFIRM_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <function name="qapi_ZB_NWK_Register_Callback">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value,const" name="NWK_Event_CB" type="qapi_ZB_NWK_Event_CB_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+   </function>
+   <function name="qapi_ZB_NWK_Unregister_Callback">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value,const" name="NWK_Event_CB" type="qapi_ZB_NWK_Event_CB_t"/>
+   </function>
+   <function name="qapi_ZB_NLDE_Data_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="RequestData" type="qapi_ZB_NLDE_Data_Request_t"/>
+   </function>
+   <function name="qapi_ZB_NLME_Network_Discovery">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="ScanChannels" type="uint32_t"/>
+      <argument attributes="value" name="ScanDuration" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_NLME_Network_Formation">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="RequestData" type="qapi_ZB_NLME_Network_Formation_Request_t"/>
+   </function>
+   <function name="qapi_ZB_NLME_Permit_Joining">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="PermitDuration" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_NLME_Start_Router">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="RequestData" type="qapi_ZB_NLME_Start_Router_Request_t"/>
+   </function>
+   <function name="qapi_ZB_NLME_ED_Scan">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value,const" name="ScanChannels" type="uint32_t"/>
+      <argument attributes="value,const" name="ScanDuration" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_NLME_Join">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="RequestData" type="qapi_ZB_NLME_Join_Request_t"/>
+   </function>
+   <function name="qapi_ZB_NLME_Direct_Join">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="RequestData" type="qapi_ZB_NLME_Direct_Join_Request_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ConfirmData" type="qapi_ZB_NLME_Direct_Join_Confirm_t"/>
+   </function>
+   <function name="qapi_ZB_NLME_Leave">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="RequestData" type="qapi_ZB_NLME_Leave_Request_t"/>
+   </function>
+   <function name="qapi_ZB_NLME_Reset">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="WarmStart" type="qbool_t"/>
+   </function>
+   <function name="qapi_ZB_NLME_Sync">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="Track" type="qbool_t"/>
+   </function>
+   <function name="qapi_ZB_NLME_Get_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="AttributeId" type="qapi_ZB_NIB_Attribute_ID_t"/>
+      <argument attributes="value" name="AttributeIndex" type="uint8_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="AttributeLength" type="uint16_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="AttributeLength" lengthVerified="yes" name="AttributeValue" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_NLME_Set_Request">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="AttributeId" type="qapi_ZB_NIB_Attribute_ID_t"/>
+      <argument attributes="value" name="AttributeIndex" type="uint8_t"/>
+      <argument attributes="value" name="AttributeLength" type="uint16_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="AttributeLength" lengthVerified="yes" name="AttributeValue" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_NLME_Get_Key">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="KeySeqNumber" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ConfirmData" type="qapi_ZB_NWK_Security_Material_Set_t"/>
+   </function>
+   <function name="qapi_ZB_NLME_Add_Key">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="Request" type="qapi_ZB_NWK_Security_Material_Set_t"/>
+   </function>
+   <function name="qapi_ZB_NLME_Route_Discovery">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr,const" iotype="in" lengthParam="1" lengthVerified="yes" name="RequestData" type="qapi_ZB_NLME_Route_Discovery_Request_t"/>
+   </function>
+   <function name="qapi_ZB_NLME_Send_Link_Status">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+   </function>
+   <function name="qapi_ZB_NLME_Send_NWK_Status">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="NWKAddr" type="uint16_t"/>
+      <argument attributes="value" name="StatusCode" type="qapi_ZB_NLME_NWK_Status_t"/>
+      <argument attributes="value" name="DstAddr" type="uint16_t"/>
+      <argument attributes="value" name="DstAddrMode" type="qapi_ZB_Addr_Mode_t"/>
+   </function>
+   <function name="qapi_ZB_NLME_Send_Unknown_Command">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="DstAddr" type="uint16_t"/>
+      <argument attributes="value" name="NWKProtocolVer" type="uint8_t"/>
+   </function>
+   <function name="qapi_ZB_NLME_Set_Next_Child_Address">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="NextChildAddress" type="uint16_t"/>
+   </function>
+   <function name="qapi_ZB_NLME_Set_Security_Frame_Count">
+      <return attributes="value" type="qapi_Status_t"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="value" name="SeqNumber" type="uint8_t"/>
+      <argument attributes="value" name="DevAddr" type="uint64_t"/>
+      <argument attributes="value" name="FrameCount" type="uint32_t"/>
+   </function>
+   <callback name="qapi_ZB_NWK_Event_CB_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="ZB_Handle" type="qapi_ZB_Handle_t"/>
+      <argument attributes="ptr,const" iotype="out" lengthParam="1" lengthVerified="yes" name="NWK_Event_Data" type="qapi_ZB_NWK_Event_t"/>
+      <argument attributes="value" name="CB_Param" type="uint32_t"/>
+      <createFunction ID="NWK_Event_CB" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_NWK_Register_Callback" param="CB_Param"/>
+      <destroyFunction ID="NWK_Event_CB" funcSuccess="QAPI_OK" moduleParam="ZB_Handle" name="qapi_ZB_NWK_Unregister_Callback"/>
+   </callback>
+</header>

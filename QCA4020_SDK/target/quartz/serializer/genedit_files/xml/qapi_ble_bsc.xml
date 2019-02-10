@@ -1,0 +1,114 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="./qapi_ble_btapityp.h"/>
+   <include name="./qapi_ble_bttypes.h"/>
+   <include name="./qapi_ble_hcitypes.h"/>
+   <macro name="QAPI_BLE_BSC_INITIALIZE_FLAG_NO_L2CAP" value="0x00000001L"/>
+   <macro name="QAPI_BLE_BSC_INITIALIZE_FLAG_NO_GAP" value="0x00001000L"/>
+   <macro name="QAPI_BLE_BSC_TX_POWER_REVERT_TO_DEFAULT" value="(127)"/>
+   <enum name="qapi_BLE_BSC_Generic_List_Entry_Key_t">
+      <member name="QAPI_BLE_EK_NONE_E" value="0"/>
+      <member name="QAPI_BLE_EK_BOOLEAN_T_E" value="1"/>
+      <member name="QAPI_BLE_EK_BYTE_T_E" value="2"/>
+      <member name="QAPI_BLE_EK_WORD_T_E" value="3"/>
+      <member name="QAPI_BLE_EK_DWORD_T_E" value="4"/>
+      <member name="QAPI_BLE_EK_BD_ADDR_T_E" value="5"/>
+      <member name="QAPI_BLE_EK_ENTRY_POINTER_E" value="6"/>
+      <member name="QAPI_BLE_EK_UNSIGNED_INTEGER_E" value="7"/>
+   </enum>
+   <function name="qapi_BLE_BSC_Initialize">
+      <return attributes="value" type="int"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="HCI_DriverInformation" type="qapi_BLE_HCI_DriverInformation_t"/>
+      <argument attributes="value" name="Flags" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_BSC_Shutdown">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_BSC_Query_Host_Version">
+      <return attributes="ptr" type="char"/>
+   </function>
+   <function name="qapi_BLE_BSC_RegisterDebugCallback">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="DebugCallback" type="qapi_BLE_BSC_Debug_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_BSC_UnRegisterDebugCallback">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_BSC_LockBluetoothStack">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_BSC_UnLockBluetoothStack">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_BSC_StartTimer">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Timeout" type="uint32_t"/>
+      <argument attributes="value" name="TimerCallback" type="qapi_BLE_BSC_Timer_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_BSC_StopTimer">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="TimerID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_BSC_QueryActiveConnections">
+      <return attributes="value" type="boolean_t"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_BSC_ScheduleAsynchronousCallback">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="AsynchronousCallbackFunction" type="qapi_BLE_BSC_AsynchronousCallbackFunction_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_BSC_GetTxPower">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Connection" type="boolean_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="TxPower" type="int8_t"/>
+   </function>
+   <function name="qapi_BLE_BSC_SetTxPower">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Connection" type="boolean_t"/>
+      <argument attributes="value" name="TxPower" type="int8_t"/>
+   </function>
+   <function name="qapi_BLE_BSC_Set_FEM_Control_Override">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="Enable" type="boolean_t"/>
+      <argument attributes="value" name="FEM_Ctrl_0_1" type="uint16_t"/>
+      <argument attributes="value" name="FEM_Ctrl_2_3" type="uint16_t"/>
+   </function>
+   <callback name="qapi_BLE_BSC_Timer_Callback_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="TimerID" type="uint32_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <createFunction ID="qsRetVal" funcSuccess="__positive__" moduleParam="BluetoothStackID" name="qapi_BLE_BSC_StartTimer" param="CallbackParameter"/>
+      <destroyFunction ID="TimerID" funcSuccess="0" name="qapi_BLE_BSC_StopTimer"/>
+   </callback>
+   <callback name="qapi_BLE_BSC_Debug_Callback_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="PacketSent" type="boolean_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="HCIPacket" type="qapi_BLE_HCI_Packet_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <createFunction ID="0" funcSuccess="__positive__" moduleParam="BluetoothStackID" name="qapi_BLE_BSC_RegisterDebugCallback" param="CallbackParameter"/>
+      <destroyFunction ID="0" name="qapi_BLE_BSC_UnRegisterDebugCallback"/>
+   </callback>
+   <callback name="qapi_BLE_BSC_AsynchronousCallbackFunction_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <createFunction ID="0" funcSuccess="__positive__" moduleParam="BluetoothStackID" name="qapi_BLE_BSC_ScheduleAsynchronousCallback" param="CallbackParameter"/>
+      <destroyFunction ID="0" name="BSC_Shutdown"/>
+   </callback>
+</header>

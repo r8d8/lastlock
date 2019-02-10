@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<header>
+   <macro name="QAPI_PROFILER_H" value="typedef enum {"/>
+   <enum name="qapi_Prof_Cmd_t"/>
+   <structure name="qapi_Prof_Stats_t">
+      <member attributes="value" name="avg_Time_Outside_Freeq" type="uint32_t"/>
+      <member attributes="value" name="avg_Wait_Time_In_Tx_Queue" type="uint32_t"/>
+      <member attributes="value" name="avg_Socket_BlockTime" type="uint32_t"/>
+      <member attributes="value" name="netbuf_Low_Watermark_0" type="uint32_t"/>
+      <member attributes="value" name="netbuf_Low_Watermark_1" type="uint32_t"/>
+      <member attributes="value" name="netbuf_Low_Watermark_2" type="uint32_t"/>
+      <member attributes="value" name="test_Runtime" type="uint32_t"/>
+      <member attributes="value" name="rx_Pkt_Count" type="uint32_t"/>
+      <member attributes="value" name="tx_Pkt_Count" type="uint32_t"/>
+      <member attributes="value" name="wlan_Rx_Bytes" type="uint32_t"/>
+      <member attributes="value" name="wlan_Tx_Bytes" type="uint32_t"/>
+      <member attributes="value" name="bus_Rx_Bytes" type="uint32_t"/>
+      <member attributes="value" name="bus_Tx_Bytes" type="uint32_t"/>
+      <member attributes="value" name="bus_Rw_Error" type="uint32_t"/>
+   </structure>
+   <function name="qapi_Prof_Cmd_Handler">
+      <return attributes="value" type="int8_t"/>
+      <argument attributes="value" name="cmd" type="qapi_Prof_Cmd_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="no" name="data" type="qapi_Prof_Stats_t"/>
+   </function>
+</header>

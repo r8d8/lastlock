@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="qapi_wlan_p2p.h"/>
+   <include name="qapi_wlan_base.h"/>
+   <include name="qapi_wlan_prof.h"/>
+   <include name="qapi_wlan_errors.h"/>
+</header>

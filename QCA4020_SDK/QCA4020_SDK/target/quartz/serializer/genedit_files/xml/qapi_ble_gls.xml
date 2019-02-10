@@ -1,0 +1,327 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="./qapi_ble_btapityp.h"/>
+   <include name="./qapi_ble_bttypes.h"/>
+   <include name="./qapi_ble_gatt.h"/>
+   <include name="./qapi_ble_glstypes.h"/>
+   <macro name="QAPI_BLE_GLS_ERROR_INVALID_PARAMETER" value="(-1000)"/>
+   <macro name="QAPI_BLE_GLS_ERROR_INVALID_BLUETOOTH_STACK_ID" value="(-1001)"/>
+   <macro name="QAPI_BLE_GLS_ERROR_INSUFFICIENT_RESOURCES" value="(-1002)"/>
+   <macro name="QAPI_BLE_GLS_ERROR_INSUFFICIENT_BUFFER_SPACE" value="(-1003)"/>
+   <macro name="QAPI_BLE_GLS_ERROR_SERVICE_ALREADY_REGISTERED" value="(-1004)"/>
+   <macro name="QAPI_BLE_GLS_ERROR_INVALID_INSTANCE_ID" value="(-1005)"/>
+   <macro name="QAPI_BLE_GLS_ERROR_MALFORMATTED_DATA" value="(-1006)"/>
+   <macro name="QAPI_BLE_GLS_ERROR_INDICATION_OUTSTANDING" value="(-1007)"/>
+   <macro name="QAPI_BLE_GLS_ERROR_NOT_CONFIGURED_RACP" value="(-1008)"/>
+   <macro name="QAPI_BLE_GLS_ERROR_NOT_AUTHENTICATION" value="(-1009)"/>
+   <macro name="QAPI_BLE_GLS_ERROR_UNKNOWN_ERROR" value="(-1010)"/>
+   <macro name="QAPI_BLE_GLS_CLIENT_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_GLS_Client_Information_t))"/>
+   <macro name="QAPI_BLE_GLS_SERVER_INFORMATION_DATA_SIZE" value="(sizeof(qapi_BLE_GLS_Server_Information_t))"/>
+   <macro name="QAPI_BLE_GLS_DATE_TIME_DATA_SIZE" value="(sizeof(qapi_BLE_GLS_Date_Time_Data_t))"/>
+   <macro name="QAPI_BLE_GLS_DATE_TIME_RANGE_DATA_SIZE" value="(sizeof(qapi_BLE_GLS_Date_Time_Range_Data_t))"/>
+   <macro name="QAPI_BLE_GLS_CONCENTRATION_DATA_SIZE" value="(sizeof(qapi_BLE_GLS_Concentration_Data_t))"/>
+   <macro name="QAPI_BLE_GLS_GLUCOSE_MEASUREMENT_DATA_SIZE" value="(sizeof(qapi_BLE_GLS_Glucose_Measurement_Data_t))"/>
+   <macro name="QAPI_BLE_GLS_CARBOHYDRATE_DATA_SIZE" value="(sizeof(qapi_BLE_GLS_Carbohydrate_Data_t))"/>
+   <macro name="QAPI_BLE_GLS_EXERCISE_DATA_SIZE" value="(sizeof(qapi_BLE_GLS_Exercise_Data_t))"/>
+   <macro name="QAPI_BLE_GLS_MEDICATION_DATA_SIZE" value="(sizeof(qapi_BLE_GLS_Medication_Data_t))"/>
+   <macro name="QAPI_BLE_GLS_GLUCOSE_MEASUREMENT_CONTEXT_DATA_SIZE" value="(sizeof(qapi_BLE_GLS_Glucose_Measurement_Context_Data_t))"/>
+   <macro name="QAPI_BLE_GLS_RECORD_ACCESS_CONTROL_POINT_RESPONSE_DATA_SIZE" value="(sizeof(qapi_BLE_GLS_Record_Access_Control_Point_Response_Data_t))"/>
+   <macro name="QAPI_BLE_GLS_READ_CLIENT_CONFIGURATION_DATA_SIZE" value="(sizeof(qapi_BLE_GLS_Read_Client_Configuration_Data_t))"/>
+   <macro name="QAPI_BLE_GLS_CLIENT_CONFIGURATION_UPDATE_DATA_SIZE" value="(sizeof(qapi_BLE_GLS_Client_Configuration_Update_Data_t))"/>
+   <macro name="QAPI_BLE_GLS_RECORD_ACCESS_CONTROL_POINT_FORMAT_DATA_SIZE" value="(sizeof(qapi_BLE_GLS_Record_Access_Control_Point_Format_Data_t))"/>
+   <macro name="QAPI_BLE_GLS_RECORD_ACCESS_CONTROL_POINT_COMMAND_DATA_SIZE" value="(sizeof(qapi_BLE_GLS_Record_Access_Control_Point_Command_Data_t))"/>
+   <macro name="QAPI_BLE_GLS_CONFIRMATION_DATA_SIZE" value="(sizeof(qapi_BLE_GLS_Confirmation_Data_t))"/>
+   <macro name="QAPI_BLE_GLS_EVENT_DATA_SIZE" value="(sizeof(qapi_BLE_GLS_Event_Data_t))"/>
+   <enum name="qapi_BLE_GLS_RACP_Response_Type_t">
+      <member name="QAPI_BLE_GLS_NUMBER_OF_STORED_RECORDS_E" value="0"/>
+      <member name="QAPI_BLE_GLS_RESPONSE_CODE_E" value="1"/>
+   </enum>
+   <enum name="qapi_BLE_GLS_Characteristic_Type_t">
+      <member name="QAPI_BLE_GLS_CT_GLUCOSE_MEASUREMENT_E" value="0"/>
+      <member name="QAPI_BLE_GLS_CT_GLUCOSE_MEASUREMENT_CONTEXT_E" value="1"/>
+      <member name="QAPI_BLE_GLS_CT_RECORD_ACCESS_CONTROL_POINT_E" value="2"/>
+   </enum>
+   <enum name="qapi_BLE_GLS_Event_Type_t">
+      <member name="QAPI_BLE_ET_GLS_READ_CLIENT_CONFIGURATION_REQUEST_E" value="0"/>
+      <member name="QAPI_BLE_ET_GLS_CLIENT_CONFIGURATION_UPDATE_E" value="1"/>
+      <member name="QAPI_BLE_ET_GLS_RECORD_ACCESS_CONTROL_POINT_COMMAND_E" value="2"/>
+      <member name="QAPI_BLE_ET_GLS_CONFIRMATION_DATA_E" value="3"/>
+   </enum>
+   <enum name="qapi_BLE_GLS_RACP_Command_Type_t">
+      <member name="QAPI_BLE_GLS_COMMAND_REPORT_STORED_RECORDS_REQUEST_E" value="QAPI_BLE_GLS_RECORD_ACCESS_OPCODE_REPORT_STORED_RECORDS"/>
+      <member name="QAPI_BLE_GLS_COMMAND_DELETE_STORED_RECORDS_REQUEST_E" value="QAPI_BLE_GLS_RECORD_ACCESS_OPCODE_DELETE_STORED_RECORDS"/>
+      <member name="QAPI_BLE_GLS_COMMAND_ABORT_OPERATION_REQUEST_E" value="QAPI_BLE_GLS_RECORD_ACCESS_OPCODE_ABORT_OPERATION"/>
+      <member name="QAPI_BLE_GLS_COMMAND_NUMBER_OF_STORED_RECORDS_REQUEST_E" value="QAPI_BLE_GLS_RECORD_ACCESS_OPCODE_REPORT_NUM_STORED_RECORDS"/>
+   </enum>
+   <enum name="qapi_BLE_GLS_RACP_Operator_Type_t">
+      <member name="QAPI_BLE_GLS_NULL_E" value="QAPI_BLE_GLS_RECORD_ACCESS_OPERATOR_NULL"/>
+      <member name="QAPI_BLE_GLS_ALL_RECORDS_E" value="QAPI_BLE_GLS_RECORD_ACCESS_OPERATOR_ALL_RECORDS"/>
+      <member name="QAPI_BLE_GLS_LESS_THAN_OR_EQUAL_TO_E" value="QAPI_BLE_GLS_RECORD_ACCESS_OPERATOR_LESS_THAN_OR_EQUAL_TO"/>
+      <member name="QAPI_BLE_GLS_GREATER_THAN_OR_EQUAL_TO_E" value="QAPI_BLE_GLS_RECORD_ACCESS_OPERATOR_GREATER_THAN_OR_EQUAL_TO"/>
+      <member name="QAPI_BLE_GLS_WITHIN_RANGE_OF_E" value="QAPI_BLE_GLS_RECORD_ACCESS_OPERATOR_WITHIN_RANGE_OF"/>
+      <member name="QAPI_BLE_GLS_FIRST_RECORD_E" value="QAPI_BLE_GLS_RECORD_ACCESS_OPERATOR_FIRST_RECORD"/>
+      <member name="" value="0"/>
+   </enum>
+   <enum name="qapi_BLE_GLS_RACP_Filter_Type_t">
+      <member name="QAPI_BLE_GLS_FILTER_SEQUENCE_NUMBER_E" value="QAPI_BLE_GLS_RECORD_ACCESS_FILTER_TYPE_SEQUENCE_NUMBER"/>
+      <member name="QAPI_BLE_GLS_FILTER_USER_FACING_TIME_E" value="QAPI_BLE_GLS_RECORD_ACCESS_FILTER_TYPE_USER_FACING_TIME"/>
+   </enum>
+   <structure name="qapi_BLE_GLS_Client_Information_t">
+      <member attributes="value" name="Glucose_Measurement" type="uint16_t"/>
+      <member attributes="value" name="Glucose_Measurement_Client_Configuration" type="uint16_t"/>
+      <member attributes="value" name="Measurement_Context" type="uint16_t"/>
+      <member attributes="value" name="Measurement_Context_Client_Configuration" type="uint16_t"/>
+      <member attributes="value" name="Glucose_Feature" type="uint16_t"/>
+      <member attributes="value" name="Record_Access_Control_Point" type="uint16_t"/>
+      <member attributes="value" name="Record_Access_Control_Point_Client_Configuration" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_GLS_Server_Information_t">
+      <member attributes="value" name="Glucose_Measurement_Client_Configuration" type="uint16_t"/>
+      <member attributes="value" name="Glucose_Context_Client_Configuration" type="uint16_t"/>
+      <member attributes="value" name="Glucose_Features" type="uint16_t"/>
+      <member attributes="value" name="Record_Access_Control_Point_Client_Configuration" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_GLS_Sequence_Number_Range_Data_t">
+      <member attributes="value" name="Minimum" type="uint16_t"/>
+      <member attributes="value" name="Maximum" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_GLS_Date_Time_Data_t">
+      <member attributes="value" name="Year" type="uint16_t"/>
+      <member attributes="value" name="Month" type="uint8_t"/>
+      <member attributes="value" name="Day" type="uint8_t"/>
+      <member attributes="value" name="Hours" type="uint8_t"/>
+      <member attributes="value" name="Minutes" type="uint8_t"/>
+      <member attributes="value" name="Seconds" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_GLS_Date_Time_Range_Data_t">
+      <member attributes="value" name="Minimum" type="qapi_BLE_GLS_Date_Time_Data_t"/>
+      <member attributes="value" name="Maximum" type="qapi_BLE_GLS_Date_Time_Data_t"/>
+   </structure>
+   <structure name="qapi_BLE_GLS_Concentration_Data_t">
+      <member attributes="value" name="ConcentrationValid" type="boolean_t"/>
+      <member attributes="value" name="Value" type="uint16_t"/>
+      <member attributes="value" name="Type" type="uint8_t"/>
+      <member attributes="value" name="SampleLocation" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_GLS_Glucose_Measurement_Data_t">
+      <member attributes="value" name="OptionFlags" type="uint8_t"/>
+      <member attributes="value" name="SequenceNumber" type="uint16_t"/>
+      <member attributes="value" name="BaseTime" type="qapi_BLE_GLS_Date_Time_Data_t"/>
+      <member attributes="value" name="TimeOffset" type="uint16_t"/>
+      <member attributes="value" name="GlucoseConcentration" type="qapi_BLE_GLS_Concentration_Data_t"/>
+      <member attributes="value" name="SensorStatus" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_GLS_Carbohydrate_Data_t">
+      <member attributes="value" name="ID" type="uint8_t"/>
+      <member attributes="value" name="Value" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_GLS_Exercise_Data_t">
+      <member attributes="value" name="Duration" type="uint16_t"/>
+      <member attributes="value" name="Intensity" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_GLS_Medication_Data_t">
+      <member attributes="value" name="ID" type="uint8_t"/>
+      <member attributes="value" name="Value" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_GLS_Glucose_Measurement_Context_Data_t">
+      <member attributes="value" name="OptionFlags" type="uint8_t"/>
+      <member attributes="value" name="SequenceNumber" type="uint16_t"/>
+      <member attributes="value" name="ExtendedFlags" type="uint8_t"/>
+      <member attributes="value" name="Carbohydrate" type="qapi_BLE_GLS_Carbohydrate_Data_t"/>
+      <member attributes="value" name="Meal" type="uint8_t"/>
+      <member attributes="value" name="Tester" type="uint8_t"/>
+      <member attributes="value" name="Health" type="uint8_t"/>
+      <member attributes="value" name="ExerciseData" type="qapi_BLE_GLS_Exercise_Data_t"/>
+      <member attributes="value" name="Medication" type="qapi_BLE_GLS_Medication_Data_t"/>
+      <member attributes="value" name="HbA1c" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_GLS_RACP_Response_Code_Value_t">
+      <member attributes="value" name="RequestOpCode" type="uint8_t"/>
+      <member attributes="value" name="ResponseCodeValue" type="uint8_t"/>
+   </structure>
+   <structure name="qapi_BLE_GLS_Record_Access_Control_Point_Response_Data_t">
+      <member attributes="value" name="ResponseType" type="qapi_BLE_GLS_RACP_Response_Type_t"/>
+      <member attributes="union" name="ResponseData">
+         <member attributes="value" name="NumberOfStoredRecordsResult" type="uint16_t"/>
+         <member attributes="value" name="ResponseCodeValue" type="qapi_BLE_GLS_RACP_Response_Code_Value_t"/>
+         <unionMap mapVerified="yes" name="ResponseType" type="qapi_BLE_GLS_RACP_Response_Type_t">
+            <mapEntry member="NumberOfStoredRecordsResult" type="uint16_t" value="QAPI_BLE_GLS_NUMBER_OF_STORED_RECORDS_E"/>
+            <mapEntry member="ResponseCodeValue" type="qapi_BLE_GLS_RACP_Response_Code_Value_t" value="QAPI_BLE_GLS_RESPONSE_CODE_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_BLE_GLS_Read_Client_Configuration_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ClientConfigurationType" type="qapi_BLE_GLS_Characteristic_Type_t"/>
+   </structure>
+   <structure name="qapi_BLE_GLS_Client_Configuration_Update_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="ClientConfigurationType" type="qapi_BLE_GLS_Characteristic_Type_t"/>
+      <member attributes="value" name="ClientConfiguration" type="uint16_t"/>
+   </structure>
+   <structure name="qapi_BLE_GLS_Record_Access_Control_Point_Format_Data_t">
+      <member attributes="value" name="CommandType" type="qapi_BLE_GLS_RACP_Command_Type_t"/>
+      <member attributes="value" name="OperatorType" type="qapi_BLE_GLS_RACP_Operator_Type_t"/>
+      <member attributes="value" name="FilterType" type="qapi_BLE_GLS_RACP_Filter_Type_t"/>
+      <member attributes="union" name="FilterParameters">
+         <member attributes="value" name="SequenceNumber" type="uint16_t"/>
+         <member attributes="value" name="UserFacingTime" type="qapi_BLE_GLS_Date_Time_Data_t"/>
+         <member attributes="value" name="SequenceNumberRange" type="qapi_BLE_GLS_Sequence_Number_Range_Data_t"/>
+         <member attributes="value" name="UserFacingTimeRange" type="qapi_BLE_GLS_Date_Time_Range_Data_t"/>
+         <unionMap mapVerified="yes" name="CommandType" type="qapi_BLE_GLS_RACP_Command_Type_t">
+            <mapEntry member="SequenceNumber" type="uint16_t" value=""/>
+            <mapEntry member="UserFacingTime" type="qapi_BLE_GLS_Date_Time_Data_t" value=""/>
+            <mapEntry member="SequenceNumberRange" type="qapi_BLE_GLS_Sequence_Number_Range_Data_t" value=""/>
+            <mapEntry member="UserFacingTimeRange" type="qapi_BLE_GLS_Date_Time_Range_Data_t" value=""/>
+         </unionMap>
+      </member>
+   </structure>
+   <structure name="qapi_BLE_GLS_Record_Access_Control_Point_Command_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="TransactionID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+      <member attributes="value" name="FormatData" type="qapi_BLE_GLS_Record_Access_Control_Point_Format_Data_t"/>
+   </structure>
+   <structure name="qapi_BLE_GLS_Confirmation_Data_t">
+      <member attributes="value" name="InstanceID" type="uint32_t"/>
+      <member attributes="value" name="ConnectionID" type="uint32_t"/>
+      <member attributes="value" name="Status" type="uint8_t"/>
+      <member attributes="value" name="ConnectionType" type="qapi_BLE_GATT_Connection_Type_t"/>
+      <member attributes="value" name="RemoteDevice" type="qapi_BLE_BD_ADDR_t"/>
+   </structure>
+   <structure name="qapi_BLE_GLS_Event_Data_t">
+      <member attributes="value" name="Event_Data_Type" type="qapi_BLE_GLS_Event_Type_t"/>
+      <member attributes="value" name="Event_Data_Size" type="uint16_t"/>
+      <member attributes="union" name="Event_Data">
+         <member attributes="ptr" iotype="in" name="GLS_Read_Client_Configuration_Data" type="qapi_BLE_GLS_Read_Client_Configuration_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GLS_Client_Configuration_Update_Data" type="qapi_BLE_GLS_Client_Configuration_Update_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GLS_Record_Access_Control_Point_Command_Data" type="qapi_BLE_GLS_Record_Access_Control_Point_Command_Data_t"/>
+         <member attributes="ptr" iotype="in" name="GLS_Confirmation_Data" type="qapi_BLE_GLS_Confirmation_Data_t"/>
+         <unionMap mapVerified="yes" name="Event_Data_Type" type="qapi_BLE_GLS_Event_Type_t">
+            <mapEntry member="GLS_Read_Client_Configuration_Data" type="qapi_BLE_GLS_Read_Client_Configuration_Data_t" value="QAPI_BLE_ET_GLS_READ_CLIENT_CONFIGURATION_REQUEST_E"/>
+            <mapEntry member="GLS_Client_Configuration_Update_Data" type="qapi_BLE_GLS_Client_Configuration_Update_Data_t" value="QAPI_BLE_ET_GLS_CLIENT_CONFIGURATION_UPDATE_E"/>
+            <mapEntry member="GLS_Record_Access_Control_Point_Command_Data" type="qapi_BLE_GLS_Record_Access_Control_Point_Command_Data_t" value="QAPI_BLE_ET_GLS_RECORD_ACCESS_CONTROL_POINT_COMMAND_E"/>
+            <mapEntry member="GLS_Confirmation_Data" type="qapi_BLE_GLS_Confirmation_Data_t" value="QAPI_BLE_ET_GLS_CONFIRMATION_DATA_E"/>
+         </unionMap>
+      </member>
+   </structure>
+   <function name="qapi_BLE_GLS_Initialize_Service">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_GLS_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GLS_Initialize_Service_Handle_Range">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="EventCallback" type="qapi_BLE_GLS_Event_Callback_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ServiceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="ServiceHandleRange" type="qapi_BLE_GATT_Attribute_Handle_Group_t"/>
+   </function>
+   <function name="qapi_BLE_GLS_Cleanup_Service">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+   </function>
+   <function name="qapi_BLE_GLS_Query_Number_Attributes">
+      <return attributes="value" type="unsigned int"/>
+   </function>
+   <function name="qapi_BLE_GLS_Set_Glucose_Feature">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="SupportedFeatures" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_GLS_Query_Glucose_Feature">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="SupportedFeatures" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_GLS_Read_Client_Configuration_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ClientConfiguration" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_GLS_Record_Access_Control_Point_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="TransactionID" type="uint32_t"/>
+      <argument attributes="value" name="ErrorCode" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_GLS_Notify_Glucose_Measurement">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="MeasurementData" type="qapi_BLE_GLS_Glucose_Measurement_Data_t"/>
+   </function>
+   <function name="qapi_BLE_GLS_Notify_Glucose_Measurement_Context">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="ContextData" type="qapi_BLE_GLS_Glucose_Measurement_Context_Data_t"/>
+   </function>
+   <function name="qapi_BLE_GLS_Indicate_Number_Of_Stored_Records">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="value" name="NumberOfStoredRecords" type="uint16_t"/>
+   </function>
+   <function name="qapi_BLE_GLS_Indicate_Record_Access_Control_Point_Result">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="value" name="InstanceID" type="uint32_t"/>
+      <argument attributes="value" name="ConnectionID" type="uint32_t"/>
+      <argument attributes="value" name="CommandType" type="qapi_BLE_GLS_RACP_Command_Type_t"/>
+      <argument attributes="value" name="ResponseCode" type="uint8_t"/>
+   </function>
+   <function name="qapi_BLE_GLS_Decode_Glucose_Measurement">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="MeasurementData" type="qapi_BLE_GLS_Glucose_Measurement_Data_t"/>
+   </function>
+   <function name="qapi_BLE_GLS_Decode_Glucose_Measurement_Context">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="ContextData" type="qapi_BLE_GLS_Glucose_Measurement_Context_Data_t"/>
+   </function>
+   <function name="qapi_BLE_GLS_Decode_Record_Access_Control_Point_Response">
+      <return attributes="value" type="int"/>
+      <argument attributes="value" name="ValueLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="in" lengthParam="ValueLength" lengthVerified="yes" name="Value" type="uint8_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="RACPData" type="qapi_BLE_GLS_Record_Access_Control_Point_Response_Data_t"/>
+   </function>
+   <function name="qapi_BLE_GLS_Format_Record_Access_Control_Point_Command">
+      <return attributes="value" type="int"/>
+      <argument attributes="ptr" iotype="in" lengthParam="1" lengthVerified="yes" name="FormatData" type="qapi_BLE_GLS_Record_Access_Control_Point_Format_Data_t"/>
+      <argument attributes="ptr" iotype="in,out" lengthParam="1" lengthVerified="yes" name="BufferLength" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="BufferLength" lengthVerified="yes" name="Buffer" type="uint8_t"/>
+   </function>
+   <callback name="qapi_BLE_GLS_Event_Callback_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="BluetoothStackID" type="uint32_t"/>
+      <argument attributes="ptr" iotype="out" lengthParam="1" lengthVerified="yes" name="GLS_Event_Data" type="qapi_BLE_GLS_Event_Data_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <createFunction ID="qsRetVal" funcSuccess="0" moduleParam="BluetoothStackID" name="qapi_BLE_GLS_Initialize_Service" param="CallbackParameter"/>
+      <createFunction ID="qsRetVal" funcSuccess="0" moduleParam="BluetoothStackID" name="qapi_BLE_GLS_Initialize_Service_Handle_Range" param="CallbackParameter"/>
+      <destroyFunction ID="InstanceID" funcSuccess="0" name="qapi_BLE_GLS_Cleanup_Service"/>
+   </callback>
+</header>

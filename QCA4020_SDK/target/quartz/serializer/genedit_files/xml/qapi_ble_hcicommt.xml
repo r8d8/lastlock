@@ -1,0 +1,124 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="qapi_ble_btapityp.h"/>
+   <include name="qapi_ble_bttypes.h"/>
+   <macro name="QAPI_BLE_HCI_COMM_INFORMATION_INITIALIZATION_DELAY_MINIMUM" value="0"/>
+   <macro name="QAPI_BLE_HCI_COMM_INFORMATION_INITIALIZATION_DELAY_MAXIMUM" value="5000"/>
+   <macro name="QAPI_BLE_HCI_COMM_INFORMATION_INITIALIZATION_DELAY_DEFAULT" value="0"/>
+   <macro name="QAPI_BLE_HCI_COMM_DRIVER_INFORMATION_FLAGS_USE_EVEN_PARITY_FLAG" value="0x0001"/>
+   <macro name="QAPI_BLE_HCI_COMM_RECONFIGURE_INFORMATION_RECONFIGURE_FLAGS_CHANGE_PROTOCOL" value="0x0001"/>
+   <macro name="QAPI_BLE_HCI_COMM_RECONFIGURE_INFORMATION_RECONFIGURE_FLAGS_CHANGE_BAUDRATE" value="0x0002"/>
+   <macro name="QAPI_BLE_HCI_COMM_RECONFIGURE_INFORMATION_RECONFIGURE_FLAGS_CHANGE_XON_XOFF" value="0x0004"/>
+   <macro name="QAPI_BLE_HCI_COMM_RECONFIGURE_INFORMATION_RECONFIGURE_FLAGS_CHANGE_PARITY" value="0x0008"/>
+   <macro name="QAPI_BLE_HCI_3WIRE_CONFIGURATION_FLAGS_SCO_IS_RELIABLE" value="0x0001"/>
+   <macro name="QAPI_BLE_HCI_COMM_DRIVER_RECONFIGURE_DATA_COMMAND_CHANGE_PARAMETERS" value="(QAPI_BLE_HCI_DRIVER_RECONFIGURE_DATA_RECONFIGURE_COMMAND_TRANSPORT_START)"/>
+   <macro name="QAPI_BLE_HCI_COMM_DRIVER_RECONFIGURE_DATA_COMMAND_CHANGE_H4DS_PARAMETERS" value="(QAPI_BLE_HCI_DRIVER_RECONFIGURE_DATA_RECONFIGURE_COMMAND_TRANSPORT_START + 1)"/>
+   <macro name="QAPI_BLE_HCI_COMM_DRIVER_RECONFIGURE_DATA_COMMAND_CHANGE_HCILL_PARAMETERS" value="(QAPI_BLE_HCI_DRIVER_RECONFIGURE_DATA_RECONFIGURE_COMMAND_TRANSPORT_START + 2)"/>
+   <macro name="QAPI_BLE_HCI_COMM_DRIVER_RECONFIGURE_DATA_COMMAND_CHANGE_3WIRE_PARAMETERS" value="(QAPI_BLE_HCI_DRIVER_RECONFIGURE_DATA_RECONFIGURE_COMMAND_TRANSPORT_START + 3)"/>
+   <macro name="QAPI_BLE_HCI_COMM_DRIVER_RECONFIGURE_DATA_COMMAND_CHANGE_COMM_PARAMETERS" value="(QAPI_BLE_HCI_DRIVER_RECONFIGURE_DATA_RECONFIGURE_COMMAND_TRANSPORT_START + 4)"/>
+   <macro name="QAPI_BLE_HCI_COMM_DRIVER_RECONFIGURE_DATA_COMMAND_CHANGE_SIBS_PARAMETERS" value="(QAPI_BLE_HCI_DRIVER_RECONFIGURE_DATA_RECONFIGURE_COMMAND_TRANSPORT_START + 5)"/>
+   <macro name="QAPI_BLE_HCI_H4DS_MINIMUM_IDLE_TIME" value="50"/>
+   <macro name="QAPI_BLE_HCI_H4DS_MAXIMUM_IDLE_TIME" value="30000"/>
+   <macro name="QAPI_BLE_HCI_H4DS_MINIMUM_WAKE_UP_MESSAGE_TIME" value="50"/>
+   <macro name="QAPI_BLE_HCI_H4DS_MAXIMUM_WAKE_UP_MESSAGE_TIME" value="1000"/>
+   <macro name="QAPI_BLE_HCI_H4DS_MINIMUM_TICKS_PER_WAKE_UP" value="1"/>
+   <macro name="QAPI_BLE_HCI_H4DS_MAXIMUM_TICKS_PER_WAKE_UP" value="50"/>
+   <macro name="QAPI_BLE_HCI_H4DS_MINIMUM_WAKE_UP_MESSAGE_COUNT" value="1"/>
+   <macro name="QAPI_BLE_HCI_H4DS_MAXIMUM_WAKE_UP_MESSAGE_COUNT" value="100"/>
+   <macro name="QAPI_BLE_HCI_H4DS_MINIMUM_TRANSMIT_FLUSH_TIME" value="50"/>
+   <macro name="QAPI_BLE_HCI_H4DS_MAXIMUM_TRANSMIT_FLUSH_TIME" value="30000"/>
+   <macro name="QAPI_BLE_HCI_H4DS_MINIMUM_SYNC_MESSAGE_TIME" value="50"/>
+   <macro name="QAPI_BLE_HCI_H4DS_MAXIMUM_SYNC_MESSAGE_TIME" value="1000"/>
+   <macro name="QAPI_BLE_HCI_H4DS_MINIMUM_CONF_MESSAGE_TIME" value="50"/>
+   <macro name="QAPI_BLE_HCI_H4DS_MAXIMUM_CONF_MESSAGE_TIME" value="1000"/>
+   <macro name="QAPI_BLE_HCI_3WIRE_MINIMUM_SLIDING_WINDOW_SIZE" value="1"/>
+   <macro name="QAPI_BLE_HCI_3WIRE_MAXIMUM_SLIDING_WINDOW_SIZE" value="7"/>
+   <macro name="QAPI_BLE_HCI_3WIRE_MINIMUM_IDLE_TIME" value="50"/>
+   <macro name="QAPI_BLE_HCI_3WIRE_MAXIMUM_IDLE_TIME" value="30000"/>
+   <macro name="QAPI_BLE_HCI_3WIRE_MINIMUM_RETRANSMIT_TIME" value="50"/>
+   <macro name="QAPI_BLE_HCI_3WIRE_MAXIMUM_RETRANSMIT_TIME" value="1000"/>
+   <macro name="QAPI_BLE_HCI_3WIRE_MINIMUM_ACKNOWLEDGE_DELAY" value="50"/>
+   <macro name="QAPI_BLE_HCI_3WIRE_MAXIMUM_ACKNOWLEDGE_DELAY" value="500"/>
+   <macro name="QAPI_BLE_HCI_SIBS_MINIMUM_TX_IDLE_TIME" value="10"/>
+   <macro name="QAPI_BLE_HCI_SIBS_MAXIMUM_TX_IDLE_TIME" value="30000"/>
+   <macro name="QAPI_BLE_HCI_SIBS_MINIMUM_RETRANSMIT_TIME" value="10"/>
+   <macro name="QAPI_BLE_HCI_SIBS_MAXIMUM_RETRANSMIT_TIME" value="1000"/>
+   <enum name="qapi_BLE_HCI_COMM_Protocol_t">
+      <member name="QAPI_BLE_COMM_PROTOCOL_UART_E" value="0"/>
+      <member name="QAPI_BLE_COMM_PROTOCOL_UART_RTS_CTS_E" value="1"/>
+      <member name="QAPI_BLE_COMM_PROTOCOL_BCSP_E" value="2"/>
+      <member name="QAPI_BLE_COMM_PROTOCOL_BCSP_MUZZLED_E" value="3"/>
+      <member name="QAPI_BLE_COMM_PROTOCOL_H4DS_E" value="4"/>
+      <member name="QAPI_BLE_COMM_PROTOCOL_H4DS_RTS_CTS_E" value="5"/>
+      <member name="QAPI_BLE_COMM_PROTOCOL_HCILL_E" value="6"/>
+      <member name="QAPI_BLE_COMM_PROTOCOL_HCILL_RTS_CTS_E" value="7"/>
+      <member name="QAPI_BLE_COMM_PROTOCOL_3WIRE_E" value="8"/>
+      <member name="QAPI_BLE_COMM_PROTOCOL_3WIRE_RTS_CTS_E" value="9"/>
+      <member name="QAPI_BLE_COMM_PROTOCOL_SIBS_E" value="10"/>
+      <member name="QAPI_BLE_COMM_PROTOCOL_SIBS_RTS_CTS_E" value="11"/>
+   </enum>
+   <enum name="qapi_BLE_HCI_COMM_Parity_t">
+      <member name="QAPI_BLE_COMM_DRIVER_NO_PARITY_E" value="0"/>
+      <member name="QAPI_BLE_COMM_DRIVER_EVEN_PARITY_E" value="1"/>
+   </enum>
+   <structure name="qapi_BLE_HCI_COMMDriverInformation_t">
+      <member attributes="value" name="DriverInformationSize" type="uint32_t"/>
+      <member attributes="value" name="COMPortNumber" type="uint32_t"/>
+      <member attributes="value" name="BaudRate" type="uint32_t"/>
+      <member attributes="value" name="Protocol" type="qapi_BLE_HCI_COMM_Protocol_t"/>
+      <member attributes="value" name="InitializationDelay" type="uint32_t"/>
+      <member attributes="ptr" iotype="in" lengthParam="__strlen__" lengthVerified="yes" name="COMDeviceName" type="char"/>
+      <member attributes="value" name="Flags" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_BLE_HCI_COMMReconfigureInformation_t">
+      <member attributes="value" name="ReconfigureFlags" type="uint32_t"/>
+      <member attributes="value" name="Protocol" type="qapi_BLE_HCI_COMM_Protocol_t"/>
+      <member attributes="value" name="BaudRate" type="uint32_t"/>
+      <member attributes="value" name="UseXonXoff" type="boolean_t"/>
+      <member attributes="value" name="XonValue" type="unsigned char"/>
+      <member attributes="value" name="XoffValue" type="unsigned char"/>
+      <member attributes="value" name="ParityValue" type="qapi_BLE_HCI_COMM_Parity_t"/>
+   </structure>
+   <structure name="qapi_BLE_HCI_H4DSConfiguration_t">
+      <member attributes="value" name="SyncTimeMS" type="uint32_t"/>
+      <member attributes="value" name="ConfTimeMS" type="uint32_t"/>
+      <member attributes="value" name="WakeUpTimeMS" type="uint32_t"/>
+      <member attributes="value" name="IdleTimeMS" type="uint32_t"/>
+      <member attributes="value" name="MaxTxFlushTimeMS" type="uint32_t"/>
+      <member attributes="value" name="WakeUpCount" type="uint32_t"/>
+      <member attributes="value" name="TicksPerWakueUp" type="uint32_t"/>
+      <member attributes="value" name="SleepCallbackFunction" type="qapi_BLE_HCI_Sleep_Callback_t"/>
+      <member attributes="value" name="SleepCallbackParameter" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_BLE_HCI_HCILLConfiguration_t">
+      <member attributes="value" name="SleepCallbackFunction" type="qapi_BLE_HCI_Sleep_Callback_t"/>
+      <member attributes="value" name="SleepCallbackParameter" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_BLE_HCI_3WireLinkConfiguration_t">
+      <member attributes="value" name="SlidingWindowSize" type="uint32_t"/>
+      <member attributes="value" name="SupportCRC" type="boolean_t"/>
+      <member attributes="value" name="SupportOOFFlowControl" type="boolean_t"/>
+   </structure>
+   <structure name="qapi_BLE_HCI_3WireConfiguration_t">
+      <member attributes="value" name="LinkConfiguration" type="qapi_BLE_HCI_3WireLinkConfiguration_t"/>
+      <member attributes="value" name="IdleTimeMS" type="uint32_t"/>
+      <member attributes="value" name="RetransmitTimeMS" type="uint32_t"/>
+      <member attributes="value" name="AcknowledgeDelayMS" type="uint32_t"/>
+      <member attributes="value" name="SleepCallbackFunction" type="qapi_BLE_HCI_Sleep_Callback_t"/>
+      <member attributes="value" name="SleepCallbackParameter" type="uint32_t"/>
+      <member attributes="value" name="Flags" type="uint32_t"/>
+   </structure>
+   <structure name="qapi_BLE_HCI_SIBSConfiguration_t">
+      <member attributes="value" name="TxIdleTimeMs" type="uint32_t"/>
+      <member attributes="value" name="RetransmitTimeMs" type="uint32_t"/>
+      <member attributes="value" name="AggressiveSleep" type="boolean_t"/>
+      <member attributes="value" name="SleepCallbackFunction" type="qapi_BLE_HCI_Sleep_Callback_t"/>
+      <member attributes="value" name="SleepCallbackParameter" type="uint32_t"/>
+   </structure>
+   <callback name="qapi_BLE_HCI_Sleep_Callback_t">
+      <return attributes="value" type="void"/>
+      <argument attributes="value" name="SleepAllowed" type="boolean_t"/>
+      <argument attributes="value" name="CallbackParameter" type="uint32_t"/>
+      <destroyFunction ID="BluetoothStackID" name="BSC_Shutdown"/>
+   </callback>
+</header>

@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<header>
+   <include name="qapi_status.h"/>
+   <macro name="QAPI_STATUS" params="(x)" value="x ? __QAPI_ERROR(QAPI_MOD_WIFI, ((x)+2)): QAPI_OK"/>
+   <macro name="QAPI_WLAN_OK" value="QAPI_OK"/>
+   <macro name="QAPI_WLAN_ERROR" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 1)))"/>
+   <macro name="QAPI_WLAN_ERR_DEVICE_NOT_FOUND" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 3)))"/>
+   <macro name="QAPI_WLAN_ERR_NO_MEMORY" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 4)))"/>
+   <macro name="QAPI_WLAN_ERR_MEMORY_NOT_AVAIL" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 5)))"/>
+   <macro name="QAPI_WLAN_ERR_NO_FREE_DESC" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 6)))"/>
+   <macro name="QAPI_WLAN_ERR_BAD_ADDRESS" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 7)))"/>
+   <macro name="QAPI_WLAN_ERR_WIN_DRIVER_ERROR" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 8)))"/>
+   <macro name="QAPI_WLAN_ERR_REGS_NOT_MAPPED" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 9)))"/>
+   <macro name="QAPI_WLAN_ERR_EPERM" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 10)))"/>
+   <macro name="QAPI_WLAN_ERR_EACCES" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 11)))"/>
+   <macro name="QAPI_WLAN_ERR_ENOENT" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 12)))"/>
+   <macro name="QAPI_WLAN_ERR_EEXIST" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 13)))"/>
+   <macro name="QAPI_WLAN_ERR_EFAULT" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 14)))"/>
+   <macro name="QAPI_WLAN_ERR_EBUSY" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 15)))"/>
+   <macro name="QAPI_WLAN_ERR_EINVAL" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 16)))"/>
+   <macro name="QAPI_WLAN_ERR_EMSGSIZE" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 17)))"/>
+   <macro name="QAPI_WLAN_ERR_ECANCELED" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 18)))"/>
+   <macro name="QAPI_WLAN_ERR_ENOTSUP" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 19)))"/>
+   <macro name="QAPI_WLAN_ERR_ECOMM" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 20)))"/>
+   <macro name="QAPI_WLAN_ERR_EPROTO" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 21)))"/>
+   <macro name="QAPI_WLAN_ERR_ENODEV" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 22)))"/>
+   <macro name="QAPI_WLAN_ERR_EDEVNOTUP" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 23)))"/>
+   <macro name="QAPI_WLAN_ERR_NO_RESOURCE" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 24)))"/>
+   <macro name="QAPI_WLAN_ERR_HARDWARE" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 25)))"/>
+   <macro name="QAPI_WLAN_ERR_PENDING" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 26)))"/>
+   <macro name="QAPI_WLAN_ERR_EBADCHANNEL" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 27)))"/>
+   <macro name="QAPI_WLAN_ERR_DECRYPT_ERROR" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 28)))"/>
+   <macro name="QAPI_WLAN_ERR_PHY_ERROR" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 29)))"/>
+   <macro name="QAPI_WLAN_ERR_CONSUMED" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 30)))"/>
+   <macro name="QAPI_WLAN_ERR_CLONE" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 31)))"/>
+   <macro name="QAPI_WLAN_ERR_HW_CONFIG_ERROR" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 32)))"/>
+   <macro name="QAPI_WLAN_ERR_SOCKCXT_NOT_FOUND" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 33)))"/>
+   <macro name="QAPI_WLAN_ERR_UNKNOWN_CMD" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 34)))"/>
+   <macro name="QAPI_WLAN_ERR_SOCK_UNAVAILABLE" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 35)))"/>
+   <macro name="QAPI_WLAN_ERR_MEMFREE_ERROR" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 36)))"/>
+   <macro name="QAPI_WLAN_ERR_QOSAL_INVALID_TASK_ID" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 37)))"/>
+   <macro name="QAPI_WLAN_ERR_QOSAL_INVALID_PARAMETER" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 38)))"/>
+   <macro name="QAPI_WLAN_ERR_QOSAL_INVALID_POINTER" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 39)))"/>
+   <macro name="QAPI_WLAN_ERR_QOSAL_ALREADY_EXISTS" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 40)))"/>
+   <macro name="QAPI_WLAN_ERR_QOSAL_INVALID_EVENT" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 41)))"/>
+   <macro name="QAPI_WLAN_ERR_QOSAL_EVENT_TIMEOUT" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 42)))"/>
+   <macro name="QAPI_WLAN_ERR_QOSAL_INVALID_MUTEX" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 43)))"/>
+   <macro name="QAPI_WLAN_ERR_QOSAL_TASK_ALREADY_LOCKED" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 44)))"/>
+   <macro name="QAPI_WLAN_ERR_QOSAL_MUTEX_ALREADY_LOCKED" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 45))) "/>
+   <macro name="QAPI_WLAN_ERR_QOSAL_OUT_OF_MEMORY" value="((qapi_Status_t)(__QAPI_ERROR(QAPI_MOD_WIFI, 46)))"/>
+</header>
