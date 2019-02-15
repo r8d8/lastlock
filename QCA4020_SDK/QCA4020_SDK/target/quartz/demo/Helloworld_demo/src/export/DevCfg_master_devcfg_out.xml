@@ -364,7 +364,7 @@ Clock selection for different modes are described under pwm_Source_CLK_t
   </global_def>
   <device id="0x02000018">
     <props id="0x1" oem_configurable="false" type="0x00000014"> devcfgSleepData </props>
-    <props id="0x2" oem_configurable="false" type="0x00000002"> 0 </props>
+    <props id="0x2" oem_configurable="false" type="0x00000002"> 1 </props>
     <props id="0x3" oem_configurable="false" type="0x00000002"> 632 </props>
     <props id="0x4" oem_configurable="false" type="0x00000002"> 96 </props>
   </device>

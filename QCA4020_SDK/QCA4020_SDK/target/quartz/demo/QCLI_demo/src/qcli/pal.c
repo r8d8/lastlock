@@ -315,6 +315,9 @@ static void Initialize_Samples(void)
 #ifdef CONFIG_PERIPHERALS_DEMO
    Initialize_Peripherals_Demo();
 #endif
+#ifdef CONFIG_LASTLOCK_DEMO
+   Initialize_Lastlock_Demo();
+#endif
 #ifdef CONFIG_PLATFORM_DEMO
    Initialize_Platform_Demo();
 #endif
