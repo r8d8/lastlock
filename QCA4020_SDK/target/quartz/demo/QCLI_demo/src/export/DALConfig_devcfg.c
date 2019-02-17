@@ -4,27 +4,27 @@
 #ifndef DAL_CONFIG_IMAGE_APPS 
 #define DAL_CONFIG_IMAGE_APPS 
 #endif 
-extern void * I2CCoreConfig01_qca4020_devcfg_xml;
-extern void * spi_first_port_qca4020_devcfg_xml;
-extern void * gAdcBsp_qca4020_devcfg_xml;
-extern void * gTsensBsp_qca4020_devcfg_xml;
-extern void * gGPIOIntConfigTable_qca4020_devcfg_xml;
-extern void * InterruptControllerPriorityConfig_qca4020_devcfg_xml;
-extern void * IPCIntConfig_qca4020_devcfg_xml;
-extern void * IPCIntIRQData_qca4020_devcfg_xml;
+extern void * I2CCoreConfig01_qca4024_devcfg_xml;
+extern void * spi_first_port_qca4024_devcfg_xml;
+extern void * gAdcBsp_qca4024_devcfg_xml;
+extern void * gTsensBsp_qca4024_devcfg_xml;
+extern void * gGPIOIntConfigTable_qca4024_devcfg_xml;
+extern void * InterruptControllerPriorityConfig_qca4024_devcfg_xml;
+extern void * IPCIntConfig_qca4024_devcfg_xml;
+extern void * IPCIntIRQData_qca4024_devcfg_xml;
 
-const void * DALPROP_StructPtrs_qca4020_devcfg_xml[9] =  {
-	 &I2CCoreConfig01_qca4020_devcfg_xml,
-	 &spi_first_port_qca4020_devcfg_xml,
-	 &gAdcBsp_qca4020_devcfg_xml,
-	 &gTsensBsp_qca4020_devcfg_xml,
-	 &gGPIOIntConfigTable_qca4020_devcfg_xml,
-	 &InterruptControllerPriorityConfig_qca4020_devcfg_xml,
-	 &IPCIntConfig_qca4020_devcfg_xml,
-	 &IPCIntIRQData_qca4020_devcfg_xml,
+const void * DALPROP_StructPtrs_qca4024_devcfg_xml[9] =  {
+	 &I2CCoreConfig01_qca4024_devcfg_xml,
+	 &spi_first_port_qca4024_devcfg_xml,
+	 &gAdcBsp_qca4024_devcfg_xml,
+	 &gTsensBsp_qca4024_devcfg_xml,
+	 &gGPIOIntConfigTable_qca4024_devcfg_xml,
+	 &InterruptControllerPriorityConfig_qca4024_devcfg_xml,
+	 &IPCIntConfig_qca4024_devcfg_xml,
+	 &IPCIntIRQData_qca4024_devcfg_xml,
 	 NULL 
  };
-const uint32 DALPROP_PropBin_qca4020_devcfg_xml[] = {
+const uint32 DALPROP_PropBin_qca4024_devcfg_xml[] = {
 
 			0x00000464, 0x00000088, 0x000000e0, 0x000000e0, 0x00000160, 
 			0x0000000e, 0x0200000a, 0x00000198, 0x0200001b, 0x000001d8, 
