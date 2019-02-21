@@ -70,7 +70,7 @@
 #include "aws_util.h"
 #endif
 
-#include "timer_interface.h"
+// #include "timer_interface.h"
 #include "led_utils.h"
 #include "log_util.h"
 #include "zigbee_util.h"
@@ -1234,7 +1234,7 @@ void Initialize_onboard_demo(void)
     }
 
     /** Create Signal object for monitor events */
-    if (QURT_EOK != qurt_signal_init(&monitor_sigevent))
+    if (QURT_EOK != qurt_sgignal_init(&monitor_sigevent))
     {
         ONB_ERROR("qurt_signal_create event is failed\n");
         goto end;

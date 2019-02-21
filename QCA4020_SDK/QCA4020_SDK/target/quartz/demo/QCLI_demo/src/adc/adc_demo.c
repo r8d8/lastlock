@@ -37,7 +37,7 @@ QCLI_Command_Status_t adc_test(uint32_t Parameter_Count, QCLI_Parameter_t *Param
 const QCLI_Command_t adc_cmd_list[] =
 {
    // cmd_function        start_thread          cmd_string               usage_string                   description
-   { adc_test,    false,          "read",                     "",                    "read"   },
+   { adc_test,            false,                  "read",                     "",                           "read"   },
 };
 
 const QCLI_Command_Group_t adc_cmd_group =

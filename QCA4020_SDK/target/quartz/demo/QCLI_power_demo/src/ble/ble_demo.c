@@ -5009,11 +5009,11 @@ static QCLI_Command_Status_t RecieverTest(uint32_t Parameter_Count, QCLI_Paramet
    {
       /* Next check to see if the parameters required for the execution */
       /* of this function appear to be semi-valid.                      */
-      if((Parameter_Count >= 1) && (Parameter_List) && (Parameter_List[0].Integer_Is_Valid) && (Parameter_List[0].Integer_Value >= QAPI_BLE_HCI_LE_RECEIVER_TRANSMITTER_TEST_FREQUENCY_MINIMUM) && (Parameter_List[0].Integer_Value <= QAPI_BLE_HCI_LE_RECEIVER_TRANSMITTER_TEST_FREQUENCY_MAXIMUM))
+      if ((Parameter_Count >= 1) && (Parameter_List) && (Parameter_List[0].Integer_Is_Valid) && (Parameter_List[0].Integer_Value >= QAPI_BLE_HCI_LE_RECEIVER_TRANSMITTER_TEST_FREQUENCY_MINIMUM) && (Parameter_List[0].Integer_Value <= QAPI_BLE_HCI_LE_RECEIVER_TRANSMITTER_TEST_FREQUENCY_MAXIMUM))
       {
          Result = qapi_BLE_HCI_LE_Receiver_Test(BLE_Demo_Context.BluetoothStackID, Parameter_List[0].Integer_Value, &Status);
 
-         if((Result == 0) && (Status == 0))
+         if ((Result == 0) && (Status == 0))
          {
             QCLI_Printf(BLE_Demo_Context.QCLI_DUT_Handle, "Receiver Test Started.\n");
             ret_val = QCLI_STATUS_SUCCESS_E;
@@ -6356,17 +6356,17 @@ qbool_t BLE_Prepare_Mode_Switch(Operating_Mode_t Next_Mode)
 #ifdef V2
 
       /* Make sure we are in a state where we can transition out of FOM.*/
-      if(QAPI_BLE_COMPARE_NULL_BD_ADDR(BLE_Demo_Context.ConnectionBD_ADDR))
+      if (QAPI_BLE_COMPARE_NULL_BD_ADDR(BLE_Demo_Context.ConnectionBD_ADDR))
 
 #else
 
-      if(1)
+      if (1)
 
 #endif
       {
          /* Allocate the transition memory.                             */
          Result = qapi_OMSM_Alloc(QAPI_OMSM_DEFAULT_AON_POOL, OMSM_CLIENT_ID_BLE_E, sizeof(BLE_Demo_Transition_Data_t), &Buffer);
-         if((Result == QAPI_OK) && (Buffer != NULL))
+         if ((Result == QAPI_OK) && (Buffer != NULL))
          {
             /* Attempt to commit the memory.                            */
             Result = qapi_OMSM_Commit(QAPI_OMSM_DEFAULT_AON_POOL, OMSM_CLIENT_ID_BLE_E);

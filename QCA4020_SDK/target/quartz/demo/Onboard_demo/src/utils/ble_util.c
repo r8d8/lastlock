@@ -1008,50 +1008,42 @@ static int CloseStack(void)
  * @func : InitializeBluetooth
  * @Desc : The following function is responsible for initializing the stack
  */
-int InitializeBluetooth(void)
-{
-    int Result;
+int InitializeBluetooth(void) {
+    int err;
     int ret_val;
 
     QAPI_BLE_HCI_DRIVER_SET_COMM_INFORMATION(&HCI_DriverInformation, 1, 115200, QAPI_BLE_COMM_PROTOCOL_UART_E);
 
     /* First, check that the stack is not currently initialized.         */
-    if(!BluetoothStackID)
-    {
+    if(!BluetoothStackID) {
         /* Attempt to open the stack.                                     */
-        Result = OpenStack(&HCI_DriverInformation);
-        if(!Result)
-        {
+        err = OpenStack(&HCI_DriverInformation);
+        if(!err) {
             /* Set the default pairability.                                */
-            Result = SetPairable();
-            if(!Result)
-            {
+            err = SetPairable();
+            if(!err) {
                 /* Set the default discoverability.                         */
-                Result = SetDisc();
-                if(!Result)
-                {
+                err = SetDisc();
+                if(!err) {
                     /* Set the default connectability.                       */
-                    Result = SetConnect();
+                    err = SetConnect();
                 }
             }
 
             /* If the failure occurred after the stack initialized then    */
             /* shut it down.                                               */
-            if(Result)
+            if(err)
                 CloseStack();
         }
 
         /* Set the QCLI error type appropriately.                         */
-        if(!Result)
+        if(!err)
             ret_val = QCLI_STATUS_SUCCESS_E;
         else
             ret_val = QCLI_STATUS_ERROR_E;
-    }
-    else
-    {
+    } else {
         /* No valid Bluetooth Stack ID exists.                            */
         LOG_WARN("Bluetooth stack is already initialized.");
-
         ret_val = QCLI_STATUS_SUCCESS_E;
     }
 

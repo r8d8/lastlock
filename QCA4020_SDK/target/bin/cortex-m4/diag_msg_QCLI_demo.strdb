@@ -8,8 +8,7 @@
 
 328253558:MAC PROGRAM ERROR: unknown driver error
 
-3101465195:
-Custom_Platform_Assert_Handler(): driver assert at line: %d Error: %d 
+749809027:rodata = %d
 
 994539013:Invalid len=%d
 
@@ -22,7 +21,7 @@ DBGLOGS dropped in FW: %d
 380221709:channel number is invalid
 
 530298382:Custom_Platform_Tunable_Init(): error
-749809027:rodata = %d
+2360976659:ATH_REG_OP_READ: Driver_ReadRegDiag fail %d
 
 1099217557:Net: Socket info alloc failed
 
@@ -32,7 +31,6 @@ DBGLOGS dropped in FW: %d
 
 905735321: Pool updated : %d
 
-1573184922:sample test command with no argument
 3356571546:MAC PROGRAM ERROR: the driver was unable to complete the request.
 
 2576769185:0x%08X 
@@ -48,7 +46,6 @@ PKTLOG pkt size: %d
 
 1623134509:DIAG:RSP 0
 
-4013006173:sample test command with 3 arguments arg1:%d arg2:%d arg3:%d 
 1142784945:
 DBGLOG pkt size: %d
 1015469749:text = %d
@@ -57,7 +54,7 @@ DBGLOG pkt size: %d
 
 3288320313:TX Idle
 
-3048478397:diag_cli_process_pkt: received invalid command 
+3734280765:Net: NS alloc failed
 
 2891686974:Command Failed
 
@@ -69,6 +66,8 @@ DBGLOG pkt size: %d
 
 1350359862:value=%08x
 
+3014689505: possibly the same MAC address is already programmed.
+
 568518218:ATH_REG_OP_WRITE: Driver_WriteRegDiag fail %d
 
 2213559115:MAC PROGRAM ERROR: Device unknown failure.
@@ -77,21 +76,20 @@ DBGLOG pkt size: %d
  Diag print failed...!!
 3370581327:invalid index value
 
-3080288209:sample test command with 1 argument arg1:%d
-1123038163:firmware memory stats:
+2153867235:Crypto: Tunables not found. Falling back to defaults.
 
 4147283029:invalid max profiles value
 
-2299037655:sample test command with 2 arguments arg1:%d arg2:%d 
 1321387993:Invalid MAC address length
 
 499178331:bss = %d
 
 1449662685:Net: Socket function alloc failed
 
-3014689505: possibly the same MAC address is already programmed.
+3048478397:diag_cli_process_pkt: received invalid command 
 
-2153867235:Crypto: Tunables not found. Falling back to defaults.
+3101465195:
+Custom_Platform_Assert_Handler(): driver assert at line: %d Error: %d 
 
 2361855211:Net: DNSc socket open failed
 
@@ -101,7 +99,7 @@ DBGLOG pkt size: %d
 
 2025813746:Invalid character
 
-2360976659:ATH_REG_OP_READ: Driver_ReadRegDiag fail %d
+1123038163:firmware memory stats:
 
 3665909621:ATH_REG_OP_RMW: Driver_WriteRegDiag fail %d
 
@@ -112,8 +110,6 @@ DBGLOG pkt size: %d
 655963001:literals = %d
 
 4271267962:Invalid result
-
-3734280765:Net: NS alloc failed
 
 242174741:TX status WIFI Pending 
 

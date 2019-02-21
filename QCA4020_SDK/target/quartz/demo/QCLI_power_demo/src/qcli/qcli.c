@@ -1391,7 +1391,7 @@ void QCLI_Exit_Mode(Operating_Mode_t Next_Mode)
 */
 void QCLI_Restore_State(void)
 {
-#if 0
+// #if 0
    QCLI_Transition_Data_t *Transition_Data;
    uint8_t                 Terminator;
 
@@ -1409,7 +1409,7 @@ void QCLI_Restore_State(void)
 //xxx replace with correct free
       free(Transition_Data);
    }
-#endif
+// #endif
 }
 
 /**

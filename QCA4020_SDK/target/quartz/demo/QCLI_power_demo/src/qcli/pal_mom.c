@@ -62,7 +62,7 @@ static void PAL_MOM_Initialize(void)
 {
    /* Register the MOM operating modes. */
 #ifdef V1
-   qapi_OMTM_MOM_Register_Operating_Modes(omtm_operating_mode_tbl_sram, 3, 2);
+   qapi_OMTM_MOM_Register_Operating_Modqapi_OMTM_MOM_Register_Operating_Modeses(omtm_operating_mode_tbl_sram, 3, 2);
 #endif
 }
 

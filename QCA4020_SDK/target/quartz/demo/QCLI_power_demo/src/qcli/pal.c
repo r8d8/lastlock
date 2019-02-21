@@ -129,6 +129,7 @@ static const Demo_Function_List_t Demo_Function_List[] =
    {Initialize_HMI_Demo,  Start_HMI_Demo, HMI_Prepare_Mode_Switch,  HMI_Cancel_Mode_Switch,  HMI_Exit_Mode},
    {Initialize_BLE_Demo,  NULL,           BLE_Prepare_Mode_Switch,  BLE_Cancel_Mode_Switch,  BLE_Exit_Mode},
    {Initialize_Coex_Demo, NULL,           Coex_Prepare_Mode_Switch, Coex_Cancel_Mode_Switch, Coex_Exit_Mode},
+   {Initialize_Lastlock_Demo, NULL,       Lastlock_Prepare_Mode_Switch, Lastlock_Cancel_Mode_Switch, Lastlock_Exit_Mode},
 };
 
 #define QCLI_DEMO_COUNT                                 (sizeof(Demo_Function_List) / sizeof(Demo_Function_List_t))
@@ -324,21 +325,21 @@ static void QCLI_Thread(void *Param)
    Start_Samples(ColdBoot);
 
    /* Display the initialize command list. */
-   if(ColdBoot)
+   if (ColdBoot)
    {
       QCLI_Display_Command_List();
    }
 
    /* Loop waiting for received data. */
-   while(true)
+   while (true)
    {
       /* Wait for data to be received. */
-      while((PAL_Context.Rx_Buffers_Free == PAL_RECIEVE_BUFFER_COUNT) && (PAL_Context.Switch_Mode == (uint32_t)OPERATING_MODE_FOM_E))
+      while ((PAL_Context.Rx_Buffers_Free == PAL_RECIEVE_BUFFER_COUNT) && (PAL_Context.Switch_Mode == (uint32_t)OPERATING_MODE_FOM_E))
       {
          qurt_signal_wait(&(PAL_Context.Event), PAL_EVENT_MASK_RECEIVE | PAL_EVENT_MASK_SWITCH_OPERATING_MODE, QURT_SIGNAL_ATTR_WAIT_ANY | QURT_SIGNAL_ATTR_CLEAR_MASK);
       }
 
-      if(PAL_Context.Switch_Mode != (uint32_t)OPERATING_MODE_FOM_E)
+      if (PAL_Context.Switch_Mode != (uint32_t)OPERATING_MODE_FOM_E)
       {
 
          /* Switch operating modes. */

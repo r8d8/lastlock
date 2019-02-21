@@ -2387,6 +2387,13 @@
 		<Unit filename="/home/k2/Workbench/QCA4020_SDK/target/quartz/demo/QCLI_demo/src/pwm/pwm_demo.h">
 			<Option target="QCA4020_SDK"/>
 		</Unit>
+		</Unit>
+		<Unit filename="/home/k2/Workbench/QCA4020_SDK/target/quartz/demo/QCLI_demo/src/lastlock/lastlock_demo.c">
+			<Option target="QCA4020_SDK"/>
+		</Unit>
+		<Unit filename="/home/k2/Workbench/QCA4020_SDK/target/quartz/demo/QCLI_demo/src/lastlock/lastlock_demo.h">
+			<Option target="QCA4020_SDK"/>
+		</Unit>
 		<Unit filename="/home/k2/Workbench/QCA4020_SDK/target/quartz/demo/QCLI_demo/src/qcli/pal.c">
 			<Option target="QCA4020_SDK"/>
 		</Unit>

@@ -31,7 +31,7 @@
 #include "sensors_demo.h"
 #include "adc_demo.h"
 #include "pwm_demo.h"
-#include "pwm_demo.h"
+#include "lastlock_demo.h"
 #include "peripherals_demo.h"
 #include "master_sdcc_demo.h"
 #include "htc_slave_demo.h"
@@ -64,7 +64,8 @@ void Initialize_Peripherals_Demo(void)
    {
 	   Initialize_ADC_Demo();
 	   Initialize_Sensors_Demo();
-	   Initialize_PWM_Demo();
+	   Initialize_Lastlock_Demo();
+      Initialize_PWM_Demo();
 	   Initialize_SDCCM_Demo();
 	   Initialize_HTCSlave_Demo();
 	   Initialize_HTCHost_Demo();

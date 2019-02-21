@@ -4,27 +4,27 @@
 #ifndef DAL_CONFIG_IMAGE_APPS 
 #define DAL_CONFIG_IMAGE_APPS 
 #endif 
-extern void * I2CCoreConfig01_qca4024_devcfg_xml;
-extern void * spi_first_port_qca4024_devcfg_xml;
-extern void * gAdcBsp_qca4024_devcfg_xml;
-extern void * gTsensBsp_qca4024_devcfg_xml;
-extern void * gGPIOIntConfigTable_qca4024_devcfg_xml;
-extern void * InterruptControllerPriorityConfig_qca4024_devcfg_xml;
-extern void * IPCIntConfig_qca4024_devcfg_xml;
-extern void * IPCIntIRQData_qca4024_devcfg_xml;
+extern void * I2CCoreConfig01_qca4020_devcfg_xml;
+extern void * spi_first_port_qca4020_devcfg_xml;
+extern void * gAdcBsp_qca4020_devcfg_xml;
+extern void * gTsensBsp_qca4020_devcfg_xml;
+extern void * gGPIOIntConfigTable_qca4020_devcfg_xml;
+extern void * InterruptControllerPriorityConfig_qca4020_devcfg_xml;
+extern void * IPCIntConfig_qca4020_devcfg_xml;
+extern void * IPCIntIRQData_qca4020_devcfg_xml;
 
-const void * DALPROP_StructPtrs_qca4024_devcfg_xml[9] =  {
-	 &I2CCoreConfig01_qca4024_devcfg_xml,
-	 &spi_first_port_qca4024_devcfg_xml,
-	 &gAdcBsp_qca4024_devcfg_xml,
-	 &gTsensBsp_qca4024_devcfg_xml,
-	 &gGPIOIntConfigTable_qca4024_devcfg_xml,
-	 &InterruptControllerPriorityConfig_qca4024_devcfg_xml,
-	 &IPCIntConfig_qca4024_devcfg_xml,
-	 &IPCIntIRQData_qca4024_devcfg_xml,
+const void * DALPROP_StructPtrs_qca4020_devcfg_xml[9] =  {
+	 &I2CCoreConfig01_qca4020_devcfg_xml,
+	 &spi_first_port_qca4020_devcfg_xml,
+	 &gAdcBsp_qca4020_devcfg_xml,
+	 &gTsensBsp_qca4020_devcfg_xml,
+	 &gGPIOIntConfigTable_qca4020_devcfg_xml,
+	 &InterruptControllerPriorityConfig_qca4020_devcfg_xml,
+	 &IPCIntConfig_qca4020_devcfg_xml,
+	 &IPCIntIRQData_qca4020_devcfg_xml,
 	 NULL 
  };
-const uint32 DALPROP_PropBin_qca4024_devcfg_xml[] = {
+const uint32 DALPROP_PropBin_qca4020_devcfg_xml[] = {
 
 			0x00000464, 0x00000088, 0x000000e0, 0x000000e0, 0x00000160, 
 			0x0000000e, 0x0200000a, 0x00000198, 0x0200001b, 0x000001d8, 
@@ -74,7 +74,7 @@ const uint32 DALPROP_PropBin_qca4024_devcfg_xml[] = {
 			0x02000006, 0x00000000, 0x02000007, 0x00000001, 0x02000008, 
 			0x0000000a, 0x02000009, 0x00000001, 0x0200000a, 0x00000000, 
 			0x0200000b, 0x900e0003, 0x0200000c, 0x00009055, 0xff00ff00, 
-			(335544320| (0x1 & 0x00FFFFFF)), 0x0000001c, (33554432| (0x2 & 0x00FFFFFF)), 0x00000001, (33554432| (0x3 & 0x00FFFFFF)), 
+			(335544320| (0x1 & 0x00FFFFFF)), 0x0000001c, (33554432| (0x2 & 0x00FFFFFF)), 0x00000000, (33554432| (0x3 & 0x00FFFFFF)), 
 			0x00000278, (33554432| (0x4 & 0x00FFFFFF)), 0x00000060, 0xff00ff00, 0x08000000, 
 			0x40010203, 0x00000000, 0x02000001, 0x00000100, 0x02000002, 
 			0x00000100, 0x02000003, 0x000001f4, 0xff00ff00, (301989888| (0x55 & 0x00FFFFFF)), 

@@ -54,60 +54,54 @@ qapi_PWM_Config_t pwm_config = {
 
 qapi_PWM_Handle_t  handleArray[2] = {NULL, NULL};
 
-int32_t pwm_driver_test( uint32_t Parameter_Count, QCLI_Parameter_t *Parameter_List )
-{
+int32_t pwm_driver_test( uint32_t Parameter_Count, QCLI_Parameter_t *Parameter_List ) {
 	qapi_Status_t status;
 	qapi_PWM_Handle_t   handle;
-	uint32_t   channel = QAPI_PWM_CHANNEL_7_E;
-	uint32_t   wait_time_ms = 1000;
+	uint32_t channel = QAPI_PWM_CHANNEL_7_E;
+	uint32_t wait_time_ms = 1000;
 	
-	if (Parameter_Count >= 1)
-	{
+	if (Parameter_Count >= 1) {
 		pwm_config.freq = Parameter_List->Integer_Value;
 		Parameter_List++;
 	}
 
-	if (Parameter_Count >= 2)
-	{
+	if (Parameter_Count >= 2) {
 		pwm_config.duty = Parameter_List->Integer_Value;
 		Parameter_List++;
 	}
 
-	if (Parameter_Count >= 3)
-	{
+	if (Parameter_Count >= 3) {
 		pwm_config.phase = Parameter_List->Integer_Value;
 		Parameter_List++;
 	}
 
-	if (Parameter_Count >= 4)
-	{
+	if (Parameter_Count >= 4) {
 		channel = Parameter_List->Integer_Value;
 		Parameter_List++;
 	}
 
-	if (Parameter_Count >= 5)
-	{
+	if (Parameter_Count >= 5) {
 		wait_time_ms = Parameter_List->Integer_Value * 1000;
 		Parameter_List++;
 	}
 	
 	status = qapi_PWM_Channel_Open(channel, &handle);
 	if (status != QAPI_OK)
-           return -1;
+        return -1;
 
 	status = qapi_PWM_Channel_Set(handle, &pwm_config);
 	if (status != QAPI_OK)
-           return -2;
+        return -2;
 
 	handleArray[0] = handle;
 	
 	status = qapi_PWM_Enable(handleArray, 1, 1);
 	if (status != QAPI_OK)
-           return -3;
+        return -3;
 
 	PWM_wait(wait_time_ms);
 		
 	qapi_PWM_Channel_Close(handle);
         
-        return 0;
+    return 0;
 }

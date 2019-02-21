@@ -26,9 +26,9 @@
  * according to the json format 
  *
  */
-#include "stdio.h"
-#include "string.h"
-#include "stdlib.h"
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 #include "qcli_api.h"
 #include "qurt_types.h"
 #include "aws_util.h"
