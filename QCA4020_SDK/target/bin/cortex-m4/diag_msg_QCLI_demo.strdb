@@ -76,7 +76,7 @@ DBGLOG pkt size: %d
  Diag print failed...!!
 3370581327:invalid index value
 
-2153867235:Crypto: Tunables not found. Falling back to defaults.
+1123038163:firmware memory stats:
 
 4147283029:invalid max profiles value
 
@@ -85,6 +85,8 @@ DBGLOG pkt size: %d
 499178331:bss = %d
 
 1449662685:Net: Socket function alloc failed
+
+2153867235:Crypto: Tunables not found. Falling back to defaults.
 
 3048478397:diag_cli_process_pkt: received invalid command 
 
@@ -98,8 +100,6 @@ Custom_Platform_Assert_Handler(): driver assert at line: %d Error: %d
 4033816689:Net: Socket handle alloc failed. max# %d
 
 2025813746:Invalid character
-
-1123038163:firmware memory stats:
 
 3665909621:ATH_REG_OP_RMW: Driver_WriteRegDiag fail %d
 

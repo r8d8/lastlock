@@ -825,8 +825,6 @@ add_executable(QCA4020_SDK
         target/quartz/demo/QCLI_demo/src/pwm/pwm.c
         target/quartz/demo/QCLI_demo/src/pwm/pwm_demo.c
         target/quartz/demo/QCLI_demo/src/pwm/pwm_demo.h
-        target/quartz/demo/QCLI_demo/src/lastlock/lastlock_demo.h
-        target/quartz/demo/QCLI_demo/src/lastlock/lastlock_demo.c
         target/quartz/demo/QCLI_demo/src/qcli/pal.c
         target/quartz/demo/QCLI_demo/src/qcli/pal.h
         target/quartz/demo/QCLI_demo/src/qcli/qcli.c

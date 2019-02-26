@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/k2/Workbench/QCA4020_SDK/target/quartz/serializer/testapp/serializer_tester/serializer_tester.cpp
+stdafx.h
+/home/k2/Workbench/QCA4020_SDK/target/quartz/serializer/testapp/serializer_tester/stdafx.h
+
+/home/k2/Workbench/QCA4020_SDK/target/quartz/serializer/testapp/serializer_tester/stdafx.cpp
+stdafx.h
+/home/k2/Workbench/QCA4020_SDK/target/quartz/serializer/testapp/serializer_tester/stdafx.h
+
+/home/k2/Workbench/QCA4020_SDK/target/quartz/serializer/testapp/serializer_tester/stdafx.h
+targetver.h
+/home/k2/Workbench/QCA4020_SDK/target/quartz/serializer/testapp/serializer_tester/targetver.h
+stdio.h
+-
+tchar.h
+-
+
+/home/k2/Workbench/QCA4020_SDK/target/quartz/serializer/testapp/serializer_tester/targetver.h
+SDKDDKVer.h
+-
+

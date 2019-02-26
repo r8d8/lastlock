@@ -146,9 +146,10 @@ uint32 qurt_signal_wait(qurt_signal_t *signal, uint32 mask, uint32 attribute)
 {
     uint32 set_signal = 0;
     /* signal wait is not supported from ISR */
-    //    ASSERT(0 == qurt_system_get_ipsr());
-    //        qurt_signal_wait_timed(signal, mask, attribute, &set_signal, QURT_TIME_WAIT_FOREVER);
-    return set_signal;
+    ASSERT(0 == qurt_system_get_ipsr());
+    qurt_signal_wait_timed(signal, mask, attribute, &set_signal, QURT_TIME_WAIT_FOREVER);
+    
+    return (set_signal);
 }
 
 void qurt_signal_set(qurt_signal_t *signal, uint32 mask)

@@ -6336,7 +6336,7 @@ void Initialize_BLE_Demo(qbool_t IsColdBoot)
    }
 }
 
-/**
+/*
    @brief Prepares the BLE demo for a mode change.
 
    @return true if the mode transition can proceed or false if it should be

@@ -46,6 +46,12 @@
 */
 #define PAL_OUTPUT_END_OF_LINE_STRING                       "\r\n"
 
+//
+#define PAL_MODE_TRANSITION_WAIT_MS                     (10)
+
+//
+#define PAL_MODE_TRANSITION_ATTEMPTS                    (100)
+
 /*-------------------------------------------------------------------------
  * Type Declarations
  *-----------------------------------------------------------------------*/
