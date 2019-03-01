@@ -63,7 +63,8 @@ typedef enum
    OMSM_CLIENT_ID_QCLI_E,
    OMSM_CLIENT_ID_HMI_DEMO_E,
    OMSM_CLIENT_ID_BLE_E,
-   OMSM_CLIENT_ID_COEX_DEMO_E
+   OMSM_CLIENT_ID_COEX_DEMO_E, 
+   OMSM_CLIENT_ID_LASTLOCK_E
 } OMSM_CLIENT_ID_t;
 
 extern qapi_OMTM_Operating_Mode_t omtm_operating_mode_tbl_sram[3];

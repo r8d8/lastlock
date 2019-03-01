@@ -522,7 +522,7 @@ const QCLI_Command_Group_t BLE_CMD_Group = {"BLE", (sizeof(BLE_CMD_List) / sizeo
 
 const QCLI_Command_t BLE_DUT_CMD_List[] =
 {
-   // cmd_function    start_thread      cmd_string  usage_string description
+   // cmd_function    start_thread      cmd_string  usage_string description 
    { RecieverTest,    false, "RecieverTest",    "[Frequency]",                        "Start a receiver test." },
    { TransmitterTest, false, "TransmitterTest", "[Frequency] [Length] [Payload 0-7]", "Start a transmitter test." },
    { TestEnd,         false, "TestEnd",         "",                                   "Ends a receiver or transmitter test." },
@@ -6270,14 +6270,15 @@ void Initialize_BLE_Demo(qbool_t IsColdBoot)
 
    memset(&BLE_Demo_Context, 0, sizeof(BLE_Demo_Context_t));
 
-   if(!IsColdBoot)
+   if (!IsColdBoot)
    {
       /* Restore settings from transition memory.                       */
-      Result = qapi_OMSM_Retrieve(QAPI_OMSM_DEFAULT_AON_POOL, OMSM_CLIENT_ID_BLE_E, &Data_Size, (void **)&Transition_Data);
+      Result = qapi_OMSM_Retrieve(QAPI_OMSM_DEFAULT_AON_POOL, 
+         OMSM_CLIENT_ID_BLE_E, &Data_Size, (void **)&Transition_Data);
 
-      if((Result == QAPI_OK) && (Transition_Data != NULL))
+      if ((Result == QAPI_OK) && (Transition_Data != NULL))
       {
-         if(Data_Size == sizeof(BLE_Demo_Transition_Data_t))
+         if (Data_Size == sizeof(BLE_Demo_Transition_Data_t))
          {
             /* Clear the BLE Demo Context.                              */
             memset(&BLE_Demo_Context, 0, sizeof(BLE_Demo_Context));
@@ -6293,14 +6294,21 @@ void Initialize_BLE_Demo(qbool_t IsColdBoot)
 
             /* Regenerate IRK and DHK from the constant Identity Root   */
             /* Key.                                                     */
-            qapi_BLE_GAP_LE_Diversify_Function(BLE_Demo_Context.BluetoothStackID, (qapi_BLE_Encryption_Key_t *)(&(BLE_Demo_Context.IR)), 1, 0, &(BLE_Demo_Context.IRK));
-            qapi_BLE_GAP_LE_Diversify_Function(BLE_Demo_Context.BluetoothStackID, (qapi_BLE_Encryption_Key_t *)(&(BLE_Demo_Context.IR)), 3, 0, &(BLE_Demo_Context.DHK));
+            qapi_BLE_GAP_LE_Diversify_Function(BLE_Demo_Context.BluetoothStackID, 
+               (qapi_BLE_Encryption_Key_t *)(&(BLE_Demo_Context.IR)), 
+               1, 0, &(BLE_Demo_Context.IRK));
+            
+            qapi_BLE_GAP_LE_Diversify_Function(BLE_Demo_Context.BluetoothStackID, 
+               (qapi_BLE_Encryption_Key_t *)(&(BLE_Demo_Context.IR)), 
+               3, 0, &(BLE_Demo_Context.DHK));
 
             /* Restore the paired devices.                              */
             for(Index=0;Index<Transition_Data->NumberPairedDevices;Index++)
             {
                /* Attempt to create the new entry.                      */
-               if(CreateNewDeviceInfoEntry(&(BLE_Demo_Context.DeviceInfoList), Transition_Data->PairedDevices[Index].ConnectionAddressType, Transition_Data->PairedDevices[Index].ConnectionBD_ADDR))
+               if (CreateNewDeviceInfoEntry(&(BLE_Demo_Context.DeviceInfoList), 
+                  Transition_Data->PairedDevices[Index].ConnectionAddressType, 
+                  Transition_Data->PairedDevices[Index].ConnectionBD_ADDR))
                {
                   /* Find the entry we just added.                      */
                   if((DeviceInfo = SearchDeviceInfoEntryByBD_ADDR(&(BLE_Demo_Context.DeviceInfoList), Transition_Data->PairedDevices[Index].ConnectionBD_ADDR)) != NULL)
@@ -6354,14 +6362,10 @@ qbool_t BLE_Prepare_Mode_Switch(Operating_Mode_t Next_Mode)
    {
 
 #ifdef V2
-
       /* Make sure we are in a state where we can transition out of FOM.*/
       if (QAPI_BLE_COMPARE_NULL_BD_ADDR(BLE_Demo_Context.ConnectionBD_ADDR))
-
 #else
-
       if (1)
-
 #endif
       {
          /* Allocate the transition memory.                             */
@@ -6375,11 +6379,9 @@ qbool_t BLE_Prepare_Mode_Switch(Operating_Mode_t Next_Mode)
             else
             {
                qapi_OMSM_Free(QAPI_OMSM_DEFAULT_AON_POOL, OMSM_CLIENT_ID_BLE_E);
-
 #ifdef V2
                Display_Function_Error(BLE_Demo_Context.QCLI_Handle, "qapi_OMSM_Commit", Result);
 #endif
-
                ret_val = false;
             }
          }
@@ -6388,7 +6390,6 @@ qbool_t BLE_Prepare_Mode_Switch(Operating_Mode_t Next_Mode)
 #ifdef V2
             Display_Function_Error(BLE_Demo_Context.QCLI_Handle, "qapi_OMSM_Alloc", Result);
 #endif
-
             ret_val = false;
          }
       }

@@ -1,5 +1,7 @@
-#include <qapi_pwm.h>
+#ifndef LASTLOCK_H
+#define LASTLOCK_H
 
+#include <qapi_pwm.h>
 
 
 int32_t 
@@ -21,3 +23,23 @@ lastlock_init(qbool_t IsColdBoot);
 */
 QCLI_Command_Status_t 
 lastlock_demo();
+
+/**
+   @brief
+*/
+qbool_t 
+Lastlock_Prepare_Mode_Switch(Operating_Mode_t Next_Mode);
+
+/**
+   @brief
+*/
+void 
+Lastlock_Cancel_Mode_Switch(void);
+
+/**
+   @brief
+*/
+void 
+Lastlock_Exit_Mode(Operating_Mode_t Next_Mode);
+
+#endif /* LASTLOCK_H */

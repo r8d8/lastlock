@@ -127,10 +127,10 @@ static const Demo_Function_List_t Demo_Function_List[] =
    {Initialize_HMI_Demo,  Start_HMI_Demo, HMI_Prepare_Mode_Switch,  HMI_Cancel_Mode_Switch,  HMI_Exit_Mode},
    {Initialize_BLE_Demo,  NULL,           BLE_Prepare_Mode_Switch,  BLE_Cancel_Mode_Switch,  BLE_Exit_Mode},
    {Initialize_Coex_Demo, NULL,           Coex_Prepare_Mode_Switch, Coex_Cancel_Mode_Switch, Coex_Exit_Mode},
-   {lastlock_init,        NULL,           NULL,                      NULL,                   NULL},
+   {lastlock_init,        NULL,           Lastlock_Prepare_Mode_Switch, Lastlock_Cancel_Mode_Switch, Lastlock_Exit_Mode},
 };
 
-#define QCLI_DEMO_COUNT                                 (sizeof(Demo_Function_List) / sizeof(Demo_Function_List_t))
+#define QCLI_DEMO_COUNT (sizeof(Demo_Function_List) / sizeof(Demo_Function_List_t))
 
 extern uint8_t  Reenable_UART;
 extern uint32_t Wakeup_Seconds;
@@ -332,100 +332,20 @@ static void QCLI_Thread(void *Param)
    while (true)
    {
       /* Wait for data to be received. */
-      while ((PAL_Context.Rx_Buffers_Free == PAL_RECIEVE_BUFFER_COUNT) && (PAL_Context.Switch_Mode == (uint32_t)OPERATING_MODE_FOM_E))
+      while ((PAL_Context.Rx_Buffers_Free == PAL_RECIEVE_BUFFER_COUNT) 
+         && (PAL_Context.Switch_Mode == (uint32_t)OPERATING_MODE_FOM_E))
       {
-         qurt_signal_wait(&(PAL_Context.Event), PAL_EVENT_MASK_RECEIVE | PAL_EVENT_MASK_SWITCH_OPERATING_MODE, QURT_SIGNAL_ATTR_WAIT_ANY | QURT_SIGNAL_ATTR_CLEAR_MASK);
+         qurt_signal_wait(&(PAL_Context.Event), 
+            PAL_EVENT_MASK_RECEIVE | PAL_EVENT_MASK_SWITCH_OPERATING_MODE, 
+            QURT_SIGNAL_ATTR_WAIT_ANY | QURT_SIGNAL_ATTR_CLEAR_MASK);
       }
 
       if (PAL_Context.Switch_Mode != (uint32_t)OPERATING_MODE_FOM_E)
       {
 
          /* Switch operating modes. */
-         Result = qapi_OMTM_Switch_Operating_Mode(PAL_Context.Switch_Mode, QAPI_OMTM_SWITCH_NOW_E);
-
-         if(Result == QAPI_OK)
-         {
-            /* Set the switch mode back so that the thread can go idle again. */
-            PAL_Context.Switch_Mode = (uint32_t)OPERATING_MODE_FOM_E;
-         }
-         else
-         {
-            /* Sleep the Thread for a short period then try again. */
-            PAL_Context.Transition_Attempts ++;
-
-            if(PAL_Context.Transition_Attempts >= PAL_MODE_TRANSITION_ATTEMPTS)
-            {
-               PAL_CONSOLE_WRITE_STRING_LITERAL("Mode transition failed.");
-               PAL_CONSOLE_WRITE_STRING_LITERAL(PAL_OUTPUT_END_OF_LINE_STRING);
-               PAL_CONSOLE_WRITE_STRING_LITERAL(PAL_OUTPUT_END_OF_LINE_STRING);
-
-               PAL_Context.Switch_Mode = (uint32_t)OPERATING_MODE_FOM_E;
-            }
-
-            qurt_thread_sleep(qurt_timer_convert_time_to_ticks((qurt_time_t)PAL_MODE_TRANSITION_WAIT_MS, QURT_TIME_MSEC));
-         }
-      }
-      else
-      {
-         CurrentIndex = (uint32_t)(PAL_Context.Rx_Out_Index);
-
-         /* Send the next buffer's data to QCLI for processing only if not
-            currently changing operating modes. This keeps new commands from
-            being executed while in a mode change. */
-         if(!PAL_Context.In_Transition)
-         {
-            QCLI_Process_Input_Data(PAL_Context.Rx_Buffer_Length[CurrentIndex], PAL_Context.Rx_Buffer[CurrentIndex]);
-         }
-
-         /* Adjust the indexes for the received data. */
-         PAL_Context.Rx_Out_Index ++;
-         if(PAL_Context.Rx_Out_Index == PAL_RECIEVE_BUFFER_COUNT)
-         {
-            PAL_Context.Rx_Out_Index = 0;
-         }
-
-         PAL_ENTER_CRITICAL();
-         PAL_Context.Rx_Buffers_Free ++;
-         PAL_EXIT_CRITICAL();
-
-         /* Re-queue the buffer with the UART driver. */
-         qapi_UART_Receive(PAL_Context.Console_UART, (char *)(PAL_Context.Rx_Buffer[CurrentIndex]), PAL_RECIEVE_BUFFER_SIZE, (void *)CurrentIndex);
-      }
-   }
-}
-
-static void Lastlock_Thread(void *Param)
-{
-   uint32_t      CurrentIndex;
-   qbool_t       ColdBoot;
-   qapi_Status_t Result;
-
-   ColdBoot = (qbool_t)Param;
-
-   Start_Samples(ColdBoot);
-
-   /* Display the initialize command list. */
-   if (ColdBoot)
-   {
-      QCLI_Display_Command_List();
-   }
-
-   lastlock_demo();
-   /* Loop waiting for received data. */
-   while (true)
-   {
-
-      /* Wait for data to be received. */
-      while ((PAL_Context.Rx_Buffers_Free == PAL_RECIEVE_BUFFER_COUNT) && (PAL_Context.Switch_Mode == (uint32_t)OPERATING_MODE_FOM_E))
-      {
-         qurt_signal_wait(&(PAL_Context.Event), PAL_EVENT_MASK_RECEIVE | PAL_EVENT_MASK_SWITCH_OPERATING_MODE, QURT_SIGNAL_ATTR_WAIT_ANY | QURT_SIGNAL_ATTR_CLEAR_MASK);
-      }
-
-      if (PAL_Context.Switch_Mode != (uint32_t)OPERATING_MODE_FOM_E)
-      {
-
-         /* Switch operating modes. */
-         Result = qapi_OMTM_Switch_Operating_Mode(PAL_Context.Switch_Mode, QAPI_OMTM_SWITCH_NOW_E);
+         Result = qapi_OMTM_Switch_Operating_Mode(PAL_Context.Switch_Mode, 
+            QAPI_OMTM_SWITCH_NOW_E);
 
          if(Result == QAPI_OK)
          {
@@ -659,21 +579,38 @@ void app_init(qbool_t ColdBoot)
 
 void app_start(qbool_t ColdBoot)
 {
-   qurt_thread_attr_t Thread_Attribte;
-   qurt_thread_t      Thread_Handle;
+   qurt_thread_attr_t QCLI_Thread_Attribte, Lastlock_Thread_Attribte;
+   qurt_thread_t      QCLI_Thread_Handle, Lastlock_Thread_Handle;
    int                Result;
 
    if(PAL_Context.Initialized)
    {
       /* Start the main demo thread. */
-      qurt_thread_attr_init(&Thread_Attribte);
-      qurt_thread_attr_set_name(&Thread_Attribte, "Lastlock thread");
-      qurt_thread_attr_set_priority(&Thread_Attribte, PAL_THREAD_PRIORITY);
-      qurt_thread_attr_set_stack_size(&Thread_Attribte, PAL_THREAD_STACK_SIZE);
-      Result = qurt_thread_create(&Thread_Handle, &Thread_Attribte, lastlock_demo, NULL);
+      qurt_thread_attr_init(&QCLI_Thread_Attribte);
+      qurt_thread_attr_set_name(&QCLI_Thread_Attribte, "QCLI Thread");
+      qurt_thread_attr_set_priority(&QCLI_Thread_Attribte, PAL_THREAD_PRIORITY);
+      qurt_thread_attr_set_stack_size(&QCLI_Thread_Attribte, PAL_THREAD_STACK_SIZE);
+      Result = qurt_thread_create(&QCLI_Thread_Handle, 
+         &QCLI_Thread_Attribte, QCLI_Thread, (void *)ColdBoot);
+      
       if(Result != QURT_EOK)
       {
          PAL_CONSOLE_WRITE_STRING_LITERAL("Failed to start QCLI thread.");
+         PAL_CONSOLE_WRITE_STRING_LITERAL(PAL_OUTPUT_END_OF_LINE_STRING);
+         PAL_CONSOLE_WRITE_STRING_LITERAL(PAL_OUTPUT_END_OF_LINE_STRING);
+      }
+
+      /* Start the Lastlock thread. */
+      qurt_thread_attr_init(&Lastlock_Thread_Attribte);
+      qurt_thread_attr_set_name(&Lastlock_Thread_Attribte, "Lastlock thread");
+      qurt_thread_attr_set_priority(&Lastlock_Thread_Attribte, PAL_THREAD_PRIORITY);
+      qurt_thread_attr_set_stack_size(&Lastlock_Thread_Attribte, PAL_THREAD_STACK_SIZE);
+      Result = qurt_thread_create(&Lastlock_Thread_Handle, 
+         &Lastlock_Thread_Attribte, lastlock_demo, NULL);
+      
+      if(Result != QURT_EOK)
+      {
+         PAL_CONSOLE_WRITE_STRING_LITERAL("Failed to start Lastlock thread.");
          PAL_CONSOLE_WRITE_STRING_LITERAL(PAL_OUTPUT_END_OF_LINE_STRING);
          PAL_CONSOLE_WRITE_STRING_LITERAL(PAL_OUTPUT_END_OF_LINE_STRING);
       }
