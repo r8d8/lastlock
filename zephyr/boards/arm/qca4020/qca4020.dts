@@ -1,6 +1,0 @@
-/dts-v1/
-/ {
-        model = "Model name for your board";
-        compatible = "compatible for your board";
-        /* rest of file */
-};
