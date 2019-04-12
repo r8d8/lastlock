@@ -3,6 +3,9 @@
 ## Overview
 TODO;
 
+
+## Build
+Environment setup for QCA4020 dev board SDK
 ```shell
 $ export BOARD_VARIANT = cdb && export RTOS = threadx && expor t CHIPSET_VARIANT = qca4020
 
