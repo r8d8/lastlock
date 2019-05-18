@@ -1,4 +1,4 @@
-### Announced versus available Flash size on F103
+## Announced versus available Flash size on F103
 
 Up to Stlink V2, the CPU soldered on the board was a F103C8 with 64 kiByte
 flash. Up to about version 280 of BMP, this limit was not hit when linked
@@ -26,37 +26,37 @@ this second approach will work for many of the older STLinks.
 
 dfu-util cares for the size and refuses to programm above the announced size:
 ```shell 
-  $ dfu-util -S E4D078EA -s 0x08002000:leave -D blackmagic.bin
-  dfu-util 0.9
-  ...
-  dfu-util: Last page at 0x0801093f is not writeable
+$ dfu-util -S E4D078EA -s 0x08002000:leave -D blackmagic.bin
+dfu-util 0.9
+...
+dfu-util: Last page at 0x0801093f is not writeable
 ```
 
-## Flash above the announced size with recent bootloader/BMP:
+### Flash above the announced size with recent bootloader/BMP:
 script/stm32_mem.py does not care for the announced size:
 ```shell
-  $ ../scripts/stm32_mem.py blackmagic.bin
-  ...
-  USB Device Firmware Upgrade - Host Utility -- version 1.2
-  ...
-  Programming memory at 0x08010800
-  All operations complete!
- ``` 
+$ ../scripts/stm32_mem.py blackmagic.bin
+...
+USB Device Firmware Upgrade - Host Utility -- version 1.2
+...
+Programming memory at 0x08010800
+All operations complete!
+``` 
 Get length of binary
 ```shell
-  $ ls -l blackmagic.bin
-  -rwxr-xr-x 1 bon users 59712 21. Sep 22:47 blackmagic.bin
+$ ls -l blackmagic.bin
+-rwxr-xr-x 1 bon users 59712 21. Sep 22:47 blackmagic.bin
 ```
 Actual file size may differ!
 
 Upload binary from flash with the exact size
 ```shell
-  $ dfu-util -s 0x08002000:leave:force:59712 -U blackmagic.bin.1
+$ dfu-util -s 0x08002000:leave:force:59712 -U blackmagic.bin.1
 ```
 
 Compare
 ```shell
-  $ diff blackmagic.bin*
+$ diff blackmagic.bin*
 ```
 
 No differences should get reported!
