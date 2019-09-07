@@ -1,7 +1,7 @@
 # Hardware Abstraction Layer
 
 ## Overview
-TODO;
+ARM hardware abstraction layer
 
 
 ## Build
